@@ -122,11 +122,13 @@ class ValidationTests(unittest.TestCase):
             self.n(profile="fast", steps=9)          # conflicting explicit parameter
         with self.assertRaises(ValidationError):
             self.n(profile="turbo")
-        with self.assertRaises(ValidationError):     # fast is gated at 1024x1024 only
-            self.n(profile="fast", width=512, height=512)
-        e = self.n(profile="fast", width=512, height=512, allow_experimental=True)
+        for w in (512, 768):                         # fast is gated at 512², 768² and 1024² (direct gates)
+            g = self.n(profile="fast", width=w, height=w)
+            self.assertEqual((g.precision, g.steps, g.validated, g.warnings), ("bf16", 8, True, ()))
+        with self.assertRaises(ValidationError):     # other sizes stay experimental and need the flag
+            self.n(profile="fast", width=640, height=640)
+        e = self.n(profile="fast", width=640, height=640, allow_experimental=True)
         self.assertFalse(e.validated)
-        self.assertTrue(any("gated only" in w for w in e.warnings))
         with self.assertRaises(ValidationError):     # fp32 + 8 was never gated
             self.n(steps=8)
         self.assertTrue(self.n(precision="bf16", steps=8).validated)  # explicit equivalent of fast @1024

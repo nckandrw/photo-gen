@@ -53,7 +53,9 @@ PROFILES = {
     "fast": {"precision": "bf16", "steps": 8},        # gated: bf16-quality-report.md + 8step-quality-gate-report.md
 }
 # Extra step counts that passed a blinded gate, per precision, and the resolutions they were gated at.
-GATED_STEPS = {("bf16", 8): ((1024, 1024),)}  # bf16: opt-in, passed the quality gate in research/experiments/bf16-quality-report.md
+# bf16 + 8 steps (FAST): direct blinded REFERENCE-vs-FAST gates passed at all three sizes
+# (research/experiments/fast-resolution-gates-report.md, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties).
+GATED_STEPS = {("bf16", 8): ((512, 512), (768, 768), (1024, 1024))}
 MAX_SEED = 2**32 - 1
 WORKER_MODULE = "photogen.runtimes.mflux_zimage_worker"
 KILL_GRACE_SECONDS = 10

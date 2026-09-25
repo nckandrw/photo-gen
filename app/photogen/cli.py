@@ -42,7 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
                         "not pixel-identical to fp32; see research/experiments/bf16-quality-report.md)")
     g.add_argument("--profile", choices=["reference", "fast"],
                    help="reference = fp32 + 9 steps (default behaviour, canonical); fast = bf16 + 8 steps (gated at "
-                        "1024x1024; ~11%% less denoise than bf16/9)")
+                        "512x512, 768x768 and 1024x1024; ~35%% less denoise than reference)")
     g.add_argument("--text-encoder", help="'stock' (default) or a registered substitute from config/text-encoders.json")
     g.add_argument("--allow-experimental", action="store_true",
                    help="permit non-validated resolutions/step counts (still bounded to ≤1024² pixels)")
