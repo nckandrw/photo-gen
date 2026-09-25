@@ -104,3 +104,41 @@ At each resolution, does FAST (bf16, 8 steps = 8 NFE) show a systematic or mater
 
 **Verdict: G512 VALIDATED.** FAST (bf16 + 8) shows no systematic or material quality regression directly against REFERENCE (fp32 + 9) at 512² on this 24-pair set. Limits: single AI rater, fast review (see `sigma-schedule-audit.md` §3.4 disclosure), 24 pairs.
 **Production consequence (per protocol):** adding 512² to `GATED_STEPS` is a separate, recorded code change. It is deferred until G768 and G1024 are reviewed, so that the production matrix changes once, with tests.
+
+### G768 (768², 24 pairs, seeds 1618 + 8128). Generated 17:11–18:08, uninterrupted.
+**Run integrity:** 48/48 rc = 0; `compile_calls` = 1. Swap growth 0 in every run; pressure max 1 (normal).
+
+**Blinded review** (`fastgate/blind-768/`):
+- key sha256 `c518b53e…`;
+- frozen scores `c58952ab…`.
+
+| composite | pair | preference (blind) | winner after unblind |
+|---|---|---|---|
+| C09 | p09-s1618 (Manila market) | R: the L image had a **duplicated red balloon** | **REFERENCE** (the FAST image had the artifact) |
+| C15 | p03-s8128 (hands + glass) | R (minor): text through the glass visible (gibberish) vs barely visible in L | **REFERENCE** |
+| other 22 | — | = | tie |
+
+**Tally: REFERENCE better 2 · FAST better 0 · ties 22.**
+- p05 and p07 text is exact in both arms, both seeds.
+- p12 counts are correct in both arms (3 cups + 2 plates).
+
+**Objective (FAST vs REFERENCE)**
+| metric | value |
+|---|---|
+| denoise ratio | median **0.647** (0.59–0.79) |
+| wall ratio | median 0.669 |
+| PSNR / SSIM | median 28.0 dB / 0.954 |
+| peak footprint | FAST 5.95 GB vs REFERENCE 6.34 GB |
+
+**Criteria**
+| # | criterion | result |
+|---|---|---|
+| 1 | no text regression (p05/p07) | **PASS** (4/4 equal). C15 concerns p03's text-through-glass: gibberish in both arms, differing only in visibility. Minor, and outside criterion 1's scope, but disclosed. |
+| 2 | no systematic FAST artifact (≥ 2 images) | **PASS**: one FAST image had a duplicated object. The same failure class appeared in bf16/8 images at 512² in the sigma audit, but also in REFERENCE-precision images in earlier gates. |
+| 3 | REF-better ≤ FAST-better + 3 | **PASS** (2 ≤ 3) |
+| 4 | no class-level failure | **PASS**: the two REFERENCE wins are in different classes and seeds |
+| 5 | operational | **PASS** (rc = 0; footprint 5.95 ≤ 6.34 + 0.1; no swap growth) |
+
+**Verdict: G768 VALIDATED**, with a disclosed directional lean: every non-tie favoured REFERENCE (2–0).
+- This is within the pre-registered margin, and it is exactly the kind of small effect the protocol's +3 margin accepts.
+- It is noted so it can be tracked across gates, not explained away.

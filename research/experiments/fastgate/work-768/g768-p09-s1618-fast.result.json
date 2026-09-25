@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-768/g768-p09-s1618-fast.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.065,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.672,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.564,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 50.818,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 48.582
+ },
+ "step_seconds": [
+  6.489,
+  5.991,
+  5.94,
+  5.998,
+  5.964,
+  5.996,
+  5.99,
+  6.037
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 53.205,
+ "peak_footprint_gb": 5.949
+}

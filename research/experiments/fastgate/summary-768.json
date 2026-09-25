@@ -1,0 +1,275 @@
+{
+ "A": "REFERENCE",
+ "B": "FAST",
+ "arms": {
+  "REFERENCE": {
+   "n": 24,
+   "rc_nonzero": 0,
+   "wall_median_s": 81.08,
+   "denoise_median_s": 76.08,
+   "vae_median_s": 1.594,
+   "footprint_max_gb": 6.335,
+   "footprint_mean_gb": 6.332,
+   "swap_growth_max_mb": 0.0,
+   "pressure_max": 1.0,
+   "compile_calls": [
+    1
+   ]
+  },
+  "FAST": {
+   "n": 24,
+   "rc_nonzero": 0,
+   "wall_median_s": 54.5,
+   "denoise_median_s": 49.52,
+   "vae_median_s": 1.56,
+   "footprint_max_gb": 5.952,
+   "footprint_mean_gb": 5.945,
+   "swap_growth_max_mb": 0.0,
+   "pressure_max": 1.0,
+   "compile_calls": [
+    1
+   ]
+  }
+ },
+ "denoise_ratio_B_over_A": {
+  "median": 0.6472,
+  "min": 0.5861,
+  "max": 0.7903
+ },
+ "wall_ratio_B_over_A": {
+  "median": 0.669,
+  "min": 0.6077,
+  "max": 0.808
+ },
+ "psnr_db": {
+  "median": 27.98,
+  "min": 16.93
+ },
+ "ssim": {
+  "median": 0.9537,
+  "min": 0.7113
+ },
+ "lapvar_ratio": {
+  "median": 1.009,
+  "min": 0.862,
+  "max": 1.082
+ },
+ "pairs": [
+  {
+   "pair": "p01-s1618",
+   "psnr_db": 35.25,
+   "ssim": 0.9922,
+   "lapvar_ratio_B_over_A": 0.941,
+   "denoise_ratio_B_over_A": 0.6431,
+   "wall_ratio_B_over_A": 0.6682,
+   "first": "A"
+  },
+  {
+   "pair": "p02-s1618",
+   "psnr_db": 32.53,
+   "ssim": 0.9744,
+   "lapvar_ratio_B_over_A": 1.036,
+   "denoise_ratio_B_over_A": 0.6745,
+   "wall_ratio_B_over_A": 0.6917,
+   "first": "B"
+  },
+  {
+   "pair": "p03-s1618",
+   "psnr_db": 27.24,
+   "ssim": 0.9373,
+   "lapvar_ratio_B_over_A": 1.043,
+   "denoise_ratio_B_over_A": 0.5861,
+   "wall_ratio_B_over_A": 0.6077,
+   "first": "A"
+  },
+  {
+   "pair": "p04-s1618",
+   "psnr_db": 29.04,
+   "ssim": 0.9625,
+   "lapvar_ratio_B_over_A": 1.02,
+   "denoise_ratio_B_over_A": 0.6487,
+   "wall_ratio_B_over_A": 0.67,
+   "first": "B"
+  },
+  {
+   "pair": "p05-s1618",
+   "psnr_db": 26.47,
+   "ssim": 0.954,
+   "lapvar_ratio_B_over_A": 0.862,
+   "denoise_ratio_B_over_A": 0.6602,
+   "wall_ratio_B_over_A": 0.6809,
+   "first": "A"
+  },
+  {
+   "pair": "p06-s1618",
+   "psnr_db": 23.42,
+   "ssim": 0.8677,
+   "lapvar_ratio_B_over_A": 1.019,
+   "denoise_ratio_B_over_A": 0.6458,
+   "wall_ratio_B_over_A": 0.6623,
+   "first": "B"
+  },
+  {
+   "pair": "p07-s1618",
+   "psnr_db": 21.44,
+   "ssim": 0.9229,
+   "lapvar_ratio_B_over_A": 1.005,
+   "denoise_ratio_B_over_A": 0.6536,
+   "wall_ratio_B_over_A": 0.6734,
+   "first": "A"
+  },
+  {
+   "pair": "p08-s1618",
+   "psnr_db": 22.79,
+   "ssim": 0.8703,
+   "lapvar_ratio_B_over_A": 0.915,
+   "denoise_ratio_B_over_A": 0.7903,
+   "wall_ratio_B_over_A": 0.808,
+   "first": "B"
+  },
+  {
+   "pair": "p09-s1618",
+   "psnr_db": 16.93,
+   "ssim": 0.7113,
+   "lapvar_ratio_B_over_A": 1.01,
+   "denoise_ratio_B_over_A": 0.646,
+   "wall_ratio_B_over_A": 0.6665,
+   "first": "A"
+  },
+  {
+   "pair": "p10-s1618",
+   "psnr_db": 34.42,
+   "ssim": 0.9786,
+   "lapvar_ratio_B_over_A": 0.96,
+   "denoise_ratio_B_over_A": 0.6373,
+   "wall_ratio_B_over_A": 0.659,
+   "first": "B"
+  },
+  {
+   "pair": "p11-s1618",
+   "psnr_db": 29.2,
+   "ssim": 0.9534,
+   "lapvar_ratio_B_over_A": 1.047,
+   "denoise_ratio_B_over_A": 0.6469,
+   "wall_ratio_B_over_A": 0.6693,
+   "first": "A"
+  },
+  {
+   "pair": "p12-s1618",
+   "psnr_db": 39.21,
+   "ssim": 0.9931,
+   "lapvar_ratio_B_over_A": 1.015,
+   "denoise_ratio_B_over_A": 0.6402,
+   "wall_ratio_B_over_A": 0.6615,
+   "first": "B"
+  },
+  {
+   "pair": "p01-s8128",
+   "psnr_db": 37.51,
+   "ssim": 0.9908,
+   "lapvar_ratio_B_over_A": 1.02,
+   "denoise_ratio_B_over_A": 0.7051,
+   "wall_ratio_B_over_A": 0.7299,
+   "first": "A"
+  },
+  {
+   "pair": "p02-s8128",
+   "psnr_db": 29.13,
+   "ssim": 0.9599,
+   "lapvar_ratio_B_over_A": 0.956,
+   "denoise_ratio_B_over_A": 0.7287,
+   "wall_ratio_B_over_A": 0.7495,
+   "first": "B"
+  },
+  {
+   "pair": "p03-s8128",
+   "psnr_db": 25.27,
+   "ssim": 0.9257,
+   "lapvar_ratio_B_over_A": 0.872,
+   "denoise_ratio_B_over_A": 0.6351,
+   "wall_ratio_B_over_A": 0.6585,
+   "first": "A"
+  },
+  {
+   "pair": "p04-s8128",
+   "psnr_db": 27.69,
+   "ssim": 0.963,
+   "lapvar_ratio_B_over_A": 1.082,
+   "denoise_ratio_B_over_A": 0.647,
+   "wall_ratio_B_over_A": 0.6675,
+   "first": "B"
+  },
+  {
+   "pair": "p05-s8128",
+   "psnr_db": 32.66,
+   "ssim": 0.9808,
+   "lapvar_ratio_B_over_A": 1.008,
+   "denoise_ratio_B_over_A": 0.66,
+   "wall_ratio_B_over_A": 0.681,
+   "first": "A"
+  },
+  {
+   "pair": "p06-s8128",
+   "psnr_db": 21.34,
+   "ssim": 0.8229,
+   "lapvar_ratio_B_over_A": 1.04,
+   "denoise_ratio_B_over_A": 0.6475,
+   "wall_ratio_B_over_A": 0.6693,
+   "first": "B"
+  },
+  {
+   "pair": "p07-s8128",
+   "psnr_db": 21.07,
+   "ssim": 0.9172,
+   "lapvar_ratio_B_over_A": 0.994,
+   "denoise_ratio_B_over_A": 0.6429,
+   "wall_ratio_B_over_A": 0.664,
+   "first": "A"
+  },
+  {
+   "pair": "p08-s8128",
+   "psnr_db": 24.07,
+   "ssim": 0.9009,
+   "lapvar_ratio_B_over_A": 0.931,
+   "denoise_ratio_B_over_A": 0.642,
+   "wall_ratio_B_over_A": 0.6635,
+   "first": "B"
+  },
+  {
+   "pair": "p09-s8128",
+   "psnr_db": 19.02,
+   "ssim": 0.7889,
+   "lapvar_ratio_B_over_A": 0.989,
+   "denoise_ratio_B_over_A": 0.6489,
+   "wall_ratio_B_over_A": 0.6701,
+   "first": "A"
+  },
+  {
+   "pair": "p10-s8128",
+   "psnr_db": 35.26,
+   "ssim": 0.9805,
+   "lapvar_ratio_B_over_A": 0.996,
+   "denoise_ratio_B_over_A": 0.646,
+   "wall_ratio_B_over_A": 0.6675,
+   "first": "B"
+  },
+  {
+   "pair": "p11-s8128",
+   "psnr_db": 28.26,
+   "ssim": 0.949,
+   "lapvar_ratio_B_over_A": 1.012,
+   "denoise_ratio_B_over_A": 0.6479,
+   "wall_ratio_B_over_A": 0.6687,
+   "first": "A"
+  },
+  {
+   "pair": "p12-s8128",
+   "psnr_db": 37.13,
+   "ssim": 0.9892,
+   "lapvar_ratio_B_over_A": 1.061,
+   "denoise_ratio_B_over_A": 0.6478,
+   "wall_ratio_B_over_A": 0.6694,
+   "first": "B"
+  }
+ ]
+}

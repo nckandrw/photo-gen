@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-768/g768-p01-s1618-ref.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 768,
+ "height": 768,
+ "steps": 9,
+ "seed": 1618,
+ "precision": "fp32",
+ "release_transformer": true
+}

@@ -1,0 +1,26 @@
+# G768 FAST gate, blinded review (Claude, single rater). Freeze time in MANIFEST.json.
+C01 p01-s1618 | n/a | = | = | = | none | OVERALL = | 
+C02 p02-s1618 | n/a | = | = | = | none | OVERALL = | 
+C03 p03-s1618 | = (gibberish in both) | = | = | = | none | OVERALL = | 
+C04 p04-s1618 | n/a | = | = | = | none | OVERALL = | 
+C05 p05-s1618 | = (exact in both) | = | = | = | none | OVERALL = | 
+C06 p06-s1618 | n/a | = | = | = | none | OVERALL = | 
+C07 p07-s1618 | = (exact in both) | = | = | = | none | OVERALL = | 
+C08 p08-s1618 | n/a | = | = | = | none | OVERALL = | 
+C09 p09-s1618 | n/a | = | = | = | L duplicated object | OVERALL R | L shows a duplicated red balloon (one held, a second in front of the child); R single balloon
+C10 p10-s1618 | n/a | = | = | = | none | OVERALL = | 
+C11 p11-s1618 | n/a | = | = | = | none | OVERALL = | 
+C12 p12-s1618 | n/a | = | = | = | none | OVERALL = | both 3 cups + 2 plates, correct counts, two rows
+C13 p01-s8128 | n/a | = | = | = | none | OVERALL = | 
+C14 p02-s8128 | n/a | = | = | = | none | OVERALL = | 
+C15 p03-s8128 | R minor (visible text through glass, gibberish; L barely visible) | = | = | = | none | OVERALL R (minor) | 
+C16 p04-s8128 | n/a | = | = | = | none | OVERALL = | 
+C17 p05-s8128 | = (exact in both) | = | = | = | none | OVERALL = | 
+C18 p06-s8128 | n/a | = | = | = | none | OVERALL = | 
+C19 p07-s8128 | = (exact in both) | = | = | = | none | OVERALL = | 
+C20 p08-s8128 | n/a | = | = | = | none | OVERALL = | 
+C21 p09-s8128 | n/a | = | = | = | none | OVERALL = | 
+C22 p10-s8128 | n/a | = | = | = | none | OVERALL = | 
+C23 p11-s8128 | n/a | = | = | = | none | OVERALL = | 
+C24 p12-s8128 | n/a | = | = | = | none | OVERALL = | both 3 cups + 2 plates, correct counts, two rows
+# Tally before unblind: L 0, R 2 (C09, C15 minor), ties 22.
