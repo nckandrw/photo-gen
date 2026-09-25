@@ -1,0 +1,14 @@
+# Sigma audit 1024² (sanity check), blinded review (Claude, single rater); freeze time is authoritative in MANIFEST.json.
+C01 p01 | = | near-identical
+C02 p02 | = | near-identical
+C03 p03 | = | same gibberish text through glass in both
+C04 p04 | = | near-identical
+C05 p05 | = | exact text both, near-identical
+C06 p06 | = | near-identical
+C07 p07 | text: R better (L duplicates the subtitle "Island of Fire"; R renders it once) | OVERALL R
+C08 p08 | = | near-identical
+C09 p09 | = | near-identical
+C10 p10 | = | near-identical
+C11 p11 | = | near-identical
+C12 p12 | = | identical layout; both 3 cups + 2 plates, not in a single row
+# Tally before unblind: L 0, R 1 (C07), ties 11. 11/12 pairs visually near-identical, as expected for e^mu 3.16 vs 3.0.

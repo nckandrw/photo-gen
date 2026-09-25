@@ -1,0 +1,7 @@
+START 2026-09-24T16:08:05
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+vm.swapusage: total = 2048.00M  used = 539.31M  free = 1508.69M  (encrypted)
+System-wide memory free percentage: 72%
+Now drawing from 'AC Power'

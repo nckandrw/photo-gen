@@ -1,0 +1,13 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-1024/sa-1024-p02-s2718-S.png",
+ "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+ "width": 1024,
+ "height": 1024,
+ "steps": 8,
+ "seed": 2718,
+ "precision": "bf16",
+ "release_transformer": true,
+ "research_scheduler": "OfficialStatic3"
+}

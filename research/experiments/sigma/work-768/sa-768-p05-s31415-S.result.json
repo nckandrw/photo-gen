@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "31415",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-768/sa-768-p05-s31415-S.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.125,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 1.896,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.53,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 57.682,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 54.256
+ },
+ "step_seconds": [
+  6.321,
+  6.547,
+  6.743,
+  6.925,
+  6.734,
+  6.821,
+  6.846,
+  6.95
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 59.183,
+ "peak_footprint_gb": 5.938,
+ "research_scheduler": "OfficialStatic3",
+ "sigmas_used": {
+  "scheduler": "OfficialStatic3",
+  "sigmas": [
+   1.0,
+   0.9545454382896423,
+   0.8999999761581421,
+   0.8333332538604736,
+   0.7499999403953552,
+   0.6428571343421936,
+   0.5,
+   0.30000001192092896,
+   0.0
+  ],
+  "shift": 3.0
+ }
+}

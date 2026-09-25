@@ -1,0 +1,7 @@
+/Users/nckandrw/Dev/photo-gen/outputs/qw-p-768.png: 768x768 mean=[152.5, 122.1, 100.7] std=[47.1, 59.2, 60.8] non-uniform
+{'loads': [5.63, 5.51, 0.82], 'te': 5.94, 'dit': 379.55, 'vae': 23.74, 'gen': 409.24, 'wall': '409.62', 'peak_fp': '9.85', 'swap_delta_gb': 0.81, 'pressure': '2.0', 'min_free': '4.0', 'env': 'ENV: none | Metal tensor API = enabled (PRIMARY CONTROL)', 'power': 'AC'}
+qw-p-768 n 353 L1 351 L2 2 L4 0 wired max 14.39 swap 1992.50 -> 2819.88
+/Users/nckandrw/Dev/photo-gen/outputs/qw-p-1024.png: 1024x1024 mean=[155.0, 125.1, 112.7] std=[43.8, 62.3, 55.6] non-uniform
+{'loads': [5.8, 0.04, 0.31, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.21, 0.2, 0.21, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.01, 0.81], 'te': 6.1, 'dit': 779.97, 'vae': 42.62, 'gen': 828.71, 'wall': '829.18', 'peak_fp': '9.92', 'swap_delta_gb': 0.46, 'pressure': '2.0', 'min_free': '2.0', 'env': 'ENV: none | Metal tensor API = enabled (PRIMARY CONTROL)', 'power': 'AC'}
+qw-p-1024 n 708 L1 647 L2 61 L4 0 wired max 15.19 swap 2379.88 -> 2847.94
+QWEN_DONE

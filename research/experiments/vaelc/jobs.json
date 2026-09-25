@@ -1,0 +1,158 @@
+[
+ {
+  "tag": "p01-r0-cur",
+  "meta": {
+   "pid": "p01",
+   "arm": "cur",
+   "rep": 0,
+   "pair": 0
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--out",
+   "vaelc/p01-r0-cur.png"
+  ]
+ },
+ {
+  "tag": "p01-r0-rel",
+  "meta": {
+   "pid": "p01",
+   "arm": "rel",
+   "rep": 0,
+   "pair": 0
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--release-transformer",
+   "--out",
+   "vaelc/p01-r0-rel.png"
+  ]
+ },
+ {
+  "tag": "p01-r1-rel",
+  "meta": {
+   "pid": "p01",
+   "arm": "rel",
+   "rep": 1,
+   "pair": 1
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--release-transformer",
+   "--out",
+   "vaelc/p01-r1-rel.png"
+  ]
+ },
+ {
+  "tag": "p01-r1-cur",
+  "meta": {
+   "pid": "p01",
+   "arm": "cur",
+   "rep": 1,
+   "pair": 1
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--out",
+   "vaelc/p01-r1-cur.png"
+  ]
+ },
+ {
+  "tag": "p05-r0-cur",
+  "meta": {
+   "pid": "p05",
+   "arm": "cur",
+   "rep": 0,
+   "pair": 2
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--out",
+   "vaelc/p05-r0-cur.png"
+  ]
+ },
+ {
+  "tag": "p05-r0-rel",
+  "meta": {
+   "pid": "p05",
+   "arm": "rel",
+   "rep": 0,
+   "pair": 2
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--release-transformer",
+   "--out",
+   "vaelc/p05-r0-rel.png"
+  ]
+ },
+ {
+  "tag": "p05-r1-rel",
+  "meta": {
+   "pid": "p05",
+   "arm": "rel",
+   "rep": 1,
+   "pair": 3
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--release-transformer",
+   "--out",
+   "vaelc/p05-r1-rel.png"
+  ]
+ },
+ {
+  "tag": "p05-r1-cur",
+  "meta": {
+   "pid": "p05",
+   "arm": "cur",
+   "rep": 1,
+   "pair": 3
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--out",
+   "vaelc/p05-r1-cur.png"
+  ]
+ }
+]

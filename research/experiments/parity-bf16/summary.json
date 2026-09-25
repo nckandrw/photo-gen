@@ -1,0 +1,23 @@
+{
+ "p01-bf16": {
+  "expected": "11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a",
+  "got": "11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 80.596
+ },
+ "p05-bf16": {
+  "expected": "7bfd59cad5aca39070d0fe00e794fe04af280546469b25b0d48dc3bc737abf54",
+  "got": "7bfd59cad5aca39070d0fe00e794fe04af280546469b25b0d48dc3bc737abf54",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 91.598
+ },
+ "p01-fp32-default": {
+  "expected": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+  "got": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 126.564
+ }
+}

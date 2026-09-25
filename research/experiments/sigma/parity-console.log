@@ -1,0 +1,5 @@
+14:02:26 ctl-512-fp32-st9                   rc=0 wall=22.5 denoise=17.731 vae=0.376 fp=5.928 pix=9ae59f590e
+14:02:50 ctl-512-bf16-st8                   rc=0 wall=15.19 denoise=11.503 vae=0.375 fp=5.413 pix=0b9cc20a65
+14:03:07 ctl-1024-bf16-st8                  rc=0 wall=57.06 denoise=51.566 vae=1.998 fp=5.838 pix=7b45cfbe2e
+14:04:05 chk-512-bf16-st8-static3           rc=0 wall=16.95 denoise=13.21 vae=0.382 fp=5.414 pix=db31f33c5f
+RUNNER_DONE

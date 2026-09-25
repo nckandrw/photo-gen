@@ -1,0 +1,25 @@
+# 8-step gate, PRIMARY (seeds 7 & 1234), blinded. Dimensions: text | composition | adherence | detail | artifacts | overall  (L / R / =)
+C01 text=n/a comp== adh== det== art== overall== ; near-identical apple
+C02 text=n/a comp== adh== det== art== overall== ; near-identical portrait
+C03 text== comp== adh== det== art== overall== ; glass text gibberish both (Hukenm/Hukeum); hands equal
+C04 text=n/a comp== adh== det== art== overall== ; 5 objects both; pen/clock minor variation
+C05 text== comp== adh== det== art== overall== ; "QWEN IMAGE 2.1" exact both
+C06 text=n/a comp== adh== det== art== overall== ; Cebu street near-identical
+C07 text== comp== adh== det== art== overall== ; VISIT SIQUIJOR + Island of Fire exact once, both
+C08 text=n/a comp== adh== det=L(minor) art== overall== ; L marginally more copper scratch lines; droplets both
+C09 text=n/a comp== adh== det== art== overall== ; market: lanterns, jeepney, child+red balloon both; person variation only
+C10 text=n/a comp== adh== det== art== overall== ; cat near-identical
+C11 text=n/a comp== adh== det== art== overall== ; candle table near-identical
+C12 text=n/a comp== adh== det== art== overall== ; 3 cups + 3 plates both (requested 2 plates) — same failure
+C13 text=n/a comp== adh== det== art== overall== ; apple near-identical
+C14 text=n/a comp== adh== det== art== overall== ; portrait near-identical
+C15 text== comp== adh== det== art== overall== ; glass text gibberish both (2 lines vs 1); one hand both
+C16 text=n/a comp== adh== det== art== overall== ; desk near-identical
+C17 text== comp== adh== det== art== overall== ; neon text exact both
+C18 text=n/a comp== adh== det== art== overall== ; street near-identical
+C19 text== comp== adh== det== art== overall== ; poster text exact both; sun size variation
+C20 text=n/a comp== adh== det== art== overall== ; kettle near-identical
+C21 text=n/a comp== adh== det== art== overall== ; market all elements both; vendor/lantern variation
+C22 text=n/a comp== adh== det== art== overall== ; cat near-identical
+C23 text=n/a comp== adh== det== art== overall== ; candle table near-identical
+C24 text=n/a comp== adh== det== art== overall== ; 3 cups + 3 plates both (same failure)

@@ -1,0 +1,17 @@
+[
+ {
+  "tag": "cold-768-fp32-st9",
+  "meta": {
+   "tier": "REFERENCE"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 768,
+   "height": 768,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ }
+]

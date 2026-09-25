@@ -1,0 +1,13 @@
+{
+ "variant": "pad+temb+rope",
+ "dtypes": {
+  "x_pad_token(after load)": "mlx.core.bfloat16",
+  "cap_pad_token(after load)": "mlx.core.bfloat16",
+  "timestep_embedder.out(raw)": "mlx.core.float32",
+  "rope.in": "mlx.core.bfloat16",
+  "rope.freqs": "mlx.core.float32",
+  "rope.out(raw)": "mlx.core.float32",
+  "sdpa.q": "mlx.core.bfloat16",
+  "ffn.in": "mlx.core.bfloat16"
+ }
+}

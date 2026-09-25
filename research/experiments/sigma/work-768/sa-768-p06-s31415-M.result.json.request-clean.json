@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-768/sa-768-p06-s31415-M.png",
+ "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+ "width": 768,
+ "height": 768,
+ "steps": 8,
+ "seed": 31415,
+ "precision": "bf16",
+ "release_transformer": true
+}

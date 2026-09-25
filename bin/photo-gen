@@ -1,0 +1,14 @@
+#!/bin/zsh
+# photo-gen launcher: runs the app on the research-validated project-local interpreter without
+# installing anything into it. The worker processes inherit the same interpreter.
+ROOT=${0:A:h:h}
+PY=$ROOT/mflux/.venv/bin/python3.12
+if [[ ! -x $PY ]]; then
+  echo "photo-gen: validated runtime interpreter not found at $PY (nothing will be installed automatically)" >&2
+  exit 3
+fi
+export PHOTOGEN_ROOT=$ROOT
+export PYTHONPATH=$ROOT/app${PYTHONPATH:+:$PYTHONPATH}
+export PYTHONDONTWRITEBYTECODE=1
+export HF_HUB_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1 HF_HOME=$ROOT/mflux/hf
+exec $PY -m photogen "$@"

@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/memfix/work/fp32-512-r1-pre.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 512,
+ "height": 512,
+ "steps": 9,
+ "seed": 42,
+ "precision": "fp32",
+ "release_transformer": false
+}

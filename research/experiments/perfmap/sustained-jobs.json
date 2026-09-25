@@ -1,0 +1,566 @@
+[
+ {
+  "tag": "warmup-1024",
+  "meta": {
+   "kind": "warmup",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-fp32-st9-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "fp32",
+   "steps": 9,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st9-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 9,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st8-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 8,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st7-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 7,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 7,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st6-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 6,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 6,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st5-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 5,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st4-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 4,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 4,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st4-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 4,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 4,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st5-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 5,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st6-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 6,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 6,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st7-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 7,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 7,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st8-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 8,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-bf16-st9-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 9,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-1024-fp32-st9-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 1024,
+   "precision": "fp32",
+   "steps": 9,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "warmup-512",
+  "meta": {
+   "kind": "warmup",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-fp32-st9-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "fp32",
+   "steps": 9,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st9-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 9,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st8-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 8,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st7-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 7,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 7,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st6-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 6,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 6,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st5-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 5,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st4-r0",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 4,
+   "rep": 0
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 4,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st4-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 4,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 4,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st5-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 5,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st6-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 6,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 6,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st7-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 7,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 7,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st8-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 8,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-bf16-st9-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 9,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "sus-512-fp32-st9-r1",
+  "meta": {
+   "kind": "sustained",
+   "res": 512,
+   "precision": "fp32",
+   "steps": 9,
+   "rep": 1
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ }
+]

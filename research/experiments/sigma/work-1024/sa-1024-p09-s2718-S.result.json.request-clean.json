@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-1024/sa-1024-p09-s2718-S.png",
+ "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+ "width": 1024,
+ "height": 1024,
+ "steps": 8,
+ "seed": 2718,
+ "precision": "bf16",
+ "release_transformer": true
+}

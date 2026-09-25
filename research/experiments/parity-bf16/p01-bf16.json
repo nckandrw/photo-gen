@@ -1,0 +1,105 @@
+{
+ "job_id": "20260924T131629Z-aa6ee3",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-09-24T13:16:29.135+00:00",
+ "started_at": "2026-09-24T13:16:29.137+00:00",
+ "finished_at": "2026-09-24T13:17:49.823+00:00",
+ "request": {
+  "task": "text-to-image",
+  "prompt": "a red apple on a wooden table, soft window light",
+  "width": 1024,
+  "height": 1024,
+  "steps": 9,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": true,
+  "warnings": [],
+  "output_name": "parity-bf16-p01",
+  "precision": "bf16"
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131629Z-aa6ee3-parity-bf16-p01.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131629Z-aa6ee3-parity-bf16-p01.json",
+ "pixel_sha256": "11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a",
+ "file_sha256": "693ea874a83a80b827052af9a98acc5987b41429143c29f76875b65ffb3f4313",
+ "generation_seconds": 80.596,
+ "phases": {
+  "load": {
+   "seconds": 0.952,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.705,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 2.451,
+   "mlx_peak_gb": 5.696
+  },
+  "generate_total": {
+   "seconds": 78.273,
+   "mlx_peak_gb": 5.696
+  },
+  "denoise_seconds": 75.117
+ },
+ "step_seconds": [
+  8.619,
+  8.013,
+  7.966,
+  8.074,
+  8.008,
+  8.286,
+  8.399,
+  8.665,
+  8.783
+ ],
+ "memory": {
+  "peak_footprint_gb": 7.361,
+  "mlx_peak_gb": 5.696
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.20.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2"
+  },
+  "device": "Device(gpu, 0)",
+  "model": "Z-Image-Turbo",
+  "model_repo": "mflux-community/z-image-turbo-mflux-q4",
+  "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+  "quantization": "mflux q4 (MLX affine, pre-quantized)"
+ },
+ "effective_parameters": {
+  "guidance": 0.0,
+  "scheduler": "mflux 0.20.0 default for Z-Image-Turbo (linear sigmas + resolution-dependent shift)",
+  "low_ram": true,
+  "precision": "bf16",
+  "dit_dtypes": {
+   "sdpa_q": [
+    "mlx.core.bfloat16"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "--base-model",
+   "z-image-turbo",
+   "--prompt=a red apple on a wooden table, soft window light",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--steps",
+   "9",
+   "--seed",
+   "42",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131629Z-aa6ee3-parity-bf16-p01.png"
+  ]
+ },
+ "error": null
+}

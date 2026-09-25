@@ -1,0 +1,17 @@
+[
+ {
+  "tag": "nax-e2e-512-fp32-st9-tf32off",
+  "meta": {
+   "MLX_ENABLE_TF32": "0"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ }
+]

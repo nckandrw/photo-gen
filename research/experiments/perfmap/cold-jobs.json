@@ -1,0 +1,110 @@
+[
+ {
+  "tag": "cold-1024-fp32-st9",
+  "meta": {
+   "kind": "cold",
+   "res": 1024,
+   "precision": "fp32",
+   "steps": 9
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "cold-1024-bf16-st9",
+  "meta": {
+   "kind": "cold",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 9
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "cold-1024-bf16-st8",
+  "meta": {
+   "kind": "cold",
+   "res": 1024,
+   "precision": "bf16",
+   "steps": 8
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "cold-512-fp32-st9",
+  "meta": {
+   "kind": "cold",
+   "res": 512,
+   "precision": "fp32",
+   "steps": 9
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "cold-512-bf16-st9",
+  "meta": {
+   "kind": "cold",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 9
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "cold-512-bf16-st8",
+  "meta": {
+   "kind": "cold",
+   "res": 512,
+   "precision": "bf16",
+   "steps": 8
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ }
+]

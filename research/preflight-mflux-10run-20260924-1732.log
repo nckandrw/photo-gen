@@ -1,0 +1,19 @@
+=== Thu 24 Sep 2026 17:32:48 PST
+Now drawing from 'AC Power'
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+GUI apps: Finder, Terminal
+System-wide memory free percentage: 80%
+pressure level: 1
+vm.swapusage: total = 2048.00M  used = 911.44M  free = 1136.56M  (encrypted)
+Pages free:                                   196151.
+Pages wired down:                             145617.
+Pages occupied by compressor:                  41836.
+python 3.12.14 | mflux 0.20.0 | mlx 0.32.2 | mlx-metal 0.32.2 | Device(gpu, 0)
+lockfile: no drift (56 pkgs)
+model: 6/6 LFS sha256 match
+HF_HUB_OFFLINE=1
+LOWRAM_FLAG---low-ram
+LOWRAM_FLAG unset in env: UNSET
+~/.local/bin python entries: 0

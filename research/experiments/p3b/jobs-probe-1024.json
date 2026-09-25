@@ -1,0 +1,118 @@
+[
+ {
+  "tag": "time-1024-bf16-st8-p01",
+  "meta": {
+   "mode": "time"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "time",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/time-1024-bf16.json"
+   }
+  }
+ },
+ {
+  "tag": "time-1024-fp32-st9-p01",
+  "meta": {
+   "mode": "time"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true,
+   "probe": {
+    "mode": "time",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/time-1024-fp32.json"
+   }
+  }
+ },
+ {
+  "tag": "none-1024-bf16-st8-p01",
+  "meta": {
+   "mode": "none"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "none"
+   }
+  }
+ },
+ {
+  "tag": "stats-1024-bf16-st8-p01",
+  "meta": {
+   "mode": "stats",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "stats",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/stats-1024-bf16-p01.json"
+   }
+  }
+ },
+ {
+  "tag": "stats-1024-bf16-st8-p06",
+  "meta": {
+   "mode": "stats",
+   "pid": "p06"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "stats",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/stats-1024-bf16-p06.json"
+   }
+  }
+ },
+ {
+  "tag": "stats-1024-bf16-st8-p09",
+  "meta": {
+   "mode": "stats",
+   "pid": "p09"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "stats",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/stats-1024-bf16-p09.json"
+   }
+  }
+ }
+]

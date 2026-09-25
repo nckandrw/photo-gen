@@ -1,0 +1,50 @@
+{
+ "reference": {
+  "hash": "fe47d88d",
+  "match": true,
+  "profile": "reference",
+  "precision": "fp32",
+  "steps": 9,
+  "validated": true,
+  "fp": 6.559,
+  "repro": "4 --height 1024 --seed 42 --profile reference",
+  "time": 83.347,
+  "release": {
+   "installed": true,
+   "released": true
+  },
+  "compile_calls": 1
+ },
+ "fast": {
+  "hash": "7b45cfbe",
+  "match": true,
+  "profile": "fast",
+  "precision": "bf16",
+  "steps": 8,
+  "validated": true,
+  "fp": 5.834,
+  "repro": "h 1024 --height 1024 --seed 42 --profile fast",
+  "time": 66.586,
+  "release": {
+   "installed": true,
+   "released": true
+  },
+  "compile_calls": 1
+ },
+ "none": {
+  "hash": "fe47d88d",
+  "match": true,
+  "profile": null,
+  "precision": "fp32",
+  "steps": 9,
+  "validated": true,
+  "fp": 6.56,
+  "repro": "-width 1024 --height 1024 --steps 9 --seed 42",
+  "time": 122.803,
+  "release": {
+   "installed": true,
+   "released": true
+  },
+  "compile_calls": 1
+ }
+}

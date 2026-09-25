@@ -1,0 +1,1367 @@
+[
+ {
+  "tag": "ffn-512-k100-p01",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p01",
+   "res": 512
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p02",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p02",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p03",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p03",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p04",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p04",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p05",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p05",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p06",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p06",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p07",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p07",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p08",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p08",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p09",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p09",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p10",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p10",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p11",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p11",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k100-p12",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p12",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p01",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p01",
+   "res": 512
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p02",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p02",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p03",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p03",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p04",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p04",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p05",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p05",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p06",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p06",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p07",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p07",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p08",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p08",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p09",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p09",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p10",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p10",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p11",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p11",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k90-p12",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p12",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p01",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p01",
+   "res": 512
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p02",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p02",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p03",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p03",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p04",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p04",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p05",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p05",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p06",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p06",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p07",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p07",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p08",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p08",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p09",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p09",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p10",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p10",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p11",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p11",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k80-p12",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p12",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p01",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p01",
+   "res": 512
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p02",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p02",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p03",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p03",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p04",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p04",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p05",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p05",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p06",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p06",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p07",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p07",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p08",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p08",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p09",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p09",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p10",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p10",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p11",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p11",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k70-p12",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p12",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p01",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p01",
+   "res": 512
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p02",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p02",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p03",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p03",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p04",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p04",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p05",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p05",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p06",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p06",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p07",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p07",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p08",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p08",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p09",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p09",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p10",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p10",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p11",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p11",
+   "res": 512
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-512-k60-p12",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p12",
+   "res": 512
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-1024-k100-p01",
+  "meta": {
+   "keep": 1.0,
+   "pid": "p01",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 1.0,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-1024-k90-p01",
+  "meta": {
+   "keep": 0.9,
+   "pid": "p01",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.9,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-1024-k80-p01",
+  "meta": {
+   "keep": 0.8,
+   "pid": "p01",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.8,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-1024-k70-p01",
+  "meta": {
+   "keep": 0.7,
+   "pid": "p01",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.7,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ },
+ {
+  "tag": "ffn-1024-k60-p01",
+  "meta": {
+   "keep": 0.6,
+   "pid": "p01",
+   "res": 1024
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "ffn_prune": {
+    "keep_frac": 0.6,
+    "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+   }
+  }
+ }
+]

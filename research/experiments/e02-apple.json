@@ -1,0 +1,1 @@
+E02RESULT {"dtypes": {"attention_input": "mlx.core.bfloat16"}, "timing": {"_encode_prompts": 0.009, "_decode_latents": 2.03, "generate_image": 84.439, "denoise": 82.4}, "peak_mlx_gb": 5.697}

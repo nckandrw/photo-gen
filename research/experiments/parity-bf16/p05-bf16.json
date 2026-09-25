@@ -1,0 +1,105 @@
+{
+ "job_id": "20260924T131752Z-23ad69",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-09-24T13:17:52.296+00:00",
+ "started_at": "2026-09-24T13:17:52.298+00:00",
+ "finished_at": "2026-09-24T13:19:23.980+00:00",
+ "request": {
+  "task": "text-to-image",
+  "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+  "width": 1024,
+  "height": 1024,
+  "steps": 9,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": true,
+  "warnings": [],
+  "output_name": "parity-bf16-p05",
+  "precision": "bf16"
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131752Z-23ad69-parity-bf16-p05.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131752Z-23ad69-parity-bf16-p05.json",
+ "pixel_sha256": "7bfd59cad5aca39070d0fe00e794fe04af280546469b25b0d48dc3bc737abf54",
+ "file_sha256": "b91eff198d00be70576a9caea12dea10d239fc8b07e64f9ac3e7f87312d80fb6",
+ "generation_seconds": 91.598,
+ "phases": {
+  "load": {
+   "seconds": 1.07,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.694,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.876,
+   "mlx_peak_gb": 5.696
+  },
+  "generate_total": {
+   "seconds": 89.147,
+   "mlx_peak_gb": 5.696
+  },
+  "denoise_seconds": 85.577
+ },
+ "step_seconds": [
+  9.541,
+  9.311,
+  9.423,
+  9.538,
+  9.551,
+  9.537,
+  9.537,
+  9.456,
+  9.491
+ ],
+ "memory": {
+  "peak_footprint_gb": 7.363,
+  "mlx_peak_gb": 5.696
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.20.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2"
+  },
+  "device": "Device(gpu, 0)",
+  "model": "Z-Image-Turbo",
+  "model_repo": "mflux-community/z-image-turbo-mflux-q4",
+  "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+  "quantization": "mflux q4 (MLX affine, pre-quantized)"
+ },
+ "effective_parameters": {
+  "guidance": 0.0,
+  "scheduler": "mflux 0.20.0 default for Z-Image-Turbo (linear sigmas + resolution-dependent shift)",
+  "low_ram": true,
+  "precision": "bf16",
+  "dit_dtypes": {
+   "sdpa_q": [
+    "mlx.core.bfloat16"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "--base-model",
+   "z-image-turbo",
+   "--prompt=A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--steps",
+   "9",
+   "--seed",
+   "42",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T131752Z-23ad69-parity-bf16-p05.png"
+  ]
+ },
+ "error": null
+}

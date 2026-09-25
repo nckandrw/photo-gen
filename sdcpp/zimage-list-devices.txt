@@ -1,0 +1,6 @@
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5)
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 12713.12 MB
+MTL0	Apple M5
+BLAS	Accelerate
+CPU	Apple M5

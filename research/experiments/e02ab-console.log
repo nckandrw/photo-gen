@@ -1,0 +1,17 @@
+[18:39:19] start neon-bf16
+          7347950224  peak memory footprint
+E02RESULT {"baseline": false, "rope_cast": true, "dtypes": {"attention_input": ["mlx.core.bfloat16"], "sdpa_q": ["mlx.core.bfloat16"], "ffn_input": ["mlx.core.bfloat16"]}, "timing": {"_encode_prompts": 0.008, "_decode_latents": 3.078, "generate_image": 72.689, "denoise": 69.603}, "peak_mlx_gb": 5.696}
+
+[18:40:35] cooldown 600s
+Note: No thermal warning level has been recorded
+[18:50:35] start apple-fp32-baseline
+          7278514592  peak memory footprint
+E02RESULT {"baseline": true, "rope_cast": false, "dtypes": {"attention_input": ["mlx.core.bfloat16", "mlx.core.float32"], "sdpa_q": ["mlx.core.float32"], "ffn_input": ["mlx.core.float32"]}, "timing": {"_encode_prompts": 0.008, "_decode_latents": 1.986, "generate_image": 80.321, "denoise": 78.327}, "peak_mlx_gb": 5.697}
+
+[18:51:58] cooldown 600s
+Note: No thermal warning level has been recorded
+[19:01:58] start apple-bf16
+          7353111184  peak memory footprint
+E02RESULT {"baseline": false, "rope_cast": true, "dtypes": {"attention_input": ["mlx.core.bfloat16"], "sdpa_q": ["mlx.core.bfloat16"], "ffn_input": ["mlx.core.bfloat16"]}, "timing": {"_encode_prompts": 0.008, "_decode_latents": 2.161, "generate_image": 57.714, "denoise": 55.545}, "peak_mlx_gb": 5.696}
+
+E02AB_DONE

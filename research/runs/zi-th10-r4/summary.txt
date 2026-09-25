@@ -1,0 +1,14 @@
+rc=0
+samples=315
+wall_s=357.57
+time_l_max_rss_gb=6.72
+time_l_peak_footprint_gb=6.86
+mon_peak_proc_mem_gb=6.39
+mon_peak_proc_rss_gb=6.1
+peak_pressure_level=1.0
+min_free_pct=27.0
+swap_start_mb=1123.31
+peak_swap_mb=1123.31
+compressed_start_gb=0.65
+peak_compressed_gb=1.15
+min_cpu_speed_limit=None

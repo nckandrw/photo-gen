@@ -1,0 +1,150 @@
+[
+ {
+  "tag": "p01-r0-base",
+  "meta": {
+   "pid": "p01",
+   "arm": "base",
+   "rep": 0
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p01-r0-base.png"
+  ]
+ },
+ {
+  "tag": "p01-r0-masknone",
+  "meta": {
+   "pid": "p01",
+   "arm": "masknone",
+   "rep": 0
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p01-r0-masknone.png",
+   "--mask-none"
+  ]
+ },
+ {
+  "tag": "p01-r1-masknone",
+  "meta": {
+   "pid": "p01",
+   "arm": "masknone",
+   "rep": 1
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p01-r1-masknone.png",
+   "--mask-none"
+  ]
+ },
+ {
+  "tag": "p01-r1-base",
+  "meta": {
+   "pid": "p01",
+   "arm": "base",
+   "rep": 1
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p01-r1-base.png"
+  ]
+ },
+ {
+  "tag": "p05-r0-base",
+  "meta": {
+   "pid": "p05",
+   "arm": "base",
+   "rep": 0
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p05-r0-base.png"
+  ]
+ },
+ {
+  "tag": "p05-r0-masknone",
+  "meta": {
+   "pid": "p05",
+   "arm": "masknone",
+   "rep": 0
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p05-r0-masknone.png",
+   "--mask-none"
+  ]
+ },
+ {
+  "tag": "p05-r1-masknone",
+  "meta": {
+   "pid": "p05",
+   "arm": "masknone",
+   "rep": 1
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p05-r1-masknone.png",
+   "--mask-none"
+  ]
+ },
+ {
+  "tag": "p05-r1-base",
+  "meta": {
+   "pid": "p05",
+   "arm": "base",
+   "rep": 1
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--out",
+   "microopt/p05-r1-base.png"
+  ]
+ }
+]

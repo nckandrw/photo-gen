@@ -1,0 +1,26 @@
+# Sigma audit 768², blinded review (Claude, single rater), scored ~16:00 2026-09-25 before unblind. Fields as in the 512² sheet.
+C01 p01-s2718 | n/a | = | = | = | none | OVERALL = | near-identical
+C02 p02-s2718 | n/a | = | = | = | none | OVERALL = | subject identity drift; both centered
+C03 p03-s2718 | = (gibberish text in both) | = | = | = | none | OVERALL = |
+C04 p04-s2718 | n/a | = | = | = | none | OVERALL = | near-identical
+C05 p05-s2718 | = (exact both) | = | = | = | none | OVERALL = |
+C06 p06-s2718 | n/a | = | = | = | none | OVERALL = |
+C07 p07-s2718 | = (exact both) | = | = | = | none | OVERALL = | near-identical
+C08 p08-s2718 | n/a | R better (L foreground glass crops the kettle) | R better (L shows two wine glasses; prompt asks for one) | = | L duplicated glass | OVERALL R |
+C09 p09-s2718 | n/a | = | = | = | none | OVERALL = |
+C10 p10-s2718 | n/a | = | = | = | none | OVERALL = |
+C11 p11-s2718 | n/a | = | = | = | none | OVERALL = |
+C12 p12-s2718 | n/a | = | = (both 3 cups + 2 plates correct; two rows, not one) | = | none | OVERALL = |
+C13 p01-s31415 | n/a | = | = | = | none | OVERALL = |
+C14 p02-s31415 | n/a | = | = | = | none | OVERALL = | near-identical
+C15 p03-s31415 | = (gibberish both) | = | = | = | none | OVERALL = |
+C16 p04-s31415 | n/a | = | = | = | none | OVERALL = |
+C17 p05-s31415 | = (exact both) | = | = | = | none | OVERALL = | R adds a backing board
+C18 p06-s31415 | n/a | = | = | = | none | OVERALL = |
+C19 p07-s31415 | = (exact both) | = | = | = | none | OVERALL = |
+C20 p08-s31415 | n/a | = | = | = | none | OVERALL = |
+C21 p09-s31415 | n/a | = | = | = | none | OVERALL = |
+C22 p10-s31415 | n/a | = | = | = | none | OVERALL = |
+C23 p11-s31415 | n/a | = | = | = | none | OVERALL = |
+C24 p12-s31415 | n/a | = | R minor (L: one cup has a handle, the others don't) | = | L attribute inconsistency (minor) | OVERALL R (minor) | counts correct in both
+# Tally before unblind: L better 0, R better 2 (C08, C24 minor), ties 22.

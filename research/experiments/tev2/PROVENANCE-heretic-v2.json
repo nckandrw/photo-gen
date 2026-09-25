@@ -1,0 +1,81 @@
+{
+ "recorded": "2026-09-25T05:24:42",
+ "reason": "Heretic-v2 branch CLOSED per directive 'PHOTO-GEN NEXT RESEARCH PASS' \u00a710 (no performance, memory or quality advantage; no demonstrated restriction difference). No documented future research reason to keep the artifacts, so they are removed from active project state; this record + te-heretic-v2-report.md + downloads.log preserve provenance.",
+ "source": {
+  "repo": "Lockout/qwen3-4b-heretic-zimage",
+  "revision": "1dd80c38813bd0f791c5abfd3bf605f739cf9f84",
+  "subfolder": "qwen-4b-zimage-hereticV2",
+  "verification": "all 12 files verified at download (research/downloads.log)"
+ },
+ "removed": {
+  "models/mflux/text-encoders/heretic-v2-src/added_tokens.json": {
+   "size": 707,
+   "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/chat_template.jinja": {
+   "size": 4168,
+   "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/config.json": {
+   "size": 1536,
+   "sha256": "5ef8ab0396a0e7bdca392bba52df1a67f097411ba67e359a63e9d059304cea4e"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/generation_config.json": {
+   "size": 214,
+   "sha256": "19d9395705449004ddebeeaf62841338a48cc8df85cddb1ca0b2c60396d95c96"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/merges.txt": {
+   "size": 1671853,
+   "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/model-00001-of-00002.safetensors": {
+   "size": 4967215360,
+   "sha256": "5c88b4e6b5128ecce1738cb2fadfe17e1fd92535999fd363a132a25c20d24284"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/model-00002-of-00002.safetensors": {
+   "size": 3077766632,
+   "sha256": "e0e757926530b5f375f8e4bca153e6cfbb162b004e5aa79706e247ed28fd5def"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/model.safetensors.index.json": {
+   "size": 32855,
+   "sha256": "06b3d5319b6d76d1a4a2433419180016cfd54ed62d086a5e6567a809f8c82634"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/special_tokens_map.json": {
+   "size": 613,
+   "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/tokenizer.json": {
+   "size": 11422821,
+   "sha256": "67cc0080ffd7555f723f423c27cfef314e1ad9d335c8b79f465c5faba1ed478b"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/tokenizer_config.json": {
+   "size": 5404,
+   "sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0"
+  },
+  "models/mflux/text-encoders/heretic-v2-src/vocab.json": {
+   "size": 2776833,
+   "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "models/mflux/text-encoders/heretic-v2-q4/0.safetensors": {
+   "size": 2263017813,
+   "sha256": "c13dc3e0fd09814caf8b1248bfcb8b3822719882461d3dd340c8b53eb7931bc6"
+  },
+  "models/mflux/text-encoders/heretic-v2-q4/0.safetensors.pre-invfreq": {
+   "size": 2263017551,
+   "sha256": "41b1b37cd1a1abffbf5edd6d95a1193f01882958440d5d0cc7dcd2bdbb39ae16"
+  },
+  "models/mflux/text-encoders/heretic-v2-q4/model.safetensors.index.json": {
+   "size": 51332,
+   "sha256": "a158bd7a2ae8a4ce6ae003c0c06c484a2ac9465e288085883aeeadb4df704035"
+  },
+  "models/mflux/composites/zimage-turbo-q4-te-heretic-v2": {
+   "type": "directory of symlinks",
+   "links": {
+    "text_encoder": "../../text-encoders/heretic-v2-q4",
+    "tokenizer": "../../z-image-turbo-mflux-q4/tokenizer",
+    "transformer": "../../z-image-turbo-mflux-q4/transformer",
+    "vae": "../../z-image-turbo-mflux-q4/vae"
+   }
+  }
+ }
+}

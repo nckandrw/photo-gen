@@ -1,0 +1,21 @@
+# photo-gen user/application configuration. Backend identity lives in backend-zimage-mflux.json (immutable).
+
+[server]
+host = "127.0.0.1"          # localhost only. Changing this exposes the API to your network.
+port = 8765
+
+[paths]
+data_dir = "data"           # relative to the project root; outputs, database, logs
+
+[defaults]
+width = 1024
+height = 1024
+steps = 9
+seed = "random"             # "random" or an integer
+
+[queue]
+max_pending = 20            # queued + running jobs accepted by the API before rejecting (HTTP 429)
+recent_window = 10          # completed jobs used for recent-duration statistics
+
+[logging]
+level = "INFO"              # DEBUG | INFO | WARNING | ERROR

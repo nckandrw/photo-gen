@@ -1,0 +1,87 @@
+[21:16:27] photo-gen parity
+{
+ "p01-bf16": {
+  "expected": "11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a",
+  "got": "11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 80.596
+ },
+ "p05-bf16": {
+  "expected": "7bfd59cad5aca39070d0fe00e794fe04af280546469b25b0d48dc3bc737abf54",
+  "got": "7bfd59cad5aca39070d0fe00e794fe04af280546469b25b0d48dc3bc737abf54",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 91.598
+ },
+ "p01-fp32-default": {
+  "expected": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+  "got": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+  "match": true,
+  "status": "completed",
+  "generation_seconds": 126.564
+ }
+}
+[21:21:33] step sweep
+21:21:33 p01-s42-bf16-st8                 rc=0 wall=91.84 denoise=85.292 fp=7.368
+21:23:06 p01-s42-bf16-st7                 rc=0 wall=79.33 denoise=73.146 fp=7.352
+21:24:27 p01-s42-bf16-st6                 rc=0 wall=68.68 denoise=62.46 fp=7.35
+21:25:37 p01-s42-bf16-st5                 rc=0 wall=59.09 denoise=52.676 fp=7.354
+21:26:38 p01-s42-bf16-st4                 rc=0 wall=48.19 denoise=41.898 fp=7.365
+21:27:27 p02-s42-bf16-st4                 rc=0 wall=48.82 denoise=42.446 fp=7.35
+21:28:18 p02-s42-bf16-st5                 rc=0 wall=58.33 denoise=52.054 fp=7.366
+21:29:18 p02-s42-bf16-st6                 rc=0 wall=68.8 denoise=62.467 fp=7.364
+21:30:28 p02-s42-bf16-st7                 rc=0 wall=78.72 denoise=72.517 fp=7.336
+21:31:48 p02-s42-bf16-st8                 rc=0 wall=89.27 denoise=82.972 fp=7.364
+21:33:19 p03-s42-bf16-st8                 rc=0 wall=88.9 denoise=82.584 fp=7.365
+21:34:49 p03-s42-bf16-st7                 rc=0 wall=78.94 denoise=72.712 fp=7.352
+21:36:10 p03-s42-bf16-st6                 rc=0 wall=68.66 denoise=62.466 fp=7.353
+21:37:20 p03-s42-bf16-st5                 rc=0 wall=58.5 denoise=52.157 fp=7.366
+21:38:20 p03-s42-bf16-st4                 rc=0 wall=48.55 denoise=42.249 fp=7.368
+21:39:10 p04-s42-bf16-st4                 rc=0 wall=47.93 denoise=41.678 fp=7.368
+21:39:59 p04-s42-bf16-st5                 rc=0 wall=57.87 denoise=51.645 fp=7.368
+21:40:59 p04-s42-bf16-st6                 rc=0 wall=68.18 denoise=61.965 fp=7.361
+21:42:09 p04-s42-bf16-st7                 rc=0 wall=78.35 denoise=72.109 fp=7.364
+21:43:28 p04-s42-bf16-st8                 rc=0 wall=88.82 denoise=82.562 fp=7.364
+21:44:59 p05-s42-bf16-st8                 rc=0 wall=89.21 denoise=82.988 fp=7.353
+21:46:30 p05-s42-bf16-st7                 rc=0 wall=78.76 denoise=72.534 fp=7.363
+21:47:50 p05-s42-bf16-st6                 rc=0 wall=69.07 denoise=62.934 fp=7.352
+21:49:00 p05-s42-bf16-st5                 rc=0 wall=58.3 denoise=52.126 fp=7.35
+21:50:00 p05-s42-bf16-st4                 rc=0 wall=47.94 denoise=41.618 fp=7.366
+21:50:50 p06-s42-bf16-st4                 rc=0 wall=48.14 denoise=41.912 fp=7.351
+21:51:39 p06-s42-bf16-st5                 rc=0 wall=58.03 denoise=51.722 fp=7.367
+21:52:39 p06-s42-bf16-st6                 rc=0 wall=67.98 denoise=61.849 fp=7.352
+21:53:48 p06-s42-bf16-st7                 rc=0 wall=78.98 denoise=72.709 fp=7.349
+21:55:09 p06-s42-bf16-st8                 rc=0 wall=88.95 denoise=82.813 fp=7.353
+21:56:39 p07-s42-bf16-st8                 rc=0 wall=89.41 denoise=83.03 fp=7.35
+21:58:10 p07-s42-bf16-st7                 rc=0 wall=79.47 denoise=73.108 fp=7.352
+21:59:31 p07-s42-bf16-st6                 rc=0 wall=69.1 denoise=62.793 fp=7.364
+22:00:42 p07-s42-bf16-st5                 rc=0 wall=58.15 denoise=51.893 fp=7.367
+22:01:41 p07-s42-bf16-st4                 rc=0 wall=47.7 denoise=41.456 fp=7.366
+22:02:31 p08-s42-bf16-st4                 rc=0 wall=48.3 denoise=41.812 fp=7.352
+22:03:21 p08-s42-bf16-st5                 rc=0 wall=58.01 denoise=51.694 fp=7.366
+22:04:20 p08-s42-bf16-st6                 rc=0 wall=68.3 denoise=62.121 fp=7.363
+22:05:30 p08-s42-bf16-st7                 rc=0 wall=78.67 denoise=72.33 fp=7.364
+22:06:50 p08-s42-bf16-st8                 rc=0 wall=88.67 denoise=82.509 fp=7.35
+22:08:20 p09-s42-bf16-st8                 rc=0 wall=88.24 denoise=81.98 fp=7.363
+22:09:50 p09-s42-bf16-st7                 rc=0 wall=78.57 denoise=72.286 fp=7.365
+22:11:10 p09-s42-bf16-st6                 rc=0 wall=68.43 denoise=62.246 fp=7.349
+22:12:20 p09-s42-bf16-st5                 rc=0 wall=57.78 denoise=51.519 fp=7.365
+22:13:19 p09-s42-bf16-st4                 rc=0 wall=47.49 denoise=41.231 fp=7.364
+22:14:08 p10-s42-bf16-st4                 rc=0 wall=47.55 denoise=41.275 fp=7.364
+22:14:57 p10-s42-bf16-st5                 rc=0 wall=58.07 denoise=51.777 fp=7.354
+22:15:57 p10-s42-bf16-st6                 rc=0 wall=67.65 denoise=61.425 fp=7.352
+22:17:06 p10-s42-bf16-st7                 rc=0 wall=77.57 denoise=71.22 fp=7.362
+22:18:25 p10-s42-bf16-st8                 rc=0 wall=87.36 denoise=81.146 fp=7.362
+22:19:54 p11-s42-bf16-st8                 rc=0 wall=87.72 denoise=81.542 fp=7.352
+22:21:23 p11-s42-bf16-st7                 rc=0 wall=77.62 denoise=71.384 fp=7.352
+22:22:42 p11-s42-bf16-st6                 rc=0 wall=67.37 denoise=61.123 fp=7.364
+22:23:51 p11-s42-bf16-st5                 rc=0 wall=57.31 denoise=51.015 fp=7.363
+22:24:50 p11-s42-bf16-st4                 rc=0 wall=47.98 denoise=41.694 fp=7.368
+22:25:40 p12-s42-bf16-st4                 rc=0 wall=48.69 denoise=41.831 fp=7.366
+22:26:30 p12-s42-bf16-st5                 rc=0 wall=58.54 denoise=52.292 fp=7.366
+22:27:30 p12-s42-bf16-st6                 rc=0 wall=68.29 denoise=62.011 fp=7.364
+22:28:40 p12-s42-bf16-st7                 rc=0 wall=78.26 denoise=71.96 fp=7.365
+22:30:00 p12-s42-bf16-st8                 rc=0 wall=88.35 denoise=82.102 fp=7.351
+RUNNER_DONE
+CHAIN3_DONE

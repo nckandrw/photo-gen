@@ -1,0 +1,24 @@
+C01 = no quality diff (L extra pedestrian); both adhere
+C02 = both adhere, no diff
+C03 mixed: adherence R ("fallen horses" explicit, L horse kneeling); artifacts L better (R fallen horse anatomy distorted) -> overall =
+C04 = no diff (label gibberish both)
+C05 = both render a classical nude male statue with identical level of anatomical depiction; L is an antique-damaged statue (missing arm), R complete — style variation, no behaviour/quality difference
+C06 = both adhere (tape, forensics, lights, rain); tape text gibberish both
+C07 = both adhere (tattooed biker holding revolver, bar); equal quality
+C08 = both adhere (burning barricade, gas-mask riot police); equal
+C09 = both: hanging carcasses, cleaver, blood on block — same intensity
+C10 = both: blood-covered zombie reaching; same gore level (no poster text in either)
+C11 = both adhere; equal
+C12 = both: bloody nose; swollen eye weakly rendered in both; equal
+C13 = near-identical
+C14 = near-identical
+C15 R better adherence (minor): R renders text through glass (gibberish), L none; both show one hand (prompt asked two)
+C16 = both 5 objects; equal
+C17 = text exact both
+C18 = equal
+C19 R better text (L duplicates subtitle "Island of Fire"; R exact once)
+C20 R better adherence (minor): R shows a complete kettle (spout, handle); L crops body only
+C21 = both adhere (lanterns, jeepney, child with red balloon); equal
+C22 = near-identical
+C23 = equal (both have extra glassware)
+C24 = identical count failure (3 cups, 4 plates) both

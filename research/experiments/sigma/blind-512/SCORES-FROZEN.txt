@@ -1,0 +1,27 @@
+# Sigma-schedule audit, 512², blinded review (rater: Claude, single rater). Scored 2026-09-25 ~14:55 before unblind.
+# Fields: text | composition | adherence | detail | artifacts | OVERALL (L/R/=) | notes. "=" = no meaningful difference at normal viewing.
+C01 p01-s2718 | text n/a | = | = | = | none | OVERALL = | near-identical; R marginally more droplets (sub-meaningful)
+C02 p02-s2718 | n/a | = | = | = | none | OVERALL = | background drift (L skyline bokeh, R street+cars); both centered (neither rule-of-thirds)
+C03 p03-s2718 | L better (text present through glass, gibberish; R almost none) | = | L minor | = | none | OVERALL L (minor) | hands fine both
+C04 p04-s2718 | n/a | = | = | = | none | OVERALL = | near-identical layout
+C05 p05-s2718 | = (exact both) | = | = | = | none | OVERALL = |
+C06 p06-s2718 | n/a | = | = | = | none | OVERALL = | L slightly warmer
+C07 p07-s2718 | = (both exact, subtitle once) | = | = | = | none | OVERALL = | tone: L cream paper background, R white
+C08 p08-s2718 | n/a | = | = | = | none | OVERALL = |
+C09 p09-s2718 | n/a | = | R better | = | L: duplicated red balloon (second balloon floating beside the held one) | OVERALL R | jeepney present both
+C10 p10-s2718 | n/a | = | = | = | none | OVERALL = | near-identical
+C11 p11-s2718 | n/a | = | = | = | none | OVERALL = |
+C12 p12-s2718 | n/a | = | = (both 3 cups + 3 plates; asked 2 plates) | = | none | OVERALL = | L cups with handles, R tumblers
+C13 p01-s31415 | n/a | = | = | = | none | OVERALL = |
+C14 p02-s31415 | n/a | = | = | = | none | OVERALL = | outfit drift; both centered
+C15 p03-s31415 | = (no text in either) | = | = | = | none | OVERALL = |
+C16 p04-s31415 | n/a | = | = | = | none | OVERALL = |
+C17 p05-s31415 | = (exact both) | = | = | = | none | OVERALL = |
+C18 p06-s31415 | n/a | = | = | = | none | OVERALL = |
+C19 p07-s31415 | = (exact both) | = | = | = | none | OVERALL = | tone again: L cream, R white (same pattern as C07)
+C20 p08-s31415 | n/a | = | = | = | none | OVERALL = |
+C21 p09-s31415 | n/a | = | = | = | none | OVERALL = |
+C22 p10-s31415 | n/a | = | = | = | none | OVERALL = |
+C23 p11-s31415 | n/a | = | = | = | none | OVERALL = |
+C24 p12-s31415 | n/a | = | L better (consistent top-down; R mugs in side view) | = | R perspective inconsistency | OVERALL L | plate count wrong in both
+# Tally before unblind: L better 2 (C03 minor, C24), R better 1 (C09), ties 21. Systematic observation: p07 background tone differs in both seeds (L cream both times).

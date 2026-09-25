@@ -1,0 +1,122 @@
+{
+ "C01": {
+  "pair": "p01-s7",
+  "left": "gate8/work/p01-s7-bf16-st9.png",
+  "right": "gate8/work/p01-s7-bf16-st8.png"
+ },
+ "C02": {
+  "pair": "p02-s7",
+  "left": "gate8/work/p02-s7-bf16-st8.png",
+  "right": "gate8/work/p02-s7-bf16-st9.png"
+ },
+ "C03": {
+  "pair": "p03-s7",
+  "left": "gate8/work/p03-s7-bf16-st8.png",
+  "right": "gate8/work/p03-s7-bf16-st9.png"
+ },
+ "C04": {
+  "pair": "p04-s7",
+  "left": "gate8/work/p04-s7-bf16-st9.png",
+  "right": "gate8/work/p04-s7-bf16-st8.png"
+ },
+ "C05": {
+  "pair": "p05-s7",
+  "left": "gate8/work/p05-s7-bf16-st8.png",
+  "right": "gate8/work/p05-s7-bf16-st9.png"
+ },
+ "C06": {
+  "pair": "p06-s7",
+  "left": "gate8/work/p06-s7-bf16-st8.png",
+  "right": "gate8/work/p06-s7-bf16-st9.png"
+ },
+ "C07": {
+  "pair": "p07-s7",
+  "left": "gate8/work/p07-s7-bf16-st8.png",
+  "right": "gate8/work/p07-s7-bf16-st9.png"
+ },
+ "C08": {
+  "pair": "p08-s7",
+  "left": "gate8/work/p08-s7-bf16-st8.png",
+  "right": "gate8/work/p08-s7-bf16-st9.png"
+ },
+ "C09": {
+  "pair": "p09-s7",
+  "left": "gate8/work/p09-s7-bf16-st8.png",
+  "right": "gate8/work/p09-s7-bf16-st9.png"
+ },
+ "C10": {
+  "pair": "p10-s7",
+  "left": "gate8/work/p10-s7-bf16-st8.png",
+  "right": "gate8/work/p10-s7-bf16-st9.png"
+ },
+ "C11": {
+  "pair": "p11-s7",
+  "left": "gate8/work/p11-s7-bf16-st8.png",
+  "right": "gate8/work/p11-s7-bf16-st9.png"
+ },
+ "C12": {
+  "pair": "p12-s7",
+  "left": "gate8/work/p12-s7-bf16-st8.png",
+  "right": "gate8/work/p12-s7-bf16-st9.png"
+ },
+ "C13": {
+  "pair": "p01-s1234",
+  "left": "gate8/work/p01-s1234-bf16-st9.png",
+  "right": "gate8/work/p01-s1234-bf16-st8.png"
+ },
+ "C14": {
+  "pair": "p02-s1234",
+  "left": "gate8/work/p02-s1234-bf16-st9.png",
+  "right": "gate8/work/p02-s1234-bf16-st8.png"
+ },
+ "C15": {
+  "pair": "p03-s1234",
+  "left": "gate8/work/p03-s1234-bf16-st9.png",
+  "right": "gate8/work/p03-s1234-bf16-st8.png"
+ },
+ "C16": {
+  "pair": "p04-s1234",
+  "left": "gate8/work/p04-s1234-bf16-st9.png",
+  "right": "gate8/work/p04-s1234-bf16-st8.png"
+ },
+ "C17": {
+  "pair": "p05-s1234",
+  "left": "gate8/work/p05-s1234-bf16-st8.png",
+  "right": "gate8/work/p05-s1234-bf16-st9.png"
+ },
+ "C18": {
+  "pair": "p06-s1234",
+  "left": "gate8/work/p06-s1234-bf16-st8.png",
+  "right": "gate8/work/p06-s1234-bf16-st9.png"
+ },
+ "C19": {
+  "pair": "p07-s1234",
+  "left": "gate8/work/p07-s1234-bf16-st9.png",
+  "right": "gate8/work/p07-s1234-bf16-st8.png"
+ },
+ "C20": {
+  "pair": "p08-s1234",
+  "left": "gate8/work/p08-s1234-bf16-st8.png",
+  "right": "gate8/work/p08-s1234-bf16-st9.png"
+ },
+ "C21": {
+  "pair": "p09-s1234",
+  "left": "gate8/work/p09-s1234-bf16-st8.png",
+  "right": "gate8/work/p09-s1234-bf16-st9.png"
+ },
+ "C22": {
+  "pair": "p10-s1234",
+  "left": "gate8/work/p10-s1234-bf16-st9.png",
+  "right": "gate8/work/p10-s1234-bf16-st8.png"
+ },
+ "C23": {
+  "pair": "p11-s1234",
+  "left": "gate8/work/p11-s1234-bf16-st9.png",
+  "right": "gate8/work/p11-s1234-bf16-st8.png"
+ },
+ "C24": {
+  "pair": "p12-s1234",
+  "left": "gate8/work/p12-s1234-bf16-st9.png",
+  "right": "gate8/work/p12-s1234-bf16-st8.png"
+ }
+}

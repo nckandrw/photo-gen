@@ -1,0 +1,162 @@
+[
+ {
+  "tag": "calib-512-c01",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c01"
+  },
+  "req": {
+   "prompt": "An elderly fisherman mending a net on a wooden boat at sunrise, harbor in the background, photorealistic.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c01.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c02",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c02"
+  },
+  "req": {
+   "prompt": "A modern kitchen interior with marble countertops, pendant lights and a bowl of lemons, architectural photography.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c02.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c03",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c03"
+  },
+  "req": {
+   "prompt": "A snowy mountain village at night with warm lit windows and a starry sky, wide shot.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c03.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c04",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c04"
+  },
+  "req": {
+   "prompt": "A bookshop storefront with a hand-painted sign reading \"OPEN DAILY\", people walking past, overcast afternoon.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c04.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c05",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c05"
+  },
+  "req": {
+   "prompt": "A close-up of a hummingbird feeding from a red hibiscus flower, shallow depth of field.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c05.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c06",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c06"
+  },
+  "req": {
+   "prompt": "A rice terrace landscape in Banaue with morning mist and a farmer carrying a basket.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c06.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c07",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c07"
+  },
+  "req": {
+   "prompt": "A flat-lay of a leather wallet, a wristwatch, sunglasses and car keys on a denim background.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c07.npz"
+   }
+  }
+ },
+ {
+  "tag": "calib-512-c08",
+  "meta": {
+   "mode": "ffn_calib",
+   "pid": "c08"
+  },
+  "req": {
+   "prompt": "A child's watercolor painting of a house, a sun and a dog, taped to a refrigerator door.",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c08.npz"
+   }
+  }
+ }
+]

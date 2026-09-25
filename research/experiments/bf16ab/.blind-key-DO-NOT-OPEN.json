@@ -1,0 +1,122 @@
+{
+ "C01": {
+  "pair": "p01-s42",
+  "left": "p01-s42-fp32.png",
+  "right": "p01-s42-bf16.png"
+ },
+ "C02": {
+  "pair": "p02-s42",
+  "left": "p02-s42-bf16.png",
+  "right": "p02-s42-fp32.png"
+ },
+ "C03": {
+  "pair": "p03-s42",
+  "left": "p03-s42-bf16.png",
+  "right": "p03-s42-fp32.png"
+ },
+ "C04": {
+  "pair": "p04-s42",
+  "left": "p04-s42-bf16.png",
+  "right": "p04-s42-fp32.png"
+ },
+ "C05": {
+  "pair": "p05-s42",
+  "left": "p05-s42-fp32.png",
+  "right": "p05-s42-bf16.png"
+ },
+ "C06": {
+  "pair": "p06-s42",
+  "left": "p06-s42-bf16.png",
+  "right": "p06-s42-fp32.png"
+ },
+ "C07": {
+  "pair": "p07-s42",
+  "left": "p07-s42-bf16.png",
+  "right": "p07-s42-fp32.png"
+ },
+ "C08": {
+  "pair": "p08-s42",
+  "left": "p08-s42-fp32.png",
+  "right": "p08-s42-bf16.png"
+ },
+ "C09": {
+  "pair": "p09-s42",
+  "left": "p09-s42-fp32.png",
+  "right": "p09-s42-bf16.png"
+ },
+ "C10": {
+  "pair": "p10-s42",
+  "left": "p10-s42-fp32.png",
+  "right": "p10-s42-bf16.png"
+ },
+ "C11": {
+  "pair": "p11-s42",
+  "left": "p11-s42-bf16.png",
+  "right": "p11-s42-fp32.png"
+ },
+ "C12": {
+  "pair": "p12-s42",
+  "left": "p12-s42-bf16.png",
+  "right": "p12-s42-fp32.png"
+ },
+ "C13": {
+  "pair": "p01-s7",
+  "left": "p01-s7-bf16.png",
+  "right": "p01-s7-fp32.png"
+ },
+ "C14": {
+  "pair": "p02-s7",
+  "left": "p02-s7-bf16.png",
+  "right": "p02-s7-fp32.png"
+ },
+ "C15": {
+  "pair": "p03-s7",
+  "left": "p03-s7-fp32.png",
+  "right": "p03-s7-bf16.png"
+ },
+ "C16": {
+  "pair": "p04-s7",
+  "left": "p04-s7-fp32.png",
+  "right": "p04-s7-bf16.png"
+ },
+ "C17": {
+  "pair": "p05-s7",
+  "left": "p05-s7-fp32.png",
+  "right": "p05-s7-bf16.png"
+ },
+ "C18": {
+  "pair": "p06-s7",
+  "left": "p06-s7-fp32.png",
+  "right": "p06-s7-bf16.png"
+ },
+ "C19": {
+  "pair": "p07-s7",
+  "left": "p07-s7-bf16.png",
+  "right": "p07-s7-fp32.png"
+ },
+ "C20": {
+  "pair": "p08-s7",
+  "left": "p08-s7-fp32.png",
+  "right": "p08-s7-bf16.png"
+ },
+ "C21": {
+  "pair": "p09-s7",
+  "left": "p09-s7-fp32.png",
+  "right": "p09-s7-bf16.png"
+ },
+ "C22": {
+  "pair": "p10-s7",
+  "left": "p10-s7-fp32.png",
+  "right": "p10-s7-bf16.png"
+ },
+ "C23": {
+  "pair": "p11-s7",
+  "left": "p11-s7-bf16.png",
+  "right": "p11-s7-fp32.png"
+ },
+ "C24": {
+  "pair": "p12-s7",
+  "left": "p12-s7-fp32.png",
+  "right": "p12-s7-bf16.png"
+ }
+}

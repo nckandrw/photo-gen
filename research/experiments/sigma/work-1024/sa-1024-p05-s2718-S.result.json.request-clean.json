@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-1024/sa-1024-p05-s2718-S.png",
+ "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+ "width": 1024,
+ "height": 1024,
+ "steps": 8,
+ "seed": 2718,
+ "precision": "bf16",
+ "release_transformer": true
+}

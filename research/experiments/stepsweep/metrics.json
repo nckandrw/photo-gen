@@ -1,0 +1,362 @@
+[
+ {
+  "pair": "p01-st8",
+  "psnr_db": 40.52,
+  "mean_abs": 1.31,
+  "ssim": 0.989
+ },
+ {
+  "pair": "p01-st7",
+  "psnr_db": 36.42,
+  "mean_abs": 1.99,
+  "ssim": 0.9863
+ },
+ {
+  "pair": "p01-st6",
+  "psnr_db": 32.67,
+  "mean_abs": 3.19,
+  "ssim": 0.9785
+ },
+ {
+  "pair": "p01-st5",
+  "psnr_db": 29.65,
+  "mean_abs": 4.34,
+  "ssim": 0.969
+ },
+ {
+  "pair": "p01-st4",
+  "psnr_db": 27.65,
+  "mean_abs": 6.04,
+  "ssim": 0.9568
+ },
+ {
+  "pair": "p02-st8",
+  "psnr_db": 34.25,
+  "mean_abs": 2.07,
+  "ssim": 0.9843
+ },
+ {
+  "pair": "p02-st7",
+  "psnr_db": 30.35,
+  "mean_abs": 3.45,
+  "ssim": 0.9714
+ },
+ {
+  "pair": "p02-st6",
+  "psnr_db": 27.37,
+  "mean_abs": 5.22,
+  "ssim": 0.9554
+ },
+ {
+  "pair": "p02-st5",
+  "psnr_db": 25.95,
+  "mean_abs": 6.54,
+  "ssim": 0.9431
+ },
+ {
+  "pair": "p02-st4",
+  "psnr_db": 24.15,
+  "mean_abs": 8.73,
+  "ssim": 0.9171
+ },
+ {
+  "pair": "p03-st8",
+  "psnr_db": 29.7,
+  "mean_abs": 3.19,
+  "ssim": 0.951
+ },
+ {
+  "pair": "p03-st7",
+  "psnr_db": 26.72,
+  "mean_abs": 4.74,
+  "ssim": 0.9278
+ },
+ {
+  "pair": "p03-st6",
+  "psnr_db": 24.04,
+  "mean_abs": 6.81,
+  "ssim": 0.8996
+ },
+ {
+  "pair": "p03-st5",
+  "psnr_db": 22.81,
+  "mean_abs": 8.66,
+  "ssim": 0.8865
+ },
+ {
+  "pair": "p03-st4",
+  "psnr_db": 21.86,
+  "mean_abs": 10.37,
+  "ssim": 0.8747
+ },
+ {
+  "pair": "p04-st8",
+  "psnr_db": 33.91,
+  "mean_abs": 2.62,
+  "ssim": 0.9806
+ },
+ {
+  "pair": "p04-st7",
+  "psnr_db": 28.72,
+  "mean_abs": 4.69,
+  "ssim": 0.9605
+ },
+ {
+  "pair": "p04-st6",
+  "psnr_db": 24.46,
+  "mean_abs": 7.38,
+  "ssim": 0.924
+ },
+ {
+  "pair": "p04-st5",
+  "psnr_db": 23.2,
+  "mean_abs": 8.94,
+  "ssim": 0.9083
+ },
+ {
+  "pair": "p04-st4",
+  "psnr_db": 22.06,
+  "mean_abs": 11.32,
+  "ssim": 0.8922
+ },
+ {
+  "pair": "p05-st8",
+  "psnr_db": 36.99,
+  "mean_abs": 1.32,
+  "ssim": 0.9894
+ },
+ {
+  "pair": "p05-st7",
+  "psnr_db": 29.27,
+  "mean_abs": 3.22,
+  "ssim": 0.9706
+ },
+ {
+  "pair": "p05-st6",
+  "psnr_db": 25.65,
+  "mean_abs": 4.88,
+  "ssim": 0.9499
+ },
+ {
+  "pair": "p05-st5",
+  "psnr_db": 24.08,
+  "mean_abs": 5.97,
+  "ssim": 0.9356
+ },
+ {
+  "pair": "p05-st4",
+  "psnr_db": 22.86,
+  "mean_abs": 7.2,
+  "ssim": 0.9207
+ },
+ {
+  "pair": "p06-st8",
+  "psnr_db": 23.55,
+  "mean_abs": 7.74,
+  "ssim": 0.8779
+ },
+ {
+  "pair": "p06-st7",
+  "psnr_db": 19.99,
+  "mean_abs": 12.87,
+  "ssim": 0.7904
+ },
+ {
+  "pair": "p06-st6",
+  "psnr_db": 18.27,
+  "mean_abs": 17.28,
+  "ssim": 0.7331
+ },
+ {
+  "pair": "p06-st5",
+  "psnr_db": 16.68,
+  "mean_abs": 21.71,
+  "ssim": 0.6831
+ },
+ {
+  "pair": "p06-st4",
+  "psnr_db": 15.84,
+  "mean_abs": 25.24,
+  "ssim": 0.6481
+ },
+ {
+  "pair": "p07-st8",
+  "psnr_db": 18.01,
+  "mean_abs": 8.85,
+  "ssim": 0.896
+ },
+ {
+  "pair": "p07-st7",
+  "psnr_db": 16.69,
+  "mean_abs": 13.59,
+  "ssim": 0.8608
+ },
+ {
+  "pair": "p07-st6",
+  "psnr_db": 15.79,
+  "mean_abs": 17.51,
+  "ssim": 0.8295
+ },
+ {
+  "pair": "p07-st5",
+  "psnr_db": 15.41,
+  "mean_abs": 19.45,
+  "ssim": 0.8153
+ },
+ {
+  "pair": "p07-st4",
+  "psnr_db": 15.15,
+  "mean_abs": 21.95,
+  "ssim": 0.7967
+ },
+ {
+  "pair": "p08-st8",
+  "psnr_db": 32.29,
+  "mean_abs": 2.84,
+  "ssim": 0.9709
+ },
+ {
+  "pair": "p08-st7",
+  "psnr_db": 28.63,
+  "mean_abs": 4.55,
+  "ssim": 0.947
+ },
+ {
+  "pair": "p08-st6",
+  "psnr_db": 25.17,
+  "mean_abs": 7.06,
+  "ssim": 0.9142
+ },
+ {
+  "pair": "p08-st5",
+  "psnr_db": 23.5,
+  "mean_abs": 9.46,
+  "ssim": 0.8845
+ },
+ {
+  "pair": "p08-st4",
+  "psnr_db": 19.31,
+  "mean_abs": 16.83,
+  "ssim": 0.8044
+ },
+ {
+  "pair": "p09-st8",
+  "psnr_db": 16.83,
+  "mean_abs": 20.3,
+  "ssim": 0.7016
+ },
+ {
+  "pair": "p09-st7",
+  "psnr_db": 14.99,
+  "mean_abs": 27.28,
+  "ssim": 0.6142
+ },
+ {
+  "pair": "p09-st6",
+  "psnr_db": 13.94,
+  "mean_abs": 32.21,
+  "ssim": 0.5604
+ },
+ {
+  "pair": "p09-st5",
+  "psnr_db": 13.12,
+  "mean_abs": 36.71,
+  "ssim": 0.5117
+ },
+ {
+  "pair": "p09-st4",
+  "psnr_db": 12.66,
+  "mean_abs": 39.91,
+  "ssim": 0.481
+ },
+ {
+  "pair": "p10-st8",
+  "psnr_db": 33.73,
+  "mean_abs": 3.08,
+  "ssim": 0.978
+ },
+ {
+  "pair": "p10-st7",
+  "psnr_db": 28.6,
+  "mean_abs": 5.74,
+  "ssim": 0.9495
+ },
+ {
+  "pair": "p10-st6",
+  "psnr_db": 24.95,
+  "mean_abs": 8.86,
+  "ssim": 0.9083
+ },
+ {
+  "pair": "p10-st5",
+  "psnr_db": 20.94,
+  "mean_abs": 14.33,
+  "ssim": 0.8462
+ },
+ {
+  "pair": "p10-st4",
+  "psnr_db": 19.59,
+  "mean_abs": 17.41,
+  "ssim": 0.802
+ },
+ {
+  "pair": "p11-st8",
+  "psnr_db": 25.44,
+  "mean_abs": 6.08,
+  "ssim": 0.9113
+ },
+ {
+  "pair": "p11-st7",
+  "psnr_db": 23.09,
+  "mean_abs": 8.83,
+  "ssim": 0.8725
+ },
+ {
+  "pair": "p11-st6",
+  "psnr_db": 20.34,
+  "mean_abs": 12.77,
+  "ssim": 0.8289
+ },
+ {
+  "pair": "p11-st5",
+  "psnr_db": 19.72,
+  "mean_abs": 14.36,
+  "ssim": 0.8138
+ },
+ {
+  "pair": "p11-st4",
+  "psnr_db": 19.52,
+  "mean_abs": 15.05,
+  "ssim": 0.8047
+ },
+ {
+  "pair": "p12-st8",
+  "psnr_db": 30.34,
+  "mean_abs": 1.96,
+  "ssim": 0.98
+ },
+ {
+  "pair": "p12-st7",
+  "psnr_db": 27.72,
+  "mean_abs": 3.18,
+  "ssim": 0.9668
+ },
+ {
+  "pair": "p12-st6",
+  "psnr_db": 24.91,
+  "mean_abs": 4.78,
+  "ssim": 0.9507
+ },
+ {
+  "pair": "p12-st5",
+  "psnr_db": 24.29,
+  "mean_abs": 5.59,
+  "ssim": 0.9462
+ },
+ {
+  "pair": "p12-st4",
+  "psnr_db": 23.43,
+  "mean_abs": 6.54,
+  "ssim": 0.9386
+ }
+]

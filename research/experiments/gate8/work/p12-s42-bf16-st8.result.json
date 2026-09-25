@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/gate8/work/p12-s42-bf16-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.086,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.645,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.622,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 79.286,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 76.019
+ },
+ "step_seconds": [
+  9.102,
+  9.496,
+  9.433,
+  9.439,
+  9.742,
+  9.486,
+  9.48,
+  9.638
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 81.895,
+ "peak_footprint_gb": 5.851
+}

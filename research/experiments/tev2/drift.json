@@ -1,0 +1,234 @@
+{
+ "per_prompt": [
+  {
+   "set": "normal",
+   "id": "p01",
+   "tokens": 19,
+   "tok_cos_mean": 0.99175,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.02521,
+   "pooled_cos": 0.99924
+  },
+  {
+   "set": "normal",
+   "id": "p02",
+   "tokens": 30,
+   "tok_cos_mean": 0.99203,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03084,
+   "pooled_cos": 0.99844
+  },
+  {
+   "set": "normal",
+   "id": "p03",
+   "tokens": 34,
+   "tok_cos_mean": 0.99145,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03318,
+   "pooled_cos": 0.99815
+  },
+  {
+   "set": "normal",
+   "id": "p04",
+   "tokens": 63,
+   "tok_cos_mean": 0.99282,
+   "tok_cos_min": 0.97556,
+   "rel_l2": 0.03969,
+   "pooled_cos": 0.99761
+  },
+  {
+   "set": "normal",
+   "id": "p05",
+   "tokens": 32,
+   "tok_cos_mean": 0.98906,
+   "tok_cos_min": 0.97518,
+   "rel_l2": 0.03555,
+   "pooled_cos": 0.99837
+  },
+  {
+   "set": "normal",
+   "id": "p06",
+   "tokens": 37,
+   "tok_cos_mean": 0.99166,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03387,
+   "pooled_cos": 0.99819
+  },
+  {
+   "set": "normal",
+   "id": "p07",
+   "tokens": 44,
+   "tok_cos_mean": 0.99224,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.0363,
+   "pooled_cos": 0.99794
+  },
+  {
+   "set": "normal",
+   "id": "p08",
+   "tokens": 40,
+   "tok_cos_mean": 0.99172,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03562,
+   "pooled_cos": 0.99789
+  },
+  {
+   "set": "normal",
+   "id": "p09",
+   "tokens": 44,
+   "tok_cos_mean": 0.99366,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.0331,
+   "pooled_cos": 0.9983
+  },
+  {
+   "set": "normal",
+   "id": "p10",
+   "tokens": 34,
+   "tok_cos_mean": 0.99155,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03365,
+   "pooled_cos": 0.99811
+  },
+  {
+   "set": "normal",
+   "id": "p11",
+   "tokens": 36,
+   "tok_cos_mean": 0.99316,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03158,
+   "pooled_cos": 0.9985
+  },
+  {
+   "set": "normal",
+   "id": "p12",
+   "tokens": 34,
+   "tok_cos_mean": 0.9915,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03202,
+   "pooled_cos": 0.99857
+  },
+  {
+   "set": "borderline",
+   "id": "b01",
+   "tokens": 27,
+   "tok_cos_mean": 0.99018,
+   "tok_cos_min": 0.96785,
+   "rel_l2": 0.03208,
+   "pooled_cos": 0.99834
+  },
+  {
+   "set": "borderline",
+   "id": "b02",
+   "tokens": 23,
+   "tok_cos_mean": 0.98949,
+   "tok_cos_min": 0.96618,
+   "rel_l2": 0.02956,
+   "pooled_cos": 0.99886
+  },
+  {
+   "set": "borderline",
+   "id": "b03",
+   "tokens": 24,
+   "tok_cos_mean": 0.99191,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.02812,
+   "pooled_cos": 0.99883
+  },
+  {
+   "set": "borderline",
+   "id": "b04",
+   "tokens": 29,
+   "tok_cos_mean": 0.98977,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.0329,
+   "pooled_cos": 0.99851
+  },
+  {
+   "set": "borderline",
+   "id": "b05",
+   "tokens": 23,
+   "tok_cos_mean": 0.98701,
+   "tok_cos_min": 0.96606,
+   "rel_l2": 0.03434,
+   "pooled_cos": 0.99876
+  },
+  {
+   "set": "borderline",
+   "id": "b06",
+   "tokens": 25,
+   "tok_cos_mean": 0.98944,
+   "tok_cos_min": 0.97027,
+   "rel_l2": 0.03157,
+   "pooled_cos": 0.99844
+  },
+  {
+   "set": "borderline",
+   "id": "b07",
+   "tokens": 24,
+   "tok_cos_mean": 0.99062,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03015,
+   "pooled_cos": 0.9987
+  },
+  {
+   "set": "borderline",
+   "id": "b08",
+   "tokens": 22,
+   "tok_cos_mean": 0.98603,
+   "tok_cos_min": 0.94015,
+   "rel_l2": 0.033,
+   "pooled_cos": 0.99862
+  },
+  {
+   "set": "borderline",
+   "id": "b09",
+   "tokens": 25,
+   "tok_cos_mean": 0.98982,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03126,
+   "pooled_cos": 0.99861
+  },
+  {
+   "set": "borderline",
+   "id": "b10",
+   "tokens": 22,
+   "tok_cos_mean": 0.9905,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.02859,
+   "pooled_cos": 0.9988
+  },
+  {
+   "set": "borderline",
+   "id": "b11",
+   "tokens": 25,
+   "tok_cos_mean": 0.98992,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03151,
+   "pooled_cos": 0.99862
+  },
+  {
+   "set": "borderline",
+   "id": "b12",
+   "tokens": 24,
+   "tok_cos_mean": 0.99012,
+   "tok_cos_min": 0.97619,
+   "rel_l2": 0.03048,
+   "pooled_cos": 0.99868
+  }
+ ],
+ "by_set": {
+  "normal": {
+   "tok_cos_mean": 0.99188,
+   "tok_cos_min": 0.97605,
+   "rel_l2": 0.03338,
+   "pooled_cos": 0.99828
+  },
+  "borderline": {
+   "tok_cos_mean": 0.98957,
+   "tok_cos_min": 0.97032,
+   "rel_l2": 0.03113,
+   "pooled_cos": 0.99865
+  }
+ }
+}

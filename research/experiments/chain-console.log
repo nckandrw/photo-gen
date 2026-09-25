@@ -1,0 +1,24 @@
+[20:50:35] A/B finished; starting VAE lifecycle
+20:50:35 p01-r0-cur                       rc=0 wall=131.57 denoise=124.946 fp=7.334
+20:52:48 p01-r0-rel                       rc=0 wall=144.38 denoise=137.788 fp=6.559
+20:55:14 p01-r1-rel                       rc=0 wall=143.71 denoise=137.21 fp=6.557
+20:57:39 p01-r1-cur                       rc=0 wall=143.01 denoise=136.467 fp=7.367
+21:00:03 p05-r0-cur                       rc=0 wall=142.22 denoise=135.674 fp=7.362
+21:02:27 p05-r0-rel                       rc=0 wall=141.23 denoise=134.692 fp=6.559
+21:04:50 p05-r1-rel                       rc=0 wall=141.71 denoise=135.183 fp=6.557
+21:07:13 p05-r1-cur                       rc=0 wall=141.51 denoise=135.03 fp=7.351
+RUNNER_DONE
+[21:09:36] starting cache audit
+21:09:36 audit-p01                        rc=0 wall=158.05 denoise=150.725 fp=10.175
+21:12:16 audit-p05                        rc=0 wall=156.45 denoise=149.698 fp=10.196
+RUNNER_DONE
+[21:14:54] starting E09 proxy
+{
+ "fp32.ffn10240.block_ms": 327.95,
+ "fp32.ffn6400.block_ms": 308.14,
+ "fp32.block_speedup_pct": 6.0,
+ "bf16.ffn10240.block_ms": 288.65,
+ "bf16.ffn6400.block_ms": 213.74,
+ "bf16.block_speedup_pct": 26.0
+}
+CHAIN_DONE

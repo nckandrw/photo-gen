@@ -1,0 +1,944 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/D4CTY7IrCSu8ZMlty8YZl2Dugos</id>
+  <title>arXiv Query: search_query=&amp;id_list=2511.22699,2606.27089,2511.22677,2505.20353,2409.18523,2509.10918,2405.16005,2406.17343,2407.03917,2603.18742,2205.14135,2410.02367,2410.10629,2311.16567,2412.09619,2503.04871,2312.00858,2303.01469,2310.04378,2406.04103,2409.06633,2410.21759,2310.11513,2512.16853,2307.06350,2506.07977,2304.05977&amp;start=0&amp;max_results=40</title>
+  <updated>2026-09-24T10:31:05Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=40&amp;id_list=2511.22699,2606.27089,2511.22677,2505.20353,2409.18523,2509.10918,2405.16005,2406.17343,2407.03917,2603.18742,2205.14135,2410.02367,2410.10629,2311.16567,2412.09619,2503.04871,2312.00858,2303.01469,2310.04378,2406.04103,2409.06633,2410.21759,2310.11513,2512.16853,2307.06350,2506.07977,2304.05977" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>40</opensearch:itemsPerPage>
+  <opensearch:totalResults>27</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2310.11513v1</id>
+    <title>GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment</title>
+    <updated>2023-10-17T18:20:03Z</updated>
+    <link href="https://arxiv.org/abs/2310.11513v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.11513v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent breakthroughs in diffusion models, multimodal pretraining, and efficient finetuning have led to an explosion of text-to-image generative models. Given human evaluation is expensive and difficult to scale, automated methods are critical for evaluating the increasingly large number of new models. However, most current automated evaluation metrics like FID or CLIPScore only offer a holistic measure of image quality or image-text alignment, and are unsuited for fine-grained or instance-level analysis. In this paper, we introduce GenEval, an object-focused framework to evaluate compositional image properties such as object co-occurrence, position, count, and color. We show that current object detection models can be leveraged to evaluate text-to-image models on a variety of generation tasks with strong human agreement, and that other discriminative vision models can be linked to this pipeline to further verify properties like object color. We then evaluate several open-source text-to-image models and analyze their relative generative capabilities on our benchmark. We find that recent models demonstrate significant improvement on these tasks, though they are still lacking in complex capabilities such as spatial relations and attribute binding. Finally, we demonstrate how GenEval might be used to help discover existing failure modes, in order to inform development of the next generation of text-to-image models. Our code to run the GenEval framework is publicly available at https://github.com/djghosh13/geneval.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-17T18:20:03Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dhruba Ghosh</name>
+    </author>
+    <author>
+      <name>Hanna Hajishirzi</name>
+    </author>
+    <author>
+      <name>Ludwig Schmidt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.02367v9</id>
+    <title>SageAttention: Accurate 8-Bit Attention for Plug-and-play Inference Acceleration</title>
+    <updated>2025-10-01T16:09:05Z</updated>
+    <link href="https://arxiv.org/abs/2410.02367v9" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.02367v9" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The transformer architecture predominates across various models. As the heart of the transformer, attention has a computational complexity of $O(N^2)$, compared to $O(N)$ for linear transformations. When handling large sequence lengths, attention becomes the primary time-consuming component. Although quantization has proven to be an effective method for accelerating model inference, existing quantization methods primarily focus on optimizing the linear layer. In response, we first analyze the feasibility of quantization in attention detailedly. Following that, we propose SageAttention, a highly efficient and accurate quantization method for attention. The OPS (operations per second) of our approach outperforms FlashAttention2 and xformers by about 2.1 times and 2.7 times, respectively. SageAttention also achieves superior accuracy performance over FlashAttention3. Comprehensive experiments confirm that our approach incurs almost no end-to-end metrics loss across diverse models, including those for large language processing, image generation, and video generation. The codes are available at https://github.com/thu-ml/SageAttention.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-03T10:25:23Z</published>
+    <arxiv:comment>@inproceedings{zhang2025sageattention, title={SageAttention: Accurate 8-Bit Attention for Plug-and-play Inference Acceleration}, author={Zhang, Jintao and Wei, Jia and Zhang, Pengle and Zhu, Jun and Chen, Jianfei}, booktitle={International Conference on Learning Representations (ICLR)}, year={2025} }</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>The Thirteenth International Conference on Learning Representations (ICLR 2025)</arxiv:journal_ref>
+    <author>
+      <name>Jintao Zhang</name>
+    </author>
+    <author>
+      <name>Jia Wei</name>
+    </author>
+    <author>
+      <name>Haofeng Huang</name>
+    </author>
+    <author>
+      <name>Pengle Zhang</name>
+    </author>
+    <author>
+      <name>Jun Zhu</name>
+    </author>
+    <author>
+      <name>Jianfei Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.07977v3</id>
+    <title>OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation</title>
+    <updated>2025-06-26T15:47:09Z</updated>
+    <link href="https://arxiv.org/abs/2506.07977v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.07977v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Text-to-image (T2I) models have garnered significant attention for generating high-quality images aligned with text prompts. However, rapid T2I model advancements reveal limitations in early benchmarks, lacking comprehensive evaluations, for example, the evaluation on reasoning, text rendering and style. Notably, recent state-of-the-art models, with their rich knowledge modeling capabilities, show promising results on the image generation problems requiring strong reasoning ability, yet existing evaluation systems have not adequately addressed this frontier. To systematically address these gaps, we introduce OneIG-Bench, a meticulously designed comprehensive benchmark framework for fine-grained evaluation of T2I models across multiple dimensions, including prompt-image alignment, text rendering precision, reasoning-generated content, stylization, and diversity. By structuring the evaluation, this benchmark enables in-depth analysis of model performance, helping researchers and practitioners pinpoint strengths and bottlenecks in the full pipeline of image generation. Specifically, OneIG-Bench enables flexible evaluation by allowing users to focus on a particular evaluation subset. Instead of generating images for the entire set of prompts, users can generate images only for the prompts associated with the selected dimension and complete the corresponding evaluation accordingly. Our codebase and dataset are now publicly available to facilitate reproducible evaluation studies and cross-model comparisons within the T2I research community.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-09T17:50:21Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jingjing Chang</name>
+    </author>
+    <author>
+      <name>Yixiao Fang</name>
+    </author>
+    <author>
+      <name>Peng Xing</name>
+    </author>
+    <author>
+      <name>Shuhan Wu</name>
+    </author>
+    <author>
+      <name>Wei Cheng</name>
+    </author>
+    <author>
+      <name>Rui Wang</name>
+    </author>
+    <author>
+      <name>Xianfang Zeng</name>
+    </author>
+    <author>
+      <name>Gang Yu</name>
+    </author>
+    <author>
+      <name>Hai-Bao Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2312.00858v2</id>
+    <title>DeepCache: Accelerating Diffusion Models for Free</title>
+    <updated>2023-12-07T17:24:18Z</updated>
+    <link href="https://arxiv.org/abs/2312.00858v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2312.00858v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models have recently gained unprecedented attention in the field of image synthesis due to their remarkable generative capabilities. Notwithstanding their prowess, these models often incur substantial computational costs, primarily attributed to the sequential denoising process and cumbersome model size. Traditional methods for compressing diffusion models typically involve extensive retraining, presenting cost and feasibility challenges. In this paper, we introduce DeepCache, a novel training-free paradigm that accelerates diffusion models from the perspective of model architecture. DeepCache capitalizes on the inherent temporal redundancy observed in the sequential denoising steps of diffusion models, which caches and retrieves features across adjacent denoising stages, thereby curtailing redundant computations. Utilizing the property of the U-Net, we reuse the high-level features while updating the low-level features in a very cheap way. This innovative strategy, in turn, enables a speedup factor of 2.3$\times$ for Stable Diffusion v1.5 with only a 0.05 decline in CLIP Score, and 4.1$\times$ for LDM-4-G with a slight decrease of 0.22 in FID on ImageNet. Our experiments also demonstrate DeepCache's superiority over existing pruning and distillation methods that necessitate retraining and its compatibility with current sampling techniques. Furthermore, we find that under the same throughput, DeepCache effectively achieves comparable or even marginally improved results with DDIM or PLMS. The code is available at https://github.com/horseee/DeepCache</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-12-01T17:01:06Z</published>
+    <arxiv:comment>Work in progress. Project Page: https://horseee.github.io/Diffusion_DeepCache/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xinyin Ma</name>
+    </author>
+    <author>
+      <name>Gongfan Fang</name>
+    </author>
+    <author>
+      <name>Xinchao Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2405.16005v3</id>
+    <title>PTQ4DiT: Post-training Quantization for Diffusion Transformers</title>
+    <updated>2024-10-17T15:28:15Z</updated>
+    <link href="https://arxiv.org/abs/2405.16005v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2405.16005v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The recent introduction of Diffusion Transformers (DiTs) has demonstrated exceptional capabilities in image generation by using a different backbone architecture, departing from traditional U-Nets and embracing the scalable nature of transformers. Despite their advanced capabilities, the wide deployment of DiTs, particularly for real-time applications, is currently hampered by considerable computational demands at the inference stage. Post-training Quantization (PTQ) has emerged as a fast and data-efficient solution that can significantly reduce computation and memory footprint by using low-bit weights and activations. However, its applicability to DiTs has not yet been explored and faces non-trivial difficulties due to the unique design of DiTs. In this paper, we propose PTQ4DiT, a specifically designed PTQ method for DiTs. We discover two primary quantization challenges inherent in DiTs, notably the presence of salient channels with extreme magnitudes and the temporal variability in distributions of salient activation over multiple timesteps. To tackle these challenges, we propose Channel-wise Salience Balancing (CSB) and Spearmen's $ρ$-guided Salience Calibration (SSC). CSB leverages the complementarity property of channel magnitudes to redistribute the extremes, alleviating quantization errors for both activations and weights. SSC extends this approach by dynamically adjusting the balanced salience to capture the temporal variations in activation. Additionally, to eliminate extra computational costs caused by PTQ4DiT during inference, we design an offline re-parameterization strategy for DiTs. Experiments demonstrate that our PTQ4DiT successfully quantizes DiTs to 8-bit precision (W8A8) while preserving comparable generation ability and further enables effective quantization to 4-bit weight precision (W4A8) for the first time.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-05-25T02:02:08Z</published>
+    <arxiv:comment>NeurIPS 2024. Code is available at https://github.com/adreamwu/PTQ4DiT</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Junyi Wu</name>
+    </author>
+    <author>
+      <name>Haoxuan Wang</name>
+    </author>
+    <author>
+      <name>Yuzhang Shang</name>
+    </author>
+    <author>
+      <name>Mubarak Shah</name>
+    </author>
+    <author>
+      <name>Yan Yan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2307.06350v3</id>
+    <title>T2I-CompBench++: An Enhanced and Comprehensive Benchmark for Compositional Text-to-image Generation</title>
+    <updated>2025-03-08T14:57:45Z</updated>
+    <link href="https://arxiv.org/abs/2307.06350v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2307.06350v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Despite the impressive advances in text-to-image models, they often struggle to effectively compose complex scenes with multiple objects, displaying various attributes and relationships. To address this challenge, we present T2I-CompBench++, an enhanced benchmark for compositional text-to-image generation. T2I-CompBench++ comprises 8,000 compositional text prompts categorized into four primary groups: attribute binding, object relationships, generative numeracy, and complex compositions. These are further divided into eight sub-categories, including newly introduced ones like 3D-spatial relationships and numeracy. In addition to the benchmark, we propose enhanced evaluation metrics designed to assess these diverse compositional challenges. These include a detection-based metric tailored for evaluating 3D-spatial relationships and numeracy, and an analysis leveraging Multimodal Large Language Models (MLLMs), i.e. GPT-4V, ShareGPT4v as evaluation metrics. Our experiments benchmark 11 text-to-image models, including state-of-the-art models, such as FLUX.1, SD3, DALLE-3, Pixart-$α$, and SD-XL on T2I-CompBench++. We also conduct comprehensive evaluations to validate the effectiveness of our metrics and explore the potential and limitations of MLLMs.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-07-12T17:59:42Z</published>
+    <arxiv:comment>This is the journal version. For conference version (T2I-CompBench): arXiv:2307.06350v2. Project page: https://karine-h.github.io/T2I-CompBench-new/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Kaiyi Huang</name>
+    </author>
+    <author>
+      <name>Chengqi Duan</name>
+    </author>
+    <author>
+      <name>Kaiyue Sun</name>
+    </author>
+    <author>
+      <name>Enze Xie</name>
+    </author>
+    <author>
+      <name>Zhenguo Li</name>
+    </author>
+    <author>
+      <name>Xihui Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.18742v1</id>
+    <title>6Bit-Diffusion: Inference-Time Mixed-Precision Quantization for Video Diffusion Models</title>
+    <updated>2026-03-19T10:45:11Z</updated>
+    <link href="https://arxiv.org/abs/2603.18742v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.18742v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion transformers have demonstrated remarkable capabilities in generating videos. However, their practical deployment is severely constrained by high memory usage and computational cost. Post-Training Quantization provides a practical way to reduce memory usage and boost computation speed. Existing quantization methods typically apply a static bit-width allocation, overlooking the quantization difficulty of activations across diffusion timesteps, leading to a suboptimal trade-off between efficiency and quality. In this paper, we propose a inference time NVFP4/INT8 Mixed-Precision Quantization framework. We find a strong linear correlation between a block's input-output difference and the quantization sensitivity of its internal linear layers. Based on this insight, we design a lightweight predictor that dynamically allocates NVFP4 to temporally stable layers to maximize memory compression, while selectively preserving INT8 for volatile layers to ensure robustness. This adaptive precision strategy enables aggressive quantization without compromising generation quality. Beside this, we observe that the residual between the input and output of a Transformer block exhibits high temporal consistency across timesteps. Leveraging this temporal redundancy, we introduce Temporal Delta Cache (TDC) to skip computations for these invariant blocks, further reducing the computational cost. Extensive experiments demonstrate that our method achieves 1.92$\times$ end-to-end acceleration and 3.32$\times$ memory reduction, setting a new baseline for efficient inference in Video DiTs.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-19T10:45:11Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Rundong Su</name>
+    </author>
+    <author>
+      <name>Jintao Zhang</name>
+    </author>
+    <author>
+      <name>Zhihang Yuan</name>
+    </author>
+    <author>
+      <name>Haojie Duanmu</name>
+    </author>
+    <author>
+      <name>Jianfei Chen</name>
+    </author>
+    <author>
+      <name>Jun Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.27089v1</id>
+    <title>TMP: Tree-structured Mixed-policy Pruning for Large-scale Image Generation and Editing</title>
+    <updated>2026-06-25T14:26:27Z</updated>
+    <link href="https://arxiv.org/abs/2606.27089v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.27089v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Modern image generation model rapidly grows their sizes to meet high-fidelity image synthesis. However, they gradually become unaffordable for their enormous parameter consumption and computation budget that lead to massive resources requirement and gpu memory footprint. In this paper, we propose TMP, the first Tree-structured Mixed-policy Pruning framework that generalizes prevalent image tasks (T2I and TI2I) and architectures (Mixture-of-Experts (MoE) and Diffusion transformer (DiT)). It could be applied to the step-distilled models and contribute as the last stage. We perform experiments upon current open-sourced SOTA HunyuanImage-3.0 instruct and a popular efficient model Z-Image turbo. The proposed pruning framework manages to compress HunyuanImage 3.0 from 80B to 20B parameters at 75% reduction ratio, sacrificing limited generation quality. We also optimize to enable the inference of the pruned 20B version of HunyuanImage 3.0 on a single 24GB 4090 GPU by engineering skills. The inference script and model weight have been integrated into the existing HunyuanImage3.0 open-source github and huggingface repository. Besides, we prove the efficacy of TMP by compressing Z-Image turbo from 6B to 4B (33% reduction) with negligible degradation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-25T14:26:27Z</published>
+    <arxiv:comment>10 pages, 3 figures, 3 tables, tech report</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Peizhen Zhang</name>
+    </author>
+    <author>
+      <name>Yang Li</name>
+    </author>
+    <author>
+      <name>Xunsong Li</name>
+    </author>
+    <author>
+      <name>Songtao Liu</name>
+    </author>
+    <author>
+      <name>Zewen Liu</name>
+    </author>
+    <author>
+      <name>Qiangqiang Hu</name>
+    </author>
+    <author>
+      <name>Guotong Guo</name>
+    </author>
+    <author>
+      <name>Jupeng Ding</name>
+    </author>
+    <author>
+      <name>Yifu Sun</name>
+    </author>
+    <author>
+      <name> coopersli</name>
+    </author>
+    <author>
+      <name>Jian Zhang</name>
+    </author>
+    <author>
+      <name>Zhao Zhong</name>
+    </author>
+    <author>
+      <name>Liefeng Bo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2310.04378v1</id>
+    <title>Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference</title>
+    <updated>2023-10-06T17:11:58Z</updated>
+    <link href="https://arxiv.org/abs/2310.04378v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2310.04378v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Latent Diffusion models (LDMs) have achieved remarkable results in synthesizing high-resolution images. However, the iterative sampling process is computationally intensive and leads to slow generation. Inspired by Consistency Models (song et al.), we propose Latent Consistency Models (LCMs), enabling swift inference with minimal steps on any pre-trained LDMs, including Stable Diffusion (rombach et al). Viewing the guided reverse diffusion process as solving an augmented probability flow ODE (PF-ODE), LCMs are designed to directly predict the solution of such ODE in latent space, mitigating the need for numerous iterations and allowing rapid, high-fidelity sampling. Efficiently distilled from pre-trained classifier-free guided diffusion models, a high-quality 768 x 768 2~4-step LCM takes only 32 A100 GPU hours for training. Furthermore, we introduce Latent Consistency Fine-tuning (LCF), a novel method that is tailored for fine-tuning LCMs on customized image datasets. Evaluation on the LAION-5B-Aesthetics dataset demonstrates that LCMs achieve state-of-the-art text-to-image generation performance with few-step inference. Project Page: https://latent-consistency-models.github.io/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-10-06T17:11:58Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Simian Luo</name>
+    </author>
+    <author>
+      <name>Yiqin Tan</name>
+    </author>
+    <author>
+      <name>Longbo Huang</name>
+    </author>
+    <author>
+      <name>Jian Li</name>
+    </author>
+    <author>
+      <name>Hang Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2311.16567v2</id>
+    <title>MobileDiffusion: Instant Text-to-Image Generation on Mobile Devices</title>
+    <updated>2024-06-12T07:16:21Z</updated>
+    <link href="https://arxiv.org/abs/2311.16567v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2311.16567v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The deployment of large-scale text-to-image diffusion models on mobile devices is impeded by their substantial model size and slow inference speed. In this paper, we propose \textbf{MobileDiffusion}, a highly efficient text-to-image diffusion model obtained through extensive optimizations in both architecture and sampling techniques. We conduct a comprehensive examination of model architecture design to reduce redundancy, enhance computational efficiency, and minimize model's parameter count, while preserving image generation quality. Additionally, we employ distillation and diffusion-GAN finetuning techniques on MobileDiffusion to achieve 8-step and 1-step inference respectively. Empirical studies, conducted both quantitatively and qualitatively, demonstrate the effectiveness of our proposed techniques. MobileDiffusion achieves a remarkable \textbf{sub-second} inference speed for generating a $512\times512$ image on mobile devices, establishing a new state of the art.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-11-28T07:14:41Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yang Zhao</name>
+    </author>
+    <author>
+      <name>Yanwu Xu</name>
+    </author>
+    <author>
+      <name>Zhisheng Xiao</name>
+    </author>
+    <author>
+      <name>Haolin Jia</name>
+    </author>
+    <author>
+      <name>Tingbo Hou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.10629v3</id>
+    <title>SANA: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers</title>
+    <updated>2024-10-20T14:35:31Z</updated>
+    <link href="https://arxiv.org/abs/2410.10629v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.10629v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce Sana, a text-to-image framework that can efficiently generate images up to 4096$\times$4096 resolution. Sana can synthesize high-resolution, high-quality images with strong text-image alignment at a remarkably fast speed, deployable on laptop GPU. Core designs include: (1) Deep compression autoencoder: unlike traditional AEs, which compress images only 8$\times$, we trained an AE that can compress images 32$\times$, effectively reducing the number of latent tokens. (2) Linear DiT: we replace all vanilla attention in DiT with linear attention, which is more efficient at high resolutions without sacrificing quality. (3) Decoder-only text encoder: we replaced T5 with modern decoder-only small LLM as the text encoder and designed complex human instruction with in-context learning to enhance the image-text alignment. (4) Efficient training and sampling: we propose Flow-DPM-Solver to reduce sampling steps, with efficient caption labeling and selection to accelerate convergence. As a result, Sana-0.6B is very competitive with modern giant diffusion model (e.g. Flux-12B), being 20 times smaller and 100+ times faster in measured throughput. Moreover, Sana-0.6B can be deployed on a 16GB laptop GPU, taking less than 1 second to generate a 1024$\times$1024 resolution image. Sana enables content creation at low cost. Code and model will be publicly released.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-14T15:36:42Z</published>
+    <arxiv:comment>Technical Report</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Enze Xie</name>
+    </author>
+    <author>
+      <name>Junsong Chen</name>
+    </author>
+    <author>
+      <name>Junyu Chen</name>
+    </author>
+    <author>
+      <name>Han Cai</name>
+    </author>
+    <author>
+      <name>Haotian Tang</name>
+    </author>
+    <author>
+      <name>Yujun Lin</name>
+    </author>
+    <author>
+      <name>Zhekai Zhang</name>
+    </author>
+    <author>
+      <name>Muyang Li</name>
+    </author>
+    <author>
+      <name>Ligeng Zhu</name>
+    </author>
+    <author>
+      <name>Yao Lu</name>
+    </author>
+    <author>
+      <name>Song Han</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.22677v1</id>
+    <title>Decoupled DMD: CFG Augmentation as the Spear, Distribution Matching as the Shield</title>
+    <updated>2025-11-27T18:24:28Z</updated>
+    <link href="https://arxiv.org/abs/2511.22677v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.22677v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion model distillation has emerged as a powerful technique for creating efficient few-step and single-step generators. Among these, Distribution Matching Distillation (DMD) and its variants stand out for their impressive performance, which is widely attributed to their core mechanism of matching the student's output distribution to that of a pre-trained teacher model. In this work, we challenge this conventional understanding. Through a rigorous decomposition of the DMD training objective, we reveal that in complex tasks like text-to-image generation, where CFG is typically required for desirable few-step performance, the primary driver of few-step distillation is not distribution matching, but a previously overlooked component we identify as CFG Augmentation (CA). We demonstrate that this term acts as the core ``engine'' of distillation, while the Distribution Matching (DM) term functions as a ``regularizer'' that ensures training stability and mitigates artifacts. We further validate this decoupling by demonstrating that while the DM term is a highly effective regularizer, it is not unique; simpler non-parametric constraints or GAN-based objectives can serve the same stabilizing function, albeit with different trade-offs. This decoupling of labor motivates a more principled analysis of the properties of both terms, leading to a more systematic and in-depth understanding. This new understanding further enables us to propose principled modifications to the distillation process, such as decoupling the noise schedules for the engine and the regularizer, leading to further performance gains. Notably, our method has been adopted by the Z-Image ( https://github.com/Tongyi-MAI/Z-Image ) project to develop a top-tier 8-step image generation model, empirically validating the generalization and robustness of our findings.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-27T18:24:28Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dongyang Liu</name>
+    </author>
+    <author>
+      <name>Peng Gao</name>
+    </author>
+    <author>
+      <name>David Liu</name>
+    </author>
+    <author>
+      <name>Ruoyi Du</name>
+    </author>
+    <author>
+      <name>Zhen Li</name>
+    </author>
+    <author>
+      <name>Qilong Wu</name>
+    </author>
+    <author>
+      <name>Xin Jin</name>
+    </author>
+    <author>
+      <name>Sihan Cao</name>
+    </author>
+    <author>
+      <name>Shifeng Zhang</name>
+    </author>
+    <author>
+      <name>Hongsheng Li</name>
+    </author>
+    <author>
+      <name>Steven Hoi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.17343v2</id>
+    <title>Q-DiT: Accurate Post-Training Quantization for Diffusion Transformers</title>
+    <updated>2024-11-19T09:58:07Z</updated>
+    <link href="https://arxiv.org/abs/2406.17343v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.17343v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advancements in diffusion models, particularly the architectural transformation from UNet-based models to Diffusion Transformers (DiTs), significantly improve the quality and scalability of image and video generation. However, despite their impressive capabilities, the substantial computational costs of these large-scale models pose significant challenges for real-world deployment. Post-Training Quantization (PTQ) emerges as a promising solution, enabling model compression and accelerated inference for pretrained models, without the costly retraining. However, research on DiT quantization remains sparse, and existing PTQ frameworks, primarily designed for traditional diffusion models, tend to suffer from biased quantization, leading to notable performance degradation. In this work, we identify that DiTs typically exhibit significant spatial variance in both weights and activations, along with temporal variance in activations. To address these issues, we propose Q-DiT, a novel approach that seamlessly integrates two key techniques: automatic quantization granularity allocation to handle the significant variance of weights and activations across input channels, and sample-wise dynamic activation quantization to adaptively capture activation changes across both timesteps and samples. Extensive experiments conducted on ImageNet and VBench demonstrate the effectiveness of the proposed Q-DiT. Specifically, when quantizing DiT-XL/2 to W6A8 on ImageNet ($256 \times 256$), Q-DiT achieves a remarkable reduction in FID by 1.09 compared to the baseline. Under the more challenging W4A8 setting, it maintains high fidelity in image and video generation, establishing a new benchmark for efficient, high-quality quantization in DiTs. Code is available at \href{https://github.com/Juanerx/Q-DiT}{https://github.com/Juanerx/Q-DiT}.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-25T07:57:27Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Lei Chen</name>
+    </author>
+    <author>
+      <name>Yuan Meng</name>
+    </author>
+    <author>
+      <name>Chen Tang</name>
+    </author>
+    <author>
+      <name>Xinzhu Ma</name>
+    </author>
+    <author>
+      <name>Jingyan Jiang</name>
+    </author>
+    <author>
+      <name>Xin Wang</name>
+    </author>
+    <author>
+      <name>Zhi Wang</name>
+    </author>
+    <author>
+      <name>Wenwu Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2304.05977v4</id>
+    <title>ImageReward: Learning and Evaluating Human Preferences for Text-to-Image Generation</title>
+    <updated>2023-12-28T14:13:35Z</updated>
+    <link href="https://arxiv.org/abs/2304.05977v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2304.05977v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a comprehensive solution to learn and improve text-to-image models from human preference feedback. To begin with, we build ImageReward -- the first general-purpose text-to-image human preference reward model -- to effectively encode human preferences. Its training is based on our systematic annotation pipeline including rating and ranking, which collects 137k expert comparisons to date. In human evaluation, ImageReward outperforms existing scoring models and metrics, making it a promising automatic metric for evaluating text-to-image synthesis. On top of it, we propose Reward Feedback Learning (ReFL), a direct tuning algorithm to optimize diffusion models against a scorer. Both automatic and human evaluation support ReFL's advantages over compared methods. All code and datasets are provided at \url{https://github.com/THUDM/ImageReward}.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-04-12T16:58:13Z</published>
+    <arxiv:comment>32 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiazheng Xu</name>
+    </author>
+    <author>
+      <name>Xiao Liu</name>
+    </author>
+    <author>
+      <name>Yuchen Wu</name>
+    </author>
+    <author>
+      <name>Yuxuan Tong</name>
+    </author>
+    <author>
+      <name>Qinkai Li</name>
+    </author>
+    <author>
+      <name>Ming Ding</name>
+    </author>
+    <author>
+      <name>Jie Tang</name>
+    </author>
+    <author>
+      <name>Yuxiao Dong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.01469v2</id>
+    <title>Consistency Models</title>
+    <updated>2023-05-31T06:17:10Z</updated>
+    <link href="https://arxiv.org/abs/2303.01469v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.01469v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models have significantly advanced the fields of image, audio, and video generation, but they depend on an iterative sampling process that causes slow generation. To overcome this limitation, we propose consistency models, a new family of models that generate high quality samples by directly mapping noise to data. They support fast one-step generation by design, while still allowing multistep sampling to trade compute for sample quality. They also support zero-shot data editing, such as image inpainting, colorization, and super-resolution, without requiring explicit training on these tasks. Consistency models can be trained either by distilling pre-trained diffusion models, or as standalone generative models altogether. Through extensive experiments, we demonstrate that they outperform existing distillation techniques for diffusion models in one- and few-step sampling, achieving the new state-of-the-art FID of 3.55 on CIFAR-10 and 6.20 on ImageNet 64x64 for one-step generation. When trained in isolation, consistency models become a new family of generative models that can outperform existing one-step, non-adversarial generative models on standard benchmarks such as CIFAR-10, ImageNet 64x64 and LSUN 256x256.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-02T18:30:16Z</published>
+    <arxiv:comment>ICML 2023</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Yang Song</name>
+    </author>
+    <author>
+      <name>Prafulla Dhariwal</name>
+    </author>
+    <author>
+      <name>Mark Chen</name>
+    </author>
+    <author>
+      <name>Ilya Sutskever</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.06633v2</id>
+    <title>SaRA: High-Efficient Diffusion Model Fine-tuning with Progressive Sparse Low-Rank Adaptation</title>
+    <updated>2025-04-02T14:16:22Z</updated>
+    <link href="https://arxiv.org/abs/2409.06633v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.06633v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In recent years, the development of diffusion models has led to significant progress in image and video generation tasks, with pre-trained models like the Stable Diffusion series playing a crucial role. Inspired by model pruning which lightens large pre-trained models by removing unimportant parameters, we propose a novel model fine-tuning method to make full use of these ineffective parameters and enable the pre-trained model with new task-specified capabilities. In this work, we first investigate the importance of parameters in pre-trained diffusion models, and discover that the smallest 10% to 20% of parameters by absolute values do not contribute to the generation process. Based on this observation, we propose a method termed SaRA that re-utilizes these temporarily ineffective parameters, equating to optimizing a sparse weight matrix to learn the task-specific knowledge. To mitigate overfitting, we propose a nuclear-norm-based low-rank sparse training scheme for efficient fine-tuning. Furthermore, we design a new progressive parameter adjustment strategy to make full use of the re-trained/finetuned parameters. Finally, we propose a novel unstructural backpropagation strategy, which significantly reduces memory costs during fine-tuning. Our method enhances the generative capabilities of pre-trained models in downstream applications and outperforms traditional fine-tuning methods like LoRA in maintaining model's generalization ability. We validate our approach through fine-tuning experiments on SD models, demonstrating significant improvements. SaRA also offers a practical advantage that requires only a single line of code modification for efficient implementation and is seamlessly compatible with existing methods.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-10T16:44:47Z</published>
+    <arxiv:comment>Accepted by ICLR 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Teng Hu</name>
+    </author>
+    <author>
+      <name>Jiangning Zhang</name>
+    </author>
+    <author>
+      <name>Ran Yi</name>
+    </author>
+    <author>
+      <name>Hongrui Huang</name>
+    </author>
+    <author>
+      <name>Yabiao Wang</name>
+    </author>
+    <author>
+      <name>Lizhuang Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.16853v1</id>
+    <title>GenEval 2: Addressing Benchmark Drift in Text-to-Image Evaluation</title>
+    <updated>2025-12-18T18:26:56Z</updated>
+    <link href="https://arxiv.org/abs/2512.16853v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.16853v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Automating Text-to-Image (T2I) model evaluation is challenging; a judge model must be used to score correctness, and test prompts must be selected to be challenging for current T2I models but not the judge. We argue that satisfying these constraints can lead to benchmark drift over time, where the static benchmark judges fail to keep up with newer model capabilities. We show that benchmark drift is a significant problem for GenEval, one of the most popular T2I benchmarks. Although GenEval was well-aligned with human judgment at the time of its release, it has drifted far from human judgment over time -- resulting in an absolute error of as much as 17.7% for current models. This level of drift strongly suggests that GenEval has been saturated for some time, as we verify via a large-scale human study. To help fill this benchmarking gap, we introduce a new benchmark, GenEval 2, with improved coverage of primitive visual concepts and higher degrees of compositionality, which we show is more challenging for current models. We also introduce Soft-TIFA, an evaluation method for GenEval 2 that combines judgments for visual primitives, which we show is more well-aligned with human judgment and argue is less likely to drift from human-alignment over time (as compared to more holistic judges such as VQAScore). Although we hope GenEval 2 will provide a strong benchmark for many years, avoiding benchmark drift is far from guaranteed and our work, more generally, highlights the importance of continual audits and improvement for T2I and related automated model evaluation benchmarks.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-18T18:26:56Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Amita Kamath</name>
+    </author>
+    <author>
+      <name>Kai-Wei Chang</name>
+    </author>
+    <author>
+      <name>Ranjay Krishna</name>
+    </author>
+    <author>
+      <name>Luke Zettlemoyer</name>
+    </author>
+    <author>
+      <name>Yushi Hu</name>
+    </author>
+    <author>
+      <name>Marjan Ghazvininejad</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.10918v3</id>
+    <title>ToMA: Token Merge with Attention for Diffusion Models</title>
+    <updated>2025-11-30T17:46:06Z</updated>
+    <link href="https://arxiv.org/abs/2509.10918v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.10918v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models excel in high-fidelity image generation but face scalability limits due to transformers' quadratic attention complexity. Plug-and-play token reduction methods like ToMeSD and ToFu reduce FLOPs by merging redundant tokens in generated images but rely on GPU-inefficient operations (e.g., sorting, scattered writes), introducing overheads that negate theoretical speedups when paired with optimized attention implementations (e.g., FlashAttention). To bridge this gap, we propose Token Merge with Attention (ToMA), an off-the-shelf method that redesigns token reduction for GPU-aligned efficiency, with three key contributions: 1) a reformulation of token merge as a submodular optimization problem to select diverse tokens; 2) merge/unmerge as an attention-like linear transformation via GPU-friendly matrix operations; and 3) exploiting latent locality and sequential redundancy (pattern reuse) to minimize overhead. ToMA reduces SDXL/Flux generation latency by 24%/23%, respectively (with DINO $Δ&lt; 0.07$), outperforming prior methods. This work bridges the gap between theoretical and practical efficiency for transformers in diffusion. Code available at https://github.com/WenboLuu/ToMA.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-13T17:35:00Z</published>
+    <arxiv:comment>In proceedings of the 42nd International Conference on Machine Learning (ICML 2025). Code available at https://github.com/wenboluu/ToMA</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wenbo Lu</name>
+    </author>
+    <author>
+      <name>Shaoyi Zheng</name>
+    </author>
+    <author>
+      <name>Yuxuan Xia</name>
+    </author>
+    <author>
+      <name>Shengjie Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.22699v5</id>
+    <title>Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer</title>
+    <updated>2026-07-06T06:19:03Z</updated>
+    <link href="https://arxiv.org/abs/2511.22699v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.22699v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The landscape of high-performance image generation models is currently dominated by proprietary systems, such as Nano Banana Pro and Seedream 4.0. Leading open-source alternatives, including Qwen-Image, Hunyuan-Image-3.0 and FLUX.2, are characterized by massive parameter counts (20B to 80B), making them impractical for inference, and fine-tuning on consumer-grade hardware. To address this gap, we propose Z-Image, an efficient 6B-parameter foundation generative model built upon a Scalable Single-Stream Diffusion Transformer (S3-DiT) architecture that challenges the "scale-at-all-costs" paradigm. By systematically optimizing the entire model lifecycle -- from a curated data infrastructure to a streamlined training curriculum -- we complete the full training workflow in just 314K H800 GPU hours (approx. $630K). Our few-step distillation scheme with reward post-training further yields Z-Image-Turbo, offering both sub-second inference latency on an enterprise-grade H800 GPU and compatibility with consumer-grade hardware (&lt;16GB VRAM). Additionally, our omni-pre-training paradigm also enables efficient training of Z-Image-Edit, an editing model with impressive instruction-following capabilities. Both qualitative and quantitative experiments demonstrate that our model achieves performance comparable to or surpassing that of leading competitors across various dimensions. Most notably, Z-Image exhibits exceptional capabilities in photorealistic image generation and bilingual text rendering, delivering results that rival top-tier commercial models, thereby demonstrating that state-of-the-art results are achievable with significantly reduced computational overhead. We publicly release our code, weights, and online demo to foster the development of accessible, budget-friendly, yet state-of-the-art generative models.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-27T18:52:07Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Z-Image Team</name>
+    </author>
+    <author>
+      <name>Huanqia Cai</name>
+    </author>
+    <author>
+      <name>Sihan Cao</name>
+    </author>
+    <author>
+      <name>Ruoyi Du</name>
+    </author>
+    <author>
+      <name>Peng Gao</name>
+    </author>
+    <author>
+      <name>Aiming Hao</name>
+    </author>
+    <author>
+      <name>Steven Hoi</name>
+    </author>
+    <author>
+      <name>Zhaohui Hou</name>
+    </author>
+    <author>
+      <name>Shijie Huang</name>
+    </author>
+    <author>
+      <name>Dengyang Jiang</name>
+    </author>
+    <author>
+      <name>Yuming Jiang</name>
+    </author>
+    <author>
+      <name>Xin Jin</name>
+    </author>
+    <author>
+      <name>Liangchen Li</name>
+    </author>
+    <author>
+      <name>Zhen Li</name>
+    </author>
+    <author>
+      <name>Zhong-Yu Li</name>
+    </author>
+    <author>
+      <name>David Liu</name>
+    </author>
+    <author>
+      <name>Dongyang Liu</name>
+    </author>
+    <author>
+      <name>Qilong Wu</name>
+    </author>
+    <author>
+      <name>Feng Yu</name>
+    </author>
+    <author>
+      <name>Zechao Zhan</name>
+    </author>
+    <author>
+      <name>Chi Zhang</name>
+    </author>
+    <author>
+      <name>Shifeng Zhang</name>
+    </author>
+    <author>
+      <name>Ruikai Zhou</name>
+    </author>
+    <author>
+      <name>Shilin Zhou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2205.14135v2</id>
+    <title>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</title>
+    <updated>2022-06-23T17:53:32Z</updated>
+    <link href="https://arxiv.org/abs/2205.14135v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2205.14135v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length. Approximate attention methods have attempted to address this problem by trading off model quality to reduce the compute complexity, but often do not achieve wall-clock speedup. We argue that a missing principle is making attention algorithms IO-aware -- accounting for reads and writes between levels of GPU memory. We propose FlashAttention, an IO-aware exact attention algorithm that uses tiling to reduce the number of memory reads/writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM. We analyze the IO complexity of FlashAttention, showing that it requires fewer HBM accesses than standard attention, and is optimal for a range of SRAM sizes. We also extend FlashAttention to block-sparse attention, yielding an approximate attention algorithm that is faster than any existing approximate attention method. FlashAttention trains Transformers faster than existing baselines: 15% end-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the MLPerf 1.1 training speed record, 3$\times$ speedup on GPT-2 (seq. length 1K), and 2.4$\times$ speedup on long-range arena (seq. length 1K-4K). FlashAttention and block-sparse FlashAttention enable longer context in Transformers, yielding higher quality models (0.7 better perplexity on GPT-2 and 6.4 points of lift on long-document classification) and entirely new capabilities: the first Transformers to achieve better-than-chance performance on the Path-X challenge (seq. length 16K, 61.4% accuracy) and Path-256 (seq. length 64K, 63.1% accuracy).</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-05-27T17:53:09Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Tri Dao</name>
+    </author>
+    <author>
+      <name>Daniel Y. Fu</name>
+    </author>
+    <author>
+      <name>Stefano Ermon</name>
+    </author>
+    <author>
+      <name>Atri Rudra</name>
+    </author>
+    <author>
+      <name>Christopher Ré</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.04103v1</id>
+    <title>Multistep Distillation of Diffusion Models via Moment Matching</title>
+    <updated>2024-06-06T14:20:21Z</updated>
+    <link href="https://arxiv.org/abs/2406.04103v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.04103v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a new method for making diffusion models faster to sample. The method distills many-step diffusion models into few-step models by matching conditional expectations of the clean data given noisy data along the sampling trajectory. Our approach extends recently proposed one-step methods to the multi-step case, and provides a new perspective by interpreting these approaches in terms of moment matching. By using up to 8 sampling steps, we obtain distilled models that outperform not only their one-step versions but also their original many-step teacher models, obtaining new state-of-the-art results on the Imagenet dataset. We also show promising results on a large text-to-image model where we achieve fast generation of high resolution images directly in image space, without needing autoencoders or upsamplers.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.NE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-06T14:20:21Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Tim Salimans</name>
+    </author>
+    <author>
+      <name>Thomas Mensink</name>
+    </author>
+    <author>
+      <name>Jonathan Heek</name>
+    </author>
+    <author>
+      <name>Emiel Hoogeboom</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2407.03917v1</id>
+    <title>Timestep-Aware Correction for Quantized Diffusion Models</title>
+    <updated>2024-07-04T13:22:31Z</updated>
+    <link href="https://arxiv.org/abs/2407.03917v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2407.03917v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models have marked a significant breakthrough in the synthesis of semantically coherent images. However, their extensive noise estimation networks and the iterative generation process limit their wider application, particularly on resource-constrained platforms like mobile devices. Existing post-training quantization (PTQ) methods have managed to compress diffusion models to low precision. Nevertheless, due to the iterative nature of diffusion models, quantization errors tend to accumulate throughout the generation process. This accumulation of error becomes particularly problematic in low-precision scenarios, leading to significant distortions in the generated images. We attribute this accumulation issue to two main causes: error propagation and exposure bias. To address these problems, we propose a timestep-aware correction method for quantized diffusion model, which dynamically corrects the quantization error. By leveraging the proposed method in low-precision diffusion models, substantial enhancement of output quality could be achieved with only negligible computation overhead. Extensive experiments underscore our method's effectiveness and generalizability. By employing the proposed correction strategy, we achieve state-of-the-art (SOTA) results on low-precision models.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-04T13:22:31Z</published>
+    <arxiv:comment>ECCV 2024</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuzhe Yao</name>
+    </author>
+    <author>
+      <name>Feng Tian</name>
+    </author>
+    <author>
+      <name>Jun Chen</name>
+    </author>
+    <author>
+      <name>Haonan Lin</name>
+    </author>
+    <author>
+      <name>Guang Dai</name>
+    </author>
+    <author>
+      <name>Yong Liu</name>
+    </author>
+    <author>
+      <name>Jingdong Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.21759v3</id>
+    <title>IntLoRA: Integral Low-rank Adaptation of Quantized Diffusion Models</title>
+    <updated>2025-05-17T07:13:03Z</updated>
+    <link href="https://arxiv.org/abs/2410.21759v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.21759v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Fine-tuning pre-trained diffusion models under limited budgets has gained great success. In particular, the recent advances that directly fine-tune the quantized weights using Low-rank Adaptation (LoRA) further reduces training costs. Despite these progress, we point out that existing adaptation recipes are not inference-efficient. Specifically, additional post-training quantization (PTQ) on tuned weights is needed during deployment, which results in noticeable performance drop when the bit-width is low. Based on this observation, we introduce IntLoRA, which adapts quantized diffusion models with integer-type low-rank parameters, to include inference efficiency during tuning. Specifically, IntLoRA enables pre-trained weights to remain quantized during training, facilitating fine-tuning on consumer-level GPUs. During inference, IntLoRA weights can be seamlessly merged into pre-trained weights to directly obtain quantized downstream weights without PTQ. Extensive experiments show our IntLoRA achieves significant speedup on both training and inference without losing performance.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-29T05:50:17Z</published>
+    <arxiv:comment>ICML 2025</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hang Guo</name>
+    </author>
+    <author>
+      <name>Yawei Li</name>
+    </author>
+    <author>
+      <name>Tao Dai</name>
+    </author>
+    <author>
+      <name>Shu-Tao Xia</name>
+    </author>
+    <author>
+      <name>Luca Benini</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.04871v1</id>
+    <title>Toward Lightweight and Fast Decoders for Diffusion Models in Image and Video Generation</title>
+    <updated>2025-03-06T16:21:49Z</updated>
+    <link href="https://arxiv.org/abs/2503.04871v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.04871v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We investigate methods to reduce inference time and memory footprint in stable diffusion models by introducing lightweight decoders for both image and video synthesis. Traditional latent diffusion pipelines rely on large Variational Autoencoder decoders that can slow down generation and consume considerable GPU memory. We propose custom-trained decoders using lightweight Vision Transformer and Taming Transformer architectures. Experiments show up to 15% overall speed-ups for image generation on COCO2017 and up to 20 times faster decoding in the sub-module, with additional gains on UCF-101 for video tasks. Memory requirements are moderately reduced, and while there is a small drop in perceptual quality compared to the default decoder, the improvements in speed and scalability are crucial for large-scale inference scenarios such as generating 100K images. Our work is further contextualized by advances in efficient video generation, including dual masking strategies, illustrating a broader effort to improve the scalability and efficiency of generative models.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-06T16:21:49Z</published>
+    <arxiv:comment>11 pages, 8 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Alexey Buzovkin</name>
+    </author>
+    <author>
+      <name>Evgeny Shilov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.20353v3</id>
+    <title>FastCache: Fast Caching for Diffusion Transformer Through Learnable Linear Approximation</title>
+    <updated>2026-03-27T02:22:11Z</updated>
+    <link href="https://arxiv.org/abs/2505.20353v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.20353v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Transformers (DiT) are powerful generative models but remain computationally intensive due to their iterative structure and deep transformer stacks.
+  To alleviate this inefficiency, we propose \textbf{FastCache}, a hidden-state-level caching and compression framework that accelerates DiT inference by exploiting redundancy within the model's internal representations.
+  FastCache introduces a dual strategy: (1) a spatial-aware token selection mechanism that adaptively filters redundant tokens based on hidden-state saliency, and (2) a transformer-level cache that reuses latent activations across timesteps when changes fall below a predefined threshold.
+  These modules work jointly to reduce unnecessary computation while preserving generation fidelity through learnable linear approximation.
+  Theoretical analysis shows that FastCache maintains bounded approximation error under a hypothesis-testing-based decision rule.
+  Empirical evaluations across multiple DiT variants demonstrate substantial reductions in latency and memory usage, achieving the best generation quality among existing cache methods, as measured by FID and t-FID.
+  To further improve the speedup of FastCache, we also introduce a token merging module that merges redundant tokens based on k-NN density.
+  Code is available at \href{https://github.com/NoakLiu/FastCache-xDiT}{https://github.com/NoakLiu/FastCache-xDiT}.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.PF" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-26T05:58:49Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Dong Liu</name>
+    </author>
+    <author>
+      <name>Yanxuan Yu</name>
+    </author>
+    <author>
+      <name>Jiayi Zhang</name>
+    </author>
+    <author>
+      <name>Yifan Li</name>
+    </author>
+    <author>
+      <name>Ben Lengerich</name>
+    </author>
+    <author>
+      <name>Ying Nian Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.09619v1</id>
+    <title>SnapGen: Taming High-Resolution Text-to-Image Models for Mobile Devices with Efficient Architectures and Training</title>
+    <updated>2024-12-12T18:59:53Z</updated>
+    <link href="https://arxiv.org/abs/2412.09619v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.09619v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Existing text-to-image (T2I) diffusion models face several limitations, including large model sizes, slow runtime, and low-quality generation on mobile devices. This paper aims to address all of these challenges by developing an extremely small and fast T2I model that generates high-resolution and high-quality images on mobile platforms. We propose several techniques to achieve this goal. First, we systematically examine the design choices of the network architecture to reduce model parameters and latency, while ensuring high-quality generation. Second, to further improve generation quality, we employ cross-architecture knowledge distillation from a much larger model, using a multi-level approach to guide the training of our model from scratch. Third, we enable a few-step generation by integrating adversarial guidance with knowledge distillation. For the first time, our model SnapGen, demonstrates the generation of 1024x1024 px images on a mobile device around 1.4 seconds. On ImageNet-1K, our model, with only 372M parameters, achieves an FID of 2.06 for 256x256 px generation. On T2I benchmarks (i.e., GenEval and DPG-Bench), our model with merely 379M parameters, surpasses large-scale models with billions of parameters at a significantly smaller size (e.g., 7x smaller than SDXL, 14x smaller than IF-XL).</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-12-12T18:59:53Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dongting Hu</name>
+    </author>
+    <author>
+      <name>Jierun Chen</name>
+    </author>
+    <author>
+      <name>Xijie Huang</name>
+    </author>
+    <author>
+      <name>Huseyin Coskun</name>
+    </author>
+    <author>
+      <name>Arpit Sahni</name>
+    </author>
+    <author>
+      <name>Aarush Gupta</name>
+    </author>
+    <author>
+      <name>Anujraaj Goyal</name>
+    </author>
+    <author>
+      <name>Dishani Lahiri</name>
+    </author>
+    <author>
+      <name>Rajesh Singh</name>
+    </author>
+    <author>
+      <name>Yerlan Idelbayev</name>
+    </author>
+    <author>
+      <name>Junli Cao</name>
+    </author>
+    <author>
+      <name>Yanyu Li</name>
+    </author>
+    <author>
+      <name>Kwang-Ting Cheng</name>
+    </author>
+    <author>
+      <name>S. -H. Gary Chan</name>
+    </author>
+    <author>
+      <name>Mingming Gong</name>
+    </author>
+    <author>
+      <name>Sergey Tulyakov</name>
+    </author>
+    <author>
+      <name>Anil Kag</name>
+    </author>
+    <author>
+      <name>Yanwu Xu</name>
+    </author>
+    <author>
+      <name>Jian Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.18523v2</id>
+    <title>Token Caching for Diffusion Transformer Acceleration</title>
+    <updated>2026-01-27T08:13:13Z</updated>
+    <link href="https://arxiv.org/abs/2409.18523v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.18523v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion transformers have gained substantial interest in diffusion generative modeling due to their outstanding performance. However, their computational demands, particularly the quadratic complexity of attention mechanisms and multi-step inference processes, present substantial bottlenecks that limit their practical applications. To address these challenges, we propose TokenCache, a novel acceleration method that leverages the token-based multi-block architecture of transformers to reduce redundant computations. TokenCache tackles three critical questions: (1) Which tokens should be pruned and reused by the caching mechanism to eliminate redundancy? (2) Which blocks should be targeted for efficient caching? (3) At which time steps should caching be applied to balance speed and quality? In response to these challenges, TokenCache introduces a Cache Predictor that hierarchically addresses these issues by (1) Token pruning: assigning importance scores to each token to determine which tokens to prune and reuse; (2) Block selection: allocating pruning ratio to each block to adaptively select blocks for caching; (3) Temporal Scheduling: deciding at which time steps to apply caching strategies. Experimental results across various models demonstrate that TokenCache achieves an effective trade-off between generation quality and inference speed for diffusion transformers.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-27T08:05:34Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jinming Lou</name>
+    </author>
+    <author>
+      <name>Wenyang Luo</name>
+    </author>
+    <author>
+      <name>Yufan Liu</name>
+    </author>
+    <author>
+      <name>Bing Li</name>
+    </author>
+    <author>
+      <name>Xinmiao Ding</name>
+    </author>
+    <author>
+      <name>Weiming Hu</name>
+    </author>
+    <author>
+      <name>Yuming Li</name>
+    </author>
+    <author>
+      <name>Chenguang Ma</name>
+    </author>
+  </entry>
+</feed>

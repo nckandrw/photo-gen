@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/nckandrw/Dev/photo-gen/research/experiments/prod_runner.py", line 11, in <module>
+    from photogen.imaging import inspect_image  # noqa: E402  (same pixel hash as production)
+  File "/Users/nckandrw/Dev/photo-gen/app/photogen/imaging.py", line 9, in <module>
+    from PIL import Image, ImageStat
+ModuleNotFoundError: No module named 'PIL'

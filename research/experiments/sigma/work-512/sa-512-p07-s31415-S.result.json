@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "31415",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-512/sa-512-p07-s31415-S.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.105,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.708,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 0.499,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 23.766,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 22.559
+ },
+ "step_seconds": [
+  3.474,
+  2.642,
+  2.628,
+  2.673,
+  2.652,
+  2.747,
+  2.687,
+  2.856
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 24.928,
+ "peak_footprint_gb": 5.402,
+ "research_scheduler": "OfficialStatic3",
+ "sigmas_used": {
+  "scheduler": "OfficialStatic3",
+  "sigmas": [
+   1.0,
+   0.9545454382896423,
+   0.8999999761581421,
+   0.8333332538604736,
+   0.7499999403953552,
+   0.6428571343421936,
+   0.5,
+   0.30000001192092896,
+   0.0
+  ],
+  "shift": 3.0
+ }
+}

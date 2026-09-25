@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "2718",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-1024/sa-1024-p04-s2718-M.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.09,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 1.008,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 2.873,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 101.81,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 97.929
+ },
+ "step_seconds": [
+  12.324,
+  11.837,
+  12.214,
+  12.436,
+  12.196,
+  12.154,
+  12.095,
+  12.386
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 103.343,
+ "peak_footprint_gb": 5.848,
+ "research_scheduler": null,
+ "sigmas_used": null
+}

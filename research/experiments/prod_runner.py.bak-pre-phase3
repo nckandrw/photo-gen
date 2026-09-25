@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Runs the PRODUCTION photo-gen worker (app/photogen/runtimes/mflux_zimage_worker.py) on a list of requests,
+sequentially, with the 1 Hz system monitor. Same environment the photo-gen runtime gives its workers.
+One JSONL row per run (resumable by tag).
+Usage: prod_runner.py <jobs.json> <out.jsonl> <work_dir>
+jobs: [{tag, meta, req: {prompt, width, height, steps, seed, precision, release_transformer}}]"""
+import csv, json, os, subprocess, sys, time
+R = os.path.expanduser("~/Dev/photo-gen"); E = f"{R}/research/experiments"
+PY = f"{R}/mflux/.venv/bin/python3.12"
+sys.path.insert(0, f"{R}/app")
+from photogen.imaging import inspect_image  # noqa: E402  (same pixel hash as production)
+
+env = {k: v for k, v in os.environ.items() if not k.startswith(("HF_", "GGML_", "LOWRAM", "MLX_"))}
+env.update({"HF_HUB_OFFLINE": "1", "HF_HUB_DISABLE_TELEMETRY": "1", "HF_HOME": f"{R}/mflux/hf",
+            "PYTHONPATH": f"{R}/app", "TQDM_DISABLE": "0"})
+jobs = json.load(open(sys.argv[1])); out_path = sys.argv[2]; work = os.path.abspath(sys.argv[3])
+os.makedirs(work, exist_ok=True)
+done = set()
+if os.path.exists(out_path):
+    for l in open(out_path):
+        try: done.add(json.loads(l)["tag"])
+        except Exception: pass
+out = open(out_path, "a")
+for j in jobs:
+    if j["tag"] in done: continue
+    req = {"model_path": f"{R}/models/mflux/z-image-turbo-mflux-q4", "base_model": "z-image-turbo",
+           "output_path": f"{work}/{j['tag']}.png", **j["req"]}
+    rq, rs = f"{work}/{j['tag']}.request.json", f"{work}/{j['tag']}.result.json"
+    json.dump(req, open(rq, "w"), indent=1)
+    mon_csv = f"{work}/{j['tag']}.mon.csv"
+    mon = subprocess.Popen(["zsh", f"{R}/research/monitor.sh", mon_csv, "python3.12", "1"])
+    t = time.time()
+    p = subprocess.run([PY, "-m", "photogen.runtimes.mflux_zimage_worker", rq, rs], capture_output=True, text=True,
+                       env=env, cwd=work)
+    wall = round(time.time() - t, 2); time.sleep(1.5); mon.terminate()
+    try: res = json.load(open(rs))
+    except Exception: res = None
+    pix = None
+    if p.returncode == 0 and os.path.exists(req["output_path"]):
+        pix = inspect_image(__import__("pathlib").Path(req["output_path"])).pixel_sha256
+    rows = []
+    try: rows = list(csv.DictReader(open(mon_csv)))
+    except Exception: pass
+    f = lambda k: [float(r[k]) for r in rows if r.get(k) not in (None, "")]
+    sysm = {"swap_start_mb": f("swap_used_mb")[0] if rows else None, "swap_max_mb": max(f("swap_used_mb"), default=None),
+            "pressure_max": max(f("pressure_level"), default=None), "free_min_pct": min(f("free_pct"), default=None)}
+    row = {"tag": j["tag"], "meta": j.get("meta", {}), "rc": p.returncode, "wall_s": wall,
+           "start": time.strftime("%H:%M:%S", time.localtime(t)), "sys": sysm, "pixel_sha256": pix, "res": res,
+           "stderr_tail": p.stderr[-600:] if p.returncode else ""}
+    out.write(json.dumps(row) + "\n"); out.flush()
+    ph = (res or {}).get("phases", {})
+    print(f"{row['start']} {j['tag']:34} rc={p.returncode} wall={wall} denoise={ph.get('denoise_seconds')} "
+          f"vae={ph.get('vae_decode', {}).get('seconds')} fp={(res or {}).get('peak_footprint_gb')} "
+          f"pix={pix and pix[:10]}", flush=True)
+print("RUNNER_DONE", flush=True)

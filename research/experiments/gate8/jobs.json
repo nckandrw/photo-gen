@@ -1,0 +1,866 @@
+[
+ {
+  "tag": "p01-s42-bf16-st9",
+  "meta": {
+   "pid": "p01",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p01-s42"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p01-s42-bf16-st8",
+  "meta": {
+   "pid": "p01",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p01-s42"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p02-s42-bf16-st8",
+  "meta": {
+   "pid": "p02",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p02-s42"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p02-s42-bf16-st9",
+  "meta": {
+   "pid": "p02",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p02-s42"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p03-s42-bf16-st9",
+  "meta": {
+   "pid": "p03",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p03-s42"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p03-s42-bf16-st8",
+  "meta": {
+   "pid": "p03",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p03-s42"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p04-s42-bf16-st8",
+  "meta": {
+   "pid": "p04",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p04-s42"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p04-s42-bf16-st9",
+  "meta": {
+   "pid": "p04",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p04-s42"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p05-s42-bf16-st9",
+  "meta": {
+   "pid": "p05",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p05-s42"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p05-s42-bf16-st8",
+  "meta": {
+   "pid": "p05",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p05-s42"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p06-s42-bf16-st8",
+  "meta": {
+   "pid": "p06",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p06-s42"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p06-s42-bf16-st9",
+  "meta": {
+   "pid": "p06",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p06-s42"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p07-s42-bf16-st9",
+  "meta": {
+   "pid": "p07",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p07-s42"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p07-s42-bf16-st8",
+  "meta": {
+   "pid": "p07",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p07-s42"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p08-s42-bf16-st8",
+  "meta": {
+   "pid": "p08",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p08-s42"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p08-s42-bf16-st9",
+  "meta": {
+   "pid": "p08",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p08-s42"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p09-s42-bf16-st9",
+  "meta": {
+   "pid": "p09",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p09-s42"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p09-s42-bf16-st8",
+  "meta": {
+   "pid": "p09",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p09-s42"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p10-s42-bf16-st8",
+  "meta": {
+   "pid": "p10",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p10-s42"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p10-s42-bf16-st9",
+  "meta": {
+   "pid": "p10",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p10-s42"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p11-s42-bf16-st9",
+  "meta": {
+   "pid": "p11",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p11-s42"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p11-s42-bf16-st8",
+  "meta": {
+   "pid": "p11",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p11-s42"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p12-s42-bf16-st8",
+  "meta": {
+   "pid": "p12",
+   "seed": 42,
+   "steps": 8,
+   "pair": "p12-s42"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p12-s42-bf16-st9",
+  "meta": {
+   "pid": "p12",
+   "seed": 42,
+   "steps": 9,
+   "pair": "p12-s42"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p01-s7-bf16-st9",
+  "meta": {
+   "pid": "p01",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p01-s7"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p01-s7-bf16-st8",
+  "meta": {
+   "pid": "p01",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p01-s7"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p02-s7-bf16-st8",
+  "meta": {
+   "pid": "p02",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p02-s7"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p02-s7-bf16-st9",
+  "meta": {
+   "pid": "p02",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p02-s7"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p03-s7-bf16-st9",
+  "meta": {
+   "pid": "p03",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p03-s7"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p03-s7-bf16-st8",
+  "meta": {
+   "pid": "p03",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p03-s7"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p04-s7-bf16-st8",
+  "meta": {
+   "pid": "p04",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p04-s7"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p04-s7-bf16-st9",
+  "meta": {
+   "pid": "p04",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p04-s7"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p05-s7-bf16-st9",
+  "meta": {
+   "pid": "p05",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p05-s7"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p05-s7-bf16-st8",
+  "meta": {
+   "pid": "p05",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p05-s7"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p06-s7-bf16-st8",
+  "meta": {
+   "pid": "p06",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p06-s7"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p06-s7-bf16-st9",
+  "meta": {
+   "pid": "p06",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p06-s7"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p07-s7-bf16-st9",
+  "meta": {
+   "pid": "p07",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p07-s7"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p07-s7-bf16-st8",
+  "meta": {
+   "pid": "p07",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p07-s7"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p08-s7-bf16-st8",
+  "meta": {
+   "pid": "p08",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p08-s7"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p08-s7-bf16-st9",
+  "meta": {
+   "pid": "p08",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p08-s7"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p09-s7-bf16-st9",
+  "meta": {
+   "pid": "p09",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p09-s7"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p09-s7-bf16-st8",
+  "meta": {
+   "pid": "p09",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p09-s7"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p10-s7-bf16-st8",
+  "meta": {
+   "pid": "p10",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p10-s7"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p10-s7-bf16-st9",
+  "meta": {
+   "pid": "p10",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p10-s7"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p11-s7-bf16-st9",
+  "meta": {
+   "pid": "p11",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p11-s7"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p11-s7-bf16-st8",
+  "meta": {
+   "pid": "p11",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p11-s7"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p12-s7-bf16-st8",
+  "meta": {
+   "pid": "p12",
+   "seed": 7,
+   "steps": 8,
+   "pair": "p12-s7"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "p12-s7-bf16-st9",
+  "meta": {
+   "pid": "p12",
+   "seed": 7,
+   "steps": 9,
+   "pair": "p12-s7"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "steps": 9,
+   "seed": 7,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ }
+]

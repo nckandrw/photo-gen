@@ -1,0 +1,19 @@
+  0%|          | 0/9 [00:00<?, ?it/s] 11%|█         | 1/9 [00:12<01:37, 12.24s/it] 22%|██▏       | 2/9 [00:25<01:28, 12.62s/it] 33%|███▎      | 3/9 [00:37<01:16, 12.70s/it] 44%|████▍     | 4/9 [00:50<01:03, 12.70s/it] 56%|█████▌    | 5/9 [01:03<00:50, 12.71s/it] 67%|██████▋   | 6/9 [01:16<00:38, 12.72s/it] 78%|███████▊  | 7/9 [01:28<00:25, 12.74s/it] 89%|████████▉ | 8/9 [01:41<00:12, 12.78s/it]100%|██████████| 9/9 [01:54<00:00, 12.82s/it]100%|██████████| 9/9 [01:54<00:00, 12.74s/it]
+      121.20 real         2.55 user         4.76 sys
+          2841231360  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              450922  page reclaims
+                1213  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                6713  voluntary context switches
+               33422  involuntary context switches
+         64723284825  instructions retired
+         27637030042  cycles elapsed
+          7363400216  peak memory footprint

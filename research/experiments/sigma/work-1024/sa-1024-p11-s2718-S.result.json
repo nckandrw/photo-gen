@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "2718",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/sigma/work-1024/sa-1024-p11-s2718-S.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.064,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.641,
+   "mlx_peak_gb": 3.506
+  },
+  "vae_decode": {
+   "seconds": 3.046,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 95.909,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 92.222
+ },
+ "step_seconds": [
+  11.928,
+  11.377,
+  11.428,
+  11.503,
+  11.417,
+  11.471,
+  11.418,
+  11.488
+ ],
+ "mlx_peak_gb": 3.506,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 97.267,
+ "peak_footprint_gb": 5.846,
+ "research_scheduler": "OfficialStatic3",
+ "sigmas_used": {
+  "scheduler": "OfficialStatic3",
+  "sigmas": [
+   1.0,
+   0.9545454382896423,
+   0.8999999761581421,
+   0.8333332538604736,
+   0.7499999403953552,
+   0.6428571343421936,
+   0.5,
+   0.30000001192092896,
+   0.0
+  ],
+  "shift": 3.0
+ }
+}

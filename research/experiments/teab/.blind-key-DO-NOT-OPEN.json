@@ -1,0 +1,122 @@
+{
+ "C01": {
+  "pair": "b01-1024",
+  "left": "teab/b01-1024-stock.png",
+  "right": "teab/b01-1024-hv2.png"
+ },
+ "C02": {
+  "pair": "b02-1024",
+  "left": "teab/b02-1024-stock.png",
+  "right": "teab/b02-1024-hv2.png"
+ },
+ "C03": {
+  "pair": "b03-1024",
+  "left": "teab/b03-1024-hv2.png",
+  "right": "teab/b03-1024-stock.png"
+ },
+ "C04": {
+  "pair": "b04-1024",
+  "left": "teab/b04-1024-stock.png",
+  "right": "teab/b04-1024-hv2.png"
+ },
+ "C05": {
+  "pair": "b05-1024",
+  "left": "teab/b05-1024-hv2.png",
+  "right": "teab/b05-1024-stock.png"
+ },
+ "C06": {
+  "pair": "b06-1024",
+  "left": "teab/b06-1024-hv2.png",
+  "right": "teab/b06-1024-stock.png"
+ },
+ "C07": {
+  "pair": "b07-1024",
+  "left": "teab/b07-1024-hv2.png",
+  "right": "teab/b07-1024-stock.png"
+ },
+ "C08": {
+  "pair": "b08-1024",
+  "left": "teab/b08-1024-hv2.png",
+  "right": "teab/b08-1024-stock.png"
+ },
+ "C09": {
+  "pair": "b09-1024",
+  "left": "teab/b09-1024-stock.png",
+  "right": "teab/b09-1024-hv2.png"
+ },
+ "C10": {
+  "pair": "b10-1024",
+  "left": "teab/b10-1024-hv2.png",
+  "right": "teab/b10-1024-stock.png"
+ },
+ "C11": {
+  "pair": "b11-1024",
+  "left": "teab/b11-1024-stock.png",
+  "right": "teab/b11-1024-hv2.png"
+ },
+ "C12": {
+  "pair": "b12-1024",
+  "left": "teab/b12-1024-stock.png",
+  "right": "teab/b12-1024-hv2.png"
+ },
+ "C13": {
+  "pair": "p01-1024",
+  "left": "teab/p01-1024-hv2.png",
+  "right": "teab/p01-1024-stock.png"
+ },
+ "C14": {
+  "pair": "p02-1024",
+  "left": "teab/p02-1024-stock.png",
+  "right": "teab/p02-1024-hv2.png"
+ },
+ "C15": {
+  "pair": "p03-1024",
+  "left": "teab/p03-1024-hv2.png",
+  "right": "teab/p03-1024-stock.png"
+ },
+ "C16": {
+  "pair": "p04-1024",
+  "left": "teab/p04-1024-hv2.png",
+  "right": "teab/p04-1024-stock.png"
+ },
+ "C17": {
+  "pair": "p05-1024",
+  "left": "teab/p05-1024-stock.png",
+  "right": "teab/p05-1024-hv2.png"
+ },
+ "C18": {
+  "pair": "p06-1024",
+  "left": "teab/p06-1024-hv2.png",
+  "right": "teab/p06-1024-stock.png"
+ },
+ "C19": {
+  "pair": "p07-1024",
+  "left": "teab/p07-1024-stock.png",
+  "right": "teab/p07-1024-hv2.png"
+ },
+ "C20": {
+  "pair": "p08-1024",
+  "left": "teab/p08-1024-hv2.png",
+  "right": "teab/p08-1024-stock.png"
+ },
+ "C21": {
+  "pair": "p09-1024",
+  "left": "teab/p09-1024-hv2.png",
+  "right": "teab/p09-1024-stock.png"
+ },
+ "C22": {
+  "pair": "p10-1024",
+  "left": "teab/p10-1024-hv2.png",
+  "right": "teab/p10-1024-stock.png"
+ },
+ "C23": {
+  "pair": "p11-1024",
+  "left": "teab/p11-1024-stock.png",
+  "right": "teab/p11-1024-hv2.png"
+ },
+ "C24": {
+  "pair": "p12-1024",
+  "left": "teab/p12-1024-stock.png",
+  "right": "teab/p12-1024-hv2.png"
+ }
+}

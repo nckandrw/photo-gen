@@ -1,0 +1,17 @@
+[
+ {
+  "tag": "cold-768-bf16-st8",
+  "meta": {
+   "tier": "FAST"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ }
+]

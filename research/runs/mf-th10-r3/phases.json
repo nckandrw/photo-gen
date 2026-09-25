@@ -1,0 +1,87 @@
+{
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt",
+  "a red apple on a wooden table, soft window light",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/outputs/mf-th10-r3.png"
+ ],
+ "phases": {
+  "load_init": [
+   {
+    "t_start": 0.002,
+    "sec": 1.079,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.0,
+    "mlx_peak_gb": 0.001,
+    "cache_gb": 0.001
+   }
+  ],
+  "text_encode": [
+   {
+    "t_start": 1.083,
+    "sec": 0.64,
+    "active_before_gb": 0.0,
+    "active_after_gb": 2.211,
+    "mlx_peak_gb": 3.612,
+    "cache_gb": 1.002
+   }
+  ],
+  "memsaver_before_loop": [
+   {
+    "t": 1.955,
+    "active_after_gb": 0.003,
+    "cache_gb": 0.0,
+    "model_text_encoder_is_none": true,
+    "model_transformer_is_none": false
+   }
+  ],
+  "memsaver_after_loop": [
+   {
+    "t": 116.677,
+    "active_after_gb": 3.473,
+    "cache_gb": 0.0,
+    "model_text_encoder_is_none": true,
+    "model_transformer_is_none": true
+   }
+  ],
+  "vae_decode": [
+   {
+    "t_start": 116.677,
+    "sec": 2.634,
+    "active_before_gb": 3.473,
+    "active_after_gb": 3.583,
+    "mlx_peak_gb": 5.697,
+    "cache_gb": 0.934
+   }
+  ],
+  "generate_image_total": [
+   {
+    "t_start": 1.082,
+    "sec": 118.323,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.098,
+    "mlx_peak_gb": 5.697,
+    "cache_gb": 1.014
+   }
+  ]
+ },
+ "denoise_sec_derived": 115.049,
+ "process_wall_sec": 119.632,
+ "torch_imported": true,
+ "torch_mps_allocated_bytes": 0,
+ "mlx_version": "0.32.2",
+ "device": "Device(gpu, 0)"
+}

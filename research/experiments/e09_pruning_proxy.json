@@ -1,0 +1,8 @@
+{
+ "fp32.ffn10240.block_ms": 327.95,
+ "fp32.ffn6400.block_ms": 308.14,
+ "fp32.block_speedup_pct": 6.0,
+ "bf16.ffn10240.block_ms": 288.65,
+ "bf16.ffn6400.block_ms": 213.74,
+ "bf16.block_speedup_pct": 26.0
+}

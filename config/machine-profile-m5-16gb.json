@@ -1,0 +1,44 @@
+{
+  "_comment": "Documentation/reproducibility record of the ONLY validated machine. Not read by the application. Values verified on 2026-09-25 with system_profiler, sw_vers, mx.device_info() and importlib.metadata.",
+  "profile_id": "macbook-air-m5-16gb",
+  "machine_class": "MacBook Air (Mac17,3), fanless",
+  "chip": "Apple M5",
+  "cpu_cores": {"total": 10, "super": 4, "efficiency": 6},
+  "gpu_cores": 8,
+  "gpu_arch": "applegpu_g17g",
+  "memory_gb": 16,
+  "metal_recommended_max_working_set_bytes": 12713115648,
+  "os": {"product": "macOS", "version": "27.0", "build": "26A428"},
+  "power_during_validation": "AC power",
+  "runtime_versions": {
+    "python": "3.12.14 (uv-managed, project-local mflux/.venv)",
+    "mflux": "0.20.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "full_lock": "config/python-requirements.lock.txt"
+  },
+  "model": {
+    "repo": "mflux-community/z-image-turbo-mflux-q4",
+    "revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+    "file_digests": "config/backend-zimage-mflux.json"
+  },
+  "mandatory_flags": ["--low-ram"],
+  "validated_profiles": {
+    "reference": {"precision": "fp32", "steps": 9, "nfe": 9, "resolutions": ["512x512", "768x768", "1024x1024"], "status": "REFERENCE"},
+    "fast": {"precision": "bf16", "steps": 8, "nfe": 8, "resolutions": ["1024x1024"], "status": "VALIDATED at 1024x1024 (chain of two blinded gates); 512x512 and 768x768 PENDING (direct gates in progress 2026-09-25)"}
+  },
+  "reference_pixel_sha256": {
+    "note": "prompt 'a red apple on a wooden table, soft window light', seed 42",
+    "reference_1024": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+    "reference_768": "94a023d366cf8527aceb178ef42a676c0446ff8d93f08f32407575a6a369265a",
+    "reference_512": "9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c",
+    "fast_1024": "7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342"
+  },
+  "cold_benchmarks_seconds": {
+    "note": "single cold run each (after 600 s idle), production worker; specific to THIS machine; see research/experiments/PERFORMANCE-MAP.md",
+    "reference_1024": {"wall": 83.4, "denoise": 78.3, "peak_footprint_gb": 6.56},
+    "fast_1024": {"wall": 54.2, "denoise": 48.7, "peak_footprint_gb": 5.84},
+    "reference_768": {"wall": 44.7, "denoise": 40.4, "peak_footprint_gb": 6.33},
+    "reference_512": {"wall": 21.2, "denoise": 17.4, "peak_footprint_gb": 5.93}
+  }
+}

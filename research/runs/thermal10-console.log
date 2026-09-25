@@ -1,0 +1,21 @@
+{'loads': [3.08, 5.15, 0.42], 'te': 3.23, 'dit': 313.99, 'vae': 31.48, 'gen': 348.71, 'wall': '349.05', 'peak_fp': '6.83', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '25.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r1 identical
+{'loads': [3.09, 5.16, 0.42], 'te': 3.24, 'dit': 327.86, 'vae': 31.32, 'gen': 362.42, 'wall': '362.72', 'peak_fp': '6.87', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '27.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r2 identical
+{'loads': [3.08, 5.11, 0.41], 'te': 3.23, 'dit': 328.4, 'vae': 32.05, 'gen': 363.69, 'wall': '363.99', 'peak_fp': '6.83', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '23.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r3 identical
+{'loads': [3.25, 5.07, 0.41], 'te': 3.41, 'dit': 322.93, 'vae': 30.93, 'gen': 357.27, 'wall': '357.57', 'peak_fp': '6.86', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '27.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r4 identical
+{'loads': [3.09, 5.13, 0.42], 'te': 3.24, 'dit': 322.21, 'vae': 30.96, 'gen': 356.42, 'wall': '356.77', 'peak_fp': '6.82', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '18.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r5 identical
+{'loads': [3.11, 5.12, 0.42], 'te': 3.27, 'dit': 319.99, 'vae': 30.78, 'gen': 354.05, 'wall': '354.34', 'peak_fp': '6.87', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '26.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r6 identical
+{'loads': [3.09, 5.11, 0.41], 'te': 3.25, 'dit': 319.68, 'vae': 30.7, 'gen': 353.63, 'wall': '353.92', 'peak_fp': '6.83', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '25.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r7 identical
+{'loads': [3.09, 5.15, 0.41], 'te': 3.24, 'dit': 320.45, 'vae': 30.93, 'gen': 354.63, 'wall': '354.94', 'peak_fp': '6.83', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '24.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r8 identical
+{'loads': [3.08, 5.11, 0.41], 'te': 3.24, 'dit': 319.88, 'vae': 31.1, 'gen': 354.22, 'wall': '354.53', 'peak_fp': '6.87', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '25.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r9 identical
+{'loads': [3.1, 5.17, 0.41], 'te': 3.26, 'dit': 325.61, 'vae': 31.33, 'gen': 360.21, 'wall': '360.51', 'peak_fp': '6.82', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '20.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+r10 identical
+THERMAL10_DONE

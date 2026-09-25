@@ -1,0 +1,66 @@
+[
+ {
+  "tag": "ctl-512-fp32-st9",
+  "meta": {
+   "purpose": "plumbing-parity"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 9,
+   "seed": 42,
+   "precision": "fp32",
+   "release_transformer": true,
+   "research_scheduler": "MfluxDynamicControl"
+  }
+ },
+ {
+  "tag": "ctl-512-bf16-st8",
+  "meta": {
+   "purpose": "plumbing-parity"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "research_scheduler": "MfluxDynamicControl"
+  }
+ },
+ {
+  "tag": "ctl-1024-bf16-st8",
+  "meta": {
+   "purpose": "plumbing-parity"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "research_scheduler": "MfluxDynamicControl"
+  }
+ },
+ {
+  "tag": "chk-512-bf16-st8-static3",
+  "meta": {
+   "purpose": "plumbing-parity"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "research_scheduler": "OfficialStatic3"
+  }
+ }
+]

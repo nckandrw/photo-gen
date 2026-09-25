@@ -1,0 +1,30 @@
+{
+ "_note": "Recorded BEFORE opening .blind-key-DO-NOT-OPEN.json (2026-09-24). Values per dimension: 'L' = left better, 'R' = right better, '=' = no meaningful difference. severity: minor|major. Reviewer: Claude (single blinded reviewer, visual inspection of full composites).",
+ "dimensions": ["overall", "text", "artifacts", "prompt_adherence"],
+ "scores": {
+  "C01": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C02": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C03": {"overall": "L", "text": "L", "artifacts": "L", "prompt_adherence": "=", "severity": "minor", "note": "gibberish text in both; L slightly cleaner"},
+  "C04": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C05": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "text exact in both"},
+  "C06": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "content variation only"},
+  "C07": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "both duplicate 'Island of Fire'"},
+  "C08": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C09": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C10": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C11": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C12": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "both fail the count equally"},
+  "C13": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C14": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "no quality difference; subject identity/gender presentation shifted between panels (content drift, not a defect)"},
+  "C15": {"overall": "R", "text": "R", "artifacts": "=", "prompt_adherence": "=", "severity": "minor"},
+  "C16": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C17": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "neon text exact in both"},
+  "C18": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "minor detail variation only"},
+  "C19": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "poster headline+subtitle exact in both"},
+  "C20": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C21": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "sign text illegible in both; minor layout variation"},
+  "C22": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "="},
+  "C23": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "minor cutlery/glass placement variation"},
+  "C24": {"overall": "=", "text": "=", "artifacts": "=", "prompt_adherence": "=", "note": "same count in both panels"}
+ }
+}

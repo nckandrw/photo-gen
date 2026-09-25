@@ -1,0 +1,803 @@
+[
+ {
+  "tag": "sens-1024-p01-base",
+  "meta": {
+   "mode": "none",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "none"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-nr0",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "nr0",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "nr0"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-nr1",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "nr1",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "nr1"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-cr0",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "cr0",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "cr0"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-cr1",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "cr1",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "cr1"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L0",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L0",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L0"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L1",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L1",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L1"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L2",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L2",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L2"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L3",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L3",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L3"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L4",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L4",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L4"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L5",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L5",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L5"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L6",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L6",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L6"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L7",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L7",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L7"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L8",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L8",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L8"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L9",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L9",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L9"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L10",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L10",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L10"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L11",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L11",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L11"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L12",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L12",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L12"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L13",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L13",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L13"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L14",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L14",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L14"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L15",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L15",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L15"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L16",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L16",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L16"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L17",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L17",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L17"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L18",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L18",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L18"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L19",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L19",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L19"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L20",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L20",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L20"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L21",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L21",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L21"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L22",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L22",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L22"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L23",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L23",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L23"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L24",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L24",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L24"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L25",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L25",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L25"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L26",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L26",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L26"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L27",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L27",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L27"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L28",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L28",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L28"
+   }
+  }
+ },
+ {
+  "tag": "sens-1024-p01-skip-L29",
+  "meta": {
+   "mode": "perturb",
+   "kind": "skip",
+   "block": "L29",
+   "pid": "p01"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L29"
+   }
+  }
+ }
+]

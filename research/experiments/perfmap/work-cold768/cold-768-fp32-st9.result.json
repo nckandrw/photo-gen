@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "9",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/perfmap/work-cold768/cold-768-fp32-st9.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.056,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.662,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.064,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 42.105,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 40.379
+ },
+ "step_seconds": [
+  4.561,
+  4.457,
+  4.403,
+  4.414,
+  4.419,
+  4.416,
+  4.43,
+  4.459,
+  4.62
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 44.473,
+ "peak_footprint_gb": 6.334
+}

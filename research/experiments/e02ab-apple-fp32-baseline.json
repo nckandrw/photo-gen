@@ -1,0 +1,1 @@
+E02RESULT {"baseline": true, "rope_cast": false, "dtypes": {"attention_input": ["mlx.core.bfloat16", "mlx.core.float32"], "sdpa_q": ["mlx.core.float32"], "ffn_input": ["mlx.core.float32"]}, "timing": {"_encode_prompts": 0.008, "_decode_latents": 1.986, "generate_image": 80.321, "denoise": 78.327}, "peak_mlx_gb": 5.697}

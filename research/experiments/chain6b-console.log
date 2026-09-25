@@ -1,0 +1,85 @@
+[06:33:43] gate8 seeds 42/7 runner finished; seed-1234 block
+06:33:43 p01-s1234-bf16-st9                 rc=0 wall=86.12 denoise=79.947 vae=2.585 fp=5.836 pix=6f7883a6be
+06:35:11 p01-s1234-bf16-st8                 rc=0 wall=85.15 denoise=78.916 vae=2.702 fp=5.834 pix=8709640ad1
+06:36:37 p02-s1234-bf16-st8                 rc=0 wall=85.1 denoise=78.881 vae=2.674 fp=5.837 pix=4a81ff2709
+06:38:04 p02-s1234-bf16-st9                 rc=0 wall=94.11 denoise=87.965 vae=2.661 fp=5.836 pix=ba6492d233
+06:39:40 p03-s1234-bf16-st9                 rc=0 wall=94.12 denoise=87.908 vae=2.646 fp=5.851 pix=15a78c4621
+06:41:15 p03-s1234-bf16-st8                 rc=0 wall=84.88 denoise=78.675 vae=2.66 fp=5.852 pix=3f461c228b
+06:42:42 p04-s1234-bf16-st8                 rc=0 wall=85.36 denoise=79.108 vae=2.72 fp=5.85 pix=3a15fef35c
+06:44:09 p04-s1234-bf16-st9                 rc=0 wall=94.93 denoise=88.745 vae=2.704 fp=5.851 pix=362b461b36
+06:45:45 p05-s1234-bf16-st9                 rc=0 wall=95.65 denoise=89.389 vae=2.723 fp=5.836 pix=2917eef6bc
+06:47:22 p05-s1234-bf16-st8                 rc=0 wall=85.63 denoise=79.419 vae=2.637 fp=5.834 pix=507bacf9e5
+06:48:50 p06-s1234-bf16-st8                 rc=0 wall=87.03 denoise=80.79 vae=2.683 fp=5.85 pix=2609d06a0e
+06:50:18 p06-s1234-bf16-st9                 rc=0 wall=97.94 denoise=91.665 vae=2.457 fp=5.851 pix=5157ff14ab
+06:51:58 p07-s1234-bf16-st9                 rc=0 wall=95.81 denoise=89.498 vae=2.447 fp=5.848 pix=7150c6c4da
+06:53:35 p07-s1234-bf16-st8                 rc=0 wall=87.84 denoise=81.544 vae=2.639 fp=5.851 pix=75d2a3cd31
+06:55:04 p08-s1234-bf16-st8                 rc=0 wall=88.01 denoise=81.566 vae=2.676 fp=5.848 pix=7a89b41df2
+06:56:34 p08-s1234-bf16-st9                 rc=0 wall=97.14 denoise=90.882 vae=2.659 fp=5.819 pix=e769550c03
+06:58:13 p09-s1234-bf16-st9                 rc=0 wall=97.39 denoise=91.066 vae=2.656 fp=5.819 pix=9f78237c80
+06:59:52 p09-s1234-bf16-st8                 rc=0 wall=87.36 denoise=81.102 vae=2.699 fp=5.818 pix=c5d2270e5b
+07:01:20 p10-s1234-bf16-st8                 rc=0 wall=88.09 denoise=81.729 vae=2.677 fp=5.851 pix=4064fe2541
+07:02:50 p10-s1234-bf16-st9                 rc=0 wall=97.69 denoise=91.343 vae=2.666 fp=5.851 pix=ed22a17a35
+07:04:29 p11-s1234-bf16-st9                 rc=0 wall=98.7 denoise=92.284 vae=2.725 fp=5.85 pix=22236afb7a
+07:06:10 p11-s1234-bf16-st8                 rc=0 wall=88.37 denoise=82.045 vae=2.677 fp=5.819 pix=8e86aeb648
+07:07:39 p12-s1234-bf16-st8                 rc=0 wall=88.01 denoise=81.731 vae=2.694 fp=5.85 pix=e1085a80ca
+07:09:09 p12-s1234-bf16-st9                 rc=0 wall=98.8 denoise=92.35 vae=2.801 fp=5.849 pix=bf359addbe
+RUNNER_DONE
+[07:10:49] cold runs
+[07:10:49] idle 600 s before cold job 0
+07:20:50 cold-1024-fp32-st9                 rc=0 wall=83.35 denoise=78.336 vae=1.98 fp=6.561 pix=fe47d88dfb
+RUNNER_DONE
+[07:22:14] idle 600 s before cold job 1
+07:32:15 cold-1024-bf16-st9                 rc=0 wall=60.58 denoise=55.125 vae=1.961 fp=5.836 pix=11b19277f7
+RUNNER_DONE
+[07:33:17] idle 600 s before cold job 2
+07:43:17 cold-1024-bf16-st8                 rc=0 wall=54.22 denoise=48.71 vae=1.974 fp=5.837 pix=7b45cfbe2e
+RUNNER_DONE
+[07:44:13] idle 600 s before cold job 3
+07:54:13 cold-512-fp32-st9                  rc=0 wall=21.18 denoise=17.444 vae=0.37 fp=5.928 pix=9ae59f590e
+RUNNER_DONE
+[07:54:35] idle 600 s before cold job 4
+08:04:35 cold-512-bf16-st9                  rc=0 wall=16.52 denoise=12.945 vae=0.379 fp=5.414 pix=c70c38b019
+RUNNER_DONE
+[08:04:54] idle 600 s before cold job 5
+08:14:54 cold-512-bf16-st8                  rc=0 wall=14.98 denoise=11.4 vae=0.368 fp=5.413 pix=0b9cc20a65
+RUNNER_DONE
+[08:15:10] sustained map
+08:15:10 warmup-1024                        rc=0 wall=60.56 denoise=55.175 vae=1.964 fp=5.835 pix=7bfd59cad5
+08:16:12 sus-1024-fp32-st9-r0               rc=0 wall=88.6 denoise=83.08 vae=2.003 fp=6.559 pix=fe47d88dfb
+08:17:42 sus-1024-bf16-st9-r0               rc=0 wall=74.98 denoise=69.232 vae=2.162 fp=5.835 pix=11b19277f7
+08:18:59 sus-1024-bf16-st8-r0               rc=0 wall=71.98 denoise=66.22 vae=2.267 fp=5.834 pix=7b45cfbe2e
+08:20:13 sus-1024-bf16-st7-r0               rc=0 wall=66.7 denoise=60.758 vae=2.36 fp=5.835 pix=38ed4773b9
+08:21:21 sus-1024-bf16-st6-r0               rc=0 wall=59.38 denoise=53.495 vae=2.396 fp=5.834 pix=04687a9676
+08:22:22 sus-1024-bf16-st5-r0               rc=0 wall=51.41 denoise=45.451 vae=2.435 fp=5.836 pix=befe1b3c8a
+08:23:15 sus-1024-bf16-st4-r0               rc=0 wall=42.87 denoise=36.848 vae=2.479 fp=5.804 pix=711890527b
+08:23:59 sus-1024-bf16-st4-r1               rc=0 wall=43.35 denoise=37.347 vae=2.515 fp=5.804 pix=711890527b
+08:24:44 sus-1024-bf16-st5-r1               rc=0 wall=53.5 denoise=47.343 vae=2.608 fp=5.803 pix=befe1b3c8a
+08:25:39 sus-1024-bf16-st6-r1               rc=0 wall=63.78 denoise=57.672 vae=2.608 fp=5.834 pix=04687a9676
+08:26:44 sus-1024-bf16-st7-r1               rc=0 wall=73.68 denoise=67.511 vae=2.616 fp=5.804 pix=38ed4773b9
+08:28:00 sus-1024-bf16-st8-r1               rc=0 wall=84.21 denoise=78.031 vae=2.671 fp=5.833 pix=7b45cfbe2e
+08:29:25 sus-1024-bf16-st9-r1               rc=0 wall=95.3 denoise=89.034 vae=2.705 fp=5.835 pix=11b19277f7
+08:31:02 sus-1024-fp32-st9-r1               rc=0 wall=135.82 denoise=129.463 vae=2.785 fp=6.562 pix=fe47d88dfb
+08:33:20 warmup-512                         rc=0 wall=25.38 denoise=21.519 vae=0.441 fp=5.414 pix=2033ec5025
+08:33:46 sus-512-fp32-st9-r0                rc=0 wall=32.98 denoise=29.199 vae=0.45 fp=5.925 pix=9ae59f590e
+08:34:21 sus-512-bf16-st9-r0                rc=0 wall=25.29 denoise=21.532 vae=0.423 fp=5.413 pix=c70c38b019
+08:34:48 sus-512-bf16-st8-r0                rc=0 wall=22.87 denoise=19.094 vae=0.428 fp=5.414 pix=0b9cc20a65
+08:35:12 sus-512-bf16-st7-r0                rc=0 wall=20.3 denoise=16.547 vae=0.427 fp=5.414 pix=a10813bca6
+08:35:34 sus-512-bf16-st6-r0                rc=0 wall=18.19 denoise=14.435 vae=0.426 fp=5.414 pix=e1008ed239
+08:35:54 sus-512-bf16-st5-r0                rc=0 wall=16.01 denoise=12.23 vae=0.442 fp=5.414 pix=9f384ce3d7
+08:36:11 sus-512-bf16-st4-r0                rc=0 wall=13.54 denoise=9.751 vae=0.44 fp=5.413 pix=6aa2b8422c
+08:36:26 sus-512-bf16-st4-r1                rc=0 wall=13.49 denoise=9.726 vae=0.431 fp=5.414 pix=6aa2b8422c
+08:36:41 sus-512-bf16-st5-r1                rc=0 wall=15.8 denoise=12.025 vae=0.428 fp=5.414 pix=9f384ce3d7
+08:36:59 sus-512-bf16-st6-r1                rc=0 wall=18.14 denoise=14.388 vae=0.442 fp=5.414 pix=e1008ed239
+08:37:18 sus-512-bf16-st7-r1                rc=0 wall=20.69 denoise=16.92 vae=0.437 fp=5.415 pix=a10813bca6
+08:37:40 sus-512-bf16-st8-r1                rc=0 wall=23.09 denoise=19.301 vae=0.447 fp=5.414 pix=0b9cc20a65
+08:38:05 sus-512-bf16-st9-r1                rc=0 wall=25.91 denoise=22.13 vae=0.439 fp=5.414 pix=c70c38b019
+08:38:33 sus-512-fp32-st9-r1                rc=0 wall=33.55 denoise=29.774 vae=0.449 fp=5.927 pix=9ae59f590e
+RUNNER_DONE
+[08:39:08] E10 promotion ablation
+{"variant": "none", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.float32", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.float32", "ffn.in": "mlx.core.float32"}}
+{"variant": "pad", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.float32", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.float32", "ffn.in": "mlx.core.float32"}}
+{"variant": "temb", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.bfloat16", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.float32", "ffn.in": "mlx.core.float32"}}
+{"variant": "rope", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.float32", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.float32", "ffn.in": "mlx.core.float32"}}
+{"variant": "temb+rope", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.bfloat16", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.bfloat16", "ffn.in": "mlx.core.bfloat16"}}
+{"variant": "pad+temb+rope", "dtypes": {"x_pad_token(after load)": "mlx.core.bfloat16", "cap_pad_token(after load)": "mlx.core.bfloat16", "timestep_embedder.out(raw)": "mlx.core.float32", "rope.in": "mlx.core.bfloat16", "rope.freqs": "mlx.core.float32", "rope.out(raw)": "mlx.core.float32", "sdpa.q": "mlx.core.bfloat16", "ffn.in": "mlx.core.bfloat16"}}
+CHAIN6B_DONE

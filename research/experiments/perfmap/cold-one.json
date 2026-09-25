@@ -1,0 +1,1 @@
+[{"tag": "cold-512-bf16-st8", "meta": {"kind": "cold", "res": 512, "precision": "bf16", "steps": 8}, "req": {"prompt": "a red apple on a wooden table, soft window light", "width": 512, "height": 512, "steps": 8, "seed": 42, "precision": "bf16", "release_transformer": true}}]

@@ -1,0 +1,119 @@
+{
+ "job_id": "20260924T163413Z-cfb81b",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-09-24T16:34:13.902+00:00",
+ "started_at": "2026-09-24T16:34:13.905+00:00",
+ "finished_at": "2026-09-24T16:35:15.300+00:00",
+ "request": {
+  "task": "text-to-image",
+  "prompt": "a red apple on a wooden table, soft window light",
+  "width": 1024,
+  "height": 1024,
+  "steps": 9,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": true,
+  "warnings": [],
+  "output_name": "parity-te-hv2-p01",
+  "precision": "bf16",
+  "text_encoder": "heretic-v2"
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T163413Z-cfb81b-parity-te-hv2-p01.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T163413Z-cfb81b-parity-te-hv2-p01.json",
+ "pixel_sha256": "bc61dadef86fef76c4501edba0885bc9c0258ba45122a5e60645c99d1e7edb7a",
+ "file_sha256": "58c7efb2f9604e9557b52c43827e659eeb53423094cf5e6061afe0026ef1922d",
+ "generation_seconds": 60.369,
+ "phases": {
+  "load": {
+   "seconds": 1.055,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.602,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.971,
+   "mlx_peak_gb": 5.696
+  },
+  "generate_total": {
+   "seconds": 57.99,
+   "mlx_peak_gb": 5.696
+  },
+  "denoise_seconds": 55.417
+ },
+ "step_seconds": [
+  6.133,
+  6.024,
+  6.006,
+  6.006,
+  6.035,
+  6.142,
+  6.205,
+  6.261,
+  6.332
+ ],
+ "memory": {
+  "peak_footprint_gb": 7.351,
+  "mlx_peak_gb": 5.696
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.20.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2"
+  },
+  "device": "Device(gpu, 0)",
+  "model": "Z-Image-Turbo",
+  "model_repo": "mflux-community/z-image-turbo-mflux-q4",
+  "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+  "quantization": "mflux q4 (MLX affine, pre-quantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2",
+  "text_encoder": {
+   "name": "heretic-v2",
+   "files": {
+    "0.safetensors": "c13dc3e0fd09814caf8b1248bfcb8b3822719882461d3dd340c8b53eb7931bc6",
+    "model.safetensors.index.json": "bf219a9f00318481aa89a12b931c60319997ace2"
+   },
+   "status": "under evaluation (research/experiments/te-heretic-v2-report.md); disabled until the A/B is classified",
+   "source_repo": "Lockout/qwen3-4b-heretic-zimage",
+   "source_revision": "1dd80c38813bd0f791c5abfd3bf605f739cf9f84",
+   "source_subfolder": "qwen-4b-zimage-hereticV2",
+   "conversion": "research/experiments/convert_te_q4.py + align_inv_freq.py (MLX affine q4, group 64; 724/905 tensors bit-identical to stock; o_proj/down_proj layers 6-35 differ)"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 0.0,
+  "scheduler": "mflux 0.20.0 default for Z-Image-Turbo (linear sigmas + resolution-dependent shift)",
+  "low_ram": true,
+  "precision": "bf16",
+  "dit_dtypes": {
+   "sdpa_q": [
+    "mlx.core.bfloat16"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2",
+   "--base-model",
+   "z-image-turbo",
+   "--prompt=a red apple on a wooden table, soft window light",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--steps",
+   "9",
+   "--seed",
+   "42",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/24/20260924T163413Z-cfb81b-parity-te-hv2-p01.png"
+  ]
+ },
+ "error": null
+}

@@ -1,0 +1,96 @@
+
+=== Date / OS ===
+Thu 24 Sep 2026 10:30:09 PST
+ProductName:		macOS
+ProductVersion:		27.0
+BuildVersion:		26A428
+arm64
+
+=== Chip / memory / GPU ===
+Apple M5
+RAM bytes: 17179869184
+P-cores: 4  E-cores: 6
+      Chipset Model: Apple M5
+      Total Number of Cores: 8
+      Metal Support: Metal 4
+iogpu.wired_limit_mb: 0
+
+=== Metal working-set limits (compiles a throwaway Swift snippet in $TMPDIR) ===
+device: Apple M5
+recommendedMaxWorkingSetSize: 12.71 GB
+maxBufferLength: 9.53 GB
+hasUnifiedMemory: true
+
+=== Memory pressure / swap / free pages ===
+System-wide memory free percentage: 72%
+vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                   127635.
+Pages active:                                 304461.
+Pages inactive:                               302478.
+Pages speculative:                             10245.
+Pages throttled:                                   0.
+Pages wired down:                             146321.
+Pages purgeable:                               47058.
+"Translation faults":                      113126550.
+Pages copy-on-write:                         1925361.
+Pages zero filled:                         121758523.
+Pages reactivated:                          12708766.
+Sum of process RSS (GB, overcounts shared pages): 8.3
+Top 8 memory users:
+    1.23 GB  /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+    0.36 GB  /Users/nckandrw/.local/bin/claude
+    0.24 GB  /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+    0.17 GB  /System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell
+    0.15 GB  /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/Safari
+    0.12 GB  /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+    0.11 GB  /usr/sbin/cfprefsd
+    0.11 GB  /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+
+=== Disk ===
+/dev/disk3s5   460Gi   150Gi   285Gi    35%    921k  3.0G    0%   /System/Volumes/Data
+
+=== Toolchain ===
+  git: /usr/bin/git
+  brew: /opt/homebrew/bin/brew
+  clang: /usr/bin/clang
+  cmake: MISSING
+  uv: MISSING
+  python3: /usr/bin/python3
+  python3.12: MISSING
+  python3.13: MISSING
+  llama-cli: MISSING
+  sd-cli: MISSING
+/Applications/Xcode.app/Contents/Developer
+Apple clang version 21.0.0 (clang-2100.3.34.2)
+  system python3: 3.9.6 arm64
+
+=== Python ML stack in the *current* python3 (expected: not installed) ===
+  torch: not importable (ModuleNotFoundError)
+  mlx: not importable (ModuleNotFoundError)
+  gguf: not importable (ModuleNotFoundError)
+  diffusers: not importable (ModuleNotFoundError)
+  transformers: not importable (ModuleNotFoundError)
+
+=== Thermal / power ===
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+Note: No CPU power status has been recorded
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=23593059)	74%; discharging; 14:43 remaining present: true
+
+Done. Nothing was changed.
+
+=== Extras ===
+Existing ComfyUI dirs:
+(eval):1: no matches found: /Users/nckandrw/Dev/*/ComfyUI
+sd-cli anywhere in PATH/brew:
+libuv
+uvwasi
+Existing model files (gguf/safetensors) under ~ (depth-limited):
+/Users/nckandrw/.cache/huggingface/hub/models--mlx-community--Phi-4-mini-instruct-4bit/snapshots/ac1c269cb4222a4e136a3d09edad301056c1f36a/model.safetensors
+HF CLI:
+Python versions:
+(eval):1: no matches found: /usr/local/bin/python3*
+Now drawing from 'Battery Power'
+ -InternalBattery-0 (id=23593059)	74%; discharging; 14:43 remaining present: true

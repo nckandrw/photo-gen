@@ -1,0 +1,11 @@
+[00:13:36] micro-opt mask-none
+00:13:36 p01-r0-base                      rc=0 wall=94.31 denoise=87.94 fp=7.278
+00:15:12 p01-r0-masknone                  rc=0 wall=101.75 denoise=95.214 fp=7.338
+00:16:56 p01-r1-masknone                  rc=0 wall=98.43 denoise=92.085 fp=7.353
+00:18:35 p01-r1-base                      rc=0 wall=98.68 denoise=92.133 fp=7.332
+00:20:16 p05-r0-base                      rc=0 wall=97.41 denoise=90.881 fp=7.35
+00:21:55 p05-r0-masknone                  rc=0 wall=98.51 denoise=92.195 fp=7.227
+00:23:35 p05-r1-masknone                  rc=0 wall=98.02 denoise=91.6 fp=7.366
+00:25:14 p05-r1-base                      rc=0 wall=97.48 denoise=91.227 fp=7.36
+RUNNER_DONE
+CHAIN5_DONE

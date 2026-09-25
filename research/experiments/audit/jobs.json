@@ -1,0 +1,38 @@
+[
+ {
+  "tag": "audit-p01",
+  "meta": {
+   "pid": "p01"
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--audit",
+   "audit/audit-p01.json",
+   "--out",
+   "audit/p01.png"
+  ]
+ },
+ {
+  "tag": "audit-p05",
+  "meta": {
+   "pid": "p05"
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "fp32",
+   "--audit",
+   "audit/audit-p05.json",
+   "--out",
+   "audit/p05.png"
+  ]
+ }
+]

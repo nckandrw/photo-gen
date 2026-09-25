@@ -1,0 +1,62 @@
+{
+ "C01": {
+  "pair": "b01-512",
+  "left": "teab/b01-512-stock.png",
+  "right": "teab/b01-512-hv2.png"
+ },
+ "C02": {
+  "pair": "b02-512",
+  "left": "teab/b02-512-stock.png",
+  "right": "teab/b02-512-hv2.png"
+ },
+ "C03": {
+  "pair": "b03-512",
+  "left": "teab/b03-512-stock.png",
+  "right": "teab/b03-512-hv2.png"
+ },
+ "C04": {
+  "pair": "b04-512",
+  "left": "teab/b04-512-hv2.png",
+  "right": "teab/b04-512-stock.png"
+ },
+ "C05": {
+  "pair": "b05-512",
+  "left": "teab/b05-512-stock.png",
+  "right": "teab/b05-512-hv2.png"
+ },
+ "C06": {
+  "pair": "b06-512",
+  "left": "teab/b06-512-stock.png",
+  "right": "teab/b06-512-hv2.png"
+ },
+ "C07": {
+  "pair": "b07-512",
+  "left": "teab/b07-512-stock.png",
+  "right": "teab/b07-512-hv2.png"
+ },
+ "C08": {
+  "pair": "b08-512",
+  "left": "teab/b08-512-hv2.png",
+  "right": "teab/b08-512-stock.png"
+ },
+ "C09": {
+  "pair": "b09-512",
+  "left": "teab/b09-512-hv2.png",
+  "right": "teab/b09-512-stock.png"
+ },
+ "C10": {
+  "pair": "b10-512",
+  "left": "teab/b10-512-stock.png",
+  "right": "teab/b10-512-hv2.png"
+ },
+ "C11": {
+  "pair": "b11-512",
+  "left": "teab/b11-512-hv2.png",
+  "right": "teab/b11-512-stock.png"
+ },
+ "C12": {
+  "pair": "b12-512",
+  "left": "teab/b12-512-hv2.png",
+  "right": "teab/b12-512-stock.png"
+ }
+}

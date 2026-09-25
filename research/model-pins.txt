@@ -1,0 +1,10 @@
+pottokao/Qwen-Image-2.1-Text-Encoder-Heretic-GGUF sha=e21acf0ee1ce58bb6d9db4c1975639a0b6df4413 lastModified=2026-09-24T01:56:52.000Z
+   qwen3vl_8b_heretic-Q4_K_M.gguf size=5027785376 sha256=1338274ac7a6344f262a16c7a52d1bd7fe789307d252733b23ea421126e5d343
+   mmproj-qwen3vl_8b_heretic-f16.gguf size=1159030464 sha256=4649839491c8df1ebc9bed2de158ad2a45b53ed1d3b311d92a69056b6764f101
+leejet/Qwen-Image-2.1-GGUF sha=cc11433936a06e9765f7c0c0b1f0436cfd2b9856 lastModified=2026-09-20T14:47:00.000Z
+   qwen_image_2.1-Q4_K.gguf size=4197494816 sha256=29f9c83c249ff0292fb2943fceddfa2319b446601866c82a4f8be062abea72c2
+   qwen_image_2.1-Q4_0.gguf size=4197494816 sha256=8d992dc95dcbf13196a4aca893697fb56a5c9263e19e7b40c898be2cf29e9147
+Comfy-Org/Qwen-Image-2.1 sha=9a44dbdb47cefd046be9c0a13476192f34c8db8e lastModified=2026-09-23T08:05:43.000Z
+   vae/qwen_image_2.1_vae_bf16.safetensors size=675509688 sha256=bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9
+Qwen/Qwen3-VL-8B-Instruct-GGUF sha=f982a07559d4a2f6c8744d840bf6fccab30eea96 lastModified=2025-11-01T03:21:00.000Z
+   Qwen3VL-8B-Instruct-Q4_K_M.gguf size=5027784800 sha256=67d1659bfe71b89d50b45a4ad1a9e5b997e5bb16ce5da66a6a6167abd569e9e2

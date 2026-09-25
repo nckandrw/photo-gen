@@ -1,0 +1,66 @@
+chain2_tev2.sh:6: no matches found: /Users/nckandrw/Dev/photo-gen/models/mflux/text-encoders/heretic-v2-src/*.part
+[21:15:11] converting heretic V2 -> q4
+{
+ "counts": {
+  "identical": 724,
+  "different": 181,
+  "shape_or_dtype_mismatch": 0,
+  "missing_in_new": 0,
+  "extra_in_new": 0
+ },
+ "different_by_module": {
+  "self_attn.o_proj": 90,
+  "mlp.down_proj": 90,
+  "rotary_emb": 1
+ },
+ "different_layers": [
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35
+ ],
+ "output_sha256": "41b1b37cd1a1abffbf5edd6d95a1193f01882958440d5d0cc7dcd2bdbb39ae16"
+}
+         15057628632  peak memory footprint
+[21:15:20] TE drift
+{
+ "normal": {
+  "tok_cos_mean": 0.99188,
+  "tok_cos_min": 0.97605,
+  "rel_l2": 0.03338,
+  "pooled_cos": 0.99828
+ },
+ "borderline": {
+  "tok_cos_mean": 0.98957,
+  "tok_cos_min": 0.97032,
+  "rel_l2": 0.03113,
+  "pooled_cos": 0.99865
+ }
+}
+CHAIN2_DONE

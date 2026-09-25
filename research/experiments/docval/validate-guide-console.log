@@ -1,0 +1,16 @@
+== [1] CLI FAST (First image section) 16:19:24
+2026-09-25 16:20:45,748 INFO    photogen.jobs: job 20260925T081925Z-c2a879 completed in 79.7s (pixel_sha256 7b45cfbe2eed…)
+/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/25/20260925T081925Z-c2a879.png
+  seed=42  time=79.694s  pixel_sha256=7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342
+  metadata=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/25/20260925T081925Z-c2a879.json
+== [2] CLI REFERENCE, no profile flags, 512² 16:20:45
+2026-09-25 16:21:32,926 INFO    photogen.jobs: job 20260925T082048Z-86ad74 completed in 44.4s (pixel_sha256 9ae59f590e8c…)
+/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/25/20260925T082048Z-86ad74.png
+  seed=42  time=44.423s  pixel_sha256=9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c
+  metadata=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/25/20260925T082048Z-86ad74.json
+== [3] HTTP: serve, POST /generate, GET /jobs/{id}?wait, GET /outputs/{id} 16:21:33
+POST -> queued 20260925T082137Z-91048f reference fp32 9
+GET wait -> completed 9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c 48.9 /Users/nckandrw/Dev/photo-gen/data/outputs/2026/09/25/20260925T082137Z-91048f.png
+GET /outputs -> HTTP 200 image/png 258338B
+== done 16:22:29
+expected: [1] 7b45cfbe…  [2] 9ae59f59…  [3] 9ae59f59…

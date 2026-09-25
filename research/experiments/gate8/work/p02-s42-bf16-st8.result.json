@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/gate8/work/p02-s42-bf16-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.093,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.644,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.461,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 76.744,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 73.639
+ },
+ "step_seconds": [
+  9.459,
+  9.351,
+  9.125,
+  9.181,
+  9.011,
+  9.154,
+  9.046,
+  9.128
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 79.046,
+ "peak_footprint_gb": 5.836
+}

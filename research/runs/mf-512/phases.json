@@ -1,0 +1,69 @@
+{
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt",
+  "a red apple on a wooden table, soft window light",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "9",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/outputs/mf-512.png"
+ ],
+ "phases": {
+  "load_init": [
+   {
+    "t_start": 0.002,
+    "sec": 3.714,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.0,
+    "mlx_peak_gb": 0.001,
+    "cache_gb": 0.001
+   }
+  ],
+  "text_encode": [
+   {
+    "t_start": 3.718,
+    "sec": 1.839,
+    "active_before_gb": 0.0,
+    "active_after_gb": 2.211,
+    "mlx_peak_gb": 3.236,
+    "cache_gb": 1.001
+   }
+  ],
+  "vae_decode": [
+   {
+    "t_start": 26.698,
+    "sec": 1.115,
+    "active_before_gb": 3.472,
+    "active_after_gb": 3.571,
+    "mlx_peak_gb": 5.627,
+    "cache_gb": 1.061
+   }
+  ],
+  "generate_image_total": [
+   {
+    "t_start": 3.717,
+    "sec": 24.231,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.098,
+    "mlx_peak_gb": 5.627,
+    "cache_gb": 1.016
+   }
+  ]
+ },
+ "denoise_sec_derived": 21.277,
+ "process_wall_sec": 28.024,
+ "torch_imported": true,
+ "torch_mps_allocated_bytes": 0,
+ "mlx_version": "0.32.2",
+ "device": "Device(gpu, 0)"
+}

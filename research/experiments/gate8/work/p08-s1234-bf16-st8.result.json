@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "1234",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/gate8/work/p08-s1234-bf16-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.102,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.646,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.676,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 84.888,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 81.566
+ },
+ "step_seconds": [
+  10.333,
+  10.151,
+  10.243,
+  10.124,
+  10.141,
+  10.117,
+  10.083,
+  10.128
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 87.673,
+ "peak_footprint_gb": 5.848
+}

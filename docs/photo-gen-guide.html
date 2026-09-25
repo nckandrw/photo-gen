@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>photo-gen Guide</title>
+<meta name="description" content="User, API, architecture, maintenance and research-status guide for photo-gen, a local Z-Image-Turbo image generator on MLX.">
+<style>
+:root{
+  --bg:#fbfbfa; --panel:#f3f3f1; --panel2:#ebebe8; --text:#1d1f21; --muted:#5d6166; --line:#d9d9d5;
+  --accent:#2f5d8a; --accent-soft:#e3ecf5; --code-bg:#f0f0ed; --code-text:#1d1f21;
+  --ok:#2e6b3a; --ok-bg:#e1f0e3; --warn:#8a5a00; --warn-bg:#fbefd6; --bad:#9b2c2c; --bad-bg:#f8e1e1;
+  --info:#2f5d8a; --info-bg:#e3ecf5; --exp:#6b3f8a; --exp-bg:#efe4f6; --neutral:#50555b; --neutral-bg:#e7e7e4;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#16181b; --panel:#1d2024; --panel2:#24282d; --text:#e4e6e8; --muted:#9aa0a6; --line:#33383e;
+  --accent:#86b4e0; --accent-soft:#1f2c3a; --code-bg:#1f2327; --code-text:#e4e6e8;
+  --ok:#8fd19e; --ok-bg:#1d3324; --warn:#f0c26b; --warn-bg:#3a2e14; --bad:#f19a9a; --bad-bg:#3d1f1f;
+  --info:#86b4e0; --info-bg:#1f2c3a; --exp:#cfa6ec; --exp-bg:#2f2238; --neutral:#b4b9be; --neutral-bg:#2a2e33; } }
+:root[data-theme="dark"]{
+  --bg:#16181b; --panel:#1d2024; --panel2:#24282d; --text:#e4e6e8; --muted:#9aa0a6; --line:#33383e;
+  --accent:#86b4e0; --accent-soft:#1f2c3a; --code-bg:#1f2327; --code-text:#e4e6e8;
+  --ok:#8fd19e; --ok-bg:#1d3324; --warn:#f0c26b; --warn-bg:#3a2e14; --bad:#f19a9a; --bad-bg:#3d1f1f;
+  --info:#86b4e0; --info-bg:#1f2c3a; --exp:#cfa6ec; --exp-bg:#2f2238; --neutral:#b4b9be; --neutral-bg:#2a2e33; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:16px}
+body{margin:0; background:var(--bg); color:var(--text); font:15px/1.6 var(--sans); -webkit-text-size-adjust:100%}
+a{color:var(--accent)} a:hover{text-decoration:underline}
+code,pre,kbd{font-family:var(--mono); font-size:13px}
+:not(pre)>code{background:var(--code-bg); padding:1px 5px; border-radius:4px; word-break:break-word}
+.layout{display:grid; grid-template-columns:260px minmax(0,1fr); max-width:1280px; margin:0 auto}
+nav.toc{position:sticky; top:0; height:100vh; overflow:auto; padding:20px 16px 40px; border-right:1px solid var(--line); background:var(--panel); font-size:13.5px}
+nav.toc .brand{font-weight:650; font-size:16px; margin-bottom:2px}
+nav.toc .sub{color:var(--muted); font-size:12px; margin-bottom:14px}
+nav.toc .qs{display:block; margin:0 0 14px; padding:8px 10px; border-radius:6px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:600; text-align:center}
+nav.toc ol{list-style:none; padding:0; margin:0}
+nav.toc li a{display:block; padding:3px 8px; border-radius:4px; color:var(--text); text-decoration:none}
+nav.toc li a:hover{background:var(--panel2)}
+nav.toc li a.active{background:var(--accent-soft); color:var(--accent); font-weight:600}
+nav.toc .grp{margin:12px 0 4px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+nav.toc .theme{margin-top:16px; font-size:12px}
+nav.toc .theme button{font:inherit; background:var(--panel2); color:var(--text); border:1px solid var(--line); border-radius:4px; padding:2px 8px; cursor:pointer}
+main{padding:28px 44px 80px; min-width:0}
+header.top h1{font-size:28px; margin:0 0 4px; letter-spacing:-.01em}
+header.top p.lede{color:var(--muted); margin:0 0 18px; max-width:760px}
+section{padding-top:8px; margin-top:30px; border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+h2{font-size:21px; margin:18px 0 10px; letter-spacing:-.005em}
+h3{font-size:16.5px; margin:22px 0 8px}
+h4{font-size:14.5px; margin:16px 0 6px}
+h2 .anchor,h3 .anchor{opacity:0; margin-left:6px; text-decoration:none; font-weight:400; color:var(--muted)}
+h2:hover .anchor,h3:hover .anchor{opacity:1}
+p,li{max-width:820px}
+table{border-collapse:collapse; width:100%; margin:10px 0 16px; font-size:13.5px; display:block; overflow-x:auto}
+th,td{border:1px solid var(--line); padding:6px 9px; text-align:left; vertical-align:top}
+th{background:var(--panel2); font-weight:600}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.codewrap{position:relative; margin:10px 0 14px}
+pre{background:var(--code-bg); color:var(--code-text); padding:12px 14px; border-radius:6px; overflow-x:auto; margin:0; border:1px solid var(--line); line-height:1.5}
+pre .c{color:var(--muted)}
+button.copy{position:absolute; top:6px; right:6px; font:12px var(--sans); padding:2px 8px; border-radius:4px; border:1px solid var(--line); background:var(--panel); color:var(--muted); cursor:pointer; opacity:.85}
+button.copy:hover{opacity:1; color:var(--text)}
+.badge{display:inline-block; font:600 11px/1.6 var(--sans); letter-spacing:.04em; padding:0 7px; border-radius:10px; white-space:nowrap; vertical-align:1px}
+.b-ref{background:var(--info-bg); color:var(--info)} .b-ok{background:var(--ok-bg); color:var(--ok)}
+.b-opt{background:var(--ok-bg); color:var(--ok); border:1px dashed var(--ok)}
+.b-exp{background:var(--exp-bg); color:var(--exp)} .b-bad{background:var(--bad-bg); color:var(--bad)}
+.b-warn{background:var(--warn-bg); color:var(--warn)} .b-neu{background:var(--neutral-bg); color:var(--neutral)}
+.callout{border-left:4px solid; border-radius:4px; padding:10px 14px; margin:12px 0; max-width:880px}
+.callout p{margin:4px 0}
+.callout.info{border-color:var(--info); background:var(--info-bg)}
+.callout.warn{border-color:var(--warn); background:var(--warn-bg)}
+.callout.bad{border-color:var(--bad); background:var(--bad-bg)}
+.callout.ok{border-color:var(--ok); background:var(--ok-bg)}
+.callout .t{font-weight:650}
+.status{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; margin:14px 0 6px}
+.status .cell{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:10px 12px}
+.status .k{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.status .v{font-weight:650; font-size:15px; margin-top:2px}
+.status .n{font-size:12.5px; color:var(--muted)}
+details{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:6px 12px; margin:10px 0}
+details summary{cursor:pointer; font-weight:600}
+details[open]{padding-bottom:10px}
+.diagram{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:14px; margin:12px 0; overflow-x:auto}
+.diagram svg{display:block; max-width:760px; width:100%; height:auto; margin:0 auto}
+.diagram svg .box{fill:var(--bg); stroke:var(--line); stroke-width:1.2}
+.diagram svg .box.hl{stroke:var(--accent); stroke-width:1.6}
+.diagram svg .box.proc{fill:var(--accent-soft); stroke:var(--accent)}
+.diagram svg text{fill:var(--text); font:13px var(--sans)}
+.diagram svg text.s{fill:var(--muted); font-size:11.5px}
+.diagram svg .arr{stroke:var(--muted); stroke-width:1.3; fill:none; marker-end:url(#ah)}
+.diagram svg .lbl{fill:var(--muted); font-size:11px}
+.diagram svg #ah path{fill:var(--muted)}
+.ts h4{margin-top:18px}
+.ts dl{display:grid; grid-template-columns:130px 1fr; gap:4px 12px; margin:6px 0 12px; max-width:880px}
+.ts dt{color:var(--muted); font-weight:600; font-size:13px}
+.ts dd{margin:0}
+.meta{color:var(--muted); font-size:13px}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:14px}
+@media (max-width: 900px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:static; height:auto; border-right:0; border-bottom:1px solid var(--line)}
+  main{padding:20px 16px 60px}
+  .two{grid-template-columns:1fr}
+  .ts dl{grid-template-columns:1fr}
+}
+@media print{ nav.toc, button.copy{display:none} .layout{display:block} main{padding:0} }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <div class="brand">photo-gen</div>
+  <div class="sub">User &amp; developer guide · generated 2026-09-25</div>
+  <a class="qs" href="#first-image">First image →</a>
+  <ol>
+    <li class="grp">Start here</li>
+    <li><a href="#status">Current status</a></li>
+    <li><a href="#first-image">First image in 60 seconds</a></li>
+    <li><a href="#what">What is photo-gen?</a></li>
+    <li><a href="#quickstart">Quick start</a></li>
+    <li class="grp">Using it</li>
+    <li><a href="#cli">CLI reference</a></li>
+    <li><a href="#api">HTTP API reference</a></li>
+    <li><a href="#profiles">Profiles: REFERENCE &amp; FAST</a></li>
+    <li><a href="#precision">Precision: fp32 &amp; bf16</a></li>
+    <li><a href="#performance">Performance</a></li>
+    <li><a href="#limitations">Current limitations</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li class="grp">How it works</li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#worker">Why a worker process</a></li>
+    <li><a href="#stack">Model &amp; runtime stack</a></li>
+    <li><a href="#integrity">Integrity &amp; reproducibility</a></li>
+    <li><a href="#storage">Storage layout</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#do-not-change">What not to change</a></li>
+    <li class="grp">Maintaining it</li>
+    <li><a href="#development">Development</a></li>
+    <li><a href="#extending">Extending photo-gen</a></li>
+    <li><a href="#research">Research mode</a></li>
+    <li><a href="#legend">Status legend</a></li>
+    <li><a href="#history">Research history</a></li>
+    <li><a href="#next">What's next?</a></li>
+    <li><a href="#audit">Documentation audit notes</a></li>
+  </ol>
+  <div class="theme">Theme: <button type="button" id="themebtn">auto</button></div>
+</nav>
+
+<main>
+<header class="top">
+  <h1>photo-gen</h1>
+  <div class="callout warn"><p class="t">Validated target: MacBook Air M5, 16 GB unified memory, 8-core GPU, macOS 27.0 (26A428).</p><p>Performance figures and profile validation here are specific to this machine and environment. photo-gen is not currently a general-purpose, cross-platform package; other hardware may work but has not been validated (<code>docs/HARDWARE.md</code>).</p></div>
+  <p class="lede">A local image generator for one machine: a command-line tool and a localhost HTTP API that run Z-Image-Turbo through mflux on Apple's MLX framework. It's built and validated for a MacBook Air M5 with 16 GB of unified memory.</p>
+  <p class="meta">Documentation generated: <strong>2026-09-25</strong> · photo-gen state: Git repository <code>nckandrw/photo-gen</code> (private), validated tag <code>photo-gen-m5-16gb-v1</code> (package version string <code>0.1.0</code>, as reported by <code>GET /health</code>; there is no release process) · Commands on this page were run against this build on the generation date. See <a href="#audit">audit notes</a>.</p>
+</header>
+
+<!-- ============================================================ -->
+<section id="status">
+<h2>Current status <a class="anchor" href="#status">#</a></h2>
+<div class="status">
+  <div class="cell"><div class="k">Build</div><div class="v">Working</div><div class="n"><code>verify</code>: all checks ok</div></div>
+  <div class="cell"><div class="k">Tests</div><div class="v">39 / 39 passing</div><div class="n">stdlib unittest, run 2026-09-25</div></div>
+  <div class="cell"><div class="k">REFERENCE (default)</div><div class="v">fp32 + 9 steps</div><div class="n"><span class="badge b-ref">REFERENCE</span> 512² · 768² · 1024²</div></div>
+  <div class="cell"><div class="k">FAST</div><div class="v">bf16 + 8 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 1024² · <span class="badge b-warn">PENDING</span> 512², 768²</div></div>
+  <div class="cell"><div class="k">Backend</div><div class="v">mflux 0.20.0 · MLX 0.32.2</div><div class="n">Z-Image-Turbo q4 @ <code>d2d30500</code></div></div>
+  <div class="cell"><div class="k">Network</div><div class="v">Offline · 127.0.0.1</div><div class="n">no downloads, no telemetry</div></div>
+</div>
+<p class="meta">FAST at 512² and 768²: blinded quality gates were being generated on the documentation date (<code>research/experiments/fast-resolution-gates-report.md</code>). Until a gate passes, the current build treats FAST at those sizes as experimental and requires <code>allow_experimental</code>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="first-image">
+<h2>First image in 60 seconds <a class="anchor" href="#first-image">#</a></h2>
+<p>No background needed. Run these from the project root (<code>&lt;project-root&gt;</code>, the directory containing <code>bin/</code>). The FAST profile at 1024×1024 took <strong>54 s</strong> on a cool machine (measured), and longer once the fanless Air has heated up.</p>
+<h4>1. Check the installation</h4>
+<div class="codewrap"><pre>bin/photo-gen verify</pre></div>
+<p>It prints JSON ending in <code>"ok": true</code>. If it doesn't, see <a href="#ts-integrity">Model integrity failure</a>.</p>
+<h4>2. Generate</h4>
+<div class="codewrap"><pre>bin/photo-gen generate -p "a red apple on a wooden table, soft window light" --profile fast --seed 42</pre></div>
+<h4>3. Find the output</h4>
+<p>The command prints the image path, then the seed, time, pixel hash and metadata path:</p>
+<pre>&lt;project-root&gt;/data/outputs/YYYY/MM/DD/&lt;job_id&gt;.png
+  seed=42  time=…s  pixel_sha256=7b45cfbe…
+  metadata=&lt;project-root&gt;/data/outputs/YYYY/MM/DD/&lt;job_id&gt;.json</pre>
+<div class="callout ok"><p class="t">Reproducibility check</p><p>With exactly this prompt and seed, the FAST profile at 1024² produces pixel hash <code>7b45cfbe…</code> (full: <code>7b45cfbe2eed1cd1…</code>). Getting the same hash means your installation reproduces the validated result bit for bit.</p></div>
+<p>Open the image with <code>open data/outputs/…/&lt;job_id&gt;.png</code>, or use the HTTP API (<a href="#quickstart">Quick start</a>).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="what">
+<h2>What is photo-gen? <a class="anchor" href="#what">#</a></h2>
+<p><strong>photo-gen</strong> is a local text-to-image application. It wraps one research-validated inference backend, Z-Image-Turbo run by <a href="#stack">mflux on MLX/Metal</a>, in an application layer that provides:</p>
+<ul>
+  <li>a CLI (<code>bin/photo-gen</code>) and a localhost HTTP API (stdlib <code>http.server</code>, port 8765);</li>
+  <li>a persistent SQLite job store, with a queue that runs one generation at a time across the whole machine;</li>
+  <li>a fresh worker process per image, with memory behaviour matched to a 16 GB machine;</li>
+  <li>startup verification of runtime versions and model file hashes, refusing to run on drift;</li>
+  <li>a JSON metadata record per image, with a canonical pixel hash and a reproduce command.</li>
+</ul>
+<p><strong>The problem it solves.</strong> It runs a modern 6B-parameter image model on a fanless 16 GB laptop, reproducibly, without memory-pressure failures, and without a GUI or cloud service. Scripts and local agents can drive it over HTTP.</p>
+<h3>Application vs. research project</h3>
+<div class="two">
+<div class="callout info"><p class="t">The application</p><p><code>app/</code>, <code>bin/</code>, <code>config/</code>, <code>data/</code>. This is what you run. It changes only when research has produced evidence for a change.</p></div>
+<div class="callout info"><p class="t">The research project around it</p><p><code>research/</code>. The evidence trail: benchmarks, blinded quality gates, audits and negative results. Every production behaviour has a report behind it. photo-gen is also used as an inference research platform (see <a href="#research">Research mode</a>).</p></div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="quickstart">
+<h2>Quick start <a class="anchor" href="#quickstart">#</a></h2>
+<h3>Start the API server</h3>
+<div class="codewrap"><pre>bin/photo-gen serve</pre></div>
+<p>It runs the startup checks, then logs <code>photo-gen API listening on http://127.0.0.1:8765</code>. Stop it with Ctrl-C or <code>SIGTERM</code>; both shut down gracefully. Use <code>serve --full-verify</code> to re-hash every model file first.</p>
+<h3>Generate from the CLI</h3>
+<div class="codewrap"><pre><span class="c"># FAST profile (bf16 + 8 steps), validated at 1024×1024</span>
+bin/photo-gen generate -p "a lighthouse at dawn" --profile fast --seed 42
+
+<span class="c"># REFERENCE profile (fp32 + 9 steps). Also what you get with no profile/precision flags.</span>
+bin/photo-gen generate -p "a lighthouse at dawn" --profile reference --seed 42
+bin/photo-gen generate -p "a lighthouse at dawn" --seed 42
+
+<span class="c"># Other validated sizes for REFERENCE</span>
+bin/photo-gen generate -p "a lighthouse at dawn" --width 512 --height 512 --seed 42
+
+<span class="c"># Full machine-readable job record</span>
+bin/photo-gen generate -p "a lighthouse at dawn" --profile fast --seed random --json</pre></div>
+<p>The CLI runs the job in its own process. If the API server is generating at that moment, the CLI waits for the machine-wide GPU lock.</p>
+<h3>Call the HTTP API</h3>
+<div class="codewrap"><pre>curl -s -X POST http://127.0.0.1:8765/generate \
+     -H 'Content-Type: application/json' \
+     -d '{"prompt":"a lighthouse at dawn","profile":"fast","seed":42}'</pre></div>
+<p>The response is <code>202</code> with the job record. Note its <code>job_id</code>.</p>
+<h3>Wait for / retrieve the job</h3>
+<div class="codewrap"><pre><span class="c"># long-poll: returns as soon as the job is completed/failed/cancelled, or after 300 s</span>
+curl -s "http://127.0.0.1:8765/jobs/&lt;job_id&gt;?wait=300"
+
+<span class="c"># download the PNG</span>
+curl -s -o image.png http://127.0.0.1:8765/outputs/&lt;job_id&gt;</pre></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="cli">
+<h2>CLI reference <a class="anchor" href="#cli">#</a></h2>
+<p><code>bin/photo-gen</code> is a zsh launcher. It runs <code>python -m photogen</code> with the project's validated interpreter (<code>mflux/.venv/bin/python3.12</code>) and sets <code>PHOTOGEN_ROOT</code>, <code>PYTHONPATH=app</code>, <code>HF_HUB_OFFLINE=1</code>, <code>HF_HUB_DISABLE_TELEMETRY=1</code> and <code>HF_HOME=mflux/hf</code>. It installs nothing; if the interpreter is missing it exits with code 3.</p>
+<h3>Global options</h3>
+<table>
+<tr><th>option</th><th>meaning</th></tr>
+<tr><td><code>--config PATH</code></td><td>alternative <code>photogen.toml</code> (default <code>config/photogen.toml</code>; also <code>PHOTOGEN_CONFIG</code> env)</td></tr>
+<tr><td><code>-v, --verbose</code></td><td>DEBUG logging to the console and the log file</td></tr>
+</table>
+<h3>Commands</h3>
+<table>
+<tr><th>command</th><th>what it does</th><th>exit code</th></tr>
+<tr><td><code>serve [--full-verify]</code></td><td>verify, then run the HTTP API on <code>server.host:server.port</code></td><td>2 if verification fails</td></tr>
+<tr><td><code>generate …</code></td><td>generate one image now (synchronously, in this process)</td><td>0 completed · 1 failed/cancelled · 2 invalid request / runtime unavailable</td></tr>
+<tr><td><code>jobs [--status S] [--limit N] [--json]</code></td><td>list jobs, newest first (default 20). <code>S</code>: queued, running, completed, failed, cancelled</td><td>0</td></tr>
+<tr><td><code>job &lt;job_id&gt;</code></td><td>print one job record (JSON)</td><td>2 if not found</td></tr>
+<tr><td><code>cancel &lt;job_id&gt;</code></td><td>cancel a <em>queued</em> job. A job running in the API server must be cancelled with <code>POST /jobs/{id}/cancel</code>; from the CLI you get a <code>conflict</code> error.</td><td>2 on conflict</td></tr>
+<tr><td><code>status [--json]</code></td><td>verification, queue, recent durations, memory/swap/pressure, thermal-warning flags, power source</td><td>0</td></tr>
+<tr><td><code>verify [--full]</code></td><td>versions + model hashes + mflux capability cross-check (JSON). <code>--full</code> ignores the hash cache.</td><td>0 ok · 2 failed</td></tr>
+<tr><td><code>capabilities</code></td><td>what the backend supports (JSON): sizes, precisions, profiles, memory profile</td><td>0</td></tr>
+</table>
+<h3><code>generate</code> options</h3>
+<table>
+<tr><th>option</th><th>default</th><th>notes</th></tr>
+<tr><td><code>-p, --prompt</code></td><td>required</td><td>non-empty, ≤ 4000 characters (the text encoder uses up to 512 tokens)</td></tr>
+<tr><td><code>--width</code>, <code>--height</code></td><td>1024 × 1024 (config)</td><td>validated: 512², 768², 1024². Others need <code>--allow-experimental</code>, multiples of 16, each side 256–1536, ≤ 1024×1024 pixels total.</td></tr>
+<tr><td><code>--steps</code></td><td>9 (config)</td><td>validated: 9 (fp32 and bf16), and 8 for bf16 at 1024². Others need <code>--allow-experimental</code> (1–50).</td></tr>
+<tr><td><code>--seed</code></td><td><code>random</code> (config)</td><td>integer 0…2³²−1 or <code>random</code>. The chosen seed is always recorded.</td></tr>
+<tr><td><code>--profile</code></td><td>none</td><td><code>reference</code> = fp32 + 9 steps; <code>fast</code> = bf16 + 8 steps. A profile fixes precision and steps; conflicting explicit values are rejected.</td></tr>
+<tr><td><code>--precision</code></td><td><code>fp32</code></td><td><code>fp32</code> or <code>bf16</code> (see <a href="#precision">Precision</a>)</td></tr>
+<tr><td><code>--output-name</code></td><td>none</td><td>suffix added to the file name, <code>&lt;job_id&gt;-&lt;name&gt;.png</code>. Plain name, no path separators.</td></tr>
+<tr><td><code>--text-encoder</code></td><td><code>stock</code></td><td>only <code>stock</code> is available; the substitute registry is empty</td></tr>
+<tr><td><code>--allow-experimental</code></td><td>off</td><td>permit non-validated sizes and step counts. The result is labelled <code>validated_configuration: false</code> with warnings.</td></tr>
+<tr><td><code>--json</code></td><td>off</td><td>print the full job record</td></tr>
+</table>
+<details><summary>Example: <code>status</code> output (captured 2026-09-25)</summary>
+<pre>service: ok  runtime: mflux 0.20.0  model: Z-Image-Turbo@d2d3050  low_ram: True
+active: none  queued: 0
+last generation: 122.803s  recent: [122.803, 66.586, 83.347, 60.369, 126.564, …]
+memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: False  power: AC Power</pre></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="api">
+<h2>HTTP API reference <a class="anchor" href="#api">#</a></h2>
+<p>Implemented in <code>app/photogen/api.py</code>. JSON in and out. It binds to <code>127.0.0.1:8765</code> by default.</p>
+<div class="callout warn"><p class="t">Local-only protections</p><p>Requests whose <code>Host</code> header isn't <code>127.0.0.1</code>, <code>localhost</code> or <code>::1</code> get <code>403</code>. For POST requests, a non-local <code>Origin</code> gets <code>403</code>, and a body that isn't <code>Content-Type: application/json</code> gets <code>415</code>. Bodies are limited to 64 KB. There is no authentication; the loopback bind is the security boundary. Changing <code>server.host</code> exposes the API to your network, and a warning is logged.</p></div>
+<table>
+<tr><th>method</th><th>path</th><th>purpose</th><th>success</th></tr>
+<tr><td>GET</td><td><code>/health</code></td><td>service state, version, runtime/model identity, startup checks</td><td>200 (503 if degraded)</td></tr>
+<tr><td>GET</td><td><code>/status</code></td><td>health + active jobs, queue length, recent durations, per-step timing, memory, thermal flags, power source, capabilities</td><td>200</td></tr>
+<tr><td>GET</td><td><code>/capabilities</code></td><td>what the backend supports</td><td>200</td></tr>
+<tr><td>POST</td><td><code>/generate</code></td><td>submit a text-to-image job</td><td>202 + job</td></tr>
+<tr><td>GET</td><td><code>/jobs?status=&amp;limit=&amp;pixel_sha256=</code></td><td>history/search, newest first (limit default 50, max 1000)</td><td>200 <code>{"jobs":[…]}</code></td></tr>
+<tr><td>GET</td><td><code>/jobs/{id}[?wait=SECONDS]</code></td><td>one job; <code>wait</code> long-polls until terminal (max 900 s)</td><td>200 + job</td></tr>
+<tr><td>POST</td><td><code>/jobs/{id}/cancel</code></td><td>cancel a queued job, or a running job owned by this server</td><td>200 + job</td></tr>
+<tr><td>GET</td><td><code>/outputs/{id}</code></td><td>PNG bytes of a completed job</td><td>200 <code>image/png</code></td></tr>
+</table>
+
+<h3 id="api-generate">POST /generate</h3>
+<table>
+<tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr>
+<tr><td><code>prompt</code></td><td>string</td><td><em>required</em></td><td>non-empty, ≤ 4000 characters</td></tr>
+<tr><td><code>width</code>, <code>height</code></td><td>int</td><td>1024</td><td>as for the CLI</td></tr>
+<tr><td><code>steps</code></td><td>int</td><td>9</td><td>as for the CLI</td></tr>
+<tr><td><code>seed</code></td><td>int or <code>"random"</code></td><td><code>"random"</code></td><td>0…4294967295</td></tr>
+<tr><td><code>profile</code></td><td><code>"reference"</code> | <code>"fast"</code></td><td>none</td><td>fixes precision + steps</td></tr>
+<tr><td><code>precision</code></td><td><code>"fp32"</code> | <code>"bf16"</code></td><td><code>"fp32"</code></td><td></td></tr>
+<tr><td><code>allow_experimental</code></td><td>bool</td><td>false</td><td></td></tr>
+<tr><td><code>output_name</code></td><td>string</td><td>none</td><td>plain file name suffix</td></tr>
+<tr><td><code>text_encoder</code></td><td>string</td><td><code>"stock"</code></td><td>registry is empty</td></tr>
+<tr><td><code>task</code></td><td>string</td><td><code>"text-to-image"</code></td><td>the only accepted value</td></tr>
+<tr><td><code>output_format</code></td><td>string</td><td><code>"png"</code></td><td>the only accepted value</td></tr>
+</table>
+<p><strong>Rejected on purpose</strong> (<code>400 unsupported_parameter</code>, never silently ignored): <code>negative_prompt</code>, <code>guidance</code>, <code>cfg</code>, <code>cfg_scale</code>, <code>scheduler</code>, <code>low_ram: false</code>, <code>model</code>, <code>quantize</code>, <code>lora</code>/<code>loras</code>, <code>image</code>/<code>images</code>/<code>strength</code>, and any unknown field. The reason is included in the error message.</p>
+<div class="codewrap"><pre>curl -s -X POST http://127.0.0.1:8765/generate \
+     -H 'Content-Type: application/json' \
+     -d '{"prompt":"a red apple on a wooden table, soft window light","profile":"fast","seed":42}'</pre></div>
+
+<h3 id="api-job">The job record (<code>GET /jobs/{id}</code>, and the body of <code>POST /generate</code>)</h3>
+<table>
+<tr><th>field</th><th>meaning</th></tr>
+<tr><td><code>job_id</code></td><td>UTC timestamp + random suffix, e.g. <code>20260925T004802Z-dfd168</code></td></tr>
+<tr><td><code>status</code></td><td><code>queued</code> → <code>running</code> → <code>completed</code> | <code>failed</code> | <code>cancelled</code></td></tr>
+<tr><td><code>source</code></td><td><code>api</code> or <code>cli</code></td></tr>
+<tr><td><code>created_at</code>, <code>started_at</code>, <code>finished_at</code></td><td>ISO-8601 UTC</td></tr>
+<tr><td><code>request</code></td><td>the normalized request: exactly what ran, including the resolved seed, <code>validated</code>, <code>warnings</code>, <code>profile</code>, <code>precision</code></td></tr>
+<tr><td><code>seed</code></td><td>the seed actually used</td></tr>
+<tr><td><code>output_path</code>, <code>metadata_path</code></td><td>absolute paths under <code>data/outputs/</code></td></tr>
+<tr><td><code>pixel_sha256</code>, <code>file_sha256</code></td><td>canonical pixel identity; PNG byte hash (see <a href="#integrity">Integrity</a>)</td></tr>
+<tr><td><code>generation_seconds</code></td><td>worker process wall time</td></tr>
+<tr><td><code>phases</code>, <code>step_seconds</code></td><td>per-phase (load, text encode, denoise, VAE) and per-step timings</td></tr>
+<tr><td><code>memory</code></td><td><code>peak_footprint_gb</code>, <code>mlx_peak_gb</code></td></tr>
+<tr><td><code>runtime</code>, <code>effective_parameters</code></td><td>versions, device, model identity; guidance, scheduler, low_ram, precision, observed DiT dtypes, transformer release, compile count, mflux argv</td></tr>
+<tr><td><code>error</code></td><td><code>null</code>, or <code>{"error": code, "message": …, "details": …}</code></td></tr>
+</table>
+<p><strong>Polling.</strong> <code>?wait=N</code> holds the request open (checking every 0.5 s) until the job is terminal or N seconds have passed (capped at 900), then returns the current record. Without <code>wait</code> it returns immediately.</p>
+
+<h3>Error responses</h3>
+<table>
+<tr><th>HTTP</th><th><code>error</code></th><th>when</th></tr>
+<tr><td>400</td><td><code>invalid_request</code></td><td>bad value, e.g. size not a multiple of 16, unvalidated size without <code>allow_experimental</code>, a profile conflict</td></tr>
+<tr><td>400</td><td><code>unsupported_parameter</code></td><td>rejected or unknown field</td></tr>
+<tr><td>403</td><td><code>forbidden</code></td><td>non-local Host / Origin</td></tr>
+<tr><td>404</td><td><code>not_found</code></td><td>unknown job or route; output of a job that isn't completed</td></tr>
+<tr><td>409</td><td><code>conflict</code></td><td>cancelling a job that's already terminal, or running in another process</td></tr>
+<tr><td>415</td><td><code>unsupported_media_type</code></td><td>POST without <code>Content-Type: application/json</code></td></tr>
+<tr><td>429</td><td><code>queue_full</code></td><td>≥ <code>queue.max_pending</code> (20) jobs queued or running</td></tr>
+<tr><td>503</td><td><code>runtime_unavailable</code></td><td><code>/health</code> when degraded</td></tr>
+</table>
+<details><summary>Captured error examples (2026-09-25)</summary>
+<pre>POST /generate {"prompt":"x","width":512,"height":512,"profile":"fast"}
+→ 400 {"error":"invalid_request","message":"bf16 + 8 steps is gated only at 1024x1024; pass allow_experimental=true to run it at 512x512"}
+
+POST /generate {"prompt":"x","profile":"fast","steps":9}
+→ 400 {"error":"invalid_request","message":"profile 'fast' fixes steps=8; got steps=9"}
+
+POST /generate {"prompt":"x","negative_prompt":"y"}
+→ 400 {"error":"unsupported_parameter","message":"'negative_prompt' is not supported: Z-Image-Turbo runs without CFG in mflux; a negative prompt would never be encoded", …}
+
+GET /health  with  Host: evil.example
+→ 403 {"error":"forbidden","message":"non-local Host header rejected"}</pre></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="profiles">
+<h2>Profiles: REFERENCE and FAST <a class="anchor" href="#profiles">#</a></h2>
+<table>
+<tr><th>profile</th><th>precision</th><th>steps = NFE</th><th>status</th><th>use</th></tr>
+<tr><td><strong>reference</strong> (default behaviour)</td><td>fp32</td><td class="num">9</td><td><span class="badge b-ref">REFERENCE</span> at 512², 768², 1024²</td><td>reproducibility, regression testing, the research baseline</td></tr>
+<tr><td><strong>fast</strong></td><td>bf16</td><td class="num">8</td><td><span class="badge b-ok">VALIDATED</span> 1024² · <span class="badge b-warn">PENDING</span> 512² · <span class="badge b-warn">PENDING</span> 768²</td><td>normal use at 1024²</td></tr>
+<tr><td>(no profile) bf16 + 7/6/5/4 steps</td><td>bf16</td><td class="num">7–4</td><td><span class="badge b-exp">EXPERIMENTAL</span></td><td>research only; needs <code>allow_experimental</code></td></tr>
+</table>
+<h3>REFERENCE: fp32 + 9 steps</h3>
+<p>This is the permanent, intentionally conservative reproducibility baseline. In mflux every step is one transformer evaluation, so 9 steps = <strong>9 NFE</strong> (network function evaluations). That is one more than the official Turbo recipe. <strong>REFERENCE is not "the official Turbo configuration"</strong>; it is deliberately kept unchanged so every result stays comparable. Regression pixel hashes (prompt "a red apple on a wooden table, soft window light", seed 42): 1024² <code>fe47d88d…</code>, 512² <code>9ae59f59…</code>, 768² <code>94a023d3…</code> (the 768² hash was first recorded 2026-09-25 in the Phase 3 cold runs).</p>
+<h3>FAST: bf16 + 8 steps</h3>
+<p>8 steps = 8 NFE, the official Z-Image-Turbo evaluation count as currently understood. The model card's "9 steps → 8 DiT forwards" was an artifact of an old diffusers version (<code>research/experiments/scheduler-nfe-note.md</code>). Regression hash at 1024², same prompt, seed 42: <code>7b45cfbe…</code>.</p>
+<div class="callout info"><p class="t">What "validated at 1024²" means, exactly</p>
+<p>FAST at 1024² rests on a <strong>chain of two blinded 24-pair quality gates</strong>: fp32/9 vs bf16/9 (0 fp32-better / 2 bf16-better / 22 ties), then bf16/9 vs bf16/8 (0 worse / 1 better / 23 ties). No gate has yet compared FAST with REFERENCE <em>directly</em>. Direct REFERENCE-vs-FAST gates at 512², 768² and 1024² were being generated on the documentation date. Details: <code>research/experiments/phase3-record-audit.md</code>.</p></div>
+<h3>How the build enforces this</h3>
+<ul>
+<li><code>--profile fast</code> at 1024² runs as validated.</li>
+<li><code>--profile fast</code> at 512² or 768² is <strong>refused</strong> unless you pass <code>--allow-experimental</code>. It then runs with a warning and <code>validated_configuration: false</code>.</li>
+<li>7/6/5/4 steps always need <code>--allow-experimental</code>. The step-sweep study rated 7–6 steps "draft" and 5–4 "preview" quality (<code>research/experiments/step-sweep-report.md</code>). They are not quality-equivalent presets.</li>
+</ul>
+<div class="callout warn"><p class="t">Known labelling inconsistency (current build)</p><p>An explicit <code>--precision bf16</code> request with the default 9 steps at <strong>512² or 768²</strong> is labelled <code>validated_configuration: true</code> with no warning. The bf16 quality gate covered 1024² only. The code marks any 9-step request at a validated size as validated, regardless of precision. The profiles themselves are unaffected. This has been reported for a decision; see <a href="#audit">audit notes</a>.</p></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="precision">
+<h2>Precision: fp32 and bf16 <a class="anchor" href="#precision">#</a></h2>
+<p>"Precision" here means the data type of the diffusion transformer's <em>activations</em> (its hidden stream). The <strong>weights are always the same q4 file</strong>, and nothing on disk changes.</p>
+<h3>fp32 <span class="badge b-ref">REFERENCE</span></h3>
+<p>This is unmodified mflux 0.20.0 behaviour. mflux loads the model as bf16, but two float32 inputs (the timestep embedding and the RoPE tables) promote the whole hidden stream to float32 (<code>research/experiments/E02-RESULTS.md</code>, confirmed by ablation E10). fp32 is the default.</p>
+<h3>bf16 <span class="badge b-opt">ADOPTED AS OPT-IN</span></h3>
+<p>The worker applies in-process casts so the hidden stream stays bfloat16: timestep-embedding output, RoPE result, SDPA mask, and pad tokens (a no-op, kept for byte-identical parity with the gated experiment). No mflux file, weight, quantization or scheduler changes (<code>_apply_bf16_stream</code> in <code>app/photogen/runtimes/mflux_zimage_worker.py</code>).</p>
+<ul>
+<li><strong>Output:</strong> deterministic, but <strong>not pixel-identical</strong> to fp32. The same seed gives a closely similar image with small content differences.</li>
+<li><strong>Quality evidence:</strong> passed a blinded gate on 24 pairs at 1024², 9 steps: 0 fp32-better / 2 bf16-better / 22 ties, no text regression. The limitations are a single rater, 24 pairs and one resolution. The gate rules out a meaningful regression at that sample size; it does not show "identical quality".</li>
+<li><strong>Speed:</strong> bf16/9 vs fp32/9 denoise ratio 0.70 at 1024², both cold (55.1 vs 78.3 s) and as the median of 24 paired sustained runs.</li>
+<li><strong>Memory:</strong> lower peak footprint, 5.84 vs 6.56 GB at 1024².</li>
+</ul>
+</section>
+
+<!-- ============================================================ -->
+<section id="architecture">
+<h2>Architecture <a class="anchor" href="#architecture">#</a></h2>
+<p>The CLI and the API share one service layer (<code>service.py</code>) and one job layer (<code>jobs.py</code>). Inference always happens in a separate, short-lived worker process.</p>
+<div class="diagram" role="img" aria-label="Request flow from CLI or HTTP API through the job manager, SQLite store and GPU lock to a worker process running mflux on MLX/Metal, then output validation and metadata.">
+<svg viewBox="0 0 760 640" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="40" y="14" width="220" height="50" rx="6"/><text x="150" y="36" text-anchor="middle">CLI  bin/photo-gen</text><text class="s" x="150" y="54" text-anchor="middle">cli.py · runs job in-process</text>
+<rect class="box" x="500" y="14" width="220" height="50" rx="6"/><text x="610" y="36" text-anchor="middle">HTTP API  127.0.0.1:8765</text><text class="s" x="610" y="54" text-anchor="middle">api.py · background worker thread</text>
+<path class="arr" d="M150,64 L150,96 L330,96 L330,110"/><path class="arr" d="M610,64 L610,96 L430,96 L430,110"/>
+<rect class="box hl" x="230" y="112" width="300" height="54" rx="6"/><text x="380" y="134" text-anchor="middle">PhotoGenService → JobManager</text><text class="s" x="380" y="153" text-anchor="middle">service.py · jobs.py · runtime.normalize() validates</text>
+<path class="arr" d="M530,139 L600,139"/><rect class="box" x="602" y="116" width="140" height="46" rx="6"/><text x="672" y="136" text-anchor="middle">SQLite job store</text><text class="s" x="672" y="152" text-anchor="middle">data/photogen.sqlite3</text>
+<path class="arr" d="M380,166 L380,194"/>
+<rect class="box hl" x="230" y="196" width="300" height="50" rx="6"/><text x="380" y="217" text-anchor="middle">GPU lock (flock)</text><text class="s" x="380" y="235" text-anchor="middle">data/gpu.lock · one generation machine-wide</text>
+<path class="arr" d="M380,246 L380,274"/>
+<rect class="box" x="230" y="276" width="300" height="50" rx="6"/><text x="380" y="297" text-anchor="middle">MFluxZImageRuntime.generate()</text><text class="s" x="380" y="315" text-anchor="middle">runtimes/mflux_zimage.py · spawns worker</text>
+<path class="arr" d="M380,326 L380,352"/><text class="lbl" x="390" y="344">new process (own session), HF_HUB_OFFLINE=1</text>
+<rect class="box proc" x="130" y="354" width="500" height="150" rx="8"/>
+<text x="380" y="376" text-anchor="middle">worker process · runtimes/mflux_zimage_worker.py</text>
+<text class="s" x="380" y="396" text-anchor="middle">in-process patches: bf16 stream (opt-in) · transformer release · passive probes</text>
+<text class="s" x="380" y="420" text-anchor="middle">unmodified mflux Turbo CLI main()  --low-ram</text>
+<text class="s" x="380" y="440" text-anchor="middle">text encoder (Qwen3-4B q4) → freed → DiT denoise ×N steps (q4, MLX/Metal on the M5 GPU)</text>
+<text class="s" x="380" y="460" text-anchor="middle">→ DiT released → VAE decode → PNG</text>
+<text class="s" x="380" y="486" text-anchor="middle">writes worker-result.json (timings, peak footprint, versions)</text>
+<path class="arr" d="M380,504 L380,530"/>
+<rect class="box" x="230" y="532" width="300" height="46" rx="6"/><text x="380" y="552" text-anchor="middle">output validation</text><text class="s" x="380" y="569" text-anchor="middle">imaging.py · size, non-blank, pixel SHA-256</text>
+<path class="arr" d="M380,578 L380,600"/>
+<rect class="box" x="180" y="602" width="400" height="30" rx="6"/><text x="380" y="622" text-anchor="middle">PNG + JSON sidecar in data/outputs/ · job → completed</text>
+</svg>
+</div>
+<h3>Request lifecycle</h3>
+<ol>
+<li><strong>Normalize.</strong> <code>MFluxZImageRuntime.normalize()</code> is the single validation point. It rejects unsupported or unknown fields, resolves the profile, applies defaults, picks a random seed if asked, and decides <code>validated</code> and <code>warnings</code>. The result is a frozen <code>GenerationRequest</code>: exactly what will run.</li>
+<li><strong>Persist.</strong> A row is inserted in SQLite with status <code>queued</code>. API jobs go onto an in-memory queue served by one background thread; CLI jobs execute immediately in the CLI process.</li>
+<li><strong>Serialize.</strong> The executor takes an exclusive <code>flock</code> on <code>data/gpu.lock</code>, so the API server and any CLI process never generate at the same time. A waiting job can still be cancelled.</li>
+<li><strong>Run.</strong> The status becomes <code>running</code> (an atomic compare-and-set). The runtime writes <code>worker-request.json</code> and launches the worker in a new session. It waits up to 30 minutes, and cancellation kills the process group (SIGTERM, then SIGKILL after 10 s).</li>
+<li><strong>Validate.</strong> The image is decoded; its size must match and it must not be uniform/blank. The pixel SHA-256 and file SHA-256 are computed.</li>
+<li><strong>Record.</strong> A metadata sidecar (<code>photogen.generation/1</code>) is written next to the PNG, including a <code>reproduce.cli</code> command and system telemetry before/after. The job becomes <code>completed</code>, or <code>failed</code> with a structured error.</li>
+</ol>
+<details><summary>Crash recovery</summary><p>When the API server starts, jobs left <code>running</code> by a process that no longer exists are marked <code>failed</code> ("owning process exited"). Queued API jobs from a previous session are re-queued, unless another live server owns them.</p></details>
+<h3>Why generation is serialized</h3>
+<p>One generation peaks at 5.4–6.6 GB of footprint on a 16 GB machine that also runs macOS and other apps. Concurrency has never been validated here, and two concurrent generations would compete for the same GPU and memory. The lock makes "one active generation" a machine-wide guarantee rather than a per-process one.</p>
+<h3>What <code>--low-ram</code> does here</h3>
+<p><code>--low-ram</code> is always passed and cannot be disabled; <code>low_ram: false</code> is rejected. In mflux it frees the text encoder before denoising, caps the MLX cache at 1 GB, and tiles the VAE decode. photo-gen adds a fix so that mflux's transformer release actually takes effect before VAE decode (next section).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="worker">
+<h2>Why a worker process <a class="anchor" href="#worker">#</a></h2>
+<p>A separate process per image is an engineering decision, not an accident. It's what makes the measured memory profile reproducible on a 16 GB machine.</p>
+<ul>
+<li><strong>Measured problem.</strong> Without <code>--low-ram</code>, this Mac reached a 12.8 GB footprint, critical memory pressure and 2 GB of swap. <code>--low-ram</code> deletes the text encoder during each run, which can't coexist with keeping a model resident in a long-lived server process. Every reference implementation surveyed keeps models resident (<code>research/COMPONENT-SOURCES.md</code>).</li>
+<li><strong>Lifecycle cleanup.</strong> When the worker exits, all of its memory returns to the OS. The server itself stays around 0.1 GB between jobs.</li>
+<li><strong>Isolation.</strong> A Metal/MLX crash, or an out-of-memory kill, fails one job and leaves the service running. Cancellation is a process-group kill.</li>
+<li><strong>Cost.</strong> About 2.6 s of worker start-up per job (≈3% at 1024²): interpreter start, model load ≈1.1 s, text encode ≈0.65 s.</li>
+</ul>
+<h3>The transformer-release fix <span class="badge b-ok">ADOPTED</span></h3>
+<p>mflux's <code>--low-ram</code> sets <code>model.transformer = None</code> after the denoise loop. But mflux's compiled <code>predict</code> closure still referenced the ≈3.47 GB q4 transformer, keeping it alive through VAE decode. The worker rebuilds <code>predict</code> with an identical body that reads the transformer from a holder, and clears the holder after the loop.</p>
+<p>The result is pixel-identical output, with no runtime cost. Peak footprint at 1024² dropped from ≈7.3 GB to 6.56 GB (fp32) and 5.84 GB (bf16). This has been reported upstream as mflux-community/mflux #760 (<code>research/experiments/production-memory-fix-report.md</code>).</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="stack">
+<h2>Model &amp; runtime stack <a class="anchor" href="#stack">#</a></h2>
+<table>
+<tr><th>component</th><th>pinned value</th><th>role</th></tr>
+<tr><td>Python</td><td>3.12.14 (project-local, <code>mflux/.venv</code>)</td><td>runs both the app and the workers. System Python is not used.</td></tr>
+<tr><td>mflux</td><td>0.20.0 (unmodified)</td><td>MLX implementation of Z-Image-Turbo. photo-gen calls its Turbo CLI entry point <code>mflux.models.z_image.cli.z_image_turbo_generate:main</code>.</td></tr>
+<tr><td>MLX / mlx-metal</td><td>0.32.2 / 0.32.2</td><td>Apple's array framework; runs the kernels on the M5 GPU through Metal</td></tr>
+<tr><td>Model</td><td><code>mflux-community/z-image-turbo-mflux-q4</code> @ <code>d2d30500c4bc0d19770bd952951df3e7c635ae9e</code></td><td>Z-Image-Turbo (Tongyi-MAI, Apache-2.0), pre-quantized by mflux-community</td></tr>
+<tr><td>Quantization</td><td>MLX affine 4-bit, group 64 (bf16 scales + biases)</td><td>DiT 3.46 GB; the whole pack is 5.5 GB on disk</td></tr>
+<tr><td>Text encoder</td><td>Qwen3-4B (q4, part of the pack)</td><td>turns the prompt into features (penultimate hidden state, up to 512 tokens); freed before denoising</td></tr>
+<tr><td>Diffusion transformer (DiT)</td><td>6B single-stream S3-DiT: 30 main blocks + 2 noise-refiner + 2 context-refiner</td><td>denoises the latent: one evaluation per step</td></tr>
+<tr><td>VAE</td><td>part of the pack (0.16 GB)</td><td>decodes the final latent to pixels (tiled under <code>--low-ram</code>)</td></tr>
+<tr><td>Scheduler</td><td>mflux 0.20.0 default (linear sigmas + resolution-dependent shift)</td><td>fixed; <code>scheduler</code> requests are rejected. It differs from the official static shift 3.0 below 1024²; a blinded audit found no quality or runtime cost.</td></tr>
+<tr><td>Guidance</td><td>0.0 (Turbo is guidance-distilled)</td><td>no CFG, so negative prompts are not supported</td></tr>
+</table>
+<p class="meta">Machine: MacBook Air M5 (8-core GPU, <code>applegpu_g17g</code>), 16 GiB unified memory, macOS 27.0, fanless. No other machine, model or runtime is validated. Qwen-Image 2.1 on stable-diffusion.cpp was measured during research but is not wired into photo-gen. Its files under <code>models/diffusion_models</code>, <code>models/text_encoders</code> and <code>models/vae</code> are research artifacts, not used by the app.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="integrity">
+<h2>Integrity &amp; reproducibility <a class="anchor" href="#integrity">#</a></h2>
+<h3>Startup verification (<code>verify</code>, <code>serve</code>, <code>generate</code>)</h3>
+<table>
+<tr><th>check</th><th>what</th></tr>
+<tr><td><code>versions</code></td><td>Python, mflux, mlx and mlx-metal must equal the manifest exactly</td></tr>
+<tr><td><code>entry_point</code></td><td>the mflux Turbo CLI module is importable</td></tr>
+<tr><td><code>model</code></td><td>all 11 manifest files are present, with the exact size and digest (sha256 for weights; git blob sha1 for small JSON/tokenizer files)</td></tr>
+<tr><td><code>mflux_capabilities</code></td><td>mflux's own option declarations (<code>describe_command</code>) still say <code>--negative-prompt</code> and <code>--guidance</code> are ignored and the required flags are honoured. Drift is reported, not adapted to.</td></tr>
+<tr><td><code>low_ram</code>, <code>offline</code></td><td><code>--low-ram</code> is always passed; workers run with <code>HF_HUB_OFFLINE=1</code></td></tr>
+</table>
+<p>If any check fails, <code>serve</code> and <code>generate</code> refuse to run (<code>runtime_unavailable</code>). <strong>Nothing is ever repaired or downloaded automatically.</strong></p>
+<p><strong>Hash cache.</strong> A full hash of the 5.5 GB pack takes a few seconds when the files are in the OS cache, and up to ≈20 s cold. <code>data/integrity-cache.json</code> stores each file's inode, size and mtime after a successful full hash. A later check trusts the cache only if all three are unchanged; otherwise the file is re-hashed. <code>--full</code> ignores the cache.</p>
+<h3>Output identity</h3>
+<ul>
+<li><strong>pixel_sha256</strong> is the canonical image identity: SHA-256 of the decoded 8-bit RGB bytes. PNG bytes can differ between identical generations because mflux embeds run metadata (e.g. timing), so <code>file_sha256</code> is recorded too but isn't used for identity.</li>
+<li><strong>Determinism (verified):</strong> the same prompt, seed, size, steps and precision reproduce the same pixel hash. The regression hashes on this page have been reproduced repeatedly through the CLI, the production worker and the research harnesses.</li>
+<li><strong>Blank-output guard:</strong> an image whose per-channel standard deviation is below 2.0 is rejected as <code>output_corrupted</code>. Research on another runtime saw all-white images returned with exit code 0.</li>
+</ul>
+<p>Search history by identity: <code>GET /jobs?pixel_sha256=&lt;hash&gt;</code>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="storage">
+<h2>Storage layout <a class="anchor" href="#storage">#</a></h2>
+<pre>photo-gen/
+├── app/photogen/            application package (see Development)
+├── app/tests/               unit + API tests
+├── bin/photo-gen            launcher
+├── config/                  photogen.toml · backend-zimage-mflux.json · text-encoders.json
+├── data/                    runtime data (created automatically)
+│   ├── outputs/YYYY/MM/DD/&lt;job_id&gt;[-name].png    image (UTC date folders)
+│   ├── outputs/YYYY/MM/DD/&lt;job_id&gt;[-name].json   metadata sidecar (photogen.generation/1)
+│   ├── jobs/&lt;job_id&gt;/        worker-request.json · worker-result.json · worker.log
+│   ├── photogen.sqlite3      job history (WAL mode)
+│   ├── logs/photogen.log     application log (rotated at 5 MB, 3 backups)
+│   ├── gpu.lock              machine-wide generation lock (holds pid, job id, time)
+│   └── integrity-cache.json  model-hash verification cache
+├── models/mflux/z-image-turbo-mflux-q4/   the pinned model (5.5 GB)
+├── mflux/                   project-local toolchain: .venv, Python, HF cache (HF_HOME=mflux/hf)
+├── research/                evidence trail (read-only for the application)
+├── docs/                    photo-gen-guide.html (this guide) · HARDWARE.md · REPRODUCIBILITY.md · USAGE.md
+├── README.md · CLAUDE.md · MEMORY.md · .gitignore</pre>
+<p><strong>In Git vs not:</strong> source, configuration, docs and text research evidence are versioned. <code>mflux/</code> toolchain, <code>models/</code>, <code>data/</code>, <code>outputs/</code>, <code>sdcpp/</code> binaries and research PNGs are not (see <code>docs/REPRODUCIBILITY.md</code>; PNG hashes in <code>research/EXCLUDED-IMAGES.sha256</code>).</p>
+<p><code>data_dir</code> can be moved in <code>config/photogen.toml</code>. The metadata JSON is the most complete record of a generation.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="configuration">
+<h2>Configuration <a class="anchor" href="#configuration">#</a></h2>
+<h3><code>config/photogen.toml</code>: user settings <span class="badge b-ok">safe to edit</span></h3>
+<table>
+<tr><th>key</th><th>default</th><th>notes</th></tr>
+<tr><td><code>server.host</code></td><td><code>127.0.0.1</code></td><td>non-loopback exposes the unauthenticated API (a warning is logged)</td></tr>
+<tr><td><code>server.port</code></td><td>8765</td><td></td></tr>
+<tr><td><code>paths.data_dir</code></td><td><code>data</code></td><td>relative to the project root</td></tr>
+<tr><td><code>defaults.width</code> / <code>height</code></td><td>1024 / 1024</td><td>used when a request omits them</td></tr>
+<tr><td><code>defaults.steps</code></td><td>9</td><td>changing it makes defaulted requests unvalidated/experimental</td></tr>
+<tr><td><code>defaults.seed</code></td><td><code>"random"</code></td><td>or a non-negative integer</td></tr>
+<tr><td><code>queue.max_pending</code></td><td>20</td><td>API jobs queued + running before <code>429</code></td></tr>
+<tr><td><code>queue.recent_window</code></td><td>10</td><td>completed jobs used for status statistics</td></tr>
+<tr><td><code>logging.level</code></td><td><code>INFO</code></td><td>DEBUG · INFO · WARNING · ERROR</td></tr>
+</table>
+<p>A missing file means the built-in defaults above apply. There's no hot reload; restart the server after edits.</p>
+<h3><code>config/backend-zimage-mflux.json</code>: backend manifest <span class="badge b-bad">do not edit</span></h3>
+<p>The immutable identity of the validated environment: pinned versions, entry point, model repo/revision, the 11 file digests, validated resolutions and steps, guidance, scheduler, reference pixel hashes and size limits. If verification reports drift, <strong>investigate the environment</strong>. Editing the manifest to "fix" it would hide exactly what it exists to catch.</p>
+<details><summary>Historical fields in the manifest</summary><p>The manifest's <code>measured_1024</code> block (cold 84.6 s, sustained 133.7 s, peak 7.2–7.4 GB) records the original fp32 measurements, from before the transformer-release fix. Current figures are in <a href="#performance">Performance</a>. The block is left unchanged because the manifest is immutable by policy.</p></details>
+<h3><code>config/text-encoders.json</code>: substitute registry</h3>
+<p>An opt-in mechanism for alternative text encoders with pinned digests, run through a symlinked composite model directory. <strong>Currently empty:</strong> only <code>stock</code> is available. The one evaluated substitute (heretic-v2) was closed and removed.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="do-not-change">
+<h2>What not to change <a class="anchor" href="#do-not-change">#</a></h2>
+<p>These define the validated environment. Changing any of them invalidates the regression hashes and the research comparisons, and some make startup verification refuse to run.</p>
+<table>
+<tr><th>item</th><th>why</th></tr>
+<tr><td>mflux 0.20.0, MLX / mlx-metal 0.32.2, Python 3.12.14, or any package in <code>mflux/.venv</code></td><td>the version check refuses to run; numerics and memory were measured on exactly these</td></tr>
+<tr><td>model files in <code>models/mflux/z-image-turbo-mflux-q4/</code>, the quantization, the revision</td><td>the hash check refuses to run; every quality gate used these weights</td></tr>
+<tr><td><code>config/backend-zimage-mflux.json</code></td><td>it is the definition of "validated"</td></tr>
+<tr><td>the REFERENCE profile (fp32 + 9) and the scheduler</td><td>the permanent baseline all comparisons use; a schedule change alters every pixel hash</td></tr>
+<tr><td><code>--low-ram</code> and the per-job worker process</td><td>required for the measured memory profile on 16 GB</td></tr>
+<tr><td>worker patches in <code>mflux_zimage_worker.py</code></td><td>each one is backed by evidence (pixel parity or a blinded gate); changing one requires the same</td></tr>
+<tr><td>system settings (e.g. <code>iogpu.wired_limit_mb</code>, Metal settings, system Python), global installs, <code>sudo</code></td><td>outside the project's rules; none are needed</td></tr>
+<tr><td>research data, logs, hashes, benchmark CSVs, failed outputs</td><td>never deleted or overwritten; corrupted artifacts get an incident record instead</td></tr>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="performance">
+<h2>Performance <a class="anchor" href="#performance">#</a></h2>
+<div class="callout warn"><p class="t">Cold ≠ sustained</p><p>The MacBook Air is fanless. A <em>cold</em> run (after about 10 minutes idle) and runs in a long back-to-back session differ a lot. The two are never averaged together. All figures below are measured, never multiplied from separate speed-ups.</p></div>
+<h3>Cold, one run per configuration (after 600 s idle)</h3>
+<p class="meta">Prompt p01 (apple), seed 42, production worker, transformer release on. "Wall" = worker process from spawn to exit (includes model load and text encode). Sources: <code>research/experiments/PERFORMANCE-MAP.md</code>; 768² rows from the 2026-09-25 Phase 3 cold runs (<code>research/experiments/perfmap/cold768-results.jsonl</code>).</p>
+<table>
+<tr><th>res</th><th>configuration</th><th class="num">wall (s)</th><th class="num">denoise (s)</th><th class="num">VAE (s)</th><th class="num">peak footprint (GB)</th><th>quality status</th></tr>
+<tr><td>1024²</td><td>REFERENCE fp32/9</td><td class="num">83.4</td><td class="num">78.3</td><td class="num">1.98</td><td class="num">6.56</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
+<tr><td>1024²</td><td>bf16/9</td><td class="num">60.6</td><td class="num">55.1</td><td class="num">1.96</td><td class="num">5.84</td><td>gated (bf16 gate)</td></tr>
+<tr><td>1024²</td><td><strong>FAST bf16/8</strong></td><td class="num"><strong>54.2</strong></td><td class="num"><strong>48.7</strong></td><td class="num">1.97</td><td class="num">5.84</td><td><span class="badge b-ok">VALIDATED</span> (chained gates)</td></tr>
+<tr><td>768²</td><td>REFERENCE fp32/9</td><td class="num">44.7</td><td class="num">40.4</td><td class="num">1.06</td><td class="num">6.33</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
+<tr><td>768²</td><td>FAST bf16/8</td><td class="num">30.6</td><td class="num">26.1</td><td class="num">1.08</td><td class="num">5.93</td><td><span class="badge b-warn">PENDING</span></td></tr>
+<tr><td>512²</td><td>REFERENCE fp32/9</td><td class="num">21.2</td><td class="num">17.4</td><td class="num">0.37</td><td class="num">5.93</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
+<tr><td>512²</td><td>FAST bf16/8</td><td class="num">15.0</td><td class="num">11.4</td><td class="num">0.37</td><td class="num">5.41</td><td><span class="badge b-warn">PENDING</span></td></tr>
+</table>
+<p>FAST vs REFERENCE, cold, measured directly. At 1024²: wall 1.54× faster (−35%), denoise 1.61×. At 768²: wall 1.46×, denoise 1.55×. At 512²: wall 1.41×, denoise 1.53×. No swap growth in any cold run; memory pressure was normal (level 1), except that the 768² REFERENCE run recorded level 2 ("warn").</p>
+<h3>Sustained (back-to-back, 1024²)</h3>
+<table>
+<tr><th>configuration</th><th class="num">denoise, start → end of block (s)</th><th class="num">wall mean (s)</th><th>note</th></tr>
+<tr><td>REFERENCE fp32/9</td><td class="num">83.1 → 129.5</td><td class="num">112.2</td><td rowspan="2">ABBA-balanced over a block that was still heating up; <strong>not steady state</strong></td></tr>
+<tr><td>FAST bf16/8</td><td class="num">66.2 → 78.0</td><td class="num">78.1</td></tr>
+<tr><td>REFERENCE fp32/9, fully heat-soaked</td><td class="num">≈13.7–14.4 s/step</td><td class="num">≈133.7</td><td>earlier 10-run series (historical; before the memory fix)</td></tr>
+</table>
+<p>Most reliable relative figures (paired, same session): bf16/8 vs bf16/9 denoise ratio <strong>0.887</strong> (median of 36 ABBA timing pairs); bf16/9 vs fp32/9 <strong>0.70</strong> (median of 24 sustained pairs, and 0.70 cold). Per-step cost doesn't depend on the step count, only on thermal state. The Air recovers to cold behaviour after about 10 minutes idle. <code>GET /status</code> shows recent durations and per-step timings; these are observations, not temperatures, which this Mac doesn't expose without sudo.</p>
+<details><summary>Note on the <code>/status</code> text</summary><p>The <code>note</code> field in <code>/status</code> says 1024² runs take "≈85 s cold and ≈134 s once throttled". Those are the original REFERENCE (fp32/9) figures; FAST is faster (table above).</p></details>
+</section>
+
+<!-- ============================================================ -->
+<section id="limitations">
+<h2>Current limitations <a class="anchor" href="#limitations">#</a></h2>
+<h3>Known limitations of the current build</h3>
+<ul>
+<li>Text-to-image only: one backend, one model. No editing, img2img, LoRA, ControlNet or negative prompts; each is rejected explicitly.</li>
+<li>One generation at a time, machine-wide. Concurrency is not validated on this hardware.</li>
+<li>No progress streaming and no GUI. Use <code>?wait=</code> long-polling, and <code>step_seconds</code> after completion.</li>
+<li>≈2.6 s worker start-up per job, the cost of the per-job process.</li>
+<li>Thermal variability: 1024² REFERENCE ranges from ≈83 s cold to ≈134 s heat-soaked.</li>
+<li>FAST is validated at 1024² only; 512² and 768² require <code>allow_experimental</code> until their gates finish.</li>
+<li>Lower step counts (7–4) are experimental and not quality-equivalent.</li>
+<li>No authentication on the API; loopback-only by design.</li>
+<li>Starting a second server on a port already in use fails with a raw Python traceback (<code>OSError: [Errno 48] Address already in use</code>), not a friendly message.</li>
+<li>CLI <code>cancel</code> cancels only queued jobs; a running API job must be cancelled through the API.</li>
+<li>Maximum size is 1024×1024 pixels total; 2048² is not supported on 16 GB.</li>
+<li>Validated only on this exact machine and environment.</li>
+</ul>
+<h3>Not limitations of the build: future research</h3>
+<p>Model reduction, other quantization formats, kernel work and few-step models are research topics (see <a href="#next">What's next?</a>), not missing features.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="troubleshooting" class="ts">
+<h2>Troubleshooting <a class="anchor" href="#troubleshooting">#</a></h2>
+<h4 id="ts-start">Server will not start</h4>
+<dl><dt>Symptom</dt><dd><code>serve</code> exits right away, printing a JSON error with <code>runtime_unavailable</code>, or a traceback.</dd>
+<dt>Likely cause</dt><dd>A startup check failed (versions, model, mflux capabilities), the port is in use, or the config didn't parse (<code>config_error</code>).</dd>
+<dt>Check</dt><dd><code>bin/photo-gen verify</code> and look for <code>"ok": false</code>; check <code>data/logs/photogen.log</code>.</dd>
+<dt>Safe fix</dt><dd>Fix the underlying cause (see the entries below). Don't edit the manifest.</dd></dl>
+<h4 id="ts-integrity">Model integrity failure</h4>
+<dl><dt>Symptom</dt><dd><code>verify</code> shows <code>model.ok: false</code> with <code>missing</code>, <code>size … != expected</code> or <code>sha256 mismatch</code>.</dd>
+<dt>Likely cause</dt><dd>A model file was moved, modified, truncated or replaced.</dd>
+<dt>Check</dt><dd><code>bin/photo-gen verify --full</code> (re-hashes everything); compare against the manifest.</dd>
+<dt>Safe fix</dt><dd>Restore the exact pinned files (repo <code>mflux-community/z-image-turbo-mflux-q4</code>, revision <code>d2d30500…</code>). photo-gen never downloads them itself.</dd></dl>
+<h4 id="ts-version">Version / environment mismatch</h4>
+<dl><dt>Symptom</dt><dd><code>versions.ok: false</code>, or the launcher says "validated runtime interpreter not found" (exit code 3).</dd>
+<dt>Likely cause</dt><dd>Packages in <code>mflux/.venv</code> changed, or photo-gen was started with a different Python.</dd>
+<dt>Check</dt><dd>The <code>expected</code> / <code>found</code> fields in <code>verify</code>. Always start through <code>bin/photo-gen</code>.</dd>
+<dt>Safe fix</dt><dd>Restore the pinned versions (<code>mflux/requirements.lock.txt</code>). Don't upgrade.</dd></dl>
+<h4 id="ts-port">Port already in use</h4>
+<dl><dt>Symptom</dt><dd>The checks pass, then a traceback ends in <code>OSError: [Errno 48] Address already in use</code> (exit code 1).</dd>
+<dt>Likely cause</dt><dd>Another photo-gen server (or something else) is on 8765.</dd>
+<dt>Check</dt><dd><code>curl -s http://127.0.0.1:8765/health</code> · <code>lsof -nP -iTCP:8765 -sTCP:LISTEN</code></dd>
+<dt>Safe fix</dt><dd>Use the running server, stop it (Ctrl-C / <code>kill -TERM &lt;pid&gt;</code>), or set <code>server.port</code>.</dd></dl>
+<h4 id="ts-fail">Generation fails</h4>
+<dl><dt>Symptom</dt><dd>Job <code>failed</code> with <code>generation_failed</code>, e.g. "worker killed by signal …" or "worker exceeded 1800s".</dd>
+<dt>Likely cause</dt><dd>Out-of-memory kill or crash; a hang; battery ≤ 5% (mflux stops generating).</dd>
+<dt>Check</dt><dd><code>data/jobs/&lt;job_id&gt;/worker.log</code>; the job's <code>error.details</code>; <code>bin/photo-gen status</code> for memory pressure and power source.</dd>
+<dt>Safe fix</dt><dd>Close memory-heavy apps, connect power, retry.</dd></dl>
+<h4 id="ts-output">Output rejected by integrity/imaging checks</h4>
+<dl><dt>Symptom</dt><dd>Job <code>failed</code> with <code>output_corrupted</code> ("uniform (blank) image", "output is W×H, requested …", "not a readable image").</dd>
+<dt>Likely cause</dt><dd>The runtime returned a broken image. This class of silent failure was seen in research on another runtime.</dd>
+<dt>Check</dt><dd><code>worker.log</code>; whether it reproduces with the same seed.</dd>
+<dt>Safe fix</dt><dd>Keep the evidence and don't lower the threshold. Investigate, and record an incident if it reproduces.</dd></dl>
+<h4 id="ts-memory">Memory pressure</h4>
+<dl><dt>Symptom</dt><dd><code>status</code> shows pressure <code>warn</code>/<code>critical</code> or growing swap; generations slow down or fail.</dd>
+<dt>Likely cause</dt><dd>Other apps using memory; a generation peaks at 5.4–6.6 GB.</dd>
+<dt>Check</dt><dd><code>bin/photo-gen status</code>; the job's <code>memory.peak_footprint_gb</code>.</dd>
+<dt>Safe fix</dt><dd>Close apps. FAST uses less memory than REFERENCE. <code>--low-ram</code> is already always on.</dd></dl>
+<h4 id="ts-slow">Unexpectedly slow generation</h4>
+<dl><dt>Symptom</dt><dd>1024² REFERENCE takes 110–135 s instead of ≈83 s.</dd>
+<dt>Likely cause</dt><dd>Thermal throttling after consecutive images (fanless Air). This is expected behaviour.</dd>
+<dt>Check</dt><dd><code>step_seconds</code> in the job, or <code>recent_step_timing</code> in <code>/status</code>: ≈8.5–9 s/step cold vs ≈14 s/step heat-soaked for fp32 at 1024².</dd>
+<dt>Safe fix</dt><dd>Idle about 10 minutes, use FAST, or use a smaller size.</dd></dl>
+<h4 id="ts-fast">FAST profile unavailable at a resolution</h4>
+<dl><dt>Symptom</dt><dd><code>400 invalid_request</code>: "bf16 + 8 steps is gated only at 1024x1024; pass allow_experimental=true …"</dd>
+<dt>Likely cause</dt><dd>FAST is validated only at 1024² (512²/768² gates pending).</dd>
+<dt>Check</dt><dd><code>bin/photo-gen capabilities</code>; <code>research/experiments/STATUS.md</code>.</dd>
+<dt>Safe fix</dt><dd>Use 1024², use REFERENCE at the smaller size, or accept an experimental result with <code>--allow-experimental</code> (labelled unvalidated).</dd></dl>
+<h4 id="ts-pending">Job remains pending (queued)</h4>
+<dl><dt>Symptom</dt><dd>A job stays <code>queued</code>.</dd>
+<dt>Likely cause</dt><dd>Another generation holds the GPU lock (it may be a CLI process); the server that owns the job isn't running; or a CLI-submitted job whose process was interrupted before it started.</dd>
+<dt>Check</dt><dd><code>bin/photo-gen status</code> (active jobs); <code>cat data/gpu.lock</code> (pid, job id); the log line "waiting: another process is generating".</dd>
+<dt>Safe fix</dt><dd>Wait for the active job, or cancel with <code>bin/photo-gen cancel &lt;job_id&gt;</code> / <code>POST /jobs/{id}/cancel</code>. Restarting the server re-queues its own queued API jobs.</dd></dl>
+</section>
+
+<!-- ============================================================ -->
+<section id="development">
+<h2>Development <a class="anchor" href="#development">#</a></h2>
+<h3>Package map (<code>app/photogen/</code>)</h3>
+<table>
+<tr><th>module</th><th>responsibility</th></tr>
+<tr><td><code>cli.py</code>, <code>__main__.py</code></td><td>argparse CLI; same service/job layer as the API</td></tr>
+<tr><td><code>api.py</code></td><td>stdlib <code>ThreadingHTTPServer</code>, routes, local-only protections, <code>public_job()</code> view</td></tr>
+<tr><td><code>service.py</code></td><td>assembles config + runtime + job manager; startup verification; health/status</td></tr>
+<tr><td><code>jobs.py</code></td><td><code>JobManager</code>: submit, queue thread, GPU lock, execution, metadata sidecar, cancel, recovery</td></tr>
+<tr><td><code>store.py</code></td><td>SQLite <code>JobStore</code> with atomic compare-and-set transitions</td></tr>
+<tr><td><code>models.py</code></td><td><code>JobStatus</code>, <code>GenerationRequest</code>, <code>GenerationResult</code>, job IDs</td></tr>
+<tr><td><code>config.py</code></td><td><code>AppConfig</code> (TOML) + <code>BackendManifest</code> (JSON)</td></tr>
+<tr><td><code>errors.py</code></td><td>typed errors carrying HTTP status and error code</td></tr>
+<tr><td><code>integrity.py</code></td><td>file digests (sha256, git-sha1), hash cache, version checks</td></tr>
+<tr><td><code>imaging.py</code></td><td>pixel SHA-256, blank/size/corruption checks</td></tr>
+<tr><td><code>system.py</code></td><td>read-only telemetry: memory pressure, swap, <code>pmset</code> thermal flags, power source</td></tr>
+<tr><td><code>text_encoders.py</code></td><td>substitute-TE registry and composite verification</td></tr>
+<tr><td><code>runtimes/base.py</code></td><td><code>ImageRuntime</code> interface, <code>Capabilities</code>, <code>RuntimeHealth</code>, <code>CancelToken</code></td></tr>
+<tr><td><code>runtimes/mflux_zimage.py</code></td><td>the Z-Image-Turbo runtime adapter (policy, normalization, worker launch)</td></tr>
+<tr><td><code>runtimes/mflux_zimage_worker.py</code></td><td>the per-job worker: mflux CLI + evidence-backed in-process patches + probes</td></tr>
+</table>
+<h3>Run the tests</h3>
+<div class="codewrap"><pre>cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest -v</pre></div>
+<p>39 tests (<code>test_core.py</code>, <code>test_api.py</code>, <code>test_worker_lifetime.py</code>); about 12 s. They use a <code>FakeRuntime</code> (<code>app/tests/helpers.py</code>), so no GPU is needed, except <code>test_worker_lifetime</code>, which imports mflux. A single test:</p>
+<div class="codewrap"><pre>cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest test_core.ValidationTests.test_profiles</pre></div>
+<h3>Run the app during development</h3>
+<p>Always use <code>bin/photo-gen …</code>: it sets the interpreter, <code>PYTHONPATH</code> and offline environment. The system <code>python3</code> lacks MLX and Pillow. There is no build step and no linter configuration.</p>
+<h3>Boundaries</h3>
+<table>
+<tr><th>layer</th><th>where</th><th>rule</th></tr>
+<tr><td>application code</td><td><code>app/photogen/</code> (except <code>runtimes/</code>)</td><td>runtime-agnostic: queue, storage, API, integrity. Doesn't import mflux; the server process never imports MLX.</td></tr>
+<tr><td>runtime adapter</td><td><code>app/photogen/runtimes/</code></td><td>the only code that knows about mflux; the worker is the only code that imports it</td></tr>
+<tr><td>research code</td><td><code>research/experiments/*.py</code></td><td>harnesses, probes and analysis; never imported by the app</td></tr>
+<tr><td>research reference environment</td><td><code>mflux/.venv</code>, <code>models/</code>, the manifest</td><td>pinned and hash-verified; changes need evidence</td></tr>
+</table>
+<h3>Maintaining the backend identity</h3>
+<p>The manifest is the source of truth, checked on every startup. A change to the backend (new version, new model) is a <em>research</em> step first: measure, check pixel parity or run a blinded gate, write the report. Only then add a new manifest; the old one is never edited in place. Project-level rules are in <code>CLAUDE.md</code>; the work ledger is <code>MEMORY.md</code>.</p>
+</section>
+
+<!-- ============================================================ -->
+<section id="extending">
+<h2>Extending photo-gen <a class="anchor" href="#extending">#</a></h2>
+<p>Philosophy: <strong>photo-gen owns the application architecture; runtimes are replaceable components.</strong> The queue, storage, API, integrity and metadata don't depend on mflux.</p>
+<h3>The runtime interface (<code>app/photogen/runtimes/base.py</code>)</h3>
+<table>
+<tr><th>method</th><th>contract</th></tr>
+<tr><td><code>capabilities() → Capabilities</code></td><td>declare what the runtime really supports: tasks, validated resolutions, seed/negative-prompt/guidance/editing/LoRA flags, output formats, precisions, profiles, text encoders, memory profile</td></tr>
+<tr><td><code>health(full_verify=False) → RuntimeHealth</code></td><td>named checks <code>{name: {"ok", "detail"}}</code>. Any failure blocks <code>serve</code> and <code>generate</code>.</td></tr>
+<tr><td><code>normalize(params, defaults) → GenerationRequest</code></td><td>the single validation point: reject unsupported parameters, apply defaults, return exactly what will run</td></tr>
+<tr><td><code>generate(job_id, request, output_path, work_dir, cancel) → GenerationResult</code></td><td>produce the PNG at <code>output_path</code>, honour the <code>CancelToken</code> promptly, report timings, memory and effective parameters</td></tr>
+</table>
+<p>There are no separate <code>load</code>, <code>cancel</code> or <code>unload</code> methods. Loading happens inside <code>generate</code> (in the worker), and cancellation arrives through the <code>CancelToken</code> (<code>token.on_cancel(callback)</code>).</p>
+<h3>Adding another runtime: what it involves today</h3>
+<ol>
+<li>Implement <code>ImageRuntime</code> in <code>app/photogen/runtimes/&lt;name&gt;.py</code>, ideally with its own worker process for the same isolation.</li>
+<li>Give it a manifest (pinned versions and model digests) so <code>health()</code> can refuse drift.</li>
+<li><strong>Wiring:</strong> <code>PhotoGenService</code> currently constructs <code>MFluxZImageRuntime</code> directly, and <code>config.py</code> loads one manifest path. There is no runtime-selection setting yet; choosing between runtimes would need a small change in <code>service.py</code>/<code>config.py</code>.</li>
+<li>Test it with a fake like <code>app/tests/helpers.py</code>, then produce research evidence (parity/benchmarks) before calling it validated.</li>
+</ol>
+</section>
+
+<!-- ============================================================ -->
+<section id="research">
+<h2>Research mode <a class="anchor" href="#research">#</a></h2>
+<p>photo-gen doubles as a controlled inference-research platform. The application only changes when research produces evidence.</p>
+<ul>
+<li><strong>Reference configuration:</strong> REFERENCE (fp32/9) is permanent, so every experiment compares against the same pixels.</li>
+<li><strong>Evidence standard:</strong> exact changes need pixel parity; numeric changes need a blinded quality gate (<code>research/experiments/blind_stage.py</code>: prepare → freeze → unblind, with hashed keys and scores; rules in <code>BLIND-PROTOCOL.md</code>). Speed claims name their baseline (cold vs sustained, fp32 vs bf16) and are never multiplied.</li>
+<li><strong>Method:</strong> sequential runs only (no GPU sharing), a 1 Hz system monitor, ABBA ordering for paired timing, 600 s idle before cold runs, fresh seeds for blinded reviews.</li>
+<li><strong>Negative results are kept:</strong> rejected and closed experiments remain in the register with their evidence.</li>
+<li><strong>Provenance:</strong> sourcing decisions in <code>research/COMPONENT-SOURCES.md</code>; model pins in <code>research/model-pins.txt</code>.</li>
+</ul>
+<p>Where to look:</p>
+<table>
+<tr><th>file</th><th>contents</th></tr>
+<tr><td><code>research/experiments/STATUS.md</code></td><td>the status register: every experiment and its status (start here)</td></tr>
+<tr><td><code>research/experiments/PERFORMANCE-MAP.md</code></td><td>tier timings, cold and sustained</td></tr>
+<tr><td><code>research/COMPONENT-SOURCES.md</code></td><td>what was reused, adapted or built, and why</td></tr>
+<tr><td><code>research/EXPERIMENT-BACKLOG.md</code></td><td>the next research frontier</td></tr>
+<tr><td><code>research/experiments/</code></td><td>reports, harnesses, raw data</td></tr>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="legend">
+<h2>Status legend <a class="anchor" href="#legend">#</a></h2>
+<p>This terminology tells you whether something <em>exists and is supported</em> or was <em>only tested</em>.</p>
+<table>
+<tr><th>status</th><th>meaning</th><th>exists in the build?</th></tr>
+<tr><td><span class="badge b-ref">REFERENCE</span></td><td>a permanent baseline (fp32 + 9 steps)</td><td>yes, the default</td></tr>
+<tr><td><span class="badge b-ok">ADOPTED</span></td><td>in production (e.g. transformer release, FAST profile at 1024²)</td><td>yes</td></tr>
+<tr><td><span class="badge b-opt">ADOPTED AS OPT-IN</span></td><td>in production, only on explicit request (bf16 precision)</td><td>yes, when requested</td></tr>
+<tr><td><span class="badge b-warn">PENDING</span></td><td>a quality gate is in progress (FAST at 512²/768²)</td><td>only as experimental</td></tr>
+<tr><td><span class="badge b-exp">EXPERIMENTAL</span></td><td>allowed with <code>allow_experimental</code>, but not quality-equivalent (7–4 steps)</td><td>behind a flag, labelled unvalidated</td></tr>
+<tr><td><span class="badge b-bad">REJECTED</span></td><td>measured and not worth it (caching, fused QKV/SwiGLU, q8/bf16 weights for speed, <code>mask=None</code>)</td><td>no</td></tr>
+<tr><td><span class="badge b-neu">DEFERRED</span></td><td>below the current value bar</td><td>no</td></tr>
+<tr><td><span class="badge b-neu">BLOCKED</span></td><td>needs something that doesn't exist yet (e.g. pruned weights)</td><td>no</td></tr>
+<tr><td><span class="badge b-neu">CLOSED</span></td><td>the question has been answered (e.g. heretic-v2 text encoder)</td><td>no</td></tr>
+<tr><td><span class="badge b-warn">OPEN</span></td><td>an open question with no evidence yet (e.g. how much quality the q4 weights cost vs higher-precision weights)</td><td>—</td></tr>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="history">
+<h2>Research history <a class="anchor" href="#history">#</a></h2>
+<table>
+<tr><th>when</th><th>milestone</th><th>evidence</th></tr>
+<tr><td>2026-09-24</td><td>Research baseline: Qwen-Image 2.1 on sd.cpp measured (M5 Metal tensor bug workaround); Z-Image-Turbo compared</td><td><code>research/REPORT.md</code>, <code>research/FINAL-M5-COMPARISON.md</code></td></tr>
+<tr><td>2026-09-24</td><td>mflux chosen and validated: deterministic, cold ≈85 s, heat-soaked ≈134 s at 1024²; photo-gen built; parity passed</td><td><code>research/MFLUX-ZIMAGE-RESULTS.md</code>, <code>research/PHOTO-GEN-PARITY-20260924.md</code></td></tr>
+<tr><td>2026-09-24</td><td>bf16 discovery: mflux runs the DiT hidden stream in fp32; bf16 is ≈1.4× faster. Blinded gate passed → opt-in</td><td><code>research/experiments/E02-RESULTS.md</code>, <code>bf16-quality-report.md</code></td></tr>
+<tr><td>2026-09-25</td><td>Transformer-lifetime discovery: the compiled closure kept the DiT alive through VAE decode; fix adopted (pixel-identical)</td><td><code>research/experiments/production-memory-fix-report.md</code></td></tr>
+<tr><td>2026-09-25</td><td>8-step discovery: in mflux, N steps = N NFE; 8-step gate passed → FAST profile</td><td><code>scheduler-nfe-note.md</code>, <code>8step-quality-gate-report.md</code></td></tr>
+<tr><td>2026-09-25</td><td>Caching rejected: low cross-step redundancy</td><td><code>cache-audit-report.md</code></td></tr>
+<tr><td>2026-09-25</td><td>heretic-v2 text encoder closed: compatible, but no advantage</td><td><code>te-heretic-v2-report.md</code></td></tr>
+<tr><td>2026-09-25</td><td>Upstream reports filed: mflux-community/mflux #760 (transformer lifetime), #761 (fp32 hidden stream); no maintainer response yet</td><td><code>upstream-mflux-issue-SUBMITTED.md</code></td></tr>
+<tr><td>2026-09-25</td><td>Phase 3 began: resolution gates, sigma-schedule audit, model/kernel research</td><td><code>research/experiments/phase3-plan.md</code></td></tr>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="next">
+<h2>What's next? <a class="anchor" href="#next">#</a></h2>
+<div class="callout info"><p class="t">Research directions, not currently supported production features.</p></div>
+<ul>
+<li><strong>Resolution validation:</strong> direct REFERENCE-vs-FAST blinded gates at 512², 768² (and 1024²). The sigma-schedule audit is complete: mflux's resolution-dependent shift differs from the official static schedule but showed no quality or runtime cost (<code>research/experiments/sigma-schedule-audit.md</code>).</li>
+<li><strong>Model reduction:</strong> a block-sensitivity map, and a structurally valid FFN-width reduction experiment.</li>
+<li><strong>Quantization:</strong> a speed map of the other MLX formats (q3/q5/q6, group sizes, mxfp4/nvfp4/mxfp8) before any quality work.</li>
+<li><strong>Apple/MLX/Metal kernels and NAX:</strong> profiling the denoise loop, and establishing which kernels actually use the M5's neural accelerators.</li>
+<li><strong>Few-step distillation:</strong> a feasibility study only; no training planned.</li>
+</ul>
+</section>
+
+<!-- ============================================================ -->
+<section id="audit">
+<h2>Documentation audit notes <a class="anchor" href="#audit">#</a></h2>
+<p>This guide was written from the source code, configuration, CLI help output and live API responses on 2026-09-25. Where sources disagreed:</p>
+<table>
+<tr><th>discrepancy</th><th>authoritative source</th><th>handling</th></tr>
+<tr><td>bf16 + 9 steps at 512²/768² is labelled <code>validated_configuration: true</code>, but the bf16 gate covered 1024² only</td><td>research report (the gate); the code's behaviour is as documented above</td><td>reported for a decision; the code is not changed by this documentation work</td></tr>
+<tr><td>README performance table (≈85 s cold / ≈134 s sustained) doesn't say it refers to REFERENCE before the memory fix</td><td><code>PERFORMANCE-MAP.md</code></td><td>README clarified; this guide uses current figures</td></tr>
+<tr><td>README request-field list omitted <code>profile</code> (and <code>task</code>, <code>output_format</code>)</td><td><code>ACCEPTED</code> in <code>mflux_zimage.py</code></td><td>README corrected</td></tr>
+<tr><td>Manifest <code>measured_1024</code> (84.6 s, 7.2–7.4 GB) predates the transformer-release fix</td><td><code>production-memory-fix-report.md</code></td><td>manifest unchanged (immutable); labelled historical here</td></tr>
+<tr><td><code>capabilities.memory_profile.source</code> names <code>MFLUX-ZIMAGE-RESULTS.md</code>, but the footprint figures come from <code>production-memory-fix-report.md</code></td><td>the memory-fix report</td><td>noted; code not changed</td></tr>
+<tr><td>"FAST validated at 1024² by two blinded gates": literally true, but it is a chain of two gates, not a direct REFERENCE-vs-FAST comparison</td><td>the two gate reports</td><td>wording made explicit here and in the research register</td></tr>
+<tr><td>Paths <code>research/STATUS.md</code> and <code>research/PERFORMANCE-MAP.md</code> (as named in the documentation brief) don't exist</td><td>filesystem</td><td>the real paths under <code>research/experiments/</code> are used</td></tr>
+<tr><td><code>app/photogen/interfaces/api</code> (as named in the brief) doesn't exist</td><td>filesystem</td><td>the API is <code>app/photogen/api.py</code></td></tr>
+</table>
+</section>
+
+<footer>
+photo-gen guide · generated 2026-09-25 from the current repository state · self-contained, works offline (no external resources).
+</footer>
+</main>
+</div>
+<script>
+(function(){
+  // copy buttons on every code block
+  document.querySelectorAll('pre').forEach(function(pre){
+    var wrap = pre.parentElement;
+    if(!wrap.classList.contains('codewrap')){
+      wrap = document.createElement('div'); wrap.className='codewrap';
+      pre.parentNode.insertBefore(wrap, pre); wrap.appendChild(pre);
+    }
+    var b = document.createElement('button'); b.type='button'; b.className='copy'; b.textContent='Copy';
+    b.addEventListener('click', function(){
+      var text = pre.innerText;
+      function done(ok){ b.textContent = ok ? 'Copied' : 'Select + ⌘C'; setTimeout(function(){ b.textContent='Copy'; }, 1400); }
+      function fallback(){
+        var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+        var ok=false; try{ ok=document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); done(ok);
+      }
+      try{
+        if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(text).then(function(){done(true);}, fallback); }
+        else fallback();
+      }catch(e){ fallback(); }
+    });
+    wrap.appendChild(b);
+  });
+  // highlight the current section in the table of contents
+  var links = {}; document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && links[e.target.id]){
+          Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); });
+          links[e.target.id].classList.add('active');
+        }
+      });
+    }, {rootMargin:'0px 0px -75% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){ obs.observe(s); });
+  }
+  // theme toggle: auto -> light -> dark (remembered per browser where storage is available)
+  var btn=document.getElementById('themebtn'), modes=['auto','light','dark'];
+  function apply(m){ if(m==='auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); btn.textContent=m; }
+  var cur='auto'; try{ cur=localStorage.getItem('photogen-guide-theme')||'auto'; }catch(e){}
+  apply(cur);
+  btn.addEventListener('click', function(){ cur=modes[(modes.indexOf(cur)+1)%3]; apply(cur); try{ localStorage.setItem('photogen-guide-theme', cur); }catch(e){} });
+})();
+</script>
+</body>
+</html>

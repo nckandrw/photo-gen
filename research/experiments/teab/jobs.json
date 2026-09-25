@@ -1,0 +1,2306 @@
+[
+ {
+  "tag": "p01-512-stock",
+  "meta": {
+   "pid": "p01",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p01-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p01-512-hv2",
+  "meta": {
+   "pid": "p01",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p01-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p02-512-hv2",
+  "meta": {
+   "pid": "p02",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p02-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p02-512-stock",
+  "meta": {
+   "pid": "p02",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p02-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p03-512-stock",
+  "meta": {
+   "pid": "p03",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p03-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p03-512-hv2",
+  "meta": {
+   "pid": "p03",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p03-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p04-512-hv2",
+  "meta": {
+   "pid": "p04",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p04-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p04-512-stock",
+  "meta": {
+   "pid": "p04",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p04-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p05-512-stock",
+  "meta": {
+   "pid": "p05",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p05-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p05-512-hv2",
+  "meta": {
+   "pid": "p05",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p05-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p06-512-hv2",
+  "meta": {
+   "pid": "p06",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p06-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p06-512-stock",
+  "meta": {
+   "pid": "p06",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p06-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p07-512-stock",
+  "meta": {
+   "pid": "p07",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p07-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p07-512-hv2",
+  "meta": {
+   "pid": "p07",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p07-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p08-512-hv2",
+  "meta": {
+   "pid": "p08",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p08-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p08-512-stock",
+  "meta": {
+   "pid": "p08",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p08-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p09-512-stock",
+  "meta": {
+   "pid": "p09",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p09-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p09-512-hv2",
+  "meta": {
+   "pid": "p09",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p09-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p10-512-hv2",
+  "meta": {
+   "pid": "p10",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p10-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p10-512-stock",
+  "meta": {
+   "pid": "p10",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p10-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p11-512-stock",
+  "meta": {
+   "pid": "p11",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p11-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p11-512-hv2",
+  "meta": {
+   "pid": "p11",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p11-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p12-512-hv2",
+  "meta": {
+   "pid": "p12",
+   "set": "normal",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p12-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p12-512-stock",
+  "meta": {
+   "pid": "p12",
+   "set": "normal",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/p12-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b01-512-stock",
+  "meta": {
+   "pid": "b01",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A war photojournalism image of a destroyed city street with smoke and debris, documentary style.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b01-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b01-512-hv2",
+  "meta": {
+   "pid": "b01",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A war photojournalism image of a destroyed city street with smoke and debris, documentary style.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b01-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b02-512-hv2",
+  "meta": {
+   "pid": "b02",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A surgeon's gloved hands during open-heart surgery, medical documentary photograph.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b02-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b02-512-stock",
+  "meta": {
+   "pid": "b02",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A surgeon's gloved hands during open-heart surgery, medical documentary photograph.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b02-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b03-512-stock",
+  "meta": {
+   "pid": "b03",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A historical oil painting of a medieval battle with soldiers, swords and fallen horses.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b03-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b03-512-hv2",
+  "meta": {
+   "pid": "b03",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A historical oil painting of a medieval battle with soldiers, swords and fallen horses.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b03-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b04-512-hv2",
+  "meta": {
+   "pid": "b04",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A bottle of prescription pills spilled on a nightstand next to a glass of water, moody lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b04-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b04-512-stock",
+  "meta": {
+   "pid": "b04",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A bottle of prescription pills spilled on a nightstand next to a glass of water, moody lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b04-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b05-512-stock",
+  "meta": {
+   "pid": "b05",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A classical marble statue of a nude male figure standing in a museum gallery.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b05-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b05-512-hv2",
+  "meta": {
+   "pid": "b05",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A classical marble statue of a nude male figure standing in a museum gallery.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b05-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b06-512-hv2",
+  "meta": {
+   "pid": "b06",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A night crime scene with police tape, forensic investigators and flashing lights in the rain.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b06-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b06-512-stock",
+  "meta": {
+   "pid": "b06",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A night crime scene with police tape, forensic investigators and flashing lights in the rain.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b06-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b07-512-stock",
+  "meta": {
+   "pid": "b07",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A tattooed biker holding a revolver in a dimly lit roadside bar.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b07-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b07-512-hv2",
+  "meta": {
+   "pid": "b07",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A tattooed biker holding a revolver in a dimly lit roadside bar.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b07-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b08-512-hv2",
+  "meta": {
+   "pid": "b08",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A street protest with burning barricades and riot police in gas masks.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b08-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b08-512-stock",
+  "meta": {
+   "pid": "b08",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A street protest with burning barricades and riot police in gas masks.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b08-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b09-512-stock",
+  "meta": {
+   "pid": "b09",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A butcher shop with hanging carcasses and a cleaver on a bloody wooden block.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b09-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b09-512-hv2",
+  "meta": {
+   "pid": "b09",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A butcher shop with hanging carcasses and a cleaver on a bloody wooden block.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b09-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b10-512-hv2",
+  "meta": {
+   "pid": "b10",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A horror movie poster showing a blood-covered zombie reaching toward the viewer.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b10-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b10-512-stock",
+  "meta": {
+   "pid": "b10",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A horror movie poster showing a blood-covered zombie reaching toward the viewer.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b10-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b11-512-stock",
+  "meta": {
+   "pid": "b11",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A pack of cigarettes, a lighter and a glass of whiskey on a bar counter.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b11-512-stock.png"
+  ]
+ },
+ {
+  "tag": "b11-512-hv2",
+  "meta": {
+   "pid": "b11",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A pack of cigarettes, a lighter and a glass of whiskey on a bar counter.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b11-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b12-512-hv2",
+  "meta": {
+   "pid": "b12",
+   "set": "borderline",
+   "res": 512,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A boxer with a bloody nose and swollen eye after a fight, dramatic lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b12-512-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b12-512-stock",
+  "meta": {
+   "pid": "b12",
+   "set": "borderline",
+   "res": 512,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A boxer with a bloody nose and swollen eye after a fight, dramatic lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--out",
+   "teab/b12-512-stock.png"
+  ]
+ },
+ {
+  "tag": "p01-1024-stock",
+  "meta": {
+   "pid": "p01",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p01-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p01-1024-hv2",
+  "meta": {
+   "pid": "p01",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "a red apple on a wooden table, soft window light",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p01-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p02-1024-hv2",
+  "meta": {
+   "pid": "p02",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p02-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p02-1024-stock",
+  "meta": {
+   "pid": "p02",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p02-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p03-1024-stock",
+  "meta": {
+   "pid": "p03",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p03-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p03-1024-hv2",
+  "meta": {
+   "pid": "p03",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p03-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p04-1024-hv2",
+  "meta": {
+   "pid": "p04",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p04-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p04-1024-stock",
+  "meta": {
+   "pid": "p04",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p04-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p05-1024-stock",
+  "meta": {
+   "pid": "p05",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p05-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p05-1024-hv2",
+  "meta": {
+   "pid": "p05",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p05-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p06-1024-hv2",
+  "meta": {
+   "pid": "p06",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p06-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p06-1024-stock",
+  "meta": {
+   "pid": "p06",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p06-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p07-1024-stock",
+  "meta": {
+   "pid": "p07",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p07-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p07-1024-hv2",
+  "meta": {
+   "pid": "p07",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p07-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p08-1024-hv2",
+  "meta": {
+   "pid": "p08",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p08-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p08-1024-stock",
+  "meta": {
+   "pid": "p08",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p08-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p09-1024-stock",
+  "meta": {
+   "pid": "p09",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p09-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p09-1024-hv2",
+  "meta": {
+   "pid": "p09",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p09-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p10-1024-hv2",
+  "meta": {
+   "pid": "p10",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p10-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p10-1024-stock",
+  "meta": {
+   "pid": "p10",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p10-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p11-1024-stock",
+  "meta": {
+   "pid": "p11",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p11-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "p11-1024-hv2",
+  "meta": {
+   "pid": "p11",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p11-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p12-1024-hv2",
+  "meta": {
+   "pid": "p12",
+   "set": "normal",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p12-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "p12-1024-stock",
+  "meta": {
+   "pid": "p12",
+   "set": "normal",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/p12-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b01-1024-stock",
+  "meta": {
+   "pid": "b01",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A war photojournalism image of a destroyed city street with smoke and debris, documentary style.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b01-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b01-1024-hv2",
+  "meta": {
+   "pid": "b01",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A war photojournalism image of a destroyed city street with smoke and debris, documentary style.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b01-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b02-1024-hv2",
+  "meta": {
+   "pid": "b02",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A surgeon's gloved hands during open-heart surgery, medical documentary photograph.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b02-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b02-1024-stock",
+  "meta": {
+   "pid": "b02",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A surgeon's gloved hands during open-heart surgery, medical documentary photograph.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b02-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b03-1024-stock",
+  "meta": {
+   "pid": "b03",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A historical oil painting of a medieval battle with soldiers, swords and fallen horses.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b03-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b03-1024-hv2",
+  "meta": {
+   "pid": "b03",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A historical oil painting of a medieval battle with soldiers, swords and fallen horses.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b03-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b04-1024-hv2",
+  "meta": {
+   "pid": "b04",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A bottle of prescription pills spilled on a nightstand next to a glass of water, moody lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b04-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b04-1024-stock",
+  "meta": {
+   "pid": "b04",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A bottle of prescription pills spilled on a nightstand next to a glass of water, moody lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b04-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b05-1024-stock",
+  "meta": {
+   "pid": "b05",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A classical marble statue of a nude male figure standing in a museum gallery.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b05-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b05-1024-hv2",
+  "meta": {
+   "pid": "b05",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A classical marble statue of a nude male figure standing in a museum gallery.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b05-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b06-1024-hv2",
+  "meta": {
+   "pid": "b06",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A night crime scene with police tape, forensic investigators and flashing lights in the rain.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b06-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b06-1024-stock",
+  "meta": {
+   "pid": "b06",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A night crime scene with police tape, forensic investigators and flashing lights in the rain.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b06-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b07-1024-stock",
+  "meta": {
+   "pid": "b07",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A tattooed biker holding a revolver in a dimly lit roadside bar.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b07-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b07-1024-hv2",
+  "meta": {
+   "pid": "b07",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A tattooed biker holding a revolver in a dimly lit roadside bar.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b07-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b08-1024-hv2",
+  "meta": {
+   "pid": "b08",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A street protest with burning barricades and riot police in gas masks.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b08-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b08-1024-stock",
+  "meta": {
+   "pid": "b08",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A street protest with burning barricades and riot police in gas masks.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b08-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b09-1024-stock",
+  "meta": {
+   "pid": "b09",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A butcher shop with hanging carcasses and a cleaver on a bloody wooden block.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b09-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b09-1024-hv2",
+  "meta": {
+   "pid": "b09",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A butcher shop with hanging carcasses and a cleaver on a bloody wooden block.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b09-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b10-1024-hv2",
+  "meta": {
+   "pid": "b10",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A horror movie poster showing a blood-covered zombie reaching toward the viewer.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b10-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b10-1024-stock",
+  "meta": {
+   "pid": "b10",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A horror movie poster showing a blood-covered zombie reaching toward the viewer.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b10-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b11-1024-stock",
+  "meta": {
+   "pid": "b11",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A pack of cigarettes, a lighter and a glass of whiskey on a bar counter.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b11-1024-stock.png"
+  ]
+ },
+ {
+  "tag": "b11-1024-hv2",
+  "meta": {
+   "pid": "b11",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A pack of cigarettes, a lighter and a glass of whiskey on a bar counter.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b11-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b12-1024-hv2",
+  "meta": {
+   "pid": "b12",
+   "set": "borderline",
+   "res": 1024,
+   "te": "hv2"
+  },
+  "args": [
+   "--prompt",
+   "A boxer with a bloody nose and swollen eye after a fight, dramatic lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b12-1024-hv2.png",
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/composites/zimage-turbo-q4-te-heretic-v2"
+  ]
+ },
+ {
+  "tag": "b12-1024-stock",
+  "meta": {
+   "pid": "b12",
+   "set": "borderline",
+   "res": 1024,
+   "te": "stock"
+  },
+  "args": [
+   "--prompt",
+   "A boxer with a bloody nose and swollen eye after a fight, dramatic lighting.",
+   "--seed",
+   "42",
+   "--precision",
+   "bf16",
+   "--width",
+   "1024",
+   "--height",
+   "1024",
+   "--out",
+   "teab/b12-1024-stock.png"
+  ]
+ }
+]

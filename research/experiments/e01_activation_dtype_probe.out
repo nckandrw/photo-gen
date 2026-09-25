@@ -1,0 +1,12 @@
+{
+ "model.precision(ModelConfig)": "mlx.core.bfloat16",
+ "to_q.layer_type": "QuantizedLinear",
+ "to_q.scales.dtype": "mlx.core.bfloat16",
+ "transformer.x(latents)": "mlx.core.bfloat16",
+ "transformer.cap_feats": "mlx.core.bfloat16",
+ "ZImageAttention.input(hidden_states)": "mlx.core.float32",
+ "sdpa.q": "mlx.core.float32",
+ "sdpa.mask": "mlx.core.float32",
+ "FeedForward.input": "mlx.core.float32",
+ "transformer.output": "mlx.core.float32"
+}

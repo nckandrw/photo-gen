@@ -1,0 +1,4 @@
+# SECONDARY seed 42 (rater had seen these images labelled before; contaminated; not counted)
+C01 = ; C02 = ; C03 = (gibberish both) ; C04 = ; C05 = text exact both ; C06 = ;
+C07 R better text: L duplicates "Island of Fire", R once (both headline exact)
+C08 = ; C09 = ; C10 = ; C11 = (L extra tumbler glass) ; C12 = same count failure (3 cups, 4 plates)

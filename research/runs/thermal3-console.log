@@ -1,0 +1,7 @@
+{'loads': [3.09, 4.89, 0.41], 'te': 3.24, 'dit': 324.73, 'vae': 33.15, 'gen': 361.13, 'wall': '361.46', 'peak_fp': '6.87', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '17.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded 
+{'loads': [3.12, 5.1, 0.41], 'te': 3.28, 'dit': 338.74, 'vae': 30.41, 'gen': 372.44, 'wall': '372.75', 'peak_fp': '6.75', 'swap_delta_gb': 0.27, 'pressure': '2.0', 'min_free': '8.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded 
+{'loads': [3.26, 4.88, 0.41], 'te': 3.42, 'dit': 336.55, 'vae': 31.17, 'gen': 371.15, 'wall': '371.5', 'peak_fp': '6.83', 'swap_delta_gb': 0.0, 'pressure': '1.0', 'min_free': '17.0', 'env': 'ENV: GGML_METAL_TENSOR_DISABLE=1 (process-scoped; sd.cpp #1990 workaround) | Metal tensor API = disabled', 'power': 'AC'}
+Note: No thermal warning level has been recorded Note: No performance warning level has been recorded Note: No CPU power status has been recorded 
+THERMAL3_DONE

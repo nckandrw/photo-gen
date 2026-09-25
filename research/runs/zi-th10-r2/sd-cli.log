@@ -1,0 +1,324 @@
+[VERBOSE] main.cpp:697  - version: stable-diffusion.cpp version unknown, commit 88411ef
+[VERBOSE] main.cpp:698  - System Info: 
+   NEON = 1 |    ARM_FMA = 1 |    FP16_VA = 1 |    DOTPROD = 1 |    ACCELERATE = 1 |    REPACK = 1 | 
+[VERBOSE] main.cpp:699  - SDCliParams {
+  mode: img_gen,
+  output_path: "/Users/nckandrw/Dev/photo-gen/outputs/zi-th10-r2.png",
+  image_path: "",
+  metadata_format: "text",
+  log_level: verbose,
+  color: false,
+  convert_name: false,
+  preview_method: none,
+  preview_interval: 1,
+  preview_path: "preview.png",
+  preview_fps: 16,
+  taesd_preview: false,
+  preview_noisy: false,
+  imatrix_out: "",
+  metadata_raw: false,
+  metadata_brief: false,
+  metadata_all: false
+}
+[VERBOSE] main.cpp:700  - SDContextParams {
+  n_threads: 4,
+  conditioning_cache_size: 0,
+  model_path: "",
+  clip_l_path: "",
+  clip_g_path: "",
+  clip_vision_path: "",
+  t5xxl_path: "",
+  llm_path: "/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3-4B-Q4_K_M.gguf",
+  llm_vision_path: "",
+  tokenizer: "",
+  diffusion_model_path: "/Users/nckandrw/Dev/photo-gen/models/diffusion_models/z_image_turbo-Q4_K.gguf",
+  high_noise_diffusion_model_path: "",
+  uncond_diffusion_model_path: "",
+  embeddings_connectors_path: "",
+  vae_path: "/Users/nckandrw/Dev/photo-gen/models/vae/ae.safetensors",
+  vae_format: "auto",
+  audio_vae_path: "",
+  audio_encoder_path: "",
+  taesd_path: "",
+  esrgan_path: "",
+  control_net_path: "",
+  embedding_dir: "",
+  embeddings: {
+  }
+  wtype: NONE,
+  tensor_type_rules: "",
+  lora_model_dir: ".",
+  hires_upscalers_dir: "",
+  photo_maker_path: "",
+  rng_type: cuda,
+  sampler_rng_type: NONE,
+  offload_params_to_cpu: false,
+  max_vram: "0",
+  disable_prefetch: false,
+  disable_segmented_compute: false,
+  eager_load: false,
+  backend: "",
+  params_backend: "",
+  split_mode: "",
+  model_args: "",
+  auto_fit: true,
+  enable_mmap: false,
+  control_net_cpu: false,
+  clip_on_cpu: false,
+  vae_on_cpu: false,
+  flash_attn: false,
+  diffusion_flash_attn: false,
+  sage_attn: false,
+  linear_scale: 0,
+  attn_scale: 0,
+  diffusion_conv_direct: false,
+  vae_conv_direct: false,
+  prediction: NONE,
+  lora_apply_mode: auto,
+  force_sdxl_vae_conv_scale: false
+}
+[VERBOSE] main.cpp:701  - SDGenerationParams {
+  loras: "{
+  }",
+  high_noise_loras: "{
+  }",
+  prompt: "a red apple on a wooden table, soft window light",
+  negative_prompt: "",
+  ad_model_path: "",
+  ad_prompt: "",
+  ad_negative_prompt: "",
+  extra_ad_args: "",
+  clip_skip: -1,
+  width: 1024,
+  height: 1024,
+  batch_count: 1,
+  qwen_image_layers: 3,
+  init_image_path: "",
+  end_image_path: "",
+  mask_image_path: "",
+  control_image_path: "",
+  ref_image_paths: [],
+  ref_video_paths: [],
+  ref_video_audio_paths: [],
+  ref_audio_paths: [],
+  control_video_path: "",
+  image_preprocess: ,
+  ref_image_args: ,
+  increase_ref_index: false,
+  pm_id_images_dir: "",
+  pm_id_embed_path: "",
+  pm_style_strength: 20,
+  skip_layers: [7, 8, 9],
+  sample_params: (txt_cfg: 1.00, img_cfg: 1.00, distilled_guidance: 3.50, slg.layer_count: 0, slg.layer_start: 0.01, slg.layer_end: 0.20, slg.scale: 0.00, scheduler: NONE, sample_method: euler, sample_steps: 9, eta: inf, shifted_timestep: 0, flow_shift: inf, extra_sample_args: ),
+  high_noise_skip_layers: [7, 8, 9],
+  high_noise_sample_params: (txt_cfg: 7.00, img_cfg: 7.00, distilled_guidance: 3.50, slg.layer_count: 0, slg.layer_start: 0.01, slg.layer_end: 0.20, slg.scale: 0.00, scheduler: NONE, sample_method: NONE, sample_steps: 20, eta: inf, shifted_timestep: 0, flow_shift: inf, extra_sample_args: ),
+  custom_sigmas: [],
+  cache_mode: "",
+  cache_option: "",
+  cache: disabled (threshold=inf, start=0.15, end=0.95),
+  moe_boundary: 0.875,
+  video_frames: 1,
+  fps: 16,
+  vace_strength: 1,
+  strength: 0.75,
+  control_strength: 0.9,
+  seed: 42,
+  upscale_repeats: 1,
+  upscale_tile_size: 128,
+  hires: { enabled: false, upscaler: "Latent", model_path: "", scale: 2, target_width: 0, target_height: 0, steps: 0, denoising_strength: 0.7, custom_sigmas: [], upscale_tile_size: 128 },
+  vae_tiling_params: { 0, 0, 0, 0, 0.5, 0, 0, "" },
+}
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:714  - loading diffusion model from '/Users/nckandrw/Dev/photo-gen/models/diffusion_models/z_image_turbo-Q4_K.gguf'
+[INFO   ] model_loader.cpp:215  - load /Users/nckandrw/Dev/photo-gen/models/diffusion_models/z_image_turbo-Q4_K.gguf using gguf format
+[VERBOSE] model_loader.cpp:261  - init from '/Users/nckandrw/Dev/photo-gen/models/diffusion_models/z_image_turbo-Q4_K.gguf'
+[INFO   ] diffusion_engine.cpp:771  - loading llm from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3-4B-Q4_K_M.gguf'
+[INFO   ] model_loader.cpp:215  - load /Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3-4B-Q4_K_M.gguf using gguf format
+[VERBOSE] model_loader.cpp:261  - init from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3-4B-Q4_K_M.gguf'
+[INFO   ] diffusion_engine.cpp:785  - loading vae from '/Users/nckandrw/Dev/photo-gen/models/vae/ae.safetensors'
+[INFO   ] model_loader.cpp:221  - load /Users/nckandrw/Dev/photo-gen/models/vae/ae.safetensors using safetensors format
+[VERBOSE] model_loader.cpp:289  - init from '/Users/nckandrw/Dev/photo-gen/models/vae/ae.safetensors', prefix = 'vae.'
+[INFO   ] diffusion_engine.cpp:977  - Version: Z-Image 
+[INFO   ] backend_fit.cpp:323  - auto-fit plan:
+[INFO   ] backend_fit.cpp:324  -   devices:
+[INFO   ] backend_fit.cpp:328  -     MTL0         Apple M5                         free  12123 MiB, budget  11611 MiB
+[INFO   ] backend_fit.cpp:334  -     RAM          free  10895 MiB, params budget   8847 MiB
+[INFO   ] backend_fit.cpp:336  -   compute-device weight cache priority: diffusion > te > vae
+[INFO   ] backend_fit.cpp:337  -   components (params: compute device -> RAM -> other GPU -> disk):
+[INFO   ] backend_fit.cpp:348  -     DiT          params   3685 MiB, compute reserve  2048 MiB -> compute MTL0, params MTL0
+[INFO   ] backend_fit.cpp:348  -     Conditioner  params   2375 MiB, compute reserve  2048 MiB -> compute MTL0, params MTL0
+[INFO   ] backend_fit.cpp:348  -     VAE          params    319 MiB, compute reserve  1024 MiB -> compute MTL0, params MTL0
+[INFO   ] backend_fit.cpp:477  - auto-fit: --backend "diffusion=MTL0,te=MTL0,vae=MTL0"
+[VERBOSE] ggml_extend_backend.cpp:404  - Initializing backend: MTL0
+[INFO   ] ggml - ggml_metal_init: allocating
+[INFO   ] ggml - ggml_metal_init: found device: Apple M5
+[INFO   ] ggml - ggml_metal_init: picking default device: Apple M5
+[INFO   ] ggml - ggml_metal_init: use fusion         = true
+[INFO   ] ggml - ggml_metal_init: use concurrency    = true
+[INFO   ] ggml - ggml_metal_init: use graph optimize = true
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:1494 - Weight type stat:                      f32: 640  |    q8_0: 22   |    q4_K: 396  |    q6_K: 37   
+[INFO   ] diffusion_engine.cpp:1495 - Conditioner weight type stat:          f32: 145  |    q4_K: 216  |    q6_K: 37   
+[INFO   ] diffusion_engine.cpp:1496 - Diffusion model weight type stat:      f32: 251  |    q8_0: 22   |    q4_K: 180  
+[INFO   ] diffusion_engine.cpp:1497 - VAE weight type stat:                  f32: 244  
+[VERBOSE] diffusion_engine.cpp:1499 - ggml tensor size = 432 bytes
+[VERBOSE] llm.hpp:374  - llm: num_layers = 36, vocab_size = 151936, hidden_size = 2560, intermediate_size = 9728
+[VERBOSE] qwen2_tokenizer.cpp:14   - merges size 151387
+[VERBOSE] qwen2_tokenizer.cpp:39   - vocab size: 151674
+[VERBOSE] z_image.hpp:123  - z_image: num_layers = 30, num_refiner_layers = 2, hidden_size = 3840, num_heads = 30, num_kv_heads = 30, in_channels = 16, out_channels = 16
+[INFO   ] model_builders.cpp:587  - using VAE for encoding / decoding
+[INFO   ] auto_encoder_kl.hpp:529  - vae decoder: ch = 128
+[VERBOSE] diffusion_engine.cpp:1193 - validating model metadata
+[VERBOSE] diffusion_engine.cpp:1258 - model metadata validated; weights will be prepared lazily
+[INFO   ] diffusion_engine.cpp:1319 - total params memory size = 6221.12MB (VRAM 6221.12MB, RAM 0.00MB): text_encoders 2375.91MB(VRAM), diffusion_model 3685.21MB(VRAM), vae 160.00MB(VRAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A)
+[INFO   ] diffusion_engine.cpp:1438 - running in FLOW mode
+[INFO   ] image.cpp:807  - generate_image 1024x1024
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:2927 - Using 'z_image_omni' preset for reference images
+[INFO   ] denoiser.hpp:1113 - get_sigmas with discrete scheduler
+[INFO   ] request.cpp:420  - sampling using Euler method
+[VERBOSE] conditioner.hpp:2146 - parse '<|im_start|>user
+a red apple on a wooden table, soft window light<|im_end|>
+<|im_start|>assistant
+' to [['<|im_start|>user
+', 1], ['a red apple on a wooden table, soft window light', 1], ['<|im_end|>
+<|im_start|>assistant
+', 1], ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_start|>user
+" to 3 tokens ["<|im_start|>", "user", "Ċ", ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "a red apple on a wooden table, soft window light" to 11 tokens ["a", "Ġred", "Ġapple", "Ġon", "Ġa", "Ġwooden", "Ġtable", ",", "Ġsoft", "Ġwindow", "Ġlight", ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_end|>
+<|im_start|>assistant
+" to 5 tokens ["<|im_end|>", "Ċ", "<|im_start|>", "assistant", "Ċ", ]
+[INFO   ] ggml_graph_cut.cpp:1034 - qwen3 build cached graph cut plan done (taking 1 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 386/398 tensors from /Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3-4B-Q4_K_M.gguf
+  |###                                               | 23/386 - 374.54MB/s[K  |######                                            | 45/386 - 488.90MB/s[K  |#########                                         | 67/386 - 508.08MB/s[K  |############                                      | 89/386 - 519.52MB/s[K  |###############                                   | 111/386 - 520.91MB/s[K  |##################                                | 133/386 - 527.97MB/s[K  |#####################                             | 155/386 - 533.11MB/s[K  |#######################                           | 177/386 - 532.59MB/s[K  |############################                      | 214/386 - 730.23MB/s[K  |################################                  | 241/386 - 736.04MB/s[K  |###################################               | 270/386 - 726.09MB/s[K  |########################################          | 303/386 - 734.68MB/s[K  |############################################      | 336/386 - 740.28MB/s[K  |################################################  | 365/386 - 746.75MB/s[K  |##################################################| 386/386 - 750.40MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 3.09s (read: 3.03s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.03s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (2314.97 MB, 386 tensors, 3 blocks, VRAM) on MTL0
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_get_rows_q6_K', name = 'kernel_get_rows_q6_K'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_get_rows_q6_K                          0x10318cb00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_rms_norm_mul_f32_4', name = 'kernel_rms_norm_mul_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_rms_norm_mul_f32_4                     0x10318d380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q6_K_f32', name = 'kernel_mul_mm_q6_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q6_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1      0x10318dc00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_cpy_f32_f32', name = 'kernel_cpy_f32_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_cpy_f32_f32                            0x10318e480 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q4_K_f32', name = 'kernel_mul_mm_q4_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q4_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1      0x10318ed00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_rope_neox_f32', name = 'kernel_rope_neox_f32_imrope=0_is_back=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_rope_neox_f32_imrope=0_is_back=0       0x10318fe80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=4_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=4_r3=1      0x103190200 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32', name = 'kernel_unary_f32_f32_op=10_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_op=10_cnt=1             0x770fb44000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=0     0x770fb44380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_soft_max_f32', name = 'kernel_soft_max_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_soft_max_f32                          0x770fb44700 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f32_f32_short', name = 'kernel_mul_mv_f32_f32_short_nsg=1_ne12=32_r2=4_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f32_f32_short_nsg=1_ne12=32_r2=4_r3=1     0x770fb44a80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32_4', name = 'kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=0_cb=0     0x770fb44e00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=106_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=106_cnt=0          0x770fb45180 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32_4', name = 'kernel_bin_fuse_f32_f32_f32_4_op=2_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_4_op=2_nf=1_rb=0_cb=0     0x770fb45500 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - qwen3 compute buffer size: 2.08 MB(VRAM) on MTL0 (peak across 1 segment)
+[VERBOSE] conditioner.hpp:3139 - computing condition graph completed, taking 3239 ms
+[INFO   ] image.cpp:522  - get_learned_condition completed, taking 3.24s
+[INFO   ] image.cpp:859  - generating image: 1/1 - seed 42
+[INFO   ] ggml_graph_cut.cpp:1034 - z_image build cached graph cut plan done (taking 1 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 452/453 tensors from /Users/nckandrw/Dev/photo-gen/models/diffusion_models/z_image_turbo-Q4_K.gguf
+  |##                                                | 11/452 - 73.58MB/s[K  |###                                               | 23/452 - 470.65MB/s[K  |#####                                             | 40/452 - 607.56MB/s[K  |#######                                           | 62/452 - 677.94MB/s[K  |#########                                         | 80/452 - 684.04MB/s[K  |############                                      | 104/452 - 705.53MB/s[K  |##############                                    | 119/452 - 690.25MB/s[K  |################                                  | 144/452 - 719.72MB/s[K  |##################                                | 158/452 - 694.81MB/s[K  |#####################                             | 184/452 - 717.96MB/s[K  |#######################                           | 201/452 - 703.67MB/s[K  |#########################                         | 223/452 - 716.20MB/s[K  |###########################                       | 236/452 - 698.95MB/s[K  |#############################                     | 262/452 - 715.68MB/s[K  |################################                  | 283/452 - 714.17MB/s[K  |##################################                | 301/452 - 713.35MB/s[K  |#####################################             | 326/452 - 725.01MB/s[K  |######################################            | 340/452 - 713.65MB/s[K  |#########################################         | 366/452 - 724.99MB/s[K  |###########################################       | 383/452 - 717.30MB/s[K  |#############################################     | 405/452 - 722.48MB/s[K  |################################################  | 429/452 - 725.88MB/s[K  |################################################  | 431/452 - 702.43MB/s[K  |##################################################| 444/452 - 710.53MB/s[K  |##################################################| 452/452 - 714.05MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 5.16s (read: 4.99s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.04s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (3685.19 MB, 452 tensors, 4 blocks, VRAM) on MTL0
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x770fb45f80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_repeat_f32', name = 'kernel_repeat_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_repeat_f32                            0x770fb46300 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_concat_f32', name = 'kernel_concat_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_concat_f32                            0x770fb46680 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q8_0_f32', name = 'kernel_mul_mm_q8_0_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q8_0_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x770fb46a00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=0     0x770fb46d80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=30_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=30_ne13=1_r2=1_r3=1     0x770fb47100 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=10_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=10_cnt=1           0x770fb47480 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_soft_max_f32_4', name = 'kernel_soft_max_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_soft_max_f32_4                        0x770fb47800 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f32_f32_4', name = 'kernel_mul_mv_f32_f32_4_nsg=1_ne12=30_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f32_f32_4_nsg=1_ne12=30_r2=1_r3=1     0x770fb47b80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_swiglu_f32', name = 'kernel_swiglu_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_swiglu_f32                            0x7710138000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=10_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=10_cnt=0           0x7710138380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x7710138700 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_timestep_embedding_f32', name = 'kernel_timestep_embedding_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_timestep_embedding_f32                0x7710138a80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f32_f32_4', name = 'kernel_mul_mv_f32_f32_4_nsg=2_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f32_f32_4_nsg=2_ne12=1_r2=1_r3=1     0x7710138e00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32_4', name = 'kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=1_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=1_cb=0     0x7710139180 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=106_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=106_cnt=1          0x7710139500 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f32_f32_4', name = 'kernel_mul_mv_f32_f32_4_nsg=4_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f32_f32_4_nsg=4_ne12=1_r2=1_r3=1     0x7710139880 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_q8_0_f32', name = 'kernel_mul_mv_q8_0_f32_nsg=4_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_q8_0_f32_nsg=4_ne12=1_r2=1_r3=1     0x7710139c00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=30_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=30_ne13=1_r2=1_r3=1     0x7710139f80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=100_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=100_cnt=1          0x771013a300 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_q4_K_f32', name = 'kernel_mul_mv_q4_K_f32_nsg=2_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_q4_K_f32_nsg=2_ne12=1_r2=1_r3=1     0x771013aa00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q4_K_f32', name = 'kernel_mul_mm_q4_K_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q4_K_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x771013ad80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_norm_f32_4', name = 'kernel_norm_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_norm_f32_4                            0x771013b100 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - z_image compute buffer size: 2379.55 MB(VRAM) on MTL0 (peak across 1 segment)
+  |=====>                                            | 1/9 - 40.34s/it[K  |===========>                                      | 2/9 - 35.46s/it[K  |================>                                 | 3/9 - 36.15s/it[K  |======================>                           | 4/9 - 36.19s/it[K  |===========================>                      | 5/9 - 36.05s/it[K  |=================================>                | 6/9 - 36.06s/it[K  |======================================>           | 7/9 - 35.91s/it[K  |============================================>     | 8/9 - 35.91s/it[K  |==================================================| 9/9 - 35.77s/it[K
+[INFO   ] image.cpp:892  - sampling completed, taking 327.86s
+[INFO   ] image.cpp:906  - generating 1 latent images completed, taking 327.86s
+[INFO   ] image.cpp:547  - decoding 1 latents
+[INFO   ] ggml_graph_cut.cpp:1034 - vae build cached graph cut plan done (taking 0 ms)
+[WARN   ] model_manager.cpp:1665 - model manager memory on MTL0: reported free 6123.25 MB / total 12124.17 MB, tracked weights 6000.17 MB / other runtime 0.00 MB / current runtime 0.00 MB
+[WARN   ] model_manager.cpp:1831 - model manager cannot make enough memory available on MTL0: need 7263.57 MB device / 6751.57 MB budget, available 6123.25 MB device / 5611.57 MB budget
+[WARN   ] backend_fit.cpp:506  - VAE decode ran out of memory; retrying with spatial tiling
+[VERBOSE] vae.hpp:285  - VAE Tile size: 64x64
+[VERBOSE] tiling.cpp:201  - num tiles : 3, 3 
+[VERBOSE] tiling.cpp:202  - optimal overlap : 0.500000, 0.500000 (targeting 0.500000)
+[VERBOSE] tiling.cpp:203  - processing 9 tiles
+[INFO   ] ggml_graph_cut.cpp:1034 - vae build cached graph cut plan done (taking 0 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 138/244 tensors from /Users/nckandrw/Dev/photo-gen/models/vae/ae.safetensors
+  |################################################  | 130/138 - 655.29MB/s[K  |##################################################| 138/138 - 454.33MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 0.42s (read: 0.25s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers ( 94.57 MB, 138 tensors, 1 blocks, VRAM) on MTL0
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_im2col_f16', name = 'kernel_im2col_f16'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_im2col_f16                            0x771013a680 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f16', name = 'kernel_mul_mm_f16_f16_bci=1_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f16_bci=1_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x771013bb80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=1     0x770fb45c00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_group_norm_f32', name = 'kernel_group_norm_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_group_norm_f32                        0x770fb45880 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=1     0x7710150000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f16', name = 'kernel_mul_mm_f16_f16_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f16_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x7710150380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_upscale_nearest_f32', name = 'kernel_upscale_nearest_f32_aa=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_upscale_nearest_f32_aa=0              0x7710150a80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f16_f16_4', name = 'kernel_mul_mv_f16_f16_4_nsg=4_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f16_f16_4_nsg=4_ne12=1_r2=1_r3=1     0x7710150e00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - vae compute buffer size: 1664.25 MB(VRAM) on MTL0 (peak across 1 segment)
+  |=====>                                            | 1/9 - 3.83s/it[K  |===========>                                      | 2/9 - 3.45s/it[K  |================>                                 | 3/9 - 3.44s/it[K  |======================>                           | 4/9 - 3.44s/it[K  |===========================>                      | 5/9 - 3.44s/it[K  |=================================>                | 6/9 - 3.44s/it[K  |======================================>           | 7/9 - 3.43s/it[K  |============================================>     | 8/9 - 3.41s/it[K  |==================================================| 9/9 - 3.42s/it[K
+[VERBOSE] vae.hpp:319  - computing vae decode graph completed, taking 31.31s
+[INFO   ] image.cpp:613  - latent 1 decoded, taking 31.32s
+[INFO   ] image.cpp:617  - decode_first_stage completed, taking 31.32s
+[INFO   ] image.cpp:1043 - generate_image completed in 362.42s
+[VERBOSE] model_manager.cpp:1179 - model manager released params backend buffers (6094.74 MB, 976 tensors, 8 blocks, VRAM) from MTL0
+[INFO   ] ggml - ggml_metal_free: deallocating
+[INFO   ] main.cpp:497  - save result image 0 to '/Users/nckandrw/Dev/photo-gen/outputs/zi-th10-r2.png' (success)
+[INFO   ] main.cpp:573  - 1/1 images saved

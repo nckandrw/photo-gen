@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/perfmap/work/sus-512-bf16-st6-r0.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 512,
+ "height": 512,
+ "steps": 6,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true
+}

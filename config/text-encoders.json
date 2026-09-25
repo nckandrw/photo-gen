@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional text-encoder substitutes for photo-gen (opt-in via text_encoder=<name>; default 'stock'). An entry is selectable only with enabled=true and pinned file digests. The stock pack is never modified; substitutes run via a composite directory of symlinks. History: 'heretic-v2' was evaluated and CLOSED 2026-09-25 (research/experiments/te-heretic-v2-report.md; provenance tev2/PROVENANCE-heretic-v2.json); its entry and artifacts were removed.",
+  "text_encoders": {}
+}

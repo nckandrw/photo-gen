@@ -1,0 +1,134 @@
+{
+  "_comment": "Immutable research-validated backend identity. Do not edit to 'fix' drift; drift must be investigated.",
+  "backend_id": "mflux-zimage-turbo-q4",
+  "runtime": {
+    "name": "mflux",
+    "python": "3.12.14",
+    "packages": {
+      "mflux": "0.20.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2"
+    },
+    "entry_point": "mflux.models.z_image.cli.z_image_turbo_generate:main"
+  },
+  "model": {
+    "name": "Z-Image-Turbo",
+    "repo": "mflux-community/z-image-turbo-mflux-q4",
+    "revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+    "local_path": "models/mflux/z-image-turbo-mflux-q4",
+    "base_model": "z-image-turbo",
+    "quantization": "mflux q4 (MLX affine, pre-quantized)",
+    "license": "Apache-2.0 (Tongyi-MAI Z-Image-Turbo)",
+    "files": [
+      {
+        "path": "text_encoder/0.safetensors",
+        "algo": "sha256",
+        "digest": "ecf4b7e89098b92e79e8910ff6ddef8e7fbc1c5d6dffc930faf903bde06c9d07",
+        "size": 2135435241
+      },
+      {
+        "path": "text_encoder/1.safetensors",
+        "algo": "sha256",
+        "digest": "8b32bbec7881a83ca6f9de71c131c20881447e31f1d46cebb2d3720591026be8",
+        "size": 127582075
+      },
+      {
+        "path": "text_encoder/model.safetensors.index.json",
+        "algo": "git-sha1",
+        "digest": "cc4b89edc0ce82cda966bc89f67896edeefa749e",
+        "size": 51332
+      },
+      {
+        "path": "tokenizer/chat_template.jinja",
+        "algo": "git-sha1",
+        "digest": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+        "size": 4168
+      },
+      {
+        "path": "tokenizer/tokenizer.json",
+        "algo": "sha256",
+        "digest": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+        "size": 11422650
+      },
+      {
+        "path": "tokenizer/tokenizer_config.json",
+        "algo": "git-sha1",
+        "digest": "9a87e3822403fb40a9524bb75edb66c6f0585750",
+        "size": 692
+      },
+      {
+        "path": "transformer/0.safetensors",
+        "algo": "sha256",
+        "digest": "6dd1c55ab672d2148171b13b9c6e719465aecf12743ccb6d97d5ee1978f7e9ba",
+        "size": 2140225820
+      },
+      {
+        "path": "transformer/1.safetensors",
+        "algo": "sha256",
+        "digest": "135062103c799495abe92f9966b163f39498b590a2244954679c0d709acb8b61",
+        "size": 1323528823
+      },
+      {
+        "path": "transformer/model.safetensors.index.json",
+        "algo": "git-sha1",
+        "digest": "1455bc3cbf51198d9b5fbf50eb2d9e0b6d43e995",
+        "size": 61606
+      },
+      {
+        "path": "vae/0.safetensors",
+        "algo": "sha256",
+        "digest": "531f8197f218382e2f5d300bee1a0b42edbc50ad7f181e37e994b9d1ca471a58",
+        "size": 164654177
+      },
+      {
+        "path": "vae/model.safetensors.index.json",
+        "algo": "git-sha1",
+        "digest": "33dfe32850bad435088bd6cfb11aa6adfdbaa585",
+        "size": 17378
+      }
+    ]
+  },
+  "validated": {
+    "resolutions": [
+      [
+        512,
+        512
+      ],
+      [
+        768,
+        768
+      ],
+      [
+        1024,
+        1024
+      ]
+    ],
+    "steps": 9,
+    "guidance": 0.0,
+    "low_ram": true,
+    "scheduler": "mflux 0.20.0 default for Z-Image-Turbo (linear sigmas + resolution-dependent shift)",
+    "evidence": [
+      "research/MFLUX-ZIMAGE-RESULTS.md",
+      "research/MFLUX-ZIMAGE-SUSTAINED-10RUN-RESULTS.md"
+    ],
+    "reference_pixel_sha256": {
+      "1024x1024|seed=42|steps=9|prompt=a red apple on a wooden table, soft window light": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
+      "512x512|seed=42|steps=9|prompt=a red apple on a wooden table, soft window light": "9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c"
+    },
+    "measured_1024": {
+      "cold_seconds": 84.6,
+      "sustained_seconds_mean": 133.7,
+      "peak_footprint_gb": [
+        7.2,
+        7.4
+      ]
+    }
+  },
+  "limits": {
+    "max_pixels": 1048576,
+    "dimension_multiple": 16,
+    "min_dimension": 256,
+    "max_dimension": 1536,
+    "_comment": "Non-validated sizes are accepted only as experimental and never above the largest validated pixel count (1024x1024)."
+  }
+}

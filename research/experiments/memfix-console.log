@@ -1,0 +1,17 @@
+05:06:25 fp32-512-r0-pre                    rc=0 wall=22.07 denoise=17.884 vae=0.539 fp=6.882 pix=9ae59f590e
+05:06:48 fp32-512-r0-post                   rc=0 wall=21.49 denoise=17.798 vae=0.376 fp=5.925 pix=9ae59f590e
+05:07:11 fp32-512-r1-post                   rc=0 wall=21.46 denoise=17.753 vae=0.376 fp=5.927 pix=9ae59f590e
+05:07:34 fp32-512-r1-pre                    rc=0 wall=21.82 denoise=18.1 vae=0.375 fp=7.261 pix=9ae59f590e
+05:07:58 fp32-1024-r0-pre                   rc=0 wall=91.21 denoise=85.582 vae=2.036 fp=7.263 pix=fe47d88dfb
+05:09:30 fp32-1024-r0-post                  rc=0 wall=111.12 denoise=105.307 vae=2.243 fp=6.558 pix=fe47d88dfb
+05:11:23 fp32-1024-r1-post                  rc=0 wall=116.25 denoise=110.275 vae=2.376 fp=6.559 pix=fe47d88dfb
+05:13:21 fp32-1024-r1-pre                   rc=0 wall=119.08 denoise=112.92 vae=2.444 fp=7.351 pix=fe47d88dfb
+05:15:22 bf16-512-r0-pre                    rc=0 wall=22.58 denoise=18.785 vae=0.414 fp=6.997 pix=c70c38b019
+05:15:46 bf16-512-r0-post                   rc=0 wall=22.34 denoise=18.659 vae=0.393 fp=5.413 pix=c70c38b019
+05:16:10 bf16-512-r1-post                   rc=0 wall=22.09 denoise=18.387 vae=0.395 fp=5.414 pix=c70c38b019
+05:16:33 bf16-512-r1-pre                    rc=0 wall=22.02 denoise=18.308 vae=0.401 fp=7.252 pix=c70c38b019
+05:16:57 bf16-1024-r0-pre                   rc=0 wall=86.58 denoise=80.678 vae=2.398 fp=7.263 pix=11b19277f7
+05:18:25 bf16-1024-r0-post                  rc=0 wall=90.33 denoise=83.546 vae=3.053 fp=5.836 pix=11b19277f7
+05:19:57 bf16-1024-r1-post                  rc=0 wall=87.17 denoise=80.996 vae=2.471 fp=5.836 pix=11b19277f7
+05:21:25 bf16-1024-r1-pre                   rc=0 wall=86.23 denoise=80.143 vae=2.548 fp=7.331 pix=11b19277f7
+RUNNER_DONE

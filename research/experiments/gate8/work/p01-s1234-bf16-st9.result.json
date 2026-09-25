@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "1234",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/gate8/work/p01-s1234-bf16-st9.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.084,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.726,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.585,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 83.258,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 79.947
+ },
+ "step_seconds": [
+  9.311,
+  8.75,
+  8.458,
+  8.496,
+  8.608,
+  8.735,
+  8.909,
+  9.095,
+  9.403
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 85.854,
+ "peak_footprint_gb": 5.836
+}

@@ -1,0 +1,146 @@
+[
+ {
+  "pair": "p01-s42",
+  "psnr_db": 42.32,
+  "mean_abs": 0.92,
+  "ssim": 0.9947
+ },
+ {
+  "pair": "p02-s42",
+  "psnr_db": 36.05,
+  "mean_abs": 1.58,
+  "ssim": 0.9919
+ },
+ {
+  "pair": "p03-s42",
+  "psnr_db": 34.53,
+  "mean_abs": 2.58,
+  "ssim": 0.9774
+ },
+ {
+  "pair": "p04-s42",
+  "psnr_db": 29.88,
+  "mean_abs": 3.78,
+  "ssim": 0.9687
+ },
+ {
+  "pair": "p05-s42",
+  "psnr_db": 34.57,
+  "mean_abs": 1.5,
+  "ssim": 0.9862
+ },
+ {
+  "pair": "p06-s42",
+  "psnr_db": 23.95,
+  "mean_abs": 6.58,
+  "ssim": 0.8855
+ },
+ {
+  "pair": "p07-s42",
+  "psnr_db": 21.75,
+  "mean_abs": 4.27,
+  "ssim": 0.938
+ },
+ {
+  "pair": "p08-s42",
+  "psnr_db": 31.48,
+  "mean_abs": 2.97,
+  "ssim": 0.9733
+ },
+ {
+  "pair": "p09-s42",
+  "psnr_db": 21.97,
+  "mean_abs": 8.99,
+  "ssim": 0.8826
+ },
+ {
+  "pair": "p10-s42",
+  "psnr_db": 24.91,
+  "mean_abs": 5.64,
+  "ssim": 0.9675
+ },
+ {
+  "pair": "p11-s42",
+  "psnr_db": 30.34,
+  "mean_abs": 3.8,
+  "ssim": 0.95
+ },
+ {
+  "pair": "p12-s42",
+  "psnr_db": 33.24,
+  "mean_abs": 1.59,
+  "ssim": 0.9849
+ },
+ {
+  "pair": "p01-s7",
+  "psnr_db": 42.45,
+  "mean_abs": 0.93,
+  "ssim": 0.996
+ },
+ {
+  "pair": "p02-s7",
+  "psnr_db": 31.82,
+  "mean_abs": 2.93,
+  "ssim": 0.9714
+ },
+ {
+  "pair": "p03-s7",
+  "psnr_db": 28.57,
+  "mean_abs": 3.44,
+  "ssim": 0.9659
+ },
+ {
+  "pair": "p04-s7",
+  "psnr_db": 33.87,
+  "mean_abs": 1.81,
+  "ssim": 0.9851
+ },
+ {
+  "pair": "p05-s7",
+  "psnr_db": 38.94,
+  "mean_abs": 0.95,
+  "ssim": 0.9924
+ },
+ {
+  "pair": "p06-s7",
+  "psnr_db": 26.75,
+  "mean_abs": 4.7,
+  "ssim": 0.9239
+ },
+ {
+  "pair": "p07-s7",
+  "psnr_db": 20.37,
+  "mean_abs": 6.32,
+  "ssim": 0.8832
+ },
+ {
+  "pair": "p08-s7",
+  "psnr_db": 29.59,
+  "mean_abs": 3.9,
+  "ssim": 0.9526
+ },
+ {
+  "pair": "p09-s7",
+  "psnr_db": 21.12,
+  "mean_abs": 11.35,
+  "ssim": 0.8362
+ },
+ {
+  "pair": "p10-s7",
+  "psnr_db": 38.06,
+  "mean_abs": 1.69,
+  "ssim": 0.9907
+ },
+ {
+  "pair": "p11-s7",
+  "psnr_db": 26.86,
+  "mean_abs": 4.23,
+  "ssim": 0.9345
+ },
+ {
+  "pair": "p12-s7",
+  "psnr_db": 36.59,
+  "mean_abs": 0.83,
+  "ssim": 0.9931
+ }
+]

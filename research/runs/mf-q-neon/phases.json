@@ -1,0 +1,87 @@
+{
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt",
+  "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/outputs/mf-q-neon.png"
+ ],
+ "phases": {
+  "load_init": [
+   {
+    "t_start": 0.001,
+    "sec": 1.073,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.0,
+    "mlx_peak_gb": 0.001,
+    "cache_gb": 0.001
+   }
+  ],
+  "text_encode": [
+   {
+    "t_start": 1.076,
+    "sec": 0.671,
+    "active_before_gb": 0.0,
+    "active_after_gb": 2.211,
+    "mlx_peak_gb": 3.612,
+    "cache_gb": 1.002
+   }
+  ],
+  "memsaver_before_loop": [
+   {
+    "t": 1.91,
+    "active_after_gb": 0.003,
+    "cache_gb": 0.0,
+    "model_text_encoder_is_none": true,
+    "model_transformer_is_none": false
+   }
+  ],
+  "memsaver_after_loop": [
+   {
+    "t": 121.627,
+    "active_after_gb": 3.473,
+    "cache_gb": 0.0,
+    "model_text_encoder_is_none": true,
+    "model_transformer_is_none": true
+   }
+  ],
+  "vae_decode": [
+   {
+    "t_start": 121.627,
+    "sec": 2.888,
+    "active_before_gb": 3.473,
+    "active_after_gb": 3.583,
+    "mlx_peak_gb": 5.697,
+    "cache_gb": 0.934
+   }
+  ],
+  "generate_image_total": [
+   {
+    "t_start": 1.076,
+    "sec": 123.547,
+    "active_before_gb": 0.0,
+    "active_after_gb": 0.098,
+    "mlx_peak_gb": 5.697,
+    "cache_gb": 1.014
+   }
+  ]
+ },
+ "denoise_sec_derived": 119.988,
+ "process_wall_sec": 124.898,
+ "torch_imported": true,
+ "torch_mps_allocated_bytes": 0,
+ "mlx_version": "0.32.2",
+ "device": "Device(gpu, 0)"
+}

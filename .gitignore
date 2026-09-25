@@ -1,0 +1,56 @@
+# photo-gen .gitignore: source, configuration, documentation and text research evidence are versioned.
+# Runtime data, generated images, model weights, toolchains and caches are not (see docs/REPRODUCIBILITY.md).
+
+# ---- macOS / editors ----
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+.idea/
+.vscode/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- local Claude Code settings (per-machine permissions) ----
+.claude/
+
+# ---- secrets (none exist today; keep it that way) ----
+.env
+.env.*
+*.pem
+*.key
+!research/experiments/**/.KEY-DO-NOT-OPEN-BEFORE-FREEZE.json
+
+# ---- project-local toolchain (reproduced from docs/REPRODUCIBILITY.md, never committed) ----
+mflux/.venv
+mflux/python
+mflux/cache
+mflux/dl
+mflux/tools
+mflux/hf
+
+# ---- model weights: external, pinned by hash in config/backend-zimage-mflux.json ----
+models/**
+!models/README.md
+
+# ---- runtime data: created by the app (jobs DB, outputs, logs, lock, hash cache) ----
+data/
+
+# ---- Pass-1 generated images and the sd.cpp binary build (research comparison only) ----
+outputs/
+sdcpp/**
+!sdcpp/*.txt
+
+# ---- research images: every excluded PNG's file SHA-256 + size is committed in research/EXCLUDED-IMAGES.sha256;
+#      mflux-generated ones also have pixel SHA-256s in their results files and are deterministic
+#      (regenerable bit-exact from prompt/seed/config). sd.cpp/Qwen images need the non-versioned sd.cpp models. ----
+research/**/*.png
+
+# ---- Metal GPU capture bundles (chain P3B; large binary traces, summarized in the reports) ----
+*.gputrace/
+*.gputrace
