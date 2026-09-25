@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p10-s8128-fast.png",
+ "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 8128,
+ "precision": "bf16",
+ "release_transformer": true
+}

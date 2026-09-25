@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p02-s1618-fast.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.298,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 1.594,
+   "mlx_peak_gb": 3.384
+  },
+  "vae_decode": {
+   "seconds": 0.474,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 28.647,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 26.579
+ },
+ "step_seconds": [
+  2.991,
+  3.13,
+  3.03,
+  2.912,
+  3.65,
+  2.792,
+  3.181,
+  4.167
+ ],
+ "mlx_peak_gb": 3.384,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 32.886,
+ "peak_footprint_gb": 5.417
+}

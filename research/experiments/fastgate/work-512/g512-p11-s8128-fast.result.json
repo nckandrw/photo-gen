@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "8128",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p11-s8128-fast.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.068,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.784,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 0.501,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 24.474,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 23.189
+ },
+ "step_seconds": [
+  3.776,
+  2.85,
+  2.675,
+  2.728,
+  2.719,
+  2.715,
+  2.725,
+  2.828
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 26.805,
+ "peak_footprint_gb": 5.405
+}

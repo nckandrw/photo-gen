@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "8128",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p06-s8128-fast.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 2.57,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 3.858,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 0.47,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 34.529,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 30.201
+ },
+ "step_seconds": [
+  6.662,
+  3.592,
+  3.405,
+  3.53,
+  3.546,
+  3.391,
+  2.977,
+  2.67
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 39.411,
+ "peak_footprint_gb": 5.411
+}

@@ -187,3 +187,29 @@ SIGMA_AB_DONE
 16:51:33 g512-p07-s8128-fast                rc=0 wall=31.17 denoise=25.874 vae=0.493 fp=5.418 pix=e6311722c7
 16:52:06 g512-p08-s8128-fast                rc=0 wall=29.0 denoise=24.824 vae=0.482 fp=5.411 pix=9757abe748
 [16:58:11] --- INCIDENT: chain A stopped ~16:53 without error output (worker for g512-p08-s8128-ref killed mid-run; no result row). Not a planned pause. Likely cause: process-group cleanup of the 16:22 relaunch (started inside a compound shell command). G512: 39/48 runs complete; remaining runs resume after the git-verification pause; the p08-s8128 pair straddles the gap (timing ratio for that pair not comparable; quality unaffected). ---
+[17:07:32] --- relaunch after git-repository verification (top-level nohup) ---
+[17:07:32] PHASE3A start
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=23593059)	80%; AC attached; not charging present: true
+[17:07:32] sigma audit 512
+RUNNER_DONE
+[17:07:32] sigma audit 768
+RUNNER_DONE
+[17:07:32] sigma audit 1024
+RUNNER_DONE
+SIGMA_AB_DONE
+[17:07:32] FAST gate 512
+17:07:32 g512-p08-s8128-ref                 rc=0 wall=21.25 denoise=17.611 vae=0.369 fp=5.948 pix=86302013f8
+17:07:55 g512-p09-s8128-ref                 rc=0 wall=21.72 denoise=18.056 vae=0.37 fp=5.949 pix=1aac89ffcf
+17:08:18 g512-p09-s8128-fast                rc=0 wall=16.1 denoise=12.42 vae=0.368 fp=5.403 pix=8fc1fce05d
+17:08:36 g512-p10-s8128-fast                rc=0 wall=17.43 denoise=13.738 vae=0.386 fp=5.407 pix=06c17e0f82
+17:08:55 g512-p10-s8128-ref                 rc=0 wall=35.8 denoise=31.954 vae=0.507 fp=5.949 pix=e3f6d53012
+17:09:32 g512-p11-s8128-ref                 rc=0 wall=41.25 denoise=37.277 vae=0.508 fp=5.949 pix=d8e5ed235e
+17:10:15 g512-p11-s8128-fast                rc=0 wall=27.12 denoise=23.189 vae=0.501 fp=5.405 pix=531997efb6
+17:10:44 g512-p12-s8128-fast                rc=0 wall=26.18 denoise=22.324 vae=0.483 fp=5.403 pix=b2cee1ff23
+17:11:11 g512-p12-s8128-ref                 rc=0 wall=37.62 denoise=33.807 vae=0.492 fp=5.949 pix=764d8996ed
+RUNNER_DONE
+GATE_512_GEN_DONE
+[17:11:51] FAST gate 768
+17:11:51 g768-p01-s1618-ref                 rc=0 wall=87.0 denoise=81.868 vae=1.56 fp=6.334 pix=6d11e424f8
+17:13:19 g768-p01-s1618-fast                rc=0 wall=58.13 denoise=52.652 vae=1.634 fp=5.923 pix=0b293a0022

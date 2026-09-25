@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p01-s1618-fast.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 2.094,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 1.167,
+   "mlx_peak_gb": 2.949
+  },
+  "vae_decode": {
+   "seconds": 0.55,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 30.583,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 28.866
+ },
+ "step_seconds": [
+  2.907,
+  3.234,
+  3.693,
+  3.547,
+  3.376,
+  3.594,
+  3.648,
+  4.071
+ ],
+ "mlx_peak_gb": 2.949,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 36.417,
+ "peak_footprint_gb": 5.418
+}

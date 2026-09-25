@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "9",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p07-s1618-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.081,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.795,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 0.508,
+   "mlx_peak_gb": 2.159
+  },
+  "generate_total": {
+   "seconds": 38.388,
+   "mlx_peak_gb": 2.159
+  },
+  "denoise_seconds": 37.085
+ },
+ "step_seconds": [
+  4.811,
+  3.789,
+  3.791,
+  3.959,
+  4.032,
+  4.282,
+  4.108,
+  4.057,
+  4.066
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 40.762,
+ "peak_footprint_gb": 5.948
+}

@@ -57,3 +57,50 @@ At each resolution, does FAST (bf16, 8 steps = 8 NFE) show a systematic or mater
 
 ## Results
 (appended after generation and unblinding)
+
+### G512 (512², 24 pairs, seeds 1618 + 8128). Generated 16:22–17:11 with two interruptions.
+**Interruptions (disclosed):**
+- A planned pause at 16:19, before the block, for guide validation.
+- An **unplanned stop at ~16:53** (incident: process-group cleanup; see `phase3-chainA-console.log`). The G512 remainder resumed at 17:07.
+- Pair p08-s8128 straddles the stop, so its timing is not comparable. Quality is unaffected (deterministic).
+
+**Run integrity:** 48/48 rc = 0; `compile_calls` = 1.
+
+**Blinded review** (`fastgate/blind-512/`):
+- key sha256 `fc3c34ce…`;
+- frozen scores `04faa272…`;
+- unblinded key saved as `fastgate/key-512-unblinded.json`.
+
+**Tally: REFERENCE better 0 · FAST better 0 · ties 24.**
+- p05 ("QWEN IMAGE 2.1") and p07 ("VISIT SIQUIJOR" / "Island of Fire") are exact in both arms, both seeds.
+- p03 text-through-glass is gibberish or absent in both arms.
+- p12 fails identically in both arms (3 plates instead of 2).
+
+**Objective (FAST vs REFERENCE, `fastgate/summary-512.json`):**
+| metric | value |
+|---|---|
+| denoise ratio FAST/REF | median **0.658** (sustained; cold single-pair figure 11.4/17.4 = 0.655) |
+| wall ratio | median 0.699 |
+| PSNR | median 26.7 dB |
+| SSIM | median 0.928 |
+| peak footprint | FAST max **5.43 GB** vs REFERENCE max 5.96 GB |
+| pressure max | 2 in both arms |
+
+**Swap (disclosed literal deviation from criterion 5):**
+- System-wide swap grew by more than 16 MB in 10 runs between 16:22 and 16:50: 6 FAST (max 1,092 MB) and 4 REFERENCE (max 2,228 MB).
+- Growth occurred in both arms and coincided with inflated wall times (up to 106 s vs ~45 s). The workers' own footprints were normal.
+- During that window the machine also ran Safari (the documentation check) and large `du`/`find` scans (a cleanup inventory).
+- Judged **not attributable to FAST**: FAST's footprint is 0.52 GB *lower*, and the largest growth was in a REFERENCE run.
+- The swap numbers are recorded, not hidden. Timing ratios from those pairs are noisy; the median is robust.
+
+**Criteria**
+| # | criterion | result |
+|---|---|---|
+| 1 | no text regression | **PASS** (4/4 equal) |
+| 2 | no systematic FAST artifact | **PASS** (none) |
+| 3 | REF-better ≤ FAST-better + 3 | **PASS** (0 ≤ 3) |
+| 4 | no class-level failure | **PASS** |
+| 5 | operational | **PASS**: rc = 0; footprint 5.43 ≤ 5.96 + 0.1. The swap deviation is disclosed above. |
+
+**Verdict: G512 VALIDATED.** FAST (bf16 + 8) shows no systematic or material quality regression directly against REFERENCE (fp32 + 9) at 512² on this 24-pair set. Limits: single AI rater, fast review (see `sigma-schedule-audit.md` §3.4 disclosure), 24 pairs.
+**Production consequence (per protocol):** adding 512² to `GATED_STEPS` is a separate, recorded code change. It is deferred until G768 and G1024 are reviewed, so that the production matrix changes once, with tests.

@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "9",
+  "--seed",
+  "8128",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p06-s8128-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.065,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.711,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 0.494,
+   "mlx_peak_gb": 2.159
+  },
+  "generate_total": {
+   "seconds": 43.215,
+   "mlx_peak_gb": 2.159
+  },
+  "denoise_seconds": 42.01
+ },
+ "step_seconds": [
+  5.106,
+  3.975,
+  4.98,
+  4.015,
+  4.141,
+  5.051,
+  5.524,
+  4.819,
+  4.114
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 45.574,
+ "peak_footprint_gb": 5.949
+}

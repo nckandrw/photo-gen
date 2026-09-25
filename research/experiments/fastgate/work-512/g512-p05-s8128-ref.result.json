@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "9",
+  "--seed",
+  "8128",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-512/g512-p05-s8128-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 2.986,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 4.1,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 4.073,
+   "mlx_peak_gb": 2.159
+  },
+  "generate_total": {
+   "seconds": 75.705,
+   "mlx_peak_gb": 2.159
+  },
+  "denoise_seconds": 67.532
+ },
+ "step_seconds": [
+  8.008,
+  7.027,
+  7.195,
+  7.7,
+  7.937,
+  7.114,
+  7.481,
+  7.298,
+  7.337
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 81.761,
+ "peak_footprint_gb": 5.922
+}
