@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-1024/g1024-p03-s1618-fast.png",
+ "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+ "width": 1024,
+ "height": 1024,
+ "steps": 8,
+ "seed": 1618,
+ "precision": "bf16",
+ "release_transformer": true
+}

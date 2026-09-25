@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-1024/g1024-p08-s1618-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.045,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.642,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 3.11,
+   "mlx_peak_gb": 2.228
+  },
+  "generate_total": {
+   "seconds": 144.514,
+   "mlx_peak_gb": 2.228
+  },
+  "denoise_seconds": 140.762
+ },
+ "step_seconds": [
+  15.173,
+  15.302,
+  15.625,
+  15.688,
+  15.735,
+  15.707,
+  15.679,
+  15.789,
+  15.875
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 147.011,
+ "peak_footprint_gb": 6.579
+}

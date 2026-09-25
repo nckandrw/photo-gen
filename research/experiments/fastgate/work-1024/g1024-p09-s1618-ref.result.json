@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-1024/g1024-p09-s1618-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.059,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.64,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 3.158,
+   "mlx_peak_gb": 2.228
+  },
+  "generate_total": {
+   "seconds": 145.344,
+   "mlx_peak_gb": 2.228
+  },
+  "denoise_seconds": 141.546
+ },
+ "step_seconds": [
+  15.843,
+  15.714,
+  15.744,
+  15.668,
+  15.656,
+  15.712,
+  15.625,
+  15.601,
+  15.789
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 147.884,
+ "peak_footprint_gb": 6.581
+}

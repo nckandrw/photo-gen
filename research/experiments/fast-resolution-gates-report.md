@@ -142,3 +142,46 @@ At each resolution, does FAST (bf16, 8 steps = 8 NFE) show a systematic or mater
 **Verdict: G768 VALIDATED**, with a disclosed directional lean: every non-tie favoured REFERENCE (2–0).
 - This is within the pre-registered margin, and it is exactly the kind of small effect the protocol's +3 margin accepts.
 - It is noted so it can be tracked across gates, not explained away.
+
+### G1024-direct (1024², 24 pairs, seeds 1618 + 8128). Generated 18:08–19:47, uninterrupted. Added under the Improvement Clause.
+**Run integrity:** 48/48 rc = 0; `compile_calls` = 1; pressure max 1; swap growth ≤ 1.7 MB.
+
+**Blinded review** (`fastgate/blind-1024/`):
+- key sha256 `c5acc9cf…`;
+- frozen scores `10ef4e33…`.
+
+| composite | pair | preference (blind) | winner after unblind |
+|---|---|---|---|
+| C04 | p04-s1618 (desk, five objects) | L: the R image had **two pens** (the prompt asks for one) | **FAST** (the REFERENCE image had the duplicated object) |
+| other 23 | — | = | tie |
+
+**Tally: REFERENCE better 0 · FAST better 1 · ties 23.**
+- Text exact in both arms for p05 and p07, both seeds.
+- p09-s1618 has two balloons in *both* arms, an identical failure.
+- p12 fails identically in both arms (3 plates).
+
+**Objective:** denoise ratio FAST/REF median **0.622** (sustained; 88.8 vs 142.4 s); wall ratio 0.639; PSNR 26.6 dB; SSIM 0.945; peak footprint FAST 5.85 vs REF 6.58 GB.
+
+**Criteria:** 1 PASS · 2 PASS · 3 PASS (0 ≤ 4) · 4 PASS · 5 PASS.
+
+**Verdict: G1024 VALIDATED DIRECTLY.** The 1024² FAST cell no longer rests only on the chain of two gates.
+
+## Summary across the three direct gates (72 pairs)
+| gate | REF better | FAST better | ties | verdict |
+|---|---:|---:|---:|---|
+| G512 | 0 | 0 | 24 | VALIDATED |
+| G768 | 2 | 0 | 22 | VALIDATED (lean toward REF, within margin) |
+| G1024 | 0 | 1 | 23 | VALIDATED |
+| **pooled** | **2** | **1** | **69** | no directional effect |
+
+- All five non-ties across 72 pairs were object-level failures (duplicated or inconsistent objects) or text-visibility differences. They are split between the arms.
+- The G768 lean does not persist in the pooled data.
+
+**Final profile matrix**
+| | REFERENCE fp32 + 9 | FAST bf16 + 8 |
+|---|---|---|
+| 512² | REFERENCE | **VALIDATED** (direct gate) |
+| 768² | REFERENCE | **VALIDATED** (direct gate) |
+| 1024² | REFERENCE | **VALIDATED** (direct gate + the earlier chain) |
+
+**Limits (all gates):** single AI rater with a fast review, 24 pairs per gate, and two seeds, so a small effect in either direction is not excluded.

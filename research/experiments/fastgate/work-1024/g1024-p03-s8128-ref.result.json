@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "8128",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-1024/g1024-p03-s8128-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.052,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.642,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 3.158,
+   "mlx_peak_gb": 2.228
+  },
+  "generate_total": {
+   "seconds": 146.759,
+   "mlx_peak_gb": 2.228
+  },
+  "denoise_seconds": 142.959
+ },
+ "step_seconds": [
+  16.299,
+  15.869,
+  15.906,
+  15.831,
+  15.75,
+  15.766,
+  15.715,
+  15.713,
+  15.92
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 149.331,
+ "peak_footprint_gb": 6.58
+}

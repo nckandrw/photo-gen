@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "9",
+  "--seed",
+  "1618",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/fastgate/work-1024/g1024-p11-s1618-ref.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.058,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.64,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 3.139,
+   "mlx_peak_gb": 2.228
+  },
+  "generate_total": {
+   "seconds": 147.048,
+   "mlx_peak_gb": 2.228
+  },
+  "denoise_seconds": 143.269
+ },
+ "step_seconds": [
+  15.81,
+  15.753,
+  16.023,
+  15.978,
+  15.942,
+  15.892,
+  15.891,
+  15.788,
+  15.978
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "fp32",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": null,
+ "process_seconds": 149.61,
+ "peak_footprint_gb": 6.583
+}
