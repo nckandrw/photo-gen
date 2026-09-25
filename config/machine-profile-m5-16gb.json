@@ -25,13 +25,15 @@
   "mandatory_flags": ["--low-ram"],
   "validated_profiles": {
     "reference": {"precision": "fp32", "steps": 9, "nfe": 9, "resolutions": ["512x512", "768x768", "1024x1024"], "status": "REFERENCE"},
-    "fast": {"precision": "bf16", "steps": 8, "nfe": 8, "resolutions": ["1024x1024"], "status": "VALIDATED at 1024x1024 (chain of two blinded gates); 512x512 and 768x768 PENDING (direct gates in progress 2026-09-25)"}
+    "fast": {"precision": "bf16", "steps": 8, "nfe": 8, "resolutions": ["512x512", "768x768", "1024x1024"], "status": "VALIDATED at all three (direct blinded REFERENCE-vs-FAST gates, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties; research/experiments/fast-resolution-gates-report.md)"}
   },
   "reference_pixel_sha256": {
     "note": "prompt 'a red apple on a wooden table, soft window light', seed 42",
     "reference_1024": "fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118",
     "reference_768": "94a023d366cf8527aceb178ef42a676c0446ff8d93f08f32407575a6a369265a",
     "reference_512": "9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c",
+    "fast_512": "0b9cc20a6508e74f6285672dd700c43240e040068c2b9da0af2f68658e0be8d8",
+    "fast_768": "20ff9e2c8d171f12b7411acf375e7bc644f4a06cfb56fdd73de7f52cf3787aae",
     "fast_1024": "7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342"
   },
   "cold_benchmarks_seconds": {

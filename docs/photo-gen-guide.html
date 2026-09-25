@@ -164,11 +164,11 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
   <div class="cell"><div class="k">Build</div><div class="v">Working</div><div class="n"><code>verify</code>: all checks ok</div></div>
   <div class="cell"><div class="k">Tests</div><div class="v">39 / 39 passing</div><div class="n">stdlib unittest, run 2026-09-25</div></div>
   <div class="cell"><div class="k">REFERENCE (default)</div><div class="v">fp32 + 9 steps</div><div class="n"><span class="badge b-ref">REFERENCE</span> 512² · 768² · 1024²</div></div>
-  <div class="cell"><div class="k">FAST</div><div class="v">bf16 + 8 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 1024² · <span class="badge b-warn">PENDING</span> 512², 768²</div></div>
+  <div class="cell"><div class="k">FAST</div><div class="v">bf16 + 8 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 512² · 768² · 1024²</div></div>
   <div class="cell"><div class="k">Backend</div><div class="v">mflux 0.20.0 · MLX 0.32.2</div><div class="n">Z-Image-Turbo q4 @ <code>d2d30500</code></div></div>
   <div class="cell"><div class="k">Network</div><div class="v">Offline · 127.0.0.1</div><div class="n">no downloads, no telemetry</div></div>
 </div>
-<p class="meta">FAST at 512² and 768²: blinded quality gates were being generated on the documentation date (<code>research/experiments/fast-resolution-gates-report.md</code>). Until a gate passes, the current build treats FAST at those sizes as experimental and requires <code>allow_experimental</code>.</p>
+<p class="meta">FAST was validated at all three sizes on 2026-09-25 by direct blinded REFERENCE-vs-FAST gates (72 pairs pooled: REFERENCE better 2, FAST better 1, 69 ties; <code>research/experiments/fast-resolution-gates-report.md</code>).</p>
 </section>
 
 <!-- ============================================================ -->
@@ -215,7 +215,7 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
 <div class="codewrap"><pre>bin/photo-gen serve</pre></div>
 <p>It runs the startup checks, then logs <code>photo-gen API listening on http://127.0.0.1:8765</code>. Stop it with Ctrl-C or <code>SIGTERM</code>; both shut down gracefully. Use <code>serve --full-verify</code> to re-hash every model file first.</p>
 <h3>Generate from the CLI</h3>
-<div class="codewrap"><pre><span class="c"># FAST profile (bf16 + 8 steps), validated at 1024×1024</span>
+<div class="codewrap"><pre><span class="c"># FAST profile (bf16 + 8 steps), validated at 512², 768² and 1024²</span>
 bin/photo-gen generate -p "a lighthouse at dawn" --profile fast --seed 42
 
 <span class="c"># REFERENCE profile (fp32 + 9 steps). Also what you get with no profile/precision flags.</span>
@@ -353,8 +353,8 @@ memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: Fal
 <tr><td>503</td><td><code>runtime_unavailable</code></td><td><code>/health</code> when degraded</td></tr>
 </table>
 <details><summary>Captured error examples (2026-09-25)</summary>
-<pre>POST /generate {"prompt":"x","width":512,"height":512,"profile":"fast"}
-→ 400 {"error":"invalid_request","message":"bf16 + 8 steps is gated only at 1024x1024; pass allow_experimental=true to run it at 512x512"}
+<pre>POST /generate {"prompt":"x","width":640,"height":640,"profile":"fast"}
+→ 400 {"error":"invalid_request","message":"640x640 is not a validated resolution (512x512, 768x768, 1024x1024); pass allow_experimental=true to run it as an experimental request"}
 
 POST /generate {"prompt":"x","profile":"fast","steps":9}
 → 400 {"error":"invalid_request","message":"profile 'fast' fixes steps=8; got steps=9"}
@@ -372,19 +372,18 @@ GET /health  with  Host: evil.example
 <table>
 <tr><th>profile</th><th>precision</th><th>steps = NFE</th><th>status</th><th>use</th></tr>
 <tr><td><strong>reference</strong> (default behaviour)</td><td>fp32</td><td class="num">9</td><td><span class="badge b-ref">REFERENCE</span> at 512², 768², 1024²</td><td>reproducibility, regression testing, the research baseline</td></tr>
-<tr><td><strong>fast</strong></td><td>bf16</td><td class="num">8</td><td><span class="badge b-ok">VALIDATED</span> 1024² · <span class="badge b-warn">PENDING</span> 512² · <span class="badge b-warn">PENDING</span> 768²</td><td>normal use at 1024²</td></tr>
+<tr><td><strong>fast</strong></td><td>bf16</td><td class="num">8</td><td><span class="badge b-ok">VALIDATED</span> 512² · 768² · 1024²</td><td>normal use</td></tr>
 <tr><td>(no profile) bf16 + 7/6/5/4 steps</td><td>bf16</td><td class="num">7–4</td><td><span class="badge b-exp">EXPERIMENTAL</span></td><td>research only; needs <code>allow_experimental</code></td></tr>
 </table>
 <h3>REFERENCE: fp32 + 9 steps</h3>
 <p>This is the permanent, intentionally conservative reproducibility baseline. In mflux every step is one transformer evaluation, so 9 steps = <strong>9 NFE</strong> (network function evaluations). That is one more than the official Turbo recipe. <strong>REFERENCE is not "the official Turbo configuration"</strong>; it is deliberately kept unchanged so every result stays comparable. Regression pixel hashes (prompt "a red apple on a wooden table, soft window light", seed 42): 1024² <code>fe47d88d…</code>, 512² <code>9ae59f59…</code>, 768² <code>94a023d3…</code> (the 768² hash was first recorded 2026-09-25 in the Phase 3 cold runs).</p>
 <h3>FAST: bf16 + 8 steps</h3>
 <p>8 steps = 8 NFE, the official Z-Image-Turbo evaluation count as currently understood. The model card's "9 steps → 8 DiT forwards" was an artifact of an old diffusers version (<code>research/experiments/scheduler-nfe-note.md</code>). Regression hash at 1024², same prompt, seed 42: <code>7b45cfbe…</code>.</p>
-<div class="callout info"><p class="t">What "validated at 1024²" means, exactly</p>
-<p>FAST at 1024² rests on a <strong>chain of two blinded 24-pair quality gates</strong>: fp32/9 vs bf16/9 (0 fp32-better / 2 bf16-better / 22 ties), then bf16/9 vs bf16/8 (0 worse / 1 better / 23 ties). No gate has yet compared FAST with REFERENCE <em>directly</em>. Direct REFERENCE-vs-FAST gates at 512², 768² and 1024² were being generated on the documentation date. Details: <code>research/experiments/phase3-record-audit.md</code>.</p></div>
+<div class="callout info"><p class="t">What "validated" means for FAST, exactly</p><p>On 2026-09-25, FAST was compared <strong>directly</strong> with REFERENCE in three pre-registered blinded gates, 24 pairs each (12 prompts × 2 fresh seeds). Results: 512²: 0 REFERENCE-better / 0 FAST-better / 24 ties; 768²: 2 / 0 / 22; 1024²: 0 / 1 / 23. All five non-ties were object-level differences (e.g. a duplicated object), split between the arms. Earlier, 1024² had been supported only by a chain of two gates (fp32/9→bf16/9→bf16/8). Limits: a single AI rater, 24 pairs per size. Details: <code>research/experiments/fast-resolution-gates-report.md</code>.</p></div>
 <h3>How the build enforces this</h3>
 <ul>
-<li><code>--profile fast</code> at 1024² runs as validated.</li>
-<li><code>--profile fast</code> at 512² or 768² is <strong>refused</strong> unless you pass <code>--allow-experimental</code>. It then runs with a warning and <code>validated_configuration: false</code>.</li>
+<li><code>--profile fast</code> at 512², 768² or 1024² runs as validated.</li>
+<li><code>--profile fast</code> at any other size is <strong>refused</strong> unless you pass <code>--allow-experimental</code>; it then runs with a warning and <code>validated_configuration: false</code>.</li>
 <li>7/6/5/4 steps always need <code>--allow-experimental</code>. The step-sweep study rated 7–6 steps "draft" and 5–4 "preview" quality (<code>research/experiments/step-sweep-report.md</code>). They are not quality-equivalent presets.</li>
 </ul>
 <div class="callout warn"><p class="t">Known labelling inconsistency (current build)</p><p>An explicit <code>--precision bf16</code> request with the default 9 steps at <strong>512² or 768²</strong> is labelled <code>validated_configuration: true</code> with no warning. The bf16 quality gate covered 1024² only. The code marks any 9-step request at a validated size as validated, regardless of precision. The profiles themselves are unaffected. This has been reported for a decision; see <a href="#audit">audit notes</a>.</p></div>
@@ -585,11 +584,11 @@ GET /health  with  Host: evil.example
 <tr><th>res</th><th>configuration</th><th class="num">wall (s)</th><th class="num">denoise (s)</th><th class="num">VAE (s)</th><th class="num">peak footprint (GB)</th><th>quality status</th></tr>
 <tr><td>1024²</td><td>REFERENCE fp32/9</td><td class="num">83.4</td><td class="num">78.3</td><td class="num">1.98</td><td class="num">6.56</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
 <tr><td>1024²</td><td>bf16/9</td><td class="num">60.6</td><td class="num">55.1</td><td class="num">1.96</td><td class="num">5.84</td><td>gated (bf16 gate)</td></tr>
-<tr><td>1024²</td><td><strong>FAST bf16/8</strong></td><td class="num"><strong>54.2</strong></td><td class="num"><strong>48.7</strong></td><td class="num">1.97</td><td class="num">5.84</td><td><span class="badge b-ok">VALIDATED</span> (chained gates)</td></tr>
+<tr><td>1024²</td><td><strong>FAST bf16/8</strong></td><td class="num"><strong>54.2</strong></td><td class="num"><strong>48.7</strong></td><td class="num">1.97</td><td class="num">5.84</td><td><span class="badge b-ok">VALIDATED</span> (direct gate)</td></tr>
 <tr><td>768²</td><td>REFERENCE fp32/9</td><td class="num">44.7</td><td class="num">40.4</td><td class="num">1.06</td><td class="num">6.33</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
-<tr><td>768²</td><td>FAST bf16/8</td><td class="num">30.6</td><td class="num">26.1</td><td class="num">1.08</td><td class="num">5.93</td><td><span class="badge b-warn">PENDING</span></td></tr>
+<tr><td>768²</td><td>FAST bf16/8</td><td class="num">30.6</td><td class="num">26.1</td><td class="num">1.08</td><td class="num">5.93</td><td><span class="badge b-ok">VALIDATED</span></td></tr>
 <tr><td>512²</td><td>REFERENCE fp32/9</td><td class="num">21.2</td><td class="num">17.4</td><td class="num">0.37</td><td class="num">5.93</td><td><span class="badge b-ref">REFERENCE</span></td></tr>
-<tr><td>512²</td><td>FAST bf16/8</td><td class="num">15.0</td><td class="num">11.4</td><td class="num">0.37</td><td class="num">5.41</td><td><span class="badge b-warn">PENDING</span></td></tr>
+<tr><td>512²</td><td>FAST bf16/8</td><td class="num">15.0</td><td class="num">11.4</td><td class="num">0.37</td><td class="num">5.41</td><td><span class="badge b-ok">VALIDATED</span></td></tr>
 </table>
 <p>FAST vs REFERENCE, cold, measured directly. At 1024²: wall 1.54× faster (−35%), denoise 1.61×. At 768²: wall 1.46×, denoise 1.55×. At 512²: wall 1.41×, denoise 1.53×. No swap growth in any cold run; memory pressure was normal (level 1), except that the 768² REFERENCE run recorded level 2 ("warn").</p>
 <h3>Sustained (back-to-back, 1024²)</h3>
@@ -613,7 +612,7 @@ GET /health  with  Host: evil.example
 <li>No progress streaming and no GUI. Use <code>?wait=</code> long-polling, and <code>step_seconds</code> after completion.</li>
 <li>≈2.6 s worker start-up per job, the cost of the per-job process.</li>
 <li>Thermal variability: 1024² REFERENCE ranges from ≈83 s cold to ≈134 s heat-soaked.</li>
-<li>FAST is validated at 1024² only; 512² and 768² require <code>allow_experimental</code> until their gates finish.</li>
+<li>FAST is validated at 512², 768² and 1024² only; other sizes require <code>allow_experimental</code>.</li>
 <li>Lower step counts (7–4) are experimental and not quality-equivalent.</li>
 <li>No authentication on the API; loopback-only by design.</li>
 <li>Starting a second server on a port already in use fails with a raw Python traceback (<code>OSError: [Errno 48] Address already in use</code>), not a friendly message.</li>
@@ -669,10 +668,10 @@ GET /health  with  Host: evil.example
 <dt>Check</dt><dd><code>step_seconds</code> in the job, or <code>recent_step_timing</code> in <code>/status</code>: ≈8.5–9 s/step cold vs ≈14 s/step heat-soaked for fp32 at 1024².</dd>
 <dt>Safe fix</dt><dd>Idle about 10 minutes, use FAST, or use a smaller size.</dd></dl>
 <h4 id="ts-fast">FAST profile unavailable at a resolution</h4>
-<dl><dt>Symptom</dt><dd><code>400 invalid_request</code>: "bf16 + 8 steps is gated only at 1024x1024; pass allow_experimental=true …"</dd>
-<dt>Likely cause</dt><dd>FAST is validated only at 1024² (512²/768² gates pending).</dd>
+<dl><dt>Symptom</dt><dd><code>400 invalid_request</code>: "… is not a validated resolution …; pass allow_experimental=true …"</dd>
+<dt>Likely cause</dt><dd>FAST (like REFERENCE) is validated only at 512², 768² and 1024².</dd>
 <dt>Check</dt><dd><code>bin/photo-gen capabilities</code>; <code>research/experiments/STATUS.md</code>.</dd>
-<dt>Safe fix</dt><dd>Use 1024², use REFERENCE at the smaller size, or accept an experimental result with <code>--allow-experimental</code> (labelled unvalidated).</dd></dl>
+<dt>Safe fix</dt><dd>Use one of the validated sizes, or accept an experimental result with <code>--allow-experimental</code> (labelled unvalidated).</dd></dl>
 <h4 id="ts-pending">Job remains pending (queued)</h4>
 <dl><dt>Symptom</dt><dd>A job stays <code>queued</code>.</dd>
 <dt>Likely cause</dt><dd>Another generation holds the GPU lock (it may be a CLI process); the server that owns the job isn't running; or a CLI-submitted job whose process was interrupted before it started.</dd>
@@ -773,7 +772,7 @@ GET /health  with  Host: evil.example
 <tr><td><span class="badge b-ref">REFERENCE</span></td><td>a permanent baseline (fp32 + 9 steps)</td><td>yes, the default</td></tr>
 <tr><td><span class="badge b-ok">ADOPTED</span></td><td>in production (e.g. transformer release, FAST profile at 1024²)</td><td>yes</td></tr>
 <tr><td><span class="badge b-opt">ADOPTED AS OPT-IN</span></td><td>in production, only on explicit request (bf16 precision)</td><td>yes, when requested</td></tr>
-<tr><td><span class="badge b-warn">PENDING</span></td><td>a quality gate is in progress (FAST at 512²/768²)</td><td>only as experimental</td></tr>
+<tr><td><span class="badge b-warn">PENDING</span></td><td>a quality gate is in progress (none at the moment)</td><td>only as experimental</td></tr>
 <tr><td><span class="badge b-exp">EXPERIMENTAL</span></td><td>allowed with <code>allow_experimental</code>, but not quality-equivalent (7–4 steps)</td><td>behind a flag, labelled unvalidated</td></tr>
 <tr><td><span class="badge b-bad">REJECTED</span></td><td>measured and not worth it (caching, fused QKV/SwiGLU, q8/bf16 weights for speed, <code>mask=None</code>)</td><td>no</td></tr>
 <tr><td><span class="badge b-neu">DEFERRED</span></td><td>below the current value bar</td><td>no</td></tr>
@@ -805,7 +804,7 @@ GET /health  with  Host: evil.example
 <h2>What's next? <a class="anchor" href="#next">#</a></h2>
 <div class="callout info"><p class="t">Research directions, not currently supported production features.</p></div>
 <ul>
-<li><strong>Resolution validation:</strong> direct REFERENCE-vs-FAST blinded gates at 512², 768² (and 1024²). The sigma-schedule audit is complete: mflux's resolution-dependent shift differs from the official static schedule but showed no quality or runtime cost (<code>research/experiments/sigma-schedule-audit.md</code>).</li>
+<li><strong>Resolution validation: done</strong> (FAST validated at all three sizes). The sigma-schedule audit is also complete: mflux's resolution-dependent shift differs from the official static schedule but showed no quality or runtime cost (<code>research/experiments/sigma-schedule-audit.md</code>).</li>
 <li><strong>Model reduction:</strong> a block-sensitivity map, and a structurally valid FFN-width reduction experiment.</li>
 <li><strong>Quantization:</strong> a speed map of the other MLX formats (q3/q5/q6, group sizes, mxfp4/nvfp4/mxfp8) before any quality work.</li>
 <li><strong>Apple/MLX/Metal kernels and NAX:</strong> profiling the denoise loop, and establishing which kernels actually use the M5's neural accelerators.</li>

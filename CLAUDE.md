@@ -48,7 +48,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 | profile | precision | steps | status |
 |---|---|---|---|
 | reference (default when no profile is given) | fp32 | 9 | permanent reference |
-| fast | bf16 | 8 | validated at 1024² only |
+| fast | bf16 | 8 | validated at 512², 768², 1024² (direct blinded gates) |
 
 - **Lower step counts:** 7–4 steps are experimental.
 - **NFE:** in mflux, N steps = N NFE. The reference therefore runs 9 NFE; FAST at 1024² ≈ the official 8-NFE recipe.

@@ -15,7 +15,7 @@ This repository contains the photo-gen application and research environment deve
 | hardware | **MacBook Air M5 16 GB: validated** (the only validated machine) |
 | runtime | Python 3.12.14 · mflux 0.20.0 · MLX 0.32.2 · mlx-metal 0.32.2 · Z-Image-Turbo q4 @ `d2d30500` · `--low-ram` |
 | **REFERENCE** (default) | fp32 + 9 steps (9 NFE): canonical reproducibility baseline at 512², 768², 1024² |
-| **FAST** | bf16 + 8 steps (8 NFE): **validated at 1024²**; 512² and 768² **pending** (need `--allow-experimental`) |
+| **FAST** | bf16 + 8 steps (8 NFE): **validated at 512², 768², 1024²** (direct blinded gates vs REFERENCE, 72 pairs: 2 / 1 / 69 ties) |
 
 ## Requirements
 - The validated machine above.
