@@ -5,24 +5,31 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-- **Production:** photo-gen (`app/`), mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
-  - Profiles: **reference** = fp32/9 (default, canonical); **fast** = bf16/8, **validated at 512², 768², 1024²** (direct blinded gates, 2026-09-25; `GATED_STEPS` updated).
-  - Transformer-release fix is ON. 39/39 tests pass.
-- **Git:** private `nckandrw/photo-gen`, branch `main`. Tag `photo-gen-m5-16gb-v1` = the build *before* the 512/768 FAST change. Push over HTTPS with `-c credential.helper='!gh auth git-credential'` (SSH key not authorized on GitHub).
+- **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
+  - **Validated combinations** (`VALIDATED_COMBINATIONS`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only. Everything else needs `--allow-experimental`.
+  - 40/40 tests. Transformer-release fix ON. MIT license for photo-gen code; third-party licences in `docs/THIRD-PARTY-LICENSES.md`.
+- **Git:** private `nckandrw/photo-gen`, `main`. Tags v1 (`db10040`) and v2 (`3961404`) are immutable. Push over HTTPS with `-c credential.helper='!gh auth git-credential'`.
 - **Regression hashes** (p01 apple, seed 42):
-  - 1024²: reference `fe47d88d…`, fast `7b45cfbe…`, bf16/9 `11b19277…`.
-  - 768²: reference `94a023d3…`, fast `20ff9e2c…`.
-  - 512²: reference `9ae59f59…`, fast `0b9cc20a…`, bf16/9 `c70c38b0…`.
-- **Cold (wall):** 1024² reference 83.4 s / fast 54.2 s; 768² 44.7 / 30.6 s; 512² 21.2 / 15.0 s.
-- **Docs:** `docs/photo-gen-guide.html`, `HARDWARE.md`, `REPRODUCIBILITY.md`, `USAGE.md`; `config/machine-profile-m5-16gb.json`.
-- **Nothing is running.** Chain P3A completed (`PHASE3A_DONE` 19:47). Chain P3B (`phase3-chainB.sh`) is prepared but NOT started. Smoke-test its new scripts first.
-- **Open (needs a user decision):**
-  1. bf16/9 at 512²/768² is labelled validated in metadata (the bf16 gate covered 1024² only). A code fix is proposed, not applied.
-  2. Downloads for the zero-training few-step probe and for quant quality tests.
-  3. A new tag for the post-gate build?
-  4. A licence for the project code.
+  - 1024²: reference `fe47d88d`, fast `7b45cfbe`, bf16/9 `11b19277`.
+  - 768²: reference `94a023d3`, fast `20ff9e2c`.
+  - 512²: reference `9ae59f59`, fast `0b9cc20a`.
+- **RUNNING:** chain P3B.
+  - Script: `research/experiments/phase3-chainB.sh`; console: `phase3-chainB-console.log`; marker `PHASE3B_DONE`.
+  - Resumable: rerun the script (prod_runner skips done tags; the microbench stages skip if their output exists).
+  - Relaunch only as a top-level `nohup … & disown`.
+- **Downloaded (research only, gitignored):** `models/research/z-image-base-mflux-q4` @ 087eaf40 + `models/research/loras/…4-Steps-2603-ComfyUI.safetensors` @ f9a4db41 (`4step-probe-acquisition.md`). The sha256 check against HF LFS digests is still TODO. The probe is designed but not run; it runs after chain B.
+- **Open:** after chain B: parse the captures (`p3b/cap/*.gputrace`, CPU-heavy), fill kernel-profile / block-sensitivity / quantization / FFN results, then the 4-step probe.
 
 ---
+
+## 2026-09-28 — v2 freeze, license, 4-step acquisition, chain B start (directive "PHOTO-GEN POST-FAST VALIDATION")
+- **Discrepancy surfaced, user decided:** bf16+9 WAS gated at 1024² (bf16 gate, 0/2/22), so it stays valid at 1024² only and is experimental at 512²/768². Implemented as an explicit `VALIDATED_COMBINATIONS` table plus a regression test (`test_validated_matrix_is_exact`). One old test that relied on the mislabel was adapted.
+- **v2:** commit `3961404`, verified from a clean clone: 40/40 tests; CLI REFERENCE 1024 `fe47d88d`, FAST 512 `0b9cc20a`, 768 `20ff9e2c`, 1024 `7b45cfbe`; API 512 `9ae59f59`; bf16/9 at 512/768 refused. Tag pushed; v1 untouched.
+- **License:** MIT (holder "nckandrw", user's choice) for photo-gen code only. `docs/THIRD-PARTY-LICENSES.md` built from package and HF metadata. **Flag:** the production q4 pack (`mflux-community/z-image-turbo-mflux-q4` @ d2d30500) declares NO license (no card, no LICENSE); upstream Z-Image-Turbo is Apache-2.0. We don't redistribute.
+- **4-step probe:** audit passed (all Apache-2.0; the LoRA directly targets distilled 4-step quality, but it is for Z-Image *base*). 6.47 GB downloaded, pinned.
+- **Chain B smoke tests:** all scripts OK.
+  - NAX VERIFIED for bf16 q4 qmm + SDPA (capture). fp32 TF32-off control: 3.2× slower qmm, 2.7× slower SDPA → REFERENCE uses NAX via the TF32 default.
+  - FFN identity control is exact. Harness fix: the memory metric is now exact DiT weight bytes.
 
 ## 2026-09-25 — Phase 3: FAST resolution gates completed; production matrix updated
 - **Direct blinded REFERENCE-vs-FAST gates** (24 pairs each, seeds 1618/8128, `fast-resolution-gates-report.md`):
