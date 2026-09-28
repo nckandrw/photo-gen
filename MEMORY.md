@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-28 ~22:10._
+_Last updated 2026-09-28 22:53 (benchmark paused)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,13 +21,14 @@ _Last updated 2026-09-28 ~22:10._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**RUNNING (as of 22:10): the 4-step probe benchmark**
-- Script `research/experiments/4step-probe/run-benchmark.sh`; console `4step-probe/benchmark-console.log`; marker **`PROBE_BENCH_DONE`**.
-- Stages: cold A, B, C (each after 600 s idle; started 21:53); then 72 sustained runs (`jobs-bench.json`). Expected done ≈ 23:30.
-- Results: `results-cold.jsonl`, `results-bench.jsonl`; images in `work-cold/`, `work-bench/` (PNGs gitignored).
-- Resumable: rerun the script (prod_runner skips done tags; the cold loop re-idles). Relaunch only as a top-level `nohup zsh … > log 2>&1 < /dev/null & disown`.
-- Check progress: `tail research/experiments/4step-probe/benchmark-console.log` and `pgrep -f run-benchmark.sh`.
-- Cold A already reproduced production FAST `7b45cfbe` (denoise 48.5 s).
+**PAUSED (2026-09-28 22:52, user needed the laptop): the 4-step probe benchmark — NOTHING is running**
+- Progress: cold A/B/C **done** (3/3, `results-cold.jsonl`; cold A reproduced FAST `7b45cfbe`); sustained **29 of 72** done (`results-bench.jsonl`); stopped cleanly after `C-p10-s4242` (no half-written row).
+- **Resume:** `cd ~/Dev/photo-gen/research/experiments && nohup zsh 4step-probe/run-benchmark.sh >> 4step-probe/benchmark-console.log 2>&1 < /dev/null & disown`
+  - ⚠ the script re-runs the cold stage's 3×600 s idle loop before skipping done cold tags (~30 min wasted). Better: resume only the sustained stage:
+    `PRODRUNNER_WORKER_SCRIPT=$PWD/4step-probe/probe_worker.py nohup ../../mflux/.venv/bin/python3.12 prod_runner.py 4step-probe/jobs-bench.json 4step-probe/results-bench.jsonl 4step-probe/work-bench >> 4step-probe/benchmark-console.log 2>&1 < /dev/null & disown`
+  - completion = console prints `RUNNER_DONE` and `results-bench.jsonl` has 72 rows.
+- **Disclose in results:** the sustained block was split by a pause (22:52 → resume time); runs after the resume start on a cooler chip. Timing comparisons must use per-condition paired ratios (same condition, adjacent runs) — the permutation rotation keeps position balanced per condition. The condition in progress at the pause (p10-s4242: B and C done, A pending) straddles the pause → exclude its timing pair from paired ratios (quality unaffected).
+- Before resuming: make sure no other heavy apps run (memory pressure affects timings).
 
 **Next steps (in order)**
 1. After `PROBE_BENCH_DONE`: check integrity (72/72 rc = 0; every C run's argv contains `--no-bake-lora`).

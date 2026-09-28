@@ -1,0 +1,42 @@
+[21:53:27] PROBE start
+Now drawing from 'AC Power'
+[21:53:27] idle 600 s before cold job 0
+22:03:27 A-p01-s42                          rc=0 wall=53.78 denoise=48.5 vae=1.951 fp=5.837 pix=7b45cfbe2e
+RUNNER_DONE
+[22:04:22] idle 600 s before cold job 1
+22:14:23 B-p01-s42                          rc=0 wall=29.86 denoise=24.48 vae=1.96 fp=5.837 pix=711890527b
+RUNNER_DONE
+[22:14:54] idle 600 s before cold job 2
+22:24:54 C-p01-s42                          rc=0 wall=32.28 denoise=26.342 vae=1.968 fp=6.676 pix=9c433033bb
+RUNNER_DONE
+[22:25:28] sustained benchmark
+22:25:28 A-p01-s4242                        rc=0 wall=54.71 denoise=49.43 vae=1.949 fp=5.838 pix=d4cb00c71d
+22:26:24 B-p01-s4242                        rc=0 wall=30.91 denoise=25.544 vae=1.957 fp=5.836 pix=b193bbb6bd
+22:26:57 C-p01-s4242                        rc=0 wall=34.19 denoise=28.022 vae=1.972 fp=6.674 pix=e7e89d9fda
+22:27:32 A-p02-s4242                        rc=0 wall=60.63 denoise=55.221 vae=2.015 fp=5.836 pix=71d9000d82
+22:28:35 C-p02-s4242                        rc=0 wall=39.42 denoise=33.148 vae=2.108 fp=6.67 pix=96942d36c5
+22:29:16 B-p02-s4242                        rc=0 wall=38.07 denoise=32.506 vae=2.179 fp=5.835 pix=3c27b04480
+22:29:55 B-p03-s4242                        rc=0 wall=38.59 denoise=33.004 vae=2.181 fp=5.85 pix=fe98e76c32
+22:30:35 A-p03-s4242                        rc=0 wall=72.31 denoise=66.679 vae=2.236 fp=5.849 pix=7dac133b98
+22:31:49 C-p03-s4242                        rc=0 wall=43.49 denoise=37.057 vae=2.301 fp=6.689 pix=26a2a608e8
+22:32:34 B-p04-s4242                        rc=0 wall=40.89 denoise=35.13 vae=2.344 fp=5.85 pix=bbe7a8792c
+22:33:17 C-p04-s4242                        rc=0 wall=44.59 denoise=38.09 vae=2.343 fp=6.688 pix=48e44aa10c
+22:34:03 A-p04-s4242                        rc=0 wall=76.55 denoise=70.772 vae=2.339 fp=5.852 pix=d0faf44ea4
+22:35:21 C-p05-s4242                        rc=0 wall=45.03 denoise=38.43 vae=2.444 fp=6.671 pix=9661860ce6
+22:36:07 A-p05-s4242                        rc=0 wall=77.78 denoise=71.949 vae=2.396 fp=5.837 pix=05c2078aca
+22:37:27 B-p05-s4242                        rc=0 wall=41.98 denoise=36.17 vae=2.373 fp=5.835 pix=438f4e820f
+22:38:10 C-p06-s4242                        rc=0 wall=45.89 denoise=39.233 vae=2.462 fp=6.687 pix=710e4c5d6f
+22:38:58 B-p06-s4242                        rc=0 wall=42.95 denoise=37.08 vae=2.469 fp=5.853 pix=8c2389bc3c
+22:39:42 A-p06-s4242                        rc=0 wall=85.46 denoise=79.55 vae=2.456 fp=5.853 pix=c50c746afd
+22:41:09 A-p07-s4242                        rc=0 wall=85.03 denoise=78.771 vae=2.698 fp=5.851 pix=b1e2e7384a
+22:42:36 B-p07-s4242                        rc=0 wall=45.85 denoise=39.71 vae=2.687 fp=5.851 pix=5f5cecc06c
+22:43:23 C-p07-s4242                        rc=0 wall=52.95 denoise=45.924 vae=2.821 fp=6.685 pix=45bb569547
+22:44:18 A-p08-s4242                        rc=0 wall=87.72 denoise=81.541 vae=2.724 fp=5.853 pix=9051e06457
+22:45:47 C-p08-s4242                        rc=0 wall=52.88 denoise=45.839 vae=2.775 fp=6.688 pix=530ff62ea3
+22:46:41 B-p08-s4242                        rc=0 wall=49.79 denoise=43.475 vae=2.762 fp=5.855 pix=1892fcbda3
+22:47:33 B-p09-s4242                        rc=0 wall=46.91 denoise=40.794 vae=2.702 fp=5.85 pix=3ebe562acb
+22:48:21 A-p09-s4242                        rc=0 wall=84.97 denoise=78.957 vae=2.627 fp=5.852 pix=46a808f7b9
+22:49:48 C-p09-s4242                        rc=0 wall=49.59 denoise=42.732 vae=2.73 fp=6.69 pix=87098d82f2
+22:50:39 B-p10-s4242                        rc=0 wall=46.48 denoise=40.356 vae=2.707 fp=5.852 pix=b759dc22c4
+22:51:27 C-p10-s4242                        rc=0 wall=50.47 denoise=43.576 vae=2.725 fp=6.688 pix=9561d39951
+[22:52:46] --- PAUSED by user request (laptop needed); resume by rerunning run-benchmark.sh (done tags are skipped) ---
