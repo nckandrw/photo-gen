@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A modern kitchen interior with marble countertops, pendant lights and a bowl of lemons, architectural photography.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c02.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.414,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.814,
+   "mlx_peak_gb": 3.973
+  },
+  "vae_decode": {
+   "seconds": 0.458,
+   "mlx_peak_gb": 2.226
+  },
+  "generate_total": {
+   "seconds": 22.527,
+   "mlx_peak_gb": 2.226
+  },
+  "denoise_seconds": 21.255
+ },
+ "step_seconds": [
+  2.583,
+  2.314,
+  2.715,
+  2.678,
+  2.286,
+  2.485,
+  2.522,
+  0.152
+ ],
+ "mlx_peak_gb": 3.973,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 24.014,
+ "peak_footprint_gb": 4.74,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c02.npz"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

@@ -42,3 +42,45 @@ Production end-to-end timings remain those of `PERFORMANCE-MAP.md`. The profile 
   - the hooks do not change the output: all three produce the same pixel hash, `55bba0c0`;
   - `perturb skip` changes the output as intended.
 - **Instrumentation confound, quantified:** the uncompiled 8-step baseline (`f8f1a654`) differs from the compiled production hash (`0b9cc20a`), because compilation changes numerics. All perturbation comparisons therefore use the uncompiled baseline, as designed.
+
+## Results (chain P3B, 2026-09-28)
+**Harness bug found and fixed before use (disclosed).** The first op-profile run gave "bf16" ≈ fp32 (272.7 vs 265.9 ms per block). That contradicted production's measured 0.70 ratio.
+- **Cause:** MLX's default float32 RMSNorm weights silently promoted the bf16 activations to fp32. The real q4 pack stores all norm weights as BF16 (safetensors header checked).
+- **Fix:** norm and bias weights are cast to bf16, and bf16 mode applies the **production** bf16 patch set (`_apply_bf16_stream`, which includes the SDPA mask cast).
+- The faulty outputs are kept in `p3b/superseded/`.
+- After the fix: bf16 177.2 ms vs fp32 261.7 ms per compiled block, a ratio of **0.68**, consistent with production (0.70).
+
+### A. Op level, one block, production shapes (compiled block time; op shares from the isolated sum)
+| group | fp32, L4128 (REFERENCE, 1024²) | **bf16, L4128 (FAST, 1024²)** | bf16, L1056 (FAST, 512²) |
+|---|---:|---:|---:|
+| compiled block | 261.7 ms | **177.2 ms** | 41.0 ms |
+| FFN matmuls (w1, w3, w2) | 45.9% | **49.3%** | 53.8% |
+| QKV + out-proj matmuls | 22.3% | **24.8%** | 28.1% |
+| SDPA | 17.2% | **14.6%** | 4.8% |
+| RoPE (q, k) | 6.2% | 4.6% | 4.2% |
+| norms, gating, residuals, SiLU·mul, transposes | 8.4% | 6.7% | 9.1% |
+| matmul throughput (q4, NAX) | 6.9–7.9 TFLOPS | **10.3–10.6 TFLOPS** | 9.6–10.1 TFLOPS |
+| SDPA throughput | 5.4 TFLOPS | 9.5 TFLOPS | 7.8 TFLOPS |
+| compile gain (uncompiled → compiled) | 5.3% | **2.7%** | 2.3% |
+
+### B. Block level, real model, 1024², per-block synchronised (`p3b/time-1024-*.json`)
+- **Heat-soaked chip:** 9.9 s/step bf16, matching the sustained regime. Absolute ms are therefore ≈ 1.7× the cold microbench; the ratios are what matter.
+- **The 30 main blocks are equal-cost:**
+  - bf16: 293–330 ms each, median 307;
+  - fp32: 422–475 ms, median 440;
+  - the spread is run noise, not structure.
+- **Within a block:** FFN 52%, attention half (QKV + SDPA + RoPE + out-proj) 48%, in both precisions.
+- **Noise-refiner blocks** cost the same as main blocks. **Context-refiner blocks** cost 8–11 ms each (< 3%).
+- **The 30 main blocks = 94%** of per-step transformer time.
+
+### C. Kernel counts and materialised intermediates: **NOT MEASURED**
+- A text scan of the full-block `.gputrace` bundles returns the *process's* pipeline inventory: identical 74-name lists for compiled, uncompiled, fp32 and bf16. It does not return per-capture dispatch counts.
+- Dispatch counts need Xcode GPU-trace replay, which was not used. Instead, the compile gain (2.7% in bf16) bounds the fusion already achieved.
+
+### What this says about where the remaining compute goes (FAST, 1024²)
+1. **≈ 74% is q4 matmuls already running on the M5 matrix units** (NAX, verified) at ≈ 10.4 TFLOPS.
+   - The hardware peak is unknown (no counters), so the remaining headroom is **UNKNOWN**.
+   - The only levers for this share are *doing fewer matmul FLOPs* (width, depth, steps) or better kernels.
+2. **≈ 15% is SDPA** (9.5 TFLOPS on NAX). It scales with L²: 4.8% at 512², 14.6% at 1024².
+3. **≈ 11% is RoPE + elementwise.** Compile already fuses part of it (2.7% gain). Even a perfect fusion of *all* of it would be ≤ 11% of the block, realistically a few %. **Custom-kernel work on non-matmul ops has a low ceiling.**
+4. **`mask=None` SDPA** saves 1.5 ms of 27.6 (≈ 0.8% of the block). This matches E04 (REJECTED); not reopened.

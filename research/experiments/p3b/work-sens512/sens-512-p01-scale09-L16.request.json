@@ -1,0 +1,18 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-sens512/sens-512-p01-scale09-L16.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "probe": {
+  "mode": "perturb",
+  "kind": "scale",
+  "scale": 0.9,
+  "block": "L16"
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-sens512/sens-512-p01-scale09-L13.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.07,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.66,
+   "mlx_peak_gb": 3.925
+  },
+  "vae_decode": {
+   "seconds": 0.451,
+   "mlx_peak_gb": 2.225
+  },
+  "generate_total": {
+   "seconds": 21.413,
+   "mlx_peak_gb": 2.225
+  },
+  "denoise_seconds": 20.302
+ },
+ "step_seconds": [
+  2.803,
+  2.421,
+  2.437,
+  2.462,
+  2.453,
+  2.443,
+  2.456,
+  2.57
+ ],
+ "mlx_peak_gb": 3.925,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 22.546,
+ "peak_footprint_gb": 5.438,
+ "probe": {
+  "mode": "perturb",
+  "kind": "scale",
+  "scale": 0.9,
+  "block": "L13"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

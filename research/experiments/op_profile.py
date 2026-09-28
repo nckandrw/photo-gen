@@ -17,6 +17,10 @@ from mflux.models.z_image.model.z_image_transformer.transformer_block import ZIm
 from mflux.models.z_image.model.z_image_transformer.attention import ZImageAttention
 
 prec, L, out = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+if prec == "bf16":  # the exact production bf16 patch set (worker), incl. the SDPA mask cast and RoPE dtype fix
+    sys.path.insert(0, __import__("os").path.expanduser("~/Dev/photo-gen/app"))
+    from photogen.runtimes.mflux_zimage_worker import _apply_bf16_stream
+    _apply_bf16_stream(mx)
 cap = sys.argv[4] if len(sys.argv) > 4 else None
 A = {"fp32": mx.float32, "bf16": mx.bfloat16}[prec]
 D, H, HD, FF = 3840, 30, 128, 10240
@@ -27,6 +31,10 @@ for _, m in blk.named_modules():
         m.weight = (mx.random.normal(m.weight.shape) * 0.02).astype(mx.bfloat16)
         if "bias" in m: m.bias = mx.zeros(m.bias.shape, dtype=mx.bfloat16)
 nn.quantize(blk, group_size=64, bits=4)
+# Production dtypes: the q4 pack stores RMSNorm weights and the adaLN bias as BF16 (header-checked 2026-09-28).
+# MLX's default float32 norm weights would silently promote "bf16" activations to fp32 (bug found 2026-09-28).
+from mlx.utils import tree_map
+blk.update(tree_map(lambda a: a.astype(mx.bfloat16) if a.dtype == mx.float32 else a, blk.parameters()))
 mx.eval(blk.parameters())
 x = mx.random.normal((1, L, D)).astype(A)
 t_emb = mx.random.normal((1, 256)).astype(A)
@@ -54,7 +62,7 @@ q, k, v = at.to_q(xn), at.to_k(xn), at.to_v(xn)
 qh = at.norm_q(q.reshape(1, L, H, HD)); kh = at.norm_k(k.reshape(1, L, H, HD))
 qr, kr = ZImageAttention._apply_rotary_emb(qh, freqs), ZImageAttention._apply_rotary_emb(kh, freqs)
 qt, kt, vt = (mx.transpose(a, (0, 2, 1, 3)) for a in (qr, kr, v.reshape(1, L, H, HD)))
-amask = mx.where(mask[:, None, None, :], mx.array(0.0), mx.array(float("-inf")))
+amask = mx.where(mask[:, None, None, :], mx.array(0.0), mx.array(float("-inf"))).astype(A)  # as patched
 o = mx.fast.scaled_dot_product_attention(qt, kt, vt, scale=at.scale, mask=amask)
 o2 = mx.transpose(o, (0, 2, 1, 3)).reshape(1, L, D)
 ao = at.to_out[0](o2)

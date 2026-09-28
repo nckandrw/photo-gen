@@ -1,0 +1,16 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k90-p04.png",
+ "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "ffn_prune": {
+  "keep_frac": 0.9,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+ }
+}

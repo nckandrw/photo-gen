@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-sens512/sens-512-p09-skip-L3.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.073,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.657,
+   "mlx_peak_gb": 3.925
+  },
+  "vae_decode": {
+   "seconds": 0.427,
+   "mlx_peak_gb": 2.225
+  },
+  "generate_total": {
+   "seconds": 19.365,
+   "mlx_peak_gb": 2.225
+  },
+  "denoise_seconds": 18.281
+ },
+ "step_seconds": [
+  2.182,
+  2.49,
+  2.179,
+  2.191,
+  2.258,
+  2.219,
+  2.21,
+  2.373
+ ],
+ "mlx_peak_gb": 3.925,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 20.489,
+ "peak_footprint_gb": 5.24,
+ "probe": {
+  "mode": "perturb",
+  "kind": "skip",
+  "block": "L3"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

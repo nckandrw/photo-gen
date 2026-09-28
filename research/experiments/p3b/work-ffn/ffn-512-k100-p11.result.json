@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k100-p11.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.116,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.647,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 0.418,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 19.726,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 18.661
+ },
+ "step_seconds": [
+  2.467,
+  2.294,
+  2.207,
+  2.275,
+  2.24,
+  2.284,
+  2.267,
+  2.416
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 20.907,
+ "peak_footprint_gb": 5.4,
+ "ffn_prune": {
+  "keep_frac": 1.0,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz",
+  "groups_kept": {
+   "L0": 160,
+   "L1": 160,
+   "L2": 160,
+   "L3": 160,
+   "L4": 160,
+   "L5": 160,
+   "L6": 160,
+   "L7": 160,
+   "L8": 160,
+   "L9": 160,
+   "L10": 160,
+   "L11": 160,
+   "L12": 160,
+   "L13": 160,
+   "L14": 160,
+   "L15": 160,
+   "L16": 160,
+   "L17": 160,
+   "L18": 160,
+   "L19": 160,
+   "L20": 160,
+   "L21": 160,
+   "L22": 160,
+   "L23": 160,
+   "L24": 160,
+   "L25": 160,
+   "L26": 160,
+   "L27": 160,
+   "L28": 160,
+   "L29": 160,
+   "nr0": 160,
+   "nr1": 160
+  },
+  "hidden_width_kept": {
+   "L0": 10240,
+   "L1": 10240,
+   "L2": 10240,
+   "L3": 10240,
+   "L4": 10240,
+   "L5": 10240,
+   "L6": 10240,
+   "L7": 10240,
+   "L8": 10240,
+   "L9": 10240,
+   "L10": 10240,
+   "L11": 10240,
+   "L12": 10240,
+   "L13": 10240,
+   "L14": 10240,
+   "L15": 10240,
+   "L16": 10240,
+   "L17": 10240,
+   "L18": 10240,
+   "L19": 10240,
+   "L20": 10240,
+   "L21": 10240,
+   "L22": 10240,
+   "L23": 10240,
+   "L24": 10240,
+   "L25": 10240,
+   "L26": 10240,
+   "L27": 10240,
+   "L28": 10240,
+   "L29": 10240,
+   "nr0": 10240,
+   "nr1": 10240
+  },
+  "dit_weight_bytes": 3463639168
+ }
+}

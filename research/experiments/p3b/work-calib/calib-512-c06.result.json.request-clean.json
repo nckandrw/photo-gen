@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c06.png",
+ "prompt": "A rice terrace landscape in Banaue with morning mist and a farmer carrying a basket.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true
+}

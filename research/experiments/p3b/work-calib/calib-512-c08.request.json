@@ -1,0 +1,16 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c08.png",
+ "prompt": "A child's watercolor painting of a house, a sun and a dog, taped to a refrigerator door.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c08.npz"
+ }
+}

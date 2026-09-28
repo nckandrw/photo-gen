@@ -1,0 +1,1366 @@
+{
+ "512": [
+  {
+   "block": "nr0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 11.05,
+   "ssim": 0.7072,
+   "identical": false
+  },
+  {
+   "block": "nr0",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 15.71,
+   "ssim": 0.594,
+   "identical": false
+  },
+  {
+   "block": "nr0",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.36,
+   "ssim": 0.4228,
+   "identical": false
+  },
+  {
+   "block": "nr0",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 27.92,
+   "ssim": 0.9604,
+   "identical": false
+  },
+  {
+   "block": "nr1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.49,
+   "ssim": 0.7583,
+   "identical": false
+  },
+  {
+   "block": "nr1",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 19.84,
+   "ssim": 0.8024,
+   "identical": false
+  },
+  {
+   "block": "nr1",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.98,
+   "ssim": 0.54,
+   "identical": false
+  },
+  {
+   "block": "nr1",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 32.05,
+   "ssim": 0.977,
+   "identical": false
+  },
+  {
+   "block": "cr0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 8.82,
+   "ssim": 0.4039,
+   "identical": false
+  },
+  {
+   "block": "cr0",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 8.73,
+   "ssim": 0.249,
+   "identical": false
+  },
+  {
+   "block": "cr0",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 8.95,
+   "ssim": 0.2599,
+   "identical": false
+  },
+  {
+   "block": "cr0",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 30.46,
+   "ssim": 0.9708,
+   "identical": false
+  },
+  {
+   "block": "cr1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 10.04,
+   "ssim": 0.6844,
+   "identical": false
+  },
+  {
+   "block": "cr1",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 8.96,
+   "ssim": 0.2418,
+   "identical": false
+  },
+  {
+   "block": "cr1",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 9.23,
+   "ssim": 0.2743,
+   "identical": false
+  },
+  {
+   "block": "cr1",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 22.91,
+   "ssim": 0.9107,
+   "identical": false
+  },
+  {
+   "block": "L0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.8,
+   "ssim": 0.7882,
+   "identical": false
+  },
+  {
+   "block": "L0",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 16.73,
+   "ssim": 0.7202,
+   "identical": false
+  },
+  {
+   "block": "L0",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.45,
+   "ssim": 0.5397,
+   "identical": false
+  },
+  {
+   "block": "L0",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 39.98,
+   "ssim": 0.9936,
+   "identical": false
+  },
+  {
+   "block": "L1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.32,
+   "ssim": 0.833,
+   "identical": false
+  },
+  {
+   "block": "L1",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 16.44,
+   "ssim": 0.6836,
+   "identical": false
+  },
+  {
+   "block": "L1",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.7,
+   "ssim": 0.43,
+   "identical": false
+  },
+  {
+   "block": "L1",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 34.85,
+   "ssim": 0.9847,
+   "identical": false
+  },
+  {
+   "block": "L2",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.09,
+   "ssim": 0.7686,
+   "identical": false
+  },
+  {
+   "block": "L2",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 14.81,
+   "ssim": 0.5989,
+   "identical": false
+  },
+  {
+   "block": "L2",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 9.82,
+   "ssim": 0.3233,
+   "identical": false
+  },
+  {
+   "block": "L2",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 29.19,
+   "ssim": 0.9672,
+   "identical": false
+  },
+  {
+   "block": "L3",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.48,
+   "ssim": 0.7071,
+   "identical": false
+  },
+  {
+   "block": "L3",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.45,
+   "ssim": 0.5247,
+   "identical": false
+  },
+  {
+   "block": "L3",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.34,
+   "ssim": 0.4191,
+   "identical": false
+  },
+  {
+   "block": "L3",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 27.31,
+   "ssim": 0.9581,
+   "identical": false
+  },
+  {
+   "block": "L4",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.43,
+   "ssim": 0.7388,
+   "identical": false
+  },
+  {
+   "block": "L4",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 15.14,
+   "ssim": 0.6455,
+   "identical": false
+  },
+  {
+   "block": "L4",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.68,
+   "ssim": 0.5118,
+   "identical": false
+  },
+  {
+   "block": "L4",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 30.45,
+   "ssim": 0.9768,
+   "identical": false
+  },
+  {
+   "block": "L5",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.41,
+   "ssim": 0.7106,
+   "identical": false
+  },
+  {
+   "block": "L5",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 12.81,
+   "ssim": 0.5506,
+   "identical": false
+  },
+  {
+   "block": "L5",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.02,
+   "ssim": 0.4805,
+   "identical": false
+  },
+  {
+   "block": "L5",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 26.19,
+   "ssim": 0.9402,
+   "identical": false
+  },
+  {
+   "block": "L6",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.05,
+   "ssim": 0.8307,
+   "identical": false
+  },
+  {
+   "block": "L6",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 16.07,
+   "ssim": 0.6765,
+   "identical": false
+  },
+  {
+   "block": "L6",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.36,
+   "ssim": 0.4177,
+   "identical": false
+  },
+  {
+   "block": "L6",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 36.73,
+   "ssim": 0.9873,
+   "identical": false
+  },
+  {
+   "block": "L7",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.97,
+   "ssim": 0.7337,
+   "identical": false
+  },
+  {
+   "block": "L7",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.88,
+   "ssim": 0.638,
+   "identical": false
+  },
+  {
+   "block": "L7",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 14.08,
+   "ssim": 0.5798,
+   "identical": false
+  },
+  {
+   "block": "L7",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 35.99,
+   "ssim": 0.9883,
+   "identical": false
+  },
+  {
+   "block": "L8",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.12,
+   "ssim": 0.7617,
+   "identical": false
+  },
+  {
+   "block": "L8",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 18.14,
+   "ssim": 0.7598,
+   "identical": false
+  },
+  {
+   "block": "L8",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.86,
+   "ssim": 0.4298,
+   "identical": false
+  },
+  {
+   "block": "L8",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 27.53,
+   "ssim": 0.9528,
+   "identical": false
+  },
+  {
+   "block": "L9",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.92,
+   "ssim": 0.7905,
+   "identical": false
+  },
+  {
+   "block": "L9",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 15.32,
+   "ssim": 0.6787,
+   "identical": false
+  },
+  {
+   "block": "L9",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.55,
+   "ssim": 0.502,
+   "identical": false
+  },
+  {
+   "block": "L9",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 27.52,
+   "ssim": 0.9558,
+   "identical": false
+  },
+  {
+   "block": "L10",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 18.76,
+   "ssim": 0.8751,
+   "identical": false
+  },
+  {
+   "block": "L10",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 15.57,
+   "ssim": 0.6824,
+   "identical": false
+  },
+  {
+   "block": "L10",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 14.22,
+   "ssim": 0.5845,
+   "identical": false
+  },
+  {
+   "block": "L10",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 34.36,
+   "ssim": 0.9848,
+   "identical": false
+  },
+  {
+   "block": "L11",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 15.94,
+   "ssim": 0.8267,
+   "identical": false
+  },
+  {
+   "block": "L11",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.29,
+   "ssim": 0.5795,
+   "identical": false
+  },
+  {
+   "block": "L11",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.86,
+   "ssim": 0.5165,
+   "identical": false
+  },
+  {
+   "block": "L11",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 30.4,
+   "ssim": 0.9736,
+   "identical": false
+  },
+  {
+   "block": "L12",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 18.22,
+   "ssim": 0.8486,
+   "identical": false
+  },
+  {
+   "block": "L12",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 15.55,
+   "ssim": 0.6473,
+   "identical": false
+  },
+  {
+   "block": "L12",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.46,
+   "ssim": 0.5308,
+   "identical": false
+  },
+  {
+   "block": "L12",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 28.96,
+   "ssim": 0.9665,
+   "identical": false
+  },
+  {
+   "block": "L13",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.84,
+   "ssim": 0.7929,
+   "identical": false
+  },
+  {
+   "block": "L13",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 12.88,
+   "ssim": 0.5677,
+   "identical": false
+  },
+  {
+   "block": "L13",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.45,
+   "ssim": 0.4868,
+   "identical": false
+  },
+  {
+   "block": "L13",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 30.89,
+   "ssim": 0.975,
+   "identical": false
+  },
+  {
+   "block": "L14",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 19.53,
+   "ssim": 0.8506,
+   "identical": false
+  },
+  {
+   "block": "L14",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 14.08,
+   "ssim": 0.5641,
+   "identical": false
+  },
+  {
+   "block": "L14",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.08,
+   "ssim": 0.4397,
+   "identical": false
+  },
+  {
+   "block": "L14",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 30.13,
+   "ssim": 0.9693,
+   "identical": false
+  },
+  {
+   "block": "L15",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.75,
+   "ssim": 0.7208,
+   "identical": false
+  },
+  {
+   "block": "L15",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.52,
+   "ssim": 0.6014,
+   "identical": false
+  },
+  {
+   "block": "L15",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.43,
+   "ssim": 0.4289,
+   "identical": false
+  },
+  {
+   "block": "L15",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 25.01,
+   "ssim": 0.9336,
+   "identical": false
+  },
+  {
+   "block": "L16",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.35,
+   "ssim": 0.744,
+   "identical": false
+  },
+  {
+   "block": "L16",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 12.75,
+   "ssim": 0.4972,
+   "identical": false
+  },
+  {
+   "block": "L16",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.98,
+   "ssim": 0.4439,
+   "identical": false
+  },
+  {
+   "block": "L16",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 35.56,
+   "ssim": 0.9876,
+   "identical": false
+  },
+  {
+   "block": "L17",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.74,
+   "ssim": 0.761,
+   "identical": false
+  },
+  {
+   "block": "L17",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.58,
+   "ssim": 0.5383,
+   "identical": false
+  },
+  {
+   "block": "L17",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.16,
+   "ssim": 0.3772,
+   "identical": false
+  },
+  {
+   "block": "L17",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 21.46,
+   "ssim": 0.8924,
+   "identical": false
+  },
+  {
+   "block": "L18",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.05,
+   "ssim": 0.752,
+   "identical": false
+  },
+  {
+   "block": "L18",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.78,
+   "ssim": 0.537,
+   "identical": false
+  },
+  {
+   "block": "L18",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 10.92,
+   "ssim": 0.3814,
+   "identical": false
+  },
+  {
+   "block": "L18",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 26.6,
+   "ssim": 0.9485,
+   "identical": false
+  },
+  {
+   "block": "L19",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 9.74,
+   "ssim": 0.701,
+   "identical": false
+  },
+  {
+   "block": "L19",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.05,
+   "ssim": 0.5365,
+   "identical": false
+  },
+  {
+   "block": "L19",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 10.07,
+   "ssim": 0.3187,
+   "identical": false
+  },
+  {
+   "block": "L19",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 26.38,
+   "ssim": 0.9498,
+   "identical": false
+  },
+  {
+   "block": "L20",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.84,
+   "ssim": 0.753,
+   "identical": false
+  },
+  {
+   "block": "L20",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 12.26,
+   "ssim": 0.4722,
+   "identical": false
+  },
+  {
+   "block": "L20",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 10.99,
+   "ssim": 0.4143,
+   "identical": false
+  },
+  {
+   "block": "L20",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 31.58,
+   "ssim": 0.9717,
+   "identical": false
+  },
+  {
+   "block": "L21",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.65,
+   "ssim": 0.7638,
+   "identical": false
+  },
+  {
+   "block": "L21",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.25,
+   "ssim": 0.5116,
+   "identical": false
+  },
+  {
+   "block": "L21",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 10.83,
+   "ssim": 0.3954,
+   "identical": false
+  },
+  {
+   "block": "L21",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 31.5,
+   "ssim": 0.9796,
+   "identical": false
+  },
+  {
+   "block": "L22",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 20.9,
+   "ssim": 0.8652,
+   "identical": false
+  },
+  {
+   "block": "L22",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.64,
+   "ssim": 0.5746,
+   "identical": false
+  },
+  {
+   "block": "L22",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 11.23,
+   "ssim": 0.4047,
+   "identical": false
+  },
+  {
+   "block": "L22",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 31.93,
+   "ssim": 0.9776,
+   "identical": false
+  },
+  {
+   "block": "L23",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.5,
+   "ssim": 0.8338,
+   "identical": false
+  },
+  {
+   "block": "L23",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 13.44,
+   "ssim": 0.5756,
+   "identical": false
+  },
+  {
+   "block": "L23",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.12,
+   "ssim": 0.4854,
+   "identical": false
+  },
+  {
+   "block": "L23",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 34.17,
+   "ssim": 0.985,
+   "identical": false
+  },
+  {
+   "block": "L24",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.08,
+   "ssim": 0.8261,
+   "identical": false
+  },
+  {
+   "block": "L24",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 14.76,
+   "ssim": 0.6432,
+   "identical": false
+  },
+  {
+   "block": "L24",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 12.19,
+   "ssim": 0.4747,
+   "identical": false
+  },
+  {
+   "block": "L24",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 34.37,
+   "ssim": 0.9802,
+   "identical": false
+  },
+  {
+   "block": "L25",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 18.34,
+   "ssim": 0.8467,
+   "identical": false
+  },
+  {
+   "block": "L25",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 18.99,
+   "ssim": 0.7423,
+   "identical": false
+  },
+  {
+   "block": "L25",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.83,
+   "ssim": 0.5452,
+   "identical": false
+  },
+  {
+   "block": "L25",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 43.38,
+   "ssim": 0.9965,
+   "identical": false
+  },
+  {
+   "block": "L26",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 19.04,
+   "ssim": 0.862,
+   "identical": false
+  },
+  {
+   "block": "L26",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 18.86,
+   "ssim": 0.723,
+   "identical": false
+  },
+  {
+   "block": "L26",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.48,
+   "ssim": 0.5303,
+   "identical": false
+  },
+  {
+   "block": "L26",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 46.32,
+   "ssim": 0.9966,
+   "identical": false
+  },
+  {
+   "block": "L27",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 23.51,
+   "ssim": 0.9099,
+   "identical": false
+  },
+  {
+   "block": "L27",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 19.09,
+   "ssim": 0.7041,
+   "identical": false
+  },
+  {
+   "block": "L27",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.99,
+   "ssim": 0.5165,
+   "identical": false
+  },
+  {
+   "block": "L27",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 44.81,
+   "ssim": 0.9963,
+   "identical": false
+  },
+  {
+   "block": "L28",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 22.97,
+   "ssim": 0.9164,
+   "identical": false
+  },
+  {
+   "block": "L28",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 18.65,
+   "ssim": 0.6733,
+   "identical": false
+  },
+  {
+   "block": "L28",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 14.05,
+   "ssim": 0.4934,
+   "identical": false
+  },
+  {
+   "block": "L28",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 46.18,
+   "ssim": 0.9967,
+   "identical": false
+  },
+  {
+   "block": "L29",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 21.97,
+   "ssim": 0.8357,
+   "identical": false
+  },
+  {
+   "block": "L29",
+   "kind": "skip",
+   "pid": "p06",
+   "psnr": 16.69,
+   "ssim": 0.5074,
+   "identical": false
+  },
+  {
+   "block": "L29",
+   "kind": "skip",
+   "pid": "p09",
+   "psnr": 13.65,
+   "ssim": 0.4156,
+   "identical": false
+  },
+  {
+   "block": "L29",
+   "kind": "scale",
+   "pid": "p01",
+   "psnr": 43.55,
+   "ssim": 0.9949,
+   "identical": false
+  }
+ ],
+ "1024": [
+  {
+   "block": "nr0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.83,
+   "ssim": 0.8312,
+   "identical": false
+  },
+  {
+   "block": "nr1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 21.44,
+   "ssim": 0.9194,
+   "identical": false
+  },
+  {
+   "block": "cr0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 10.37,
+   "ssim": 0.4262,
+   "identical": false
+  },
+  {
+   "block": "cr1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.37,
+   "ssim": 0.8523,
+   "identical": false
+  },
+  {
+   "block": "L0",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 24.34,
+   "ssim": 0.9451,
+   "identical": false
+  },
+  {
+   "block": "L1",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.32,
+   "ssim": 0.8623,
+   "identical": false
+  },
+  {
+   "block": "L2",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.59,
+   "ssim": 0.8054,
+   "identical": false
+  },
+  {
+   "block": "L3",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.64,
+   "ssim": 0.8763,
+   "identical": false
+  },
+  {
+   "block": "L4",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.1,
+   "ssim": 0.8586,
+   "identical": false
+  },
+  {
+   "block": "L5",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.72,
+   "ssim": 0.7909,
+   "identical": false
+  },
+  {
+   "block": "L6",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 21.34,
+   "ssim": 0.9304,
+   "identical": false
+  },
+  {
+   "block": "L7",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 20.75,
+   "ssim": 0.9355,
+   "identical": false
+  },
+  {
+   "block": "L8",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 18.92,
+   "ssim": 0.9084,
+   "identical": false
+  },
+  {
+   "block": "L9",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 16.53,
+   "ssim": 0.8932,
+   "identical": false
+  },
+  {
+   "block": "L10",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 15.58,
+   "ssim": 0.8862,
+   "identical": false
+  },
+  {
+   "block": "L11",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.83,
+   "ssim": 0.8086,
+   "identical": false
+  },
+  {
+   "block": "L12",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 20.75,
+   "ssim": 0.9198,
+   "identical": false
+  },
+  {
+   "block": "L13",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 16.74,
+   "ssim": 0.8983,
+   "identical": false
+  },
+  {
+   "block": "L14",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 16.22,
+   "ssim": 0.8876,
+   "identical": false
+  },
+  {
+   "block": "L15",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.86,
+   "ssim": 0.8485,
+   "identical": false
+  },
+  {
+   "block": "L16",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.77,
+   "ssim": 0.8655,
+   "identical": false
+  },
+  {
+   "block": "L17",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.79,
+   "ssim": 0.8053,
+   "identical": false
+  },
+  {
+   "block": "L18",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 14.89,
+   "ssim": 0.8585,
+   "identical": false
+  },
+  {
+   "block": "L19",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 12.61,
+   "ssim": 0.8308,
+   "identical": false
+  },
+  {
+   "block": "L20",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 13.96,
+   "ssim": 0.8443,
+   "identical": false
+  },
+  {
+   "block": "L21",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 16.84,
+   "ssim": 0.8884,
+   "identical": false
+  },
+  {
+   "block": "L22",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 19.12,
+   "ssim": 0.8891,
+   "identical": false
+  },
+  {
+   "block": "L23",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 17.05,
+   "ssim": 0.8863,
+   "identical": false
+  },
+  {
+   "block": "L24",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 15.62,
+   "ssim": 0.8779,
+   "identical": false
+  },
+  {
+   "block": "L25",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 21.5,
+   "ssim": 0.8991,
+   "identical": false
+  },
+  {
+   "block": "L26",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 24.91,
+   "ssim": 0.9397,
+   "identical": false
+  },
+  {
+   "block": "L27",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 26.46,
+   "ssim": 0.9485,
+   "identical": false
+  },
+  {
+   "block": "L28",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 25.15,
+   "ssim": 0.9478,
+   "identical": false
+  },
+  {
+   "block": "L29",
+   "kind": "skip",
+   "pid": "p01",
+   "psnr": 22.22,
+   "ssim": 0.85,
+   "identical": false
+  }
+ ]
+}

@@ -95,3 +95,20 @@ The Metal capture of the probe process lists the compute pipelines created in it
 - Throughput in the same run: q4 linear 10.41 TFLOPS (bf16).
 - The q4 output error vs an fp32 matmul on the dequantized weights is a max relative 2.2e-3.
 - Still to do in chain B: the fp32 activation path (REFERENCE), and the `MLX_ENABLE_TF32=0` control, which the source says must switch fp32 to non-NAX kernels (`bq32_bk16` attention, non-nax qmm).
+
+## Part 2b: full results (chain P3B, 2026-09-28)
+| photo-gen op | FAST (bf16) | REFERENCE (fp32) | evidence |
+|---|---|---|---|
+| DiT q4 linears | **VERIFIED: NAX** (`affine_qmm_t_nax_bfloat16_t_gs_64_b_4…`) | **VERIFIED: NAX** (`affine_qmm_t_nax_float_gs_64_b_4…`), via the `MLX_ENABLE_TF32=1` default | Captures `p3b/cap/nax-{bf16,fp32}.gputrace`. With `MLX_ENABLE_TF32=0` the fp32 path records the **non-NAX** `affine_qmm_t_float_gs_64_b_4…` instead, and the same op slows 15.6 → 49.3 ms (3.2×). |
+| DiT SDPA (D = 128) | **VERIFIED: NAX** (`steel_attention_bfloat16_bq64_bk32…`, a signature unique to the NAX path) | **VERIFIED: NAX** (`steel_attention_float32_bq64_bk32…`) | Source-unique tile signature. The TF32-off attention kernel was not identifiable in the capture (**NOT VERIFIED which path**), but it slowed 43.7 → 118.7 ms (2.7×). |
+| unquantized fp32 GEMM | — | **VERIFIED: NAX** (`steel_gemm_fused_nax_nt_float32…`) | capture |
+| adaLN / embedders (M = 1, q4) | **NOT USED** | **NOT USED** | M = 1 dispatches `affine_qmv_*` (inventory), which has no NAX variant |
+| VAE convolutions, text encoder | NOT VERIFIED | NOT VERIFIED | not captured |
+
+**End-to-end causal check** (production worker, REFERENCE fp32/9, 512², p01 s42, `MLX_ENABLE_TF32=0`, `p3b/results-nax-e2e.jsonl`):
+- The pixel hash is **`6d4311fe…` ≠ the REFERENCE `9ae59f59…`**. Denoise was 74.4 s, vs 17.4 s cold / ≈ 29.5 s sustained with the default.
+
+**Consequence (documentation, not a production change):**
+- photo-gen's "fp32" REFERENCE computes its matmuls and attention on the M5 matrix units with **TF32-class** inputs (MLX's default). "fp32" means fp32 activations/storage, as `nax-status.md` §1.3 anticipated.
+- The REFERENCE hashes depend on this default. Setting `MLX_ENABLE_TF32=0` changes them.
+- The production worker already strips `MLX_*` from its environment, so REFERENCE is protected from an inherited `MLX_ENABLE_TF32` setting.

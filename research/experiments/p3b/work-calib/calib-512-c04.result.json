@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A bookshop storefront with a hand-painted sign reading \"OPEN DAILY\", people walking past, overcast afternoon.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c04.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.41,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.859,
+   "mlx_peak_gb": 3.836
+  },
+  "vae_decode": {
+   "seconds": 0.427,
+   "mlx_peak_gb": 2.226
+  },
+  "generate_total": {
+   "seconds": 23.485,
+   "mlx_peak_gb": 2.226
+  },
+  "denoise_seconds": 22.199
+ },
+ "step_seconds": [
+  2.737,
+  2.895,
+  2.459,
+  2.646,
+  2.755,
+  2.592,
+  3.03,
+  0.156
+ ],
+ "mlx_peak_gb": 3.836,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 24.959,
+ "peak_footprint_gb": 4.741,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c04.npz"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

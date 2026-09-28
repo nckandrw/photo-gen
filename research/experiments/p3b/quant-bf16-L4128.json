@@ -1,0 +1,122 @@
+{
+ "act": "bf16",
+ "L": 4128,
+ "mlx": "0.32.2",
+ "device": "applegpu_g17g",
+ "formats": {
+  "bf16-weights": {
+   "block_linears_ms": 156.19,
+   "tflops": 9.35,
+   "bits_per_weight": 16.0,
+   "weight_rel_mean_abs_err": 0.0
+  },
+  "affine-b3-g32": {
+   "block_linears_ms": 153.51,
+   "tflops": 9.52,
+   "bits_per_weight": 4.0,
+   "weight_rel_mean_abs_err": 0.17882
+  },
+  "affine-b3-g64": {
+   "block_linears_ms": 150.58,
+   "tflops": 9.7,
+   "bits_per_weight": 3.5,
+   "weight_rel_mean_abs_err": 0.20158
+  },
+  "affine-b3-g128": {
+   "block_linears_ms": 149.02,
+   "tflops": 9.8,
+   "bits_per_weight": 3.25,
+   "weight_rel_mean_abs_err": 0.22133
+  },
+  "affine-b4-g32": {
+   "block_linears_ms": 153.7,
+   "tflops": 9.5,
+   "bits_per_weight": 5.0,
+   "weight_rel_mean_abs_err": 0.08486
+  },
+  "affine-b4-g64": {
+   "block_linears_ms": 151.17,
+   "tflops": 9.66,
+   "bits_per_weight": 4.5,
+   "weight_rel_mean_abs_err": 0.09665
+  },
+  "affine-b4-g128": {
+   "block_linears_ms": 150.2,
+   "tflops": 9.73,
+   "bits_per_weight": 4.25,
+   "weight_rel_mean_abs_err": 0.10713
+  },
+  "affine-b5-g32": {
+   "block_linears_ms": 164.87,
+   "tflops": 8.86,
+   "bits_per_weight": 6.0,
+   "weight_rel_mean_abs_err": 0.04123
+  },
+  "affine-b5-g64": {
+   "block_linears_ms": 163.85,
+   "tflops": 8.92,
+   "bits_per_weight": 5.5,
+   "weight_rel_mean_abs_err": 0.04701
+  },
+  "affine-b5-g128": {
+   "block_linears_ms": 163.19,
+   "tflops": 8.95,
+   "bits_per_weight": 5.25,
+   "weight_rel_mean_abs_err": 0.05221
+  },
+  "affine-b6-g32": {
+   "block_linears_ms": 171.82,
+   "tflops": 8.5,
+   "bits_per_weight": 7.0,
+   "weight_rel_mean_abs_err": 0.02048
+  },
+  "affine-b6-g64": {
+   "block_linears_ms": 176.65,
+   "tflops": 8.27,
+   "bits_per_weight": 6.5,
+   "weight_rel_mean_abs_err": 0.02332
+  },
+  "affine-b6-g128": {
+   "block_linears_ms": 177.63,
+   "tflops": 8.22,
+   "bits_per_weight": 6.25,
+   "weight_rel_mean_abs_err": 0.02588
+  },
+  "affine-b8-g32": {
+   "block_linears_ms": 185.27,
+   "tflops": 7.88,
+   "bits_per_weight": 9.0,
+   "weight_rel_mean_abs_err": 0.00606
+  },
+  "affine-b8-g64": {
+   "block_linears_ms": 188.8,
+   "tflops": 7.74,
+   "bits_per_weight": 8.5,
+   "weight_rel_mean_abs_err": 0.0067
+  },
+  "affine-b8-g128": {
+   "block_linears_ms": 176.29,
+   "tflops": 8.29,
+   "bits_per_weight": 8.25,
+   "weight_rel_mean_abs_err": 0.00727
+  },
+  "mxfp4": {
+   "block_linears_ms": 187.87,
+   "tflops": 7.78,
+   "bits_per_weight": 4.25,
+   "weight_rel_mean_abs_err": 0.11672
+  },
+  "nvfp4": {
+   "block_linears_ms": 182.92,
+   "tflops": 7.99,
+   "bits_per_weight": 4.5,
+   "weight_rel_mean_abs_err": 0.09736
+  },
+  "mxfp8": {
+   "block_linears_ms": 187.07,
+   "tflops": 7.81,
+   "bits_per_weight": 8.25,
+   "weight_rel_mean_abs_err": 0.02254
+  }
+ }
+}

@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k60-p10.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.732,
+   "mlx_peak_gb": 1.561
+  },
+  "text_encode": {
+   "seconds": 0.629,
+   "mlx_peak_gb": 4.627
+  },
+  "vae_decode": {
+   "seconds": 0.405,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 14.469,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 13.435
+ },
+ "step_seconds": [
+  1.198,
+  1.897,
+  1.702,
+  1.621,
+  1.641,
+  1.677,
+  1.683,
+  1.761
+ ],
+ "mlx_peak_gb": 4.627,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 16.256,
+ "peak_footprint_gb": 5.367,
+ "ffn_prune": {
+  "keep_frac": 0.6,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz",
+  "groups_kept": {
+   "L0": 96,
+   "L1": 96,
+   "L2": 96,
+   "L3": 96,
+   "L4": 96,
+   "L5": 96,
+   "L6": 96,
+   "L7": 96,
+   "L8": 96,
+   "L9": 96,
+   "L10": 96,
+   "L11": 96,
+   "L12": 96,
+   "L13": 96,
+   "L14": 96,
+   "L15": 96,
+   "L16": 96,
+   "L17": 96,
+   "L18": 96,
+   "L19": 96,
+   "L20": 96,
+   "L21": 96,
+   "L22": 96,
+   "L23": 96,
+   "L24": 96,
+   "L25": 96,
+   "L26": 96,
+   "L27": 96,
+   "L28": 96,
+   "L29": 96,
+   "nr0": 96,
+   "nr1": 96
+  },
+  "hidden_width_kept": {
+   "L0": 6144,
+   "L1": 6144,
+   "L2": 6144,
+   "L3": 6144,
+   "L4": 6144,
+   "L5": 6144,
+   "L6": 6144,
+   "L7": 6144,
+   "L8": 6144,
+   "L9": 6144,
+   "L10": 6144,
+   "L11": 6144,
+   "L12": 6144,
+   "L13": 6144,
+   "L14": 6144,
+   "L15": 6144,
+   "L16": 6144,
+   "L17": 6144,
+   "L18": 6144,
+   "L19": 6144,
+   "L20": 6144,
+   "L21": 6144,
+   "L22": 6144,
+   "L23": 6144,
+   "L24": 6144,
+   "L25": 6144,
+   "L26": 6144,
+   "L27": 6144,
+   "L28": 6144,
+   "L29": 6144,
+   "nr0": 6144,
+   "nr1": 6144
+  },
+  "dit_weight_bytes": 2614292608
+ }
+}

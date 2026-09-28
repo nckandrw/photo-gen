@@ -1,0 +1,393 @@
+[15:03:26] PHASE3B start
+Now drawing from 'AC Power'
+[15:03:26] NAX probe
+{"act": "bf16", "MLX_ENABLE_TF32": "(unset: default 1)", "device": "applegpu_g17g", "mlx": "0.32.2", "q4_linear_ms": 11.685, "sdpa_ms": 25.317, "q4_linear_tflops": 10.42, "q4_linear_max_rel_err_vs_fp32_dequant": 0.0022273582872003317, "capture": "p3b/cap/nax-bf16.gputrace"}
+{"act": "fp32", "MLX_ENABLE_TF32": "(unset: default 1)", "device": "applegpu_g17g", "mlx": "0.32.2", "q4_linear_ms": 15.631, "sdpa_ms": 43.728, "q4_linear_tflops": 7.79, "q4_linear_max_rel_err_vs_fp32_dequant": 0.0015549155650660396, "capture": "p3b/cap/nax-fp32.gputrace"}
+{"act": "fp32", "MLX_ENABLE_TF32": "0", "device": "applegpu_g17g", "mlx": "0.32.2", "q4_linear_ms": 49.324, "sdpa_ms": 118.688, "q4_linear_tflops": 2.47, "q4_linear_max_rel_err_vs_fp32_dequant": 0.0015551423421129584, "capture": "p3b/cap/nax-fp32-tf32off.gputrace"}
+[15:03:31] op profile
+{'op': 'adaLN_linear(256->4D)', 'ms': 0.259, 'gflop': 0.01, 'mbytes': 2.2, 'tflops': 0.03, 'gbps': 8.5}
+{'op': 'rmsnorm1*scale', 'ms': 2.184, 'gflop': 0.08, 'mbytes': 126.8, 'tflops': 0.04, 'gbps': 58.1}
+{'op': 'q_proj', 'ms': 15.653, 'gflop': 121.74, 'mbytes': 135.1, 'tflops': 7.78, 'gbps': 8.6}
+{'op': 'k_proj', 'ms': 15.639, 'gflop': 121.74, 'mbytes': 135.1, 'tflops': 7.78, 'gbps': 8.6}
+{'op': 'v_proj', 'ms': 15.634, 'gflop': 121.74, 'mbytes': 135.1, 'tflops': 7.79, 'gbps': 8.6}
+{'op': 'qk_rmsnorm', 'ms': 2.196, 'gflop': 0.16, 'mbytes': 253.6, 'tflops': 0.07, 'gbps': 115.5}
+{'op': 'rope_qk', 'ms': 18.445, 'gflop': 0.1, 'mbytes': 255.7, 'tflops': 0.01, 'gbps': 13.9}
+{'op': 'transpose_qkv', 'ms': 3.26, 'gflop': 0.0, 'mbytes': 380.4, 'tflops': None, 'gbps': 116.7}
+{'op': 'sdpa(mask as mflux)', 'ms': 47.608, 'gflop': 261.74, 'mbytes': 253.6, 'tflops': 5.5, 'gbps': 5.3}
+{'op': 'sdpa(mask=None)', 'ms': 45.51, 'gflop': 261.74, 'mbytes': 253.6, 'tflops': 5.75, 'gbps': 5.6}
+{'op': 'transpose_out', 'ms': 0.041, 'gflop': 0.0, 'mbytes': 126.8, 'tflops': None, 'gbps': 3093.0}
+{'op': 'out_proj', 'ms': 15.717, 'gflop': 121.74, 'mbytes': 135.1, 'tflops': 7.75, 'gbps': 8.6}
+{'op': 'attn_residual(norm2,gate,add)', 'ms': 3.695, 'gflop': 0.11, 'mbytes': 190.2, 'tflops': 0.03, 'gbps': 51.5}
+{'op': 'rmsnorm_ffn*scale', 'ms': 2.225, 'gflop': 0.08, 'mbytes': 126.8, 'tflops': 0.04, 'gbps': 57.0}
+{'op': 'ffn_w1', 'ms': 41.085, 'gflop': 324.64, 'mbytes': 254.6, 'tflops': 7.9, 'gbps': 6.2}
+{'op': 'ffn_w3', 'ms': 41.185, 'gflop': 324.64, 'mbytes': 254.6, 'tflops': 7.88, 'gbps': 6.2}
+{'op': 'silu*mul', 'ms': 6.632, 'gflop': 0.21, 'mbytes': 507.2, 'tflops': 0.03, 'gbps': 76.5}
+{'op': 'ffn_w2', 'ms': 47.034, 'gflop': 324.64, 'mbytes': 254.6, 'tflops': 6.9, 'gbps': 5.4}
+{'op': 'ffn_residual(norm2,gate,add)', 'ms': 3.614, 'gflop': 0.11, 'mbytes': 190.2, 'tflops': 0.03, 'gbps': 52.6}
+{"prec": "fp32", "L": 4128, "mlx": "0.32.2", "device": "applegpu_g17g", "block_uncompiled_ms": 278.207, "block_compiled_ms": 265.854, "isolated_sum_ms_excl_maskNone": 282.11, "capture_uncompiled": "p3b/cap/block-uncompiled-fp32-L4128.gputrace", "capture_compiled": "p3b/cap/block-compiled-fp32-L4128.gputrace"}
+{'op': 'adaLN_linear(256->4D)', 'ms': 0.2, 'gflop': 0.01, 'mbytes': 2.2, 'tflops': 0.04, 'gbps': 11.1}
+{'op': 'rmsnorm1*scale', 'ms': 2.864, 'gflop': 0.08, 'mbytes': 63.4, 'tflops': 0.03, 'gbps': 22.1}
+{'op': 'q_proj', 'ms': 16.131, 'gflop': 121.74, 'mbytes': 71.7, 'tflops': 7.55, 'gbps': 4.4}
+{'op': 'k_proj', 'ms': 16.255, 'gflop': 121.74, 'mbytes': 71.7, 'tflops': 7.49, 'gbps': 4.4}
+{'op': 'v_proj', 'ms': 16.244, 'gflop': 121.74, 'mbytes': 71.7, 'tflops': 7.49, 'gbps': 4.4}
+{'op': 'qk_rmsnorm', 'ms': 2.117, 'gflop': 0.16, 'mbytes': 126.8, 'tflops': 0.07, 'gbps': 59.9}
+{'op': 'rope_qk', 'ms': 17.806, 'gflop': 0.1, 'mbytes': 127.9, 'tflops': 0.01, 'gbps': 7.2}
+{'op': 'transpose_qkv', 'ms': 3.243, 'gflop': 0.0, 'mbytes': 190.2, 'tflops': None, 'gbps': 58.7}
+{'op': 'sdpa(mask as mflux)', 'ms': 48.778, 'gflop': 261.74, 'mbytes': 126.8, 'tflops': 5.37, 'gbps': 2.6}
+{'op': 'sdpa(mask=None)', 'ms': 46.083, 'gflop': 261.74, 'mbytes': 126.8, 'tflops': 5.68, 'gbps': 2.8}
+{'op': 'transpose_out', 'ms': 0.042, 'gflop': 0.0, 'mbytes': 63.4, 'tflops': None, 'gbps': 1509.7}
+{'op': 'out_proj', 'ms': 16.362, 'gflop': 121.74, 'mbytes': 71.7, 'tflops': 7.44, 'gbps': 4.4}
+{'op': 'attn_residual(norm2,gate,add)', 'ms': 4.258, 'gflop': 0.11, 'mbytes': 95.1, 'tflops': 0.03, 'gbps': 22.3}
+{'op': 'rmsnorm_ffn*scale', 'ms': 2.171, 'gflop': 0.08, 'mbytes': 63.4, 'tflops': 0.04, 'gbps': 29.2}
+{'op': 'ffn_w1', 'ms': 42.638, 'gflop': 324.64, 'mbytes': 138.4, 'tflops': 7.61, 'gbps': 3.2}
+{'op': 'ffn_w3', 'ms': 43.119, 'gflop': 324.64, 'mbytes': 138.4, 'tflops': 7.53, 'gbps': 3.2}
+{'op': 'silu*mul', 'ms': 6.513, 'gflop': 0.21, 'mbytes': 253.6, 'tflops': 0.03, 'gbps': 38.9}
+{'op': 'ffn_w2', 'ms': 48.151, 'gflop': 324.64, 'mbytes': 138.4, 'tflops': 6.74, 'gbps': 2.9}
+{'op': 'ffn_residual(norm2,gate,add)', 'ms': 3.636, 'gflop': 0.11, 'mbytes': 95.1, 'tflops': 0.03, 'gbps': 26.2}
+{"prec": "bf16", "L": 4128, "mlx": "0.32.2", "device": "applegpu_g17g", "block_uncompiled_ms": 282.212, "block_compiled_ms": 272.722, "isolated_sum_ms_excl_maskNone": 290.53, "capture_uncompiled": "p3b/cap/block-uncompiled-bf16-L4128.gputrace", "capture_compiled": "p3b/cap/block-compiled-bf16-L4128.gputrace"}
+{'op': 'adaLN_linear(256->4D)', 'ms': 0.255, 'gflop': 0.01, 'mbytes': 2.2, 'tflops': 0.03, 'gbps': 8.7}
+{'op': 'rmsnorm1*scale', 'ms': 0.782, 'gflop': 0.02, 'mbytes': 16.2, 'tflops': 0.03, 'gbps': 20.7}
+{'op': 'q_proj', 'ms': 4.289, 'gflop': 31.14, 'mbytes': 24.5, 'tflops': 7.26, 'gbps': 5.7}
+{'op': 'k_proj', 'ms': 4.271, 'gflop': 31.14, 'mbytes': 24.5, 'tflops': 7.29, 'gbps': 5.7}
+{'op': 'v_proj', 'ms': 4.244, 'gflop': 31.14, 'mbytes': 24.5, 'tflops': 7.34, 'gbps': 5.8}
+{'op': 'qk_rmsnorm', 'ms': 0.755, 'gflop': 0.04, 'mbytes': 32.4, 'tflops': 0.05, 'gbps': 43.0}
+{'op': 'rope_qk', 'ms': 4.608, 'gflop': 0.02, 'mbytes': 32.7, 'tflops': 0.01, 'gbps': 7.1}
+{'op': 'transpose_qkv', 'ms': 1.006, 'gflop': 0.0, 'mbytes': 48.7, 'tflops': None, 'gbps': 48.4}
+{'op': 'sdpa(mask as mflux)', 'ms': 3.572, 'gflop': 17.13, 'mbytes': 32.4, 'tflops': 4.8, 'gbps': 9.1}
+{'op': 'sdpa(mask=None)', 'ms': 3.432, 'gflop': 17.13, 'mbytes': 32.4, 'tflops': 4.99, 'gbps': 9.5}
+{'op': 'transpose_out', 'ms': 0.037, 'gflop': 0.0, 'mbytes': 16.2, 'tflops': None, 'gbps': 438.4}
+{'op': 'out_proj', 'ms': 4.274, 'gflop': 31.14, 'mbytes': 24.5, 'tflops': 7.29, 'gbps': 5.7}
+{'op': 'attn_residual(norm2,gate,add)', 'ms': 1.22, 'gflop': 0.03, 'mbytes': 24.3, 'tflops': 0.02, 'gbps': 19.9}
+{'op': 'rmsnorm_ffn*scale', 'ms': 0.693, 'gflop': 0.02, 'mbytes': 16.2, 'tflops': 0.03, 'gbps': 23.4}
+{'op': 'ffn_w1', 'ms': 10.959, 'gflop': 83.05, 'mbytes': 51.9, 'tflops': 7.58, 'gbps': 4.7}
+{'op': 'ffn_w3', 'ms': 10.981, 'gflop': 83.05, 'mbytes': 51.9, 'tflops': 7.56, 'gbps': 4.7}
+{'op': 'silu*mul', 'ms': 1.865, 'gflop': 0.05, 'mbytes': 64.9, 'tflops': 0.03, 'gbps': 34.8}
+{'op': 'ffn_w2', 'ms': 12.644, 'gflop': 83.05, 'mbytes': 51.9, 'tflops': 6.57, 'gbps': 4.1}
+{'op': 'ffn_residual(norm2,gate,add)', 'ms': 0.992, 'gflop': 0.03, 'mbytes': 24.3, 'tflops': 0.03, 'gbps': 24.5}
+{"prec": "bf16", "L": 1056, "mlx": "0.32.2", "device": "applegpu_g17g", "block_uncompiled_ms": 61.799, "block_compiled_ms": 59.232, "isolated_sum_ms_excl_maskNone": 67.45}
+[15:04:04] quantization microbench
+bf16-weights {'block_linears_ms': 156.19, 'tflops': 9.35, 'bits_per_weight': 16.0, 'weight_rel_mean_abs_err': 0.0}
+affine-b3-g32 {'block_linears_ms': 153.51, 'tflops': 9.52, 'bits_per_weight': 4.0, 'weight_rel_mean_abs_err': 0.17882}
+affine-b3-g64 {'block_linears_ms': 150.58, 'tflops': 9.7, 'bits_per_weight': 3.5, 'weight_rel_mean_abs_err': 0.20158}
+affine-b3-g128 {'block_linears_ms': 149.02, 'tflops': 9.8, 'bits_per_weight': 3.25, 'weight_rel_mean_abs_err': 0.22133}
+affine-b4-g32 {'block_linears_ms': 153.7, 'tflops': 9.5, 'bits_per_weight': 5.0, 'weight_rel_mean_abs_err': 0.08486}
+affine-b4-g64 {'block_linears_ms': 151.17, 'tflops': 9.66, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09665}
+affine-b4-g128 {'block_linears_ms': 150.2, 'tflops': 9.73, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.10713}
+affine-b5-g32 {'block_linears_ms': 164.87, 'tflops': 8.86, 'bits_per_weight': 6.0, 'weight_rel_mean_abs_err': 0.04123}
+affine-b5-g64 {'block_linears_ms': 163.85, 'tflops': 8.92, 'bits_per_weight': 5.5, 'weight_rel_mean_abs_err': 0.04701}
+affine-b5-g128 {'block_linears_ms': 163.19, 'tflops': 8.95, 'bits_per_weight': 5.25, 'weight_rel_mean_abs_err': 0.05221}
+affine-b6-g32 {'block_linears_ms': 171.82, 'tflops': 8.5, 'bits_per_weight': 7.0, 'weight_rel_mean_abs_err': 0.02048}
+affine-b6-g64 {'block_linears_ms': 176.65, 'tflops': 8.27, 'bits_per_weight': 6.5, 'weight_rel_mean_abs_err': 0.02332}
+affine-b6-g128 {'block_linears_ms': 177.63, 'tflops': 8.22, 'bits_per_weight': 6.25, 'weight_rel_mean_abs_err': 0.02588}
+affine-b8-g32 {'block_linears_ms': 185.27, 'tflops': 7.88, 'bits_per_weight': 9.0, 'weight_rel_mean_abs_err': 0.00606}
+affine-b8-g64 {'block_linears_ms': 188.8, 'tflops': 7.74, 'bits_per_weight': 8.5, 'weight_rel_mean_abs_err': 0.0067}
+affine-b8-g128 {'block_linears_ms': 176.29, 'tflops': 8.29, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.00727}
+mxfp4 {'block_linears_ms': 187.87, 'tflops': 7.78, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.11672}
+nvfp4 {'block_linears_ms': 182.92, 'tflops': 7.99, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09736}
+mxfp8 {'block_linears_ms': 187.07, 'tflops': 7.81, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.02254}
+bf16-weights {'block_linears_ms': 48.7, 'tflops': 7.67, 'bits_per_weight': 16.0, 'weight_rel_mean_abs_err': 0.0}
+affine-b3-g32 {'block_linears_ms': 47.46, 'tflops': 7.87, 'bits_per_weight': 4.0, 'weight_rel_mean_abs_err': 0.17882}
+affine-b3-g64 {'block_linears_ms': 55.8, 'tflops': 6.7, 'bits_per_weight': 3.5, 'weight_rel_mean_abs_err': 0.20158}
+affine-b3-g128 {'block_linears_ms': 50.4, 'tflops': 7.42, 'bits_per_weight': 3.25, 'weight_rel_mean_abs_err': 0.22133}
+affine-b4-g32 {'block_linears_ms': 47.09, 'tflops': 7.94, 'bits_per_weight': 5.0, 'weight_rel_mean_abs_err': 0.08486}
+affine-b4-g64 {'block_linears_ms': 37.51, 'tflops': 9.96, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09665}
+affine-b4-g128 {'block_linears_ms': 42.98, 'tflops': 8.7, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.10713}
+affine-b5-g32 {'block_linears_ms': 47.83, 'tflops': 7.81, 'bits_per_weight': 6.0, 'weight_rel_mean_abs_err': 0.04123}
+affine-b5-g64 {'block_linears_ms': 54.74, 'tflops': 6.83, 'bits_per_weight': 5.5, 'weight_rel_mean_abs_err': 0.04701}
+affine-b5-g128 {'block_linears_ms': 53.15, 'tflops': 7.03, 'bits_per_weight': 5.25, 'weight_rel_mean_abs_err': 0.05221}
+affine-b6-g32 {'block_linears_ms': 52.87, 'tflops': 7.07, 'bits_per_weight': 7.0, 'weight_rel_mean_abs_err': 0.02048}
+affine-b6-g64 {'block_linears_ms': 49.18, 'tflops': 7.6, 'bits_per_weight': 6.5, 'weight_rel_mean_abs_err': 0.02332}
+affine-b6-g128 {'block_linears_ms': 54.79, 'tflops': 6.82, 'bits_per_weight': 6.25, 'weight_rel_mean_abs_err': 0.02588}
+affine-b8-g32 {'block_linears_ms': 48.44, 'tflops': 7.71, 'bits_per_weight': 9.0, 'weight_rel_mean_abs_err': 0.00606}
+affine-b8-g64 {'block_linears_ms': 54.57, 'tflops': 6.85, 'bits_per_weight': 8.5, 'weight_rel_mean_abs_err': 0.0067}
+affine-b8-g128 {'block_linears_ms': 47.58, 'tflops': 7.85, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.00727}
+mxfp4 {'block_linears_ms': 53.33, 'tflops': 7.01, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.11672}
+nvfp4 {'block_linears_ms': 44.74, 'tflops': 8.35, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09736}
+mxfp8 {'block_linears_ms': 60.2, 'tflops': 6.21, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.02254}
+bf16-weights {'block_linears_ms': 336.81, 'tflops': 4.34, 'bits_per_weight': 16.0, 'weight_rel_mean_abs_err': 0.0}
+affine-b3-g32 {'block_linears_ms': 324.69, 'tflops': 4.5, 'bits_per_weight': 4.0, 'weight_rel_mean_abs_err': 0.17882}
+affine-b3-g64 {'block_linears_ms': 279.9, 'tflops': 5.22, 'bits_per_weight': 3.5, 'weight_rel_mean_abs_err': 0.20158}
+affine-b3-g128 {'block_linears_ms': 268.61, 'tflops': 5.44, 'bits_per_weight': 3.25, 'weight_rel_mean_abs_err': 0.22133}
+affine-b4-g32 {'block_linears_ms': 337.63, 'tflops': 4.33, 'bits_per_weight': 5.0, 'weight_rel_mean_abs_err': 0.08486}
+affine-b4-g64 {'block_linears_ms': 279.03, 'tflops': 5.24, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09665}
+affine-b4-g128 {'block_linears_ms': 276.41, 'tflops': 5.29, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.10713}
+affine-b5-g32 {'block_linears_ms': 328.04, 'tflops': 4.45, 'bits_per_weight': 6.0, 'weight_rel_mean_abs_err': 0.04123}
+affine-b5-g64 {'block_linears_ms': 335.41, 'tflops': 4.36, 'bits_per_weight': 5.5, 'weight_rel_mean_abs_err': 0.04701}
+affine-b5-g128 {'block_linears_ms': 325.81, 'tflops': 4.48, 'bits_per_weight': 5.25, 'weight_rel_mean_abs_err': 0.05221}
+affine-b6-g32 {'block_linears_ms': 337.21, 'tflops': 4.33, 'bits_per_weight': 7.0, 'weight_rel_mean_abs_err': 0.02048}
+affine-b6-g64 {'block_linears_ms': 347.24, 'tflops': 4.21, 'bits_per_weight': 6.5, 'weight_rel_mean_abs_err': 0.02332}
+affine-b6-g128 {'block_linears_ms': 338.46, 'tflops': 4.32, 'bits_per_weight': 6.25, 'weight_rel_mean_abs_err': 0.02588}
+affine-b8-g32 {'block_linears_ms': 360.52, 'tflops': 4.05, 'bits_per_weight': 9.0, 'weight_rel_mean_abs_err': 0.00606}
+affine-b8-g64 {'block_linears_ms': 357.88, 'tflops': 4.08, 'bits_per_weight': 8.5, 'weight_rel_mean_abs_err': 0.0067}
+affine-b8-g128 {'block_linears_ms': 349.36, 'tflops': 4.18, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.00727}
+mxfp4 {'block_linears_ms': 305.5, 'tflops': 4.78, 'bits_per_weight': 4.25, 'weight_rel_mean_abs_err': 0.11672}
+nvfp4 {'block_linears_ms': 299.46, 'tflops': 4.88, 'bits_per_weight': 4.5, 'weight_rel_mean_abs_err': 0.09736}
+mxfp8 {'block_linears_ms': 366.46, 'tflops': 3.99, 'bits_per_weight': 8.25, 'weight_rel_mean_abs_err': 0.02254}
+[15:05:36] NAX e2e (REFERENCE 512² with MLX_ENABLE_TF32=0)
+15:05:36 nax-e2e-512-fp32-st9-tf32off       rc=0 wall=80.09 denoise=74.391 vae=0.384 fp=5.919 pix=6d4311fe39
+RUNNER_DONE
+[15:06:57] instrumented probes 1024²
+15:06:57 time-1024-bf16-st8-p01             rc=0 wall=86.16 denoise=79.875 vae=2.704 fp=5.766 pix=8308c4839a
+15:08:25 time-1024-fp32-st9-p01             rc=0 wall=136.05 denoise=129.714 vae=2.704 fp=6.116 pix=812b09f8e5
+15:10:43 none-1024-bf16-st8-p01             rc=0 wall=88.99 denoise=82.379 vae=2.832 fp=5.969 pix=8308c4839a
+15:12:13 stats-1024-bf16-st8-p01            rc=0 wall=95.37 denoise=89.084 vae=2.673 fp=6.232 pix=8308c4839a
+15:13:50 stats-1024-bf16-st8-p06            rc=0 wall=94.45 denoise=88.166 vae=2.64 fp=6.229 pix=de7a049821
+15:15:26 stats-1024-bf16-st8-p09            rc=0 wall=95.54 denoise=89.239 vae=2.681 fp=6.238 pix=d1d8690cd3
+RUNNER_DONE
+[15:17:03] FFN calibration
+15:17:03 calib-512-c01                      rc=0 wall=22.8 denoise=18.797 vae=0.443 fp=4.739 pix=7fa70bb233
+15:17:28 calib-512-c02                      rc=0 wall=25.99 denoise=21.255 vae=0.458 fp=4.74 pix=5351c03db1
+15:17:55 calib-512-c03                      rc=0 wall=30.68 denoise=24.625 vae=0.482 fp=4.745 pix=a7fcb7fa2e
+15:18:27 calib-512-c04                      rc=0 wall=26.77 denoise=22.199 vae=0.427 fp=4.741 pix=05998080eb
+15:18:56 calib-512-c05                      rc=0 wall=25.33 denoise=21.358 vae=0.457 fp=4.742 pix=780052f814
+15:19:22 calib-512-c06                      rc=0 wall=25.35 denoise=21.371 vae=0.487 fp=4.74 pix=7906ea2b36
+15:19:49 calib-512-c07                      rc=0 wall=25.65 denoise=21.641 vae=0.457 fp=4.739 pix=2fc71699ca
+15:20:16 calib-512-c08                      rc=0 wall=23.97 denoise=20.102 vae=0.463 fp=4.737 pix=fb1405a972
+RUNNER_DONE
+merged 8 prompts, 32 blocks -> p3b/ffn-scores.npz
+[15:20:42] FFN pruning sweep
+15:20:42 ffn-512-k100-p01                   rc=0 wall=22.54 denoise=18.708 vae=0.424 fp=5.41 pix=0b9cc20a65
+15:21:06 ffn-512-k100-p02                   rc=0 wall=23.45 denoise=19.65 vae=0.445 fp=5.41 pix=ee5d339083
+15:21:31 ffn-512-k100-p03                   rc=0 wall=25.71 denoise=21.586 vae=0.499 fp=5.402 pix=0b1ee3c724
+15:21:58 ffn-512-k100-p04                   rc=0 wall=25.79 denoise=21.041 vae=0.421 fp=5.403 pix=ad70b0b323
+15:22:26 ffn-512-k100-p05                   rc=0 wall=24.64 denoise=20.64 vae=0.427 fp=5.414 pix=1a04edd195
+15:22:52 ffn-512-k100-p06                   rc=0 wall=23.54 denoise=19.616 vae=0.414 fp=5.4 pix=6dba591258
+15:23:17 ffn-512-k100-p07                   rc=0 wall=24.43 denoise=20.106 vae=0.418 fp=5.401 pix=ee17e56f2e
+15:23:43 ffn-512-k100-p08                   rc=0 wall=25.26 denoise=21.294 vae=0.401 fp=5.4 pix=183da5df62
+15:24:10 ffn-512-k100-p09                   rc=0 wall=26.59 denoise=22.639 vae=0.422 fp=5.402 pix=31d4dea489
+15:24:38 ffn-512-k100-p10                   rc=0 wall=23.14 denoise=19.276 vae=0.423 fp=5.401 pix=49b1eb555a
+15:25:02 ffn-512-k100-p11                   rc=0 wall=22.52 denoise=18.661 vae=0.418 fp=5.4 pix=ec75585369
+15:25:26 ffn-512-k100-p12                   rc=0 wall=22.53 denoise=18.657 vae=0.434 fp=5.399 pix=a43107ab5e
+15:25:51 ffn-512-k90-p01                    rc=0 wall=23.38 denoise=19.03 vae=0.462 fp=6.103 pix=8e85aa141a
+15:26:15 ffn-512-k90-p02                    rc=0 wall=24.6 denoise=19.854 vae=0.447 fp=6.093 pix=1e8a1a5246
+15:26:42 ffn-512-k90-p03                    rc=0 wall=24.44 denoise=19.746 vae=0.44 fp=6.12 pix=3f35de3d6e
+15:27:08 ffn-512-k90-p04                    rc=0 wall=22.94 denoise=18.264 vae=0.427 fp=6.094 pix=b061fd86c4
+15:27:32 ffn-512-k90-p05                    rc=0 wall=21.94 denoise=17.334 vae=0.419 fp=6.103 pix=5375fceaf1
+15:27:55 ffn-512-k90-p06                    rc=0 wall=23.08 denoise=18.537 vae=0.407 fp=6.063 pix=207ee56cbf
+15:28:20 ffn-512-k90-p07                    rc=0 wall=21.83 denoise=17.253 vae=0.421 fp=6.058 pix=286e594ddb
+15:28:43 ffn-512-k90-p08                    rc=0 wall=22.13 denoise=17.52 vae=0.421 fp=5.983 pix=f2b023ade1
+15:29:07 ffn-512-k90-p09                    rc=0 wall=21.73 denoise=17.233 vae=0.419 fp=6.077 pix=86a9924004
+15:29:30 ffn-512-k90-p10                    rc=0 wall=22.17 denoise=17.623 vae=0.414 fp=6.085 pix=7138a47f1b
+15:29:54 ffn-512-k90-p11                    rc=0 wall=21.63 denoise=17.136 vae=0.419 fp=5.967 pix=41191bb900
+15:30:17 ffn-512-k90-p12                    rc=0 wall=22.01 denoise=17.497 vae=0.432 fp=6.051 pix=9a3e6164a2
+15:30:41 ffn-512-k80-p01                    rc=0 wall=22.81 denoise=18.217 vae=0.442 fp=5.888 pix=e1e928a95d
+15:31:05 ffn-512-k80-p02                    rc=0 wall=23.49 denoise=18.908 vae=0.461 fp=5.877 pix=579ceb9b1c
+15:31:30 ffn-512-k80-p03                    rc=0 wall=22.35 denoise=17.905 vae=0.444 fp=5.883 pix=238282504f
+15:31:54 ffn-512-k80-p04                    rc=0 wall=20.83 denoise=16.453 vae=0.419 fp=5.889 pix=19b1b2dc45
+15:32:16 ffn-512-k80-p05                    rc=0 wall=20.17 denoise=15.873 vae=0.406 fp=5.908 pix=98a350cc25
+15:32:38 ffn-512-k80-p06                    rc=0 wall=20.04 denoise=15.676 vae=0.407 fp=5.88 pix=0d840df9ce
+15:32:59 ffn-512-k80-p07                    rc=0 wall=21.73 denoise=17.09 vae=0.408 fp=5.855 pix=fb92fd8669
+15:33:23 ffn-512-k80-p08                    rc=0 wall=20.78 denoise=16.25 vae=0.406 fp=5.895 pix=ace2db721a
+15:33:45 ffn-512-k80-p09                    rc=0 wall=20.24 denoise=15.856 vae=0.409 fp=5.865 pix=4dee7376ea
+15:34:07 ffn-512-k80-p10                    rc=0 wall=20.09 denoise=15.703 vae=0.41 fp=5.866 pix=a5397c39f7
+15:34:28 ffn-512-k80-p11                    rc=0 wall=19.99 denoise=15.596 vae=0.406 fp=5.768 pix=4a85522fa1
+15:34:50 ffn-512-k80-p12                    rc=0 wall=20.02 denoise=15.629 vae=0.413 fp=5.881 pix=faa2ab40e3
+15:35:12 ffn-512-k70-p01                    rc=0 wall=18.68 denoise=14.233 vae=0.41 fp=5.709 pix=ff25c256d8
+15:35:32 ffn-512-k70-p02                    rc=0 wall=18.73 denoise=14.373 vae=0.411 fp=5.668 pix=38f52c7504
+15:35:52 ffn-512-k70-p03                    rc=0 wall=18.74 denoise=14.379 vae=0.411 fp=5.683 pix=806b5531d6
+15:36:12 ffn-512-k70-p04                    rc=0 wall=18.75 denoise=14.439 vae=0.408 fp=5.7 pix=d5ae364a4a
+15:36:33 ffn-512-k70-p05                    rc=0 wall=18.69 denoise=14.295 vae=0.408 fp=5.694 pix=5055ad70dc
+15:36:53 ffn-512-k70-p06                    rc=0 wall=19.04 denoise=14.703 vae=0.406 fp=5.658 pix=40996c8c24
+15:37:13 ffn-512-k70-p07                    rc=0 wall=19.17 denoise=14.814 vae=0.408 fp=5.683 pix=55ccfc6a4e
+15:37:34 ffn-512-k70-p08                    rc=0 wall=18.75 denoise=14.425 vae=0.408 fp=5.691 pix=4dc9132b04
+15:37:54 ffn-512-k70-p09                    rc=0 wall=18.84 denoise=14.482 vae=0.413 fp=5.684 pix=a8a58c8800
+15:38:15 ffn-512-k70-p10                    rc=0 wall=18.65 denoise=14.268 vae=0.41 fp=5.708 pix=719e4810cb
+15:38:35 ffn-512-k70-p11                    rc=0 wall=18.41 denoise=14.04 vae=0.41 fp=5.707 pix=2e4138339d
+15:38:55 ffn-512-k70-p12                    rc=0 wall=18.45 denoise=14.109 vae=0.407 fp=5.694 pix=70ef1c2e1e
+15:39:15 ffn-512-k60-p01                    rc=0 wall=17.27 denoise=12.858 vae=0.406 fp=5.463 pix=5a7fd445b8
+15:39:34 ffn-512-k60-p02                    rc=0 wall=17.41 denoise=13.112 vae=0.405 fp=5.495 pix=c57291e697
+15:39:52 ffn-512-k60-p03                    rc=0 wall=17.51 denoise=13.135 vae=0.396 fp=5.46 pix=6c33c697c1
+15:40:11 ffn-512-k60-p04                    rc=0 wall=17.57 denoise=13.209 vae=0.399 fp=5.496 pix=a21b44faf5
+15:40:31 ffn-512-k60-p05                    rc=0 wall=17.38 denoise=13.037 vae=0.404 fp=5.367 pix=75dfedf575
+15:40:49 ffn-512-k60-p06                    rc=0 wall=17.72 denoise=13.364 vae=0.404 fp=5.527 pix=afae252b64
+15:41:09 ffn-512-k60-p07                    rc=0 wall=17.65 denoise=13.347 vae=0.399 fp=5.503 pix=7015ac803d
+15:41:28 ffn-512-k60-p08                    rc=0 wall=17.59 denoise=13.224 vae=0.404 fp=5.501 pix=cd35fef503
+15:41:47 ffn-512-k60-p09                    rc=0 wall=17.62 denoise=13.256 vae=0.403 fp=5.39 pix=375f46bf91
+15:42:06 ffn-512-k60-p10                    rc=0 wall=17.8 denoise=13.435 vae=0.405 fp=5.367 pix=a4b59fd043
+15:42:25 ffn-512-k60-p11                    rc=0 wall=17.8 denoise=13.486 vae=0.408 fp=5.503 pix=5103bc1f9a
+15:42:45 ffn-512-k60-p12                    rc=0 wall=17.93 denoise=13.529 vae=0.445 fp=5.458 pix=835a5d1562
+15:43:04 ffn-1024-k100-p01                  rc=0 wall=83.24 denoise=77.145 vae=2.574 fp=5.836 pix=7b45cfbe2e
+15:44:29 ffn-1024-k90-p01                   rc=0 wall=79.38 denoise=72.63 vae=2.522 fp=6.118 pix=ada4e041a9
+15:45:50 ffn-1024-k80-p01                   rc=0 wall=76.94 denoise=69.772 vae=2.635 fp=5.901 pix=3d261c71c5
+15:47:08 ffn-1024-k70-p01                   rc=0 wall=74.53 denoise=67.765 vae=2.298 fp=5.707 pix=722adb2afa
+15:48:25 ffn-1024-k60-p01                   rc=0 wall=69.04 denoise=61.999 vae=2.736 fp=5.494 pix=c03cdad7c1
+RUNNER_DONE
+[15:49:35] block sensitivity 512²
+15:49:35 sens-512-p01-base                  rc=0 wall=22.74 denoise=18.985 vae=0.443 fp=5.465 pix=f8f1a6543c
+15:49:59 sens-512-p06-base                  rc=0 wall=22.91 denoise=19.063 vae=0.437 fp=5.341 pix=a0683161b0
+15:50:24 sens-512-p09-base                  rc=0 wall=22.28 denoise=18.449 vae=0.443 fp=5.342 pix=6d04ac5826
+15:50:48 sens-512-p01-skip-nr0              rc=0 wall=21.07 denoise=17.325 vae=0.427 fp=5.127 pix=800ed5b2e0
+15:51:10 sens-512-p06-skip-nr0              rc=0 wall=21.72 denoise=17.989 vae=0.426 fp=5.005 pix=b30ad6b5e6
+15:51:34 sens-512-p09-skip-nr0              rc=0 wall=21.3 denoise=17.59 vae=0.436 fp=5.005 pix=48c4e689fa
+15:51:56 sens-512-p01-scale09-nr0           rc=0 wall=21.84 denoise=18.094 vae=0.433 fp=5.399 pix=6f3eeb7892
+15:52:20 sens-512-p01-skip-nr1              rc=0 wall=21.35 denoise=17.633 vae=0.434 fp=5.087 pix=3c9357c9f0
+15:52:43 sens-512-p06-skip-nr1              rc=0 wall=21.54 denoise=17.843 vae=0.441 fp=5.005 pix=f2e16f9499
+15:53:06 sens-512-p09-skip-nr1              rc=0 wall=21.57 denoise=17.846 vae=0.429 fp=5.005 pix=ff18de2d51
+15:53:29 sens-512-p01-scale09-nr1           rc=0 wall=22.27 denoise=18.523 vae=0.444 fp=5.366 pix=1489560fa0
+15:53:53 sens-512-p01-skip-cr0              rc=0 wall=23.72 denoise=19.947 vae=0.453 fp=5.357 pix=78fe5482d2
+15:54:18 sens-512-p06-skip-cr0              rc=0 wall=24.67 denoise=20.884 vae=0.477 fp=5.228 pix=32aaea1c23
+15:54:44 sens-512-p09-skip-cr0              rc=0 wall=23.42 denoise=19.662 vae=0.444 fp=5.228 pix=70d3034e58
+15:55:09 sens-512-p01-scale09-cr0           rc=0 wall=22.33 denoise=18.593 vae=0.433 fp=5.366 pix=1d1423a45e
+15:55:33 sens-512-p01-skip-cr1              rc=0 wall=21.79 denoise=18.021 vae=0.456 fp=5.307 pix=b8cc211e02
+15:55:56 sens-512-p06-skip-cr1              rc=0 wall=21.58 denoise=17.855 vae=0.433 fp=5.222 pix=48160b234f
+15:56:19 sens-512-p09-skip-cr1              rc=0 wall=21.7 denoise=17.961 vae=0.429 fp=5.227 pix=bbfa4f533f
+15:56:42 sens-512-p01-scale09-cr1           rc=0 wall=21.79 denoise=18.046 vae=0.429 fp=5.39 pix=00d84f9fd0
+15:57:06 sens-512-p01-skip-L0               rc=0 wall=21.15 denoise=17.393 vae=0.435 fp=5.297 pix=7170572ccc
+15:57:28 sens-512-p06-skip-L0               rc=0 wall=21.64 denoise=17.895 vae=0.445 fp=5.239 pix=fac1fed3c6
+15:57:52 sens-512-p09-skip-L0               rc=0 wall=22.91 denoise=19.138 vae=0.466 fp=5.239 pix=495cf47f17
+15:58:16 sens-512-p01-scale09-L0            rc=0 wall=24.23 denoise=20.443 vae=0.452 fp=5.399 pix=ef9e6737fc
+15:58:42 sens-512-p01-skip-L1               rc=0 wall=22.65 denoise=18.9 vae=0.438 fp=5.346 pix=4718eda8c8
+15:59:06 sens-512-p06-skip-L1               rc=0 wall=21.76 denoise=18.034 vae=0.433 fp=5.24 pix=d36c8cbba8
+15:59:29 sens-512-p09-skip-L1               rc=0 wall=21.17 denoise=17.46 vae=0.428 fp=5.24 pix=9bf240d822
+15:59:52 sens-512-p01-scale09-L1            rc=0 wall=23.85 denoise=20.041 vae=0.433 fp=5.439 pix=e1d854712d
+16:00:17 sens-512-p01-skip-L2               rc=0 wall=21.41 denoise=17.659 vae=0.433 fp=5.299 pix=62ae119ac8
+16:00:40 sens-512-p06-skip-L2               rc=0 wall=22.2 denoise=18.45 vae=0.429 fp=5.24 pix=2296aaa72a
+16:01:04 sens-512-p09-skip-L2               rc=0 wall=22.36 denoise=18.599 vae=0.435 fp=5.239 pix=898b510fc2
+16:01:28 sens-512-p01-scale09-L2            rc=0 wall=22.74 denoise=18.976 vae=0.445 fp=5.447 pix=f6029d33a3
+16:01:52 sens-512-p01-skip-L3               rc=0 wall=21.98 denoise=18.218 vae=0.429 fp=5.337 pix=c391d8496a
+16:02:16 sens-512-p06-skip-L3               rc=0 wall=22.1 denoise=18.349 vae=0.43 fp=5.239 pix=b7e3e7ac4b
+16:02:39 sens-512-p09-skip-L3               rc=0 wall=22.0 denoise=18.281 vae=0.427 fp=5.24 pix=a4362f412f
+16:03:03 sens-512-p01-scale09-L3            rc=0 wall=22.35 denoise=18.608 vae=0.442 fp=5.44 pix=b62655f50b
+16:03:27 sens-512-p01-skip-L4               rc=0 wall=21.66 denoise=17.922 vae=0.436 fp=5.347 pix=bf4724cf1c
+16:03:50 sens-512-p06-skip-L4               rc=0 wall=21.84 denoise=18.134 vae=0.431 fp=5.238 pix=9a4ea6dfb9
+16:04:13 sens-512-p09-skip-L4               rc=0 wall=21.9 denoise=18.189 vae=0.431 fp=5.241 pix=e2e5422f17
+16:04:37 sens-512-p01-scale09-L4            rc=0 wall=22.53 denoise=18.793 vae=0.446 fp=5.43 pix=667b4da507
+16:05:01 sens-512-p01-skip-L5               rc=0 wall=21.76 denoise=18.008 vae=0.437 fp=5.298 pix=c7f3ec07bf
+16:05:24 sens-512-p06-skip-L5               rc=0 wall=22.05 denoise=18.324 vae=0.431 fp=5.238 pix=1e128588f0
+16:05:48 sens-512-p09-skip-L5               rc=0 wall=22.02 denoise=18.285 vae=0.434 fp=5.24 pix=b6a097ec39
+16:06:11 sens-512-p01-scale09-L5            rc=0 wall=22.65 denoise=18.781 vae=0.5 fp=5.399 pix=79bdd4e660
+16:06:35 sens-512-p01-skip-L6               rc=0 wall=21.76 denoise=18.043 vae=0.433 fp=5.338 pix=8331395c60
+16:06:59 sens-512-p06-skip-L6               rc=0 wall=21.88 denoise=18.16 vae=0.433 fp=5.24 pix=4b7a97e750
+16:07:22 sens-512-p09-skip-L6               rc=0 wall=22.06 denoise=18.292 vae=0.43 fp=5.237 pix=a350ec88e1
+16:07:46 sens-512-p01-scale09-L6            rc=0 wall=22.48 denoise=18.743 vae=0.444 fp=5.44 pix=f5bb0527bd
+16:08:10 sens-512-p01-skip-L7               rc=0 wall=22.01 denoise=18.238 vae=0.44 fp=5.297 pix=1e0134d1aa
+16:08:33 sens-512-p06-skip-L7               rc=0 wall=22.22 denoise=18.467 vae=0.439 fp=5.239 pix=28b1702b1a
+16:08:57 sens-512-p09-skip-L7               rc=0 wall=22.53 denoise=18.743 vae=0.458 fp=5.239 pix=e5116d3a50
+16:09:21 sens-512-p01-scale09-L7            rc=0 wall=24.47 denoise=20.627 vae=0.499 fp=5.439 pix=ebdeae9e0f
+16:09:47 sens-512-p01-skip-L8               rc=0 wall=27.12 denoise=23.093 vae=0.544 fp=5.346 pix=4201cd9ac8
+16:10:16 sens-512-p06-skip-L8               rc=0 wall=24.21 denoise=20.224 vae=0.429 fp=5.237 pix=2c5e8d7c47
+16:10:41 sens-512-p09-skip-L8               rc=0 wall=21.96 denoise=18.275 vae=0.429 fp=5.239 pix=823101af9b
+16:11:05 sens-512-p01-scale09-L8            rc=0 wall=21.6 denoise=17.871 vae=0.427 fp=5.399 pix=220ecd0e57
+16:11:28 sens-512-p01-skip-L9               rc=0 wall=21.02 denoise=17.264 vae=0.432 fp=5.313 pix=7d4487e646
+16:11:50 sens-512-p06-skip-L9               rc=0 wall=21.26 denoise=17.392 vae=0.432 fp=5.238 pix=da63b41b83
+16:12:13 sens-512-p09-skip-L9               rc=0 wall=21.29 denoise=17.576 vae=0.44 fp=5.24 pix=639bf730c7
+16:12:36 sens-512-p01-scale09-L9            rc=0 wall=22.02 denoise=18.278 vae=0.43 fp=5.4 pix=6676f3f493
+16:13:00 sens-512-p01-skip-L10              rc=0 wall=21.16 denoise=17.429 vae=0.44 fp=5.298 pix=7a86aa1ad1
+16:13:22 sens-512-p06-skip-L10              rc=0 wall=21.14 denoise=17.428 vae=0.44 fp=5.238 pix=38876a917a
+16:13:45 sens-512-p09-skip-L10              rc=0 wall=21.33 denoise=17.629 vae=0.441 fp=5.238 pix=f850ce9f47
+16:14:08 sens-512-p01-scale09-L10           rc=0 wall=23.34 denoise=19.569 vae=0.458 fp=5.4 pix=da310b90c1
+16:14:33 sens-512-p01-skip-L11              rc=0 wall=23.56 denoise=19.8 vae=0.456 fp=5.297 pix=6c15ef3c13
+16:14:58 sens-512-p06-skip-L11              rc=0 wall=22.42 denoise=18.686 vae=0.437 fp=5.239 pix=9659561dcd
+16:15:22 sens-512-p09-skip-L11              rc=0 wall=21.61 denoise=17.891 vae=0.431 fp=5.24 pix=2dfc15c6fb
+16:15:45 sens-512-p01-scale09-L11           rc=0 wall=21.4 denoise=17.708 vae=0.43 fp=5.4 pix=73ee6be829
+16:16:08 sens-512-p01-skip-L12              rc=0 wall=20.54 denoise=16.894 vae=0.418 fp=5.295 pix=5a3324ee1e
+16:16:30 sens-512-p06-skip-L12              rc=0 wall=20.83 denoise=17.165 vae=0.421 fp=5.24 pix=1c6b1dd117
+16:16:52 sens-512-p09-skip-L12              rc=0 wall=20.94 denoise=17.249 vae=0.429 fp=5.237 pix=c0b8619b4c
+16:17:15 sens-512-p01-scale09-L12           rc=0 wall=21.34 denoise=17.654 vae=0.427 fp=5.399 pix=8346938c96
+16:17:38 sens-512-p01-skip-L13              rc=0 wall=20.82 denoise=17.128 vae=0.422 fp=5.297 pix=22fdfeebb4
+16:18:00 sens-512-p06-skip-L13              rc=0 wall=21.17 denoise=17.456 vae=0.447 fp=5.239 pix=8cb179b979
+16:18:23 sens-512-p09-skip-L13              rc=0 wall=22.75 denoise=18.997 vae=0.474 fp=5.239 pix=2626d9cc5e
+16:18:47 sens-512-p01-scale09-L13           rc=0 wall=24.06 denoise=20.302 vae=0.451 fp=5.438 pix=3b6c06677a
+16:19:12 sens-512-p01-skip-L14              rc=0 wall=22.59 denoise=18.869 vae=0.441 fp=5.307 pix=82597bfa10
+16:19:37 sens-512-p06-skip-L14              rc=0 wall=21.72 denoise=18.043 vae=0.434 fp=5.239 pix=7af0d1024d
+16:20:00 sens-512-p09-skip-L14              rc=0 wall=21.21 denoise=17.51 vae=0.436 fp=5.24 pix=4d157ed05a
+16:20:23 sens-512-p01-scale09-L14           rc=0 wall=21.49 denoise=17.747 vae=0.439 fp=5.4 pix=72ebe7d1ea
+16:20:46 sens-512-p01-skip-L15              rc=0 wall=20.83 denoise=17.147 vae=0.424 fp=5.298 pix=4cf39e2619
+16:21:08 sens-512-p06-skip-L15              rc=0 wall=21.14 denoise=17.443 vae=0.435 fp=5.24 pix=b1d042d951
+16:21:31 sens-512-p09-skip-L15              rc=0 wall=21.28 denoise=17.595 vae=0.437 fp=5.238 pix=81a5979600
+16:21:53 sens-512-p01-scale09-L15           rc=0 wall=21.83 denoise=18.082 vae=0.437 fp=5.398 pix=eb61c14a06
+16:22:17 sens-512-p01-skip-L16              rc=0 wall=22.85 denoise=18.932 vae=0.443 fp=5.289 pix=621af36f6a
+16:22:41 sens-512-p06-skip-L16              rc=0 wall=22.14 denoise=18.412 vae=0.434 fp=5.239 pix=f174cc7c05
+16:23:05 sens-512-p09-skip-L16              rc=0 wall=22.37 denoise=18.633 vae=0.446 fp=5.239 pix=08be1838ce
+16:23:29 sens-512-p01-scale09-L16           rc=0 wall=22.91 denoise=19.167 vae=0.449 fp=5.448 pix=d2d459f725
+16:23:53 sens-512-p01-skip-L17              rc=0 wall=22.13 denoise=18.402 vae=0.432 fp=5.297 pix=a3ac436ec2
+16:24:17 sens-512-p06-skip-L17              rc=0 wall=22.29 denoise=18.532 vae=0.432 fp=5.24 pix=51ff777c55
+16:24:41 sens-512-p09-skip-L17              rc=0 wall=22.51 denoise=18.771 vae=0.448 fp=5.24 pix=25c5e421cd
+16:25:05 sens-512-p01-scale09-L17           rc=0 wall=22.91 denoise=19.142 vae=0.452 fp=5.423 pix=d91e7894a4
+16:25:29 sens-512-p01-skip-L18              rc=0 wall=22.34 denoise=18.605 vae=0.442 fp=5.346 pix=01fe8f39d5
+16:25:53 sens-512-p06-skip-L18              rc=0 wall=22.49 denoise=18.737 vae=0.452 fp=5.241 pix=9304761210
+16:26:17 sens-512-p09-skip-L18              rc=0 wall=22.43 denoise=18.681 vae=0.436 fp=5.24 pix=c1f83d6a84
+16:26:41 sens-512-p01-scale09-L18           rc=0 wall=23.0 denoise=19.246 vae=0.46 fp=5.399 pix=dc78015424
+16:27:05 sens-512-p01-skip-L19              rc=0 wall=21.9 denoise=18.132 vae=0.455 fp=5.346 pix=144280aa32
+16:27:29 sens-512-p06-skip-L19              rc=0 wall=22.24 denoise=18.486 vae=0.435 fp=5.24 pix=668891cd5b
+16:27:53 sens-512-p09-skip-L19              rc=0 wall=22.24 denoise=18.501 vae=0.43 fp=5.24 pix=a87b40fd2c
+16:28:16 sens-512-p01-scale09-L19           rc=0 wall=22.62 denoise=18.851 vae=0.444 fp=5.407 pix=74468a3e67
+16:28:41 sens-512-p01-skip-L20              rc=0 wall=21.78 denoise=18.045 vae=0.436 fp=5.33 pix=b2ecaca36c
+16:29:04 sens-512-p06-skip-L20              rc=0 wall=22.22 denoise=18.468 vae=0.427 fp=5.24 pix=bcb0ad0bb0
+16:29:28 sens-512-p09-skip-L20              rc=0 wall=22.15 denoise=18.396 vae=0.437 fp=5.24 pix=4fc1114987
+16:29:51 sens-512-p01-scale09-L20           rc=0 wall=22.81 denoise=18.915 vae=0.51 fp=5.431 pix=5e7631d2a3
+16:30:16 sens-512-p01-skip-L21              rc=0 wall=22.46 denoise=18.646 vae=0.437 fp=5.338 pix=6cfa610403
+16:30:40 sens-512-p06-skip-L21              rc=0 wall=22.29 denoise=18.574 vae=0.437 fp=5.239 pix=f3f830f3d9
+16:31:03 sens-512-p09-skip-L21              rc=0 wall=22.21 denoise=18.415 vae=0.457 fp=5.239 pix=cb7480f579
+16:31:27 sens-512-p01-scale09-L21           rc=0 wall=23.06 denoise=19.135 vae=0.507 fp=5.399 pix=9ed76533c9
+16:31:52 sens-512-p01-skip-L22              rc=0 wall=22.25 denoise=18.47 vae=0.434 fp=5.298 pix=7729962e2b
+16:32:16 sens-512-p06-skip-L22              rc=0 wall=24.24 denoise=20.464 vae=0.431 fp=5.239 pix=d44cba5a06
+16:32:41 sens-512-p09-skip-L22              rc=0 wall=21.67 denoise=17.939 vae=0.43 fp=5.239 pix=db1b0030f8
+16:33:04 sens-512-p01-scale09-L22           rc=0 wall=21.75 denoise=18.016 vae=0.428 fp=5.398 pix=9a61afb204
+16:33:28 sens-512-p01-skip-L23              rc=0 wall=20.76 denoise=17.055 vae=0.42 fp=5.297 pix=2e65a95eda
+16:33:50 sens-512-p06-skip-L23              rc=0 wall=20.85 denoise=17.162 vae=0.422 fp=5.238 pix=9c5f069c4c
+16:34:12 sens-512-p09-skip-L23              rc=0 wall=20.82 denoise=17.121 vae=0.418 fp=5.239 pix=b6521043d8
+16:34:35 sens-512-p01-scale09-L23           rc=0 wall=22.02 denoise=18.181 vae=0.477 fp=5.384 pix=73616bfa53
+16:34:58 sens-512-p01-skip-L24              rc=0 wall=20.91 denoise=17.191 vae=0.423 fp=5.298 pix=c6bc413e34
+16:35:21 sens-512-p06-skip-L24              rc=0 wall=21.05 denoise=17.35 vae=0.431 fp=5.24 pix=f82bd3c725
+16:35:43 sens-512-p09-skip-L24              rc=0 wall=21.0 denoise=17.3 vae=0.433 fp=5.239 pix=dc19c361c8
+16:36:06 sens-512-p01-scale09-L24           rc=0 wall=21.62 denoise=17.914 vae=0.425 fp=5.4 pix=6b636ac374
+16:36:29 sens-512-p01-skip-L25              rc=0 wall=20.91 denoise=17.224 vae=0.429 fp=5.298 pix=da2cb5e636
+16:36:51 sens-512-p06-skip-L25              rc=0 wall=21.39 denoise=17.717 vae=0.432 fp=5.24 pix=d721caae4b
+16:37:14 sens-512-p09-skip-L25              rc=0 wall=21.2 denoise=17.49 vae=0.437 fp=5.24 pix=4e9ee95fdb
+16:37:37 sens-512-p01-scale09-L25           rc=0 wall=21.54 denoise=17.805 vae=0.431 fp=5.399 pix=c850541734
+16:38:00 sens-512-p01-skip-L26              rc=0 wall=20.89 denoise=17.179 vae=0.426 fp=5.296 pix=b53b0af769
+16:38:23 sens-512-p06-skip-L26              rc=0 wall=20.88 denoise=17.202 vae=0.424 fp=5.24 pix=90a12fd438
+16:38:45 sens-512-p09-skip-L26              rc=0 wall=20.84 denoise=17.158 vae=0.423 fp=5.239 pix=cd73a4597a
+16:39:07 sens-512-p01-scale09-L26           rc=0 wall=21.32 denoise=17.609 vae=0.426 fp=5.39 pix=a718451378
+16:39:30 sens-512-p01-skip-L27              rc=0 wall=20.77 denoise=17.068 vae=0.422 fp=5.298 pix=0c05d6168b
+16:39:53 sens-512-p06-skip-L27              rc=0 wall=20.97 denoise=17.283 vae=0.429 fp=5.24 pix=608faa8cb4
+16:40:15 sens-512-p09-skip-L27              rc=0 wall=20.97 denoise=17.284 vae=0.429 fp=5.239 pix=82c834bb58
+16:40:37 sens-512-p01-scale09-L27           rc=0 wall=21.48 denoise=17.758 vae=0.431 fp=5.4 pix=9a6da9ba60
+16:41:00 sens-512-p01-skip-L28              rc=0 wall=21.0 denoise=17.29 vae=0.43 fp=5.297 pix=f053fc66af
+16:41:23 sens-512-p06-skip-L28              rc=0 wall=21.28 denoise=17.583 vae=0.436 fp=5.24 pix=b84241ceb6
+16:41:46 sens-512-p09-skip-L28              rc=0 wall=21.38 denoise=17.677 vae=0.442 fp=5.239 pix=e84800e49e
+16:42:09 sens-512-p01-scale09-L28           rc=0 wall=21.77 denoise=18.072 vae=0.428 fp=5.4 pix=786590d7ea
+16:42:32 sens-512-p01-skip-L29              rc=0 wall=21.09 denoise=17.386 vae=0.436 fp=5.298 pix=b7a4a6d109
+16:42:55 sens-512-p06-skip-L29              rc=0 wall=21.15 denoise=17.437 vae=0.437 fp=5.239 pix=710a2b7fd4
+16:43:17 sens-512-p09-skip-L29              rc=0 wall=21.1 denoise=17.411 vae=0.433 fp=5.239 pix=9075ba5ba8
+16:43:40 sens-512-p01-scale09-L29           rc=0 wall=21.57 denoise=17.838 vae=0.436 fp=5.4 pix=79cd530c4b
+RUNNER_DONE
+[16:44:03] block sensitivity 1024² (p01)
+16:44:03 sens-1024-p01-base                 rc=0 wall=83.57 denoise=77.404 vae=2.706 fp=5.968 pix=8308c4839a
+16:45:28 sens-1024-p01-skip-nr0             rc=0 wall=80.68 denoise=74.455 vae=2.686 fp=5.873 pix=7572b81afb
+16:46:50 sens-1024-p01-skip-nr1             rc=0 wall=80.53 denoise=74.308 vae=2.685 fp=5.874 pix=b88fe019cf
+16:48:13 sens-1024-p01-skip-cr0             rc=0 wall=82.72 denoise=76.547 vae=2.708 fp=5.866 pix=e19a8bcdf7
+16:49:37 sens-1024-p01-skip-cr1             rc=0 wall=82.8 denoise=76.615 vae=2.693 fp=5.868 pix=da312bc779
+16:51:01 sens-1024-p01-skip-L0              rc=0 wall=81.42 denoise=75.189 vae=2.75 fp=5.867 pix=59ef0536f0
+16:52:24 sens-1024-p01-skip-L1              rc=0 wall=83.13 denoise=76.814 vae=2.732 fp=5.866 pix=b3bcd3d10d
+16:53:49 sens-1024-p01-skip-L2              rc=0 wall=81.68 denoise=75.395 vae=2.729 fp=5.864 pix=9d21177848
+16:55:12 sens-1024-p01-skip-L3              rc=0 wall=81.85 denoise=75.611 vae=2.747 fp=5.866 pix=da8fec198a
+16:56:35 sens-1024-p01-skip-L4              rc=0 wall=81.95 denoise=75.759 vae=2.727 fp=5.866 pix=1f45ea2612
+16:57:59 sens-1024-p01-skip-L5              rc=0 wall=81.9 denoise=75.642 vae=2.726 fp=5.866 pix=87172cd843
+16:59:22 sens-1024-p01-skip-L6              rc=0 wall=82.65 denoise=76.142 vae=2.791 fp=5.866 pix=8d6537ed0f
+17:00:47 sens-1024-p01-skip-L7              rc=0 wall=86.35 denoise=79.871 vae=2.9 fp=5.865 pix=9a15c38226
+17:02:14 sens-1024-p01-skip-L8              rc=0 wall=86.96 denoise=80.584 vae=2.896 fp=5.866 pix=e88de73299
+17:03:43 sens-1024-p01-skip-L9              rc=0 wall=87.0 denoise=80.512 vae=2.94 fp=5.866 pix=2680686b29
+17:05:11 sens-1024-p01-skip-L10             rc=0 wall=87.9 denoise=81.458 vae=2.879 fp=5.866 pix=6d4b699523
+17:06:41 sens-1024-p01-skip-L11             rc=0 wall=86.79 denoise=80.366 vae=2.858 fp=5.867 pix=23ef971c1d
+17:08:09 sens-1024-p01-skip-L12             rc=0 wall=88.63 denoise=82.186 vae=2.891 fp=5.866 pix=fd7c9236d0
+17:09:39 sens-1024-p01-skip-L13             rc=0 wall=88.11 denoise=81.663 vae=2.868 fp=5.868 pix=f8f5714763
+17:11:09 sens-1024-p01-skip-L14             rc=0 wall=87.65 denoise=81.143 vae=2.899 fp=5.865 pix=e3f0cc81a6
+17:12:38 sens-1024-p01-skip-L15             rc=0 wall=93.23 denoise=86.874 vae=2.799 fp=5.867 pix=74c0bf0465
+17:14:13 sens-1024-p01-skip-L16             rc=0 wall=81.69 denoise=75.478 vae=2.672 fp=5.867 pix=295331b39f
+17:15:36 sens-1024-p01-skip-L17             rc=0 wall=79.82 denoise=73.667 vae=2.657 fp=5.867 pix=b5ea10040a
+17:16:58 sens-1024-p01-skip-L18             rc=0 wall=79.82 denoise=73.668 vae=2.661 fp=5.867 pix=5ce9bc2446
+17:18:19 sens-1024-p01-skip-L19             rc=0 wall=80.47 denoise=74.263 vae=2.672 fp=5.866 pix=4d9aa0106e
+17:19:41 sens-1024-p01-skip-L20             rc=0 wall=81.67 denoise=75.403 vae=2.715 fp=5.867 pix=34e0143d77
+17:21:04 sens-1024-p01-skip-L21             rc=0 wall=82.63 denoise=76.362 vae=2.782 fp=5.867 pix=22de8fbfe0
+17:22:28 sens-1024-p01-skip-L22             rc=0 wall=83.34 denoise=76.771 vae=2.762 fp=5.866 pix=3b6c046c41
+17:23:53 sens-1024-p01-skip-L23             rc=0 wall=84.36 denoise=78.001 vae=2.82 fp=5.868 pix=23cad70e0a
+17:25:19 sens-1024-p01-skip-L24             rc=0 wall=85.73 denoise=78.569 vae=3.467 fp=5.867 pix=1b37a14aaf
+17:26:46 sens-1024-p01-skip-L25             rc=0 wall=82.97 denoise=76.691 vae=2.747 fp=5.865 pix=877c33c310
+17:28:11 sens-1024-p01-skip-L26             rc=0 wall=80.84 denoise=74.662 vae=2.673 fp=5.867 pix=b245a44257
+17:29:33 sens-1024-p01-skip-L27             rc=0 wall=80.46 denoise=74.251 vae=2.684 fp=5.864 pix=c1226c26b4
+17:30:55 sens-1024-p01-skip-L28             rc=0 wall=81.04 denoise=74.82 vae=2.712 fp=5.866 pix=043aebdce0
+17:32:18 sens-1024-p01-skip-L29             rc=0 wall=80.67 denoise=74.481 vae=2.691 fp=5.867 pix=33773861c7
+RUNNER_DONE
+[17:33:40] PHASE3B_DONE

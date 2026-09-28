@@ -1,0 +1,16 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c03.png",
+ "prompt": "A snowy mountain village at night with warm lit windows and a starry sky, wide shot.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c03.npz"
+ }
+}

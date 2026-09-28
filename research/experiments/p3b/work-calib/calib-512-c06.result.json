@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A rice terrace landscape in Banaue with morning mist and a farmer carrying a basket.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c06.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.079,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.673,
+   "mlx_peak_gb": 3.925
+  },
+  "vae_decode": {
+   "seconds": 0.487,
+   "mlx_peak_gb": 2.226
+  },
+  "generate_total": {
+   "seconds": 22.531,
+   "mlx_peak_gb": 2.226
+  },
+  "denoise_seconds": 21.371
+ },
+ "step_seconds": [
+  2.468,
+  2.436,
+  2.485,
+  2.706,
+  2.607,
+  2.693,
+  2.554,
+  0.146
+ ],
+ "mlx_peak_gb": 3.925,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 23.671,
+ "peak_footprint_gb": 4.74,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c06.npz"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

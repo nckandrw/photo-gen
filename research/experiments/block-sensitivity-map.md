@@ -53,3 +53,31 @@ That is ≈ 180.9 M logical parameters (58.98 M attention + 117.96 M FFN + 3.93 
 
 ## Results
 (appended after chain P3B)
+
+## Results (chain P3B, 2026-09-28; `p3b/sensitivity-metrics.json`, `p3b/time-1024-*.json`, `p3b/stats-1024-*.json`, contact sheets `p3b/sheet-sens*.png` (PNGs not in Git))
+**Compute (measured, real model, 1024² bf16):**
+- The equal-cost claim holds: main blocks cost 293–330 ms each (median 307), and the noise refiner costs the same.
+- Context refiner: 8–9 ms per block. FFN is 52% of each main block.
+
+**Importance = mean (1 − SSIM) under a single-block skip, over 3 prompts at 512²** (uncompiled baseline; 1024² p01 skip and 512² scale-0.9 for consistency):
+
+| group | blocks (512² importance) | what skipping does (contact sheets) |
+|---|---|---|
+| **critical, cheap** | cr0 (0.70), cr1 (0.60) | **cr0 skip destroys the image** (pure noise pattern) at both sizes. cr1 is also severe. Low compute, highest importance. |
+| high | L19 0.48 · L20 0.45 · L3 0.45 · L18 · L21 · L17 · L16 · L2 · nr0 · L5 · L15 · L29 (0.41–0.44) | coherent images with a **different composition/framing** (zoom, lighting). L2 at 1024² also loses material detail. |
+| medium | L22 … L9 (0.34–0.39) | smaller composition shifts |
+| **lowest** | L10 0.29 · L25 · L27 · L26 · nr1 · L28 · L0 · L12 (0.29–0.32) | composition preserved, small detail/lighting changes. These are the candidates for any future depth-reduction study. |
+
+- **Consistency:** Spearman ρ between the 512² and 1024² skip rankings is **0.75**; between skip and scale-0.9 it is **0.61**. The ranking is moderately stable, not precise.
+- **No single block is removable without visible change:** the least important skip leaves SSIM ≈ 0.71 at 512² (L10). At 1024² the smallest change is L28, SSIM 0.95. 0/170 perturbed images matched their baseline.
+- The **mid-stack** (L15–L21) and the **early** blocks (L2, L3, L5) carry composition. The **late** blocks (L25–L28) mostly refine.
+- Activation stats (`stats-*`) show a residual update ‖out − in‖/‖in‖ of 0.1–0.2 in main blocks. Full per-step tables are in the JSON.
+
+**Quadrant classification** (compute axis: context refiner vs everything else):
+
+| | low importance | high importance |
+|---|---|---|
+| **high compute** (main / noise-refiner, ≈ 307 ms each) | L10, L25–L28, L0, L12, nr1 | L2, L3, L5, L15–L21, nr0, L29 |
+| **low compute** (context refiner, ≈ 8 ms) | — | **cr0, cr1** |
+
+**Verdict:** a **measured map exists.** It says depth reduction is *not* free. The best candidates (late blocks) still change images. Any removal study must test *combinations* (skip effects are not additive) and likely needs recovery training. **No block was removed from any model.**

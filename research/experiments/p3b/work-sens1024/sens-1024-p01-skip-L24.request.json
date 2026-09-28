@@ -1,0 +1,17 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-sens1024/sens-1024-p01-skip-L24.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 1024,
+ "height": 1024,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "probe": {
+  "mode": "perturb",
+  "kind": "skip",
+  "block": "L24"
+ }
+}

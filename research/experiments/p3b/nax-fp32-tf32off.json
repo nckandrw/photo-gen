@@ -1,0 +1,11 @@
+{
+ "act": "fp32",
+ "MLX_ENABLE_TF32": "0",
+ "device": "applegpu_g17g",
+ "mlx": "0.32.2",
+ "q4_linear_ms": 49.324,
+ "sdpa_ms": 118.688,
+ "q4_linear_tflops": 2.47,
+ "q4_linear_max_rel_err_vs_fp32_dequant": 0.0015551423421129584,
+ "capture": "p3b/cap/nax-fp32-tf32off.gputrace"
+}

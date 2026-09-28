@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k90-p08.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.831,
+   "mlx_peak_gb": 2.133
+  },
+  "text_encode": {
+   "seconds": 0.68,
+   "mlx_peak_gb": 5.384
+  },
+  "vae_decode": {
+   "seconds": 0.421,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 18.621,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 17.52
+ },
+ "step_seconds": [
+  2.101,
+  2.357,
+  2.084,
+  2.152,
+  2.103,
+  2.155,
+  2.106,
+  2.265
+ ],
+ "mlx_peak_gb": 5.384,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 20.513,
+ "peak_footprint_gb": 5.983,
+ "ffn_prune": {
+  "keep_frac": 0.9,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz",
+  "groups_kept": {
+   "L0": 144,
+   "L1": 144,
+   "L2": 144,
+   "L3": 144,
+   "L4": 144,
+   "L5": 144,
+   "L6": 144,
+   "L7": 144,
+   "L8": 144,
+   "L9": 144,
+   "L10": 144,
+   "L11": 144,
+   "L12": 144,
+   "L13": 144,
+   "L14": 144,
+   "L15": 144,
+   "L16": 144,
+   "L17": 144,
+   "L18": 144,
+   "L19": 144,
+   "L20": 144,
+   "L21": 144,
+   "L22": 144,
+   "L23": 144,
+   "L24": 144,
+   "L25": 144,
+   "L26": 144,
+   "L27": 144,
+   "L28": 144,
+   "L29": 144,
+   "nr0": 144,
+   "nr1": 144
+  },
+  "hidden_width_kept": {
+   "L0": 9216,
+   "L1": 9216,
+   "L2": 9216,
+   "L3": 9216,
+   "L4": 9216,
+   "L5": 9216,
+   "L6": 9216,
+   "L7": 9216,
+   "L8": 9216,
+   "L9": 9216,
+   "L10": 9216,
+   "L11": 9216,
+   "L12": 9216,
+   "L13": 9216,
+   "L14": 9216,
+   "L15": 9216,
+   "L16": 9216,
+   "L17": 9216,
+   "L18": 9216,
+   "L19": 9216,
+   "L20": 9216,
+   "L21": 9216,
+   "L22": 9216,
+   "L23": 9216,
+   "L24": 9216,
+   "L25": 9216,
+   "L26": 9216,
+   "L27": 9216,
+   "L28": 9216,
+   "L29": 9216,
+   "nr0": 9216,
+   "nr1": 9216
+  },
+  "dit_weight_bytes": 3251302528
+ }
+}

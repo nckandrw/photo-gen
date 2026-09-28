@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A child's watercolor painting of a house, a sun and a dog, taped to a refrigerator door.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-calib/calib-512-c08.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.084,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.665,
+   "mlx_peak_gb": 3.925
+  },
+  "vae_decode": {
+   "seconds": 0.463,
+   "mlx_peak_gb": 2.226
+  },
+  "generate_total": {
+   "seconds": 21.23,
+   "mlx_peak_gb": 2.226
+  },
+  "denoise_seconds": 20.102
+ },
+ "step_seconds": [
+  2.418,
+  2.394,
+  2.369,
+  2.419,
+  2.432,
+  2.41,
+  2.418,
+  0.129
+ ],
+ "mlx_peak_gb": 3.925,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 22.378,
+ "peak_footprint_gb": 4.737,
+ "probe": {
+  "mode": "ffn_calib",
+  "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/calib-c08.npz"
+ },
+ "probe_rows": 0,
+ "mlx_disable_compile": "1"
+}

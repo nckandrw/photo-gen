@@ -35,3 +35,11 @@ Negative results are kept on purpose.
 | E10 fp32-promotion ablation | **CLOSED** (answered) | e10/, E02-RESULTS.md correction | the two required sources are the timestep embedding and RoPE; pad tokens are not a source (corrects E01/E02 docs) |
 | Performance map (tiers) | **REFERENCE DATA** | PERFORMANCE-MAP.md | cold + ABBA sustained; 1024² sustained block not steady-state (disclosed) |
 | mflux 512² sigma shift ≠ official static 3.0 | **CLOSED** (2026-09-25: implementation difference, quality-neutral) | sigma-schedule-audit.md, sigma/ | source-verified FLUX dynamic shift vs official static 3.0; blinded 24 pairs each: 512² M 3 / S 0 / 21 ties, 768² M 2 / S 0 / 22 ties, 1024² sanity 11 ties + 1 S; no runtime effect; production unchanged |
+| Block-sensitivity map (34 blocks) | **MEASURED** (2026-09-28) | block-sensitivity-map.md, p3b/ | main blocks equal-cost (≈307 ms bf16 @1024² hot); cr0/cr1 cheap but critical; late blocks L25–L28 least important; no block removable without visible change; 512↔1024 rank ρ 0.75 |
+| Structured FFN-width reduction (group-aligned, no recovery) | **BLOCKED** (needs recovery training) | ffn-reduction-design.md, p3b/ffn-sweep-summary.json | 90% width already breaks text ("QWEN IMAGE 3.1"); 60% collapses; −6…−20% denoise @1024² |
+| Quantization speed map (19 formats) | **CLOSED** for speed | quantization-map.md, p3b/quant-*.json | q4 g64 fastest or within noise at every shape; q5/q6/q8 +8…+46%; fp4/fp8 microscaling slower |
+| Kernel profile (FAST 1024²) | **MEASURED** | kernel-profile.md | q4 matmuls 74% @≈10.4 TFLOPS (NAX), SDPA 15%, RoPE+elementwise 11%; compile gain 2.7%; kernel counts NOT MEASURED |
+| NAX dispatch | **VERIFIED** (q4 qmm + SDPA, both precisions) | nax-status.md | fp32 REFERENCE uses NAX via MLX's TF32 default; TF32 off → 3.2× slower qmm and a different REFERENCE hash |
+| Custom Metal kernels for non-matmul ops | **DEFERRED** (low ceiling) | kernel-profile.md | all non-matmul ops ≤11% of the block, compile already fuses part |
+| 4-step probe (Z-Image base + PAI 4-step LoRA) | **EXPERIMENTAL / PENDING** (assets acquired) | 4step-probe-acquisition.md | audit passed; not run yet |
+

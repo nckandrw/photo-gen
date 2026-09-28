@@ -1,0 +1,10 @@
+[14:50:05] base q4
+Hint: A new version of huggingface_hub (2.0.0) is available! You are using version 1.32.0.
+Hint: The `hf-cli` skill is not installed. Run `hf skills add -g --claude` to teach your AI agents how to use the `hf` CLI.
+Still waiting to acquire lock on /Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4/.cache/huggingface/.gitignore.lock (elapsed: 0.2 seconds)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+path=/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4
+[14:53:48] 4-step LoRA
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+path=/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors
+[14:54:06] PROBE_DOWNLOAD_DONE

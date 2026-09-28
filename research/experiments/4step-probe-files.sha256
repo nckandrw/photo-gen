@@ -1,0 +1,8 @@
+# sha256 of downloaded 4-step probe assets, checked against HF LFS digests at the pinned revision (2026-09-28)
+087246a6f44cd441d2cc65b74e6e795fb9812eea9037db4a149bf10a58e72468  2135435241  OK  mflux-community/z-image-base-mflux-q4@087eaf40:text_encoder/0.safetensors
+0c3ca4628b71de13be39f94414627497f1d13c47211109bf942d8110fefc560e  2140225820  OK  mflux-community/z-image-base-mflux-q4@087eaf40:transformer/0.safetensors
+19f72238d953d258045b877bc828aaa47bea66e5d21a81c2e40cef4bd4f91094  127582075  OK  mflux-community/z-image-base-mflux-q4@087eaf40:text_encoder/1.safetensors
+b8631f7a5c41b758ad86549b6c207d752e567657db3932104c48955c1205b75d  1323528823  OK  mflux-community/z-image-base-mflux-q4@087eaf40:transformer/1.safetensors
+be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506  11422650  OK  mflux-community/z-image-base-mflux-q4@087eaf40:tokenizer/tokenizer.json
+dbe603ac768fb6d5d91699f050eb6ebeb00f671ecc40adbcd7f1d23b9cf8816b  164654177  OK  mflux-community/z-image-base-mflux-q4@087eaf40:vae/0.safetensors
+f883ecc3e33a2c70f926d3f1f17580f04379bfe2011c59fd09eadbe9211b1ea1  568275120  OK  alibaba-pai/Z-Image-Fun-Lora-Distill@f9a4db41:Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors

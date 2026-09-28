@@ -54,3 +54,7 @@ research/**/*.png
 # ---- Metal GPU capture bundles (chain P3B; large binary traces, summarized in the reports) ----
 *.gputrace/
 *.gputrace
+
+# ---- FFN calibration intermediates (deterministic; hashes in research/experiments/p3b/calib-intermediates.sha256; merged scores ffn-scores.npz IS versioned) ----
+research/experiments/p3b/calib-c*.npz
+research/experiments/p3b/smoke/calib-*.npz

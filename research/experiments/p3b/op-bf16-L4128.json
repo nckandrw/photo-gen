@@ -1,0 +1,163 @@
+{
+ "prec": "bf16",
+ "L": 4128,
+ "mlx": "0.32.2",
+ "device": "applegpu_g17g",
+ "block_uncompiled_ms": 182.102,
+ "block_compiled_ms": 177.195,
+ "ops": [
+  {
+   "op": "adaLN_linear(256->4D)",
+   "ms": 0.263,
+   "gflop": 0.01,
+   "mbytes": 2.2,
+   "tflops": 0.03,
+   "gbps": 8.4
+  },
+  {
+   "op": "rmsnorm1*scale",
+   "ms": 1.188,
+   "gflop": 0.08,
+   "mbytes": 63.4,
+   "tflops": 0.07,
+   "gbps": 53.4
+  },
+  {
+   "op": "q_proj",
+   "ms": 11.671,
+   "gflop": 121.74,
+   "mbytes": 71.7,
+   "tflops": 10.43,
+   "gbps": 6.1
+  },
+  {
+   "op": "k_proj",
+   "ms": 11.665,
+   "gflop": 121.74,
+   "mbytes": 71.7,
+   "tflops": 10.44,
+   "gbps": 6.1
+  },
+  {
+   "op": "v_proj",
+   "ms": 11.662,
+   "gflop": 121.74,
+   "mbytes": 71.7,
+   "tflops": 10.44,
+   "gbps": 6.1
+  },
+  {
+   "op": "qk_rmsnorm",
+   "ms": 1.182,
+   "gflop": 0.16,
+   "mbytes": 126.8,
+   "tflops": 0.13,
+   "gbps": 107.3
+  },
+  {
+   "op": "rope_qk",
+   "ms": 8.588,
+   "gflop": 0.1,
+   "mbytes": 127.9,
+   "tflops": 0.01,
+   "gbps": 14.9
+  },
+  {
+   "op": "transpose_qkv",
+   "ms": 1.756,
+   "gflop": 0.0,
+   "mbytes": 190.2,
+   "tflops": null,
+   "gbps": 108.3
+  },
+  {
+   "op": "sdpa(mask as mflux)",
+   "ms": 27.553,
+   "gflop": 261.74,
+   "mbytes": 126.8,
+   "tflops": 9.5,
+   "gbps": 4.6
+  },
+  {
+   "op": "sdpa(mask=None)",
+   "ms": 26.093,
+   "gflop": 261.74,
+   "mbytes": 126.8,
+   "tflops": 10.03,
+   "gbps": 4.9
+  },
+  {
+   "op": "transpose_out",
+   "ms": 0.035,
+   "gflop": 0.0,
+   "mbytes": 63.4,
+   "tflops": null,
+   "gbps": 1811.6
+  },
+  {
+   "op": "out_proj",
+   "ms": 11.65,
+   "gflop": 121.74,
+   "mbytes": 71.7,
+   "tflops": 10.45,
+   "gbps": 6.2
+  },
+  {
+   "op": "attn_residual(norm2,gate,add)",
+   "ms": 1.848,
+   "gflop": 0.11,
+   "mbytes": 95.1,
+   "tflops": 0.06,
+   "gbps": 51.5
+  },
+  {
+   "op": "rmsnorm_ffn*scale",
+   "ms": 1.181,
+   "gflop": 0.08,
+   "mbytes": 63.4,
+   "tflops": 0.07,
+   "gbps": 53.7
+  },
+  {
+   "op": "ffn_w1",
+   "ms": 30.597,
+   "gflop": 324.64,
+   "mbytes": 138.4,
+   "tflops": 10.61,
+   "gbps": 4.5
+  },
+  {
+   "op": "ffn_w3",
+   "ms": 30.596,
+   "gflop": 324.64,
+   "mbytes": 138.4,
+   "tflops": 10.61,
+   "gbps": 4.5
+  },
+  {
+   "op": "silu*mul",
+   "ms": 3.314,
+   "gflop": 0.21,
+   "mbytes": 253.6,
+   "tflops": 0.06,
+   "gbps": 76.5
+  },
+  {
+   "op": "ffn_w2",
+   "ms": 31.547,
+   "gflop": 324.64,
+   "mbytes": 138.4,
+   "tflops": 10.29,
+   "gbps": 4.4
+  },
+  {
+   "op": "ffn_residual(norm2,gate,add)",
+   "ms": 1.842,
+   "gflop": 0.11,
+   "mbytes": 95.1,
+   "tflops": 0.06,
+   "gbps": 51.6
+  }
+ ],
+ "isolated_sum_ms_excl_maskNone": 188.14
+}

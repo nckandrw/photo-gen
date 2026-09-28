@@ -1,0 +1,16 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k60-p12.png",
+ "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 42,
+ "precision": "bf16",
+ "release_transformer": true,
+ "ffn_prune": {
+  "keep_frac": 0.6,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz"
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-probe/time-1024-fp32-st9-p01.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 1024,
+ "height": 1024,
+ "steps": 9,
+ "seed": 42,
+ "precision": "fp32",
+ "release_transformer": true,
+ "probe": {
+  "mode": "time",
+  "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/time-1024-fp32.json"
+ }
+}

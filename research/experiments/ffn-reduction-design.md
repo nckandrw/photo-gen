@@ -61,3 +61,20 @@ Without recovery training, **(b) is expected to fail below k ≈ 0.9**. The TMP 
   1. The lifetime peak footprint is confounded by a load-time transient: the full and sliced arrays briefly coexist. k = 0.8 showed 5.86 GB vs 5.41 GB. A cache clear after slicing does not remove the transient, so memory is now reported as **exact DiT weight bytes** (`dit_weight_bytes`), not lifetime footprint.
   2. The phase MLX peaks cannot isolate denoise (the `vae_decode` phase resets the peak inside `generate_total`). They are not used for this sweep.
 - The smoke timings (single runs) are not evidence.
+
+## Pass 1 results (chain P3B, 2026-09-28; `p3b/ffn-sweep-summary.json`, calibration on 8 disjoint prompts)
+| FFN width | 1024² denoise (single run, sustained) | 512² denoise (median, 12 runs) | DiT weights (exact) | 512² SSIM vs 100% (median / min) | visual (contact sheets) |
+|---|---:|---:|---:|---|---|
+| 100% (identity; hash = production `0b9cc20a`) | 77.1 s | 19.9 s | 3.46 GB | — | — |
+| 90% | 72.6 s (−6%) | 17.6 s (−12%) | 3.25 GB | 0.69 / 0.45 | **text regression:** "QWEN IMAGE **3.1**" instead of 2.1; composition shifts |
+| 80% | 69.8 s (−9%) | 16.1 s (−19%) | 3.04 GB | 0.60 / 0.38 | "**WSIT SIOUIJOR**"; texture loss |
+| 70% | 67.8 s (−12%) | 14.4 s (−28%) | 2.83 GB | 0.56 / 0.36 | garbled text, broken structure |
+| 60% | 62.0 s (−20%) | 13.2 s (−33%) | 2.61 GB | 0.50 / 0.34 | structural collapse (cat, neon, poster) |
+
+- The 1024² timings are single runs in a warming sustained block: a trend, not a claim. The 512² medians are more reliable.
+- **Structurally valid:** yes. Group-aligned slicing keeps every kept q4 weight bit-exact, and it runs compiled in mflux/MLX.
+- **Serializable:** yes in principle. The sliced arrays form a standard q4 layer and could be saved with mflux's weight format. **Not done:** no reduced model was produced or saved, by directive.
+
+**Decision rule result:** criterion (b), no gross failure in any of the 12 prompts, **fails already at 90%**. Only criterion (a), a 10% denoise reduction at 1024², would need ≈ 75–80% width.
+
+**Verdict: NO training-free operating point.** This is as predicted: TMP needed distillation recovery at −37.5%. Structured FFN reduction for Z-Image-Turbo is **BLOCKED on recovery training**. It joins the costed-distillation track (`distillation-feasibility.md`) as an option, not a next step.

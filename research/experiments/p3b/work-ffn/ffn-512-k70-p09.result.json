@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+  "--width",
+  "512",
+  "--height",
+  "512",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-512-k70-p09.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.717,
+   "mlx_peak_gb": 1.752
+  },
+  "text_encode": {
+   "seconds": 0.646,
+   "mlx_peak_gb": 4.99
+  },
+  "vae_decode": {
+   "seconds": 0.413,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 15.541,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 14.482
+ },
+ "step_seconds": [
+  1.352,
+  2.069,
+  1.77,
+  1.784,
+  1.815,
+  1.805,
+  1.788,
+  1.9
+ ],
+ "mlx_peak_gb": 4.99,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 17.308,
+ "peak_footprint_gb": 5.684,
+ "ffn_prune": {
+  "keep_frac": 0.7,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz",
+  "groups_kept": {
+   "L0": 112,
+   "L1": 112,
+   "L2": 112,
+   "L3": 112,
+   "L4": 112,
+   "L5": 112,
+   "L6": 112,
+   "L7": 112,
+   "L8": 112,
+   "L9": 112,
+   "L10": 112,
+   "L11": 112,
+   "L12": 112,
+   "L13": 112,
+   "L14": 112,
+   "L15": 112,
+   "L16": 112,
+   "L17": 112,
+   "L18": 112,
+   "L19": 112,
+   "L20": 112,
+   "L21": 112,
+   "L22": 112,
+   "L23": 112,
+   "L24": 112,
+   "L25": 112,
+   "L26": 112,
+   "L27": 112,
+   "L28": 112,
+   "L29": 112,
+   "nr0": 112,
+   "nr1": 112
+  },
+  "hidden_width_kept": {
+   "L0": 7168,
+   "L1": 7168,
+   "L2": 7168,
+   "L3": 7168,
+   "L4": 7168,
+   "L5": 7168,
+   "L6": 7168,
+   "L7": 7168,
+   "L8": 7168,
+   "L9": 7168,
+   "L10": 7168,
+   "L11": 7168,
+   "L12": 7168,
+   "L13": 7168,
+   "L14": 7168,
+   "L15": 7168,
+   "L16": 7168,
+   "L17": 7168,
+   "L18": 7168,
+   "L19": 7168,
+   "L20": 7168,
+   "L21": 7168,
+   "L22": 7168,
+   "L23": 7168,
+   "L24": 7168,
+   "L25": 7168,
+   "L26": 7168,
+   "L27": 7168,
+   "L28": 7168,
+   "L29": 7168,
+   "nr0": 7168,
+   "nr1": 7168
+  },
+  "dit_weight_bytes": 2826629248
+ }
+}

@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/work-ffn/ffn-1024-k80-p01.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.811,
+   "mlx_peak_gb": 1.942
+  },
+  "text_encode": {
+   "seconds": 0.707,
+   "mlx_peak_gb": 5.186
+  },
+  "vae_decode": {
+   "seconds": 2.635,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 73.114,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 69.772
+ },
+ "step_seconds": [
+  8.411,
+  8.595,
+  8.705,
+  8.715,
+  8.672,
+  8.715,
+  8.911,
+  8.793
+ ],
+ "mlx_peak_gb": 5.186,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 75.275,
+ "peak_footprint_gb": 5.901,
+ "ffn_prune": {
+  "keep_frac": 0.8,
+  "scores": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/ffn-scores.npz",
+  "groups_kept": {
+   "L0": 128,
+   "L1": 128,
+   "L2": 128,
+   "L3": 128,
+   "L4": 128,
+   "L5": 128,
+   "L6": 128,
+   "L7": 128,
+   "L8": 128,
+   "L9": 128,
+   "L10": 128,
+   "L11": 128,
+   "L12": 128,
+   "L13": 128,
+   "L14": 128,
+   "L15": 128,
+   "L16": 128,
+   "L17": 128,
+   "L18": 128,
+   "L19": 128,
+   "L20": 128,
+   "L21": 128,
+   "L22": 128,
+   "L23": 128,
+   "L24": 128,
+   "L25": 128,
+   "L26": 128,
+   "L27": 128,
+   "L28": 128,
+   "L29": 128,
+   "nr0": 128,
+   "nr1": 128
+  },
+  "hidden_width_kept": {
+   "L0": 8192,
+   "L1": 8192,
+   "L2": 8192,
+   "L3": 8192,
+   "L4": 8192,
+   "L5": 8192,
+   "L6": 8192,
+   "L7": 8192,
+   "L8": 8192,
+   "L9": 8192,
+   "L10": 8192,
+   "L11": 8192,
+   "L12": 8192,
+   "L13": 8192,
+   "L14": 8192,
+   "L15": 8192,
+   "L16": 8192,
+   "L17": 8192,
+   "L18": 8192,
+   "L19": 8192,
+   "L20": 8192,
+   "L21": 8192,
+   "L22": 8192,
+   "L23": 8192,
+   "L24": 8192,
+   "L25": 8192,
+   "L26": 8192,
+   "L27": 8192,
+   "L28": 8192,
+   "L29": 8192,
+   "nr0": 8192,
+   "nr1": 8192
+  },
+  "dit_weight_bytes": 3038965888
+ }
+}

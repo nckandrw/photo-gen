@@ -62,3 +62,27 @@ Scope: map the candidates and decide what is measurable now. The Q4 pack stays p
 
 ## Chain P3B measurement
 `quant_microbench.py <fp32|bf16> <L> <out.json>`: 19 formats × (bf16 at L = 4128, bf16 at L = 1056, fp32 at L = 4128). Results are appended below.
+
+## Chain P3B speed map (2026-09-28; `p3b/quant-*.json`; synthetic weights, one block's 7 linears, production shapes)
+**Confound (disclosed):** within each process, formats ran in a fixed order (bf16 → q3 … q8 → mxfp4, nvfp4, mxfp8) on a warming chip. Later formats are systematically disadvantaged, so differences under ≈ 5% are not interpretable.
+
+| format | bf16, L4128 (FAST 1024²) | bf16, L1056 (FAST 512²) | fp32, L4128 (REFERENCE 1024²) | weight error (Gaussian) |
+|---|---:|---:|---:|---:|
+| **affine q4 g64 (production)** | **1.000** (151.2 ms) | **1.000** (37.5 ms) | **1.000** (279.0 ms) | 0.097 |
+| affine q4 g128 | 0.994 | 1.146 | 0.991 | 0.107 |
+| affine q3 g128 / g64 | 0.986 / 0.996 | 1.344 / 1.488 | 0.963 / 1.003 | 0.20–0.22 |
+| affine q5 (g32–g128) | 1.08–1.09 | 1.28–1.46 | 1.17–1.20 | 0.04–0.05 |
+| affine q6 (g32–g128) | 1.14–1.18 | 1.31–1.46 | 1.21–1.24 | 0.02–0.03 |
+| affine q8 | 1.17–1.25 | 1.27–1.46 | 1.25–1.29 | 0.006–0.007 |
+| bf16 weights | 1.033 | 1.298 | 1.207 | 0 |
+| nvfp4 / mxfp4 / mxfp8 | 1.21 / 1.24 / 1.24 | 1.19 / 1.42 / 1.61 | 1.07 / 1.10 / 1.31 | 0.097 / 0.117 / 0.023 |
+
+**Findings**
+- **No format meets the ≥ 3% speed threshold.** The best nominal gain, q3 g128 at −1.4% (bf16, 1024²), is inside the order confound, and its weight error is 2.3× q4's. **q4 g64 stays the fastest measured format**, and at 512² it is ≥ 15% faster than every alternative, which suggests its kernel tiles are the best-tuned.
+- **Higher precision (q5/q6/q8) costs +8% to +46%.** It could only matter as a *quality* tier. The quality cost of q4 has never been measured.
+- **FP4/FP8 microscaling formats are slower** than affine q4 on this M5 / MLX 0.32.2 (+7% to +61%).
+
+**Status:**
+- speed search for a faster format: **CLOSED** (no candidate);
+- q5/q6 as a *quality* tier: **OPEN QUESTION**, needs downloads plus a blinded gate, low priority;
+- mixed or layer-sensitive precision: **DEFERRED**. It can't beat q4 on speed per these numbers; it could only trade quality.

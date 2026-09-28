@@ -13,14 +13,20 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
   - 1024²: reference `fe47d88d`, fast `7b45cfbe`, bf16/9 `11b19277`.
   - 768²: reference `94a023d3`, fast `20ff9e2c`.
   - 512²: reference `9ae59f59`, fast `0b9cc20a`.
-- **RUNNING:** chain P3B.
-  - Script: `research/experiments/phase3-chainB.sh`; console: `phase3-chainB-console.log`; marker `PHASE3B_DONE`.
-  - Resumable: rerun the script (prod_runner skips done tags; the microbench stages skip if their output exists).
-  - Relaunch only as a top-level `nohup … & disown`.
-- **Downloaded (research only, gitignored):** `models/research/z-image-base-mflux-q4` @ 087eaf40 + `models/research/loras/…4-Steps-2603-ComfyUI.safetensors` @ f9a4db41 (`4step-probe-acquisition.md`). The sha256 check against HF LFS digests is still TODO. The probe is designed but not run; it runs after chain B.
-- **Open:** after chain B: parse the captures (`p3b/cap/*.gputrace`, CPU-heavy), fill kernel-profile / block-sensitivity / quantization / FFN results, then the 4-step probe.
+- **Nothing is running.** Chain P3B completed 2026-09-28 17:33 (`PHASE3B_DONE`, 254 runs, 0 failures). Results are written up (see the entry below).
+- **Downloaded (research only, gitignored):** `models/research/z-image-base-mflux-q4` @ 087eaf40 + `models/research/loras/…4-Steps-2603-ComfyUI.safetensors` @ f9a4db41 (`4step-probe-acquisition.md`). 7/7 LFS files verified (`4step-probe-files.sha256`). The probe is designed but NOT run yet (next step).
+- **Open:** the 4-step probe run (pre-registered in `4step-probe-acquisition.md` §4). The `p3b/cap/*.gputrace` bundles (≈16 GB, gitignored) can be deleted only with the user's OK; they are summarized in nax-status.md.
 
 ---
+
+## 2026-09-28 — Chain P3B results (profile, NAX, block sensitivity, FFN sweep, quant speed map)
+- **NAX VERIFIED:** q4 qmm + SDPA use NAX in bf16 AND fp32. fp32 goes via MLX's `MLX_ENABLE_TF32=1` default. TF32 off → qmm 3.2× slower, SDPA 2.7×, and REFERENCE 512² hash `6d4311fe` ≠ `9ae59f59`. So REFERENCE depends on the TF32 default (the worker strips `MLX_*` env; protected). `nax-status.md`.
+- **Kernel profile, FAST 1024²:** q4 matmuls 74% @ ≈10.4 TFLOPS, SDPA 15%, RoPE + elementwise 11%, compile gain 2.7%. Kernel counts NOT MEASURED (the capture text gives an inventory only). `kernel-profile.md`.
+- **Harness bug found and fixed:** the op profile's synthetic norms defaulted to fp32, which promoted "bf16" to fp32. Fixed (bf16 norms + the production bf16 patch): bf16/fp32 = 0.68. The faulty outputs are in `p3b/superseded/`.
+- **Block sensitivity:** equal-cost main blocks; cr0/cr1 cheap but critical; late L25–L28 least important; no block is free. ρ(512, 1024) = 0.75. `block-sensitivity-map.md`.
+- **FFN width:** the identity control is exact. 90% width already breaks text → no training-free point → BLOCKED on recovery training. `ffn-reduction-design.md`.
+- **Quant speed map:** nothing beats q4 g64 by ≥ 3%. q5/q6/q8 +8…46%, fp4/fp8 slower → speed search CLOSED. `quantization-map.md` (order confound disclosed).
+- **Probe assets verified** (7/7 LFS sha256).
 
 ## 2026-09-28 — v2 freeze, license, 4-step acquisition, chain B start (directive "PHOTO-GEN POST-FAST VALIDATION")
 - **Discrepancy surfaced, user decided:** bf16+9 WAS gated at 1024² (bf16 gate, 0/2/22), so it stays valid at 1024² only and is experimental at 512²/768². Implemented as an explicit `VALIDATED_COMBINATIONS` table plus a regression test (`test_validated_matrix_is_exact`). One old test that relied on the mislabel was adapted.
