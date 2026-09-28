@@ -1,0 +1,184 @@
+{
+ "verified_at": "2026-09-28",
+ "method": "sha256 (LFS files) / git blob sha1 (small files) vs Hugging Face tree API at the pinned revision; size checked",
+ "candidates_A_B_model": {
+  "name": "Z-Image-Turbo q4 (production)",
+  "repo": "mflux-community/z-image-turbo-mflux-q4",
+  "revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+  "license": "none declared by the pack; upstream Tongyi-MAI/Z-Image-Turbo Apache-2.0 (docs/THIRD-PARTY-LICENSES.md)",
+  "files": "config/backend-zimage-mflux.json (verified by bin/photo-gen verify)"
+ },
+ "candidate_C_base": {
+  "name": "Z-Image (base) q4, mflux community conversion",
+  "repo": "mflux-community/z-image-base-mflux-q4",
+  "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+  "upstream": "Tongyi-MAI/Z-Image",
+  "license": "apache-2.0 (card metadata; card: 'the original model's license applies unchanged')"
+ },
+ "candidate_C_lora": {
+  "name": "Z-Image-Fun-Lora-Distill 4-Steps 2603 (ComfyUI key format)",
+  "repo": "alibaba-pai/Z-Image-Fun-Lora-Distill",
+  "revision": "f9a4db417ab7d8c1c5ffa9c0f03bdd72ae4a070c",
+  "file": "Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+  "trained_for": "Z-Image base (card: 'does not use any Z-Image-Turbo related weights'); distills steps AND CFG",
+  "license": "apache-2.0 (card metadata)"
+ },
+ "runtime": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "files": [
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": ".gitattributes",
+   "local_path": "models/research/z-image-base-mflux-q4/.gitattributes",
+   "bytes": 1580,
+   "algo": "git-sha1",
+   "digest": "f1ca65ce6a5b0774360fde1ec05157d9f937aaa2",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "README.md",
+   "local_path": "models/research/z-image-base-mflux-q4/README.md",
+   "bytes": 2818,
+   "algo": "git-sha1",
+   "digest": "9a8dbaf2283d50299a9196f2ca356b258fcee91a",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "manifest.json",
+   "local_path": "models/research/z-image-base-mflux-q4/manifest.json",
+   "bytes": 78,
+   "algo": "git-sha1",
+   "digest": "12d09cdbdf462b941379d8622e7c2f70b476e39c",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "text_encoder/0.safetensors",
+   "local_path": "models/research/z-image-base-mflux-q4/text_encoder/0.safetensors",
+   "bytes": 2135435241,
+   "algo": "sha256",
+   "digest": "087246a6f44cd441d2cc65b74e6e795fb9812eea9037db4a149bf10a58e72468",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "text_encoder/1.safetensors",
+   "local_path": "models/research/z-image-base-mflux-q4/text_encoder/1.safetensors",
+   "bytes": 127582075,
+   "algo": "sha256",
+   "digest": "19f72238d953d258045b877bc828aaa47bea66e5d21a81c2e40cef4bd4f91094",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "text_encoder/model.safetensors.index.json",
+   "local_path": "models/research/z-image-base-mflux-q4/text_encoder/model.safetensors.index.json",
+   "bytes": 51332,
+   "algo": "git-sha1",
+   "digest": "78aa1792c9ed09b573cfa5d221ea3d5dc45bb721",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "tokenizer/chat_template.jinja",
+   "local_path": "models/research/z-image-base-mflux-q4/tokenizer/chat_template.jinja",
+   "bytes": 4168,
+   "algo": "git-sha1",
+   "digest": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "tokenizer/tokenizer.json",
+   "local_path": "models/research/z-image-base-mflux-q4/tokenizer/tokenizer.json",
+   "bytes": 11422650,
+   "algo": "sha256",
+   "digest": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "tokenizer/tokenizer_config.json",
+   "local_path": "models/research/z-image-base-mflux-q4/tokenizer/tokenizer_config.json",
+   "bytes": 692,
+   "algo": "git-sha1",
+   "digest": "9a87e3822403fb40a9524bb75edb66c6f0585750",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "transformer/0.safetensors",
+   "local_path": "models/research/z-image-base-mflux-q4/transformer/0.safetensors",
+   "bytes": 2140225820,
+   "algo": "sha256",
+   "digest": "0c3ca4628b71de13be39f94414627497f1d13c47211109bf942d8110fefc560e",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "transformer/1.safetensors",
+   "local_path": "models/research/z-image-base-mflux-q4/transformer/1.safetensors",
+   "bytes": 1323528823,
+   "algo": "sha256",
+   "digest": "b8631f7a5c41b758ad86549b6c207d752e567657db3932104c48955c1205b75d",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "transformer/model.safetensors.index.json",
+   "local_path": "models/research/z-image-base-mflux-q4/transformer/model.safetensors.index.json",
+   "bytes": 61606,
+   "algo": "git-sha1",
+   "digest": "733eacc193dd94554761192a7fe0951c4324e3b9",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "vae/0.safetensors",
+   "local_path": "models/research/z-image-base-mflux-q4/vae/0.safetensors",
+   "bytes": 164654177,
+   "algo": "sha256",
+   "digest": "dbe603ac768fb6d5d91699f050eb6ebeb00f671ecc40adbcd7f1d23b9cf8816b",
+   "verified": true
+  },
+  {
+   "repo": "mflux-community/z-image-base-mflux-q4",
+   "revision": "087eaf40738482a1a99394ce1b490ab12738c1f6",
+   "file": "vae/model.safetensors.index.json",
+   "local_path": "models/research/z-image-base-mflux-q4/vae/model.safetensors.index.json",
+   "bytes": 17378,
+   "algo": "git-sha1",
+   "digest": "7c4b52aa9fc550d17eda9313a109872e7a9dcc4b",
+   "verified": true
+  },
+  {
+   "repo": "alibaba-pai/Z-Image-Fun-Lora-Distill",
+   "revision": "f9a4db417ab7d8c1c5ffa9c0f03bdd72ae4a070c",
+   "file": "Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "local_path": "models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "bytes": 568275120,
+   "algo": "sha256",
+   "digest": "f883ecc3e33a2c70f926d3f1f17580f04379bfe2011c59fd09eadbe9211b1ea1",
+   "verified": true
+  }
+ ],
+ "all_verified": true
+}
