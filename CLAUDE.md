@@ -52,7 +52,12 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 
 - **Lower step counts:** 7–4 steps are experimental.
 - **NFE:** in mflux, N steps = N NFE. The reference therefore runs 9 NFE; FAST at 1024² ≈ the official 8-NFE recipe.
-- **Regression hashes** (p01 "a red apple on a wooden table, soft window light", seed 42, 1024²): reference `fe47d88d…`, fast `7b45cfbe…`, bf16/9 `11b19277…`. 512² reference: `9ae59f59…`.
+- **Validity is per exact combination** (`VALIDATED_COMBINATIONS`): fp32+9 and bf16+8 at 512²/768²/1024²; bf16+9 at 1024² only. Never mark a combination valid because a nearby one was gated. A regression test pins the table.
+- **Regression hashes** (p01 "a red apple on a wooden table, soft window light", seed 42):
+  - 1024²: reference `fe47d88d…`, fast `7b45cfbe…`, bf16/9 `11b19277…`;
+  - 768²: reference `94a023d3…`, fast `20ff9e2c…`;
+  - 512²: reference `9ae59f59…`, fast `0b9cc20a…`.
+- **REFERENCE's "fp32" relies on MLX's `MLX_ENABLE_TF32=1` default** (matmuls/attention run on NAX with TF32 math; `research/experiments/nax-status.md`). The worker strips `MLX_*` from its env; keep it that way or the hashes change.
 
 ## Hard constraints (from the project owner)
 - **Don't modify or upgrade** mflux, MLX, the venv's packages, model weights, quantization or the scheduler. Change behaviour only through in-process patches in the worker, each backed by evidence.
@@ -65,6 +70,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 
 ## Research layout
 - **Where to start:** `research/experiments/STATUS.md` is the status register (adopted/rejected/blocked) and the place to look first. Tier timings are in `research/experiments/PERFORMANCE-MAP.md`.
+- **Phase 3 records:** `phase3-plan.md`, `phase3-record-audit.md`, `phase3-scorecard.md`, `sigma-schedule-audit.md` (closed), `fast-resolution-gates-report.md`, `nax-status.md`, `kernel-profile.md`, `block-sensitivity-map.md`, `ffn-reduction-design.md`, `quantization-map.md`, `distillation-feasibility.md`, `4step-probe-acquisition.md`, `4step-probe/`.
 - **Planning:** `research/EXPERIMENT-BACKLOG.md` holds the next frontier (structured reduction, quantization formats, kernels, few-step distillation).
 - **Architecture notes:** `z-image-architecture-map.md`.
 - **Experiment harnesses:**
@@ -73,6 +79,29 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - `ab_runner.py`, `pair_metrics.py`.
   - All run sequentially with `research/monitor.sh`, and must not share the GPU with other runs.
 - **Upstream reports:** mflux-community/mflux #760 and #761 (`upstream-mflux-issue-SUBMITTED.md`).
+
+## Repository, docs and licensing
+- **Docs:**
+  - `docs/photo-gen-guide.html`: full guide.
+  - `docs/HARDWARE.md`: the only validated machine is MacBook Air M5 16 GB, macOS 27.0; never generalize benchmarks beyond it.
+  - `docs/REPRODUCIBILITY.md`: rebuild steps and hashes.
+  - `docs/RELEASE-NOTES.md`: tags.
+  - `docs/THIRD-PARTY-LICENSES.md`, `docs/USAGE.md`.
+- **Licensing:** `LICENSE` is MIT for photo-gen's own code only. It never relicenses mflux/MLX/models. The production q4 pack declares no license (flagged in THIRD-PARTY-LICENSES).
+- **Git:**
+  - Push via HTTPS with `-c credential.helper= -c credential.helper='!gh auth git-credential'` (SSH is not authorized).
+  - Tags v1/v2 are immutable restore points.
+  - Commit text evidence (reports, JSON/JSONL, manifests). Never commit weights, PNGs, `.gputrace`, `data/` or `mflux/`.
+- **Research-only models** go in `models/research/` (gitignored), always with an acquisition audit (license, revision, sha256) before download. Currently: Z-Image base q4 + the alibaba-pai 4-step LoRA (`research/experiments/4step-probe/`).
+- **Long GPU chains:**
+  - Run them as a top-level `nohup zsh script > log 2>&1 < /dev/null & disown`. A chain started inside a compound shell command was killed once.
+  - Only one GPU job at a time. Research harnesses bypass `data/gpu.lock`, so don't run photo-gen generations while a chain is running.
+  - Record each chain's script, log and completion marker in MEMORY.md.
+- **Research harness caveats learned the hard way:**
+  - Synthetic MLX blocks default norm weights to fp32, which silently promotes bf16. Cast to bf16 as in the real pack.
+  - mflux bakes LoRAs by default (`--no-bake-lora` for runtime adapters).
+  - mflux's Z-Image *base* CLI defaults to the `flow_match_euler_discrete` scheduler, not `linear`.
+  - Instrumented (uncompiled) runs change numerics; compare against uncompiled baselines.
 
 ## Memory ledger (MEMORY.md)
 `MEMORY.md` at the repo root is the persistent work ledger. It's how a new session resumes without loss.

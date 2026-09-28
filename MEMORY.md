@@ -5,19 +5,74 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
+_Last updated 2026-09-28 ~22:10._
+
+**Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
-  - **Validated combinations** (`VALIDATED_COMBINATIONS`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only. Everything else needs `--allow-experimental`.
-  - 40/40 tests. Transformer-release fix ON. MIT license for photo-gen code; third-party licences in `docs/THIRD-PARTY-LICENSES.md`.
-- **Git:** private `nckandrw/photo-gen`, `main`. Tags v1 (`db10040`) and v2 (`3961404`) are immutable. Push over HTTPS with `-c credential.helper='!gh auth git-credential'`.
+  - **Validated combinations** (`VALIDATED_COMBINATIONS` in `app/photogen/runtimes/mflux_zimage.py`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only. Everything else needs `--allow-experimental`.
+  - 40/40 tests. Transformer-release fix ON. MIT for photo-gen code (`LICENSE`); third-party licences in `docs/THIRD-PARTY-LICENSES.md`; `docs/RELEASE-NOTES.md` (v1 → v2).
 - **Regression hashes** (p01 apple, seed 42):
   - 1024²: reference `fe47d88d`, fast `7b45cfbe`, bf16/9 `11b19277`.
   - 768²: reference `94a023d3`, fast `20ff9e2c`.
   - 512²: reference `9ae59f59`, fast `0b9cc20a`.
-- **Nothing is running.** Chain P3B completed 2026-09-28 17:33 (`PHASE3B_DONE`, 254 runs, 0 failures). Results are written up (see the entry below).
-- **Downloaded (research only, gitignored):** `models/research/z-image-base-mflux-q4` @ 087eaf40 + `models/research/loras/…4-Steps-2603-ComfyUI.safetensors` @ f9a4db41 (`4step-probe-acquisition.md`). 7/7 LFS files verified (`4step-probe-files.sha256`). The probe is designed but NOT run yet (next step).
-- **Open:** the 4-step probe run (pre-registered in `4step-probe-acquisition.md` §4). The `p3b/cap/*.gputrace` bundles (≈16 GB, gitignored) can be deleted only with the user's OK; they are summarized in nax-status.md.
+
+**Git**
+- Private `nckandrw/photo-gen`, branch `main`. Tags v1 (`db10040`) and v2 (`3961404`) are immutable; never move them.
+- Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
+- Stage explicitly, never `git add .`.
+
+**RUNNING (as of 22:10): the 4-step probe benchmark**
+- Script `research/experiments/4step-probe/run-benchmark.sh`; console `4step-probe/benchmark-console.log`; marker **`PROBE_BENCH_DONE`**.
+- Stages: cold A, B, C (each after 600 s idle; started 21:53); then 72 sustained runs (`jobs-bench.json`). Expected done ≈ 23:30.
+- Results: `results-cold.jsonl`, `results-bench.jsonl`; images in `work-cold/`, `work-bench/` (PNGs gitignored).
+- Resumable: rerun the script (prod_runner skips done tags; the cold loop re-idles). Relaunch only as a top-level `nohup zsh … > log 2>&1 < /dev/null & disown`.
+- Check progress: `tail research/experiments/4step-probe/benchmark-console.log` and `pgrep -f run-benchmark.sh`.
+- Cold A already reproduced production FAST `7b45cfbe` (denoise 48.5 s).
+
+**Next steps (in order)**
+1. After `PROBE_BENCH_DONE`: check integrity (72/72 rc = 0; every C run's argv contains `--no-bake-lora`).
+2. Blinded review, exactly as in `4step-probe/blind-protocol.md`:
+   - build pairs from `results-bench.jsonl` (C vs B, C vs A, A vs B);
+   - `blind_stage.py prepare` each with rng 2809281 / 2809282 / 2809283;
+   - score each (lexicographic: prompt adherence > composition > visual quality); freeze each;
+   - **unblind only after all three are frozen**.
+3. Objective metrics: paired denoise/wall ratios; footprint/swap/pressure; the grid16 FFT score for all 72 images (method in `4step-probe/README.md`); thermal vs run position; PSNR/SSIM descriptive only.
+4. Verify the LoRA key-match count, which was not captured: run one C generation with stdout kept, or inspect mflux's print.
+5. Write `4step-probe/{benchmark.csv, quality-results.md, results.md}`. Answer Q1–Q6 and classify with the pre-registered rules in `4step-probe/README.md` (PROMISING / INTERESTING BUT INFERIOR / REJECTED / BLOCKED / NEW DIRECTION).
+6. Update `research/experiments/STATUS.md`, `research/EXPERIMENT-BACKLOG.md`, `research/PAPER-RESEARCH-MAP.md`. Commit the text evidence (never weights or PNGs), then push.
+7. Then: pick the next research direction from the evidence. Candidates: a scheduler study for C if the grid artifact dominates; a costed recovery-training/distillation plan (FFN width is BLOCKED on it).
+
+**Research assets (gitignored)**
+- `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
+- 15/15 files verified against HF digests (`4step-probe/asset-manifest.json`).
+- `research/experiments/p3b/cap/*.gputrace` (≈16 GB) are summarized in `nax-status.md`. Delete them only with the user's OK.
+- The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-28 (evening) — 4-step probe started (directive "PHOTO-GEN EXPERIMENT: 4-step Z-Image Base + LoRA vs Turbo")
+**Goal:** can a 4-step-distilled model (Z-Image **base** + alibaba-pai 4-step LoRA; NOT Turbo) beat plain Turbo-at-4-steps on speed/quality, and approach FAST? Inference only; production untouched.
+
+**Done**
+- **Pre-registered** (commit `052e41d`, before any benchmark image): `4step-probe/README.md`, `experiment-config.json`, `blind-protocol.md`, `asset-manifest.json` (15/15 files verified).
+- Candidates at 1024² bf16: **A** Turbo 8 (= FAST), **B** Turbo 4, **C** base + LoRA at 4 steps.
+- Fresh seeds 4242/6174 × the 12-prompt suite. The per-condition order rotates through all 6 permutations.
+- Worker `4step-probe/probe_worker.py` reuses the production worker's patches; it reproduced FAST `7b45cfbe` exactly.
+
+**Discrepancies found in smoke (all disclosed in `4step-probe/README.md`)**
+1. **Scheduler:** mflux's base CLI defaults to `flow_match_euler_discrete` (at 4 steps: σ 1 → 0.967 → 0.908 → 0.767 → 0). C uses `linear` (≈ the official static shift 3.0), the same as A/B.
+2. **mflux bakes LoRAs by default** (dequantize → add → requantize q4): peak 10.54 GB, swap +0.97 GB. Now `--no-bake-lora` (runtime adapters): 6.67 GB, no swap, +4% denoise. The baked runs are kept as secondary data.
+3. **Base without LoRA** at 4 steps = noise, and 5.84 GB (so the +4.7 GB was purely the bake transient).
+4. **New metric (Improvement Clause):** C shows a 16-px periodic grid (FFT peak/background): C 5.6, A 1.0, B 1.1; flow-match 37.8; no-LoRA 41.7. It is not caused by bf16 or baking. This is a candidate new failure mode (Q6).
+5. **Corrected my own unverified claim** ("612/612 keys matched"). The key count is still to be checked.
+
+**Smoke numbers** (single runs, not cold-controlled):
+
+| run | wall | denoise |
+|---|---:|---:|
+| A | 55.7 s | 50.1 s |
+| B | 31.4 s | 26.0 s |
+| C runtime | 33.2 s | 27.1 s |
 
 ## 2026-09-28 — Chain P3B results (profile, NAX, block sensitivity, FFN sweep, quant speed map)
 - **NAX VERIFIED:** q4 qmm + SDPA use NAX in bf16 AND fp32. fp32 goes via MLX's `MLX_ENABLE_TF32=1` default. TF32 off → qmm 3.2× slower, SDPA 2.7×, and REFERENCE 512² hash `6d4311fe` ≠ `9ae59f59`. So REFERENCE depends on the TF32 default (the worker strips `MLX_*` env; protected). `nax-status.md`.

@@ -1,0 +1,1682 @@
+[
+ {
+  "tag": "A-p01-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p01",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p01-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p01",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p01-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p01",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p02-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p02",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p02-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p02",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p02-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p02",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "B-p03-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p03",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p03-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p03",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p03-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p03",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p04-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p04",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p04-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p04",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p04-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p04",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p05-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p05",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p05-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p05",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p05-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p05",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p06-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p06",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p06-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p06",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p06-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p06",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "A-p07-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p07",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p07-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p07",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p07-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p07",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p08-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p08",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p08-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p08",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p08-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p08",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "B-p09-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p09",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p09-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p09",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p09-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p09",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p10-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p10",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p10-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p10",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p10-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p10",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p11-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p11",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p11-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p11",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p11-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p11",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p12-s4242",
+  "meta": {
+   "cand": "C",
+   "pid": "p12",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p12-s4242",
+  "meta": {
+   "cand": "B",
+   "pid": "p12",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p12-s4242",
+  "meta": {
+   "cand": "A",
+   "pid": "p12",
+   "seed": 4242,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 4242,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "A-p01-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p01",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p01-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p01",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p01-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p01",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p02-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p02",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p02-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p02",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p02-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p02",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "B-p03-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p03",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p03-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p03",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p03-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p03",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p04-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p04",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p04-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p04",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p04-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p04",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "A wooden desk with five distinct objects: a red notebook on the left, a black fountain pen in the center, a white ceramic mug behind the notebook, a small brass clock on the right, and a green plant in the far background. Soft morning light from the left.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p05-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p05",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p05-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p05",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p05-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p05",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A neon sign in a dark cyberpunk alley reading \"QWEN IMAGE 2.1\", clearly legible.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p06-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p06",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p06-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p06",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p06-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p06",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "A realistic Cebu city street at dusk after light rain, photographed with a 35mm lens, wet pavement reflecting warm storefront lights.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "A-p07-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p07",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p07-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p07",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p07-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p07",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ABC"
+  },
+  "req": {
+   "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p08-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p08",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p08-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p08",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p08-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p08",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "ACB"
+  },
+  "req": {
+   "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "B-p09-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p09",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p09-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p09",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p09-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p09",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BAC"
+  },
+  "req": {
+   "prompt": "A busy morning market in Manila: vendors behind colorful fruit stalls, hanging paper lanterns, a jeepney in the background, and a child holding a red balloon in the foreground.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p10-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p10",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p10-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p10",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p10-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p10",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "BCA"
+  },
+  "req": {
+   "prompt": "Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "C-p11-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p11",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "A-p11-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p11",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ },
+ {
+  "tag": "B-p11-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p11",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CAB"
+  },
+  "req": {
+   "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "C-p12-s6174",
+  "meta": {
+   "cand": "C",
+   "pid": "p12",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+   "lora_scale": 1.0,
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ },
+ {
+  "tag": "B-p12-s6174",
+  "meta": {
+   "cand": "B",
+   "pid": "p12",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ {
+  "tag": "A-p12-s6174",
+  "meta": {
+   "cand": "A",
+   "pid": "p12",
+   "seed": 6174,
+   "stage": "bench",
+   "order": "CBA"
+  },
+  "req": {
+   "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+   "width": 1024,
+   "height": 1024,
+   "seed": 6174,
+   "release_transformer": true,
+   "cli": "turbo",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "base_model": "z-image-turbo",
+   "precision": "bf16",
+   "steps": 8
+  }
+ }
+]

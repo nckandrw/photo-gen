@@ -1,0 +1,25 @@
+[
+ {
+  "tag": "C_nolora-p01-s42",
+  "meta": {
+   "cand": "C_nolora",
+   "pid": "p01",
+   "seed": 42,
+   "stage": "smoke"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "seed": 42,
+   "release_transformer": true,
+   "cli": "base",
+   "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+   "base_model": "z-image",
+   "guidance": 0.0,
+   "precision": "bf16",
+   "steps": 4,
+   "scheduler": "linear"
+  }
+ }
+]

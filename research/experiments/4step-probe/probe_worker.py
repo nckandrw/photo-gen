@@ -39,6 +39,11 @@ def main(req_path, res_path):
                 "--seed", str(req["seed"]), "--low-ram", "--output", req["output_path"]]
         if req.get("lora_path"):
             argv += ["--lora-paths", req["lora_path"], "--lora-scales", str(req.get("lora_scale", 1.0))]
+            # mflux's CLI BAKES LoRAs by default (dequantize -> add delta -> requantize to q4). The pre-registered
+            # configuration is runtime adapters (exact delta, base q4 untouched): pass --no-bake-lora unless the
+            # request explicitly asks to bake (smoke-only variant C_bake). Found by the smoke test 2026-09-28.
+            if not req.get("bake_lora", False):
+                argv += ["--no-bake-lora"]
         if req.get("scheduler"):
             argv += ["--scheduler", req["scheduler"]]
         if req.get("guidance") is not None:

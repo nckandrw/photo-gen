@@ -57,3 +57,33 @@ A model *specifically adapted* for 4-step generation gives a better speed/qualit
 - **E NEW RESEARCH DIRECTION:** unexpected behaviour (e.g. a scheduler effect) that suggests a better experiment.
 
 In every case the result stays **EXPERIMENTAL**. Nothing enters production without its own validation.
+
+## Smoke-test results (2026-09-28 21:44–21:52; `results-smoke*.jsonl`, `results-diag.jsonl`, sheets `smoke-sheet-{1,2}.png`, PNGs local only)
+**A passes and reproduces the production FAST hash `7b45cfbe…`**, so the probe worker is production-equivalent. B passes. All runs rc = 0, bf16 dtype probe OK, transformer released.
+
+**Discrepancy found, pre-registration restored (disclosed):**
+- mflux's CLI **bakes LoRAs by default** (`--bake-lora` "default: on"): it dequantizes the q4 layer, adds the delta and re-quantizes to q4.
+- My README said "runtime, not baked", but the first C smoke runs were baked. Symptoms: load-phase MLX peak 9.33 GB, peak footprint **10.54 GB**, swap +0.97 GB, pressure 2 ("warn"), and no LoRA compute overhead.
+- The worker now passes `--no-bake-lora` (runtime adapters: exact rank-128 delta, q4 base untouched). This matches the pre-registration and directive §19 (no weight merging).
+- **C with runtime adapters: footprint 6.67 GB** (+0.83 GB vs A), no swap growth, pressure 1; denoise 27.1 s vs B 26.0 s (+4% LoRA overhead).
+- The baked runs are kept as a secondary data point.
+- **Diagnostic:** base *without* the LoRA uses 5.84 GB, identical to Turbo. The ~4.7 GB extra is purely the bake transient.
+
+**Scheduler check:** C with the base-CLI default (`flow_match_euler_discrete`) runs but is visibly under-denoised (see the grid metric below). `linear` stays the primary scheduler, as pre-registered.
+
+**New observation: a 16-px periodic grid in C images** (the DiT patch size is 16 px). Measured as the FFT energy peak at a period of 16 px relative to neighbouring frequencies, `grid16`:
+
+| image | grid16 | grid8 |
+|---|---:|---:|
+| A | 1.0 | 1.0 |
+| B | 1.1 | 1.0 |
+| C runtime, linear | **5.6** | 3.3 |
+| C baked, linear | 5.7 | 3.2 |
+| C fp32, linear | 5.9 | 3.5 |
+| C runtime, flow-match | **37.8** | 9.7 |
+| base without LoRA | 41.7 | 29.5 |
+
+- It is not caused by bf16 or by baking. It is strongest when denoising is incomplete (no LoRA, or the high-σ default schedule).
+- **Improvement Clause (added before any benchmark image):** `grid16` is reported for all 72 benchmark images as a *descriptive* objective metric. It supports Q6 (new failure modes). It does not replace the blinded review.
+
+**Smoke verdict: C runs correctly** (loads, the LoRA applies: mflux raises if any mapped target fails to apply, and C's output is coherent where base-without-LoRA is noise. The count of unmatched LoRA keys was **not captured** (worker stdout isn't kept for successful runs) and is to be checked after the benchmark, valid non-blank output, memory measurable, clean worker exit). **Proceeding to the benchmark** with C = runtime LoRA + `linear`, as pre-registered.
