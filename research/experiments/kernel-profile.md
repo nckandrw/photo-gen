@@ -33,3 +33,12 @@ Production end-to-end timings remain those of `PERFORMANCE-MAP.md`. The profile 
 
 ## Results
 (appended after chain P3B)
+
+## Smoke test (2026-09-28, `p3b/smoke/`; tiny shapes; plumbing only, not results)
+- `op_profile.py bf16 256`: 19 ops recorded; compiled vs uncompiled block 13.6 vs 14.0 ms.
+- `quant_microbench.py bf16 256`: all 19 formats ran, no errors.
+- `p3_block_probe.py` (512², 2 steps):
+  - `time`, `stats` and `ffn_calib` each record 34 blocks × 2 steps;
+  - the hooks do not change the output: all three produce the same pixel hash, `55bba0c0`;
+  - `perturb skip` changes the output as intended.
+- **Instrumentation confound, quantified:** the uncompiled 8-step baseline (`f8f1a654`) differs from the compiled production hash (`0b9cc20a`), because compilation changes numerics. All perturbation comparisons therefore use the uncompiled baseline, as designed.

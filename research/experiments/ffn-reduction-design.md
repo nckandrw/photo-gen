@@ -53,3 +53,11 @@ Without recovery training, **(b) is expected to fail below k ≈ 0.9**. The TMP 
 
 ## Results
 (appended after chain P3B)
+
+## Smoke test (2026-09-28, 512², bf16/8, p01 s42; `p3b/smoke/`; the scores are from a 2-step smoke calibration, NOT the real calibration)
+- **Identity control PASSED:** keep = 1.0 reproduces the production FAST hash `0b9cc20a…` exactly (compiled path, `compile_calls` = 1).
+- **Widths as designed:** 10240 / 8192 / 6144. **Exact resident DiT weights:** 3.464 / 3.039 / 2.614 GB, matching the design estimate (−0.85 GB at k = 0.6).
+- **Harness fixes forced by the smoke test** (disclosed):
+  1. The lifetime peak footprint is confounded by a load-time transient: the full and sliced arrays briefly coexist. k = 0.8 showed 5.86 GB vs 5.41 GB. A cache clear after slicing does not remove the transient, so memory is now reported as **exact DiT weight bytes** (`dit_weight_bytes`), not lifetime footprint.
+  2. The phase MLX peaks cannot isolate denoise (the `vae_decode` phase resets the peak inside `generate_total`). They are not used for this sweep.
+- The smoke timings (single runs) are not evidence.

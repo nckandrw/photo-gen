@@ -1,0 +1,11 @@
+{
+ "act": "bf16",
+ "MLX_ENABLE_TF32": "(unset: default 1)",
+ "device": "applegpu_g17g",
+ "mlx": "0.32.2",
+ "q4_linear_ms": 11.694,
+ "sdpa_ms": 25.774,
+ "q4_linear_tflops": 10.41,
+ "q4_linear_max_rel_err_vs_fp32_dequant": 0.0022273582872003317,
+ "capture": "p3b/smoke/nax-bf16.gputrace"
+}

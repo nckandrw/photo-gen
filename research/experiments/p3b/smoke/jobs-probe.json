@@ -1,0 +1,87 @@
+[
+ {
+  "tag": "smk-time",
+  "meta": {},
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 2,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "time",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/smoke/time.json"
+   }
+  }
+ },
+ {
+  "tag": "smk-stats",
+  "meta": {},
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 2,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "stats",
+    "out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/smoke/stats.json"
+   }
+  }
+ },
+ {
+  "tag": "smk-none8",
+  "meta": {},
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 8,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "none"
+   }
+  }
+ },
+ {
+  "tag": "smk-skipL5",
+  "meta": {},
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 2,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "perturb",
+    "kind": "skip",
+    "block": "L5"
+   }
+  }
+ },
+ {
+  "tag": "smk-calib",
+  "meta": {},
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 2,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true,
+   "probe": {
+    "mode": "ffn_calib",
+    "calib_out": "/Users/nckandrw/Dev/photo-gen/research/experiments/p3b/smoke/calib-smk.npz"
+   }
+  }
+ }
+]

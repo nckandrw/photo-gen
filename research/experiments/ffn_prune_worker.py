@@ -66,6 +66,15 @@ def install(cfg):
             keep = np.argsort(-gs)[:nk]
             _slice_ffn(b.feed_forward, keep.tolist())
             INFO[bid] = nk
+        # The replaced full-width arrays would otherwise stay in MLX's buffer cache and inflate the measured
+        # peak footprint (smoke test 2026-09-28: k=0.8 showed 5.89 GB vs 5.41 GB at k=1.0).
+        import gc
+        gc.collect()
+        mx.clear_cache()
+        # Exact resident DiT weight bytes after slicing: the memory metric for this sweep. The lifetime peak
+        # footprint is confounded by the load-time transient (full + sliced copies briefly coexist).
+        from mlx.utils import tree_flatten
+        INFO["_dit_weight_bytes"] = int(sum(v.nbytes for _, v in tree_flatten(t.parameters())))
     zmod.ZImage.__init__ = init
 
 
@@ -77,7 +86,9 @@ def run(req_path, res_path):
     json.dump(req, open(clean, "w"), indent=1)
     rc = worker.main(clean, res_path)
     res = json.load(open(res_path))
-    res["ffn_prune"] = {**cfg, "groups_kept": INFO, "hidden_width_kept": {b: n * G for b, n in INFO.items()}}
+    groups = {b: n for b, n in INFO.items() if not b.startswith("_")}
+    res["ffn_prune"] = {**cfg, "groups_kept": groups, "hidden_width_kept": {b: n * G for b, n in groups.items()},
+                        "dit_weight_bytes": INFO.get("_dit_weight_bytes")}
     json.dump(res, open(res_path, "w"), indent=1)
     return rc
 

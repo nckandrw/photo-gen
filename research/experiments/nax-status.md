@@ -82,3 +82,16 @@ FLOPs = 2·M·N·K per matmul.
 3. **End-to-end check** (only if 1 or 2 is positive): one production-worker fp32 generation with `MLX_ENABLE_TF32=0` at 512². Record the hash and time vs the REFERENCE hash `9ae59f59…`. A different hash would mean the TF32 default affects REFERENCE numerics.
 
 Results are appended below.
+
+## Part 2a: smoke-test result (2026-09-28, `p3b/smoke/nax-bf16.json` + `.gputrace`, bf16 activations, production shapes)
+The Metal capture of the probe process lists the compute pipelines created in it. Only the probe's ops ran there: one q4 linear, one SDPA, and an fp32 reference matmul outside the capture window.
+
+| op | pipeline recorded | mapping to the MLX v0.32.2 source | status |
+|---|---|---|---|
+| q4 linear (3840→3840, M = 4128, bf16) | `affine_qmm_t_nax_bfloat16_t_gs_64_b_4_bm64_bn64_bk64_wm2_wn2_alN_true_batch_0` | `qmm_nax` (`quantized.cpp`) | **VERIFIED: NAX** |
+| SDPA (30 × 4128 × 128, bf16) | `steel_attention_bfloat16_bq64_bk32_bd128_wm4_wn1_maskbfloat16…` | The NAX function `sdpa_full_self_attention_nax` uses `bq = 64, bk = 32` and builds the kernel via `get_steel_attention_nax_kernel` under the *same* `steel_attention_` name prefix. The non-NAX `sdpa_full_self_attention_metal` uses `bq = 32, bk = 16` for `bd = 128`. The recorded `bq64_bk32` signature is produced only by the NAX path. | **VERIFIED: NAX** (by the source-unique tile signature; the name alone does not contain "nax") |
+| fp32 reference matmul (outside the capture window) | `steel_gemm_fused_nax_nt_float32_float32_bm128_bn128_bk512…` | `steel_matmul_regular_axpby_nax`; fp32 via the `MLX_ENABLE_TF32` default | evidence that fp32 *unquantized* GEMM takes NAX under the TF32 default. The fp32 q4 path is checked in chain B. |
+
+- Throughput in the same run: q4 linear 10.41 TFLOPS (bf16).
+- The q4 output error vs an fp32 matmul on the dequantized weights is a max relative 2.2e-3.
+- Still to do in chain B: the fp32 activation path (REFERENCE), and the `MLX_ENABLE_TF32=0` control, which the source says must switch fp32 to non-NAX kernels (`bq32_bk16` attention, non-nax qmm).
