@@ -37,7 +37,10 @@ Values below were read from the machine on 2026-09-25 (`system_profiler`, `sw_ve
 |---|---|---|---|
 | **REFERENCE**: fp32 + 9 steps (9 NFE) | REFERENCE (hash-pinned) | REFERENCE (hash recorded 2026-09-25) | REFERENCE (hash-pinned) |
 | **FAST**: bf16 + 8 steps (8 NFE) | **VALIDATED** (direct blinded gate, 0 / 0 / 24) | **VALIDATED** (direct blinded gate, 2 / 0 / 22) | **VALIDATED** (direct gate 0 / 1 / 23, plus the earlier two-gate chain) |
+| bf16 + 9 steps (not a profile) | EXPERIMENTAL | EXPERIMENTAL | VALIDATED (bf16 gate vs fp32/9, 24 pairs) |
 | bf16 + 7/6/5/4 steps | EXPERIMENTAL | EXPERIMENTAL | EXPERIMENTAL (not quality-equivalent) |
+
+Validity applies to the exact combination of model + precision + steps + scheduler + resolution. Everything not marked VALIDATED or REFERENCE needs `--allow-experimental`.
 
 **What was actually benchmarked on this machine** (cold = one run after 600 s idle; production worker; prompt "a red apple…", seed 42):
 

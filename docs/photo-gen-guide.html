@@ -154,7 +154,7 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
   <h1>photo-gen</h1>
   <div class="callout warn"><p class="t">Validated target: MacBook Air M5, 16 GB unified memory, 8-core GPU, macOS 27.0 (26A428).</p><p>Performance figures and profile validation here are specific to this machine and environment. photo-gen is not currently a general-purpose, cross-platform package; other hardware may work but has not been validated (<code>docs/HARDWARE.md</code>).</p></div>
   <p class="lede">A local image generator for one machine: a command-line tool and a localhost HTTP API that run Z-Image-Turbo through mflux on Apple's MLX framework. It's built and validated for a MacBook Air M5 with 16 GB of unified memory.</p>
-  <p class="meta">Documentation generated: <strong>2026-09-25</strong> · photo-gen state: Git repository <code>nckandrw/photo-gen</code> (private), validated tag <code>photo-gen-m5-16gb-v1</code> (package version string <code>0.1.0</code>, as reported by <code>GET /health</code>; there is no release process) · Commands on this page were run against this build on the generation date. See <a href="#audit">audit notes</a>.</p>
+  <p class="meta">Documentation generated: <strong>2026-09-25</strong> · photo-gen state: Git repository <code>nckandrw/photo-gen</code> (private), validated tag <code>photo-gen-m5-16gb-v2</code>, see <code>docs/RELEASE-NOTES.md</code> (package version string <code>0.1.0</code>, as reported by <code>GET /health</code>; there is no release process) · Commands on this page were run against this build on the generation date. See <a href="#audit">audit notes</a>.</p>
 </header>
 
 <!-- ============================================================ -->
@@ -373,6 +373,7 @@ GET /health  with  Host: evil.example
 <tr><th>profile</th><th>precision</th><th>steps = NFE</th><th>status</th><th>use</th></tr>
 <tr><td><strong>reference</strong> (default behaviour)</td><td>fp32</td><td class="num">9</td><td><span class="badge b-ref">REFERENCE</span> at 512², 768², 1024²</td><td>reproducibility, regression testing, the research baseline</td></tr>
 <tr><td><strong>fast</strong></td><td>bf16</td><td class="num">8</td><td><span class="badge b-ok">VALIDATED</span> 512² · 768² · 1024²</td><td>normal use</td></tr>
+<tr><td>(no profile) bf16 + 9 steps</td><td>bf16</td><td class="num">9</td><td><span class="badge b-ok">VALIDATED</span> 1024² only · <span class="badge b-exp">EXPERIMENTAL</span> 512², 768²</td><td>gated vs fp32/9 at 1024² (bf16 gate); not a profile</td></tr>
 <tr><td>(no profile) bf16 + 7/6/5/4 steps</td><td>bf16</td><td class="num">7–4</td><td><span class="badge b-exp">EXPERIMENTAL</span></td><td>research only; needs <code>allow_experimental</code></td></tr>
 </table>
 <h3>REFERENCE: fp32 + 9 steps</h3>
@@ -386,7 +387,7 @@ GET /health  with  Host: evil.example
 <li><code>--profile fast</code> at any other size is <strong>refused</strong> unless you pass <code>--allow-experimental</code>; it then runs with a warning and <code>validated_configuration: false</code>.</li>
 <li>7/6/5/4 steps always need <code>--allow-experimental</code>. The step-sweep study rated 7–6 steps "draft" and 5–4 "preview" quality (<code>research/experiments/step-sweep-report.md</code>). They are not quality-equivalent presets.</li>
 </ul>
-<div class="callout warn"><p class="t">Known labelling inconsistency (current build)</p><p>An explicit <code>--precision bf16</code> request with the default 9 steps at <strong>512² or 768²</strong> is labelled <code>validated_configuration: true</code> with no warning. The bf16 quality gate covered 1024² only. The code marks any 9-step request at a validated size as validated, regardless of precision. The profiles themselves are unaffected. This has been reported for a decision; see <a href="#audit">audit notes</a>.</p></div>
+<div class="callout info"><p class="t">Validity is per exact combination</p><p>The build validates the exact combination of precision + steps + resolution against one explicit table (<code>VALIDATED_COMBINATIONS</code> in <code>app/photogen/runtimes/mflux_zimage.py</code>): fp32 + 9 and bf16 + 8 at 512², 768², 1024²; bf16 + 9 at 1024² only (the only size where it was gated). Anything else needs <code>--allow-experimental</code> and is recorded as <code>validated_configuration: false</code>. A configuration never becomes valid because a nearby one was gated. (Before 2026-09-28, bf16 + 9 at 512²/768² was mislabelled as validated; corrected, with a regression test.)</p></div>
 </section>
 
 <!-- ============================================================ -->
@@ -818,7 +819,7 @@ GET /health  with  Host: evil.example
 <p>This guide was written from the source code, configuration, CLI help output and live API responses on 2026-09-25. Where sources disagreed:</p>
 <table>
 <tr><th>discrepancy</th><th>authoritative source</th><th>handling</th></tr>
-<tr><td>bf16 + 9 steps at 512²/768² is labelled <code>validated_configuration: true</code>, but the bf16 gate covered 1024² only</td><td>research report (the gate); the code's behaviour is as documented above</td><td>reported for a decision; the code is not changed by this documentation work</td></tr>
+<tr><td>bf16 + 9 steps at 512²/768² was labelled <code>validated_configuration: true</code>, but the bf16 gate covered 1024² only</td><td>research report (the gate)</td><td><strong>corrected 2026-09-28</strong>: explicit <code>VALIDATED_COMBINATIONS</code> table + regression test</td></tr>
 <tr><td>README performance table (≈85 s cold / ≈134 s sustained) doesn't say it refers to REFERENCE before the memory fix</td><td><code>PERFORMANCE-MAP.md</code></td><td>README clarified; this guide uses current figures</td></tr>
 <tr><td>README request-field list omitted <code>profile</code> (and <code>task</code>, <code>output_format</code>)</td><td><code>ACCEPTED</code> in <code>mflux_zimage.py</code></td><td>README corrected</td></tr>
 <tr><td>Manifest <code>measured_1024</code> (84.6 s, 7.2–7.4 GB) predates the transformer-release fix</td><td><code>production-memory-fix-report.md</code></td><td>manifest unchanged (immutable); labelled historical here</td></tr>
@@ -830,7 +831,7 @@ GET /health  with  Host: evil.example
 </section>
 
 <footer>
-photo-gen guide · generated 2026-09-25 from the current repository state · self-contained, works offline (no external resources).
+photo-gen guide · generated 2026-09-25, updated 2026-09-28 (v2) · photo-gen's own code is MIT-licensed (<code>LICENSE</code>); third-party software and model weights keep their own licenses (<code>docs/THIRD-PARTY-LICENSES.md</code>) · self-contained, works offline (no external resources).
 </footer>
 </main>
 </div>

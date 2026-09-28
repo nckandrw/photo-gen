@@ -17,6 +17,8 @@ This repository contains the photo-gen application and research environment deve
 | **REFERENCE** (default) | fp32 + 9 steps (9 NFE): canonical reproducibility baseline at 512², 768², 1024² |
 | **FAST** | bf16 + 8 steps (8 NFE): **validated at 512², 768², 1024²** (direct blinded gates vs REFERENCE, 72 pairs: 2 / 1 / 69 ties) |
 
+**The current validated production profiles are REFERENCE (fp32 + 9) and FAST (bf16 + 8).** FAST has been validated at 512², 768² and 1024² on the target M5 16 GB system. Any other combination (bf16 + 9 outside 1024², 7–4 steps, other sizes) is experimental and needs `--allow-experimental`. Validity is checked per exact precision + steps + resolution.
+
 ## Requirements
 - The validated machine above.
 - The project-local toolchain in `mflux/` and the model in `models/mflux/z-image-turbo-mflux-q4/`. **Neither is in Git.** Rebuild both from [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md), with exact versions and every model file's digest.
@@ -42,6 +44,8 @@ Outputs go to `data/outputs/YYYY/MM/DD/<job_id>.png`, each with a JSON metadata 
 - [docs/HARDWARE.md](docs/HARDWARE.md): validated machine, validation status, what is *not* validated.
 - [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md): rebuild the exact environment and prove it with the reference hashes.
 - [docs/USAGE.md](docs/USAGE.md): the previous detailed README, kept as a markdown reference.
+- [docs/RELEASE-NOTES.md](docs/RELEASE-NOTES.md): validated tags (v1, v2) and what changed.
+- [docs/THIRD-PARTY-LICENSES.md](docs/THIRD-PARTY-LICENSES.md): third-party software and model licences, separate from photo-gen's MIT licence.
 
 ## Research
 Evidence for every production behaviour, including rejected and blocked ideas:
@@ -55,7 +59,7 @@ Research PNGs are not in Git. Their hashes are in [research/EXCLUDED-IMAGES.sha2
 ## Provenance and licences
 | part | what | licence |
 |---|---|---|
-| photo-gen code | `app/`, `bin/`, `config/`, docs, research scripts | project code (no licence file has been chosen yet) |
+| photo-gen code | `app/`, `bin/`, `config/`, docs, research scripts | **MIT** ([LICENSE](LICENSE)). Covers photo-gen's own code only. |
 | third-party runtime | mflux 0.20.0 (MIT), MLX / mlx-metal 0.32.2 (MIT), Pillow, the Python stdlib | installed into `mflux/.venv`, **not** vendored |
 | external model | Z-Image-Turbo (Tongyi-MAI, Apache-2.0), q4 pack by mflux-community | downloaded separately, pinned by digest |
 | external research | papers and upstream issues referenced in `research/` | cited, not copied |

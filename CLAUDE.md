@@ -9,7 +9,7 @@ The project has two halves:
 - `app/`: the production application.
 - `research/`: an evidence trail. Every production behaviour has a report behind it.
 
-Git: private repo `nckandrw/photo-gen` (branch `main`); the validated build is tagged `photo-gen-m5-16gb-v1`. Model weights, `mflux/` toolchain, `data/`, `outputs/` and research PNGs are not versioned (see `.gitignore`, `docs/REPRODUCIBILITY.md`). Stage files explicitly; never `git add .`.
+Git: private repo `nckandrw/photo-gen` (branch `main`); validated builds are tagged `photo-gen-m5-16gb-v1` and `-v2` (immutable; see `docs/RELEASE-NOTES.md`). Model weights, `mflux/` toolchain, `data/`, `outputs/` and research PNGs are not versioned (see `.gitignore`, `docs/REPRODUCIBILITY.md`). Stage files explicitly; never `git add .`.
 
 ## Commands
 ```sh
@@ -32,7 +32,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - It writes a metadata sidecar per image (schema `photogen.generation/1`).
 - **Runtime:** `runtimes/mflux_zimage.py` (`MFluxZImageRuntime`). `normalize()` is the single validation point.
   - Unknown parameters and the ones in `REJECTED` (negative_prompt, guidance, scheduler, …) raise errors; they are never silently ignored.
-  - It resolves `profile` into precision + steps and decides `validated` against the manifest and `GATED_STEPS`.
+  - It resolves `profile` into precision + steps and decides `validated` against `VALIDATED_COMBINATIONS` (exact precision + steps + resolution; anything else needs `allow_experimental`).
 - **Worker process:** each job spawns `runtimes/mflux_zimage_worker.py` in a fresh process, which calls the unmodified mflux CLI `main()` with in-process patches:
   - `_apply_bf16_stream`: opt-in bf16 activations.
   - `_install_transformer_release`: on by default. Frees the DiT that mflux's compiled `predict` closure keeps alive during VAE decode.

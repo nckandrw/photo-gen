@@ -14,8 +14,10 @@
 | — | 1024² | bf16 | 9 | 60.6 | 55.1 | 1.96 | 5.84 | 0 | 1 | 11b19277… | gated (bf16 gate) |
 | **FAST** | 1024² | bf16 | 8 | **54.2** | **48.7** | 1.97 | 5.84 | 0 | 1 | 7b45cfbe… | gated, chained (bf16 gate → 8-step gate) |
 | REFERENCE | 512² | fp32 | 9 | 21.2 | 17.4 | 0.37 | 5.93 | 0 | 1 | 9ae59f59… | reference |
-| — | 512² | bf16 | 9 | 16.5 | 12.9 | 0.38 | 5.41 | 0 | 1 | c70c38b0… | not gated at 512² |
-| FAST (experimental at 512²) | 512² | bf16 | 8 | 15.0 | 11.4 | 0.37 | 5.41 | 0 | 1 | 0b9cc20a… | **not gated at 512²** |
+| — | 512² | bf16 | 9 | 16.5 | 12.9 | 0.38 | 5.41 | 0 | 1 | c70c38b0… | **experimental** at 512² (bf16/9 gated at 1024² only) |
+| FAST | 512² | bf16 | 8 | 15.0 | 11.4 | 0.37 | 5.41 | 0 | 1 | 0b9cc20a… | **validated** (direct gate, 2026-09-25) |
+| REFERENCE | 768² | fp32 | 9 | 44.7 | 40.4 | 1.06 | 6.33 | 0 | 2 | 94a023d3… | reference (cold run 2026-09-25) |
+| **FAST** | 768² | bf16 | 8 | 30.6 | 26.1 | 1.08 | 5.93 | 0 | 1 | 20ff9e2c… | **validated** (direct gate) |
 
 **Cold 1024², FAST vs REFERENCE (measured directly, not multiplied):**
 - wall 83.4 → 54.2 s = **−35% wall, 1.54× speed-up**;
@@ -58,7 +60,8 @@
 | tier | definition | status |
 |---|---|---|
 | REFERENCE | fp32 + 9 steps (9 NFE) | permanent, canonical, default; intentionally conservative reproducibility baseline, **not** the official Turbo count |
-| FAST | bf16 + 8 steps (8 NFE) | **validated at 1024² (chained)**: a chain of two blinded 24-pair gates, fp32/9 → bf16/9 (bf16 gate) and bf16/9 → bf16/8 (8-step gate). No direct REFERENCE-vs-FAST gate (phase3-record-audit.md §A). Experimental at 512²/768² |
+| FAST | bf16 + 8 steps (8 NFE) | **validated at 512², 768², 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: REF 2 / FAST 1 / 69 ties; fast-resolution-gates-report.md). 1024² was earlier supported by a chain of two gates (phase3-record-audit.md §A) |
+| (no profile) | bf16 + 9 | validated at 1024² only (bf16 gate); **experimental** at 512²/768² |
 | EXPERIMENTAL | bf16 + 7/6/5/4 | research only; not quality-equivalent (step-sweep-report.md) |
 
 ## Notes

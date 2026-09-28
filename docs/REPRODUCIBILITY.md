@@ -23,7 +23,7 @@ Goal: rebuild the exact known-good photo-gen environment on the validated machin
 
 ```sh
 mkdir -p ~/Dev && git clone git@github.com:nckandrw/photo-gen.git ~/Dev/photo-gen
-cd ~/Dev/photo-gen && git checkout photo-gen-m5-16gb-v1     # the validated tag
+cd ~/Dev/photo-gen && git checkout photo-gen-m5-16gb-v2     # latest validated tag (v1 = earlier state)
 ```
 
 ## 2. Toolchain (project-local; nothing installed globally, no sudo)
@@ -95,7 +95,9 @@ bin/photo-gen generate -p "$P" --seed 42                               # REFEREN
 | REFERENCE fp32/9, 768² | `94a023d366cf8527aceb178ef42a676c0446ff8d93f08f32407575a6a369265a` |
 | REFERENCE fp32/9, 512² | `9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c` |
 | FAST bf16/8, 1024² | `7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342` |
-| bf16/9, 1024² | `11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a` |
+| FAST bf16/8, 768² | `20ff9e2c8d171f12b7411acf375e7bc644f4a06cfb56fdd73de7f52cf3787aae` |
+| FAST bf16/8, 512² | `0b9cc20a6508e74f6285672dd700c43240e040068c2b9da0af2f68658e0be8d8` |
+| bf16/9, 1024² (validated; not a profile) | `11b19277f7fd077d528d4e282a77bd9c90f3af3adf26555cf11d2f02760d520a` |
 
 **A matching hash is the proof of reproduction.** A different hash on the validated machine means something in §2/§3 differs; `verify` should say what. On other hardware, a different hash is expected and is not evidence of a bug.
 

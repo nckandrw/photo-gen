@@ -134,6 +134,27 @@ class ValidationTests(unittest.TestCase):
         self.assertTrue(self.n(precision="bf16", steps=8).validated)  # explicit equivalent of fast @1024
         self.assertIn("fast", self.rt.capabilities().profiles)
 
+    def test_validated_matrix_is_exact(self):
+        """Regression guard: validity applies to the exact (precision, steps, resolution) combination.
+        A configuration never becomes valid because a nearby one was gated (research/experiments/STATUS.md)."""
+        from photogen.runtimes.mflux_zimage import VALIDATED_COMBINATIONS
+        three = ((512, 512), (768, 768), (1024, 1024))
+        self.assertEqual(VALIDATED_COMBINATIONS, {("fp32", 9): three, ("bf16", 8): three, ("bf16", 9): ((1024, 1024),)})
+        for prec, steps in (("fp32", 9), ("bf16", 8)):
+            for w in (512, 768, 1024):
+                self.assertTrue(self.n(precision=prec, steps=steps, width=w, height=w).validated, (prec, steps, w))
+        self.assertTrue(self.n(precision="bf16", steps=9).validated)          # gated vs fp32/9 at 1024² only
+        for w in (512, 768):                                                  # bf16/9 was never gated here
+            with self.assertRaises(ValidationError):
+                self.n(precision="bf16", steps=9, width=w, height=w)
+            r = self.n(precision="bf16", steps=9, width=w, height=w, allow_experimental=True)
+            self.assertFalse(r.validated)
+            self.assertTrue(any("validated only at 1024x1024" in x for x in r.warnings))
+        for prec, steps in (("fp32", 8), ("fp32", 4), ("bf16", 7), ("bf16", 4)):  # never gated anywhere
+            with self.assertRaises(ValidationError):
+                self.n(precision=prec, steps=steps)
+            self.assertFalse(self.n(precision=prec, steps=steps, allow_experimental=True).validated)
+
     def test_request_without_precision_loads_as_fp32(self):  # rows stored before the field existed
         from photogen.models import GenerationRequest
         d = self.n(seed=1).to_dict()
@@ -279,12 +300,15 @@ class JobTests(unittest.TestCase):
 
     def test_bf16_recorded_in_metadata_and_repro(self):
         cfg, rt, jm = self.make()
-        job = jm.submit({"prompt": "apple", "width": 512, "height": 512, "seed": 7, "precision": "bf16"},
-                        source="cli")
+        # bf16 + 9 at 512² is ungated: it runs only as an experimental request, and is recorded as such
+        job = jm.submit({"prompt": "apple", "width": 512, "height": 512, "seed": 7, "precision": "bf16",
+                         "allow_experimental": True}, source="cli")
         done = jm.run_sync(job["id"])
         meta = json.loads(Path(done["metadata_path"]).read_text())
         self.assertEqual(meta["precision"], "bf16")
+        self.assertFalse(meta["validated_configuration"])
         self.assertIn("--precision bf16", meta["reproduce"]["cli"])
+        self.assertIn("--allow-experimental", meta["reproduce"]["cli"])
 
     def test_fast_profile_metadata(self):
         cfg, rt, jm = self.make()

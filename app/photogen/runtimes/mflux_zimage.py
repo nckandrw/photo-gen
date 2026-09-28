@@ -52,10 +52,18 @@ PROFILES = {
     "reference": {"precision": "fp32", "steps": 9},   # permanent research reference (production-memory-fix-report.md)
     "fast": {"precision": "bf16", "steps": 8},        # gated: bf16-quality-report.md + 8step-quality-gate-report.md
 }
-# Extra step counts that passed a blinded gate, per precision, and the resolutions they were gated at.
-# bf16 + 8 steps (FAST): direct blinded REFERENCE-vs-FAST gates passed at all three sizes
-# (research/experiments/fast-resolution-gates-report.md, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties).
-GATED_STEPS = {("bf16", 8): ((512, 512), (768, 768), (1024, 1024))}
+# The ONLY (precision, steps) -> resolutions combinations that are validated. Validation applies to the exact
+# combination of model + precision + steps + scheduler + resolution; anything not listed is experimental and
+# requires allow_experimental. Never derive validity from a nearby configuration.
+#   fp32 + 9 (REFERENCE): research reference at every manifest resolution (MFLUX-ZIMAGE-RESULTS.md)
+#   bf16 + 8 (FAST): direct blinded REFERENCE-vs-FAST gates at all three sizes
+#     (research/experiments/fast-resolution-gates-report.md, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties)
+#   bf16 + 9: blinded gate vs fp32/9 at 1024x1024 ONLY (research/experiments/bf16-quality-report.md, 0/2/22)
+VALIDATED_COMBINATIONS = {
+    ("fp32", 9): ((512, 512), (768, 768), (1024, 1024)),
+    ("bf16", 8): ((512, 512), (768, 768), (1024, 1024)),
+    ("bf16", 9): ((1024, 1024),),
+}
 MAX_SEED = 2**32 - 1
 WORKER_MODULE = "photogen.runtimes.mflux_zimage_worker"
 KILL_GRACE_SECONDS = 10
@@ -171,7 +179,7 @@ class MFluxZImageRuntime(ImageRuntime):
             params = {**params, **PROFILES[profile]}
         steps = _as_int(params.get("steps", defaults["steps"]), "steps")
         precision_param = params.get("precision", "fp32")
-        gated_res = GATED_STEPS.get((precision_param, steps))
+        combo_res = VALIDATED_COMBINATIONS.get((precision_param, steps))
         allow_exp = bool(params.get("allow_experimental", False))
         warnings: list[str] = []
 
@@ -190,21 +198,21 @@ class MFluxZImageRuntime(ImageRuntime):
                                       f"({', '.join(f'{a}x{b}' for a, b in m.validated_resolutions)}); "
                                       "pass allow_experimental=true to run it as an experimental request")
             warnings.append(f"experimental resolution {width}x{height} (not research-validated)")
-        steps_validated = steps == self.m.validated_steps or bool(gated_res and (width, height) in gated_res)
-        if gated_res and not steps_validated:
+        if not 1 <= steps <= 50:
+            raise ValidationError("steps must be within 1..50")
+        steps_validated = bool(combo_res and (width, height) in combo_res)
+        if combo_res and not steps_validated:
+            sizes = ", ".join(f"{a}x{b}" for a, b in combo_res)
             if not allow_exp:
-                raise ValidationError(f"{precision_param} + {steps} steps is gated only at "
-                                      f"{', '.join(f'{a}x{b}' for a, b in gated_res)}; pass allow_experimental=true "
-                                      f"to run it at {width}x{height}")
-            warnings.append(f"{precision_param} + {steps} steps is gated only at "
-                            f"{', '.join(f'{a}x{b}' for a, b in gated_res)}; {width}x{height} is unvalidated")
-        elif steps != self.m.validated_steps and not gated_res:
-            if not 1 <= steps <= 50:
-                raise ValidationError("steps must be within 1..50")
+                raise ValidationError(f"{precision_param} + {steps} steps is validated only at {sizes}; "
+                                      f"pass allow_experimental=true to run it at {width}x{height}")
+            warnings.append(f"{precision_param} + {steps} steps is validated only at {sizes}; "
+                            f"{width}x{height} is unvalidated")
+        elif not combo_res:
             if not allow_exp:
-                raise ValidationError(f"steps={steps} is not validated (validated: {self.m.validated_steps}); "
+                raise ValidationError(f"{precision_param} + {steps} steps is not a validated combination; "
                                       "pass allow_experimental=true to run it as an experimental request")
-            warnings.append(f"experimental step count {steps} (validated: {self.m.validated_steps})")
+            warnings.append(f"experimental combination {precision_param} + {steps} steps (not research-validated)")
 
         seed_param = params.get("seed", defaults["seed"])
         if seed_param in (None, "random"):

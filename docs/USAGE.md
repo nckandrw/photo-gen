@@ -79,6 +79,7 @@ A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and get
 |---|---|---|---|---|
 | **reference** (default when no profile is given) | fp32 | 9 (= 9 NFE in mflux) | permanent research reference; pixel hash 1024² `fe47d88d…` (apple, seed 42) | reproducibility, comparisons |
 | **fast** | bf16 | 8 | gated at **512², 768² and 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: 2 / 1 / 69 ties; `research/experiments/fast-resolution-gates-report.md`). 8 steps = 8 NFE, the official Turbo count | normal use |
+| (no profile) | bf16 | 9 | validated at 1024² only (bf16 gate); needs `allow_experimental` at 512²/768² | explicit precision request |
 | experimental | bf16 | 7 / 6 / 5 / 4 | research only; **not quality-equivalent** (7–6 draft, 5–4 preview) | needs `allow_experimental` |
 
 - `--profile fast` (CLI) or `"profile": "fast"` (API). A profile fixes precision and steps; conflicting explicit values are rejected.
