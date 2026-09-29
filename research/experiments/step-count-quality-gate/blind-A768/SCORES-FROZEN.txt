@@ -1,0 +1,26 @@
+# Stage A 768², blinded (Claude). Fields: adherence | composition | visual | text | failure modes | OVERALL | notes
+C01 p01-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C02 p02-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C03 p03-s2026 | = | = | = | = gibberish both | none / none | OVERALL = | 
+C04 p04-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C05 p05-s2026 | = | = | = | = exact both | none / none | OVERALL = | R adds backing board
+C06 p06-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C07 p07-s2026 | = | = | = | = exact both | none / none | OVERALL = | 
+C08 p08-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C09 p09-s2026 | = | = | = | n/a | none / none | OVERALL = | jeepney + child + balloon both
+C10 p10-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C11 p11-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C12 p12-s2026 | = | = | = | n/a | none / none | OVERALL = | 3 cups + 2 plates both
+C13 p01-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C14 p02-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C15 p03-s7331 | = | = | = | = gibberish both | none / none | OVERALL = | 
+C16 p04-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C17 p05-s7331 | = | = | = | = exact both | none / none | OVERALL = | 
+C18 p06-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C19 p07-s7331 | L | = | = | R duplicates subtitle 'Island of Fire' | R: duplicate text | OVERALL L | R: text error (duplicate subtitle)
+C20 p08-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C21 p09-s7331 | = | = | = | n/a | none / none | OVERALL = | jeepney + child + balloon both
+C22 p10-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C23 p11-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C24 p12-s7331 | = | = | = | n/a | none / none | OVERALL = | 3 cups + 2 plates both
+# Tally: L 1 (C19, text), R 0, ties 23.

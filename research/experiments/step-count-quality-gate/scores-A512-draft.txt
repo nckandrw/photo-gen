@@ -1,0 +1,26 @@
+# Stage A 512², blinded (Claude, single rater). Fields: adherence | composition | visual | text | failure modes L/R | OVERALL | notes
+C01 p01-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C02 p02-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C03 p03-s2026 | = | = | = | = | none / none | OVERALL = | text-through-glass gibberish both
+C04 p04-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C05 p05-s2026 | = | = | = | = | none / none | OVERALL = | p05 exact both
+C06 p06-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C07 p07-s2026 | = | = | = | = | none / none | OVERALL = | p07 exact both; subtitle placement differs
+C08 p08-s2026 | = | = | L minor (detail) | n/a | none / none | OVERALL L (minor) | L more copper scratch detail
+C09 p09-s2026 | = | = | = | n/a | none / none | OVERALL = | jeepney + child + red balloon both
+C10 p10-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C11 p11-s2026 | = | = | = | n/a | none / none | OVERALL = | 
+C12 p12-s2026 | = | = | = | n/a | none / none | OVERALL = | 3 cups + 2 plates both correct
+C13 p01-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C14 p02-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C15 p03-s7331 | = | = | = | = | none / none | OVERALL = | gibberish both
+C16 p04-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C17 p05-s7331 | = | = | = | = | none / none | OVERALL = | p05 exact both
+C18 p06-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C19 p07-s7331 | = | = | = | = | none / none | OVERALL = | p07 exact both
+C20 p08-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C21 p09-s7331 | = | = | = | n/a | none / none | OVERALL = | jeepney + child + red balloon both
+C22 p10-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C23 p11-s7331 | = | = | = | n/a | none / none | OVERALL = | 
+C24 p12-s7331 | = | = | = | n/a | none / none | OVERALL = | 3 cups + 2 plates both correct
+# Tally: L 1 (minor detail), R 0, ties 23. Failure modes: none observed in either arm (no duplicates, no grid/patch, counts correct both seeds).

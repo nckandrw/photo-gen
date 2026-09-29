@@ -1,0 +1,1 @@
+[{"tag": "cold-1024-st4", "meta": {"res": 1024, "steps": 4, "seed": 42, "pid": "p01", "stage": "cold"}, "req": {"prompt": "a red apple on a wooden table, soft window light", "width": 1024, "height": 1024, "steps": 4, "seed": 42, "precision": "bf16", "release_transformer": true}}]

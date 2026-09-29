@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Two human hands holding a transparent glass containing water, with realistic fingers, refraction, reflections and readable text appearing through the glass.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "2026",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-768/A768-p03-s2026-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.072,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.644,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.42,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 48.091,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 46.027
+ },
+ "step_seconds": [
+  6.031,
+  5.666,
+  5.621,
+  5.654,
+  5.663,
+  5.711,
+  5.685,
+  5.792
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 50.519,
+ "peak_footprint_gb": 5.951
+}

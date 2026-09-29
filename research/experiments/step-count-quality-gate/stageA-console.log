@@ -1,0 +1,171 @@
+[2026-09-29 10:09:23] STAGE A start
+Now drawing from 'AC Power'
+[10:09:23] idle 600 s before cold-512-st8
+10:19:24 cold-512-st8                       rc=0 wall=15.55 denoise=11.49 vae=0.381 fp=5.413 pix=0b9cc20a65
+RUNNER_DONE
+[10:19:41] idle 600 s before cold-512-st4
+10:29:41 cold-512-st4                       rc=0 wall=9.49 denoise=5.875 vae=0.367 fp=5.414 pix=6aa2b8422c
+RUNNER_DONE
+[10:29:52] idle 600 s before cold-768-st8
+10:39:52 cold-768-st8                       rc=0 wall=30.35 denoise=25.991 vae=1.06 fp=5.925 pix=20ff9e2c8d
+RUNNER_DONE
+[10:40:24] idle 600 s before cold-768-st4
+10:50:24 cold-768-st4                       rc=0 wall=17.53 denoise=13.217 vae=1.056 fp=5.924 pix=76e79e4322
+RUNNER_DONE
+[10:50:43] idle 600 s before cold-1024-st8
+11:00:43 cold-1024-st8                      rc=0 wall=54.42 denoise=49.11 vae=1.956 fp=5.835 pix=7b45cfbe2e
+RUNNER_DONE
+[11:01:39] idle 600 s before cold-1024-st4
+11:11:39 cold-1024-st4                      rc=0 wall=30.03 denoise=24.554 vae=1.963 fp=5.836 pix=711890527b
+RUNNER_DONE
+[11:12:11] Stage A sustained 512
+11:12:11 A512-p01-s2026-st8                 rc=0 wall=15.05 denoise=11.434 vae=0.37 fp=5.413 pix=baec746a69
+11:12:28 A512-p01-s2026-st4                 rc=0 wall=9.5 denoise=5.893 vae=0.368 fp=5.414 pix=b72154db87
+11:12:39 A512-p02-s2026-st4                 rc=0 wall=9.5 denoise=5.898 vae=0.364 fp=5.415 pix=9efe74bd8f
+11:12:50 A512-p02-s2026-st8                 rc=0 wall=15.21 denoise=11.586 vae=0.368 fp=5.414 pix=7822edcee9
+11:13:06 A512-p03-s2026-st8                 rc=0 wall=15.47 denoise=11.833 vae=0.371 fp=5.405 pix=4a1eddfd85
+11:13:23 A512-p03-s2026-st4                 rc=0 wall=9.85 denoise=6.18 vae=0.372 fp=5.402 pix=6b956cfbbd
+11:13:35 A512-p04-s2026-st4                 rc=0 wall=9.74 denoise=6.115 vae=0.367 fp=5.405 pix=804f011737
+11:13:46 A512-p04-s2026-st8                 rc=0 wall=16.04 denoise=12.39 vae=0.377 fp=5.403 pix=5775559d07
+11:14:04 A512-p05-s2026-st8                 rc=0 wall=17.4 denoise=13.722 vae=0.373 fp=5.411 pix=bfe7187fef
+11:14:22 A512-p05-s2026-st4                 rc=0 wall=10.2 denoise=6.571 vae=0.373 fp=5.413 pix=bdacf8f840
+11:14:34 A512-p06-s2026-st4                 rc=0 wall=10.66 denoise=7.029 vae=0.378 fp=5.403 pix=2120132b3b
+11:14:46 A512-p06-s2026-st8                 rc=0 wall=19.2 denoise=15.578 vae=0.395 fp=5.403 pix=c6e796e6eb
+11:15:07 A512-p07-s2026-st8                 rc=0 wall=20.44 denoise=16.765 vae=0.407 fp=5.403 pix=fd8fc79d53
+11:15:29 A512-p07-s2026-st4                 rc=0 wall=12.49 denoise=8.837 vae=0.402 fp=5.402 pix=25d82c5ec4
+11:15:43 A512-p08-s2026-st4                 rc=0 wall=12.83 denoise=9.148 vae=0.4 fp=5.403 pix=63b31ccb30
+11:15:57 A512-p08-s2026-st8                 rc=0 wall=21.84 denoise=18.144 vae=0.425 fp=5.402 pix=b57a93fd68
+11:16:21 A512-p09-s2026-st8                 rc=0 wall=22.27 denoise=18.584 vae=0.407 fp=5.403 pix=472015739b
+11:16:45 A512-p09-s2026-st4                 rc=0 wall=13.08 denoise=9.387 vae=0.422 fp=5.403 pix=43d2395f61
+11:16:59 A512-p10-s2026-st4                 rc=0 wall=13.01 denoise=9.333 vae=0.435 fp=5.403 pix=e32733cf75
+11:17:14 A512-p10-s2026-st8                 rc=0 wall=21.98 denoise=18.333 vae=0.423 fp=5.405 pix=10f01beae2
+11:17:37 A512-p11-s2026-st8                 rc=0 wall=22.11 denoise=18.465 vae=0.409 fp=5.404 pix=81ab83879e
+11:18:01 A512-p11-s2026-st4                 rc=0 wall=13.21 denoise=9.524 vae=0.43 fp=5.405 pix=353c85b751
+11:18:16 A512-p12-s2026-st4                 rc=0 wall=13.14 denoise=9.461 vae=0.431 fp=5.403 pix=4535e31415
+11:18:30 A512-p12-s2026-st8                 rc=0 wall=22.36 denoise=18.687 vae=0.415 fp=5.405 pix=6420eb31f8
+11:18:54 A512-p01-s7331-st8                 rc=0 wall=22.51 denoise=18.819 vae=0.418 fp=5.413 pix=fc159fb564
+11:19:18 A512-p01-s7331-st4                 rc=0 wall=13.25 denoise=9.56 vae=0.42 fp=5.413 pix=6c4b8b1b7b
+11:19:33 A512-p02-s7331-st4                 rc=0 wall=13.25 denoise=9.545 vae=0.417 fp=5.413 pix=636292ccf5
+11:19:48 A512-p02-s7331-st8                 rc=0 wall=22.65 denoise=18.962 vae=0.418 fp=5.413 pix=46114b4745
+11:20:12 A512-p03-s7331-st8                 rc=0 wall=22.74 denoise=19.044 vae=0.425 fp=5.405 pix=04452e9b05
+11:20:36 A512-p03-s7331-st4                 rc=0 wall=13.42 denoise=9.7 vae=0.44 fp=5.405 pix=727421f48c
+11:20:51 A512-p04-s7331-st4                 rc=0 wall=13.86 denoise=10.129 vae=0.429 fp=5.405 pix=ab24512f24
+11:21:07 A512-p04-s7331-st8                 rc=0 wall=22.81 denoise=19.107 vae=0.424 fp=5.405 pix=9f7751a98b
+11:21:31 A512-p05-s7331-st8                 rc=0 wall=23.03 denoise=19.327 vae=0.421 fp=5.414 pix=8d751a2b42
+11:21:55 A512-p05-s7331-st4                 rc=0 wall=13.54 denoise=9.827 vae=0.438 fp=5.413 pix=f42cef08c3
+11:22:11 A512-p06-s7331-st4                 rc=0 wall=13.39 denoise=9.681 vae=0.424 fp=5.404 pix=488b5eaa5b
+11:22:25 A512-p06-s7331-st8                 rc=0 wall=22.85 denoise=19.143 vae=0.423 fp=5.405 pix=c821d91410
+11:22:50 A512-p07-s7331-st8                 rc=0 wall=23.45 denoise=19.748 vae=0.434 fp=5.404 pix=780daced31
+11:23:15 A512-p07-s7331-st4                 rc=0 wall=14.02 denoise=10.31 vae=0.426 fp=5.403 pix=e5b7fcb3bb
+11:23:30 A512-p08-s7331-st4                 rc=0 wall=13.82 denoise=10.089 vae=0.438 fp=5.404 pix=295e4aec42
+11:23:46 A512-p08-s7331-st8                 rc=0 wall=23.22 denoise=19.487 vae=0.451 fp=5.403 pix=f20a351e32
+11:24:10 A512-p09-s7331-st8                 rc=0 wall=23.39 denoise=19.667 vae=0.441 fp=5.405 pix=04475ca048
+11:24:35 A512-p09-s7331-st4                 rc=0 wall=13.61 denoise=9.882 vae=0.424 fp=5.403 pix=c660953442
+11:24:50 A512-p10-s7331-st4                 rc=0 wall=13.94 denoise=10.188 vae=0.44 fp=5.405 pix=79b849e536
+11:25:06 A512-p10-s7331-st8                 rc=0 wall=23.4 denoise=19.653 vae=0.456 fp=5.404 pix=171dfafda7
+11:25:31 A512-p11-s7331-st8                 rc=0 wall=24.0 denoise=20.255 vae=0.444 fp=5.405 pix=edf6c863e6
+11:25:56 A512-p11-s7331-st4                 rc=0 wall=14.43 denoise=10.66 vae=0.429 fp=5.405 pix=37f0243954
+11:26:12 A512-p12-s7331-st4                 rc=0 wall=14.26 denoise=10.542 vae=0.432 fp=5.405 pix=5754aa26b0
+11:26:28 A512-p12-s7331-st8                 rc=0 wall=23.74 denoise=19.992 vae=0.456 fp=5.402 pix=f637e95155
+RUNNER_DONE
+[11:26:53] Stage A sustained 768
+11:26:53 A768-p01-s2026-st8                 rc=0 wall=51.17 denoise=46.349 vae=1.431 fp=5.925 pix=b0a71f10f6
+11:27:46 A768-p01-s2026-st4                 rc=0 wall=27.97 denoise=23.194 vae=1.375 fp=5.925 pix=77224b38c8
+11:28:16 A768-p02-s2026-st4                 rc=0 wall=27.56 denoise=22.766 vae=1.417 fp=5.924 pix=f0a9f5dc0f
+11:28:45 A768-p02-s2026-st8                 rc=0 wall=50.89 denoise=46.05 vae=1.447 fp=5.925 pix=7afb3a7743
+11:29:37 A768-p03-s2026-st8                 rc=0 wall=50.85 denoise=46.027 vae=1.42 fp=5.951 pix=195f3e35c3
+11:30:30 A768-p03-s2026-st4                 rc=0 wall=28.21 denoise=23.344 vae=1.452 fp=5.95 pix=dc0e223896
+11:30:59 A768-p04-s2026-st4                 rc=0 wall=28.08 denoise=23.244 vae=1.436 fp=5.951 pix=d6ce8463ce
+11:31:29 A768-p04-s2026-st8                 rc=0 wall=50.91 denoise=46.112 vae=1.394 fp=5.949 pix=6359f76503
+11:32:21 A768-p05-s2026-st8                 rc=0 wall=49.76 denoise=44.937 vae=1.421 fp=5.94 pix=3d07bf1386
+11:33:13 A768-p05-s2026-st4                 rc=0 wall=28.24 denoise=23.318 vae=1.467 fp=5.94 pix=699d3937a7
+11:33:42 A768-p06-s2026-st4                 rc=0 wall=28.6 denoise=23.736 vae=1.467 fp=5.951 pix=7577047c8c
+11:34:13 A768-p06-s2026-st8                 rc=0 wall=51.52 denoise=46.675 vae=1.426 fp=5.949 pix=84bb565607
+11:35:06 A768-p07-s2026-st8                 rc=0 wall=50.39 denoise=45.553 vae=1.418 fp=5.949 pix=b0056834b4
+11:35:58 A768-p07-s2026-st4                 rc=0 wall=27.69 denoise=22.896 vae=1.411 fp=5.948 pix=88d8fcaefb
+11:36:27 A768-p08-s2026-st4                 rc=0 wall=28.4 denoise=23.563 vae=1.431 fp=5.951 pix=0baee158fa
+11:36:57 A768-p08-s2026-st8                 rc=0 wall=50.79 denoise=45.989 vae=1.428 fp=5.95 pix=f6f450c6e3
+11:37:49 A768-p09-s2026-st8                 rc=0 wall=50.08 denoise=45.302 vae=1.398 fp=5.949 pix=800d82321e
+11:38:41 A768-p09-s2026-st4                 rc=0 wall=27.99 denoise=23.203 vae=1.409 fp=5.95 pix=2a67342811
+11:39:10 A768-p10-s2026-st4                 rc=0 wall=27.86 denoise=23.052 vae=1.433 fp=5.95 pix=e711011bb8
+11:39:40 A768-p10-s2026-st8                 rc=0 wall=51.16 denoise=46.377 vae=1.417 fp=5.95 pix=9ef3d041c7
+11:40:32 A768-p11-s2026-st8                 rc=0 wall=51.81 denoise=46.899 vae=1.474 fp=5.951 pix=3b47d73884
+11:41:26 A768-p11-s2026-st4                 rc=0 wall=28.43 denoise=23.626 vae=1.39 fp=5.952 pix=9a9d7b3706
+11:41:56 A768-p12-s2026-st4                 rc=0 wall=28.44 denoise=23.588 vae=1.437 fp=5.951 pix=727f4442c6
+11:42:26 A768-p12-s2026-st8                 rc=0 wall=51.0 denoise=46.19 vae=1.425 fp=5.95 pix=f6ebfa73dc
+11:43:18 A768-p01-s7331-st8                 rc=0 wall=50.67 denoise=45.843 vae=1.4 fp=5.924 pix=960fd5df54
+11:44:10 A768-p01-s7331-st4                 rc=0 wall=27.63 denoise=22.842 vae=1.395 fp=5.925 pix=e0e40c1ed0
+11:44:39 A768-p02-s7331-st4                 rc=0 wall=27.64 denoise=22.879 vae=1.388 fp=5.925 pix=fb69473b51
+11:45:09 A768-p02-s7331-st8                 rc=0 wall=50.23 denoise=45.419 vae=1.394 fp=5.925 pix=6f5c0d5899
+11:46:00 A768-p03-s7331-st8                 rc=0 wall=53.35 denoise=48.499 vae=1.406 fp=5.951 pix=be88045d74
+11:46:55 A768-p03-s7331-st4                 rc=0 wall=27.53 denoise=22.766 vae=1.365 fp=5.952 pix=f3178c0461
+11:47:24 A768-p04-s7331-st4                 rc=0 wall=26.39 denoise=21.722 vae=1.275 fp=5.951 pix=2591308f70
+11:47:52 A768-p04-s7331-st8                 rc=0 wall=46.46 denoise=41.885 vae=1.215 fp=5.951 pix=cbd8d779da
+11:48:40 A768-p05-s7331-st8                 rc=0 wall=44.59 denoise=40.028 vae=1.216 fp=5.941 pix=2538d20377
+11:49:26 A768-p05-s7331-st4                 rc=0 wall=24.28 denoise=19.744 vae=1.205 fp=5.941 pix=4216a537ac
+11:49:52 A768-p06-s7331-st4                 rc=0 wall=24.44 denoise=19.891 vae=1.202 fp=5.95 pix=48701f806c
+11:50:18 A768-p06-s7331-st8                 rc=0 wall=43.76 denoise=39.216 vae=1.202 fp=5.95 pix=f75429841b
+11:51:03 A768-p07-s7331-st8                 rc=0 wall=43.14 denoise=38.599 vae=1.175 fp=5.948 pix=441555e845
+11:51:48 A768-p07-s7331-st4                 rc=0 wall=24.08 denoise=19.537 vae=1.195 fp=5.95 pix=620c5b9089
+11:52:14 A768-p08-s7331-st4                 rc=0 wall=23.9 denoise=19.371 vae=1.19 fp=5.948 pix=74d79c98d0
+11:52:39 A768-p08-s7331-st8                 rc=0 wall=44.68 denoise=40.01 vae=1.194 fp=5.948 pix=150fdbf7c5
+11:53:25 A768-p09-s7331-st8                 rc=0 wall=43.69 denoise=39.027 vae=1.191 fp=5.95 pix=2f0b825194
+11:54:11 A768-p09-s7331-st4                 rc=0 wall=23.79 denoise=19.263 vae=1.199 fp=5.95 pix=97563df3c7
+11:54:36 A768-p10-s7331-st4                 rc=0 wall=23.37 denoise=18.887 vae=1.187 fp=5.949 pix=87c060f352
+11:55:01 A768-p10-s7331-st8                 rc=0 wall=42.12 denoise=37.631 vae=1.178 fp=5.951 pix=53155ba48f
+11:55:45 A768-p11-s7331-st8                 rc=0 wall=44.44 denoise=39.705 vae=1.328 fp=5.949 pix=861559464b
+11:56:31 A768-p11-s7331-st4                 rc=0 wall=23.18 denoise=18.632 vae=1.165 fp=5.952 pix=9861b8a1d4
+11:56:55 A768-p12-s7331-st4                 rc=0 wall=23.07 denoise=18.6 vae=1.154 fp=5.951 pix=2692b76cd7
+11:57:20 A768-p12-s7331-st8                 rc=0 wall=41.44 denoise=36.984 vae=1.153 fp=5.95 pix=22faaa8476
+RUNNER_DONE
+[11:58:03] Stage A sustained 1024
+11:58:03 A1024-p01-s2026-st8                rc=0 wall=74.45 denoise=68.749 vae=2.244 fp=5.835 pix=fc1876003a
+11:59:19 A1024-p01-s2026-st4                rc=0 wall=40.29 denoise=34.485 vae=2.291 fp=5.835 pix=2aa15faf24
+12:00:01 A1024-p02-s2026-st4                rc=0 wall=40.5 denoise=34.752 vae=2.293 fp=5.804 pix=1f7acd170d
+12:00:43 A1024-p02-s2026-st8                rc=0 wall=75.14 denoise=69.349 vae=2.297 fp=5.837 pix=ad71ea01d5
+12:01:59 A1024-p03-s2026-st8                rc=0 wall=74.74 denoise=69.014 vae=2.265 fp=5.849 pix=eda5a86b1d
+12:03:16 A1024-p03-s2026-st4                rc=0 wall=40.75 denoise=34.935 vae=2.313 fp=5.85 pix=80a2a38443
+12:03:58 A1024-p04-s2026-st4                rc=0 wall=42.54 denoise=36.79 vae=2.29 fp=5.85 pix=bb08b26195
+12:04:42 A1024-p04-s2026-st8                rc=0 wall=79.02 denoise=73.136 vae=2.453 fp=5.849 pix=6ed2121e41
+12:06:03 A1024-p05-s2026-st8                rc=0 wall=78.63 denoise=72.744 vae=2.397 fp=5.835 pix=e1d3f0d21c
+12:07:23 A1024-p05-s2026-st4                rc=0 wall=42.47 denoise=36.486 vae=2.45 fp=5.804 pix=5ece8035f3
+12:08:07 A1024-p06-s2026-st4                rc=0 wall=42.41 denoise=36.487 vae=2.463 fp=5.85 pix=8eca5e46e6
+12:08:51 A1024-p06-s2026-st8                rc=0 wall=78.4 denoise=72.164 vae=2.67 fp=5.85 pix=43e87bb564
+12:10:11 A1024-p07-s2026-st8                rc=0 wall=77.75 denoise=71.878 vae=2.415 fp=5.847 pix=a8a2e9defb
+12:11:30 A1024-p07-s2026-st4                rc=0 wall=42.54 denoise=36.688 vae=2.391 fp=5.818 pix=92a68b5754
+12:12:14 A1024-p08-s2026-st4                rc=0 wall=42.7 denoise=36.711 vae=2.505 fp=5.849 pix=e4aa8279c5
+12:12:58 A1024-p08-s2026-st8                rc=0 wall=78.55 denoise=72.516 vae=2.412 fp=5.849 pix=08eda00e29
+12:14:18 A1024-p09-s2026-st8                rc=0 wall=77.75 denoise=71.781 vae=2.341 fp=5.85 pix=f5a6e0147b
+12:15:38 A1024-p09-s2026-st4                rc=0 wall=41.05 denoise=35.055 vae=2.446 fp=5.819 pix=03a4211439
+12:16:20 A1024-p10-s2026-st4                rc=0 wall=40.75 denoise=34.965 vae=2.325 fp=5.849 pix=d61f145b0f
+12:17:03 A1024-p10-s2026-st8                rc=0 wall=78.41 denoise=72.563 vae=2.398 fp=5.85 pix=70eb048567
+12:18:23 A1024-p11-s2026-st8                rc=0 wall=80.38 denoise=74.389 vae=2.509 fp=5.85 pix=3a797bd25c
+12:19:45 A1024-p11-s2026-st4                rc=0 wall=43.45 denoise=37.474 vae=2.505 fp=5.85 pix=0a7b946920
+12:20:30 A1024-p12-s2026-st4                rc=0 wall=43.53 denoise=37.575 vae=2.481 fp=5.818 pix=02516aa552
+12:21:15 A1024-p12-s2026-st8                rc=0 wall=82.12 denoise=76.048 vae=2.534 fp=5.851 pix=265934874d
+12:22:38 A1024-p01-s7331-st8                rc=0 wall=81.98 denoise=75.97 vae=2.516 fp=5.837 pix=e5a07b87fe
+12:24:02 A1024-p01-s7331-st4                rc=0 wall=43.78 denoise=37.773 vae=2.501 fp=5.804 pix=a75a4f2aa9
+12:24:47 A1024-p02-s7331-st4                rc=0 wall=43.46 denoise=37.509 vae=2.483 fp=5.804 pix=ed5e0a128d
+12:25:32 A1024-p02-s7331-st8                rc=0 wall=79.58 denoise=73.595 vae=2.48 fp=5.838 pix=fd8d2082f4
+12:26:53 A1024-p03-s7331-st8                rc=0 wall=79.73 denoise=73.81 vae=2.429 fp=5.851 pix=5b438bc261
+12:28:15 A1024-p03-s7331-st4                rc=0 wall=43.23 denoise=37.161 vae=2.51 fp=5.85 pix=c16d3f1899
+12:28:59 A1024-p04-s7331-st4                rc=0 wall=43.47 denoise=37.505 vae=2.532 fp=5.85 pix=fe4012a9f8
+12:29:44 A1024-p04-s7331-st8                rc=0 wall=81.3 denoise=74.876 vae=2.775 fp=5.849 pix=39eb1ab362
+12:31:07 A1024-p05-s7331-st8                rc=0 wall=79.38 denoise=73.401 vae=2.377 fp=5.836 pix=9507192b87
+12:32:28 A1024-p05-s7331-st4                rc=0 wall=41.92 denoise=36.045 vae=2.397 fp=5.802 pix=38abbdb36d
+12:33:12 A1024-p06-s7331-st4                rc=0 wall=42.38 denoise=36.472 vae=2.45 fp=5.852 pix=0056c4d688
+12:33:55 A1024-p06-s7331-st8                rc=0 wall=80.07 denoise=74.211 vae=2.454 fp=5.85 pix=0cb48b7cbe
+12:35:17 A1024-p07-s7331-st8                rc=0 wall=79.19 denoise=73.249 vae=2.456 fp=5.85 pix=6929d13c10
+12:36:38 A1024-p07-s7331-st4                rc=0 wall=43.13 denoise=37.147 vae=2.499 fp=5.818 pix=09523e350d
+12:37:23 A1024-p08-s7331-st4                rc=0 wall=42.92 denoise=37.006 vae=2.476 fp=5.818 pix=154edf7830
+12:38:07 A1024-p08-s7331-st8                rc=0 wall=78.2 denoise=72.351 vae=2.39 fp=5.848 pix=394786344e
+12:39:27 A1024-p09-s7331-st8                rc=0 wall=76.99 denoise=71.186 vae=2.375 fp=5.85 pix=9dd493c433
+12:40:45 A1024-p09-s7331-st4                rc=0 wall=41.74 denoise=35.951 vae=2.354 fp=5.85 pix=c3f939b955
+12:41:29 A1024-p10-s7331-st4                rc=0 wall=41.79 denoise=36.005 vae=2.377 fp=5.816 pix=c9ee17158a
+12:42:12 A1024-p10-s7331-st8                rc=0 wall=78.66 denoise=72.8 vae=2.433 fp=5.85 pix=11abcced50
+12:43:32 A1024-p11-s7331-st8                rc=0 wall=80.2 denoise=74.22 vae=2.452 fp=5.849 pix=4af2c13f10
+12:44:54 A1024-p11-s7331-st4                rc=0 wall=43.33 denoise=37.348 vae=2.543 fp=5.819 pix=0da9621de0
+12:45:39 A1024-p12-s7331-st4                rc=0 wall=43.54 denoise=37.577 vae=2.528 fp=5.85 pix=dde183e4c5
+12:46:24 A1024-p12-s7331-st8                rc=0 wall=81.32 denoise=75.351 vae=2.501 fp=5.85 pix=df251b8b63
+RUNNER_DONE
+[2026-09-29 12:47:47] STAGE_A_GEN_DONE

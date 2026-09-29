@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 10:10 (step-count gate Stage A running)._
+_Last updated 2026-09-29 (step-count gate Stage A complete)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,22 +21,22 @@ _Last updated 2026-09-29 10:10 (step-count gate Stage A running)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**RUNNING (started 2026-09-29 10:09): step-count quality gate, Stage A (bf16/8 vs bf16/4)**
-- Script `research/experiments/step-count-quality-gate/run-stageA.sh`; console `step-count-quality-gate/stageA-console.log`; marker **`STAGE_A_GEN_DONE`**.
-- Stages: 6 cold runs (each after 600 s idle; done tags are skipped without re-idling), then sustained blocks 512 → 768 → 1024 (48 runs each).
-- Results: `results-A-{cold,512,768,1024}.jsonl`. Expected ≈ 2.5 h.
-- Resume: rerun the script as a top-level `nohup … & disown`. Done tags are skipped.
-- Pre-registered: `step-count-quality-gate/protocol.md` (commit `f49604c`).
-  - Seeds: A 2026/7331, B 6502/1729, C 8086/5150; confirmatory seed 4096 + `confirm-prompts.json`.
-  - Blind dirs `blind-A512/768/1024` (rng 2909291/2/3); **keys sealed until all three are frozen**.
-- The 4-step probe (REJECTED) is complete: `4step-probe/results.md`.
+**Nothing is running.** Step-count gate **Stage A complete** (2026-09-29 12:47; reviewed and written up in `step-count-quality-gate/results.md`).
+- bf16 + 4 vs FAST, blind (8-better / 4-better / ties):
+  - 512² 1 / 0 / 23 → **VALIDATED**;
+  - 768² 1 / 0 / 23 → **REJECTED** (a single duplicated-subtitle text pair; literal criterion 1; flagged borderline);
+  - 1024² 3 / 1 / 20 → **REJECTED** (p07 text failed in both seeds; ghosting).
+- Speed: denoise 0.50–0.51× at every size; memory identical; no grid artifact.
+- Production unchanged.
 
 **Next steps (in order)**
-1. After `STAGE_A_GEN_DONE`: integrity check; blinded review of the three resolutions, scoring each per `protocol.md` (lexicographic priority + failure-mode checklist); freeze all; unblind.
-2. Metrics: paired denoise/wall ratios, cold pairs, memory, grid16, Laplacian. Verdict per resolution (VALIDATED / PROMISING / REJECTED / INCONCLUSIVE). Write `benchmark.csv`, `blind-mapping.json`, `scores.csv`, `results.md`.
-3. Then Stage B (N = 5, seeds 6502/1729), then Stage C (N = 6, seeds 8086/5150). Create jobs mirroring Stage A.
-4. If N = 4 passes at all three sizes: the confirmatory run (`confirm-prompts.json` × seed 4096 at 1024²).
-5. Only after the gates: update STATUS, README, the guide and PERFORMANCE-MAP. **No production change inside the experiment.**
+1. **Decision for the user:** add an ULTRA profile (bf16 + 4) at **512² only**? That is a production change: VALIDATED_COMBINATIONS + tests + docs.
+2. **Stage B** (bf16 + 5, seeds 6502/1729) and **Stage C** (bf16 + 6, seeds 8086/5150). Mirror Stage A:
+   - copy `run-stageA.sh`/jobs with `steps` 5 or 6 and the new seeds;
+   - blind dirs `blind-B*` / `blind-C*` with new rng seeds;
+   - keys sealed until all of a stage's sheets are frozen.
+3. The confirmatory run is **not triggered** (4-step did not pass everywhere).
+4. Only after gates: README / guide updates for any new profile.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
@@ -45,6 +45,12 @@ _Last updated 2026-09-29 10:10 (step-count gate Stage A running)._
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-29 — Step-count gate Stage A (bf16/8 vs bf16/4): 512² VALIDATED, 768²/1024² REJECTED
+- **Pre-registered** (`f49604c`): fresh seeds 2026/7331; 12-prompt suite; 3 resolutions; lexicographic scoring + failure-mode checklist; grid16 guard; per-stage fresh seeds (Improvement Clause).
+- **Results:** 150 runs, 0 failures. Blind 512² 1/0/23, 768² 1/0/23, 1024² 3/1/20. Every 4-step loss was an under-denoising signature (ghost duplicate text, malformed glyph, ghost plates). No grid artifact.
+- **Reconciliation:** the probe control (2/3/19 at 1024²) did not generalise on the text criterion. Pooled 1024²: 5 / 4 / 39, with 4-step losses concentrated on text.
+- **Docs:** STATUS, PERFORMANCE-MAP, step-sweep annotation. Production unchanged.
 
 ## 2026-09-29 — 4-step probe COMPLETE: REJECTED; Turbo-4 emerges as the next gate candidate
 - **Benchmark:** 72 sustained runs + 3 cold, 0 failures. Paused 22:52 → 08:55 (user), resumed without repeating completed runs.

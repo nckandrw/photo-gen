@@ -1,0 +1,368 @@
+{
+ "A512": {
+  "C01": {
+   "pair": "p01-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C02": {
+   "pair": "p02-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C03": {
+   "pair": "p03-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C04": {
+   "pair": "p04-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C05": {
+   "pair": "p05-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C06": {
+   "pair": "p06-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C07": {
+   "pair": "p07-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C08": {
+   "pair": "p08-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C09": {
+   "pair": "p09-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C10": {
+   "pair": "p10-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C11": {
+   "pair": "p11-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C12": {
+   "pair": "p12-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C13": {
+   "pair": "p01-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C14": {
+   "pair": "p02-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C15": {
+   "pair": "p03-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C16": {
+   "pair": "p04-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C17": {
+   "pair": "p05-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C18": {
+   "pair": "p06-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C19": {
+   "pair": "p07-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C20": {
+   "pair": "p08-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C21": {
+   "pair": "p09-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C22": {
+   "pair": "p10-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C23": {
+   "pair": "p11-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C24": {
+   "pair": "p12-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  }
+ },
+ "A768": {
+  "C01": {
+   "pair": "p01-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C02": {
+   "pair": "p02-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C03": {
+   "pair": "p03-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C04": {
+   "pair": "p04-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C05": {
+   "pair": "p05-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C06": {
+   "pair": "p06-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C07": {
+   "pair": "p07-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C08": {
+   "pair": "p08-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C09": {
+   "pair": "p09-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C10": {
+   "pair": "p10-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C11": {
+   "pair": "p11-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C12": {
+   "pair": "p12-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C13": {
+   "pair": "p01-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C14": {
+   "pair": "p02-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C15": {
+   "pair": "p03-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C16": {
+   "pair": "p04-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C17": {
+   "pair": "p05-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C18": {
+   "pair": "p06-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C19": {
+   "pair": "p07-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C20": {
+   "pair": "p08-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C21": {
+   "pair": "p09-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C22": {
+   "pair": "p10-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C23": {
+   "pair": "p11-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C24": {
+   "pair": "p12-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  }
+ },
+ "A1024": {
+  "C01": {
+   "pair": "p01-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C02": {
+   "pair": "p02-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C03": {
+   "pair": "p03-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C04": {
+   "pair": "p04-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C05": {
+   "pair": "p05-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C06": {
+   "pair": "p06-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C07": {
+   "pair": "p07-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C08": {
+   "pair": "p08-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C09": {
+   "pair": "p09-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C10": {
+   "pair": "p10-s2026",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C11": {
+   "pair": "p11-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C12": {
+   "pair": "p12-s2026",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C13": {
+   "pair": "p01-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C14": {
+   "pair": "p02-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C15": {
+   "pair": "p03-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C16": {
+   "pair": "p04-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C17": {
+   "pair": "p05-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C18": {
+   "pair": "p06-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C19": {
+   "pair": "p07-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C20": {
+   "pair": "p08-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  },
+  "C21": {
+   "pair": "p09-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C22": {
+   "pair": "p10-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C23": {
+   "pair": "p11-s7331",
+   "left_steps": 8,
+   "right_steps": 4
+  },
+  "C24": {
+   "pair": "p12-s7331",
+   "left_steps": 4,
+   "right_steps": 8
+  }
+ }
+}

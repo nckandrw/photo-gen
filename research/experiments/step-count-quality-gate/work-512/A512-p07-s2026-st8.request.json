@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-512/A512-p07-s2026-st8.png",
+ "prompt": "A vintage travel poster with the large headline \"VISIT SIQUIJOR\" and the smaller subtitle \"Island of Fire\", illustrated beach and palm trees, clean legible typography.",
+ "width": 512,
+ "height": 512,
+ "steps": 8,
+ "seed": 2026,
+ "precision": "bf16",
+ "release_transformer": true
+}

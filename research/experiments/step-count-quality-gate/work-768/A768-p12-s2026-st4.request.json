@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-768/A768-p12-s2026-st4.png",
+ "prompt": "Exactly three blue ceramic cups and two yellow plates arranged in a single row on a white table, top-down view, studio lighting.",
+ "width": 768,
+ "height": 768,
+ "steps": 4,
+ "seed": 2026,
+ "precision": "bf16",
+ "release_transformer": true
+}

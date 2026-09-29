@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-512/A512-p01-s7331-st4.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 512,
+ "height": 512,
+ "steps": 4,
+ "seed": 7331,
+ "precision": "bf16",
+ "release_transformer": true
+}

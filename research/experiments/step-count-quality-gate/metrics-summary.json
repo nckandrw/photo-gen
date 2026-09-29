@@ -1,0 +1,139 @@
+{
+ "512": {
+  "paired_denoise_ratio_4_8": {
+   "median": 0.509,
+   "min": 0.451,
+   "max": 0.53
+  },
+  "paired_wall_ratio_4_8": 0.594,
+  "lapvar_ratio_4_8_median": 0.948,
+  "arms": {
+   "8": {
+    "denoise_med": 18.75,
+    "wall_med": 22.44,
+    "vae_med": 0.419,
+    "peak_max": 5.414,
+    "swap_max": 0.0,
+    "pressure_max": 1.0,
+    "grid16_max": 1.4,
+    "grid16_med": 1.07
+   },
+   "4": {
+    "denoise_med": 9.53,
+    "wall_med": 13.23,
+    "vae_med": 0.424,
+    "peak_max": 5.415,
+    "swap_max": 1.3,
+    "pressure_max": 1.0,
+    "grid16_max": 1.33,
+    "grid16_med": 1.04
+   }
+  }
+ },
+ "768": {
+  "paired_denoise_ratio_4_8": {
+   "median": 0.503,
+   "min": 0.469,
+   "max": 0.519
+  },
+  "paired_wall_ratio_4_8": 0.551,
+  "lapvar_ratio_4_8_median": 0.909,
+  "arms": {
+   "8": {
+    "denoise_med": 45.49,
+    "wall_med": 50.31,
+    "vae_med": 1.399,
+    "peak_max": 5.951,
+    "swap_max": 0.0,
+    "pressure_max": 2.0,
+    "grid16_max": 1.41,
+    "grid16_med": 1.08
+   },
+   "4": {
+    "denoise_med": 22.86,
+    "wall_med": 27.63,
+    "vae_med": 1.389,
+    "peak_max": 5.952,
+    "swap_max": 0.0,
+    "pressure_max": 1.0,
+    "grid16_max": 1.62,
+    "grid16_med": 1.06
+   }
+  }
+ },
+ "1024": {
+  "paired_denoise_ratio_4_8": {
+   "median": 0.502,
+   "min": 0.482,
+   "max": 0.511
+  },
+  "paired_wall_ratio_4_8": 0.54,
+  "lapvar_ratio_4_8_median": 0.937,
+  "arms": {
+   "8": {
+    "denoise_med": 72.97,
+    "wall_med": 78.84,
+    "vae_med": 2.431,
+    "peak_max": 5.851,
+    "swap_max": 0.0,
+    "pressure_max": 2.0,
+    "grid16_max": 1.3,
+    "grid16_med": 1.1
+   },
+   "4": {
+    "denoise_med": 36.7,
+    "wall_med": 42.54,
+    "vae_med": 2.457,
+    "peak_max": 5.852,
+    "swap_max": 0.0,
+    "pressure_max": 2.0,
+    "grid16_max": 1.24,
+    "grid16_med": 1.04
+   }
+  }
+ },
+ "cold": {
+  "cold-512-st8": {
+   "wall": 15.55,
+   "denoise": 11.49,
+   "vae": 0.381,
+   "peak": 5.413,
+   "pix": "0b9cc20a"
+  },
+  "cold-512-st4": {
+   "wall": 9.49,
+   "denoise": 5.875,
+   "vae": 0.367,
+   "peak": 5.414,
+   "pix": "6aa2b842"
+  },
+  "cold-768-st8": {
+   "wall": 30.35,
+   "denoise": 25.991,
+   "vae": 1.06,
+   "peak": 5.925,
+   "pix": "20ff9e2c"
+  },
+  "cold-768-st4": {
+   "wall": 17.53,
+   "denoise": 13.217,
+   "vae": 1.056,
+   "peak": 5.924,
+   "pix": "76e79e43"
+  },
+  "cold-1024-st8": {
+   "wall": 54.42,
+   "denoise": 49.11,
+   "vae": 1.956,
+   "peak": 5.835,
+   "pix": "7b45cfbe"
+  },
+  "cold-1024-st4": {
+   "wall": 30.03,
+   "denoise": 24.554,
+   "vae": 1.963,
+   "peak": 5.836,
+   "pix": "71189052"
+  }
+ }
+}

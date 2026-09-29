@@ -68,3 +68,15 @@
 - Denoise per step at 1024² in the sustained block rises from 8.8 to 9.3 s toward the middle of the ramp: thermal state, not step count.
 - Per-step cost is the same for every step count once thermal state is matched (cold bf16: 55.1/9 = 6.12 s, 48.7/8 = 6.09 s).
 - Memory depends on precision and resolution, not step count. Transformer release makes it flat run to run.
+
+## Step-count gate, Stage A (2026-09-29; `step-count-quality-gate/results.md`)
+Cold, same day, one run each after 600 s idle; p01 seed 42.
+
+| res | bf16 + 8 (FAST) wall / denoise | bf16 + 4 wall / denoise | paired sustained denoise 4/8 | 4-step quality verdict |
+|---|---|---|---:|---|
+| 512² | 15.6 / 11.5 s | 9.5 / 5.9 s | 0.509 | **VALIDATED** |
+| 768² | 30.4 / 26.0 s | 17.5 / 13.2 s | 0.503 | REJECTED (1 text pair) |
+| 1024² | 54.4 / 49.1 s | 30.0 / 24.6 s | 0.502 | REJECTED (text class) |
+
+Peak footprint is identical to FAST at each size.
+

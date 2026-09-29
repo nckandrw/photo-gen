@@ -1,0 +1,73 @@
+res,composite,pair,adherence,composition,visual,text,failure_modes,overall_blind,winner,notes
+512,C01,p01-s2026,=,=,=,n/a,none / none,=,tie,
+512,C02,p02-s2026,=,=,=,n/a,none / none,=,tie,
+512,C03,p03-s2026,=,=,=,=,none / none,=,tie,text-through-glass gibberish both
+512,C04,p04-s2026,=,=,=,n/a,none / none,=,tie,
+512,C05,p05-s2026,=,=,=,=,none / none,=,tie,p05 exact both
+512,C06,p06-s2026,=,=,=,n/a,none / none,=,tie,
+512,C07,p07-s2026,=,=,=,=,none / none,=,tie,p07 exact both; subtitle placement differs
+512,C08,p08-s2026,=,=,L minor (detail),n/a,none / none,L,8-step,L more copper scratch detail
+512,C09,p09-s2026,=,=,=,n/a,none / none,=,tie,jeepney + child + red balloon both
+512,C10,p10-s2026,=,=,=,n/a,none / none,=,tie,
+512,C11,p11-s2026,=,=,=,n/a,none / none,=,tie,
+512,C12,p12-s2026,=,=,=,n/a,none / none,=,tie,3 cups + 2 plates both correct
+512,C13,p01-s7331,=,=,=,n/a,none / none,=,tie,
+512,C14,p02-s7331,=,=,=,n/a,none / none,=,tie,
+512,C15,p03-s7331,=,=,=,=,none / none,=,tie,gibberish both
+512,C16,p04-s7331,=,=,=,n/a,none / none,=,tie,
+512,C17,p05-s7331,=,=,=,=,none / none,=,tie,p05 exact both
+512,C18,p06-s7331,=,=,=,n/a,none / none,=,tie,
+512,C19,p07-s7331,=,=,=,=,none / none,=,tie,p07 exact both
+512,C20,p08-s7331,=,=,=,n/a,none / none,=,tie,
+512,C21,p09-s7331,=,=,=,n/a,none / none,=,tie,jeepney + child + red balloon both
+512,C22,p10-s7331,=,=,=,n/a,none / none,=,tie,
+512,C23,p11-s7331,=,=,=,n/a,none / none,=,tie,
+512,C24,p12-s7331,=,=,=,n/a,none / none,=,tie,3 cups + 2 plates both correct
+768,C01,p01-s2026,=,=,=,n/a,none / none,=,tie,
+768,C02,p02-s2026,=,=,=,n/a,none / none,=,tie,
+768,C03,p03-s2026,=,=,=,= gibberish both,none / none,=,tie,
+768,C04,p04-s2026,=,=,=,n/a,none / none,=,tie,
+768,C05,p05-s2026,=,=,=,= exact both,none / none,=,tie,R adds backing board
+768,C06,p06-s2026,=,=,=,n/a,none / none,=,tie,
+768,C07,p07-s2026,=,=,=,= exact both,none / none,=,tie,
+768,C08,p08-s2026,=,=,=,n/a,none / none,=,tie,
+768,C09,p09-s2026,=,=,=,n/a,none / none,=,tie,jeepney + child + balloon both
+768,C10,p10-s2026,=,=,=,n/a,none / none,=,tie,
+768,C11,p11-s2026,=,=,=,n/a,none / none,=,tie,
+768,C12,p12-s2026,=,=,=,n/a,none / none,=,tie,3 cups + 2 plates both
+768,C13,p01-s7331,=,=,=,n/a,none / none,=,tie,
+768,C14,p02-s7331,=,=,=,n/a,none / none,=,tie,
+768,C15,p03-s7331,=,=,=,= gibberish both,none / none,=,tie,
+768,C16,p04-s7331,=,=,=,n/a,none / none,=,tie,
+768,C17,p05-s7331,=,=,=,= exact both,none / none,=,tie,
+768,C18,p06-s7331,=,=,=,n/a,none / none,=,tie,
+768,C19,p07-s7331,L,=,=,R duplicates subtitle 'Island of Fire',R: duplicate text,L,8-step,R: text error (duplicate subtitle)
+768,C20,p08-s7331,=,=,=,n/a,none / none,=,tie,
+768,C21,p09-s7331,=,=,=,n/a,none / none,=,tie,jeepney + child + balloon both
+768,C22,p10-s7331,=,=,=,n/a,none / none,=,tie,
+768,C23,p11-s7331,=,=,=,n/a,none / none,=,tie,
+768,C24,p12-s7331,=,=,=,n/a,none / none,=,tie,3 cups + 2 plates both
+1024,C01,p01-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C02,p02-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C03,p03-s2026,=,=,=,=,none / none,=,tie,gibberish text both
+1024,C04,p04-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C05,p05-s2026,=,=,=,=,none / none,=,tie,
+1024,C06,p06-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C07,p07-s2026,R,=,=,L wrong,L: duplicate text / ghosting,R,8-step,"L: ghost semi-transparent duplicate 'SIQUIJOR' (text error, under-denoising)"
+1024,C08,p08-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C09,p09-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C10,p10-s2026,=,=,=,n/a,none / none,=,tie,
+1024,C11,p11-s2026,R,=,=,n/a,L: duplicate objects / ghosting,R,4-step,L: four wine glasses incl. ghosted duplicates
+1024,C12,p12-s2026,=,=,=,n/a,none / none,=,tie,both 3 cups + 3 plates (asked 2): identical failure
+1024,C13,p01-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C14,p02-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C15,p03-s7331,=,=,=,=,none / none,=,tie,
+1024,C16,p04-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C17,p05-s7331,=,=,=,=,none / none,=,tie,
+1024,C18,p06-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C19,p07-s7331,R,=,=,L wrong,L: text error,R,8-step,L: malformed final letter of SIQUIJOR
+1024,C20,p08-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C21,p09-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C22,p10-s7331,=,=,=,n/a,none / none,=,tie,
+1024,C23,p11-s7331,=,=,=,n/a,none / none,=,tie,both have extra glasses/candles; similar
+1024,C24,p12-s7331,R,=,=,n/a,L: under-denoising / ghost objects,R,8-step,L: faint ghost plates floating above cups
