@@ -1,0 +1,46 @@
+{
+ "B512": {
+  "8-better": 1,
+  "5-better": 0,
+  "ties": 23,
+  "decisions": [
+   {
+    "c": "C04",
+    "pair": "p04-s6502",
+    "winner_steps": 8,
+    "notes": "R pen shows a fountain-pen nib; L reads as a ballpoint (minor)"
+   }
+  ]
+ },
+ "B768": {
+  "8-better": 3,
+  "5-better": 0,
+  "ties": 21,
+  "decisions": [
+   {
+    "c": "C03",
+    "pair": "p03-s6502",
+    "winner_steps": 8,
+    "notes": "neither readable; R's text is doubled/semi-transparent (ghosted overlay), L's gibberish is crisp. Decided on visual quality"
+   },
+   {
+    "c": "C07",
+    "pair": "p07-s6502",
+    "winner_steps": 8,
+    "notes": "headline exact both; R \"Island of Fire\" faded/pale vs L crisp navy; prompt asks clean legible typography"
+   },
+   {
+    "c": "C21",
+    "pair": "p09-s1729",
+    "winner_steps": 8,
+    "notes": "L has a second red balloon beside the child's; R single balloon"
+   }
+  ]
+ },
+ "B1024": {
+  "8-better": 0,
+  "5-better": 0,
+  "ties": 24,
+  "decisions": []
+ }
+}

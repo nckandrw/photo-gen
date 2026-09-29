@@ -1,0 +1,26 @@
+# Stage B blind review, 768², rater: Claude (blind; keys sealed). Format:
+# C{nn} {pid}-s{seed} | adherence | composition | visual | text | failure modes (L / R) | OVERALL | notes
+C01 p01-s6502 | = | = | = | n/a | none / none | OVERALL = | apple near-identical
+C02 p02-s6502 | = | = | = | n/a | none / none | OVERALL = | portrait near-identical; both centred
+C03 p03-s6502 | = | = | L | L (both gibberish; R ghosted) | text error / text error, under-denoising | OVERALL L | neither readable; R's text is doubled/semi-transparent (ghosted overlay), L's gibberish is crisp. Decided on visual quality
+C04 p04-s6502 | = | = | = | n/a | none / none | OVERALL = | both ballpoint rather than fountain pen, equally
+C05 p05-s6502 | = | = | = | = (exact both) | none / none | OVERALL = | neon text exact in both
+C06 p06-s6502 | = | = | = | n/a | none / none | OVERALL = | wet dusk street equivalent
+C07 p07-s6502 | L | = | L | L minor (R subtitle present once, readable, low-contrast faded tan) | none / text error (minor) | OVERALL L | headline exact both; R "Island of Fire" faded/pale vs L crisp navy; prompt asks clean legible typography
+C08 p08-s6502 | = | = | = | n/a | none / none | OVERALL = | kettle/napkin/wine equivalent
+C09 p09-s6502 | = | = | = | n/a | none / none | OVERALL = | all elements in both
+C10 p10-s6502 | = | = | = | n/a | none / none | OVERALL = | cat near-identical
+C11 p11-s6502 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C12 p12-s6502 | = | = | = | n/a | wrong count, wrong spatial / wrong count, wrong spatial | OVERALL = | both 3 cups + 3 plates in two rows; identical failure
+C13 p01-s1729 | = | = | = | n/a | none / none | OVERALL = | apple near-identical
+C14 p02-s1729 | = | = | = | n/a | none / none | OVERALL = | portrait near-identical
+C15 p03-s1729 | = | = | = | = (both gibberish) | text error / text error | OVERALL = | both illegible, both crisp
+C16 p04-s1729 | = | = | = | n/a | none / none | OVERALL = | all five objects in both
+C17 p05-s1729 | = | = | = | = (exact both) | none / none | OVERALL = | neon text exact in both
+C18 p06-s1729 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C19 p07-s1729 | = | = | = | = (exact both) | none / none | OVERALL = | headline + subtitle exact once in both; R adds mounting screws
+C20 p08-s1729 | = | = | = | n/a | none / none | OVERALL = | tight crop, equivalent
+C21 p09-s1729 | = | R | = | n/a | duplicate object / none | OVERALL R | L has a second red balloon beside the child's; R single balloon
+C22 p10-s1729 | = | = | = | n/a | none / none | OVERALL = | cat near-identical
+C23 p11-s1729 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C24 p12-s1729 | = | = | = | n/a | wrong spatial / wrong spatial | OVERALL = | both correct counts (3+2) in two rows, not one

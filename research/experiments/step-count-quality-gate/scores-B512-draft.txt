@@ -1,0 +1,26 @@
+# Stage B blind review, 512², rater: Claude (blind; keys sealed). Format:
+# C{nn} {pid}-s{seed} | adherence | composition | visual | text | failure modes (L / R) | OVERALL | notes
+C01 p01-s6502 | = | = | = | n/a | none / none | OVERALL = | apple near-identical
+C02 p02-s6502 | = | = | = | n/a | none / none | OVERALL = | portrait near-identical
+C03 p03-s6502 | = | = | = | = (both gibberish) | text error / text error | OVERALL = | both illegible, both crisp
+C04 p04-s6502 | R | = | = | n/a | none / none | OVERALL R | R pen shows a fountain-pen nib; L reads as a ballpoint (minor)
+C05 p05-s6502 | = | = | = | = (exact both) | none / none | OVERALL = | neon text exact in both
+C06 p06-s6502 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C07 p07-s6502 | = | = | = | = (exact both) | none / none | OVERALL = | headline + subtitle exact once in both
+C08 p08-s6502 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C09 p09-s6502 | = | = | = | n/a | none / none | OVERALL = | all elements in both
+C10 p10-s6502 | = | = | = | n/a | none / none | OVERALL = | cat near-identical
+C11 p11-s6502 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C12 p12-s6502 | = | = | = | n/a | wrong count, wrong spatial / wrong count, wrong spatial | OVERALL = | both 3 cups + 3 plates in two rows; identical failure
+C13 p01-s1729 | = | = | = | n/a | none / none | OVERALL = | apple near-identical
+C14 p02-s1729 | = | = | = | n/a | none / none | OVERALL = | portrait near-identical
+C15 p03-s1729 | = | = | = | = (both gibberish) | text error / text error | OVERALL = | both illegible, same layout
+C16 p04-s1729 | = | = | = | n/a | none / none | OVERALL = | all five objects in both
+C17 p05-s1729 | = | = | = | = (exact both) | none / none | OVERALL = | neon text exact in both
+C18 p06-s1729 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C19 p07-s1729 | = | = | = | = (exact both) | none / none | OVERALL = | headline + subtitle exact once in both
+C20 p08-s1729 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C21 p09-s1729 | = | = | = | n/a | none / none | OVERALL = | all elements in both
+C22 p10-s1729 | = | = | = | n/a | none / none | OVERALL = | cat near-identical
+C23 p11-s1729 | = | = | = | n/a | none / none | OVERALL = | L adds two background tumblers (plausible, solid); equivalent
+C24 p12-s1729 | = | = | = | n/a | wrong count, wrong spatial / wrong count, wrong spatial | OVERALL = | both 3 cups on 3 saucers; identical failure

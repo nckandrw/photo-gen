@@ -1,0 +1,63 @@
+{
+ "512": {
+  "text error": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  },
+  "wrong count": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  },
+  "wrong spatial": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  }
+ },
+ "768": {
+  "duplicate object": {
+   "5": 1,
+   "8": 0,
+   "net": 1
+  },
+  "text error": {
+   "5": 3,
+   "8": 2,
+   "net": 1
+  },
+  "under-denoising": {
+   "5": 1,
+   "8": 0,
+   "net": 1
+  },
+  "wrong count": {
+   "5": 1,
+   "8": 1,
+   "net": 0
+  },
+  "wrong spatial": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  }
+ },
+ "1024": {
+  "text error": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  },
+  "wrong count": {
+   "5": 2,
+   "8": 2,
+   "net": 0
+  },
+  "wrong spatial": {
+   "5": 1,
+   "8": 1,
+   "net": 0
+  }
+ }
+}
