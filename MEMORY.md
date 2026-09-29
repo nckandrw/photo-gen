@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-28 22:53 (benchmark paused)._
+_Last updated 2026-09-29 08:56 (benchmark resumed)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,6 +21,7 @@ _Last updated 2026-09-28 22:53 (benchmark paused)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
+**RUNNING (resumed 2026-09-29 08:55; paused 2026-09-28 22:52 → 08:55): the 4-step probe sustained stage.** Only the 43 remaining runs were queued (prod_runner skips done tags). Completion = `RUNNER_DONE` after the resume marker in the console + 72 rows in `results-bench.jsonl`. The paused note below is kept for context.
 **PAUSED (2026-09-28 22:52, user needed the laptop): the 4-step probe benchmark — NOTHING is running**
 - Progress: cold A/B/C **done** (3/3, `results-cold.jsonl`; cold A reproduced FAST `7b45cfbe`); sustained **29 of 72** done (`results-bench.jsonl`); stopped cleanly after `C-p10-s4242` (no half-written row).
 - **Resume:** `cd ~/Dev/photo-gen/research/experiments && nohup zsh 4step-probe/run-benchmark.sh >> 4step-probe/benchmark-console.log 2>&1 < /dev/null & disown`
