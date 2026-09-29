@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 (step-count gate Stage A complete)._
+_Last updated 2026-09-29 (ULTRA 512² in production; Stage B running)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,22 +21,18 @@ _Last updated 2026-09-29 (step-count gate Stage A complete)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**Nothing is running.** Step-count gate **Stage A complete** (2026-09-29 12:47; reviewed and written up in `step-count-quality-gate/results.md`).
-- bf16 + 4 vs FAST, blind (8-better / 4-better / ties):
-  - 512² 1 / 0 / 23 → **VALIDATED**;
-  - 768² 1 / 0 / 23 → **REJECTED** (a single duplicated-subtitle text pair; literal criterion 1; flagged borderline);
-  - 1024² 3 / 1 / 20 → **REJECTED** (p07 text failed in both seeds; ghosting).
-- Speed: denoise 0.50–0.51× at every size; memory identical; no grid artifact.
-- Production unchanged.
+**RUNNING (started 2026-09-29): step-count gate Stage B (bf16/8 vs bf16/5)**
+- Script `research/experiments/step-count-quality-gate/run-stageB.sh`; console `stageB-console.log`; marker **`STAGE_B_GEN_DONE`**.
+- Stages: 3 cold 5-step runs (600 s idle each), then 48 sustained runs per resolution. Results `results-B-{cold,512,768,1024}.jsonl`; images `work-B-*`.
+- Resume: rerun the script as a top-level `nohup … & disown` (done tags are skipped).
+- Pre-registered: `protocol-stageB.md` (seeds 6502/1729; blind dirs `blind-B512/768/1024`, rng 2909301/2/3; "minor" text error defined in advance; speed criterion ≤ 0.70).
+- **Production now:** REFERENCE fp32/9, FAST bf16/8 (512/768/1024), **ULTRA bf16/4 at 512² only** (added 2026-09-29, commit `62c11d7`, hash `6aa2b842`). 41/41 tests. Unchanged during Stage B.
 
 **Next steps (in order)**
-1. **Decision for the user:** add an ULTRA profile (bf16 + 4) at **512² only**? That is a production change: VALIDATED_COMBINATIONS + tests + docs.
-2. **Stage B** (bf16 + 5, seeds 6502/1729) and **Stage C** (bf16 + 6, seeds 8086/5150). Mirror Stage A:
-   - copy `run-stageA.sh`/jobs with `steps` 5 or 6 and the new seeds;
-   - blind dirs `blind-B*` / `blind-C*` with new rng seeds;
-   - keys sealed until all of a stage's sheets are frozen.
-3. The confirmatory run is **not triggered** (4-step did not pass everywhere).
-4. Only after gates: README / guide updates for any new profile.
+1. After `STAGE_B_GEN_DONE`: integrity; build pairs from `results-B-*` (`work-B-{res}`); prepare the 3 blind dirs; score each (lexicographic + failure-mode checklist; count ghosting / duplicate-text / malformed-glyph per arm); freeze all; unblind.
+2. Metrics: paired 5/8 ratios, cold 5-step vs same-day Stage A cold 8-step, grid16, memory. Per-resolution verdicts. Append a Stage B section to `results.md`, and update STATUS / PERFORMANCE-MAP / EXPERIMENT-BACKLOG.
+3. Then decide Stage C (bf16 + 6, seeds 8086/5150). **Do not auto-start it.**
+4. Resolution-aware step selection is a recorded research hypothesis only. Do not implement.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
@@ -45,6 +41,11 @@ _Last updated 2026-09-29 (step-count gate Stage A complete)._
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-29 — ULTRA profile (bf16 + 4) promoted at 512² only; Stage B launched
+- **ULTRA:** `PROFILES['ultra']` plus `VALIDATED_COMBINATIONS[('bf16',4)] = (512²,)`; tests 41/41 (`test_ultra_profile_gated_at_512_only`). CLI: 512² → `6aa2b842`, validated; 768² refused.
+- **Docs:** README, the guide, USAGE, HARDWARE, CLAUDE.md, the machine profile, STATUS, PERFORMANCE-MAP. The step-sweep report has an evidence-chain addendum.
+- **Stage B** pre-registered and launched (see Current state).
 
 ## 2026-09-29 — Step-count gate Stage A (bf16/8 vs bf16/4): 512² VALIDATED, 768²/1024² REJECTED
 - **Pre-registered** (`f49604c`): fresh seeds 2026/7331; 12-prompt suite; 3 resolutions; lexicographic scoring + failure-mode checklist; grid16 guard; per-stage fresh seeds (Improvement Clause).
