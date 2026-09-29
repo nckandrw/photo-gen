@@ -1,0 +1,112 @@
+{
+ "sustained_medians": {
+  "A": {
+   "wall_s": 94.215,
+   "denoise_s": 87.814,
+   "vae_s": 2.877,
+   "load_s": 1.034,
+   "text_encode_s": 0.641,
+   "per_step_s": 10.977,
+   "peak_footprint_gb": 5.849,
+   "grid16": 1.11,
+   "footprint_max": 5.853,
+   "swap_growth_max_mb": 0.0,
+   "pressure_max": 1.0,
+   "grid16_range": [
+    0.94,
+    1.62
+   ]
+  },
+  "B": {
+   "wall_s": 50.055,
+   "denoise_s": 43.662,
+   "vae_s": 2.851,
+   "load_s": 1.036,
+   "text_encode_s": 0.641,
+   "per_step_s": 10.915,
+   "peak_footprint_gb": 5.85,
+   "grid16": 1.1,
+   "footprint_max": 5.855,
+   "swap_growth_max_mb": 0.0,
+   "pressure_max": 1.0,
+   "grid16_range": [
+    0.85,
+    1.36
+   ]
+  },
+  "C": {
+   "wall_s": 53.34,
+   "denoise_s": 46.288,
+   "vae_s": 2.862,
+   "load_s": 1.793,
+   "text_encode_s": 0.646,
+   "per_step_s": 11.572,
+   "peak_footprint_gb": 6.688,
+   "grid16": 5.435,
+   "footprint_max": 6.69,
+   "swap_growth_max_mb": 0.0,
+   "pressure_max": 2.0,
+   "grid16_range": [
+    3.9,
+    11.54
+   ]
+  }
+ },
+ "paired_ratios_median": {
+  "C/A denoise": 0.541,
+  "C/A wall": 0.582,
+  "B/A denoise": 0.504,
+  "B/A wall": 0.539,
+  "C/B denoise": 1.062,
+  "C/B wall": 1.07
+ },
+ "cold": {
+  "A": {
+   "wall": 53.78,
+   "denoise": 48.5,
+   "vae": 1.951,
+   "fp": 5.837,
+   "load": 1.027,
+   "pix": "7b45cfbe"
+  },
+  "B": {
+   "wall": 29.86,
+   "denoise": 24.48,
+   "vae": 1.96,
+   "fp": 5.837,
+   "load": 1.034,
+   "pix": "71189052"
+  },
+  "C": {
+   "wall": 32.28,
+   "denoise": 26.342,
+   "vae": 1.968,
+   "fp": 6.676,
+   "load": 1.753,
+   "pix": "9c433033"
+  }
+ },
+ "thermal_per_step": {
+  "A": {
+   "first_third": 8.921,
+   "before_pause_last": 9.87,
+   "after_pause_first": 11.419,
+   "last_third": 11.148
+  },
+  "B": {
+   "first_third": 8.913,
+   "before_pause_last": 10.143,
+   "after_pause_first": 10.768,
+   "last_third": 11.338
+  },
+  "C": {
+   "first_third": 9.565,
+   "before_pause_last": 11.177,
+   "after_pause_first": 11.574,
+   "last_third": 12.171
+  }
+ },
+ "excluded_timing_pairs": [
+  "p10-s4242 (straddles pause)"
+ ]
+}

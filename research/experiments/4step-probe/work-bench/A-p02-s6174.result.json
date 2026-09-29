@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A cinematic portrait positioned according to the rule of thirds, with a softly blurred urban background and warm evening light.",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "8",
+  "--seed",
+  "6174",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/4step-probe/work-bench/A-p02-s6174.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.034,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.659,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 2.991,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 95.325,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 91.675
+ },
+ "step_seconds": [
+  12.193,
+  11.504,
+  11.571,
+  11.423,
+  11.34,
+  11.186,
+  11.15,
+  11.12
+ ],
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 97.831,
+ "peak_footprint_gb": 5.835
+}

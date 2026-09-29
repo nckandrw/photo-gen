@@ -32,6 +32,7 @@ That frame decides transferability more than any paper's headline number: attent
 | SANA / MobileDiffusion / SnapGen | architecture co-design (32× AE, linear attention, small nets) + distillation | would be a different model | — | — | training | CONCEPTUALLY USEFUL (long-term) |
 | Lightweight decoders 2503.04871 | distilled small VAE decoders | VAE ≈3% of wall | — | — | training | CONCEPTUALLY USEFUL — low value measured |
 | Consistency / LCM / Moment matching | few-step distillation theory | future re-distillation | — | — | training | CONCEPTUALLY USEFUL (long-term) |
+| alibaba-pai Z-Image-Fun-Lora-Distill (4-step, 2603) | distills steps + CFG into a rank-128 LoRA for Z-Image **base** | tested 2026-09-29 as a zero-training 4-NFE candidate | loads in mflux (612/612 keys); runtime adapter +0.84 GB, +6%/step | n/a | leaves a 16-px grain at 4 NFE on this runtime | **TESTED → REJECTED** vs plain Turbo-4 (`experiments/4step-probe/results.md`) |
 | SaRA / IntLoRA | PEFT, incl. integer LoRA on quantized weights | customization of the q4 base | mflux has LoRA support | yes | training memory on 16 GB unverified | PARTIALLY TRANSFERABLE (Tier C) |
 | GenEval / GenEval 2 / T2I-CompBench++ / OneIG / ImageReward | evaluation | applies | — | judges may need separate env | offline policy for VLM judges | DIRECTLY TRANSFERABLE as tools (E08) |
 

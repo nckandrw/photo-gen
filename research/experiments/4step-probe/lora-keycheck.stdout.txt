@@ -1,0 +1,6 @@
+📦 Loading 1 LoRA file(s)...
+🔧 Applying LoRA: Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors (scale=1.0)
+   ✅ Applied to 204 layers (612/612 keys matched)
+✅ All LoRA weights applied successfully
+  0%|          | 0/4 [00:00<?, ?it/s] 25%|██▌       | 1/4 [00:01<00:05,  1.86s/it] 50%|█████     | 2/4 [00:03<00:03,  1.67s/it] 75%|███████▌  | 3/4 [00:04<00:01,  1.60s/it]100%|██████████| 4/4 [00:06<00:00,  1.56s/it]100%|██████████| 4/4 [00:06<00:00,  1.60s/it]
+Peak MLX memory: 2.16 GB

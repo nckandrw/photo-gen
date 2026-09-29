@@ -41,5 +41,6 @@ Negative results are kept on purpose.
 | Kernel profile (FAST 1024²) | **MEASURED** | kernel-profile.md | q4 matmuls 74% @≈10.4 TFLOPS (NAX), SDPA 15%, RoPE+elementwise 11%; compile gain 2.7%; kernel counts NOT MEASURED |
 | NAX dispatch | **VERIFIED** (q4 qmm + SDPA, both precisions) | nax-status.md | fp32 REFERENCE uses NAX via MLX's TF32 default; TF32 off → 3.2× slower qmm and a different REFERENCE hash |
 | Custom Metal kernels for non-matmul ops | **DEFERRED** (low ceiling) | kernel-profile.md | all non-matmul ops ≤11% of the block, compile already fuses part |
-| 4-step probe (Z-Image base + PAI 4-step LoRA) | **EXPERIMENTAL / PENDING** (assets acquired) | 4step-probe-acquisition.md | audit passed; not run yet |
+| 4-step probe (Z-Image base + PAI 4-step LoRA vs Turbo 8 / Turbo 4, 1024²) | **REJECTED** (2026-09-29) | 4step-probe/results.md, quality-results.md, benchmark.csv | blind: C lost 6–18 to Turbo 4 and 8–16 to FAST; all losses from a 16-px grain (grid16 5.4 vs 1.1); adherence on par (6–5, 8–5); +6% time and +0.84 GB vs Turbo 4 |
+| Turbo bf16 + 4 steps at 1024² (probe control) | **EXPERIMENTAL → gate candidate** | 4step-probe/results.md §E2 | blind vs FAST: 2 / 3 / 19 ties at 0.50× denoise; contradicts the older unblinded step-sweep label. Needs its own pre-registered gate before any production use |
 

@@ -1,0 +1,27 @@
+# 4-step probe, blind-AvsB (control: Turbo 8 vs Turbo 4, identities unknown to rater), scored before any key was read.
+# Pairs are same-seed near-duplicates; differences are small object-level ones.
+C01 p01-s4242 | = | = | = | n/a | — | OVERALL = | near-identical
+C02 p02-s4242 | = | = | = | n/a | — | OVERALL = | minor identity drift
+C03 p03-s4242 | = (gibberish both) | = | = | = | — | OVERALL = |
+C04 p04-s4242 | = | = | L (R pen shows a ghost/duplicated clip) | n/a | R pen artifact | OVERALL L (minor) |
+C05 p05-s4242 | = (exact both) | = | = | = | — | OVERALL = | L adds backing board
+C06 p06-s4242 | = | = | = | n/a | — | OVERALL = |
+C07 p07-s4242 | = (exact both) | = | = | = | — | OVERALL = |
+C08 p08-s4242 | = (two glasses both) | = | = | n/a | — | OVERALL = |
+C09 p09-s4242 | L (R duplicated red balloon) | = | — | n/a | R duplicate balloon | OVERALL L |
+C10 p10-s4242 | = | = | = | n/a | — | OVERALL = |
+C11 p11-s4242 | L (R has an extra ghost wine glass) | = | — | n/a | R ghost glass | OVERALL L |
+C12 p12-s4242 | = (3 cups + 2 plates both) | = | = | n/a | — | OVERALL = |
+C13 p01-s6174 | = | = | = | n/a | — | OVERALL = |
+C14 p02-s6174 | = | = | = | n/a | — | OVERALL = |
+C15 p03-s6174 | = (gibberish both) | = | = | = | — | OVERALL = |
+C16 p04-s6174 | = | = | = | n/a | — | OVERALL = |
+C17 p05-s6174 | L (both repeat IMAGE; R's second line is garbled glyphs) | = | — | L wrong-but-legible, R garbled | — | OVERALL L |
+C18 p06-s6174 | = | = | = | n/a | — | OVERALL = |
+C19 p07-s6174 | = (exact both) | = | = | = | — | OVERALL = |
+C20 p08-s6174 | = | = | = | n/a | — | OVERALL = |
+C21 p09-s6174 | R (L duplicated red balloon) | = | — | n/a | L duplicate balloon | OVERALL R |
+C22 p10-s6174 | = | = | = | n/a | — | OVERALL = |
+C23 p11-s6174 | = | = | = | n/a | — | OVERALL = |
+C24 p12-s6174 | = (3 cups + 3 plates both; asked 2) | = | = | n/a | — | OVERALL = |
+# Tally before unblind: L 4, R 1, ties 19.

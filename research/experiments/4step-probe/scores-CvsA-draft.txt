@@ -1,0 +1,27 @@
+# 4-step probe, blind-CvsA: blinded review (Claude, single rater), scored before any key was read (CvsB key still sealed too).
+# Lexicographic overall: prompt adherence > composition > visual quality. Same style-recognisability limitation as CvsB.
+C01 p01-s4242 | = | = | L cleaner (R grainy) | n/a | R grain | OVERALL L |
+C02 p02-s4242 | L (warm golden evening light, off-centre; R centred, cool dusk) | = | — | n/a | L grain | OVERALL L |
+C03 p03-s4242 | = (gibberish text both) | = | L cleaner | = | R grain | OVERALL L |
+C04 p04-s4242 | = (all five objects both) | = | L cleaner | n/a | R grain | OVERALL L |
+C05 p05-s4242 | = (exact both) | = | L cleaner (R heavy texture) | = | R grain | OVERALL L |
+C06 p06-s4242 | R (dusk, warm storefront reflections; L flat) | = | R | n/a | L grain | OVERALL R |
+C07 p07-s4242 | R (vintage look; L modern flat logo style) | = | L cleaner | = exact both | R line texture | OVERALL R |
+C08 p08-s4242 | = (L napkin draped not folded; R two glasses) | = | R cleaner | n/a | L grid stripes | OVERALL R |
+C09 p09-s4242 | L (jeepney, single balloon; R tuk-tuk + duplicated balloon) | = | — | n/a | R duplicate balloon | OVERALL L |
+C10 p10-s4242 | L minor (eyes greener; R grey-blue) | = | R cleaner | n/a | L grain | OVERALL L (minor) |
+C11 p11-s4242 | L (blurred city lights; R city sharp) | = | L | n/a | R grain | OVERALL L |
+C12 p12-s4242 | L (3 cups + 2 plates; R 4 plates) | = | L | n/a | — | OVERALL L |
+C13 p01-s6174 | = | = | R cleaner (L grain + debris) | n/a | L grain | OVERALL R |
+C14 p02-s6174 | L (warm golden light, off-centre; R centred, cool) | = | — | n/a | L grain | OVERALL L |
+C15 p03-s6174 | = (gibberish both) | = | R cleaner | = | L grain | OVERALL R |
+C16 p04-s6174 | = (all objects both) | = | L cleaner | n/a | R grain | OVERALL L |
+C17 p05-s6174 | L (R duplicates "IMAGE": "QWEN IMAGE IMAGE 2.1") | = | — | L exact, R wrong | — | OVERALL L |
+C18 p06-s6174 | L (warm storefront reflections; R flatter) | = | L | n/a | R grain | OVERALL L |
+C19 p07-s6174 | = (exact both, both vintage-poster style) | = | L cleaner | = | R line texture | OVERALL L |
+C20 p08-s6174 | L (folded napkin, one glass; R draped napkin) | = | L | n/a | R grid stripes | OVERALL L |
+C21 p09-s6174 | R (jeepney; L vehicle is a tuk-tuk) | = | — | n/a | — | OVERALL R |
+C22 p10-s6174 | = (green eyes both) | = | R cleaner | n/a | L grain | OVERALL R |
+C23 p11-s6174 | = | = | R cleaner | n/a | L grain | OVERALL R |
+C24 p12-s6174 | L (3 cups + 2 plates; R 3 plates) | = | — | n/a | — | OVERALL L |
+# Tally before unblind: L 16, R 8, ties 0.

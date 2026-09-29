@@ -1,0 +1,17 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+ "base_model": "z-image",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/4step-probe/work-bench/C-p11-s6174.png",
+ "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+ "width": 1024,
+ "height": 1024,
+ "seed": 6174,
+ "release_transformer": true,
+ "cli": "base",
+ "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+ "lora_scale": 1.0,
+ "guidance": 0.0,
+ "precision": "bf16",
+ "steps": 4,
+ "scheduler": "linear"
+}

@@ -1,0 +1,122 @@
+{
+ "C01": {
+  "pair": "p01-s4242",
+  "left": "work-bench/A-p01-s4242.png",
+  "right": "work-bench/C-p01-s4242.png"
+ },
+ "C02": {
+  "pair": "p02-s4242",
+  "left": "work-bench/C-p02-s4242.png",
+  "right": "work-bench/A-p02-s4242.png"
+ },
+ "C03": {
+  "pair": "p03-s4242",
+  "left": "work-bench/A-p03-s4242.png",
+  "right": "work-bench/C-p03-s4242.png"
+ },
+ "C04": {
+  "pair": "p04-s4242",
+  "left": "work-bench/A-p04-s4242.png",
+  "right": "work-bench/C-p04-s4242.png"
+ },
+ "C05": {
+  "pair": "p05-s4242",
+  "left": "work-bench/A-p05-s4242.png",
+  "right": "work-bench/C-p05-s4242.png"
+ },
+ "C06": {
+  "pair": "p06-s4242",
+  "left": "work-bench/C-p06-s4242.png",
+  "right": "work-bench/A-p06-s4242.png"
+ },
+ "C07": {
+  "pair": "p07-s4242",
+  "left": "work-bench/A-p07-s4242.png",
+  "right": "work-bench/C-p07-s4242.png"
+ },
+ "C08": {
+  "pair": "p08-s4242",
+  "left": "work-bench/C-p08-s4242.png",
+  "right": "work-bench/A-p08-s4242.png"
+ },
+ "C09": {
+  "pair": "p09-s4242",
+  "left": "work-bench/C-p09-s4242.png",
+  "right": "work-bench/A-p09-s4242.png"
+ },
+ "C10": {
+  "pair": "p10-s4242",
+  "left": "work-bench/C-p10-s4242.png",
+  "right": "work-bench/A-p10-s4242.png"
+ },
+ "C11": {
+  "pair": "p11-s4242",
+  "left": "work-bench/A-p11-s4242.png",
+  "right": "work-bench/C-p11-s4242.png"
+ },
+ "C12": {
+  "pair": "p12-s4242",
+  "left": "work-bench/A-p12-s4242.png",
+  "right": "work-bench/C-p12-s4242.png"
+ },
+ "C13": {
+  "pair": "p01-s6174",
+  "left": "work-bench/C-p01-s6174.png",
+  "right": "work-bench/A-p01-s6174.png"
+ },
+ "C14": {
+  "pair": "p02-s6174",
+  "left": "work-bench/C-p02-s6174.png",
+  "right": "work-bench/A-p02-s6174.png"
+ },
+ "C15": {
+  "pair": "p03-s6174",
+  "left": "work-bench/C-p03-s6174.png",
+  "right": "work-bench/A-p03-s6174.png"
+ },
+ "C16": {
+  "pair": "p04-s6174",
+  "left": "work-bench/A-p04-s6174.png",
+  "right": "work-bench/C-p04-s6174.png"
+ },
+ "C17": {
+  "pair": "p05-s6174",
+  "left": "work-bench/C-p05-s6174.png",
+  "right": "work-bench/A-p05-s6174.png"
+ },
+ "C18": {
+  "pair": "p06-s6174",
+  "left": "work-bench/A-p06-s6174.png",
+  "right": "work-bench/C-p06-s6174.png"
+ },
+ "C19": {
+  "pair": "p07-s6174",
+  "left": "work-bench/A-p07-s6174.png",
+  "right": "work-bench/C-p07-s6174.png"
+ },
+ "C20": {
+  "pair": "p08-s6174",
+  "left": "work-bench/A-p08-s6174.png",
+  "right": "work-bench/C-p08-s6174.png"
+ },
+ "C21": {
+  "pair": "p09-s6174",
+  "left": "work-bench/A-p09-s6174.png",
+  "right": "work-bench/C-p09-s6174.png"
+ },
+ "C22": {
+  "pair": "p10-s6174",
+  "left": "work-bench/C-p10-s6174.png",
+  "right": "work-bench/A-p10-s6174.png"
+ },
+ "C23": {
+  "pair": "p11-s6174",
+  "left": "work-bench/C-p11-s6174.png",
+  "right": "work-bench/A-p11-s6174.png"
+ },
+ "C24": {
+  "pair": "p12-s6174",
+  "left": "work-bench/C-p12-s6174.png",
+  "right": "work-bench/A-p12-s6174.png"
+ }
+}

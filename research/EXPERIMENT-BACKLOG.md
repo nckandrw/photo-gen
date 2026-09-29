@@ -25,6 +25,13 @@
 | C3 | LoRA / SaRA / IntLoRA adapters on the q4 base | PEFT papers | Customization, not speed | — | high | high | — | small | deferred |
 | C4 | Lightweight VAE decoder | Lightweight decoders paper | ≤3% time (VAE is 2–3 s of 87 s) | high (that it's small) | high (training) | medium | medium | reduces | **deprioritized by measurement** |
 
+## Phase 3 addendum (2026-09-29): 4-step probe outcome and the resulting next frontier
+- **REJECTED:** Z-Image base + alibaba-pai 4-step distill LoRA (runtime adapter) as a 4-NFE candidate. It loses blind to plain Turbo at 4 steps on visual quality (grain). It is slower (+6%) and uses more memory (+0.84 GB). `experiments/4step-probe/results.md`.
+- **Next (highest value per compute):** a pre-registered direct blinded gate, FAST (bf16/8) vs bf16/6, 5 and 4, at 512²/768²/1024², with fresh seeds.
+  - Motivation: Turbo 4 was blind-equivalent to Turbo 8 at 1024² (2/3/19) at 0.50× denoise.
+  - It needs no training or new weights, and gives a ≈ 2× production speed-up if it passes.
+- **Deprioritised:** C1 / F-D few-step *training* (published adapters did not beat step reduction); mixed-lineage specialist models.
+
 ## Rejected (with reason)
 | Idea | Why rejected | Evidence |
 |---|---|---|

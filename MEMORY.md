@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 08:56 (benchmark resumed)._
+_Last updated 2026-09-29 (4-step probe complete)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,28 +21,14 @@ _Last updated 2026-09-29 08:56 (benchmark resumed)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**RUNNING (resumed 2026-09-29 08:55; paused 2026-09-28 22:52 → 08:55): the 4-step probe sustained stage.** Only the 43 remaining runs were queued (prod_runner skips done tags). Completion = `RUNNER_DONE` after the resume marker in the console + 72 rows in `results-bench.jsonl`. The paused note below is kept for context.
-**PAUSED (2026-09-28 22:52, user needed the laptop): the 4-step probe benchmark — NOTHING is running**
-- Progress: cold A/B/C **done** (3/3, `results-cold.jsonl`; cold A reproduced FAST `7b45cfbe`); sustained **29 of 72** done (`results-bench.jsonl`); stopped cleanly after `C-p10-s4242` (no half-written row).
-- **Resume:** `cd ~/Dev/photo-gen/research/experiments && nohup zsh 4step-probe/run-benchmark.sh >> 4step-probe/benchmark-console.log 2>&1 < /dev/null & disown`
-  - ⚠ the script re-runs the cold stage's 3×600 s idle loop before skipping done cold tags (~30 min wasted). Better: resume only the sustained stage:
-    `PRODRUNNER_WORKER_SCRIPT=$PWD/4step-probe/probe_worker.py nohup ../../mflux/.venv/bin/python3.12 prod_runner.py 4step-probe/jobs-bench.json 4step-probe/results-bench.jsonl 4step-probe/work-bench >> 4step-probe/benchmark-console.log 2>&1 < /dev/null & disown`
-  - completion = console prints `RUNNER_DONE` and `results-bench.jsonl` has 72 rows.
-- **Disclose in results:** the sustained block was split by a pause (22:52 → resume time); runs after the resume start on a cooler chip. Timing comparisons must use per-condition paired ratios (same condition, adjacent runs) — the permutation rotation keeps position balanced per condition. The condition in progress at the pause (p10-s4242: B and C done, A pending) straddles the pause → exclude its timing pair from paired ratios (quality unaffected).
-- Before resuming: make sure no other heavy apps run (memory pressure affects timings).
+**Nothing is running.** The 4-step probe is COMPLETE and written up (2026-09-29): `research/experiments/4step-probe/results.md`.
+- Classification: **REJECTED** (Base + LoRA lost blind to Turbo 4 6–18 and to FAST 8–16; all on grain; +0.84 GB).
+- **Key new finding:** Turbo bf16/4 was blind-equivalent to FAST at 1024² (2/3/19) at 0.50× denoise.
 
 **Next steps (in order)**
-1. After `PROBE_BENCH_DONE`: check integrity (72/72 rc = 0; every C run's argv contains `--no-bake-lora`).
-2. Blinded review, exactly as in `4step-probe/blind-protocol.md`:
-   - build pairs from `results-bench.jsonl` (C vs B, C vs A, A vs B);
-   - `blind_stage.py prepare` each with rng 2809281 / 2809282 / 2809283;
-   - score each (lexicographic: prompt adherence > composition > visual quality); freeze each;
-   - **unblind only after all three are frozen**.
-3. Objective metrics: paired denoise/wall ratios; footprint/swap/pressure; the grid16 FFT score for all 72 images (method in `4step-probe/README.md`); thermal vs run position; PSNR/SSIM descriptive only.
-4. Verify the LoRA key-match count, which was not captured: run one C generation with stdout kept, or inspect mflux's print.
-5. Write `4step-probe/{benchmark.csv, quality-results.md, results.md}`. Answer Q1–Q6 and classify with the pre-registered rules in `4step-probe/README.md` (PROMISING / INTERESTING BUT INFERIOR / REJECTED / BLOCKED / NEW DIRECTION).
-6. Update `research/experiments/STATUS.md`, `research/EXPERIMENT-BACKLOG.md`, `research/PAPER-RESEARCH-MAP.md`. Commit the text evidence (never weights or PNGs), then push.
-7. Then: pick the next research direction from the evidence. Candidates: a scheduler study for C if the grid artifact dominates; a costed recovery-training/distillation plan (FFN width is BLOCKED on it).
+1. **Recommended next experiment** (needs the user's go-ahead): a pre-registered direct blinded gate, FAST bf16/8 vs bf16/6, 5 and 4, at 512²/768²/1024², with fresh seeds. Same protocol and tools as `fast-resolution-gates-report.md`. The step counts stay EXPERIMENTAL until a gate passes.
+2. Optional, low priority: C's grain vs scheduler / step count (5–6) / the 8-step LoRA. Deprioritised in `4step-probe/results.md` §E1.
+3. Housekeeping when the user wants it: the ≈16 GB `p3b/cap/*.gputrace` bundles and the 6.1 GB `models/research/` probe assets can be deleted, but only with the user's OK.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
@@ -51,6 +37,19 @@ _Last updated 2026-09-29 08:56 (benchmark resumed)._
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-29 — 4-step probe COMPLETE: REJECTED; Turbo-4 emerges as the next gate candidate
+- **Benchmark:** 72 sustained runs + 3 cold, 0 failures. Paused 22:52 → 08:55 (user), resumed without repeating completed runs.
+- **Blind, three pairwise directories** (keys sealed until all were frozen):
+  - C vs B: 6–18;
+  - C vs A: 8–16;
+  - A vs B: 2 / 3 / 19 ties.
+  - All C losses were decided on visual quality (grain). On adherence C was 6–5 / 8–5 (not significant).
+- **Performance (paired sustained denoise vs A):** B 0.504, C 0.541 (C/B 1.062). Cold wall: A 53.8, B 29.9, C 32.3 s. Memory: C 6.69 GB vs 5.85 GB.
+- **LoRA fully applied:** 204 layers, 612/612 keys.
+- **Q6 new failure mode:** a 16-px grain; grid16 3.9–11.5 in C vs ≤ 1.62 in A/B.
+- **Corrections made before committing:** I had mis-attributed p12 correctness and duplicate artifacts to the wrong arms in the first draft. Fixed from the unblinded keys.
+- **Registers updated:** STATUS, EXPERIMENT-BACKLOG (Phase 3 addendum), PAPER-RESEARCH-MAP.
 
 ## 2026-09-28 (evening) — 4-step probe started (directive "PHOTO-GEN EXPERIMENT: 4-step Z-Image Base + LoRA vs Turbo")
 **Goal:** can a 4-step-distilled model (Z-Image **base** + alibaba-pai 4-step LoRA; NOT Turbo) beat plain Turbo-at-4-steps on speed/quality, and approach FAST? Inference only; production untouched.

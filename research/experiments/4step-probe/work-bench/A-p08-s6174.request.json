@@ -1,0 +1,13 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/4step-probe/work-bench/A-p08-s6174.png",
+ "prompt": "Macro photograph of a brushed copper kettle beside a folded linen napkin and a glass of red wine, visible fabric weave, metal scratches and condensation droplets.",
+ "width": 1024,
+ "height": 1024,
+ "seed": 6174,
+ "release_transformer": true,
+ "cli": "turbo",
+ "precision": "bf16",
+ "steps": 8
+}

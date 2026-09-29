@@ -1,0 +1,28 @@
+# 4-step probe, blind-CvsB: blinded review (Claude, single rater), scored before any key was read.
+# Lexicographic overall: prompt adherence > composition > visual quality. Fields: adherence | composition | visual | text | artifacts | OVERALL | notes
+# BLINDING LIMITATION (disclosed): one arm shows a consistent grainy/16-px-grid texture, so arms are recognisable by STYLE (not by label).
+C01 p01-s4242 | = | = | R (L grainy texture) | n/a | L grain | OVERALL R |
+C02 p02-s4242 | L (subject on a third, warm evening light; R centred, dusk) | = | R cleaner | n/a | L grain | OVERALL L |
+C03 p03-s4242 | = (gibberish text in both) | = | L cleaner | = gibberish | R grain | OVERALL L |
+C04 p04-s4242 | = (all five objects in place in both) | = | L cleaner | n/a | R grain | OVERALL L |
+C05 p05-s4242 | = (exact text both) | = | R cleaner | = exact | L heavy texture | OVERALL R |
+C06 p06-s4242 | L (dusk + warm storefront reflections; R flat, weak dusk) | = | L | n/a | R painterly grain | OVERALL L |
+C07 p07-s4242 | = (exact both; R adds quotes) | = | L cleaner | = | R line texture | OVERALL L |
+C08 p08-s4242 | = (L napkin draped, not folded; R two wine glasses) | = | R cleaner | n/a | L grid stripes; R extra glass | OVERALL R |
+C09 p09-s4242 | L (jeepney present; R vehicle is a tuk-tuk) | = | = | n/a | — | OVERALL L |
+C10 p10-s4242 | = | = | L cleaner | n/a | R grain | OVERALL L |
+C11 p11-s4242 | L (blurred city lights; R city is sharp) | = | L | n/a | R grain | OVERALL L |
+C12 p12-s4242 | L (3 cups + 2 plates correct; R 4 plates) | = | L | n/a | — | OVERALL L |
+C13 p01-s6174 | = | = | L cleaner | n/a | R grain + stray debris | OVERALL L |
+C14 p02-s6174 | R (subject on right third, warm light; L centred) | = | L cleaner | n/a | R grain | OVERALL R |
+C15 p03-s6174 | = (gibberish both) | = | L cleaner | = | R grain | OVERALL L |
+C16 p04-s6174 | = (all objects placed in both) | = | R cleaner | n/a | L grain | OVERALL R |
+C17 p05-s6174 | L (R inserts a garbled extra line "QHAT") | = | — | L exact, R wrong | — | OVERALL L |
+C18 p06-s6174 | R (dusk, warm storefront reflections; L flat, grainy) | = | R | n/a | L grain | OVERALL R |
+C19 p07-s6174 | = (exact both) | = | R cleaner | = | L line texture | OVERALL R |
+C20 p08-s6174 | L (folded napkin, one glass; R draped napkin) | = | L | n/a | R grid stripes | OVERALL L |
+C21 p09-s6174 | R (jeepney; L tuk-tuk + duplicated balloon) | = | — | n/a | L duplicate balloon | OVERALL R |
+C22 p10-s6174 | = | = | L cleaner | n/a | R grain | OVERALL L |
+C23 p11-s6174 | = | = | L cleaner (R grain, though richer detail) | n/a | R grain | OVERALL L |
+C24 p12-s6174 | L (3 cups + 2 plates; R 3 plates) | = | — | n/a | — | OVERALL L |
+# Tally before unblind: L 15, R 9, ties 0.

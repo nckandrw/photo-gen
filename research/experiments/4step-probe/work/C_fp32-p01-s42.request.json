@@ -1,0 +1,17 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+ "base_model": "z-image",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/4step-probe/work/C_fp32-p01-s42.png",
+ "prompt": "a red apple on a wooden table, soft window light",
+ "width": 1024,
+ "height": 1024,
+ "seed": 42,
+ "release_transformer": true,
+ "cli": "base",
+ "lora_path": "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+ "lora_scale": 1.0,
+ "guidance": 0.0,
+ "precision": "fp32",
+ "steps": 4,
+ "scheduler": "linear"
+}

@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/research/z-image-base-mflux-q4",
+  "--base-model",
+  "z-image",
+  "--prompt=a red apple on a wooden table, soft window light",
+  "--width",
+  "1024",
+  "--height",
+  "1024",
+  "--steps",
+  "4",
+  "--seed",
+  "42",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/4step-probe/work/Crt-p01-s42.png",
+  "--lora-paths",
+  "/Users/nckandrw/Dev/photo-gen/models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors",
+  "--lora-scales",
+  "1.0",
+  "--no-bake-lora",
+  "--scheduler",
+  "linear",
+  "--guidance",
+  "0.0"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.787,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.641,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.97,
+   "mlx_peak_gb": 2.227
+  },
+  "generate_total": {
+   "seconds": 29.707,
+   "mlx_peak_gb": 2.227
+  },
+  "denoise_seconds": 27.096
+ },
+ "step_seconds": [
+  7.094,
+  6.532,
+  6.54,
+  6.773
+ ],
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 32.908,
+ "peak_footprint_gb": 6.672
+}
