@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 (Stage B complete: bf16+5 VALIDATED at 512/768/1024, not in production)._
+_Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT CONFIRMED)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,20 +21,22 @@ _Last updated 2026-09-29 (Stage B complete: bf16+5 VALIDATED at 512/768/1024, no
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**Nothing running.** Step-count gate Stage B (bf16/8 vs bf16/5) finished 2026-09-29.
-- **Production now:** REFERENCE fp32/9, FAST bf16/8 (512/768/1024), **ULTRA bf16/4 at 512² only** (commit `62c11d7`, hash `6aa2b842`). 41/41 tests. Unchanged by Stage B.
-- **Stage B verdicts** (`research/experiments/step-count-quality-gate/results.md` § Stage B):
-  - 512²: VALIDATED (1/0/23).
-  - 768²: **VALIDATED, narrowest possible pass** (3/0/21). It rests on criterion 3 at equality and one frozen "minor" text call (C07 p07-s6502).
-  - 1024²: VALIDATED (0/0/24).
-  - Paired sustained denoise ratio 5/8: 0.629 / 0.630 / 0.625. Cold 1024²: 36.1 vs 54.4 s wall.
-- bf16 + 5 is **not** in `VALIDATED_COMBINATIONS`; it still needs `allow_experimental`.
+**Nothing running.** Last chain: the 768² BALANCED confirmation finished 2026-09-29 20:34 (`CONFIRM768_GEN_DONE`).
+- **Production now:**
+  - REFERENCE fp32/9 and FAST bf16/8 at 512/768/1024;
+  - **BALANCED bf16/5 at 1024² only** (commit `b59036c`, hash `befe1b3c`, from the production worker via prod_runner);
+  - ULTRA bf16/4 at 512² only (`6aa2b842`).
+  - 42/42 tests.
+- **Resolution matrix (minimum validated compute):** 512² → ULTRA (4); 768² → FAST (8); 1024² → BALANCED (5).
+- **768² bf16 + 5: NOT CONFIRMED.**
+  - Stage B was the narrowest possible pass (3/0/21). The focused confirmation came out 3/1/28 and failed criterion 4: the c03 poster subtitle was 8-better in both seeds.
+  - The outcome isn't covered by a pre-registered verdict row, and I disclosed that; the consequence is identical either way (768² stays FAST).
+  - Evidence: `results.md` § "768² BALANCED confirmation".
 
-**Next steps (all await the user's decision; none auto-start)**
-1. Production decision: FAST → bf16 + 5 at 1024² (clean pass) and/or 768² (borderline). This would be a separate change with tests and docs, like ULTRA.
-2. Optional: a text-focused confirmatory sample at 768² before adopting 5 steps there.
-3. Stage C (bf16 + 6, seeds 8086/5150, pre-registered in `protocol.md`). Lower value now that 5 steps passed everywhere.
-4. Resolution-aware step selection: hypothesis only. Stage B's 768² came out worse than 1024², against the σ ordering.
+**Next steps (all await the user; none auto-start)**
+1. **Pending CLI check.** The auto-mode classifier denied it. The user should run `! bin/photo-gen generate -p "a red apple on a wooden table, soft window light" --seed 42 --profile balanced --json` (expect `befe1b3c…`, validated) and `--width 768 --height 768` (expect a refusal).
+2. Decide whether a dedicated 6-step gate at 768² is worth it (directive §17). Stage C as a full sweep stays deferred.
+3. Resolution-aware automatic step selection: not to be implemented yet.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
@@ -43,6 +45,23 @@ _Last updated 2026-09-29 (Stage B complete: bf16+5 VALIDATED at 512/768/1024, no
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-29 — BALANCED (bf16 + 5) adopted at 1024²; 768² confirmation NOT CONFIRMED
+- **Directive:** "PHOTO-GEN NEXT PASS: promote the clean 1024² 5-step result, run a focused 768² confirmation, defer Stage C".
+- **BALANCED:**
+  - `PROFILES['balanced']` and `VALIDATED_COMBINATIONS[('bf16',5)] = (1024²,)`; CLI choice added; tests 42/42 (`test_balanced_profile_gated_at_1024_only`). Commit `b59036c`.
+  - Docs updated: README, USAGE, HARDWARE, guide, CLAUDE.md, machine profile (hash `befe1b3c`, cold 36.1 s), STATUS, PERFORMANCE-MAP (roles and operating-point table), BACKLOG.
+- **Confirmation (768² only):**
+  - Pre-registered in `8149bf3` (`protocol-confirm768.md`): 16 prompts (8 text-focused), seeds 3141/9091, 32 pairs. Improvement Clause: faded/doubled text is not minor; pooled under-denoising family; balance +4.
+  - 64/64 runs rc = 0, on battery power.
+  - Blind 3/1/28. Frozen sha `864c590f`, key `d66b6ab7`.
+  - Verdict **NOT CONFIRMED**: criterion 4 failed (the c03 subtitle was 8-better in both seeds); criterion 1a passed only at equality.
+  - Sensitivity, both directions: C19 as a tie → CONFIRMED; the C22 decal as incidental → FAILED.
+  - Pooled descriptive 6/1/49. Commit `35cee41`.
+- **Disclosed:**
+  - The CLI end-to-end check of BALANCED was denied by the auto-mode classifier and is pending for the user. The hash comes from the production worker, which matched the CLI for FAST and ULTRA.
+  - The rater was primed by Stage B.
+- **Production unchanged apart from BALANCED 1024². Stage C / 6-step not started.**
 
 ## 2026-09-29 — Step-count gate Stage B (bf16/8 vs bf16/5): VALIDATED at 512², 768² (narrowest pass), 1024²
 - **Directive:** "PHOTO-GEN NEXT PASS", Stage B. User: "let stage b finish completely".

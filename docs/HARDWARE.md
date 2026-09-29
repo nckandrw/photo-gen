@@ -38,7 +38,7 @@ Values below were read from the machine on 2026-09-25 (`system_profiler`, `sw_ve
 | **REFERENCE**: fp32 + 9 steps (9 NFE) | REFERENCE (hash-pinned) | REFERENCE (hash recorded 2026-09-25) | REFERENCE (hash-pinned) |
 | **FAST**: bf16 + 8 steps (8 NFE) | **VALIDATED** (direct blinded gate, 0 / 0 / 24) | **VALIDATED** (direct blinded gate, 2 / 0 / 22) | **VALIDATED** (direct gate 0 / 1 / 23, plus the earlier two-gate chain) |
 | bf16 + 9 steps (not a profile) | EXPERIMENTAL | EXPERIMENTAL | VALIDATED (bf16 gate vs fp32/9, 24 pairs) |
-| **BALANCED**: bf16 + 5 steps (5 NFE) | EXPERIMENTAL (gate passed 1 / 0 / 23; not offered: ULTRA is faster) | CONFIRMATION PENDING (gate passed 3 / 0 / 21, narrowest margin) | **VALIDATED** (blind gate 0 / 0 / 24) |
+| **BALANCED**: bf16 + 5 steps (5 NFE) | EXPERIMENTAL (gate passed 1 / 0 / 23; not offered: ULTRA is faster) | NOT CONFIRMED (Stage B narrowest pass 3 / 0 / 21; focused confirmation 3 / 1 / 28, class-level subtitle failure) | **VALIDATED** (blind gate 0 / 0 / 24) |
 | **ULTRA**: bf16 + 4 steps (4 NFE) | **VALIDATED** (blind gate 1 / 0 / 23) | REJECTED (text) | REJECTED (text/ghosting) |
 | bf16 + 7/6 steps | EXPERIMENTAL | EXPERIMENTAL | EXPERIMENTAL |
 

@@ -71,8 +71,8 @@ VALIDATED_COMBINATIONS = {
     # 1024x1024 (text/object-resolution failures: ghost duplicate text, malformed glyphs), so NOT listed there.
     ("bf16", 4): ((512, 512),),
     # bf16 + 5 (BALANCED): direct blinded gate vs FAST at 1024x1024 (0/0/24, Stage B 2026-09-29). NOT listed at
-    # 768x768 (gate passed by the narrowest possible margin, 3/0/21 all favouring 8 steps: held pending a focused
-    # confirmation, step-count-quality-gate/protocol-confirm768.md) nor at 512x512 (dominated by ULTRA; no production use).
+    # 768x768 (Stage B narrowest pass 3/0/21, then the focused confirmation was NOT CONFIRMED, 3/1/28:
+    # step-count-quality-gate/results.md) nor at 512x512 (dominated by ULTRA; no production use).
     ("bf16", 5): ((1024, 1024),),
 }
 MAX_SEED = 2**32 - 1

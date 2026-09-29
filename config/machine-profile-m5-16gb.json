@@ -63,7 +63,7 @@
       "resolutions": [
         "1024x1024"
       ],
-      "status": "VALIDATED at 1024x1024 only (step-count gate Stage B, 2026-09-29: 0/0/24); 768x768 CONFIRMATION PENDING (Stage B narrowest pass 3/0/21); 512x512 not offered (ULTRA dominates)"
+      "status": "VALIDATED at 1024x1024 only (step-count gate Stage B, 2026-09-29: 0/0/24); 768x768 NOT CONFIRMED (Stage B narrowest pass 3/0/21; focused confirmation 3/1/28 failed the class-level criterion); 512x512 not offered (ULTRA dominates)"
     },
     "ultra": {
       "precision": "bf16",

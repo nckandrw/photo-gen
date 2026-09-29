@@ -63,7 +63,7 @@
 | FAST | bf16 + 8 steps (8 NFE) | **validated at 512², 768², 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: REF 2 / FAST 1 / 69 ties; fast-resolution-gates-report.md). 1024² was earlier supported by a chain of two gates (phase3-record-audit.md §A) |
 | (no profile) | bf16 + 9 | validated at 1024² only (bf16 gate); **experimental** at 512²/768² |
 | ULTRA | bf16 + 4 steps (4 NFE) | **validated at 512² only** (step-count-quality-gate/results.md); REJECTED at 768²/1024² |
-| BALANCED | bf16 + 5 steps (5 NFE) | **validated at 1024² only** (Stage B 0/0/24; production 2026-09-29). 768²: CONFIRMATION PENDING (Stage B narrowest pass 3/0/21). 512²: experimental, not offered (ULTRA dominates) |
+| BALANCED | bf16 + 5 steps (5 NFE) | **validated at 1024² only** (Stage B 0/0/24; production 2026-09-29). 768²: NOT CONFIRMED (Stage B narrowest pass 3/0/21; confirmation 3/1/28, criterion 4), stays FAST. 512²: experimental, not offered (ULTRA dominates) |
 | EXPERIMENTAL | bf16 + 7/6; 5 at 512²/768²; 4 above 512² | research only; 6 = Stage C, deferred |
 
 **Roles:** REFERENCE: reproducibility, regression testing, reference fidelity. FAST: general-purpose production at every validated size. BALANCED: lower-latency 1024² where the 5-step gate passed. ULTRA: minimum-latency 512² where the 4-step gate passed. Different operating points with different evidence, not a ranking.

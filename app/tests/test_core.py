@@ -175,7 +175,7 @@ class ValidationTests(unittest.TestCase):
         b = self.n(profile="balanced")                      # default 1024x1024
         self.assertEqual((b.precision, b.steps, b.validated, b.profile, b.warnings), ("bf16", 5, True, "balanced", ()))
         self.assertTrue(self.n(precision="bf16", steps=5).validated)  # same exact combination without the profile name
-        for w in (512, 768):                                # 768: confirmation pending; 512: dominated by ULTRA
+        for w in (512, 768):                                # 768: not confirmed; 512: dominated by ULTRA
             with self.assertRaises(ValidationError):
                 self.n(profile="balanced", width=w, height=w)
             e = self.n(profile="balanced", width=w, height=w, allow_experimental=True)

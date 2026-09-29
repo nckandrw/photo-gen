@@ -49,7 +49,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 |---|---|---|---|
 | reference (default when no profile is given) | fp32 | 9 | permanent reference |
 | fast | bf16 | 8 | validated at 512², 768², 1024² (direct blinded gates) |
-| balanced | bf16 | 5 | validated at **1024² only** (Stage B gate 0/0/24); 768² CONFIRMATION PENDING (Stage B narrowest pass 3/0/21); 512² not offered (ULTRA dominates) |
+| balanced | bf16 | 5 | validated at **1024² only** (Stage B gate 0/0/24); 768² NOT CONFIRMED (Stage B narrowest pass 3/0/21; focused confirmation 3/1/28 failed criterion 4, poster subtitle), stays FAST; 512² not offered (ULTRA dominates) |
 | ultra | bf16 | 4 | validated at **512² only** (Stage A gate); REJECTED at 768²/1024² (text/object-resolution failures) |
 
 - **Lower step counts:** 7–4 steps are experimental.
