@@ -1,0 +1,1282 @@
+[
+ {
+  "tag": "K768-c01-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c01",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A clear drinking glass half full of water on a caf\u00e9 table, the word \"SALT\" printed in black on the side of the glass, soft daylight.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c01-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c01",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A clear drinking glass half full of water on a caf\u00e9 table, the word \"SALT\" printed in black on the side of the glass, soft daylight.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c02-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c02",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c02-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c02",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c03-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c03",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c03-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c03",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c04-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c04",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A minimalist book cover with the title \"THE QUIET HARBOR\" in large serif letters above a small lighthouse illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c04-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c04",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A minimalist book cover with the title \"THE QUIET HARBOR\" in large serif letters above a small lighthouse illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c05-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c05",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c05-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c05",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c06-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c06",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A bakery storefront with a painted sign reading \"SUNRISE BAKERY\" and a smaller line below it reading \"Fresh Bread Daily\", morning street light.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c06-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c06",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A bakery storefront with a painted sign reading \"SUNRISE BAKERY\" and a smaller line below it reading \"Fresh Bread Daily\", morning street light.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c07-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c07",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c07-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c07",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c08-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c08",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A caf\u00e9 chalkboard sign on a sidewalk that reads \"TODAY: MANGO PIE\" in white chalk letters.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c08-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c08",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A caf\u00e9 chalkboard sign on a sidewalk that reads \"TODAY: MANGO PIE\" in white chalk letters.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c09-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c09",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Exactly two red apples and three green pears arranged in a single line on a white tablecloth, top-down view.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c09-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c09",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Exactly two red apples and three green pears arranged in a single line on a white tablecloth, top-down view.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c10-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c10",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c10-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c10",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c11-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c11",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A young girl on a beach holding the string of one single blue kite flying in the sky, wide shot.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c11-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c11",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A young girl on a beach holding the string of one single blue kite flying in the sky, wide shot.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c12-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c12",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Exactly five yellow rubber ducks in a row on the edge of a white bathtub.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c12-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c12",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Exactly five yellow rubber ducks in a row on the edge of a white bathtub.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c13-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c13",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A portrait of an elderly woman with silver hair, framed off-centre on the left, soft overcast light, shallow depth of field.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c13-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c13",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A portrait of an elderly woman with silver hair, framed off-centre on the left, soft overcast light, shallow depth of field.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c14-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c14",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A crowded jeepney terminal in Cebu at noon, passengers boarding, a vendor selling fishballs in the foreground.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c14-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c14",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A crowded jeepney terminal in Cebu at noon, passengers boarding, a vendor selling fishballs in the foreground.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c15-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c15",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c15-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c15",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c16-s3141-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 3141,
+   "pid": "c16",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A dimly lit jazz bar with a saxophone player on stage, warm spotlights and reflections on a polished floor.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c16-s3141-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 3141,
+   "pid": "c16",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A dimly lit jazz bar with a saxophone player on stage, warm spotlights and reflections on a polished floor.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 3141,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c01-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c01",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A clear drinking glass half full of water on a caf\u00e9 table, the word \"SALT\" printed in black on the side of the glass, soft daylight.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c01-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c01",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A clear drinking glass half full of water on a caf\u00e9 table, the word \"SALT\" printed in black on the side of the glass, soft daylight.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c02-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c02",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c02-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c02",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c03-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c03",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c03-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c03",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c04-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c04",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A minimalist book cover with the title \"THE QUIET HARBOR\" in large serif letters above a small lighthouse illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c04-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c04",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A minimalist book cover with the title \"THE QUIET HARBOR\" in large serif letters above a small lighthouse illustration.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c05-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c05",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c05-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c05",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c06-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c06",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A bakery storefront with a painted sign reading \"SUNRISE BAKERY\" and a smaller line below it reading \"Fresh Bread Daily\", morning street light.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c06-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c06",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A bakery storefront with a painted sign reading \"SUNRISE BAKERY\" and a smaller line below it reading \"Fresh Bread Daily\", morning street light.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c07-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c07",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c07-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c07",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c08-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c08",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A caf\u00e9 chalkboard sign on a sidewalk that reads \"TODAY: MANGO PIE\" in white chalk letters.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c08-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c08",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A caf\u00e9 chalkboard sign on a sidewalk that reads \"TODAY: MANGO PIE\" in white chalk letters.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c09-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c09",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Exactly two red apples and three green pears arranged in a single line on a white tablecloth, top-down view.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c09-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c09",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Exactly two red apples and three green pears arranged in a single line on a white tablecloth, top-down view.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c10-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c10",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c10-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c10",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c11-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c11",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A young girl on a beach holding the string of one single blue kite flying in the sky, wide shot.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c11-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c11",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A young girl on a beach holding the string of one single blue kite flying in the sky, wide shot.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c12-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c12",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Exactly five yellow rubber ducks in a row on the edge of a white bathtub.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c12-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c12",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Exactly five yellow rubber ducks in a row on the edge of a white bathtub.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c13-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c13",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A portrait of an elderly woman with silver hair, framed off-centre on the left, soft overcast light, shallow depth of field.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c13-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c13",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A portrait of an elderly woman with silver hair, framed off-centre on the left, soft overcast light, shallow depth of field.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c14-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c14",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A crowded jeepney terminal in Cebu at noon, passengers boarding, a vendor selling fishballs in the foreground.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c14-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c14",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A crowded jeepney terminal in Cebu at noon, passengers boarding, a vendor selling fishballs in the foreground.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c15-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c15",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c15-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c15",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c16-s9091-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 9091,
+   "pid": "c16",
+   "stage": "K768",
+   "arm": "5"
+  },
+  "req": {
+   "prompt": "A dimly lit jazz bar with a saxophone player on stage, warm spotlights and reflections on a polished floor.",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "K768-c16-s9091-st8",
+  "meta": {
+   "res": 768,
+   "steps": 8,
+   "seed": 9091,
+   "pid": "c16",
+   "stage": "K768",
+   "arm": "8"
+  },
+  "req": {
+   "prompt": "A dimly lit jazz bar with a saxophone player on stage, warm spotlights and reflections on a polished floor.",
+   "width": 768,
+   "height": 768,
+   "steps": 8,
+   "seed": 9091,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ }
+]

@@ -1,0 +1,19 @@
+{
+ "_note": "768² BALANCED confirmation suite, written 2026-09-29 before any confirmation image. c01-c08 text-focused (glass, subtitles, labels, signs); c09-c12 counting/duplicate-object risk; c13-c16 ordinary composition controls. Prompts marked (held-out) are copied verbatim from confirm-prompts.json, written before Stage A results and never generated.",
+ "c01": "A clear drinking glass half full of water on a café table, the word \"SALT\" printed in black on the side of the glass, soft daylight.",
+ "c02": "A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+ "c03": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+ "c04": "A minimalist book cover with the title \"THE QUIET HARBOR\" in large serif letters above a small lighthouse illustration.",
+ "c05": "A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+ "c06": "A bakery storefront with a painted sign reading \"SUNRISE BAKERY\" and a smaller line below it reading \"Fresh Bread Daily\", morning street light.",
+ "c07": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+ "c08": "A café chalkboard sign on a sidewalk that reads \"TODAY: MANGO PIE\" in white chalk letters.",
+ "c09": "Exactly two red apples and three green pears arranged in a single line on a white tablecloth, top-down view.",
+ "c10": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+ "c11": "A young girl on a beach holding the string of one single blue kite flying in the sky, wide shot.",
+ "c12": "Exactly five yellow rubber ducks in a row on the edge of a white bathtub.",
+ "c13": "A portrait of an elderly woman with silver hair, framed off-centre on the left, soft overcast light, shallow depth of field.",
+ "c14": "A crowded jeepney terminal in Cebu at noon, passengers boarding, a vendor selling fishballs in the foreground.",
+ "c15": "Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+ "c16": "A dimly lit jazz bar with a saxophone player on stage, warm spotlights and reflections on a polished floor."
+}
