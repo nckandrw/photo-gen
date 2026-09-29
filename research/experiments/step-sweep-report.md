@@ -1,5 +1,11 @@
 # Step sweep 9 → 4 (E03) — bf16 stream, 1024², seed 42
 
+> **Annotation (2026-09-29): the quality conclusion below is superseded in part. The original text is kept unchanged.**
+> - **Original conclusion** ("7–6 draft, 5–4 preview quality"): a small, **unblinded**, **seed-42-only** assessment. It judged 400-px contact sheets and 100% crops, with the rater knowing the step counts.
+> - **Superseding evidence:** a **blinded** Turbo bf16/4 vs FAST bf16/8 comparison at 1024², 24 pairs, fresh seeds 4242/6174 (`4step-probe/results.md` §E2, `4step-probe/blind-AvsB/`). Result: **2 / 3 / 19 ties**, with only object-level differences in either direction.
+> - **Why they differ:** the blinded protocol hides step identity and uses full-resolution side-by-side composites and fresh seeds. The original rater's knowledge of the step counts, and the reduced size, can bias toward "lower steps = worse".
+> - **Status:** bf16 + 4, 5, 6 are CANDIDATE / QUALITY GATE PENDING. The definitive per-resolution verdict comes from `step-count-quality-gate/`.
+
 **Design.**
 - 12 prompts (`prompts.json`) × steps {8, 7, 6, 5, 4} = 60 runs, 21:21–22:30.
 - Step order alternates per prompt (8→4, then 4→8) to spread thermal drift.
