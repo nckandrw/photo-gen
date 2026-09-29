@@ -1,0 +1,35 @@
+# 768² BALANCED confirmation, blind review, rater: Claude (key sealed). Format:
+# C{nn} {pid}-s{seed} | adherence | composition | visual | text (severity) | failure modes (L / R) | OVERALL | notes
+# Text severity per protocol-confirm768.md: faded/semi-transparent/doubled/extra-word = NOT minor.
+C01 c01-s3141 | = | = | = | = (SALT exact both) | none / none | OVERALL = | near-identical
+C02 c02-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | WILD HONEY exact both; background jar labels partial in both
+C03 c03-s3141 | = | = | R | R not-minor-L (both duplicate the subtitle; L first copy also partly faded "Liv") | text error, under-denoising / text error | OVERALL R | both render "Live at the Harbor" twice (not minor, both); L additionally faded/partially formed letters
+C04 c04-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | lighthouse striped L, plain R; both fine
+C05 c05-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | neon exact both
+C06 c06-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | sign + subtitle exact both; window decals illegible in both (incidental)
+C07 c07-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | AURORA / Reserve 2021 exact both
+C08 c08-s3141 | = | = | = | = (exact both) | none / none | OVERALL = | chalkboard exact both
+C09 c09-s3141 | = | = | = | n/a | wrong spatial / wrong spatial | OVERALL = | 2 apples + 3 pears correct in both; two rows, not one line, both
+C10 c10-s3141 | = | L | = | n/a | none / wrong count | OVERALL L | L four books (correct); R three books
+C11 c11-s3141 | = | = | = | n/a | none / none | OVERALL = | single kite both
+C12 c12-s3141 | = | = | = | n/a | none / none | OVERALL = | five ducks both
+C13 c13-s3141 | = | = | = | n/a | none / none | OVERALL = | both framed centre-right, not left; equal
+C14 c14-s3141 | = | = | = | n/a | none / none | OVERALL = | terminal, boarding, fishball vendor in both
+C15 c15-s3141 | = | = | = | n/a | none / none | OVERALL = | near-identical
+C16 c16-s3141 | = | = | = | n/a | none / none | OVERALL = | equivalent
+C17 c01-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | near-identical
+C18 c02-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | near-identical
+C19 c03-s9091 | = | = | L | L minor (R: white blob inside the D of TIDE; word intact) | none / text error (minor) | OVERALL L | subtitle once in both; R glyph-level defect
+C20 c04-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | equivalent
+C21 c05-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | neon exact both
+C22 c06-s9091 | = | = | R | R not-minor-L (L window decal adds misspelled extra word "BAKEPY") | text error / none | OVERALL R | requested sign + subtitle exact in both; L extra wrong word on window
+C23 c07-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | near-identical
+C24 c08-s9091 | = | = | = | = (exact both) | none / none | OVERALL = | near-identical
+C25 c09-s9091 | = | = | = | n/a | wrong spatial / wrong spatial | OVERALL = | counts correct both; two rows both
+C26 c10-s9091 | = | = | = | n/a | wrong count / wrong count | OVERALL = | three books in both
+C27 c11-s9091 | = | = | = | n/a | none / none | OVERALL = | single kite both
+C28 c12-s9091 | = | = | = | n/a | none / none | OVERALL = | five ducks both
+C29 c13-s9091 | = | = | = | n/a | none / none | OVERALL = | both centred; equal
+C30 c14-s9091 | = | = | = | n/a | none / none | OVERALL = | all elements both
+C31 c15-s9091 | = | = | = | n/a | none / none | OVERALL = | near-identical
+C32 c16-s9091 | = | = | = | n/a | none / none | OVERALL = | equivalent

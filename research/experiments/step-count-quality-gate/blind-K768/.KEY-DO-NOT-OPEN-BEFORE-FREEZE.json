@@ -1,0 +1,162 @@
+{
+ "C01": {
+  "pair": "c01-s3141",
+  "left": "work-K768/K768-c01-s3141-st8.png",
+  "right": "work-K768/K768-c01-s3141-st5.png"
+ },
+ "C02": {
+  "pair": "c02-s3141",
+  "left": "work-K768/K768-c02-s3141-st8.png",
+  "right": "work-K768/K768-c02-s3141-st5.png"
+ },
+ "C03": {
+  "pair": "c03-s3141",
+  "left": "work-K768/K768-c03-s3141-st5.png",
+  "right": "work-K768/K768-c03-s3141-st8.png"
+ },
+ "C04": {
+  "pair": "c04-s3141",
+  "left": "work-K768/K768-c04-s3141-st8.png",
+  "right": "work-K768/K768-c04-s3141-st5.png"
+ },
+ "C05": {
+  "pair": "c05-s3141",
+  "left": "work-K768/K768-c05-s3141-st8.png",
+  "right": "work-K768/K768-c05-s3141-st5.png"
+ },
+ "C06": {
+  "pair": "c06-s3141",
+  "left": "work-K768/K768-c06-s3141-st5.png",
+  "right": "work-K768/K768-c06-s3141-st8.png"
+ },
+ "C07": {
+  "pair": "c07-s3141",
+  "left": "work-K768/K768-c07-s3141-st8.png",
+  "right": "work-K768/K768-c07-s3141-st5.png"
+ },
+ "C08": {
+  "pair": "c08-s3141",
+  "left": "work-K768/K768-c08-s3141-st5.png",
+  "right": "work-K768/K768-c08-s3141-st8.png"
+ },
+ "C09": {
+  "pair": "c09-s3141",
+  "left": "work-K768/K768-c09-s3141-st5.png",
+  "right": "work-K768/K768-c09-s3141-st8.png"
+ },
+ "C10": {
+  "pair": "c10-s3141",
+  "left": "work-K768/K768-c10-s3141-st8.png",
+  "right": "work-K768/K768-c10-s3141-st5.png"
+ },
+ "C11": {
+  "pair": "c11-s3141",
+  "left": "work-K768/K768-c11-s3141-st5.png",
+  "right": "work-K768/K768-c11-s3141-st8.png"
+ },
+ "C12": {
+  "pair": "c12-s3141",
+  "left": "work-K768/K768-c12-s3141-st5.png",
+  "right": "work-K768/K768-c12-s3141-st8.png"
+ },
+ "C13": {
+  "pair": "c13-s3141",
+  "left": "work-K768/K768-c13-s3141-st8.png",
+  "right": "work-K768/K768-c13-s3141-st5.png"
+ },
+ "C14": {
+  "pair": "c14-s3141",
+  "left": "work-K768/K768-c14-s3141-st8.png",
+  "right": "work-K768/K768-c14-s3141-st5.png"
+ },
+ "C15": {
+  "pair": "c15-s3141",
+  "left": "work-K768/K768-c15-s3141-st5.png",
+  "right": "work-K768/K768-c15-s3141-st8.png"
+ },
+ "C16": {
+  "pair": "c16-s3141",
+  "left": "work-K768/K768-c16-s3141-st5.png",
+  "right": "work-K768/K768-c16-s3141-st8.png"
+ },
+ "C17": {
+  "pair": "c01-s9091",
+  "left": "work-K768/K768-c01-s9091-st8.png",
+  "right": "work-K768/K768-c01-s9091-st5.png"
+ },
+ "C18": {
+  "pair": "c02-s9091",
+  "left": "work-K768/K768-c02-s9091-st8.png",
+  "right": "work-K768/K768-c02-s9091-st5.png"
+ },
+ "C19": {
+  "pair": "c03-s9091",
+  "left": "work-K768/K768-c03-s9091-st8.png",
+  "right": "work-K768/K768-c03-s9091-st5.png"
+ },
+ "C20": {
+  "pair": "c04-s9091",
+  "left": "work-K768/K768-c04-s9091-st8.png",
+  "right": "work-K768/K768-c04-s9091-st5.png"
+ },
+ "C21": {
+  "pair": "c05-s9091",
+  "left": "work-K768/K768-c05-s9091-st5.png",
+  "right": "work-K768/K768-c05-s9091-st8.png"
+ },
+ "C22": {
+  "pair": "c06-s9091",
+  "left": "work-K768/K768-c06-s9091-st8.png",
+  "right": "work-K768/K768-c06-s9091-st5.png"
+ },
+ "C23": {
+  "pair": "c07-s9091",
+  "left": "work-K768/K768-c07-s9091-st8.png",
+  "right": "work-K768/K768-c07-s9091-st5.png"
+ },
+ "C24": {
+  "pair": "c08-s9091",
+  "left": "work-K768/K768-c08-s9091-st8.png",
+  "right": "work-K768/K768-c08-s9091-st5.png"
+ },
+ "C25": {
+  "pair": "c09-s9091",
+  "left": "work-K768/K768-c09-s9091-st5.png",
+  "right": "work-K768/K768-c09-s9091-st8.png"
+ },
+ "C26": {
+  "pair": "c10-s9091",
+  "left": "work-K768/K768-c10-s9091-st8.png",
+  "right": "work-K768/K768-c10-s9091-st5.png"
+ },
+ "C27": {
+  "pair": "c11-s9091",
+  "left": "work-K768/K768-c11-s9091-st8.png",
+  "right": "work-K768/K768-c11-s9091-st5.png"
+ },
+ "C28": {
+  "pair": "c12-s9091",
+  "left": "work-K768/K768-c12-s9091-st8.png",
+  "right": "work-K768/K768-c12-s9091-st5.png"
+ },
+ "C29": {
+  "pair": "c13-s9091",
+  "left": "work-K768/K768-c13-s9091-st8.png",
+  "right": "work-K768/K768-c13-s9091-st5.png"
+ },
+ "C30": {
+  "pair": "c14-s9091",
+  "left": "work-K768/K768-c14-s9091-st8.png",
+  "right": "work-K768/K768-c14-s9091-st5.png"
+ },
+ "C31": {
+  "pair": "c15-s9091",
+  "left": "work-K768/K768-c15-s9091-st5.png",
+  "right": "work-K768/K768-c15-s9091-st8.png"
+ },
+ "C32": {
+  "pair": "c16-s9091",
+  "left": "work-K768/K768-c16-s9091-st8.png",
+  "right": "work-K768/K768-c16-s9091-st5.png"
+ }
+}

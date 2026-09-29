@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c10-s9091-st5.png",
+ "prompt": "A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+ "width": 768,
+ "height": 768,
+ "steps": 5,
+ "seed": 9091,
+ "precision": "bf16",
+ "release_transformer": true
+}

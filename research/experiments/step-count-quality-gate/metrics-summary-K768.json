@@ -1,0 +1,25 @@
+{
+ "n_runs": 64,
+ "rc_nonzero": 0,
+ "paired_denoise_ratio_5_8": {
+  "median": 0.628
+ },
+ "paired_wall_ratio_5_8": 0.665,
+ "lapvar_ratio_5_8_median": 0.933,
+ "5": {
+  "peak_max": 5.951,
+  "swap_growth_max_mb": 0.0,
+  "grid16_max": 1.15,
+  "grid16_med": 1.01,
+  "denoise_med": 26.96,
+  "wall_med": 31.72
+ },
+ "8": {
+  "peak_max": 5.959,
+  "swap_growth_max_mb": 0.0,
+  "grid16_max": 1.21,
+  "grid16_med": 1.02,
+  "denoise_med": 42.81,
+  "wall_med": 47.53
+ }
+}

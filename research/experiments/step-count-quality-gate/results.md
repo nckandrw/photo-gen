@@ -151,3 +151,61 @@ Protocol: `protocol-stageB.md` (inherits `protocol.md`), pre-registered in commi
 - **bf16 + 5 @768²** → **PROMISING / CONFIRMATION PENDING.** The Stage B gate verdict (VALIDATED, narrowest possible pass) stands as recorded. The owner holds it out of production until a focused, pre-registered confirmation (`protocol-confirm768.md`) resolves it.
 - **bf16 + 5 @512²** → EXPERIMENTAL: not useful for production, because ULTRA (bf16 + 4) is validated and faster there.
 - **Stage C (6 steps)** → DEFERRED.
+
+---
+
+# 768² BALANCED confirmation results (bf16 + 5 vs bf16 + 8, 768² only)
+
+Protocol: `protocol-confirm768.md`, pre-registered in commit `8149bf3` before any image. Production is unchanged during the run.
+
+## Run integrity
+- 64/64 runs rc = 0 (32 ABBA pairs; 16 prompts × seeds 3141/9091). 2026-09-29 19:49–20:34, on battery power (disclosed; no effect on the quality criteria). Console: `confirm768-console.log`.
+- Blind: `blind-K768` (rng 2909311). Key sha256 `d66b6ab7…`. Frozen scores sha256 `864c590f…`, frozen before unblinding.
+- Files: `key-K768-unblinded.json`, `blind-K768-summary.json` (mapping, tallies, failure modes), `benchmark-K768.csv`, `metrics-summary-K768.json`.
+
+## Blind result
+**8-better 3 / 5-better 1 / ties 28.**
+
+| composite | pair | winner | decisive dimension | frozen note |
+|---|---|---|---|---|
+| C03 | c03-s3141 | 8 | visual (text) | both arms rendered the subtitle "Live at the Harbor" **twice**; the 5-step image also had faded, partially formed letters ("Liv") → **not minor** |
+| C10 | c10-s3141 | 8 | composition | 5-step showed 3 books instead of 4 (wrong count) |
+| C19 | c03-s9091 | 8 | visual (text) | 5-step: a white blob inside the "D" of TIDE, word intact → **minor** |
+| C22 | c06-s9091 | 5 | visual (text) | 8-step window decal added a misspelled extra word "BAKEPY" → **not minor** |
+
+## Criteria
+| # | criterion | result |
+|---|---|---|
+| 1a | not-minor text losses: 5-worse ≤ 8-worse (16 text pairs) | **PASS at equality** (1 ≤ 1: C03 vs C22) |
+| 1b | all text losses: 5-worse ≤ 8-worse + 2 | PASS (2 ≤ 3) |
+| 2 | no type with net ≥ 2; under-denoising family net ≤ 1 | PASS. Per type: wrong count 2/1, under-denoising 1/0, text error 2/2, wrong spatial 2/2. Pooled family, per the pre-registered definition (doubled/faded text, ghost/duplicate objects): the 5-step and 8-step C03 images **both** have doubled text → 1 vs 1, net 0 (net 1 counting tags only; passes either way) |
+| 3 | 8-better ≤ 5-better + 4 | PASS (3 ≤ 5) |
+| 4 | no class-level failure | **FAIL:** prompt c03 (poster subtitle) is 8-better in **both** seeds on the same dimension (visual/text). The micro-detail exception does not apply, because C03 was frozen as not minor |
+| 5 | grid16 ≤ 2.0 | PASS (5-step max 1.15) |
+| 6 | operational | PASS (rc 64/64; peak 5.951 vs 5.959 GB; swap growth 0) |
+
+## Verdict: **NOT CONFIRMED** (criterion 4; this outcome is not covered by a pre-registered verdict row)
+- **CONFIRMED** requires every criterion to pass.
+- **AMBIGUOUS** covers a *narrow* criterion 4 failure, defined as a class-level micro-detail issue. C03 is not micro-detail.
+- **FAILED** requires criterion 1 or 2 to fail, or a margin ≥ 6. Neither occurred.
+- The label is therefore stated as-is rather than stretched to fit either row. **Consequence (the same under both rows):** 768² stays FAST, BALANCED stays 1024² only, and nothing runs automatically.
+
+**Sensitivity (frozen calls govern; neither is revisited):**
+- Had C19's glyph blob been scored a tie → no class-level failure → **CONFIRMED**.
+- Had C22's "BAKEPY" decal been treated as incidental text (as the illegible decals in C06 were) → criterion 1a fails (1 vs 0) → **FAILED**.
+- **768² at 5 steps remains borderline.** This sample did not demonstrate robustness.
+
+## Findings
+- **The poster-subtitle failure recurred** on a fresh prompt and fresh seeds (c03, compare Stage B's p07). At 768², the small-subtitle-under-a-large-headline case is where 5 steps is weakest. In C03 the 8-step arm also doubled the subtitle, so this prompt is hard for both arms.
+- 3 of the 4 decisions favour 8 steps (Stage B: 3 of 3).
+- Every other text case (glass, label through glass, neon, chalk, wine label, book title) was exact in both arms in all 11 remaining text pairs that were ties.
+- **Pooled Stage B + confirmation, 768² (descriptive only, as pre-registered):** 8-better 6 / 5-better 1 / ties 49.
+- **Speed (sustained, paired):** denoise ratio 5/8 0.628; wall ratio 0.665. Laplacian-variance ratio 0.933 (Stage B 0.951; descriptive).
+
+## Disclosed limitations
+- Single AI rater, who had seen Stage B's 768² failure pattern (disclosed in the protocol).
+- The run was on battery power. Timings are sustained and paired, so ratios are within-run.
+
+## Consequences
+- **Production is unchanged:** REFERENCE, FAST (all sizes), BALANCED bf16 + 5 at **1024² only**, ULTRA at 512² only. 768² stays FAST.
+- **Per directive §17:** whether a dedicated **6-step gate at 768²** is worth running is a decision for the user. It is **not started automatically.**

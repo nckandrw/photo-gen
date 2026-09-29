@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c07-s3141-st5.png",
+ "prompt": "A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+ "width": 768,
+ "height": 768,
+ "steps": 5,
+ "seed": 3141,
+ "precision": "bf16",
+ "release_transformer": true
+}

@@ -1,0 +1,213 @@
+{
+ "mapping": {
+  "C01": {
+   "pair": "c01-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C02": {
+   "pair": "c02-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C03": {
+   "pair": "c03-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C04": {
+   "pair": "c04-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C05": {
+   "pair": "c05-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C06": {
+   "pair": "c06-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C07": {
+   "pair": "c07-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C08": {
+   "pair": "c08-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C09": {
+   "pair": "c09-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C10": {
+   "pair": "c10-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C11": {
+   "pair": "c11-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C12": {
+   "pair": "c12-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C13": {
+   "pair": "c13-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C14": {
+   "pair": "c14-s3141",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C15": {
+   "pair": "c15-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C16": {
+   "pair": "c16-s3141",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C17": {
+   "pair": "c01-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C18": {
+   "pair": "c02-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C19": {
+   "pair": "c03-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C20": {
+   "pair": "c04-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C21": {
+   "pair": "c05-s9091",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C22": {
+   "pair": "c06-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C23": {
+   "pair": "c07-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C24": {
+   "pair": "c08-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C25": {
+   "pair": "c09-s9091",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C26": {
+   "pair": "c10-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C27": {
+   "pair": "c11-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C28": {
+   "pair": "c12-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C29": {
+   "pair": "c13-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C30": {
+   "pair": "c14-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  },
+  "C31": {
+   "pair": "c15-s9091",
+   "left_steps": 5,
+   "right_steps": 8
+  },
+  "C32": {
+   "pair": "c16-s9091",
+   "left_steps": 8,
+   "right_steps": 5
+  }
+ },
+ "tallies": {
+  "8-better": 3,
+  "5-better": 1,
+  "ties": 28
+ },
+ "decisions": [
+  [
+   "C03",
+   "c03-s3141",
+   8,
+   "R not-minor-L (both duplicate the subtitle; L first copy also partly faded \"Liv\")"
+  ],
+  [
+   "C10",
+   "c10-s3141",
+   8,
+   "n/a"
+  ],
+  [
+   "C19",
+   "c03-s9091",
+   8,
+   "L minor (R: white blob inside the D of TIDE; word intact)"
+  ],
+  [
+   "C22",
+   "c06-s9091",
+   5,
+   "R not-minor-L (L window decal adds misspelled extra word \"BAKEPY\")"
+  ]
+ ],
+ "failure_modes": {
+  "wrong spatial": {
+   "5": 2,
+   "8": 2
+  },
+  "wrong count": {
+   "5": 2,
+   "8": 1
+  },
+  "text error": {
+   "5": 2,
+   "8": 2
+  },
+  "under-denoising": {
+   "5": 1,
+   "8": 0
+  }
+ }
+}

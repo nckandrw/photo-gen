@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c03-s3141-st8.png",
+ "prompt": "A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+ "width": 768,
+ "height": 768,
+ "steps": 8,
+ "seed": 3141,
+ "precision": "bf16",
+ "release_transformer": true
+}

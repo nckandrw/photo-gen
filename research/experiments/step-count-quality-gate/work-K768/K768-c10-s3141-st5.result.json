@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A bookshelf with exactly four books standing upright on the left, a small globe in the middle and a potted cactus on the right.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "5",
+  "--seed",
+  "3141",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c10-s3141-st5.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.094,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.648,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.421,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 31.009,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 28.94
+ },
+ "step_seconds": [
+  6.02,
+  5.661,
+  5.589,
+  5.659,
+  5.809
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 33.474,
+ "peak_footprint_gb": 5.951
+}

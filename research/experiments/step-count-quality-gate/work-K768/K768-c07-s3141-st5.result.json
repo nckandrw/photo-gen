@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A wine bottle on a dark table with a cream label showing the large word \"AURORA\" and the small text \"Reserve 2021\" beneath it, studio lighting.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "5",
+  "--seed",
+  "3141",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c07-s3141-st5.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.087,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.646,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.327,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 29.122,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 27.149
+ },
+ "step_seconds": [
+  5.456,
+  5.371,
+  5.283,
+  5.357,
+  5.489
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 31.619,
+ "peak_footprint_gb": 5.949
+}

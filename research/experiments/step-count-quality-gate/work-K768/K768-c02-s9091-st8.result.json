@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A glass jar of honey with a paper label reading \"WILD HONEY\", sunlight shining through the jar onto a wooden shelf.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "9091",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c02-s9091-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.384,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 1.342,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.374,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 50.74,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 48.024
+ },
+ "step_seconds": [
+  5.678,
+  5.71,
+  5.835,
+  5.675,
+  6.018,
+  6.256,
+  6.737,
+  5.736
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 53.559,
+ "peak_footprint_gb": 5.953
+}

@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A retro concert poster with the large headline \"MIDNIGHT TIDE\" and the smaller subtitle \"Live at the Harbor\", bold clean typography, ocean waves illustration.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "5",
+  "--seed",
+  "3141",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c03-s3141-st5.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.153,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.65,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 1.121,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 21.965,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 20.194
+ },
+ "step_seconds": [
+  3.462,
+  3.638,
+  4.169,
+  4.197,
+  4.539
+ ],
+ "mlx_peak_gb": 3.721,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 24.173,
+ "peak_footprint_gb": 5.95
+}

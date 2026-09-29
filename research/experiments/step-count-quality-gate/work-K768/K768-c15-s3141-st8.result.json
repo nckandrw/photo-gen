@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Close-up of a golden retriever's face in the snow, individual fur strands and snowflakes on its nose.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "3141",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c15-s3141-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.098,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.657,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.409,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 48.715,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 46.649
+ },
+ "step_seconds": [
+  6.213,
+  5.727,
+  5.622,
+  5.657,
+  5.698,
+  5.664,
+  6.017,
+  5.779
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 51.279,
+ "peak_footprint_gb": 5.941
+}

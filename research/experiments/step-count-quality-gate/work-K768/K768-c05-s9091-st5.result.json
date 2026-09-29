@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=A glowing green neon sign that reads \"OPEN 24 HOURS\" on a rainy brick wall at night.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "5",
+  "--seed",
+  "9091",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-K768/K768-c05-s9091-st5.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.082,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.648,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.311,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 30.109,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 28.15
+ },
+ "step_seconds": [
+  5.729,
+  5.361,
+  5.307,
+  5.882,
+  5.659
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 32.67,
+ "peak_footprint_gb": 5.925
+}
