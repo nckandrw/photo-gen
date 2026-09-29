@@ -61,3 +61,87 @@ Every blind loss for 4 steps was an **under-denoising signature**: a ghosted dup
 **Next (per protocol):**
 - **Stage B** (bf16 + 5, seeds 6502/1729) and **Stage C** (bf16 + 6, seeds 8086/5150).
 - At 768²/1024², 5 or 6 steps is now the useful question: the last-step σ drops (1024²: 0.51 → 0.44 at N = 5 → 0.39 at N = 6; 768²: 0.44 → 0.37 → 0.32), which may remove the ghosting at ≈ 0.63–0.75× denoise.
+
+---
+
+# Stage B results (bf16 + 8 vs bf16 + 5)
+
+Protocol: `protocol-stageB.md` (inherits `protocol.md`), pre-registered in commit `d638f1b` before any Stage B image. Production is unchanged (REFERENCE, FAST, ULTRA at 512² only).
+
+## Run integrity
+- 147/147 runs rc = 0: 3 cold (5-step, p01 s42, each after 600 s idle) and 3 × 48 sustained (ABBA). Console: `stageB-console.log`.
+- Blind: three directories (`blind-B512/768/1024`, rng 2909301–3). All three score sheets were frozen before any key was opened.
+  - Frozen sha256: 512² `2e2ac624…`, 768² `6ea6b796…`, 1024² `7b34cd41…`.
+  - Mapping: `blind-mapping-B.json`. Per-composite scores: `scores-B.csv`. Tallies: `blind-tallies-B.json`. Failure-mode counts per arm (computed by script from the frozen sheets): `failure-modes-B.json`.
+- Per-run data: `benchmark-B.csv`. Summary: `metrics-summary-B.json`. Both produced by `stage_metrics.py`.
+
+## Summary table
+| resolution | blind (8-better / 5-better / ties) | quality verdict | cold wall 5 vs 8 | cold denoise 5 vs 8 | paired denoise ratio 5/8 (sustained, median) | paired wall ratio 5/8 | peak GB (5 / 8) | status |
+|---|---|---|---:|---:|---:|---:|---|---|
+| 512² | 1 / 0 / 23 | **VALIDATED** | 11.3 vs 15.6 s | 7.6 vs 11.5 s | 0.629 | 0.696 | 5.415 / 5.416 | validated; no production use (ULTRA bf16 + 4 is faster and already validated here) |
+| 768² | 3 / 0 / 21 | **VALIDATED (literal rules; narrowest possible pass)** | 20.9 vs 30.4 s | 16.5 vs 26.0 s | 0.630 | 0.666 | 5.951 / 5.952 | validated, flagged borderline |
+| 1024² | 0 / 0 / 24 | **VALIDATED** | 36.1 vs 54.4 s | 30.6 vs 49.1 s | 0.625 | 0.652 | 5.851 / 5.852 | validated |
+
+**Baselines:**
+- **Cold:** the 5-step runs are compared with the same-day Stage A cold 8-step runs (`results-A-cold.jsonl`), as pre-registered. Cold ratios 5/8 are: wall 0.73 / 0.69 / 0.66 and denoise 0.66 / 0.64 / 0.62 (512² / 768² / 1024²).
+- **Sustained:** the paired ratios are within-pair (same prompt and seed, adjacent ABBA runs).
+- **Per-step time** is unchanged between 5 and 8 steps (512² 2.04 vs 2.05 s; 768² 5.40 vs 5.35 s; 1024² 10.54 vs 10.55 s). The sustained per-step times are higher than cold, which is thermal state; this matches Stage A.
+
+## Criteria per resolution
+| # | criterion | 512² | 768² | 1024² |
+|---|---|---|---|---|
+| 1 | no text regression (p05/p07, 4 pairs) | PASS (4/4 equal) | **PASS (borderline):** p07-s6502 is minor-worse at 5 steps. The other seed and both p05 pairs are equal. | PASS (4/4 equal) |
+| 2 | no systematic artifact (net ≥ 2 per type) | PASS (all nets 0) | PASS: nets are duplicate object 1, under-denoising 1, text error 1 (3 vs 2) | PASS (all nets 0) |
+| 3 | 8-better ≤ 5-better + 3 | PASS (1 ≤ 3) | **PASS at equality (3 ≤ 3)** | PASS (0 ≤ 3) |
+| 4 | no class-level failure | PASS | PASS (the three losses are three different classes, each on one seed: p03, p07, p09) | PASS |
+| 5 | grid16 ≤ 2.0 | PASS (5-step max 1.30) | PASS (1.16) | PASS (1.11) |
+| 6 | operational (rc, footprint ≤ +0.1 GB, swap) | PASS | PASS | PASS |
+| 7 | speed (denoise ratio ≤ 0.70) | PASS (0.629) | PASS (0.630) | PASS (0.625) |
+
+### 768²: why this is the narrowest possible pass (disclosed sensitivity)
+- **Criterion 1 rests on one frozen "minor" classification.** The frozen line reads:
+  `C07 p07-s6502 | L | = | L | L minor (R subtitle present once, readable, low-contrast faded tan) | none / text error (minor) | OVERALL L`, where R = 5 steps.
+  - The pre-registered definition makes a defect minor when "the intended string is still present exactly once and readable, and the defect is glyph-level (stroke weight, kerning, a slightly misshapen letter…)". It lists "ghosted or partially formed text" as not minor.
+  - A faded, low-contrast but fully formed subtitle is not named in either list.
+  - **The frozen classification governs.** It was made blind and was not revisited after unblinding.
+- **Criterion 3 passes at exact equality** (3 ≤ 0 + 3).
+- **Criterion 2 passes per checklist type.**
+  - C03 (p03-s6502) was frozen as *under-denoising* (ghosted, doubled text) on the 5-step side.
+  - C21 (p09-s1729) was frozen as a solid *duplicate object* (a second red balloon) on the 5-step side.
+  - Stage A's 1024² line pooled translucent ghosts (duplicate text, ghost plates). C21's balloon was frozen as solid, so it is not pooled, and the ghosting family at 768² is 1 vs 0.
+- **Sensitivity:** had C07 been classified not-minor, or C21 pooled with ghosting, 768² would be **REJECTED**. PROMISING is not available: it requires criterion 3 or 4 to fail, and neither does.
+
+## Stage-B-specific question: do 5 steps remove the 4-step under-denoising signatures?
+| resolution | Stage A (4 steps) | Stage B (5 steps) | outcome |
+|---|---|---|---|
+| 1024² | ghost "SIQUIJOR", malformed "R", ghost plates | none; text exact in all 4 text pairs in both arms | **eliminated** |
+| 768² | duplicated subtitle | one ghosted text overlay (p03), one faded subtitle (p07), one duplicate balloon (p09); all three losses are 5-step | **not eliminated; shifted** from the poster headline to the p03 glass text and the subtitle contrast |
+| 512² | none | none (the single loss is a pen type, adherence) | none observed |
+
+**Against the σ hypothesis:** 768² came out worse than 1024², although its last-step σ is lower (0.368 vs 0.441). That is the opposite of the resolution ordering predicted in Stage A.
+- With 24 pairs per resolution and 0–3 decisions, the ordering may be noise.
+- It weakens the claim that the final-step σ alone explains the failures.
+- **Resolution-aware step selection** remains a hypothesis only (per the directive). It is not implemented, and this data does not support a simple σ threshold.
+
+## Objective metrics
+- **grid16 (5 / 8 arm max):** 512² 1.30 / 1.25; 768² 1.16 / 1.11; 1024² 1.11 / 1.19. There is no 16-px grid signature (the rejected base-LoRA path scored 3.9–11.5).
+- **Laplacian variance, paired median ratio 5/8:** 0.996 / 0.951 / 0.980. Detail is essentially unchanged; Stage A's 4/8 ratio was 0.91–0.95.
+- **Memory:** 5-step peak footprint equals 8-step within 0.001 GB at every size.
+  - Swap growth: one 512² 5-step run showed +0.5 MB; all other runs 0. The single +0.5 MB is not attributable to the arm.
+
+## Deviations (disclosed)
+1. **grid16 re-implementation.** The Stage A grid16 code ran inline and was not preserved.
+   - `stage_metrics.py` uses the best of 64 variants fitted against all 144 Stage A per-image values: mean |error| 0.086, max 0.46.
+   - Stage A images were re-scored with the same code for a like-for-like comparison (`stageA_grid16_rescored` in `metrics-summary-B.json`).
+   - Criterion 5 is unaffected: the worst 5-step value plus the worst fit error is 1.30 + 0.46 < 2.0.
+   - Laplacian variance reproduces Stage A exactly.
+2. **1024² sheet notes for C01–C08** were transcribed into the draft after a session context break. The judgements (all ties, with the C03/C05/C07 text observations) were made before the break, and the sheet was frozen before any key was opened.
+3. **Single AI rater**, as in Stage A.
+
+## Verdicts and consequences
+- **512²: VALIDATED.** It has no practical use: ULTRA (bf16 + 4) is already validated at 512² and is faster.
+- **768²: VALIDATED (literal rules; narrowest possible pass).** The mirror image of Stage A's 768² "narrowest possible failure".
+- **1024²: VALIDATED** (0 / 0 / 24; the 4-step text failures are gone).
+- **Production:** unchanged. The candidate change this enables is **FAST at 5 steps for 768² and 1024²** (≈ 0.63× denoise, cold wall 36 vs 54 s at 1024²). That is a separate production decision for the user. Given the 768² borderline, a text-focused confirmatory sample at 768² would be prudent before adopting it there.
+- **Confirmatory run:** it was pre-registered for N = 4 only. It is not triggered automatically; it is offered as an option.
+- **Stage C** (bf16 + 6, seeds 8086/5150) is **not started**; it is a separate decision. Stage B passing at all three sizes reduces its value: 6 steps would only matter if 768² at 5 steps is judged too borderline to adopt.
