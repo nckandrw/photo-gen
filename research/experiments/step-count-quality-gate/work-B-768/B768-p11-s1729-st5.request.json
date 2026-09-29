@@ -1,0 +1,12 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+ "base_model": "z-image-turbo",
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-B-768/B768-p11-s1729-st5.png",
+ "prompt": "A candlelit dinner table at night, reflections in wine glasses, warm candle glow and blurred city lights through a rain-streaked window.",
+ "width": 768,
+ "height": 768,
+ "steps": 5,
+ "seed": 1729,
+ "precision": "bf16",
+ "release_transformer": true
+}

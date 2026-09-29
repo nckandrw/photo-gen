@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "--base-model",
+  "z-image-turbo",
+  "--prompt=Close-up portrait of a tabby cat with green eyes, sharp whisker detail and individual fur strands, soft natural window light.",
+  "--width",
+  "768",
+  "--height",
+  "768",
+  "--steps",
+  "8",
+  "--seed",
+  "1729",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/experiments/step-count-quality-gate/work-B-768/B768-p10-s1729-st8.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.072,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.639,
+   "mlx_peak_gb": 3.612
+  },
+  "vae_decode": {
+   "seconds": 1.304,
+   "mlx_peak_gb": 2.218
+  },
+  "generate_total": {
+   "seconds": 46.244,
+   "mlx_peak_gb": 2.218
+  },
+  "denoise_seconds": 44.301
+ },
+ "step_seconds": [
+  5.514,
+  5.534,
+  5.45,
+  5.508,
+  5.493,
+  5.459,
+  5.728,
+  5.415
+ ],
+ "mlx_peak_gb": 3.612,
+ "versions": {
+  "mflux": "0.20.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "precision": "bf16",
+ "transformer_release": {
+  "installed": true,
+  "released": true
+ },
+ "compile_calls": 1,
+ "dit_dtypes": {
+  "sdpa_q": [
+   "mlx.core.bfloat16"
+  ]
+ },
+ "process_seconds": 48.635,
+ "peak_footprint_gb": 5.949
+}
