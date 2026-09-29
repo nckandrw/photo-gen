@@ -62,7 +62,8 @@
 | REFERENCE | fp32 + 9 steps (9 NFE) | permanent, canonical, default; intentionally conservative reproducibility baseline, **not** the official Turbo count |
 | FAST | bf16 + 8 steps (8 NFE) | **validated at 512², 768², 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: REF 2 / FAST 1 / 69 ties; fast-resolution-gates-report.md). 1024² was earlier supported by a chain of two gates (phase3-record-audit.md §A) |
 | (no profile) | bf16 + 9 | validated at 1024² only (bf16 gate); **experimental** at 512²/768² |
-| EXPERIMENTAL | bf16 + 7/6/5/4 | research only; not quality-equivalent (step-sweep-report.md) |
+| ULTRA | bf16 + 4 steps (4 NFE) | **validated at 512² only** (step-count-quality-gate/results.md); REJECTED at 768²/1024² |
+| EXPERIMENTAL | bf16 + 7/6/5 (and 4 above 512²) | research only; 5/6 under a quality gate |
 
 ## Notes
 - Denoise per step at 1024² in the sustained block rises from 8.8 to 9.3 s toward the middle of the ramp: thermal state, not step count.

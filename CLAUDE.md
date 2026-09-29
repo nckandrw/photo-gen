@@ -49,14 +49,15 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 |---|---|---|---|
 | reference (default when no profile is given) | fp32 | 9 | permanent reference |
 | fast | bf16 | 8 | validated at 512², 768², 1024² (direct blinded gates) |
+| ultra | bf16 | 4 | validated at **512² only** (Stage A gate); REJECTED at 768²/1024² (text/object-resolution failures) |
 
 - **Lower step counts:** 7–4 steps are experimental.
 - **NFE:** in mflux, N steps = N NFE. The reference therefore runs 9 NFE; FAST at 1024² ≈ the official 8-NFE recipe.
-- **Validity is per exact combination** (`VALIDATED_COMBINATIONS`): fp32+9 and bf16+8 at 512²/768²/1024²; bf16+9 at 1024² only. Never mark a combination valid because a nearby one was gated. A regression test pins the table.
+- **Validity is per exact combination** (`VALIDATED_COMBINATIONS`): fp32+9 and bf16+8 at 512²/768²/1024²; bf16+9 at 1024² only; bf16+4 (ULTRA) at 512² only. Never mark a combination valid because a nearby one was gated. A regression test pins the table.
 - **Regression hashes** (p01 "a red apple on a wooden table, soft window light", seed 42):
   - 1024²: reference `fe47d88d…`, fast `7b45cfbe…`, bf16/9 `11b19277…`;
   - 768²: reference `94a023d3…`, fast `20ff9e2c…`;
-  - 512²: reference `9ae59f59…`, fast `0b9cc20a…`.
+  - 512²: reference `9ae59f59…`, fast `0b9cc20a…`, ultra `6aa2b842…`.
 - **REFERENCE's "fp32" relies on MLX's `MLX_ENABLE_TF32=1` default** (matmuls/attention run on NAX with TF32 math; `research/experiments/nax-status.md`). The worker strips `MLX_*` from its env; keep it that way or the hashes change.
 
 ## Hard constraints (from the project owner)

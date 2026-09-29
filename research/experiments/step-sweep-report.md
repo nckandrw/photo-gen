@@ -5,6 +5,8 @@
 > - **Superseding evidence:** a **blinded** Turbo bf16/4 vs FAST bf16/8 comparison at 1024², 24 pairs, fresh seeds 4242/6174 (`4step-probe/results.md` §E2, `4step-probe/blind-AvsB/`). Result: **2 / 3 / 19 ties**, with only object-level differences in either direction.
 > - **Why they differ:** the blinded protocol hides step identity and uses full-resolution side-by-side composites and fresh seeds. The original rater's knowledge of the step counts, and the reduced size, can bias toward "lower steps = worse".
 > - **Status:** bf16 + 4, 5, 6 are CANDIDATE / QUALITY GATE PENDING. The definitive per-resolution verdict comes from `step-count-quality-gate/`.
+>
+> **Addendum (2026-09-29, Stage A gate):** the pre-registered fresh-seed gate (seeds 2026/7331, 24 pairs per size) gave bf16 + 4 vs 8: 512² **PASS** (1/0/23), 768² **REJECTED** (1/0/23, one duplicated-subtitle text pair), 1024² **REJECTED** (3/1/20; ghost duplicate text, malformed glyph, ghost plates). The evidence chain: original unblinded "preview" label → encouraging blinded probe control (2/3/19 at 1024²) → pre-registered gate, which governs. bf16 + 4 is now the ULTRA profile at 512² only.
 
 **Design.**
 - 12 prompts (`prompts.json`) × steps {8, 7, 6, 5, 4} = 60 runs, 21:21–22:30.
