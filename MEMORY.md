@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 (4-step probe complete)._
+_Last updated 2026-09-29 10:10 (step-count gate Stage A running)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,14 +21,22 @@ _Last updated 2026-09-29 (4-step probe complete)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**Nothing is running.** The 4-step probe is COMPLETE and written up (2026-09-29): `research/experiments/4step-probe/results.md`.
-- Classification: **REJECTED** (Base + LoRA lost blind to Turbo 4 6–18 and to FAST 8–16; all on grain; +0.84 GB).
-- **Key new finding:** Turbo bf16/4 was blind-equivalent to FAST at 1024² (2/3/19) at 0.50× denoise.
+**RUNNING (started 2026-09-29 10:09): step-count quality gate, Stage A (bf16/8 vs bf16/4)**
+- Script `research/experiments/step-count-quality-gate/run-stageA.sh`; console `step-count-quality-gate/stageA-console.log`; marker **`STAGE_A_GEN_DONE`**.
+- Stages: 6 cold runs (each after 600 s idle; done tags are skipped without re-idling), then sustained blocks 512 → 768 → 1024 (48 runs each).
+- Results: `results-A-{cold,512,768,1024}.jsonl`. Expected ≈ 2.5 h.
+- Resume: rerun the script as a top-level `nohup … & disown`. Done tags are skipped.
+- Pre-registered: `step-count-quality-gate/protocol.md` (commit `f49604c`).
+  - Seeds: A 2026/7331, B 6502/1729, C 8086/5150; confirmatory seed 4096 + `confirm-prompts.json`.
+  - Blind dirs `blind-A512/768/1024` (rng 2909291/2/3); **keys sealed until all three are frozen**.
+- The 4-step probe (REJECTED) is complete: `4step-probe/results.md`.
 
 **Next steps (in order)**
-1. **Recommended next experiment** (needs the user's go-ahead): a pre-registered direct blinded gate, FAST bf16/8 vs bf16/6, 5 and 4, at 512²/768²/1024², with fresh seeds. Same protocol and tools as `fast-resolution-gates-report.md`. The step counts stay EXPERIMENTAL until a gate passes.
-2. Optional, low priority: C's grain vs scheduler / step count (5–6) / the 8-step LoRA. Deprioritised in `4step-probe/results.md` §E1.
-3. Housekeeping when the user wants it: the ≈16 GB `p3b/cap/*.gputrace` bundles and the 6.1 GB `models/research/` probe assets can be deleted, but only with the user's OK.
+1. After `STAGE_A_GEN_DONE`: integrity check; blinded review of the three resolutions, scoring each per `protocol.md` (lexicographic priority + failure-mode checklist); freeze all; unblind.
+2. Metrics: paired denoise/wall ratios, cold pairs, memory, grid16, Laplacian. Verdict per resolution (VALIDATED / PROMISING / REJECTED / INCONCLUSIVE). Write `benchmark.csv`, `blind-mapping.json`, `scores.csv`, `results.md`.
+3. Then Stage B (N = 5, seeds 6502/1729), then Stage C (N = 6, seeds 8086/5150). Create jobs mirroring Stage A.
+4. If N = 4 passes at all three sizes: the confirmatory run (`confirm-prompts.json` × seed 4096 at 1024²).
+5. Only after the gates: update STATUS, README, the guide and PERFORMANCE-MAP. **No production change inside the experiment.**
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
