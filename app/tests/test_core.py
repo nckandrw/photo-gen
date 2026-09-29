@@ -139,7 +139,8 @@ class ValidationTests(unittest.TestCase):
         A configuration never becomes valid because a nearby one was gated (research/experiments/STATUS.md)."""
         from photogen.runtimes.mflux_zimage import VALIDATED_COMBINATIONS
         three = ((512, 512), (768, 768), (1024, 1024))
-        self.assertEqual(VALIDATED_COMBINATIONS, {("fp32", 9): three, ("bf16", 8): three, ("bf16", 9): ((1024, 1024),)})
+        self.assertEqual(VALIDATED_COMBINATIONS, {("fp32", 9): three, ("bf16", 8): three, ("bf16", 9): ((1024, 1024),),
+                                                  ("bf16", 4): ((512, 512),)})
         for prec, steps in (("fp32", 9), ("bf16", 8)):
             for w in (512, 768, 1024):
                 self.assertTrue(self.n(precision=prec, steps=steps, width=w, height=w).validated, (prec, steps, w))
@@ -150,10 +151,25 @@ class ValidationTests(unittest.TestCase):
             r = self.n(precision="bf16", steps=9, width=w, height=w, allow_experimental=True)
             self.assertFalse(r.validated)
             self.assertTrue(any("validated only at 1024x1024" in x for x in r.warnings))
-        for prec, steps in (("fp32", 8), ("fp32", 4), ("bf16", 7), ("bf16", 4)):  # never gated anywhere
+        for prec, steps in (("fp32", 8), ("fp32", 4), ("bf16", 7), ("bf16", 5), ("bf16", 6)):  # never gated anywhere
             with self.assertRaises(ValidationError):
                 self.n(precision=prec, steps=steps)
             self.assertFalse(self.n(precision=prec, steps=steps, allow_experimental=True).validated)
+
+    def test_ultra_profile_gated_at_512_only(self):
+        u = self.n(profile="ultra", width=512, height=512)
+        self.assertEqual((u.precision, u.steps, u.validated, u.profile, u.warnings), ("bf16", 4, True, "ultra", ()))
+        for w in (768, 1024):                               # REJECTED by the Stage A gate at these sizes
+            with self.assertRaises(ValidationError):
+                self.n(profile="ultra", width=w, height=w)
+            e = self.n(profile="ultra", width=w, height=w, allow_experimental=True)
+            self.assertFalse(e.validated)
+            self.assertTrue(any("validated only at 512x512" in x for x in e.warnings))
+        with self.assertRaises(ValidationError):
+            self.n(profile="ultra")                         # default 1024x1024
+        with self.assertRaises(ValidationError):
+            self.n(profile="ultra", steps=5, width=512, height=512)  # a profile fixes its steps
+        self.assertIn("ultra", self.rt.capabilities().profiles)
 
     def test_request_without_precision_loads_as_fp32(self):  # rows stored before the field existed
         from photogen.models import GenerationRequest
