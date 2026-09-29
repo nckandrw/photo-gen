@@ -145,3 +145,9 @@ Protocol: `protocol-stageB.md` (inherits `protocol.md`), pre-registered in commi
 - **Production:** unchanged. The candidate change this enables is **FAST at 5 steps for 768² and 1024²** (≈ 0.63× denoise, cold wall 36 vs 54 s at 1024²). That is a separate production decision for the user. Given the 768² borderline, a text-focused confirmatory sample at 768² would be prudent before adopting it there.
 - **Confirmatory run:** it was pre-registered for N = 4 only. It is not triggered automatically; it is offered as an option.
 - **Stage C** (bf16 + 6, seeds 8086/5150) is **not started**; it is a separate decision. Stage B passing at all three sizes reduces its value: 6 steps would only matter if 768² at 5 steps is judged too borderline to adopt.
+
+## Post-Stage-B production classification (owner decision, 2026-09-29; appended, Stage B text above unchanged)
+- **bf16 + 5 @1024²** → ADOPTED as the **BALANCED** profile (`VALIDATED_COMBINATIONS[('bf16', 5)] = (1024²,)`).
+- **bf16 + 5 @768²** → **PROMISING / CONFIRMATION PENDING.** The Stage B gate verdict (VALIDATED, narrowest possible pass) stands as recorded. The owner holds it out of production until a focused, pre-registered confirmation (`protocol-confirm768.md`) resolves it.
+- **bf16 + 5 @512²** → EXPERIMENTAL: not useful for production, because ULTRA (bf16 + 4) is validated and faster there.
+- **Stage C (6 steps)** → DEFERRED.

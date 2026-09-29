@@ -40,10 +40,11 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument("--precision", choices=["fp32", "bf16"],
                    help="DiT activation dtype: fp32 (default, reference) or bf16 (opt-in, ~30%% faster denoise, "
                         "not pixel-identical to fp32; see research/experiments/bf16-quality-report.md)")
-    g.add_argument("--profile", choices=["reference", "fast", "ultra"],
+    g.add_argument("--profile", choices=["reference", "fast", "balanced", "ultra"],
                    help="reference = fp32 + 9 steps (default behaviour, canonical); fast = bf16 + 8 steps (gated at "
-                        "512x512, 768x768 and 1024x1024; ~35%% less denoise than reference); ultra = bf16 + 4 steps "
-                        "(gated at 512x512 ONLY; other sizes need --allow-experimental)")
+                        "512x512, 768x768 and 1024x1024; ~35%% less denoise than reference); balanced = bf16 + 5 steps "
+                        "(gated at 1024x1024 ONLY; ~0.63x FAST denoise); ultra = bf16 + 4 steps "
+                        "(gated at 512x512 ONLY); other sizes need --allow-experimental")
     g.add_argument("--text-encoder", help="'stock' (default) or a registered substitute from config/text-encoders.json")
     g.add_argument("--allow-experimental", action="store_true",
                    help="permit non-validated resolutions/step counts (still bounded to ≤1024² pixels)")

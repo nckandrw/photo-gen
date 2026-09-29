@@ -11,14 +11,15 @@ This repository contains the photo-gen application and research environment deve
 ## Current status
 | | |
 |---|---|
-| build | working; 39/39 tests pass |
+| build | working; 42/42 tests pass |
 | hardware | **MacBook Air M5 16 GB: validated** (the only validated machine) |
 | runtime | Python 3.12.14 · mflux 0.20.0 · MLX 0.32.2 · mlx-metal 0.32.2 · Z-Image-Turbo q4 @ `d2d30500` · `--low-ram` |
 | **REFERENCE** (default) | fp32 + 9 steps (9 NFE): canonical reproducibility baseline at 512², 768², 1024² |
 | **FAST** | bf16 + 8 steps (8 NFE): **validated at 512², 768², 1024²** (direct blinded gates vs REFERENCE, 72 pairs: 2 / 1 / 69 ties) |
+| **BALANCED** | bf16 + 5 steps (5 NFE): **validated at 1024² only** (blind vs FAST 0 / 0 / 24; cold wall 54.4 → 36.1 s). 768²: gate passed by the narrowest margin, held pending a focused confirmation; 512²: not offered (ULTRA is faster there). |
 | **ULTRA** | bf16 + 4 steps (4 NFE): **validated at 512² only** (blind vs FAST 1 / 0 / 23; cold wall 15.6 → 9.5 s). Not validated at 768²/1024²: 4-step Turbo showed specific text/object-resolution failures at 768² and 1024² under the fresh-seed blinded gate. |
 
-**The current validated production profiles are REFERENCE (fp32 + 9), FAST (bf16 + 8) and ULTRA (bf16 + 4, 512² only).** FAST has been validated at 512², 768² and 1024² on the target M5 16 GB system; ULTRA only at 512². Any other combination (ULTRA at 768²/1024², bf16 + 5/6/7, bf16 + 9 outside 1024², other sizes) is experimental and needs `--allow-experimental`. Validity is checked per exact precision + steps + resolution.
+**The current validated production profiles are REFERENCE (fp32 + 9), FAST (bf16 + 8), BALANCED (bf16 + 5, 1024² only) and ULTRA (bf16 + 4, 512² only).** FAST has been validated at 512², 768² and 1024² on the target M5 16 GB system; BALANCED only at 1024²; ULTRA only at 512². These are different operating points with different evidence, not a ranking: REFERENCE for reproducibility and regression testing, FAST for general use at every size, BALANCED for lower-latency 1024², ULTRA for minimum-latency 512². Any other combination (BALANCED at 512²/768², ULTRA at 768²/1024², bf16 + 6/7, bf16 + 9 outside 1024², other sizes) is experimental and needs `--allow-experimental`. Validity is checked per exact precision + steps + resolution.
 
 ## Requirements
 - The validated machine above.
@@ -33,6 +34,7 @@ bin/photo-gen serve                         # HTTP API on 127.0.0.1:8765 (no web
 P="a red apple on a wooden table, soft window light"
 bin/photo-gen generate -p "$P" --seed 42 --profile fast        # FAST, 1024²      → pixel_sha256 7b45cfbe…
 bin/photo-gen generate -p "$P" --seed 42 --profile reference   # REFERENCE, 1024² → fe47d88d…
+bin/photo-gen generate -p "$P" --seed 42 --profile balanced  # BALANCED, 1024² only → befe1b3c…
 bin/photo-gen generate -p "$P" --seed 42 --profile ultra --width 512 --height 512   # ULTRA, 512² only → 6aa2b842…
 
 curl -s -X POST http://127.0.0.1:8765/generate -H 'Content-Type: application/json' \

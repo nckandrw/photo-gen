@@ -38,8 +38,9 @@ Values below were read from the machine on 2026-09-25 (`system_profiler`, `sw_ve
 | **REFERENCE**: fp32 + 9 steps (9 NFE) | REFERENCE (hash-pinned) | REFERENCE (hash recorded 2026-09-25) | REFERENCE (hash-pinned) |
 | **FAST**: bf16 + 8 steps (8 NFE) | **VALIDATED** (direct blinded gate, 0 / 0 / 24) | **VALIDATED** (direct blinded gate, 2 / 0 / 22) | **VALIDATED** (direct gate 0 / 1 / 23, plus the earlier two-gate chain) |
 | bf16 + 9 steps (not a profile) | EXPERIMENTAL | EXPERIMENTAL | VALIDATED (bf16 gate vs fp32/9, 24 pairs) |
+| **BALANCED**: bf16 + 5 steps (5 NFE) | EXPERIMENTAL (gate passed 1 / 0 / 23; not offered: ULTRA is faster) | CONFIRMATION PENDING (gate passed 3 / 0 / 21, narrowest margin) | **VALIDATED** (blind gate 0 / 0 / 24) |
 | **ULTRA**: bf16 + 4 steps (4 NFE) | **VALIDATED** (blind gate 1 / 0 / 23) | REJECTED (text) | REJECTED (text/ghosting) |
-| bf16 + 7/6/5 steps | EXPERIMENTAL | EXPERIMENTAL | EXPERIMENTAL (5/6 under a quality gate) |
+| bf16 + 7/6 steps | EXPERIMENTAL | EXPERIMENTAL | EXPERIMENTAL |
 
 Validity applies to the exact combination of model + precision + steps + scheduler + resolution. Everything not marked VALIDATED or REFERENCE needs `--allow-experimental`.
 
@@ -49,6 +50,7 @@ Validity applies to the exact combination of model + precision + steps + schedul
 |---|---|---:|---:|---:|
 | 1024² | REFERENCE fp32/9 | 83.4 | 78.3 | 6.56 |
 | 1024² | FAST bf16/8 | 54.2 | 48.7 | 5.84 |
+| 1024² | BALANCED bf16/5 (2026-09-29) | 36.1 | 30.6 | 5.84 |
 | 768² | REFERENCE fp32/9 | 44.7 | 40.4 | 6.33 |
 | 768² | FAST bf16/8 | 30.6 | 26.1 | 5.93 |
 | 512² | REFERENCE fp32/9 | 21.2 | 17.4 | 5.93 |

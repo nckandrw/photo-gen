@@ -63,8 +63,22 @@
 | FAST | bf16 + 8 steps (8 NFE) | **validated at 512², 768², 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: REF 2 / FAST 1 / 69 ties; fast-resolution-gates-report.md). 1024² was earlier supported by a chain of two gates (phase3-record-audit.md §A) |
 | (no profile) | bf16 + 9 | validated at 1024² only (bf16 gate); **experimental** at 512²/768² |
 | ULTRA | bf16 + 4 steps (4 NFE) | **validated at 512² only** (step-count-quality-gate/results.md); REJECTED at 768²/1024² |
-| (no profile) | bf16 + 5 steps (5 NFE) | **gate-validated at 512², 768² (narrowest pass), 1024²** (Stage B, 2026-09-29); **not a production profile** (still needs `allow_experimental`) until the user decides |
-| EXPERIMENTAL | bf16 + 7/6 (and 4 above 512²) | research only; 6 = Stage C, not started |
+| BALANCED | bf16 + 5 steps (5 NFE) | **validated at 1024² only** (Stage B 0/0/24; production 2026-09-29). 768²: CONFIRMATION PENDING (Stage B narrowest pass 3/0/21). 512²: experimental, not offered (ULTRA dominates) |
+| EXPERIMENTAL | bf16 + 7/6; 5 at 512²/768²; 4 above 512² | research only; 6 = Stage C, deferred |
+
+**Roles:** REFERENCE: reproducibility, regression testing, reference fidelity. FAST: general-purpose production at every validated size. BALANCED: lower-latency 1024² where the 5-step gate passed. ULTRA: minimum-latency 512² where the 4-step gate passed. Different operating points with different evidence, not a ranking.
+
+**Current production operating points (cold, one run after 600 s idle, p01 seed 42; same-day 2026-09-29 runs):**
+
+| res | profile | wall / denoise (s) | vs FAST (cold wall) |
+|---|---|---|---:|
+| 1024² | FAST bf16 + 8 | 54.4 / 49.1 | 1.00 |
+| 1024² | BALANCED bf16 + 5 | 36.1 / 30.6 | 0.66 |
+| 768² | FAST bf16 + 8 | 30.4 / 26.0 | 1.00 |
+| 512² | FAST bf16 + 8 | 15.6 / 11.5 | 1.00 |
+| 512² | ULTRA bf16 + 4 | 9.5 / 5.9 | 0.61 |
+
+Sustained paired denoise ratios: BALANCED/FAST 0.625 (1024²), ULTRA/FAST 0.509 (512²).
 
 ## Notes
 - Denoise per step at 1024² in the sustained block rises from 8.8 to 9.3 s toward the middle of the ramp: thermal state, not step count.

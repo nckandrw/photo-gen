@@ -80,8 +80,9 @@ A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and get
 | **reference** (default when no profile is given) | fp32 | 9 (= 9 NFE in mflux) | permanent research reference; pixel hash 1024² `fe47d88d…` (apple, seed 42) | reproducibility, comparisons |
 | **fast** | bf16 | 8 | gated at **512², 768² and 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: 2 / 1 / 69 ties; `research/experiments/fast-resolution-gates-report.md`). 8 steps = 8 NFE, the official Turbo count | normal use |
 | (no profile) | bf16 | 9 | validated at 1024² only (bf16 gate); needs `allow_experimental` at 512²/768² | explicit precision request |
+| **balanced** | bf16 | 5 | gated at **1024² only** (blinded vs FAST 0 / 0 / 24, Stage B 2026-09-29; paired denoise 0.63× FAST; cold wall 54.4 → 36.1 s). 768²: passed by the narrowest possible margin (3 / 0 / 21, all favouring 8 steps), held pending a focused confirmation; 512²: not offered (ULTRA dominates). Hash 1024² `befe1b3c…` | lower-latency 1024² images |
 | **ultra** | bf16 | 4 | gated at **512² only** (blinded vs FAST 1 / 0 / 23, 2026-09-29). Rejected at 768²/1024²: 4-step Turbo showed specific text/object-resolution failures at 768² and 1024² under the fresh-seed blinded gate | fast 512² images |
-| experimental | bf16 | 7 / 6 / 5, and 4 above 512² | research only; 5 and 6 are under a quality gate (step-count-quality-gate/) | needs `allow_experimental` |
+| experimental | bf16 | 7 / 6; 5 at 512²/768²; 4 above 512² | research only; 768² at 5 steps is under a focused confirmation (step-count-quality-gate/protocol-confirm768.md) | needs `allow_experimental` |
 
 - `--profile fast` (CLI) or `"profile": "fast"` (API). A profile fixes precision and steps; conflicting explicit values are rejected.
 - Requests without a profile behave exactly as before: fp32 + 9 steps unless you pass other parameters. Existing jobs are never changed.

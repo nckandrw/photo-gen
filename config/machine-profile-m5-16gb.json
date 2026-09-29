@@ -56,6 +56,15 @@
       ],
       "status": "VALIDATED at all three (direct blinded REFERENCE-vs-FAST gates, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties; research/experiments/fast-resolution-gates-report.md)"
     },
+    "balanced": {
+      "precision": "bf16",
+      "steps": 5,
+      "nfe": 5,
+      "resolutions": [
+        "1024x1024"
+      ],
+      "status": "VALIDATED at 1024x1024 only (step-count gate Stage B, 2026-09-29: 0/0/24); 768x768 CONFIRMATION PENDING (Stage B narrowest pass 3/0/21); 512x512 not offered (ULTRA dominates)"
+    },
     "ultra": {
       "precision": "bf16",
       "steps": 4,
@@ -74,7 +83,8 @@
     "fast_512": "0b9cc20a6508e74f6285672dd700c43240e040068c2b9da0af2f68658e0be8d8",
     "fast_768": "20ff9e2c8d171f12b7411acf375e7bc644f4a06cfb56fdd73de7f52cf3787aae",
     "fast_1024": "7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342",
-    "ultra_512": "6aa2b8422c7213e7ad17d6113aaef7d41f009be185361c9ea5d2023adcf3c2a9"
+    "ultra_512": "6aa2b8422c7213e7ad17d6113aaef7d41f009be185361c9ea5d2023adcf3c2a9",
+    "balanced_1024": "befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42"
   },
   "cold_benchmarks_seconds": {
     "note": "single cold run each (after 600 s idle), production worker; specific to THIS machine; see research/experiments/PERFORMANCE-MAP.md",
@@ -97,6 +107,11 @@
       "wall": 21.2,
       "denoise": 17.4,
       "peak_footprint_gb": 5.93
+    },
+    "balanced_1024": {
+      "wall": 36.09,
+      "denoise": 30.575,
+      "peak_footprint_gb": 5.835
     }
   }
 }

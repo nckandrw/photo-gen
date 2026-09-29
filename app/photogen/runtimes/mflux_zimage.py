@@ -51,6 +51,7 @@ PRECISIONS = ("fp32", "bf16")
 PROFILES = {
     "reference": {"precision": "fp32", "steps": 9},   # permanent research reference (production-memory-fix-report.md)
     "fast": {"precision": "bf16", "steps": 8},        # gated: bf16-quality-report.md + 8step-quality-gate-report.md
+    "balanced": {"precision": "bf16", "steps": 5},    # gated at 1024x1024 ONLY: step-count-quality-gate/results.md § Stage B
     "ultra": {"precision": "bf16", "steps": 4},       # gated at 512x512 ONLY: step-count-quality-gate/results.md
 }
 # The ONLY (precision, steps) -> resolutions combinations that are validated. Validation applies to the exact
@@ -60,6 +61,7 @@ PROFILES = {
 #   bf16 + 8 (FAST): direct blinded REFERENCE-vs-FAST gates at all three sizes
 #     (research/experiments/fast-resolution-gates-report.md, 2026-09-25: pooled 72 pairs REF 2 / FAST 1 / 69 ties)
 #   bf16 + 9: blinded gate vs fp32/9 at 1024x1024 ONLY (research/experiments/bf16-quality-report.md, 0/2/22)
+#   bf16 + 5 (BALANCED): 1024x1024 ONLY (research/experiments/step-count-quality-gate/results.md § Stage B)
 #   bf16 + 4 (ULTRA): 512x512 ONLY (research/experiments/step-count-quality-gate/results.md)
 VALIDATED_COMBINATIONS = {
     ("fp32", 9): ((512, 512), (768, 768), (1024, 1024)),
@@ -68,6 +70,10 @@ VALIDATED_COMBINATIONS = {
     # bf16 + 4 (ULTRA): direct blinded gate vs FAST at 512x512 only (1/0/23, 2026-09-29). REJECTED at 768x768 and
     # 1024x1024 (text/object-resolution failures: ghost duplicate text, malformed glyphs), so NOT listed there.
     ("bf16", 4): ((512, 512),),
+    # bf16 + 5 (BALANCED): direct blinded gate vs FAST at 1024x1024 (0/0/24, Stage B 2026-09-29). NOT listed at
+    # 768x768 (gate passed by the narrowest possible margin, 3/0/21 all favouring 8 steps: held pending a focused
+    # confirmation, step-count-quality-gate/protocol-confirm768.md) nor at 512x512 (dominated by ULTRA; no production use).
+    ("bf16", 5): ((1024, 1024),),
 }
 MAX_SEED = 2**32 - 1
 WORKER_MODULE = "photogen.runtimes.mflux_zimage_worker"
