@@ -1,0 +1,59 @@
+[
+ {
+  "tag": "coldB-512-st5",
+  "meta": {
+   "res": 512,
+   "steps": 5,
+   "seed": 42,
+   "pid": "p01",
+   "stage": "coldB"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 512,
+   "height": 512,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "coldB-768-st5",
+  "meta": {
+   "res": 768,
+   "steps": 5,
+   "seed": 42,
+   "pid": "p01",
+   "stage": "coldB"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 768,
+   "height": 768,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ },
+ {
+  "tag": "coldB-1024-st5",
+  "meta": {
+   "res": 1024,
+   "steps": 5,
+   "seed": 42,
+   "pid": "p01",
+   "stage": "coldB"
+  },
+  "req": {
+   "prompt": "a red apple on a wooden table, soft window light",
+   "width": 1024,
+   "height": 1024,
+   "steps": 5,
+   "seed": 42,
+   "precision": "bf16",
+   "release_transformer": true
+  }
+ }
+]
