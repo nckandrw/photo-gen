@@ -63,7 +63,8 @@
 | FAST | bf16 + 8 steps (8 NFE) | **validated at 512², 768², 1024²** by direct blinded REFERENCE-vs-FAST gates (2026-09-25; 72 pairs: REF 2 / FAST 1 / 69 ties; fast-resolution-gates-report.md). 1024² was earlier supported by a chain of two gates (phase3-record-audit.md §A) |
 | (no profile) | bf16 + 9 | validated at 1024² only (bf16 gate); **experimental** at 512²/768² |
 | ULTRA | bf16 + 4 steps (4 NFE) | **validated at 512² only** (step-count-quality-gate/results.md); REJECTED at 768²/1024² |
-| EXPERIMENTAL | bf16 + 7/6/5 (and 4 above 512²) | research only; 5/6 under a quality gate |
+| (no profile) | bf16 + 5 steps (5 NFE) | **gate-validated at 512², 768² (narrowest pass), 1024²** (Stage B, 2026-09-29); **not a production profile** (still needs `allow_experimental`) until the user decides |
+| EXPERIMENTAL | bf16 + 7/6 (and 4 above 512²) | research only; 6 = Stage C, not started |
 
 ## Notes
 - Denoise per step at 1024² in the sustained block rises from 8.8 to 9.3 s toward the middle of the ramp: thermal state, not step count.
@@ -80,4 +81,15 @@ Cold, same day, one run each after 600 s idle; p01 seed 42.
 | 1024² | 54.4 / 49.1 s | 30.0 / 24.6 s | 0.502 | REJECTED (text class) |
 
 Peak footprint is identical to FAST at each size.
+
+## Step-count gate, Stage B (2026-09-29; `step-count-quality-gate/results.md`)
+Cold, one run each after 600 s idle, p01 seed 42. The 8-step column is the same-day Stage A cold baseline.
+
+| res | bf16 + 8 (FAST) cold wall / denoise | bf16 + 5 cold wall / denoise | cold ratio 5/8 wall / denoise | paired sustained denoise 5/8 | paired sustained wall 5/8 | 5-step quality verdict |
+|---|---|---|---|---:|---:|---|
+| 512² | 15.6 / 11.5 s | 11.3 / 7.6 s | 0.73 / 0.66 | 0.629 | 0.696 | VALIDATED (dominated by ULTRA) |
+| 768² | 30.4 / 26.0 s | 20.9 / 16.5 s | 0.69 / 0.64 | 0.630 | 0.666 | VALIDATED (narrowest possible pass) |
+| 1024² | 54.4 / 49.1 s | 36.1 / 30.6 s | 0.66 / 0.62 | 0.625 | 0.652 | VALIDATED |
+
+Peak footprint equals FAST within 0.001 GB. Per-step time is unchanged between 5 and 8 steps, so the saving is the step count, as in Stage A.
 

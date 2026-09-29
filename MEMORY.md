@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 (ULTRA 512² in production; Stage B running)._
+_Last updated 2026-09-29 (Stage B complete: bf16+5 VALIDATED at 512/768/1024, not in production)._
 
 **Production (unchanged since v2)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
@@ -21,18 +21,20 @@ _Last updated 2026-09-29 (ULTRA 512² in production; Stage B running)._
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**RUNNING (started 2026-09-29): step-count gate Stage B (bf16/8 vs bf16/5)**
-- Script `research/experiments/step-count-quality-gate/run-stageB.sh`; console `stageB-console.log`; marker **`STAGE_B_GEN_DONE`**.
-- Stages: 3 cold 5-step runs (600 s idle each), then 48 sustained runs per resolution. Results `results-B-{cold,512,768,1024}.jsonl`; images `work-B-*`.
-- Resume: rerun the script as a top-level `nohup … & disown` (done tags are skipped).
-- Pre-registered: `protocol-stageB.md` (seeds 6502/1729; blind dirs `blind-B512/768/1024`, rng 2909301/2/3; "minor" text error defined in advance; speed criterion ≤ 0.70).
-- **Production now:** REFERENCE fp32/9, FAST bf16/8 (512/768/1024), **ULTRA bf16/4 at 512² only** (added 2026-09-29, commit `62c11d7`, hash `6aa2b842`). 41/41 tests. Unchanged during Stage B.
+**Nothing running.** Step-count gate Stage B (bf16/8 vs bf16/5) finished 2026-09-29.
+- **Production now:** REFERENCE fp32/9, FAST bf16/8 (512/768/1024), **ULTRA bf16/4 at 512² only** (commit `62c11d7`, hash `6aa2b842`). 41/41 tests. Unchanged by Stage B.
+- **Stage B verdicts** (`research/experiments/step-count-quality-gate/results.md` § Stage B):
+  - 512²: VALIDATED (1/0/23).
+  - 768²: **VALIDATED, narrowest possible pass** (3/0/21). It rests on criterion 3 at equality and one frozen "minor" text call (C07 p07-s6502).
+  - 1024²: VALIDATED (0/0/24).
+  - Paired sustained denoise ratio 5/8: 0.629 / 0.630 / 0.625. Cold 1024²: 36.1 vs 54.4 s wall.
+- bf16 + 5 is **not** in `VALIDATED_COMBINATIONS`; it still needs `allow_experimental`.
 
-**Next steps (in order)**
-1. After `STAGE_B_GEN_DONE`: integrity; build pairs from `results-B-*` (`work-B-{res}`); prepare the 3 blind dirs; score each (lexicographic + failure-mode checklist; count ghosting / duplicate-text / malformed-glyph per arm); freeze all; unblind.
-2. Metrics: paired 5/8 ratios, cold 5-step vs same-day Stage A cold 8-step, grid16, memory. Per-resolution verdicts. Append a Stage B section to `results.md`, and update STATUS / PERFORMANCE-MAP / EXPERIMENT-BACKLOG.
-3. Then decide Stage C (bf16 + 6, seeds 8086/5150). **Do not auto-start it.**
-4. Resolution-aware step selection is a recorded research hypothesis only. Do not implement.
+**Next steps (all await the user's decision; none auto-start)**
+1. Production decision: FAST → bf16 + 5 at 1024² (clean pass) and/or 768² (borderline). This would be a separate change with tests and docs, like ULTRA.
+2. Optional: a text-focused confirmatory sample at 768² before adopting 5 steps there.
+3. Stage C (bf16 + 6, seeds 8086/5150, pre-registered in `protocol.md`). Lower value now that 5 steps passed everywhere.
+4. Resolution-aware step selection: hypothesis only. Stage B's 768² came out worse than 1024², against the σ ordering.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
@@ -41,6 +43,28 @@ _Last updated 2026-09-29 (ULTRA 512² in production; Stage B running)._
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-09-29 — Step-count gate Stage B (bf16/8 vs bf16/5): VALIDATED at 512², 768² (narrowest pass), 1024²
+- **Directive:** "PHOTO-GEN NEXT PASS", Stage B. User: "let stage b finish completely".
+- **Runs:** 147, all rc = 0. Blind review of 72 pairs in 3 directories; all sheets frozen before any unblind.
+  - Frozen sha256: 512² `2e2ac624`, 768² `6ea6b796`, 1024² `7b34cd41`.
+- **Blind results (8-better / 5-better / ties):**
+  - 512² 1/0/23 (pen type);
+  - 768² 3/0/21 (p03 ghosted text, p07 faded subtitle judged minor, p09 duplicate balloon);
+  - 1024² 0/0/24.
+- **Speed:** paired sustained denoise 5/8 is 0.629 / 0.630 / 0.625. Cold 5-step vs the same-day Stage A cold 8-step: 11.3/15.6, 20.9/30.4, 36.1/54.4 s wall. Memory is identical.
+- **Stage B question:**
+  - the 4-step signatures are eliminated at 1024²;
+  - at 768² they are not eliminated but shifted;
+  - none at 512².
+  - 768² came out worse than 1024², against the σ ordering.
+- **Evidence:** `results.md` § Stage B, `benchmark-B.csv`, `metrics-summary-B.json`, `scores-B.csv`, `blind-mapping-B.json`, `failure-modes-B.json`, `key-B*-unblinded.json`, `stage_metrics.py`.
+  - Commits `b4e2d39` (artifacts), `54d24c6` (sidecars), `d36a545` (results).
+- **Disclosed deviations:**
+  - grid16 was re-implemented: the Stage A inline code was lost. The best fit to the 144 Stage A values has max |error| 0.46, and Stage A was re-scored with the same code. Criterion 5 is unaffected.
+  - The 1024² C01–C08 notes were transcribed after a context break, but before freeze.
+- **Docs:** STATUS, PERFORMANCE-MAP, EXPERIMENT-BACKLOG, gate README.
+- **Production unchanged. Stage C not started.**
 
 ## 2026-09-29 — ULTRA profile (bf16 + 4) promoted at 512² only; Stage B launched
 - **ULTRA:** `PROFILES['ultra']` plus `VALIDATED_COMBINATIONS[('bf16',4)] = (512²,)`; tests 41/41 (`test_ultra_profile_gated_at_512_only`). CLI: 512² → `6aa2b842`, validated; 768² refused.

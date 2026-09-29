@@ -56,6 +56,7 @@
 - E04 micro-optimizations → **REJECTED / DEFERRED**.
 - heretic-v2 → **CLOSED**.
 - 7/6/5/4 steps → **EXPERIMENTAL** (no further work without a use case).
+  - *Update 2026-09-29 (step-count gate):* bf16 + 4 is ADOPTED as ULTRA at 512² only (REJECTED at 768²/1024²). bf16 + 5 is VALIDATED at 512², 768² (narrowest pass) and 1024², but is not in production. Open decisions for the user: FAST → 5 steps at 768²/1024²; an optional text-focused confirmatory sample at 768²; Stage C (bf16 + 6, seeds 8086/5150). Resolution-aware step selection is a hypothesis only. Stage B's 768² came out worse than 1024², against the σ ordering, so a simple σ threshold is not supported. `experiments/step-count-quality-gate/results.md`.
 - 8 steps → **gate PASSED; FAST profile = bf16 + 8** (experiments/8step-quality-gate-report.md).
 - Upstream: issues **submitted** (#761, #760); E10 corrected the promotion-source claim.
 
