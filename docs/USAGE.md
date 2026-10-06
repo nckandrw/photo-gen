@@ -4,6 +4,7 @@
 
 ## What it does
 - Text-to-image with Z-Image-Turbo, one generation at a time, queued.
+- **Experimental image editing** with Qwen-Image-2.1 (research licence, non-commercial), through the same queue: see [Image editing](#image-editing-experimental).
 - Every image gets a JSON metadata record: prompt, seed, resolution, steps, model and revision, runtime versions, per-phase and per-step timings, peak memory, and both **pixel SHA-256** (canonical identity) and file SHA-256.
 - The same seed + prompt + settings reproduces the same pixels. This is verified against the research reference.
 - Startup verifies runtime versions, model file hashes and mflux's own capability declarations, and **refuses to run on drift**. Nothing is ever downloaded or repaired automatically.
@@ -38,7 +39,8 @@ The CLI runs the job in its own process through the same job layer as the API. I
 | GET | `/health` | service status + startup verification checks (503 if degraded) |
 | GET | `/status` | active job, queue length, recent durations and step timing, memory/swap/pressure, thermal warning flags, capabilities |
 | GET | `/capabilities` | what the backend actually supports |
-| POST | `/generate` | submit → `202` with the job record |
+| POST | `/generate` | submit a text-to-image job → `202` with the job record |
+| POST | `/edit` | submit an image-edit job (EXPERIMENTAL) → `202`; `503` if the edit backend is unavailable |
 | GET | `/jobs?status=&limit=&pixel_sha256=` | history / search |
 | GET | `/jobs/{id}?wait=SECONDS` | job record; `wait` long-polls until the job finishes (max 900) |
 | POST | `/jobs/{id}/cancel` | cancel a queued or running job |
@@ -49,7 +51,7 @@ curl -s -X POST http://127.0.0.1:8765/generate -H 'Content-Type: application/jso
      -d '{"prompt":"a red apple on a wooden table, soft window light","width":1024,"height":1024,"seed":42}'
 curl -s "http://127.0.0.1:8765/jobs/<job_id>?wait=300"
 ```
-Request fields: `prompt` (required), `width`, `height`, `steps`, `seed` (int or `"random"`), `profile` (`"reference"` | `"fast"`), `precision` (`"fp32"` default | `"bf16"`), `output_name`, `allow_experimental`, `text_encoder` (`"stock"` default | an enabled entry in `config/text-encoders.json`), `task` (`"text-to-image"` only), `output_format` (`"png"` only).
+Request fields: `prompt` (required), `width`, `height`, `steps`, `seed` (int or `"random"`), `profile` (`"reference"` | `"fast"`), `precision` (`"fp32"` default | `"bf16"`), `output_name`, `allow_experimental`, `text_encoder` (`"stock"` default | an enabled entry in `config/text-encoders.json`), `task` (`"text-to-image"` only on `/generate`), `output_format` (`"png"` only).
 A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and gets back `job_id`, `status`, `output_path`, `pixel_sha256`, `seed` and the full generation metadata.
 
 **Rejected on purpose.** These fields return HTTP 400 instead of being silently ignored:
@@ -60,6 +62,41 @@ A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and get
 - unknown fields.
 
 **Browser protection.** Requests with a non-local `Host`, cross-origin `Origin`, or non-JSON POST bodies are refused (403/415), so web pages can't drive the local API.
+
+## Image editing (experimental)
+- **Backend:** Qwen-Image-2.1 @ `d26bb61` (**Qwen Research License: non-commercial, research or evaluation only**), local q4 export.
+- **Runtime:** mflux 0.21.0 in its own venv `mflux-qwen/.venv` (production Z-Image stays on mflux 0.20.0). Setup: `docs/REPRODUCIBILITY.md` §5.
+- **Status:** every edit is `validated_configuration: false`, and requests need `allow_experimental`.
+
+```sh
+bin/photo-gen verify --edit                                   # edit backend: venv versions + 18 export hashes
+bin/photo-gen edit --image input.png -p "Give the panda a blue scarf." --seed 42 --output-resolution 512 --allow-experimental
+curl -s -X POST http://127.0.0.1:8765/edit -H 'Content-Type: application/json' \
+     -d '{"image":"/abs/path/input.png","prompt":"Remove the coffee mug. Keep everything else unchanged.","allow_experimental":true}'
+```
+
+**Request fields:**
+- `image`: required. An **absolute** path; the CLI resolves relative paths.
+- `prompt`: required; the instruction.
+- `allow_experimental`: required `true`.
+- `output_resolution`: 384–1024, multiple of 32, default 1024. A pixel-area budget; the output keeps the input's aspect ratio.
+- `steps`: 2–60, default 40.
+- `seed`, `output_name`, `output_format`: as for `/generate`.
+
+**Rejected on purpose:**
+- CFG / `negative_prompt` / `guidance`, `scheduler`;
+- `width` / `height`, multiple images;
+- masks / `strength` / `enhance_prompt` / `verify` / step cache (mflux-only additions);
+- `lora`, `profile`, `precision`, `text_encoder`, `model`, `quantize`.
+
+**Inputs** are staged at submission:
+- PNG / JPEG / WebP, not animated, ≤ 50 MB, 64–8192 px per side;
+- EXIF orientation applied, fully opaque only, ICC ignored with a warning;
+- written as a canonical RGB PNG at `data/inputs/<pixel_sha256>.png` and re-verified before the run.
+
+**Outputs:** an RGBA PNG plus a `photogen.edit/1` sidecar recording the input identity, instruction, model, licence, export, settings, timings, memory, `pixel_sha256` (RGB) + `output_alpha`, and `reproduce.cli`.
+
+**Cost on this M5 16 GB** (apps closed): 512 ≈ 1.5–2 min per edit, 8.7–9.0 GB peak; 1024 ≈ 8.3 min cold, 12.1 GB peak. Close large apps before 1024 edits.
 
 ## Resolutions and steps
 - **Validated:** 512×512, 768×768, 1024×1024 at 9 steps, guidance 0.

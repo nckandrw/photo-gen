@@ -57,10 +57,38 @@ Photo-gen's own code imports only the Python standard library, Pillow and (insid
 - The effective terms are therefore taken to be those of the upstream Apache-2.0 model. This is **UNVERIFIED** as a statement by the redistributor.
 - Before any redistribution of these weights (not planned), get an explicit statement from mflux-community, or re-quantize from the upstream Apache-2.0 weights.
 
-## 4. Research-only external assets (Pass 1 comparison; not used by photo-gen, not in Git)
+## 4. Research-only external assets (Pass 1 comparison; not used by photo-gen's production path, not in Git)
 The Qwen-Image 2.1 / Z-Image GGUF files, Qwen3 GGUF text encoders, VAEs, and the stable-diffusion.cpp build under `models/diffusion_models`, `models/text_encoders`, `models/vae` and `sdcpp/`.
 - Their sources and pins are in `research/model-pins.txt`, `research/z-image-model-pins.txt` and `research/REPORT.md`.
 - `research/REPORT.md` records a **conflicting** licence statement for one Qwen-2.1 derivative (the derivative's card says Apache-2.0, the official card says the Qwen Research License). The official license governs.
 
-## 5. Candidate experimental assets (not downloaded)
+## 5. Image-edit backend (Phase 4; EXPERIMENTAL; installed and downloaded separately, never in Git)
+Inspected 2026-10-07 (package metadata in `mflux-qwen/.venv`; HF card metadata and LICENSE at the pinned revisions). Full audit: [`research/qwen/QWEN-SOURCE-AUDIT.md`](../research/qwen/QWEN-SOURCE-AUDIT.md).
+
+**Software** (separate project-local venv `mflux-qwen/.venv`; lock in [`config/qwen-python-requirements.lock.txt`](../config/qwen-python-requirements.lock.txt); code included in this repository: none):
+
+| component | version | license (as declared) | use |
+|---|---|---|---|
+| mflux | 0.21.0 (wheel sha256 `b2e38fd3…`) | MIT | its `mflux-generate-qwen-2.1-edit` `main()` runs unmodified in the edit worker. Its `qwen21/reference/` code adapted from Diffusers carries Apache-2.0 attribution (`LICENSE.diffusers`, shipped in the wheel) |
+| mlx / mlx-metal | 0.32.2 | MIT | as in production |
+| torch | 2.13.0 | Apache-2.0 AND … (as §2) | mflux dependency |
+| transformers / tokenizers | 5.15.0 / 0.22.2 | Apache-2.0 | Qwen3-VL processor and tokenizer (via mflux) |
+| pillow, numpy, safetensors, huggingface-hub, opencv-python | 12.3.0, 2.4.1, 0.8.0, 1.28.0, 4.13.0.90 | as §2 | mflux dependencies |
+
+**Models and weights** (gitignored; digests in [`config/backend-qwen21-edit-mflux.json`](../config/backend-qwen21-edit-mflux.json) and `research/qwen/upstream-file-manifest.json`):
+
+| asset | source @ revision | license (as declared) | use |
+|---|---|---|---|
+| **Qwen-Image-2.1** (DiT, Qwen3-VL-8B text/vision encoder, RGBA VAE) | `Qwen/Qwen-Image-2.1` @ `d26bb61` (weights identical to `b3179ad`, `790c926`, `840b4ad`) | **Qwen Research License Agreement** (release date 2026-09-20): **non-commercial**, defined as "research or evaluation purposes only"; commercial use requires a separate license from the licensor | the image-edit backend (research / evaluation) |
+| ↳ local q4 export | derived locally with mflux 0.21.0 (`research/qwen/export_q4.py`) | a derivative of the above; the same terms apply | the files the edit worker loads |
+| Qwen3-VL-8B-Instruct GGUF Q4_K_M + mmproj F16 | `Qwen/Qwen3-VL-8B-Instruct-GGUF` @ `f982a07` | Apache-2.0 | sd.cpp **comparator only** (research) |
+
+**Consequences (accepted by the user 2026-10-07 for research use):**
+- Qwen-Image-2.1 weights and their q4 export are **never committed and never redistributed**. photo-gen records only their identity.
+- The edit backend is labelled *"Qwen Research License (non-commercial)"* in `/capabilities`, job metadata and docs.
+- **Any commercial use of the edit backend is blocked by the licence**, independent of engineering status.
+- The Apache-2.0 alternative (`Qwen/Qwen-Image-Edit-2509/2511`, a 20B DiT) does not fit this 16 GB machine (audit §3).
+- **Discrepancy (D2):** `mlx-community/Qwen-Image-2.1-mflux-q4` declares Apache-2.0 for its conversion of the research-licensed checkpoint. The upstream LICENSE governs; that pack is not used.
+
+## 6. Candidate experimental assets (not downloaded)
 See [`research/experiments/4step-probe-acquisition.md`](../research/experiments/4step-probe-acquisition.md). Nothing listed there is part of photo-gen, and nothing there is licensed through photo-gen's MIT license.

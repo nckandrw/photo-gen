@@ -32,6 +32,17 @@
   - It needs no training or new weights, and gives a ≈ 2× production speed-up if it passes.
 - **Deprioritised:** C1 / F-D few-step *training* (published adapters did not beat step reduction); mixed-lineage specialist models.
 
+## Phase 4 addendum (2026-10-07): image editing (Qwen-Image-2.1), the next frontier
+Directive §26 applies: correct → measured → **then** optimized. Nothing below is started. Each item names its first measurement.
+
+| # | frontier | first step (measured on this M5) | what would justify going further | risk / blocker |
+|---|---|---|---|---|
+| Q-G | **Production gate** for one fixed edit configuration (needed before any adoption) | A pre-registered **blinded** G2 on fresh sources/seeds: e.g. budget 512 vs 1024 per category, or q4 vs q8 at 512 (q8 is the quantization mflux validated) | a configuration that is no worse on adherence/preservation than its control, with memory never critical | the licence blocks commercial use regardless; the rater is the AI assistant (as in all gates) |
+| Q-S | Fewer denoising steps (1024 denoise ≈ 474 s cold = 95% of an edit) | Survey only: published few-step options for 2.1 (Viggle `viggle_turbo` scheduler + LoRA; alibaba-pai `Qwen-Image-2.1-Fun-Acc-LoRAs`; mflux `--use-step-cache`, ~1.2× and approximate), each with an acquisition audit | a ≥2× denoise reduction that passes a blinded gate vs 40 steps | LoRAs need licence audits; the step cache is non-exact; mflux #831 (scheduler ignored for edits) must be fixed first |
+| Q-M | 1024 denoise memory (11.0 GB MLX peak; warn-level pressure) | Probe the split: DiT 4.1 + VAE 1.35 + prefix KV cache (≈ 2.2 GB bf16) + attention activations; a lifetime-only VAE release during denoise (reload before decode) as a pixel-parity candidate | ≥1 GB lower peak at identical pixels | the VAE is needed for encode and decode; reload costs ≈ 1–2 s |
+| Q-U | One venv for both tasks | Test whether mflux 0.21.0 with `--float32` reproduces REFERENCE `fe47d88d`/`9ae59f59` (upstream #803 says it "keeps the old float32 stream") and whether its #802 release equals our transformer-release patch | exact hashes for every pinned configuration | the Z-Image worker patches target 0.20.0 internals; any mismatch keeps the two-venv design |
+| Q-C | More edit capability (multi-reference, masks, RGBA) | Only on a user request; each is a separate capability with its own benchmark category | — | mask/auto-mask/verify are mflux additions, not upstream pipeline features |
+
 ## Rejected (with reason)
 | Idea | Why rejected | Evidence |
 |---|---|---|

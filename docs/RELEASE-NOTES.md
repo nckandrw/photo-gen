@@ -2,6 +2,15 @@
 
 photo-gen has no semantic versioning. Each tag marks a **known-good, restorable state validated on the target machine** (MacBook Air M5, 16 GB, 8-core GPU, macOS 27.0; see [HARDWARE.md](HARDWARE.md)). Tags are immutable; they are never moved or rewritten.
 
+## Unreleased (`main`, not a validated tag): BALANCED/ULTRA and Phase 4 image editing
+**No tag has been created for these changes; the user decides whether a `v3` restore point is warranted.**
+- **Since v2 (2026-09-29):** ULTRA (bf16 + 4, 512² only) and BALANCED (bf16 + 5, 1024² only) profiles, each with its own blinded gate (`research/experiments/step-count-quality-gate/results.md`). Their CLI end-to-end check was closed 2026-10-06 (BALANCED `befe1b3c…`, 768² refused).
+- **Phase 4 (2026-10-07): image-task layer + experimental Qwen editing.**
+  - **Task layer:** explicit task router (`text-to-image` → Z-Image, `image-edit` → Qwen); one queue, store, GPU lock and API.
+  - **API/CLI:** `POST /edit` and `photo-gen edit` / `verify --edit`; additive API fields only.
+  - **Backend:** Qwen-Image-2.1 (Qwen Research License, non-commercial) on mflux 0.21.0 in a separate venv. Every edit is experimental; benchmark gate G0 (capability) is recorded in `research/qwen/QWEN-EDITING-QUALITY.md`.
+  - **Z-Image unchanged.** The real regression through the refactored app gave fe47d88d, 7b45cfbe, befe1b3c, 6aa2b842 and API 9ae59f59, all exact. The cold BALANCED wall was 35.6 s (recorded 36.1 s). The sidecar is pinned by a golden test. 72/72 tests.
+
 ## photo-gen-m5-16gb-v2 (2026-09-28)
 The next validated state of the same application, not a new application. The changes from v1:
 

@@ -5,6 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 photo-gen is a local image-generation service (CLI + localhost HTTP API) for **one machine**: a MacBook Air M5, 16 GB. It runs Z-Image-Turbo on mflux 0.20.0 / MLX 0.32.2 with the pre-quantized `mflux-community/z-image-turbo-mflux-q4` @ `d2d30500`, always with `--low-ram`.
 
+Since Phase 4 (2026-10-07) it also has an **experimental image-edit task**: Qwen-Image-2.1 @ `d26bb61` (Qwen Research License, **non-commercial**), local q4 export, on **mflux 0.21.0 in a separate venv `mflux-qwen/.venv`** (same MLX 0.32.2). PHOTO-GEN is model-selective: one explicitly chosen backend per task (`text-to-image` → Z-Image, `image-edit` → Qwen); no automatic model selection.
+
 The project has two halves:
 - `app/`: the production application.
 - `research/`: an evidence trail. Every production behaviour has a report behind it.
@@ -15,7 +17,9 @@ Git: private repo `nckandrw/photo-gen` (branch `main`); validated builds are tag
 ```sh
 bin/photo-gen verify [--full]          # versions + model hashes + mflux capability cross-check
 bin/photo-gen serve                    # API on 127.0.0.1:8765
-bin/photo-gen generate -p "..." --seed 42 [--profile reference|fast] [--json]
+bin/photo-gen generate -p "..." --seed 42 [--profile reference|fast|balanced|ultra] [--json]
+bin/photo-gen edit --image <abs-or-rel path> -p "<instruction>" --seed 42 [--output-resolution 512|…|1024] --allow-experimental [--json]
+bin/photo-gen verify --edit [--full]   # the image-edit backend: its venv versions + 18 export hashes
 bin/photo-gen capabilities | jobs | job <id> | status
 
 # tests (stdlib unittest; FakeRuntime means no GPU is needed, except test_worker_lifetime, which imports mflux)
@@ -24,12 +28,16 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest test_core.ValidationTests.test_profiles
 ```
 - **Interpreter:** always use `mflux/.venv/bin/python3.12`. System `python3` lacks PIL and mlx. `bin/photo-gen` sets `PYTHONPATH=app` and `HF_HUB_OFFLINE=1`.
+- **Edit-backend interpreter:** `mflux-qwen/.venv/bin/python3.12` (mflux 0.21.0). Only the edit worker and Qwen research scripts run in it. **Never run Z-Image in it, and never install mflux 0.21.0 into `mflux/.venv`**: 0.21.0's bf16-stream default (#803) and lifetime change (#802) would change every REFERENCE hash.
 - **Other tooling:** `source mflux/env.sh` for the project-local uv/HF toolchain. There is no linter or build step.
 
 ## Architecture (app/photogen)
-- **Request flow:** `cli.py` / `api.py` (stdlib ThreadingHTTPServer) → `service.py` → `jobs.JobManager`.
-  - `JobManager` handles a SQLite queue (`store.py`) and a machine-wide flock GPU lock at `data/gpu.lock`, so there is only one generation at a time across the CLI and server.
-  - It writes a metadata sidecar per image (schema `photogen.generation/1`).
+- **Request flow:** `cli.py` / `api.py` (stdlib ThreadingHTTPServer) → `service.py` → `jobs.JobManager` → `tasks.TaskRouter` → the task's runtime.
+  - `JobManager` handles a SQLite queue (`store.py`) and a machine-wide flock GPU lock at `data/gpu.lock`, so there is only one generation **or edit** at a time across the CLI and server. One queue serves both tasks.
+  - The task is `request["task"]`; rows without one load as `text-to-image`.
+  - **Each runtime owns its request type and its sidecar:** `photogen.generation/1` (Z-Image, unchanged since v1; pinned by `app/tests/data/zimage-sidecar-golden.json`) and `photogen.edit/1` (Qwen).
+  - **Health is per backend.** Z-Image decides the service status; an unavailable edit backend only makes `POST /edit` / `edit` return 503.
+  - API additions are additive only: `POST /edit`, `task` on jobs, `tasks` on `/capabilities` and `/status`, `backends` on `/health`. `POST /generate` stays text-to-image only.
 - **Runtime:** `runtimes/mflux_zimage.py` (`MFluxZImageRuntime`). `normalize()` is the single validation point.
   - Unknown parameters and the ones in `REJECTED` (negative_prompt, guidance, scheduler, …) raise errors; they are never silently ignored.
   - It resolves `profile` into precision + steps and decides `validated` against `VALIDATED_COMBINATIONS` (exact precision + steps + resolution; anything else needs `allow_experimental`).
@@ -38,6 +46,13 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - `_install_transformer_release`: on by default. Frees the DiT that mflux's compiled `predict` closure keeps alive during VAE decode.
   - Passive probes: phase and step timings, peak footprint via libproc, `compile_calls`.
   - Cancellation is a killpg.
+- **Edit runtime:** `runtimes/mflux_qwen_edit.py` (`MFluxQwenImageEditRuntime`) + `runtimes/mflux_qwen_edit_worker.py`.
+  - The worker runs in the edit venv and calls mflux's `mflux-generate-qwen-2.1-edit` `main()` unmodified, with upstream defaults: 40 steps, guidance 1.0, prefix KV cache, linear schedule, `--low-ram`.
+  - `REJECTED` covers CFG, scheduler, width/height (derived from `output_resolution` + input aspect, multiples of 32), multi-reference, and the mflux-only mask/strength/enhance/verify/step-cache options.
+  - **Every edit is experimental** (`validated=false`; needs `allow_experimental`).
+  - Lifetime fix `_defer_transformer_load` (default on, `DEFER_TRANSFORMER_LOAD`): pixel-identical; lowers the peak footprint 12.63 → 8.85 GB at 512.
+  - Manifest: `config/backend-qwen21-edit-mflux.json` (immutable, like the Z-Image one).
+- **Inputs:** `inputs.py` stages every input image at submit time: EXIF orientation applied; opaque PNG/JPEG/WebP only; canonical RGB PNG at `data/inputs/<pixel_sha256>.png`; re-verified before every run. Output identity stays RGB `pixel_sha256`; the edit sidecar adds `output_alpha` (mflux writes RGBA).
 - **Configuration:**
   - `config/backend-zimage-mflux.json` is the **immutable** manifest: pinned versions, model file hashes, validated resolutions and steps, limits. Drift must be investigated, never "fixed" by editing it.
   - `config/photogen.toml` holds user settings.
@@ -62,7 +77,8 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 - **REFERENCE's "fp32" relies on MLX's `MLX_ENABLE_TF32=1` default** (matmuls/attention run on NAX with TF32 math; `research/experiments/nax-status.md`). The worker strips `MLX_*` from its env; keep it that way or the hashes change.
 
 ## Hard constraints (from the project owner)
-- **Don't modify or upgrade** mflux, MLX, the venv's packages, model weights, quantization or the scheduler. Change behaviour only through in-process patches in the worker, each backed by evidence.
+- **Don't modify or upgrade** mflux, MLX, the venv's packages, model weights, quantization or the scheduler. Change behaviour only through in-process patches in the worker, each backed by evidence. This applies to **both** venvs (`mflux/.venv` = 0.20.0 for Z-Image, `mflux-qwen/.venv` = 0.21.0 for editing; locks in `config/`).
+- **Qwen-Image-2.1 is research-licensed (non-commercial).** Never commit or redistribute its weights or the q4 export, and keep the licence label on every edit surface.
 - **No global installs, no sudo, no system changes.** In particular don't touch `iogpu.wired_limit_mb`, Metal settings or system Python, and don't use `trust_remote_code`.
 - **Networking:** the API binds to 127.0.0.1. No telemetry. Models are never auto-downloaded.
 - **Never delete or overwrite** research data, logs, hashes, benchmark CSVs or failed outputs. If an artifact is corrupted, record an incident instead.
@@ -80,7 +96,12 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - `prod_runner.py`: drives the production worker.
   - `ab_runner.py`, `pair_metrics.py`.
   - All run sequentially with `research/monitor.sh`, and must not share the GPU with other runs.
-- **Upstream reports:** mflux-community/mflux #760 and #761 (`upstream-mflux-issue-SUBMITTED.md`).
+- **Upstream reports:** mflux-community/mflux #760 and #761 (`upstream-mflux-issue-SUBMITTED.md`). Both were closed 2026-10-01, fixed upstream in 0.21.0 (#802, #803); production stays on 0.20.0.
+- **Phase 4 (editing):**
+  - `research/editing/` is the **model-independent** editing benchmark: suite v1, sources, regions, rubric, gates G0/G1, `edit_metrics.py`, `review_sheet.py`.
+  - `research/qwen/` holds the Qwen backend evidence: `QWEN-SOURCE-AUDIT.md`, `QWEN-RUNTIME-COMPARISON.md`, `QWEN-EDITING-BASELINE.md`, `QWEN-EDITING-QUALITY.md`, `INCIDENTS.md`, `runs/<id>/`, `g0/`, `g1/`.
+  - Harness: `research/qwen/run_edit.sh` with modes `app`, `plain`, `worker0/1` and `sdcpp`. It runs the 1 Hz monitor with abort thresholds and records the git HEAD per run. It also **bypasses `gpu.lock`**, so run no photo-gen jobs during its chains.
+  - Never edit a script, `app/` or `config/` while a chain that uses them is running (incidents 2026-10-07).
 
 ## Repository, docs and licensing
 - **Docs:**

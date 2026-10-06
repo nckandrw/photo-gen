@@ -105,3 +105,17 @@ source_revision: 1dd80c38813bd0f791c5abfd3bf605f739cf9f84
 license: base model Qwen3-4B is Apache-2.0; the derivative repo's own license was NOT present in the 12 downloaded files → verify on the model card before any redistribution
 local artifact: models/mflux/text-encoders/heretic-v2-q4/0.safetensors sha256 c13dc3e0fd09814caf8b1248bfcb8b3822719882461d3dd340c8b53eb7931bc6 (converted locally, see te-heretic-v2-report.md)
 ```
+
+## Additions: Phase 4 (2026-10-07), image editing
+Full audit: `research/qwen/QWEN-SOURCE-AUDIT.md` §9. **No third-party source code was copied.**
+
+| Subsystem | Decision | Component | Evidence / rationale |
+|---|---|---|---|
+| Edit inference (Qwen-Image-2.1) | **REUSE** | mflux 0.21.0 (MIT) `QwenImage21Edit` / `mflux-generate-qwen-2.1-edit` `main()`, unmodified, in a **separate** venv `mflux-qwen/.venv` (MLX 0.32.2) | The only editing-capable, Apple-native, parity-tested port: 35 reference tests vs Diffusers `80c7ed2`. Its adapted Diffusers code carries Apache-2.0 attribution (`LICENSE.diffusers` in the wheel). 0.21.0 cannot share the production venv (it changes Z-Image numerics). |
+| Edit lifecycle | **BUILD** (patterned on the Z-Image worker) | `app/photogen/runtimes/mflux_qwen_edit.py` + `mflux_qwen_edit_worker.py` | Process per job, `--low-ram`, passive probes, killpg cancellation; the in-process lifetime patch `_defer_transformer_load` is pixel-identical (`QWEN-EDITING-BASELINE.md` §3). |
+| q4 export | **REUSE** | mflux `QwenImage21Edit(quantize=4).save_model` | The documented path; deterministic (2 exports byte-identical). |
+| Edit reference implementation | **STUDY** (authority, not run) | Diffusers `QwenImage21Pipeline` @ `80c7ed2` (Apache-2.0) | The source of the defaults (40 steps, `true_cfg_scale` 1.0, `output_resolution` 1024, KV cache on). |
+| Edit comparator runtime | **WRAP** (research only) | stable-diffusion.cpp `master-908-88411ef` (MIT), `-r` + `--llm_vision` | The bounded G1 A/B (`QWEN-RUNTIME-COMPARISON.md`); not used by the application. |
+| Task routing | **BUILD** | `app/photogen/tasks.py` (explicit task → runtime table) | Deliberately not a plugin framework: one table, two entries. |
+| Input staging | **BUILD** | `app/photogen/inputs.py` (Pillow) | Content-addressed canonical RGB PNG + dual identity (file sha256, pixel sha256), re-verified before each run. |
+| Editing benchmark | **BUILD** | `research/editing/` | Model-independent suite, rubric with a preservation dimension, masked preservation metrics, gates G0/G1. |

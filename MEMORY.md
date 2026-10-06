@@ -5,9 +5,19 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT CONFIRMED)._
+_Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing + image-task layer; Z-Image production unchanged)._
 
-**Production (unchanged since v2)**
+**Phase 4 summary (2026-10-07):**
+- **Task layer:** `tasks.TaskRouter` routes `text-to-image` → Z-Image (production) and `image-edit` → Qwen-Image-2.1 (**EXPERIMENTAL**; Qwen Research License, non-commercial). One queue, store, GPU lock and API. `POST /edit`, `photo-gen edit`, `verify --edit`.
+- **Edit backend:** mflux **0.21.0** in a separate venv `mflux-qwen/.venv` (MLX 0.32.2). Local q4 export `models/qwen/qwen-image-2.1-edit-mflux-q4` (pinned in `config/backend-qwen21-edit-mflux.json`). Deferred DiT load is the production default (pixel-identical; memory-safety fix).
+- **Gates:**
+  - G0 512 **CAPABLE**, G0 1024 **CAPABLE** (`research/qwen/QWEN-EDITING-QUALITY.md`).
+  - G1 blind vs sd.cpp: no quality separation (1/1/2); sd.cpp 2.9× slower and memory-critical → mflux kept.
+  - Every edit stays `validated=false` (needs `allow_experimental`).
+- **Edit cost:** 1024 cold 496.8 s, sustained median 556 s, 12.1 GB peak, never critical; 512 sustained median 103 s, 8.9 GB.
+- **Tests:** 72/72. Z-Image real regression through the refactored app: all exact.
+
+**Production (Z-Image; unchanged since v2 apart from BALANCED/ULTRA)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
   - **Validated combinations** (`VALIDATED_COMBINATIONS` in `app/photogen/runtimes/mflux_zimage.py`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only. Everything else needs `--allow-experimental`.
   - 40/40 tests. Transformer-release fix ON. MIT for photo-gen code (`LICENSE`); third-party licences in `docs/THIRD-PARTY-LICENSES.md`; `docs/RELEASE-NOTES.md` (v1 → v2).
@@ -21,7 +31,7 @@ _Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT 
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
-**Nothing running.** Last chain: the 768² BALANCED confirmation finished 2026-09-29 20:34 (`CONFIRM768_GEN_DONE`).
+**Nothing running.** The last chain was the Phase 4 G1 runtime A/B, finished 2026-10-07 04:29 (`G1_CHAIN_DONE`). Before it, G0 finished 04:00 (`G0_CHAIN_DONE`).
 - **Production now:**
   - REFERENCE fp32/9 and FAST bf16/8 at 512/768/1024;
   - **BALANCED bf16/5 at 1024² only** (commit `b59036c`, hash `befe1b3c`, from the production worker via prod_runner);
@@ -68,9 +78,41 @@ _Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT 
     - deferred DiT load is pixel-identical at 512 and 1024 (now the production default);
     - 512 footprint 12.63 → 8.85 GB; 1024 footprint 14.20 → 12.08 GB;
     - 1024 edit ≈ 607 s (40 steps).
-- **Running / next (chain markers):**
-  - `research/editing/gen_sources.py` → log `research/editing/gen-sources-1.log`, marker `SOURCES_GEN_DONE`.
-  - Then: accept sources (`sources.json`), draw `regions.json` and commit before any edit; Z-Image real regression set (fe47d88d / 7b45cfbe / befe1b3c / 6aa2b842) + serve check; commit the app; G0 suite (512 first, then 1024; code frozen during chains); G1 sd.cpp bounded A/B.
+- **Commits:**
+  - `c6c01a9`: pre-registration (benchmark v1 + audit + smoke evidence);
+  - `cf21eaa`: frozen sources 11/11 + regions;
+  - `5f89f4f`: task layer + edit backend; 72/72 tests;
+  - `7dca169`: golden fixture tracked (a `.gitignore` fix);
+  - `a7cc451`: frozen G0 chain.
+- **Z-Image real regression through the refactored app:** all exact (fe47d88d, 7b45cfbe, befe1b3c, 6aa2b842, API 9ae59f59). Footprints as documented. Evidence: `research/qwen/zimage-regression/`.
+- **G0 done (01:34–04:00, clean conditions):** 512 **CAPABLE**, 1024 **CAPABLE**. Scores frozen before metrics: `research/qwen/g0/` (512 `0a80b2c2`, 1024 `3d52f2ad`).
+  - 512: 11/11 adherence; E08 preservation PARTIAL (oranges also replaced); 2 MINOR.
+  - 1024: 11/11 adherence and 11/11 preservation; 2 MINOR.
+  - Timing: 1024 cold 496.8 s; sustained median 556 s (1024), 103 s (512).
+  - Memory: 1024 peak 12.1 GB, 0 critical samples; 512 peak 8.9 GB.
+  - Cold Z-Image BALANCED through the refactored app: `befe1b3c` in 35.6 s (recorded 36.1).
+- **G1 done (04:01–04:29):**
+  - References were pre-resized to 512 for both runtimes; the mflux parity run equals G0-512-E01.
+  - Blind 4 pairs: mflux 1 / sd.cpp 1 / 2 ties. Scores frozen `957ef229`, key `bac40ba3`.
+  - sd.cpp: ≈ 290 s vs mflux ≈ 100 s per 512 edit; 12.8 vs 9.0 GB; critical-pressure samples in 3/5 runs → **mflux kept**.
+  - Blinding was weak (the mflux arm had been seen in G0); disclosed.
+- **Reports:**
+  - `research/qwen/`: `QWEN-SOURCE-AUDIT`, `QWEN-RUNTIME-COMPARISON`, `QWEN-EDITING-BASELINE`, `QWEN-EDITING-QUALITY`, `INCIDENTS`.
+  - `research/editing/`: the benchmark.
+  - Docs updated: README, guide, HARDWARE, REPRODUCIBILITY §5, THIRD-PARTY-LICENSES §5, USAGE, RELEASE-NOTES (Unreleased; **no tag created**), CLAUDE.md, STATUS, BACKLOG (Q-G/Q-S/Q-M/Q-U/Q-C), COMPONENT-SOURCES.
+- **Disclosed deviations / incidents:**
+  1. The export watchdog killed `/usr/bin/time`, not the python child (export run 1 completed regardless; preserved as `ABORTED-*`; run 2 is canonical and byte-identical).
+  2. The harness was edited mid-run (S2); no impact.
+  3. The `worker_run.py` relative-path bug: the first chain-2 runs failed instantly (kept), rerun as `*r2`.
+  4. The `app/tests/data` fixture was initially gitignored (fixed in `7dca169`).
+  5. The smoke runs (meeting apps open) are confounded for absolute swap; the clean baseline comes from G0.
+  6. G0 rater = the AI assistant, non-blind (single config), primed by the smoke.
+  7. The protocol was committed after source generation had started (before any source was viewed or any edit run).
+- **Open items for the user (none auto-start):**
+  1. Whether a `v3` tag is wanted for this state.
+  2. Production adoption of editing needs a blinded G2 on one fixed configuration (backlog Q-G) and, for any commercial use, a licence change.
+  3. Disk: `models/research/qwen-image-2.1` (33 GB, the export source) and `models/qwen/ABORTED-20261007T0005-…` (10.6 GB, byte-identical to the canonical export) can be removed only with the user's OK.
+  4. Speed lever Q-S (fewer steps); memory lever Q-M (1024 denoise peak); Q-U (one venv for both tasks?).
 
 ## 2026-09-29 — BALANCED (bf16 + 5) adopted at 1024²; 768² confirmation NOT CONFIRMED
 - **Directive:** "PHOTO-GEN NEXT PASS: promote the clean 1024² 5-step result, run a focused 768² confirmation, defer Stage C".
