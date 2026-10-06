@@ -205,6 +205,7 @@ class EditRequestTests(unittest.TestCase):
         self.assertFalse(r.validated)
         self.assertTrue(any("EXPERIMENTAL" in w for w in r.warnings))
         self.assertEqual(r.input_image["width"], 512)
+        self.assertEqual((r.backend_id, r.model), ("test-qwen-edit", "Qwen-Image-2.1"))  # known while queued
         with self.assertRaises(ValidationError):  # every edit needs the explicit opt-in
             self.rt.normalize({"task": IMAGE_EDIT, "prompt": "x", "image": self.img}, DEFAULTS)
 
@@ -293,6 +294,9 @@ class EditJobTests(unittest.TestCase):
             img.read_bytes()).hexdigest())
         self.assertEqual((meta["width"], meta["height"]), output_dimensions(512, 640 / 427))
         self.assertEqual(meta["output_alpha"]["mode"], "RGBA")
+        self.assertEqual(meta["model_manifest"]["sha256"],
+                         __import__("hashlib").sha256(edit.manifest_path.read_bytes()).hexdigest())
+        self.assertEqual(done["request"]["backend_id"], "test-qwen-edit")
         self.assertTrue(meta["output_alpha"]["opaque"])
         self.assertIn("bin/photo-gen edit --image", meta["reproduce"]["cli"])
         self.assertIn("--allow-experimental", meta["reproduce"]["cli"])

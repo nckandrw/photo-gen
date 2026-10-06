@@ -1,0 +1,375 @@
+{
+ "service": "ok",
+ "version": "0.1.0",
+ "runtime": "mflux",
+ "runtime_version": "0.20.0",
+ "model": "Z-Image-Turbo",
+ "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+ "low_ram": true,
+ "checks": {
+  "versions": {
+   "ok": true,
+   "detail": {
+    "python": {
+     "ok": true,
+     "expected": "3.12.14",
+     "found": "3.12.14"
+    },
+    "mflux": {
+     "ok": true,
+     "expected": "0.20.0",
+     "found": "0.20.0"
+    },
+    "mlx": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    },
+    "mlx-metal": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    }
+   }
+  },
+  "entry_point": {
+   "ok": true,
+   "detail": "mflux.models.z_image.cli.z_image_turbo_generate:main"
+  },
+  "model": {
+   "ok": true,
+   "detail": {
+    "revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+    "files": 11,
+    "failed": [],
+    "hashed_now": 0,
+    "seconds": 0.0
+   }
+  },
+  "mflux_capabilities": {
+   "ok": true,
+   "detail": {
+    "ignored_by_mflux": [
+     "--guidance",
+     "--negative-prompt"
+    ],
+    "verified_honored": [
+     "--low-ram",
+     "--steps",
+     "--seed",
+     "--width",
+     "--height",
+     "--model",
+     "--base-model",
+     "--output",
+     "--prompt"
+    ]
+   }
+  },
+  "low_ram": {
+   "ok": true,
+   "detail": "--low-ram is always passed"
+  },
+  "offline": {
+   "ok": true,
+   "detail": "workers run with HF_HUB_OFFLINE=1"
+  }
+ },
+ "backends": {
+  "image-edit": {
+   "runtime": "mflux-qwen-image-2.1-edit",
+   "ok": true,
+   "checks": {
+    "manifest": {
+     "ok": true,
+     "detail": "config/backend-qwen21-edit-mflux.json"
+    },
+    "interpreter": {
+     "ok": true,
+     "detail": {
+      "python": {
+       "ok": true,
+       "expected": "3.12.14",
+       "found": "3.12.14"
+      },
+      "mflux": {
+       "ok": true,
+       "expected": "0.21.0",
+       "found": "0.21.0"
+      },
+      "mlx": {
+       "ok": true,
+       "expected": "0.32.2",
+       "found": "0.32.2"
+      },
+      "mlx-metal": {
+       "ok": true,
+       "expected": "0.32.2",
+       "found": "0.32.2"
+      },
+      "transformers": {
+       "ok": true,
+       "expected": "5.15.0",
+       "found": "5.15.0"
+      },
+      "torch": {
+       "ok": true,
+       "expected": "2.13.0",
+       "found": "2.13.0"
+      }
+     }
+    },
+    "model": {
+     "ok": true,
+     "detail": {
+      "revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+      "files": 18,
+      "failed": [],
+      "hashed_now": 0,
+      "seconds": 0.0
+     }
+    },
+    "low_ram": {
+     "ok": true,
+     "detail": "--low-ram is always passed"
+    },
+    "offline": {
+     "ok": true,
+     "detail": "workers run with HF_HUB_OFFLINE=1"
+    }
+   }
+  }
+ },
+ "active_jobs": [],
+ "queue_length": 0,
+ "last_generation_seconds": 79.395,
+ "recent_generation_seconds": [
+  79.395,
+  88.859,
+  487.14,
+  483.864,
+  481.701,
+  477.892,
+  492.2,
+  576.437,
+  601.027,
+  594.591
+ ],
+ "recent_step_timing": [
+  {
+   "job_id": "20261006T203456Z-dcc612",
+   "resolution": "512x512",
+   "mean_step_seconds": 1.81,
+   "last_step_seconds": 1.79
+  },
+  {
+   "job_id": "20261006T200616Z-907918",
+   "resolution": "512x512",
+   "mean_step_seconds": 2.05,
+   "last_step_seconds": 2.31
+  },
+  {
+   "job_id": "20261006T195152Z-59fe9e",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 11.63,
+   "last_step_seconds": 11.564
+  },
+  {
+   "job_id": "20261006T194327Z-86cfd1",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 11.54,
+   "last_step_seconds": 11.529
+  },
+  {
+   "job_id": "20261006T193505Z-099278",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 11.48,
+   "last_step_seconds": 11.454
+  },
+  {
+   "job_id": "20261006T192647Z-18369d",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 11.39,
+   "last_step_seconds": 11.271
+  },
+  {
+   "job_id": "20261006T191814Z-99c718",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 11.75,
+   "last_step_seconds": 11.602
+  },
+  {
+   "job_id": "20261006T190817Z-0b848c",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 13.83,
+   "last_step_seconds": 12.108
+  },
+  {
+   "job_id": "20261006T185754Z-9b41e7",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 14.37,
+   "last_step_seconds": 14.351
+  },
+  {
+   "job_id": "20261006T184739Z-5f427d",
+   "resolution": "1024x1024",
+   "mean_step_seconds": 14.24,
+   "last_step_seconds": 14.311
+  }
+ ],
+ "note": "Durations reflect thermal state: on this fanless M5, 1024\u00b2 runs \u224885 s cold and \u2248134 s once throttled (measured). Step timing is observed performance, not a temperature.",
+ "memory": {
+  "pressure_level": "normal",
+  "swap_used_gb": 1.31,
+  "swap_total_gb": 3.0,
+  "free_percent": 82,
+  "compressed_gb": 0.64,
+  "wired_gb": 1.98
+ },
+ "thermal": {
+  "source": "pmset -g therm (warning levels only; not a temperature)",
+  "thermal_warning_recorded": false,
+  "performance_warning_recorded": false
+ },
+ "power_source": "AC Power",
+ "capabilities": {
+  "runtime": "mflux",
+  "runtime_version": "0.20.0",
+  "supported_models": [
+   "Z-Image-Turbo (mflux-community/z-image-turbo-mflux-q4@d2d3050)"
+  ],
+  "supported_tasks": [
+   "text-to-image"
+  ],
+  "validated_resolutions": [
+   [
+    512,
+    512
+   ],
+   [
+    768,
+    768
+   ],
+   [
+    1024,
+    1024
+   ]
+  ],
+  "supports_seed": true,
+  "supports_negative_prompt": false,
+  "supports_guidance": false,
+  "supports_editing": false,
+  "supports_lora": false,
+  "output_formats": [
+   "png"
+  ],
+  "memory_profile": {
+   "low_ram": true,
+   "transformer_release": true,
+   "measured_peak_footprint_gb_1024": {
+    "fp32": 6.56,
+    "bf16": 5.84
+   },
+   "measured_peak_footprint_gb_512": {
+    "fp32": 5.93,
+    "bf16": 5.41
+   },
+   "concurrency": 1,
+   "source": "research/MFLUX-ZIMAGE-RESULTS.md"
+  },
+  "precisions": [
+   "fp32",
+   "bf16"
+  ],
+  "text_encoders": [
+   "stock"
+  ],
+  "profiles": {
+   "reference": {
+    "precision": "fp32",
+    "steps": 9
+   },
+   "fast": {
+    "precision": "bf16",
+    "steps": 8
+   },
+   "balanced": {
+    "precision": "bf16",
+    "steps": 5
+   },
+   "ultra": {
+    "precision": "bf16",
+    "steps": 4
+   }
+  }
+ },
+ "tasks": {
+  "text-to-image": {
+   "endpoint": "POST /generate",
+   "cli": "photo-gen generate",
+   "runtime": "mflux-zimage-turbo",
+   "status": "production",
+   "models": [
+    "Z-Image-Turbo (mflux-community/z-image-turbo-mflux-q4@d2d3050)"
+   ]
+  },
+  "image-edit": {
+   "endpoint": "POST /edit",
+   "cli": "photo-gen edit",
+   "runtime": "mflux-qwen-image-2.1-edit",
+   "status": "experimental",
+   "available": true,
+   "models": [
+    "Qwen-Image-2.1 (Qwen/Qwen-Image-2.1@d26bb61; Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed)"
+   ],
+   "capabilities": {
+    "runtime": "mflux",
+    "runtime_version": "0.21.0",
+    "supported_models": [
+     "Qwen-Image-2.1 (Qwen/Qwen-Image-2.1@d26bb61; Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed)"
+    ],
+    "supported_tasks": [
+     "image-edit"
+    ],
+    "validated_resolutions": [],
+    "supports_seed": true,
+    "supports_negative_prompt": false,
+    "supports_guidance": false,
+    "supports_editing": true,
+    "supports_lora": false,
+    "output_formats": [
+     "png"
+    ],
+    "memory_profile": {
+     "low_ram": true,
+     "status": "experimental",
+     "defaults": {
+      "steps": 40,
+      "guidance": 1.0,
+      "output_resolution": 1024,
+      "use_kv_cache": true,
+      "base_model": "qwen-image-2.1",
+      "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+      "source": "Diffusers QwenImage21Pipeline.__call__ defaults (num_inference_steps=40, true_cfg_scale=1.0, output_resolution=1024, use_kv_cache=True)"
+     },
+     "limits": {
+      "min_output_resolution": 384,
+      "max_output_resolution": 1024,
+      "min_steps": 2,
+      "max_steps": 60,
+      "_comment": "384: keeps the resized reference above the Qwen3-VL processor's 65536-pixel minimum; 1024: memory (16 GB)"
+     },
+     "concurrency": 1,
+     "source": "research/qwen/QWEN-EDITING-BASELINE.md"
+    },
+    "precisions": [
+     "bf16"
+    ],
+    "text_encoders": [
+     "stock"
+    ],
+    "profiles": {}
+   }
+  }
+ }
+}

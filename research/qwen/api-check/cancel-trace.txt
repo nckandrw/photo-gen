@@ -1,0 +1,5 @@
+before cancel: 04:36:35
+36900 /Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12 -m photogen.runtimes.mflux_qwen_edit_worker /Users/nckandrw/Dev/photo-gen/data/jobs/20261006T203615Z-9080b1/worker-request.json /Users/nckandrw/Dev/photo-gen/data/jobs/20261006T203615Z-9080b1/worker-result.json
+after cancel: 04:36:39
+worker processes:
+(none)

@@ -72,6 +72,9 @@ class EditRequest:
     warnings: tuple[str, ...] = ()
     output_name: str | None = None
     profile: str | None = None  # no edit profiles exist yet
+    backend_id: str | None = None      # identity known from submission on, so queued/failed jobs name their model
+    model: str | None = None
+    model_revision: str | None = None
 
     def to_dict(self) -> dict:
         d = asdict(self)

@@ -12,7 +12,7 @@ _Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing 
 - **Edit backend:** mflux **0.21.0** in a separate venv `mflux-qwen/.venv` (MLX 0.32.2). Local q4 export `models/qwen/qwen-image-2.1-edit-mflux-q4` (pinned in `config/backend-qwen21-edit-mflux.json`). Deferred DiT load is the production default (pixel-identical; memory-safety fix).
 - **Gates:**
   - G0 512 **CAPABLE**, G0 1024 **CAPABLE** (`research/qwen/QWEN-EDITING-QUALITY.md`).
-  - G1 blind vs sd.cpp: no quality separation (1/1/2); sd.cpp 2.9× slower and memory-critical → mflux kept.
+  - G1 blind vs sd.cpp: no quality separation (1/1/2); sd.cpp ≈ 3.3× slower than the same-chain mflux control (≈ 2.8× vs the G0 sustained median) and memory-critical → mflux kept.
   - Every edit stays `validated=false` (needs `allow_experimental`).
 - **Edit cost:** 1024 cold 496.8 s, sustained median 556 s, 12.1 GB peak, never critical; 512 sustained median 103 s, 8.9 GB.
 - **Tests:** 72/72. Z-Image real regression through the refactored app: all exact.
@@ -94,8 +94,14 @@ _Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing 
 - **G1 done (04:01–04:29):**
   - References were pre-resized to 512 for both runtimes; the mflux parity run equals G0-512-E01.
   - Blind 4 pairs: mflux 1 / sd.cpp 1 / 2 ties. Scores frozen `957ef229`, key `bac40ba3`.
-  - sd.cpp: ≈ 290 s vs mflux ≈ 100 s per 512 edit; 12.8 vs 9.0 GB; critical-pressure samples in 3/5 runs → **mflux kept**.
+  - sd.cpp: ≈ 290 s vs 88.9 s (same-chain mflux control) per 512 edit; 12.8 vs 9.0 GB; critical-pressure samples in 3/5 runs → **mflux kept**.
   - Blinding was weak (the mflux arm had been seen in G0); disclosed.
+- **Real API check** (`research/qwen/api-check/`):
+  - `POST /edit` through `serve` gave G0-512-E05's exact pixels;
+  - a running edit was cancelled cleanly (worker killed, no orphan, no output);
+  - a ULTRA generation afterwards was exact.
+  - Then `EditRequest` gained `backend_id`/`model`/`model_revision`, and the sidecar gained `model_manifest.sha256` (metadata only; the re-run edit was identical).
+- **Speed-claim baselines:** sd.cpp is ≈ 3.3× the same-chain mflux control and ≈ 2.8× the G0 sustained median. "1024 preserves better" was softened to one test, one seed.
 - **Reports:**
   - `research/qwen/`: `QWEN-SOURCE-AUDIT`, `QWEN-RUNTIME-COMPARISON`, `QWEN-EDITING-BASELINE`, `QWEN-EDITING-QUALITY`, `INCIDENTS`.
   - `research/editing/`: the benchmark.

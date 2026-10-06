@@ -1,0 +1,54 @@
+{
+ "job_id": "20261006T203615Z-9080b1",
+ "task": "image-edit",
+ "status": "cancelled",
+ "source": "api",
+ "created_at": "2026-10-06T20:36:15.905+00:00",
+ "started_at": "2026-10-06T20:36:15.907+00:00",
+ "finished_at": "2026-10-06T20:36:36.054+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the red car to a blue motorcycle while preserving the street, lighting, perspective, and all other objects.",
+  "width": 512,
+  "height": 512,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165054Z-9afd59-editsrc-E01-s1101.png",
+   "source_file_sha256": "2d418b213c9e4d2e3c8b5afaa9c841607144f890b01f44d702708c0eb60c94e4",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/59bb68cf1f049c1196f3aa42b763487575366081b394b59d3da11c5a653ebd47.png",
+   "pixel_sha256": "59bb68cf1f049c1196f3aa42b763487575366081b394b59d3da11c5a653ebd47",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": null,
+ "metadata_path": null,
+ "pixel_sha256": null,
+ "file_sha256": null,
+ "generation_seconds": null,
+ "phases": null,
+ "step_seconds": null,
+ "memory": null,
+ "runtime": null,
+ "effective_parameters": null,
+ "error": {
+  "error": "cancelled",
+  "message": "cancelled while running"
+ }
+}

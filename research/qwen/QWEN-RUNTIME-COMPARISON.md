@@ -50,7 +50,7 @@ All runs at the 512 budget, 40 steps, cfg 1, euler, the same pre-resized 512² r
 |---|---|---|
 | correctness / parity | 35 reference tests vs Diffusers; parameters equal the official defaults | no published parity; scheduler and prompt template differ from the reference |
 | edit quality (G1, 4 blind pairs) | 1 win | 1 win (2 ties); one sd.cpp **adherence failure** (E01 hybrid) |
-| wall per 512 edit | **83–112 s (median 103 s)** | ≈ 287–294 s (**≈ 2.9× slower**) |
+| wall per 512 edit | **83–112 s (G0 sustained, median 103 s); 88.9 s (same-chain control)** | ≈ 287–294 s: **≈ 3.3× the same-chain mflux control**; ≈ 2.8× the G0-512 sustained median |
 | peak footprint at 512 | **≈ 9.0 GB** | ≈ 12.8 GB |
 | memory safety at 512 | **normal pressure, no swap growth** | swap +3.9–5.0 GB, critical samples in 3/5 runs, wired > Metal working set |
 | 1024 | measured: 497 s cold, 12.1 GB, never critical | **not run** (bounded): at 512 it already reaches the 1024 memory level of mflux, and its 2026-09-24 t2i at 1024² needed a VAE OOM fallback with 2% free |
@@ -59,7 +59,7 @@ All runs at the 512 budget, 40 steps, cfg 1, euler, the same pre-resized 512² r
 | maintainability | same worker/probe pattern as production; MLX shared with Z-Image | separate C++ toolchain; different numerics stack |
 
 **Decision: mflux 0.21.0 (A) is the Qwen editing backend.**
-- On this M5 it is ≈ 2.9× faster per edit and uses ≈ 3.8 GB less peak memory.
+- On this M5 it is faster per edit: ≈ 3.3× against the same-chain mflux control (88.9 s), ≈ 2.8× against the G0-512 sustained median (103 s). sd.cpp's runs were sustained, after two hours of GPU work. It also uses ≈ 3.8 GB less peak memory.
 - It stays out of critical pressure; sd.cpp does not, even at 512.
 - It is the implementation with demonstrated parity to the authoritative pipeline.
 - **On quality the bounded A/B shows no separation.** The choice rests on performance, memory safety and correctness evidence, not on a quality win.

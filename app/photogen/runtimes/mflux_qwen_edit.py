@@ -17,6 +17,7 @@ Every edit is experimental (validated=false) and needs allow_experimental until 
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import math
@@ -126,8 +127,10 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
         self.manifest_path = Path(manifest_path or config.root / "config" / MANIFEST_NAME)
         self._manifest: QwenEditManifest | None = None
         self._manifest_error: str | None = None
+        self._manifest_sha256: str | None = None
         try:
             self._manifest = QwenEditManifest.load(self.manifest_path, config.root)
+            self._manifest_sha256 = hashlib.sha256(self.manifest_path.read_bytes()).hexdigest()
         except FileNotFoundError:
             self._manifest_error = f"edit backend manifest {self.manifest_path} not found (backend not installed)"
         except (OSError, KeyError, TypeError, ValueError) as e:
@@ -271,7 +274,8 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
         return EditRequest(task=IMAGE_EDIT, prompt=prompt, width=width, height=height, steps=steps, seed=seed,
                            seed_source=seed_source, output_format=fmt, validated=False, input_image=inp.to_dict(),
                            output_resolution=resolution, warnings=(EXPERIMENTAL_WARNING, *input_warnings),
-                           output_name=name)
+                           output_name=name, backend_id=m.backend_id, model=m.model_name,
+                           model_revision=m.model_revision)
 
     def request_from_dict(self, d: dict) -> EditRequest:
         return EditRequest.from_dict(d)
@@ -365,6 +369,10 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
             "model_license": m.model_license,
             "quantization": m.quantization,
             "model_export": m.raw["model"].get("export"),
+            # the pinned manifest lists every export file's sha256; all were verified before this run
+            "model_manifest": {"path": str(self.manifest_path.relative_to(self.cfg.root))
+                               if self.manifest_path.is_relative_to(self.cfg.root) else str(self.manifest_path),
+                               "sha256": self._manifest_sha256, "files_verified_before_run": True},
             "prompt": req.prompt,
             "input_image": req.input_image,
             "output_resolution": req.output_resolution,

@@ -1,0 +1,51 @@
+{
+ "job_id": "20261006T203456Z-dcc612",
+ "task": "image-edit",
+ "status": "queued",
+ "source": "api",
+ "created_at": "2026-10-06T20:34:56.272+00:00",
+ "started_at": null,
+ "finished_at": null,
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the background to a sunset beach",
+  "width": 512,
+  "height": 512,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170025Z-9f37b9-editsrc-E05-s1505.png",
+   "source_file_sha256": "e81930012654d8f06f83cb9ff43de977dd66e16031806b4828758f58660c565f",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "pixel_sha256": "8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": null,
+ "metadata_path": null,
+ "pixel_sha256": null,
+ "file_sha256": null,
+ "generation_seconds": null,
+ "phases": null,
+ "step_seconds": null,
+ "memory": null,
+ "runtime": null,
+ "effective_parameters": null,
+ "error": null
+}

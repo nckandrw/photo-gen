@@ -1,0 +1,24 @@
+2026-10-07 04:34:56,033 INFO    photogen: startup check versions    ok
+2026-10-07 04:34:56,036 INFO    photogen: startup check entry_point ok
+2026-10-07 04:34:56,036 INFO    photogen: startup check model       ok
+2026-10-07 04:34:56,036 INFO    photogen: startup check mflux_capabilities ok
+2026-10-07 04:34:56,036 INFO    photogen: startup check low_ram     ok
+2026-10-07 04:34:56,036 INFO    photogen: startup check offline     ok
+2026-10-07 04:34:56,075 INFO    photogen: image-edit check manifest    ok
+2026-10-07 04:34:56,075 INFO    photogen: image-edit check interpreter ok
+2026-10-07 04:34:56,075 INFO    photogen: image-edit check model       ok
+2026-10-07 04:34:56,075 INFO    photogen: image-edit check low_ram     ok
+2026-10-07 04:34:56,075 INFO    photogen: image-edit check offline     ok
+2026-10-07 04:34:56,076 INFO    photogen.api: photo-gen API listening on http://127.0.0.1:8765 (runtime mflux, model Z-Image-Turbo@d2d3050)
+2026-10-07 04:34:56,272 WARNING photogen.jobs: request: image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)
+2026-10-07 04:34:56,273 INFO    photogen.jobs: job 20261006T203456Z-dcc612 queued (api, image-edit, 512x512, steps=40, seed=42/explicit)
+2026-10-07 04:34:56,308 INFO    photogen.jobs: job 20261006T203456Z-dcc612 running
+2026-10-07 04:36:15,755 INFO    photogen.jobs: job 20261006T203456Z-dcc612 completed in 79.4s (pixel_sha256 bd548f1bf8ca…)
+2026-10-07 04:36:15,905 WARNING photogen.jobs: request: image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)
+2026-10-07 04:36:15,906 INFO    photogen.jobs: job 20261006T203615Z-9080b1 queued (api, image-edit, 512x512, steps=40, seed=42/explicit)
+2026-10-07 04:36:15,939 INFO    photogen.jobs: job 20261006T203615Z-9080b1 running
+2026-10-07 04:36:36,055 INFO    photogen.jobs: job 20261006T203615Z-9080b1 cancelled
+2026-10-07 04:36:39,405 INFO    photogen.jobs: job 20261006T203639Z-7de2b0 queued (api, text-to-image, 512x512, steps=4, seed=42/explicit)
+2026-10-07 04:36:39,437 INFO    photogen.jobs: job 20261006T203639Z-7de2b0 running
+2026-10-07 04:36:49,030 INFO    photogen.jobs: job 20261006T203639Z-7de2b0 completed in 9.6s (pixel_sha256 6aa2b8422c72…)
+2026-10-07 04:36:49,123 INFO    photogen.api: received signal 15; shutting down

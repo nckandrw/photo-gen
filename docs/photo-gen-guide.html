@@ -500,9 +500,9 @@ GET /health  with  Host: evil.example
 <p>The benchmark (<code>research/editing/</code>) is model-independent: 11 tests, one per edit category, scored on <em>edit adherence → preservation → composition → visual quality</em> (+ text).</p>
 <ul>
 <li><strong>512: CAPABLE.</strong> 11/11 edits did what was asked, including letter-exact text preservation and replacement. There was one preservation failure: the busy fruit-stall test also turned the oranges into pineapples. Two minor defects, no major ones.</li>
-<li><strong>1024:</strong> <strong>CAPABLE</strong>: 11/11 edits did what was asked and 11/11 preserved everything they should (including the fruit-stall test that failed at 512). Two minor lighting-consistency defects, no major ones. 1024 preserves better than 512 but costs ≈ 5× the time.</li>
+<li><strong>1024:</strong> <strong>CAPABLE</strong>: 11/11 edits did what was asked and 11/11 preserved everything they should (the one 512 preservation failure, the fruit-stall test, did not recur at 1024; one seed per test). Two minor lighting-consistency defects, no major ones. A 1024 edit costs ≈ 5× a 512 one.</li>
 </ul>
-<p><strong>Why mflux and not stable-diffusion.cpp?</strong> In a bounded, blinded comparison on the same 512 inputs, edit quality did not separate (1 win each, 2 ties). sd.cpp, however, was ≈ 2.9× slower (≈ 290 s vs ≈ 100 s per edit), peaked at 12.8 vs 9.0 GB, and hit critical memory pressure in 3 of 5 runs. mflux is also the port with published parity tests against the reference pipeline.</p>
+<p><strong>Why mflux and not stable-diffusion.cpp?</strong> In a bounded, blinded comparison on the same 512 inputs, edit quality did not separate (1 win each, 2 ties). sd.cpp, however, was ≈ 3.3× slower than the mflux control run in the same chain (≈ 290 s vs 88.9 s per edit; ≈ 2.8× against mflux's sustained 512 median of 103 s), peaked at 12.8 vs 9.0 GB, and hit critical memory pressure in 3 of 5 runs. mflux is also the port with published parity tests against the reference pipeline.</p>
 <p>Evidence: <code>research/qwen/QWEN-EDITING-QUALITY.md</code>, <code>QWEN-EDITING-BASELINE.md</code>, <code>QWEN-RUNTIME-COMPARISON.md</code>, <code>QWEN-SOURCE-AUDIT.md</code>.</p>
 </section>
 

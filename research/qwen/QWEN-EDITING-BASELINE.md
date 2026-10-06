@@ -106,12 +106,24 @@ Source E05 (1024² Z-Image REFERENCE); instruction "Change the background to a s
 - **The stock mflux lifecycle is not memory-safe on this machine** (critical episodes at both budgets, §3). The deferred DiT load is therefore a production requirement, not an optimization.
 - **Large apps open** (the smoke runs) add the measured 3–4.5 GB of swap growth at 1024. The user guidance is to close them before 1024 edits.
 
+## 4.4 End-to-end through the HTTP API (`research/qwen/api-check/`, 2026-10-07 04:35)
+A real `bin/photo-gen serve`, on the same code as the G0 chain.
+- **`POST /edit`:** E05 at 512 with seed 42, through the server's background worker thread. Completed in 79.4 s with pixels `bd548f1b…`, **identical to G0-512-E05** (the CLI path); `GET /outputs/{id}` served the same pixels.
+- **`POST /jobs/{id}/cancel` on a running edit** (E01, about 20 s into denoising):
+  - the edit worker (pid 36900, edit venv) was killed;
+  - the job became `cancelled` ("cancelled while running") with no output file;
+  - `pgrep` found no edit worker afterwards;
+  - `/status` showed pressure normal, 82% free, 1.98 GB wired.
+- **Queue afterwards:** a ULTRA 512 generation gave `6aa2b842…`, as pinned.
+
+After this check, `EditRequest` gained `backend_id`/`model`/`model_revision` (so queued and failed jobs name their model) and the edit sidecar gained `model_manifest.sha256`. Both are metadata only. A real CLI edit afterwards gave the identical `bd548f1b…` (`api-check/cli-edit-after-metadata-fix.json`).
+
 ## 5. Performance target (directive §25)
 | criterion | 512 | 1024 |
 |---|---|---|
 | safe enough memory behaviour | **yes** (no swap growth, normal pressure) | **yes, tight** (warn-level episodes, +1.3–2.1 GB swap, never critical) |
 | usable latency | **yes** (≈ 1.5–2 min) | **marginal** (≈ 8.3 min cold, 9–10 min sustained); usable for one-off edits, not interactive iteration |
 | repeatable operation | **yes** (24/24 G0 runs rc 0; repeats pixel-identical) | **yes** |
-| acceptable edit quality | G0 **CAPABLE** (`QWEN-EDITING-QUALITY.md`) | G0 **CAPABLE**, with better preservation than 512 |
+| acceptable edit quality | G0 **CAPABLE** (`QWEN-EDITING-QUALITY.md`) | G0 **CAPABLE**; the one 512 preservation failure (E08) did not recur (one seed per test) |
 
 No speed optimization was attempted in this phase (directive §26). The first speed lever is fewer denoising steps (backlog Q-S), because denoising is ≥ 93% of every edit.
