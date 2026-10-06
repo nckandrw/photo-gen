@@ -21,7 +21,9 @@ mkdir -p $OUT
 { echo "run_id=$RID mode=$MODE res=$RES seed=$SEED steps=$STEPS"; echo "image=$IMG"; echo "prompt=$PROMPT"
   date; pmset -g batt | head -2; sysctl vm.swapusage kern.memorystatus_vm_pressure_level
   memory_pressure | grep "free percentage"; pmset -g therm | grep -i -E "warning|limit"
-  ps -axo rss,comm | sort -rn | head -6; } > $OUT/conditions.txt 2>&1
+  ps -axo rss,comm | sort -rn | head -6
+  echo "git_head=$(git rev-parse HEAD)"; echo "git_dirty(app,config,research/qwen):"
+  git status --porcelain app config research/qwen/run_edit.sh research/qwen/worker_run.py; } > $OUT/conditions.txt 2>&1
 local PROC=python3.12; [[ $MODE == sdcpp ]] && PROC=sd-cli
 zsh research/monitor.sh $OUT/monitor.csv $PROC 1 &
 MON=$!

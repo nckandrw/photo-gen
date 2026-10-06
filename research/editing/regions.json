@@ -1,0 +1,123 @@
+{
+ "_comment": "Change regions per test, normalized [x0, y0, x1, y1] on the 1024x1024 source, drawn on the frozen sources (sources.json) BEFORE any benchmark edit (README \u00a71). 'change' = where the requested edit is expected (local edits). 'preserve' = a subject that must stay (background edit E05; added before any edit as a descriptive aid, metric: inside-MAE of that region). Global edits (E06, E09) have no region.",
+ "E01": {
+  "change": [
+   [
+    0.22,
+    0.38,
+    0.97,
+    0.93
+   ]
+  ],
+  "what": "red car (and the street it uncovers)"
+ },
+ "E02": {
+  "change": [
+   [
+    0.28,
+    0.38,
+    0.68,
+    0.65
+   ]
+  ],
+  "what": "panda neck/chest area where a scarf goes"
+ },
+ "E03": {
+  "change": [
+   [
+    0.78,
+    0.66,
+    0.98,
+    0.82
+   ]
+  ],
+  "what": "white mug on the desk (right)"
+ },
+ "E04": {
+  "change": [
+   [
+    0.25,
+    0.36,
+    0.86,
+    1.0
+   ]
+  ],
+  "what": "red jacket"
+ },
+ "E05": {
+  "change": null,
+  "preserve": [
+   [
+    0.17,
+    0.05,
+    0.82,
+    0.97
+   ]
+  ],
+  "what": "background edit; preserve = vase + sunflowers"
+ },
+ "E06": {
+  "change": null,
+  "what": "global style edit"
+ },
+ "E07": {
+  "change": [
+   [
+    0.3,
+    0.02,
+    0.74,
+    0.32
+   ]
+  ],
+  "what": "hair"
+ },
+ "E08": {
+  "change": [
+   [
+    0.64,
+    0.48,
+    1.0,
+    0.7
+   ],
+   [
+    0.58,
+    0.7,
+    1.0,
+    1.0
+   ],
+   [
+    0.82,
+    0.44,
+    1.0,
+    0.52
+   ]
+  ],
+  "what": "bananas (two front crates + background bunch)"
+ },
+ "E09": {
+  "change": null,
+  "what": "global lighting edit"
+ },
+ "E10": {
+  "change": [
+   [
+    0.25,
+    0.48,
+    0.76,
+    0.98
+   ]
+  ],
+  "what": "pink flower; the title text above (y < 0.47) must stay"
+ },
+ "E11": {
+  "change": [
+   [
+    0.22,
+    0.15,
+    0.78,
+    0.31
+   ]
+  ],
+  "what": "sign lettering 'BAKERY'"
+ }
+}
