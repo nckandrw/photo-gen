@@ -3,12 +3,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 
 from .api import public_job, serve
 from .config import AppConfig
 from .errors import PhotoGenError
 from .service import PhotoGenService, setup_logging
+from .tasks import IMAGE_EDIT, TEXT_TO_IMAGE
 
 
 def _seed(v: str):
@@ -22,7 +24,8 @@ def _seed(v: str):
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="photo-gen", description="Local image generation (Z-Image-Turbo on mflux/MLX).")
+    p = argparse.ArgumentParser(prog="photo-gen", description="Local image generation (Z-Image-Turbo on mflux/MLX) and "
+                                "experimental image editing (Qwen-Image-2.1 on mflux/MLX).")
     p.add_argument("--config", help="path to photogen.toml (default: config/photogen.toml)")
     p.add_argument("-v", "--verbose", action="store_true", help="DEBUG logging")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -50,6 +53,20 @@ def build_parser() -> argparse.ArgumentParser:
                    help="permit non-validated resolutions/step counts (still bounded to ≤1024² pixels)")
     g.add_argument("--json", action="store_true", help="print the full job record as JSON")
 
+    e = sub.add_parser("edit", help="edit one image now with Qwen-Image-2.1 (RESEARCH/EXPERIMENTAL; Qwen Research "
+                                    "License, non-commercial)")
+    e.add_argument("--image", "-i", required=True, help="input image: PNG, JPEG or WebP, opaque, 64..8192 px per side")
+    e.add_argument("--prompt", "-p", required=True, help="the edit instruction")
+    e.add_argument("--seed", type=_seed, help="integer or 'random' (default from config)")
+    e.add_argument("--steps", type=int, help="denoising steps (default 40, the upstream recommendation)")
+    e.add_argument("--output-resolution", type=int,
+                   help="pixel-area budget as a side length, multiple of 32 (default 1024); the output keeps the "
+                        "input's aspect ratio")
+    e.add_argument("--output-name", help="optional name suffix for the output file")
+    e.add_argument("--allow-experimental", action="store_true",
+                   help="required: no edit configuration has passed a quality gate yet")
+    e.add_argument("--json", action="store_true", help="print the full job record as JSON")
+
     j = sub.add_parser("jobs", help="list jobs")
     j.add_argument("--status", choices=["queued", "running", "completed", "failed", "cancelled"])
     j.add_argument("--limit", type=int, default=20)
@@ -66,8 +83,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     v = sub.add_parser("verify", help="verify runtime versions and model integrity")
     v.add_argument("--full", action="store_true", help="re-hash every model file (ignores the cache)")
+    v.add_argument("--edit", action="store_true", help="verify the image-edit backend (Qwen) instead of text-to-image")
 
-    sub.add_parser("capabilities", help="print runtime capabilities")
+    sub.add_parser("capabilities", help="print runtime capabilities (and every task's backend)")
     return p
 
 
@@ -84,12 +102,12 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.cmd == "verify":
-            h = svc.verify(full=args.full)
+            h = svc.verify_edit(full=args.full) if args.edit else svc.verify(full=args.full)
             print(json.dumps(h.to_dict(), indent=1))
             return 0 if h.ok else 2
 
         if args.cmd == "capabilities":
-            print(json.dumps(svc.runtime.capabilities().to_dict(), indent=1))
+            print(json.dumps(svc.capabilities(), indent=1))
             return 0
 
         if args.cmd == "generate":
@@ -108,18 +126,17 @@ def main(argv: list[str] | None = None) -> int:
                 params["text_encoder"] = args.text_encoder
             if args.allow_experimental:
                 params["allow_experimental"] = True
-            job = svc.jobs.submit(params, source="cli")
-            print(f"job {job['id']}: {job['width']}x{job['height']} steps={job['steps']} seed={job['seed']}",
-                  file=sys.stderr)
-            job = public_job(svc.jobs.run_sync(job["id"]))
-            if args.json:
-                print(json.dumps(job, indent=1))
-            elif job["status"] == "completed":
-                print(f"{job['output_path']}\n  seed={job['seed']}  time={job['generation_seconds']}s  "
-                      f"pixel_sha256={job['pixel_sha256']}\n  metadata={job['metadata_path']}")
-            else:
-                print(f"job {job['job_id']} {job['status']}: {(job['error'] or {}).get('message')}", file=sys.stderr)
-            return 0 if job["status"] == "completed" else 1
+            return _run_and_report(svc, params, args.json)
+
+        if args.cmd == "edit":
+            svc.require_edit_healthy()
+            params = {"task": IMAGE_EDIT, "prompt": args.prompt, "image": os.path.abspath(args.image)}
+            for k in ("seed", "steps", "output_resolution", "output_name"):
+                if getattr(args, k) is not None:
+                    params[k] = getattr(args, k)
+            if args.allow_experimental:
+                params["allow_experimental"] = True
+            return _run_and_report(svc, params, args.json)
 
         if args.cmd == "jobs":
             jobs = [public_job(j) for j in svc.jobs.store.list(status=args.status, limit=args.limit)]
@@ -128,9 +145,10 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 for jb in jobs:
                     r = jb["request"]
+                    tag = "" if jb["task"] == TEXT_TO_IMAGE else f"[{jb['task']}] "
                     print(f"{jb['job_id']}  {jb['status']:<9}  {r['width']}x{r['height']}  seed={jb['seed']:<10}  "
                           f"{(str(jb['generation_seconds']) + 's') if jb['generation_seconds'] else '':>8}  "
-                          f"{r['prompt'][:50]}")
+                          f"{tag}{r['prompt'][:50]}")
             return 0
 
         if args.cmd == "job":
@@ -160,3 +178,18 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(e.to_dict(), indent=1), file=sys.stderr)
         return 2
     return 1
+
+
+def _run_and_report(svc: PhotoGenService, params: dict, as_json: bool) -> int:
+    """Submit one job, run it in this process (waiting for the GPU lock), and report it."""
+    job = svc.jobs.submit(params, source="cli")
+    print(f"job {job['id']}: {job['width']}x{job['height']} steps={job['steps']} seed={job['seed']}", file=sys.stderr)
+    job = public_job(svc.jobs.run_sync(job["id"]))
+    if as_json:
+        print(json.dumps(job, indent=1))
+    elif job["status"] == "completed":
+        print(f"{job['output_path']}\n  seed={job['seed']}  time={job['generation_seconds']}s  "
+              f"pixel_sha256={job['pixel_sha256']}\n  metadata={job['metadata_path']}")
+    else:
+        print(f"job {job['job_id']} {job['status']}: {(job['error'] or {}).get('message')}", file=sys.stderr)
+    return 0 if job["status"] == "completed" else 1

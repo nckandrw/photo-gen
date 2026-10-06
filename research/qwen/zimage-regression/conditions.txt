@@ -1,0 +1,21 @@
+Wed  7 Oct 2026 01:17:01 PST
+Now drawing from 'AC Power'
+vm.swapusage: total = 2048.00M  used = 933.81M  free = 1114.19M  (encrypted)
+git_head=cf21eaadd3c96f92e1fde5e5971b60e6636613e8
+ M app/photogen/api.py
+ M app/photogen/cli.py
+ M app/photogen/config.py
+ M app/photogen/jobs.py
+ M app/photogen/models.py
+ M app/photogen/runtimes/base.py
+ M app/photogen/runtimes/mflux_zimage.py
+ M app/photogen/service.py
+ M app/tests/helpers.py
+?? app/photogen/inputs.py
+?? app/photogen/runtimes/mflux_qwen_edit.py
+?? app/photogen/runtimes/mflux_qwen_edit_worker.py
+?? app/photogen/tasks.py
+?? app/tests/test_edit.py
+?? config/backend-qwen21-edit-mflux.json
+?? config/qwen-python-requirements.lock.txt
+?? config/qwen-venv-constraints.txt

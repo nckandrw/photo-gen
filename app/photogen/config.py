@@ -115,6 +115,11 @@ class AppConfig:
         return self.data_dir / "jobs"
 
     @property
+    def inputs_dir(self) -> Path:
+        """Staged, content-addressed input images (inputs.py)."""
+        return self.data_dir / "inputs"
+
+    @property
     def gpu_lock_path(self) -> Path:
         return self.data_dir / "gpu.lock"
 
@@ -162,5 +167,5 @@ class AppConfig:
             return False
 
     def ensure_dirs(self) -> None:
-        for d in (self.data_dir, self.outputs_dir, self.logs_dir, self.jobs_dir):
+        for d in (self.data_dir, self.outputs_dir, self.logs_dir, self.jobs_dir, self.inputs_dir):
             d.mkdir(parents=True, exist_ok=True)

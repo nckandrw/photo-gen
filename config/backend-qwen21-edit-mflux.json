@@ -1,0 +1,181 @@
+{
+ "_comment": "Pinned identity of the image-edit backend (Phase 4; research/qwen/QWEN-SOURCE-AUDIT.md). Immutable once committed: drift must be investigated, never 'fixed' by editing this file. STATUS: experimental.",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "experimental",
+ "runtime": {
+  "name": "mflux",
+  "interpreter": "mflux-qwen/.venv/bin/python3.12",
+  "python": "3.12.14",
+  "packages": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "mflux_wheel_sha256": "b2e38fd3cd4e50d497cc226e01555b8fc7856181c9421bde2e043bc53ac12d2e",
+  "lock": "config/qwen-python-requirements.lock.txt",
+  "constraints": "config/qwen-venv-constraints.txt",
+  "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+  "isolation": "separate project-local venv; the production Z-Image venv (mflux 0.20.0) is never used or modified"
+ },
+ "model": {
+  "name": "Qwen-Image-2.1",
+  "repo": "Qwen/Qwen-Image-2.1",
+  "revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "weights_identical_at": [
+   "840b4adb1",
+   "b3179ad355be050328e483a9dfdd9e60cd62adfa (mflux 0.21.0 validated)",
+   "790c92633"
+  ],
+  "license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "source_local_path": "models/research/qwen-image-2.1",
+  "source_verification": "research/qwen/download-verification.json",
+  "local_path": "models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "export": {
+   "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+   "quantize": 4,
+   "script": "research/qwen/export_q4.py (via export-q4.sh)",
+   "versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+   },
+   "seconds": 70.1,
+   "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "files": [
+   {
+    "path": "model_index.json",
+    "algo": "sha256",
+    "digest": "cf1ecd104ea090855d60d8cec0895c1e9d6ee41b2f87e231b678beecd1cf7809",
+    "size": 447
+   },
+   {
+    "path": "processor/chat_template.jinja",
+    "algo": "sha256",
+    "digest": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+    "size": 5292
+   },
+   {
+    "path": "processor/preprocessor_config.json",
+    "algo": "sha256",
+    "digest": "29cb956472acf03f6ba6846ddcd8686d82c2a36f11cdfcda17845f95bdbd9a79",
+    "size": 507
+   },
+   {
+    "path": "processor/tokenizer_config.json",
+    "algo": "sha256",
+    "digest": "bfbbc1983aa3f46c0f496d90a37fbbea8047581fbd7250534f112445be84b5a6",
+    "size": 417
+   },
+   {
+    "path": "processor/tokenizer.json",
+    "algo": "sha256",
+    "digest": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+    "size": 11422650
+   },
+   {
+    "path": "scheduler/scheduler_config.json",
+    "algo": "sha256",
+    "digest": "5895f3a167c14a967fe9ac70c64924ae5acc79799e0679fd12907e594a713cd1",
+    "size": 485
+   },
+   {
+    "path": "text_encoder/0.safetensors",
+    "algo": "sha256",
+    "digest": "cb27344c43514973a9fb231b499013f7af008da10819abeb2dbcc4ab5804dccb",
+    "size": 2138745628
+   },
+   {
+    "path": "text_encoder/1.safetensors",
+    "algo": "sha256",
+    "digest": "18aadc31b89e1b6843c6b48aaf82d6d0f9b1f49baac294f0e9e119d1aa469987",
+    "size": 2145597770
+   },
+   {
+    "path": "text_encoder/2.safetensors",
+    "algo": "sha256",
+    "digest": "162dde123f449558fc5ccd87a40377761ab7266cfdbb37866a3caa374a71b567",
+    "size": 843423144
+   },
+   {
+    "path": "text_encoder/config.json",
+    "algo": "sha256",
+    "digest": "369fe497e51469d3fe4e1c71c45fe98ec6853ea0885176f41cf4a224d113b44a",
+    "size": 1516
+   },
+   {
+    "path": "text_encoder/model.safetensors.index.json",
+    "algo": "sha256",
+    "digest": "fac7d8188427112430356db46e02ae9a10ff9ab2ef269be7af1797db3667bc78",
+    "size": 95963
+   },
+   {
+    "path": "transformer/0.safetensors",
+    "algo": "sha256",
+    "digest": "a40c0095144f592fde5b5fd8d294e1b324942476e96afeb1fd47d2e9292669da",
+    "size": 2123573843
+   },
+   {
+    "path": "transformer/1.safetensors",
+    "algo": "sha256",
+    "digest": "80fa97b3346b72abaf30623d32ac938c2af8c9e2b3f14119d373e0338d812600",
+    "size": 2024999541
+   },
+   {
+    "path": "transformer/config.json",
+    "algo": "sha256",
+    "digest": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+    "size": 369
+   },
+   {
+    "path": "transformer/model.safetensors.index.json",
+    "algo": "sha256",
+    "digest": "ada1e132de6b8c58fec333b85daf10e1e94efeac8d6b8df70731b2b7ea8b0e0d",
+    "size": 48913
+   },
+   {
+    "path": "vae/0.safetensors",
+    "algo": "sha256",
+    "digest": "248d52c5904e244e1e15b38d348deeb92cfe812ed1c6490b6b8164cac79a8cdf",
+    "size": 1350988935
+   },
+   {
+    "path": "vae/config.json",
+    "algo": "sha256",
+    "digest": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+    "size": 2078
+   },
+   {
+    "path": "vae/model.safetensors.index.json",
+    "algo": "sha256",
+    "digest": "9b92a3bff2eb072fb86d75b6384d8ab4bca2945d4daff7825f94f543d9676af5",
+    "size": 15902
+   }
+  ]
+ },
+ "defaults": {
+  "steps": 40,
+  "guidance": 1.0,
+  "output_resolution": 1024,
+  "use_kv_cache": true,
+  "base_model": "qwen-image-2.1",
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "source": "Diffusers QwenImage21Pipeline.__call__ defaults (num_inference_steps=40, true_cfg_scale=1.0, output_resolution=1024, use_kv_cache=True)"
+ },
+ "validated": {
+  "combinations": [],
+  "_comment": "no edit configuration has passed a gate; every edit is experimental"
+ },
+ "limits": {
+  "min_output_resolution": 384,
+  "max_output_resolution": 1024,
+  "min_steps": 2,
+  "max_steps": 60,
+  "_comment": "384: keeps the resized reference above the Qwen3-VL processor's 65536-pixel minimum; 1024: memory (16 GB)"
+ }
+}

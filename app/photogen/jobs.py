@@ -1,5 +1,9 @@
 """Job queue: at most one generation at a time on this machine (fanless 16 GB M5; concurrency is not validated).
 
+One queue serves every task. A job's task (request["task"]; stored rows without one are text-to-image) selects its
+runtime through the explicit TaskRouter (tasks.py); generations and edits share the queue, the GPU lock, the
+store, the output layout and the cancellation path.
+
 - API jobs are queued and executed by a single background worker thread.
 - CLI jobs execute synchronously in the CLI process.
 - A cross-process advisory lock (flock on data/gpu.lock) serializes generations between the API server
@@ -22,17 +26,19 @@ from pathlib import Path
 from . import system
 from .config import AppConfig
 from .errors import (ConflictError, GenerationError, JobCancelledError, PhotoGenError, QueueFullError)
-from .models import GenerationRequest, JobStatus, new_job_id, utcnow
+from .models import JobStatus, new_job_id, utcnow
 from .runtimes.base import CancelToken, ImageRuntime
 from .store import JobStore
+from .tasks import TaskRouter
 
 log = logging.getLogger(__name__)
 
 
 class JobManager:
-    def __init__(self, config: AppConfig, runtime: ImageRuntime, store: JobStore | None = None):
+    def __init__(self, config: AppConfig, runtime: ImageRuntime | TaskRouter, store: JobStore | None = None):
         self.cfg = config
-        self.runtime = runtime
+        self.router = runtime if isinstance(runtime, TaskRouter) else TaskRouter({runtime.task: runtime})
+        self.runtime = self.router.default  # the text-to-image runtime
         self.store = store or JobStore(config.db_path)
         self._queue: "queue.Queue[str | None]" = queue.Queue()
         self._tokens: dict[str, CancelToken] = {}
@@ -44,15 +50,16 @@ class JobManager:
     def submit(self, params: dict, source: str = "api") -> dict:
         defaults = {"width": self.cfg.default_width, "height": self.cfg.default_height,
                     "steps": self.cfg.default_steps, "seed": self.cfg.default_seed}
-        req = self.runtime.normalize(params, defaults)
+        runtime = self.router.runtime_for(TaskRouter.task_of(params))
+        req = runtime.normalize(params, defaults)
         if source == "api" and self.store.count_active() >= self.cfg.max_pending:
             raise QueueFullError(f"{self.cfg.max_pending} jobs already queued or running; try again later")
         for w in req.warnings:
             log.warning("request: %s", w)
         job_id = new_job_id()
-        job = self.store.create(job_id, source, os.getpid(), self.runtime.capabilities().runtime, req.to_dict())
-        log.info("job %s queued (%s, %dx%d, steps=%d, seed=%d/%s)", job_id, source, req.width, req.height,
-                 req.steps, req.seed, req.seed_source)
+        job = self.store.create(job_id, source, os.getpid(), runtime.capabilities().runtime, req.to_dict())
+        log.info("job %s queued (%s, %s, %dx%d, steps=%d, seed=%d/%s)", job_id, source, req.task, req.width,
+                 req.height, req.steps, req.seed, req.seed_source)
         if source == "api":
             self._queue.put(job_id)
         return job
@@ -101,7 +108,8 @@ class JobManager:
         job = self.store.get(job_id)
         if job["status"] != JobStatus.QUEUED.value:
             return  # cancelled while queued
-        req = GenerationRequest.from_dict(job["request"])
+        runtime = self.router.runtime_for(TaskRouter.task_of(job["request"]))
+        req = runtime.request_from_dict(job["request"])
         token = CancelToken()
         with self._tokens_lock:
             self._tokens[job_id] = token
@@ -118,9 +126,9 @@ class JobManager:
                           "power": system.power_source()}
                 log.info("job %s running", job_id)
                 out_path, meta_path = self._output_paths(job_id, req)
-                result = self.runtime.generate(job_id, req, str(out_path), str(self.cfg.jobs_dir / job_id), token)
+                result = runtime.generate(job_id, req, str(out_path), str(self.cfg.jobs_dir / job_id), token)
                 after = {"memory": system.memory_telemetry(), "thermal": system.thermal_telemetry()}
-                meta = self._metadata(job_id, req, result, before, after)
+                meta = runtime.sidecar(job_id, req, result, before, after)
                 meta_path.write_text(json.dumps(meta, indent=2))
                 self.store.transition(job_id, JobStatus.COMPLETED, result_json=result.to_dict(),
                                       output_path=str(out_path), metadata_path=str(meta_path),
@@ -173,54 +181,11 @@ class JobManager:
             finally:
                 fcntl.flock(f, fcntl.LOCK_UN)
 
-    def _output_paths(self, job_id: str, req: GenerationRequest) -> tuple[Path, Path]:
+    def _output_paths(self, job_id: str, req) -> tuple[Path, Path]:
         day = self.cfg.outputs_dir / job_id[:4] / job_id[4:6] / job_id[6:8]
         day.mkdir(parents=True, exist_ok=True)
         stem = job_id if not req.output_name else f"{job_id}-{_safe_name(req.output_name)}"
         return day / f"{stem}.png", day / f"{stem}.json"
-
-    def _metadata(self, job_id: str, req: GenerationRequest, result, before: dict, after: dict) -> dict:
-        caps = self.runtime.capabilities()
-        m = self.cfg.backend
-        return {
-            "schema": "photogen.generation/1",
-            "timestamp": utcnow(),
-            "job_id": job_id,
-            "status": JobStatus.COMPLETED.value,
-            "runtime": caps.runtime,
-            "runtime_version": caps.runtime_version,
-            "runtime_versions": result.runtime_info.get("versions"),
-            "model": m.model_name,
-            "model_repo": m.model_repo,
-            "model_revision": m.model_revision,
-            "quantization": m.quantization,
-            "task": req.task,
-            "prompt": req.prompt,
-            "negative_prompt": None,  # not supported by this backend (requests containing one are rejected)
-            "width": req.width,
-            "height": req.height,
-            "steps": req.steps,
-            "guidance": result.effective_parameters.get("guidance"),
-            "scheduler": result.effective_parameters.get("scheduler"),
-            "low_ram": result.effective_parameters.get("low_ram"),
-            "profile": req.profile,
-            "precision": req.precision,
-            "text_encoder": result.runtime_info.get("text_encoder", {"name": req.text_encoder}),
-            "seed": req.seed,
-            "seed_source": req.seed_source,
-            "validated_configuration": req.validated,
-            "warnings": list(req.warnings),
-            "generation_time_seconds": result.generation_seconds,
-            "phases": result.phases,
-            "step_seconds": result.step_seconds,
-            "memory": result.memory,
-            "output_path": result.output_path,
-            "pixel_sha256": result.pixel_sha256,
-            "file_sha256": result.file_sha256,
-            "system_before": before,
-            "system_after": after,
-            "reproduce": {"cli": _repro_cli(req)},
-        }
 
     # ---------- cancel / status ----------
     def cancel(self, job_id: str) -> dict:
@@ -286,17 +251,3 @@ def _pid_alive(pid) -> bool:
 
 def _safe_name(name: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "_", name)[:80].rstrip(".") or "image"
-
-
-def _repro_cli(req: GenerationRequest) -> str:
-    prompt = req.prompt.replace("'", "'\\''")
-    extra = " --allow-experimental" if not req.validated else ""
-    if req.profile:
-        extra += f" --profile {req.profile}"
-    elif req.precision != "fp32":
-        extra += f" --precision {req.precision}"
-    if req.text_encoder != "stock":
-        extra += f" --text-encoder {req.text_encoder}"
-    steps = "" if req.profile else f" --steps {req.steps}"
-    return (f"bin/photo-gen generate --prompt '{prompt}' --width {req.width} --height {req.height}"
-            f"{steps} --seed {req.seed}{extra}")

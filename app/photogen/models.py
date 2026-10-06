@@ -52,12 +52,40 @@ class GenerationRequest:
 
     @classmethod
     def from_dict(cls, d: dict) -> "GenerationRequest":
+        return cls(**{"task": "text-to-image", **d, "warnings": tuple(d.get("warnings", ()))})
+
+
+@dataclass(frozen=True)
+class EditRequest:
+    """A fully normalized image-edit request (task 'image-edit'). Every field is what will actually run."""
+    task: str
+    prompt: str              # the edit instruction
+    width: int               # output size, derived from output_resolution and the input's aspect ratio
+    height: int
+    steps: int
+    seed: int
+    seed_source: str
+    output_format: str
+    validated: bool          # False for every edit until an edit configuration passes a gate
+    input_image: dict        # inputs.InputImage.to_dict(): staged path + both identities
+    output_resolution: int   # pixel-area budget (side length) for the reference image and the output
+    warnings: tuple[str, ...] = ()
+    output_name: str | None = None
+    profile: str | None = None  # no edit profiles exist yet
+
+    def to_dict(self) -> dict:
+        d = asdict(self)
+        d["warnings"] = list(self.warnings)
+        return d
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "EditRequest":
         return cls(**{**d, "warnings": tuple(d.get("warnings", ()))})
 
 
 @dataclass
 class GenerationResult:
-    """What a runtime reports after a successful generation."""
+    """What a runtime reports after a successful generation or edit."""
     output_path: str
     width: int
     height: int

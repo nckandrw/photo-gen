@@ -1,0 +1,140 @@
+{
+ "runtime": "mflux",
+ "runtime_version": "0.20.0",
+ "supported_models": [
+  "Z-Image-Turbo (mflux-community/z-image-turbo-mflux-q4@d2d3050)"
+ ],
+ "supported_tasks": [
+  "text-to-image"
+ ],
+ "validated_resolutions": [
+  [
+   512,
+   512
+  ],
+  [
+   768,
+   768
+  ],
+  [
+   1024,
+   1024
+  ]
+ ],
+ "supports_seed": true,
+ "supports_negative_prompt": false,
+ "supports_guidance": false,
+ "supports_editing": false,
+ "supports_lora": false,
+ "output_formats": [
+  "png"
+ ],
+ "memory_profile": {
+  "low_ram": true,
+  "transformer_release": true,
+  "measured_peak_footprint_gb_1024": {
+   "fp32": 6.56,
+   "bf16": 5.84
+  },
+  "measured_peak_footprint_gb_512": {
+   "fp32": 5.93,
+   "bf16": 5.41
+  },
+  "concurrency": 1,
+  "source": "research/MFLUX-ZIMAGE-RESULTS.md"
+ },
+ "precisions": [
+  "fp32",
+  "bf16"
+ ],
+ "text_encoders": [
+  "stock"
+ ],
+ "profiles": {
+  "reference": {
+   "precision": "fp32",
+   "steps": 9
+  },
+  "fast": {
+   "precision": "bf16",
+   "steps": 8
+  },
+  "balanced": {
+   "precision": "bf16",
+   "steps": 5
+  },
+  "ultra": {
+   "precision": "bf16",
+   "steps": 4
+  }
+ },
+ "tasks": {
+  "text-to-image": {
+   "endpoint": "POST /generate",
+   "cli": "photo-gen generate",
+   "runtime": "mflux-zimage-turbo",
+   "status": "production",
+   "models": [
+    "Z-Image-Turbo (mflux-community/z-image-turbo-mflux-q4@d2d3050)"
+   ]
+  },
+  "image-edit": {
+   "endpoint": "POST /edit",
+   "cli": "photo-gen edit",
+   "runtime": "mflux-qwen-image-2.1-edit",
+   "status": "experimental",
+   "available": true,
+   "models": [
+    "Qwen-Image-2.1 (Qwen/Qwen-Image-2.1@d26bb61; Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed)"
+   ],
+   "capabilities": {
+    "runtime": "mflux",
+    "runtime_version": "0.21.0",
+    "supported_models": [
+     "Qwen-Image-2.1 (Qwen/Qwen-Image-2.1@d26bb61; Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed)"
+    ],
+    "supported_tasks": [
+     "image-edit"
+    ],
+    "validated_resolutions": [],
+    "supports_seed": true,
+    "supports_negative_prompt": false,
+    "supports_guidance": false,
+    "supports_editing": true,
+    "supports_lora": false,
+    "output_formats": [
+     "png"
+    ],
+    "memory_profile": {
+     "low_ram": true,
+     "status": "experimental",
+     "defaults": {
+      "steps": 40,
+      "guidance": 1.0,
+      "output_resolution": 1024,
+      "use_kv_cache": true,
+      "base_model": "qwen-image-2.1",
+      "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+      "source": "Diffusers QwenImage21Pipeline.__call__ defaults (num_inference_steps=40, true_cfg_scale=1.0, output_resolution=1024, use_kv_cache=True)"
+     },
+     "limits": {
+      "min_output_resolution": 384,
+      "max_output_resolution": 1024,
+      "min_steps": 2,
+      "max_steps": 60,
+      "_comment": "384: keeps the resized reference above the Qwen3-VL processor's 65536-pixel minimum; 1024: memory (16 GB)"
+     },
+     "concurrency": 1,
+     "source": "research/qwen/QWEN-EDITING-BASELINE.md"
+    },
+    "precisions": [
+     "bf16"
+    ],
+    "text_encoders": [
+     "stock"
+    ],
+    "profiles": {}
+   }
+  }
+ }
+}

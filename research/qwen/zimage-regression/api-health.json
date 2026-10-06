@@ -1,0 +1,143 @@
+{
+ "service": "ok",
+ "version": "0.1.0",
+ "runtime": "mflux",
+ "runtime_version": "0.20.0",
+ "model": "Z-Image-Turbo",
+ "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+ "low_ram": true,
+ "checks": {
+  "versions": {
+   "ok": true,
+   "detail": {
+    "python": {
+     "ok": true,
+     "expected": "3.12.14",
+     "found": "3.12.14"
+    },
+    "mflux": {
+     "ok": true,
+     "expected": "0.20.0",
+     "found": "0.20.0"
+    },
+    "mlx": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    },
+    "mlx-metal": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    }
+   }
+  },
+  "entry_point": {
+   "ok": true,
+   "detail": "mflux.models.z_image.cli.z_image_turbo_generate:main"
+  },
+  "model": {
+   "ok": true,
+   "detail": {
+    "revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+    "files": 11,
+    "failed": [],
+    "hashed_now": 0,
+    "seconds": 0.0
+   }
+  },
+  "mflux_capabilities": {
+   "ok": true,
+   "detail": {
+    "ignored_by_mflux": [
+     "--guidance",
+     "--negative-prompt"
+    ],
+    "verified_honored": [
+     "--low-ram",
+     "--steps",
+     "--seed",
+     "--width",
+     "--height",
+     "--model",
+     "--base-model",
+     "--output",
+     "--prompt"
+    ]
+   }
+  },
+  "low_ram": {
+   "ok": true,
+   "detail": "--low-ram is always passed"
+  },
+  "offline": {
+   "ok": true,
+   "detail": "workers run with HF_HUB_OFFLINE=1"
+  }
+ },
+ "backends": {
+  "image-edit": {
+   "runtime": "mflux-qwen-image-2.1-edit",
+   "ok": true,
+   "checks": {
+    "manifest": {
+     "ok": true,
+     "detail": "config/backend-qwen21-edit-mflux.json"
+    },
+    "interpreter": {
+     "ok": true,
+     "detail": {
+      "python": {
+       "ok": true,
+       "expected": "3.12.14",
+       "found": "3.12.14"
+      },
+      "mflux": {
+       "ok": true,
+       "expected": "0.21.0",
+       "found": "0.21.0"
+      },
+      "mlx": {
+       "ok": true,
+       "expected": "0.32.2",
+       "found": "0.32.2"
+      },
+      "mlx-metal": {
+       "ok": true,
+       "expected": "0.32.2",
+       "found": "0.32.2"
+      },
+      "transformers": {
+       "ok": true,
+       "expected": "5.15.0",
+       "found": "5.15.0"
+      },
+      "torch": {
+       "ok": true,
+       "expected": "2.13.0",
+       "found": "2.13.0"
+      }
+     }
+    },
+    "model": {
+     "ok": true,
+     "detail": {
+      "revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+      "files": 18,
+      "failed": [],
+      "hashed_now": 0,
+      "seconds": 0.0
+     }
+    },
+    "low_ram": {
+     "ok": true,
+     "detail": "--low-ram is always passed"
+    },
+    "offline": {
+     "ok": true,
+     "detail": "workers run with HF_HUB_OFFLINE=1"
+    }
+   }
+  }
+ }
+}

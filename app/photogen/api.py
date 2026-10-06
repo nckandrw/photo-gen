@@ -3,8 +3,11 @@
 Endpoints
   GET  /health                     service + startup verification summary
   GET  /status                     queue, active job, recent durations/step timing, memory/thermal telemetry
-  GET  /capabilities               what the runtime actually supports
-  POST /generate                   submit a text-to-image job -> 202 {job}
+  GET  /capabilities               what the text-to-image runtime supports, plus "tasks" (every task's backend)
+  POST /generate                   submit a text-to-image job (Z-Image) -> 202 {job}
+  POST /edit                       submit an image-edit job (Qwen-Image-2.1, EXPERIMENTAL) -> 202 {job};
+                                   body {"image": "<absolute path>", "prompt": "<instruction>", "allow_experimental": true,
+                                   "seed"?, "steps"?, "output_resolution"?, "output_name"?}
   GET  /jobs?status=&limit=&pixel_sha256=
   GET  /jobs/{id}[?wait=seconds]   job record; `wait` long-polls until the job is terminal (max 900 s)
   POST /jobs/{id}/cancel
@@ -23,9 +26,10 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from .errors import NotFoundError, PhotoGenError, ValidationError
+from .errors import NotFoundError, PhotoGenError, UnsupportedParameterError, ValidationError
 from .models import JobStatus
 from .service import PhotoGenService
+from .tasks import IMAGE_EDIT, TEXT_TO_IMAGE
 
 log = logging.getLogger(__name__)
 MAX_BODY = 64 * 1024
@@ -41,6 +45,7 @@ def public_job(job: dict) -> dict:
     req = job.get("request") or {}
     return {
         "job_id": job["id"],
+        "task": req.get("task") or TEXT_TO_IMAGE,
         "status": job["status"],
         "source": job["source"],
         "created_at": job["created_at"],
@@ -126,7 +131,7 @@ def make_handler(svc: PhotoGenService):
                 if u.path == "/status":
                     return self._send(200, svc.status())
                 if u.path == "/capabilities":
-                    return self._send(200, svc.runtime.capabilities().to_dict())
+                    return self._send(200, svc.capabilities())
                 if u.path == "/jobs":
                     jobs = svc.jobs.store.list(status=qs.get("status"), limit=int(qs.get("limit", 50)),
                                                pixel_sha256=qs.get("pixel_sha256"))
@@ -161,7 +166,18 @@ def make_handler(svc: PhotoGenService):
             u = urlparse(self.path)
             try:
                 if u.path == "/generate":
-                    job = svc.jobs.submit(self._json_body(), source="api")
+                    body = self._json_body()
+                    if body.get("task") not in (None, "", TEXT_TO_IMAGE):
+                        raise UnsupportedParameterError("POST /generate is text-to-image only; use POST /edit for "
+                                                        "image-edit", parameter="task")
+                    job = svc.jobs.submit(body, source="api")
+                    return self._send(202, public_job(job))
+                if u.path == "/edit":
+                    body = self._json_body()
+                    if body.get("task") not in (None, "", IMAGE_EDIT):
+                        raise UnsupportedParameterError("POST /edit only accepts task 'image-edit'", parameter="task")
+                    svc.require_edit_healthy(cached=True)
+                    job = svc.jobs.submit({**body, "task": IMAGE_EDIT}, source="api")
                     return self._send(202, public_job(job))
                 m = _CANCEL.match(u.path)
                 if m:
@@ -184,6 +200,7 @@ def serve(svc: PhotoGenService) -> None:
 
     signal.signal(signal.SIGTERM, _graceful)
     signal.signal(signal.SIGINT, _graceful)
+    svc.verify_edit()  # informational: an unavailable edit backend only disables POST /edit (503)
     svc.jobs.start()
     log.info("photo-gen API listening on http://%s:%d (runtime %s, model %s@%s)", cfg.host, cfg.port,
              svc.runtime.capabilities().runtime, cfg.backend.model_name, cfg.backend.model_revision[:7])

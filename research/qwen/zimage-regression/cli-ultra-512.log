@@ -1,0 +1,10 @@
+2026-10-07 01:21:20,100 INFO    photogen: startup check versions    ok
+2026-10-07 01:21:20,100 INFO    photogen: startup check entry_point ok
+2026-10-07 01:21:20,100 INFO    photogen: startup check model       ok
+2026-10-07 01:21:20,100 INFO    photogen: startup check mflux_capabilities ok
+2026-10-07 01:21:20,100 INFO    photogen: startup check low_ram     ok
+2026-10-07 01:21:20,100 INFO    photogen: startup check offline     ok
+2026-10-07 01:21:20,104 INFO    photogen.jobs: job 20261006T172120Z-331876 queued (cli, text-to-image, 512x512, steps=4, seed=42/explicit)
+job 20261006T172120Z-331876: 512x512 steps=4 seed=42
+2026-10-07 01:21:20,141 INFO    photogen.jobs: job 20261006T172120Z-331876 running
+2026-10-07 01:21:31,297 INFO    photogen.jobs: job 20261006T172120Z-331876 completed in 11.1s (pixel_sha256 6aa2b8422c72…)

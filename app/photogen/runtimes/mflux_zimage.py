@@ -22,7 +22,8 @@ from ..errors import (GenerationError, JobCancelledError, OutputCorruptedError, 
                       UnsupportedParameterError, ValidationError)
 from ..imaging import check_output, inspect_image
 from ..integrity import check_versions, verify_model_files
-from ..models import GenerationRequest, GenerationResult
+from ..models import GenerationRequest, GenerationResult, JobStatus, utcnow
+from ..tasks import TEXT_TO_IMAGE
 from ..text_encoders import STOCK, load_registry, verify_entry
 from .base import CancelToken, Capabilities, ImageRuntime, RuntimeHealth
 
@@ -83,6 +84,7 @@ WORKER_TIMEOUT_SECONDS = 30 * 60  # generous upper bound (sustained 1024² ≈ 1
 
 class MFluxZImageRuntime(ImageRuntime):
     name = "mflux-zimage-turbo"
+    task = TEXT_TO_IMAGE
 
     def __init__(self, config: AppConfig):
         self.cfg = config
@@ -169,8 +171,8 @@ class MFluxZImageRuntime(ImageRuntime):
         if unknown:
             raise UnsupportedParameterError(f"unknown parameter(s): {', '.join(unknown)}", parameters=unknown)
 
-        task = params.get("task", "text-to-image")
-        if task != "text-to-image":
+        task = params.get("task", TEXT_TO_IMAGE)
+        if task != TEXT_TO_IMAGE:
             raise UnsupportedParameterError(f"task '{task}' is not supported by this backend")
         prompt = params.get("prompt")
         if not isinstance(prompt, str) or not prompt.strip():
@@ -328,6 +330,65 @@ class MFluxZImageRuntime(ImageRuntime):
                                   "compile_calls": res.get("compile_calls"),
                                   "argv": res.get("argv")},
         )
+
+    # ---------- metadata sidecar (schema photogen.generation/1; unchanged since v1) ----------
+    def sidecar(self, job_id: str, req: GenerationRequest, result: GenerationResult, before: dict,
+                after: dict) -> dict:
+        caps = self.capabilities()
+        m = self.m
+        return {
+            "schema": "photogen.generation/1",
+            "timestamp": utcnow(),
+            "job_id": job_id,
+            "status": JobStatus.COMPLETED.value,
+            "runtime": caps.runtime,
+            "runtime_version": caps.runtime_version,
+            "runtime_versions": result.runtime_info.get("versions"),
+            "model": m.model_name,
+            "model_repo": m.model_repo,
+            "model_revision": m.model_revision,
+            "quantization": m.quantization,
+            "task": req.task,
+            "prompt": req.prompt,
+            "negative_prompt": None,  # not supported by this backend (requests containing one are rejected)
+            "width": req.width,
+            "height": req.height,
+            "steps": req.steps,
+            "guidance": result.effective_parameters.get("guidance"),
+            "scheduler": result.effective_parameters.get("scheduler"),
+            "low_ram": result.effective_parameters.get("low_ram"),
+            "profile": req.profile,
+            "precision": req.precision,
+            "text_encoder": result.runtime_info.get("text_encoder", {"name": req.text_encoder}),
+            "seed": req.seed,
+            "seed_source": req.seed_source,
+            "validated_configuration": req.validated,
+            "warnings": list(req.warnings),
+            "generation_time_seconds": result.generation_seconds,
+            "phases": result.phases,
+            "step_seconds": result.step_seconds,
+            "memory": result.memory,
+            "output_path": result.output_path,
+            "pixel_sha256": result.pixel_sha256,
+            "file_sha256": result.file_sha256,
+            "system_before": before,
+            "system_after": after,
+            "reproduce": {"cli": _repro_cli(req)},
+        }
+
+
+def _repro_cli(req: GenerationRequest) -> str:
+    prompt = req.prompt.replace("'", "'\\''")
+    extra = " --allow-experimental" if not req.validated else ""
+    if req.profile:
+        extra += f" --profile {req.profile}"
+    elif req.precision != "fp32":
+        extra += f" --precision {req.precision}"
+    if req.text_encoder != "stock":
+        extra += f" --text-encoder {req.text_encoder}"
+    steps = "" if req.profile else f" --steps {req.steps}"
+    return (f"bin/photo-gen generate --prompt '{prompt}' --width {req.width} --height {req.height}"
+            f"{steps} --seed {req.seed}{extra}")
 
 
 def _as_int(v, name: str) -> int:

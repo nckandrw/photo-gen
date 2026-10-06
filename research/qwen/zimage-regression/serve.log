@@ -1,0 +1,16 @@
+2026-10-07 01:21:43,700 INFO    photogen: startup check versions    ok
+2026-10-07 01:21:43,700 INFO    photogen: startup check entry_point ok
+2026-10-07 01:21:43,700 INFO    photogen: startup check model       ok
+2026-10-07 01:21:43,700 INFO    photogen: startup check mflux_capabilities ok
+2026-10-07 01:21:43,700 INFO    photogen: startup check low_ram     ok
+2026-10-07 01:21:43,700 INFO    photogen: startup check offline     ok
+2026-10-07 01:21:43,745 INFO    photogen: image-edit check manifest    ok
+2026-10-07 01:21:43,745 INFO    photogen: image-edit check interpreter ok
+2026-10-07 01:21:43,745 INFO    photogen: image-edit check model       ok
+2026-10-07 01:21:43,745 INFO    photogen: image-edit check low_ram     ok
+2026-10-07 01:21:43,745 INFO    photogen: image-edit check offline     ok
+2026-10-07 01:21:43,746 INFO    photogen.api: photo-gen API listening on http://127.0.0.1:8765 (runtime mflux, model Z-Image-Turbo@d2d3050)
+2026-10-07 01:21:44,559 INFO    photogen.jobs: job 20261006T172144Z-cc4e51 queued (api, text-to-image, 512x512, steps=9, seed=42/explicit)
+2026-10-07 01:21:44,600 INFO    photogen.jobs: job 20261006T172144Z-cc4e51 running
+2026-10-07 01:22:08,715 INFO    photogen.jobs: job 20261006T172144Z-cc4e51 completed in 24.1s (pixel_sha256 9ae59f590e8c…)
+2026-10-07 01:22:09,089 INFO    photogen.api: received signal 15; shutting down

@@ -1,5 +1,6 @@
-"""Runtime abstraction. A runtime owns: what it can do (capabilities), whether it is usable (health),
-how raw parameters map onto what it will actually run (normalize), and running one job (generate)."""
+"""Runtime abstraction. A runtime serves exactly one task (tasks.py) and owns: what it can do (capabilities),
+whether it is usable (health), how raw parameters map onto what it will actually run (normalize), running one job
+(generate), and the model-specific metadata sidecar written next to each output (sidecar)."""
 from __future__ import annotations
 
 import abc
@@ -7,6 +8,7 @@ import threading
 from dataclasses import asdict, dataclass, field
 
 from ..models import GenerationRequest, GenerationResult
+from ..tasks import TEXT_TO_IMAGE
 
 
 @dataclass(frozen=True)
@@ -73,6 +75,9 @@ class CancelToken:
 
 
 class ImageRuntime(abc.ABC):
+    task: str = TEXT_TO_IMAGE
+    name: str = "runtime"
+
     @abc.abstractmethod
     def capabilities(self) -> Capabilities: ...
 
@@ -80,9 +85,17 @@ class ImageRuntime(abc.ABC):
     def health(self, full_verify: bool = False) -> RuntimeHealth: ...
 
     @abc.abstractmethod
-    def normalize(self, params: dict, defaults: dict) -> GenerationRequest:
+    def normalize(self, params: dict, defaults: dict):
         """Validate raw parameters; reject unsupported ones; return exactly what will run."""
 
+    def request_from_dict(self, d: dict):
+        """Rebuild a stored (normalized) request of this runtime's task."""
+        return GenerationRequest.from_dict(d)
+
     @abc.abstractmethod
-    def generate(self, job_id: str, request: GenerationRequest, output_path: str, work_dir: str,
+    def generate(self, job_id: str, request, output_path: str, work_dir: str,
                  cancel: CancelToken) -> GenerationResult: ...
+
+    @abc.abstractmethod
+    def sidecar(self, job_id: str, request, result: GenerationResult, before: dict, after: dict) -> dict:
+        """The JSON metadata written next to a completed job's output (schema + model identity + timings)."""
