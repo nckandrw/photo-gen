@@ -43,6 +43,8 @@ models/**
 
 # ---- runtime data: created by the app (jobs DB, outputs, logs, lock, hash cache) ----
 data/
+# test fixtures (e.g. the Z-Image sidecar golden) are not runtime data
+!app/tests/data/
 
 # ---- Pass-1 generated images and the sd.cpp binary build (research comparison only) ----
 outputs/
