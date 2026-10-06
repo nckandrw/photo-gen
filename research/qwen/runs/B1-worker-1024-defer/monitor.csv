@@ -1,0 +1,2 @@
+ts,epoch,pressure_level,free_pct,swap_used_mb,compressed_gb,wired_gb,proc_rss_gb,proc_mem_gb,cpu_speed_limit
+00:23:26,1791303806,1,79,4819.81,0.77,2.40,0.02,0.00,

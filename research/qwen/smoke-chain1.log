@@ -1,0 +1,7 @@
+wall_s=91 rc=0 aborted=0 swap_end=5140.25M
+EDIT_RUN_END S2-plain-512 rc=0 aborted=0
+uid=501(nckandrw) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),33(_appstore),98(_lpadmin),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae),701(com.apple.sharepoint.group.1)
+research/qwen/run_edit.sh:break:56: not in while, until, select, or repeat loop
+wall_s=97 rc=0 aborted=0 swap_end=5043.88M
+EDIT_RUN_END S3-app-512-repeat rc=0 aborted=0
+SMOKE1_DONE

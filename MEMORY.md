@@ -34,7 +34,7 @@ _Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT 
   - Evidence: `results.md` § "768² BALANCED confirmation".
 
 **Next steps (all await the user; none auto-start)**
-1. **Pending CLI check.** The auto-mode classifier denied it. The user should run `! bin/photo-gen generate -p "a red apple on a wooden table, soft window light" --seed 42 --profile balanced --json` (expect `befe1b3c…`, validated) and `--width 768 --height 768` (expect a refusal).
+1. ~~Pending CLI check.~~ **CLOSED 2026-10-06** (see the 2026-10-06 entry): BALANCED 1024² → `befe1b3c…`, validated; 768² refused.
 2. Decide whether a dedicated 6-step gate at 768² is worth it (directive §17). Stage C as a full sweep stays deferred.
 3. Resolution-aware automatic step selection: not to be implemented yet.
 
@@ -45,6 +45,32 @@ _Last updated 2026-09-29 (BALANCED 1024² in production; 768² confirmation NOT 
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
 
 ---
+
+## 2026-10-06 — Phase 4 started (directive "PHOTO-GEN PHASE 4: Qwen editing backend + unified image-task layer")
+- **Pending CLI check CLOSED (directive §2).**
+  - `bin/photo-gen generate -p "a red apple on a wooden table, soft window light" --seed 42 --profile balanced --json` → job `20261006T143008Z-756b0e`, pixel `befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42` (= documented), `validated: true`, bf16/5, 38.98 s wall (cold, battery), denoise 33.26 s, peak 5.84 GB, transformer released.
+  - Same with `--width 768 --height 768` → refused, exit 2: "bf16 + 5 steps is validated only at 1024x1024; pass allow_experimental=true…".
+  - Tests 42/42 before any Phase 4 change.
+- **Upstream news found during research:** our mflux issues #760/#761 were closed 2026-10-01; fixes landed as #802 (transformer release) and #803 (bf16 stream **default**, new `--float32`) in **mflux 0.21.0** (2026-10-03). So 0.21.0 changes Z-Image numerics: the production venv must stay on 0.20.0.
+- Phase 4 work in progress: see `research/qwen/`.
+- **User decisions (2026-10-06):**
+  - Licence: accepted Qwen-Image-2.1 for research use (Qwen Research License, non-commercial; never commit or redistribute weights).
+  - Approved: the 33 GB checkpoint @ `d26bb61` (every file hash verified), a separate venv (production 0.20.0 untouched), and the sd.cpp comparator TE + mmproj. The comparator also uses the existing 2.1 DiT GGUF + VAE.
+- **Paused 23:00–23:5x for the user's meeting.** Downloads and the venv install were suspended (SIGSTOP) and then resumed. All downloads verified: 30/30 files vs `research/qwen/upstream-file-manifest.json` (`download-verification.json`).
+- **2026-10-07 progress (details in `research/qwen/`):**
+  - **Venv:** `mflux-qwen/.venv` (mflux 0.21.0 + MLX 0.32.2; the rest per the upstream lock). Lock in `config/qwen-python-requirements.lock.txt`.
+  - **q4 export:** `models/qwen/qwen-image-2.1-edit-mflux-q4` (10.64 GB). Byte-identical across 2 runs. Manifest `config/backend-qwen21-edit-mflux.json`.
+  - **Incidents:** see `research/qwen/INCIDENTS.md`:
+    - the watchdog kill missed the child (export run 1);
+    - the harness was edited mid-run (S2).
+  - **Smoke results:**
+    - probes are passive (app = plain CLI pixels); repeat-deterministic;
+    - deferred DiT load is pixel-identical at 512 and 1024 (now the production default);
+    - 512 footprint 12.63 → 8.85 GB; 1024 footprint 14.20 → 12.08 GB;
+    - 1024 edit ≈ 607 s (40 steps).
+- **Running / next (chain markers):**
+  - `research/editing/gen_sources.py` → log `research/editing/gen-sources-1.log`, marker `SOURCES_GEN_DONE`.
+  - Then: accept sources (`sources.json`), draw `regions.json` and commit before any edit; Z-Image real regression set (fe47d88d / 7b45cfbe / befe1b3c / 6aa2b842) + serve check; commit the app; G0 suite (512 first, then 1024; code frozen during chains); G1 sd.cpp bounded A/B.
 
 ## 2026-09-29 — BALANCED (bf16 + 5) adopted at 1024²; 768² confirmation NOT CONFIRMED
 - **Directive:** "PHOTO-GEN NEXT PASS: promote the clean 1024² 5-step result, run a focused 768² confirmation, defer Stage C".

@@ -1,0 +1,119 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "--base-model",
+  "qwen-image-2.1",
+  "--prompt=Change the background to a sunset beach",
+  "--image-paths",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42.png",
+  "--seed",
+  "42",
+  "--steps",
+  "40",
+  "--output-resolution",
+  "512",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/A0r2-worker-512-stock/worker/out.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 2.891,
+   "mlx_peak_gb": 10.289,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.267,
+   "mlx_peak_gb": 11.534,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.4,
+   "mlx_peak_gb": 12.0,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.391,
+   "mlx_peak_gb": 6.087,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 85.65,
+   "mlx_peak_gb": 6.087,
+   "calls": 1
+  },
+  "denoise_seconds": 82.211,
+  "other_seconds": 0.381
+ },
+ "step_seconds": [
+  9.799,
+  1.831,
+  1.776,
+  1.779,
+  1.777,
+  1.776,
+  1.77,
+  1.771,
+  1.778,
+  1.777,
+  1.79,
+  1.803,
+  1.812,
+  1.818,
+  1.823,
+  1.858,
+  1.846,
+  1.841,
+  1.844,
+  1.85,
+  1.845,
+  1.85,
+  1.851,
+  1.858,
+  1.859,
+  1.854,
+  1.853,
+  1.864,
+  1.87,
+  1.876,
+  1.879,
+  1.873,
+  1.885,
+  1.934,
+  1.954,
+  1.97,
+  1.977,
+  1.997,
+  1.993,
+  1.974
+ ],
+ "mlx_peak_gb": 12.0,
+ "denoise_mlx_peak_gb": 7.283,
+ "active_gb": {
+  "after_load": 10.289,
+  "after_text_encode": 10.291,
+  "after_vae_encode": 10.297,
+  "before_loop": 5.517,
+  "after_vae_decode": 1.364,
+  "after_generate_total": 1.351
+ },
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "text_encoder_released": true,
+ "transformer_released": true,
+ "bits": 4,
+ "defer_transformer_load": {
+  "installed": false
+ },
+ "process_seconds": 90.395,
+ "peak_footprint_gb": 12.633
+}

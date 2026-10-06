@@ -1,0 +1,9 @@
+[22:45:56] comparator TE: Qwen/Qwen3-VL-8B-Instruct-GGUF @ f982a07 (Apache-2.0)
+Hint: A new version of huggingface_hub (2.1.1) is available! You are using version 1.32.0.
+Hint: The `hf-cli` skill is not installed. Run `hf skills add -g --claude` to teach your AI agents how to use the `hf` CLI.
+path=/Users/nckandrw/Dev/photo-gen/models/text_encoders
+[22:48:33] Qwen/Qwen-Image-2.1 @ d26bb61 (complete checkpoint, 33.13 GB)
+Still waiting to acquire lock on /Users/nckandrw/Dev/photo-gen/models/research/qwen-image-2.1/.cache/huggingface/.gitignore.lock (elapsed: 0.1 seconds)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+path=/Users/nckandrw/Dev/photo-gen/models/research/qwen-image-2.1
+[23:57:59] QWEN_DOWNLOAD_DONE

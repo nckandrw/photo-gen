@@ -1,0 +1,61 @@
+{
+ "rc": 0,
+ "wall_seconds": 650.189,
+ "defer_transformer_load": false,
+ "pixel_sha256": "10296d4bfd392bf0ede6720755e067295f948b4403410e8fee0a465baa5acc6d",
+ "size": [
+  1024,
+  1024
+ ],
+ "output_alpha": {
+  "mode": "RGBA",
+  "has_alpha": true,
+  "alpha_min": 251,
+  "alpha_max": 255,
+  "opaque": false,
+  "rgba_sha256": "76f60a786ba8dff434c1c437c5b23f5c096f4c4e0b5346ddf978a145449f9feb"
+ },
+ "peak_footprint_gb": 14.202,
+ "mlx_peak_gb": 13.916,
+ "denoise_mlx_peak_gb": 11.134,
+ "active_gb": {
+  "after_load": 10.289,
+  "after_text_encode": 10.298,
+  "after_vae_encode": 10.32,
+  "before_loop": 5.54,
+  "after_vae_decode": 1.402,
+  "after_generate_total": 1.351
+ },
+ "phases": {
+  "load": {
+   "seconds": 2.815,
+   "mlx_peak_gb": 10.289,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.124,
+   "mlx_peak_gb": 11.341,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.419,
+   "mlx_peak_gb": 13.916,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 15.991,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 644.331,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "denoise_seconds": 622.093,
+  "other_seconds": 0.704
+ },
+ "deferred": {
+  "installed": false
+ }
+}

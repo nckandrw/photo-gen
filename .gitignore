@@ -34,6 +34,9 @@ mflux/dl
 mflux/tools
 mflux/hf
 
+# ---- Phase 4 image-edit backend toolchain (separate venv; config/qwen-python-requirements.lock.txt) ----
+mflux-qwen/
+
 # ---- model weights: external, pinned by hash in config/backend-zimage-mflux.json ----
 models/**
 !models/README.md

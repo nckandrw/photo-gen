@@ -1,0 +1,19 @@
+{
+ "source": "models/research/qwen-image-2.1",
+ "export": "models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "quantize": 4,
+ "bits": 4,
+ "load_quantize_seconds": 10.1,
+ "total_seconds": 70.1,
+ "mlx_peak_gb_after_load": 10.359,
+ "mlx_active_gb_after_load": 10.289,
+ "mlx_peak_gb_total": 11.884,
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model"
+}

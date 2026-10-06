@@ -1,0 +1,18 @@
+run_id=B1r2-worker-1024-defer mode=worker1 res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 00:28:50 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 5120.00M  used = 4263.75M  free = 856.25M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 78%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+564144 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/153.0.4234.48/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+373408 /Users/nckandrw/.local/bin/claude
+223072 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/153.0.4234.48/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+195696 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+184864 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/154.1.96.61/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+183216 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/MacOS/Microsoft Teams WebView
+wall_s=607 rc=0 aborted=0 swap_end=4414.88M

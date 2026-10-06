@@ -1,0 +1,9 @@
+wall_s=1 rc=1 aborted=0 swap_end=4883.81M
+EDIT_RUN_END A0-worker-512-stock rc=1 aborted=0
+wall_s=1 rc=1 aborted=0 swap_end=4875.81M
+EDIT_RUN_END A1-worker-512-defer rc=1 aborted=0
+wall_s=1 rc=1 aborted=0 swap_end=4819.81M
+EDIT_RUN_END B1-worker-1024-defer rc=1 aborted=0
+wall_s=1 rc=1 aborted=0 swap_end=4643.75M
+EDIT_RUN_END B0-worker-1024-stock rc=1 aborted=0
+SMOKE2_DONE

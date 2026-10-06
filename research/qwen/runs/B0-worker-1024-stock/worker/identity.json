@@ -1,0 +1,14 @@
+{
+ "rc": 1,
+ "wall_seconds": 0.016,
+ "defer_transformer_load": false,
+ "pixel_sha256": null,
+ "size": null,
+ "output_alpha": null,
+ "peak_footprint_gb": null,
+ "mlx_peak_gb": null,
+ "denoise_mlx_peak_gb": null,
+ "active_gb": null,
+ "phases": null,
+ "deferred": null
+}

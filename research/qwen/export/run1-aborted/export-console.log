@@ -1,0 +1,4 @@
+[00:04:05] start export; swap0=1977MB; Now drawing from 'AC Power'
+[00:05:00] ABORT: swap 8200MB (start 1977MB), critical streak 0
+[00:05:05] exit rc=143; swap now 8298.50M
+QWEN_EXPORT_ABORTED

@@ -1,0 +1,10 @@
+wall_s=91 rc=0 aborted=0 swap_end=4801.50M
+EDIT_RUN_END A0r2-worker-512-stock rc=0 aborted=0
+wall_s=95 rc=0 aborted=0 swap_end=4279.75M
+EDIT_RUN_END A1r2-worker-512-defer rc=0 aborted=0
+wall_s=607 rc=0 aborted=0 swap_end=4414.88M
+EDIT_RUN_END B1r2-worker-1024-defer rc=0 aborted=0
+wall_s=651 rc=0 aborted=0 swap_end=3933.75M
+EDIT_RUN_END B0r2-worker-1024-stock rc=0 aborted=0
+research/qwen/run_edit.sh:63: parse error near `)'
+SMOKE2_DONE
