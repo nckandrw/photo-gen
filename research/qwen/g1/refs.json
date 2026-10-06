@@ -1,0 +1,52 @@
+{
+ "SMOKE": {
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42.png",
+  "ref": "/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/SMOKE-512.png",
+  "size": [
+   512,
+   512
+  ],
+  "instruction": "Change the background to a sunset beach",
+  "ref_pixel_sha256": "c620b3443b6c90125b341b998e31816a2d578c643e4603405ff9fc843c39d85f"
+ },
+ "E01": {
+  "source": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165054Z-9afd59-editsrc-E01-s1101.png",
+  "ref": "/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E01-512.png",
+  "size": [
+   512,
+   512
+  ],
+  "instruction": "Change the red car to a blue motorcycle while preserving the street, lighting, perspective, and all other objects.",
+  "ref_pixel_sha256": "b810fb48f66c3ad6871a305dbab7dce1a27bca032d8b5774d614fce5dd3bc901"
+ },
+ "E05": {
+  "source": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170025Z-9f37b9-editsrc-E05-s1505.png",
+  "ref": "/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E05-512.png",
+  "size": [
+   512,
+   512
+  ],
+  "instruction": "Change the background to a sunset beach",
+  "ref_pixel_sha256": "7ead71d6b3ac8893ae8cb920eecd72e3d1cf61b84be8b6a9e3cca5f33d2cff67"
+ },
+ "E07": {
+  "source": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170453Z-1fd2ad-editsrc-E07-s1707.png",
+  "ref": "/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E07-512.png",
+  "size": [
+   512,
+   512
+  ],
+  "instruction": "Change the hair color to blond.",
+  "ref_pixel_sha256": "e248ba5032b1f998750efdf05b1b3d8740b3f84b4e41863e3f93e59fbf27c3ec"
+ },
+ "E11": {
+  "source": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T171338Z-f0f509-editsrc-E11-s2111.png",
+  "ref": "/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E11-512.png",
+  "size": [
+   512,
+   512
+  ],
+  "instruction": "Replace the text \"BAKERY\" with \"COFFEE\", keeping the same font of the original text.",
+  "ref_pixel_sha256": "67e69581005df4e395117a387ae51c67e2c9c9212f9d13c6406616f382b821b1"
+ }
+}
