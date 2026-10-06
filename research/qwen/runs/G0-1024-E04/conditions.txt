@@ -1,0 +1,20 @@
+run_id=G0-1024-E04 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165809Z-334d7a-editsrc-E04-s1404.png
+prompt=Change the jacket to dark green. Preserve the person's face and pose.
+Wed  7 Oct 2026 02:47:39 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1714.69M  free = 1357.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+362000 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+310384 /Users/nckandrw/.local/bin/claude
+173600 /usr/libexec/textunderstandingd
+105584 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85120 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 62208 /usr/libexec/mobileassetd
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=595 rc=0 aborted=0 swap_end=1192.06M

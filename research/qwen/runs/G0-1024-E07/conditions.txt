@@ -1,0 +1,20 @@
+run_id=G0-1024-E07 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170453Z-1fd2ad-editsrc-E07-s1707.png
+prompt=Change the hair color to blond.
+Wed  7 Oct 2026 03:08:16 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1503.81M  free = 1568.19M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 83%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+237936 /Users/nckandrw/.local/bin/claude
+207088 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+129472 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+107808 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85104 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 59040 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=578 rc=0 aborted=0 swap_end=1266.12M

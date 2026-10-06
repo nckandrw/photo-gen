@@ -1,0 +1,183 @@
+{
+ "job_id": "20261006T190817Z-0b848c",
+ "task": "image-edit",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-06T19:08:17.027+00:00",
+ "started_at": "2026-10-06T19:08:17.028+00:00",
+ "finished_at": "2026-10-06T19:17:53.565+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the hair color to blond.",
+  "width": 1024,
+  "height": 1024,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170453Z-1fd2ad-editsrc-E07-s1707.png",
+   "source_file_sha256": "07662b8e3a75556b9ee8afb156773e4a9e51d6e471e89190c2a6211e2cb470f2",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/345ea60a6e5b5404ef26cd70283ad539147568ac9d8ca656f7f4998fb57987ca.png",
+   "pixel_sha256": "345ea60a6e5b5404ef26cd70283ad539147568ac9d8ca656f7f4998fb57987ca",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T190817Z-0b848c.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T190817Z-0b848c.json",
+ "pixel_sha256": "15ac82403b9f2a3039e5f22cf2ae2739259104793374e8c19867c5ae6a73c1e1",
+ "file_sha256": "0b49e98ae55d348a1285ea0af89d9ab9ecb39ff160b7870270542dff9e905d27",
+ "generation_seconds": 576.437,
+ "phases": {
+  "load": {
+   "seconds": 1.483,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.502,
+   "mlx_peak_gb": 7.193,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 2.034,
+   "mlx_peak_gb": 9.768,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 12.4,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 572.515,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "denoise_seconds": 553.152,
+  "other_seconds": 0.427
+ },
+ "step_seconds": [
+  24.034,
+  13.973,
+  14.402,
+  13.307,
+  13.674,
+  13.939,
+  14.025,
+  13.964,
+  13.922,
+  13.849,
+  13.796,
+  13.825,
+  13.696,
+  13.626,
+  13.618,
+  13.661,
+  13.645,
+  13.588,
+  13.558,
+  13.535,
+  13.583,
+  13.53,
+  13.478,
+  13.493,
+  13.512,
+  13.512,
+  13.576,
+  13.632,
+  13.527,
+  15.019,
+  14.447,
+  13.845,
+  13.634,
+  13.493,
+  13.206,
+  12.768,
+  12.559,
+  12.327,
+  12.17,
+  12.108
+ ],
+ "memory": {
+  "peak_footprint_gb": 12.077,
+  "mlx_peak_gb": 9.768,
+  "denoise_mlx_peak_gb": 11.006
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 251,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "f8c1fdb166a9cc869b25ad43bbe8a1b15606773532759d7c618ce879145662ea"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the hair color to blond.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/345ea60a6e5b5404ef26cd70283ad539147568ac9d8ca656f7f4998fb57987ca.png",
+   "--seed",
+   "42",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T190817Z-0b848c.png"
+  ]
+ },
+ "error": null
+}

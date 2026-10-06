@@ -1,0 +1,20 @@
+run_id=G1-sdcpp-E01 mode=sdcpp res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E01-512.png
+prompt=Change the red car to a blue motorcycle while preserving the street, lighting, perspective, and all other objects.
+Wed  7 Oct 2026 04:08:06 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1524.25M  free = 1547.75M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+316448 /Users/nckandrw/.local/bin/claude
+196304 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 90112 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 86864 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 58240 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 45264 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+git_head=2b55619ba29db152c1aee232fca2493932ca1063
+git_dirty(app,config,research/qwen):
+wall_s=289 rc=0 aborted=0 swap_end=1391.06M

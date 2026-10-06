@@ -1,0 +1,183 @@
+{
+ "job_id": "20261006T195152Z-59fe9e",
+ "task": "image-edit",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-06T19:51:52.185+00:00",
+ "started_at": "2026-10-06T19:51:52.186+00:00",
+ "finished_at": "2026-10-06T19:59:59.408+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the background to a sunset beach",
+  "width": 1024,
+  "height": 1024,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170025Z-9f37b9-editsrc-E05-s1505.png",
+   "source_file_sha256": "e81930012654d8f06f83cb9ff43de977dd66e16031806b4828758f58660c565f",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "pixel_sha256": "8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T195152Z-59fe9e.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T195152Z-59fe9e.json",
+ "pixel_sha256": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+ "file_sha256": "1f3f80c80afddb8769b7a0a5c13d7c1b56ec57453c0a1bd30c612da887bc2dc4",
+ "generation_seconds": 487.14,
+ "phases": {
+  "load": {
+   "seconds": 1.465,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 3.803,
+   "mlx_peak_gb": 7.193,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.919,
+   "mlx_peak_gb": 9.768,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 11.934,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 483.37,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "denoise_seconds": 465.299,
+  "other_seconds": 0.415
+ },
+ "step_seconds": [
+  19.361,
+  9.905,
+  9.867,
+  10.155,
+  10.63,
+  11.592,
+  11.234,
+  11.522,
+  11.682,
+  11.819,
+  11.824,
+  11.75,
+  11.705,
+  11.621,
+  11.559,
+  11.53,
+  11.452,
+  11.452,
+  11.431,
+  11.443,
+  11.496,
+  11.605,
+  11.538,
+  11.531,
+  11.574,
+  11.546,
+  11.765,
+  11.588,
+  11.601,
+  11.614,
+  11.596,
+  11.606,
+  11.603,
+  11.577,
+  11.573,
+  11.569,
+  11.572,
+  11.614,
+  11.565,
+  11.564
+ ],
+ "memory": {
+  "peak_footprint_gb": 12.078,
+  "mlx_peak_gb": 9.768,
+  "denoise_mlx_peak_gb": 11.006
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 251,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the background to a sunset beach",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "--seed",
+   "42",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T195152Z-59fe9e.png"
+  ]
+ },
+ "error": null
+}

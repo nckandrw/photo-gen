@@ -1,0 +1,20 @@
+run_id=G0-512-E05-repeat mode=app res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170025Z-9f37b9-editsrc-E05-s1505.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 01:57:09 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 1183.38M  free = 864.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 82%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+359248 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+352144 /Users/nckandrw/.local/bin/claude
+ 84176 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 68336 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 62544 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 42480 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=112 rc=0 aborted=0 swap_end=1175.38M

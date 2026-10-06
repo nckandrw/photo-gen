@@ -1,0 +1,20 @@
+run_id=G0-512-E10 mode=app res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T171126Z-76fd40-editsrc-E10-s2010.png
+prompt=Change the flower to a red tulip. Keep the text exactly as it is.
+Wed  7 Oct 2026 01:52:50 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 1223.38M  free = 824.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 81%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+351312 /Users/nckandrw/.local/bin/claude
+198352 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+163744 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 97504 /System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService
+ 59200 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 49104 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=110 rc=0 aborted=0 swap_end=1191.38M

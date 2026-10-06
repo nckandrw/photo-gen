@@ -1,0 +1,20 @@
+run_id=G0-512-E01 mode=app res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165054Z-9afd59-editsrc-E01-s1101.png
+prompt=Change the red car to a blue motorcycle while preserving the street, lighting, perspective, and all other objects.
+Wed  7 Oct 2026 01:34:41 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 928.31M  free = 1119.69M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 80%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+394192 /Users/nckandrw/.local/bin/claude
+101696 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85440 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 75744 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 54528 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 54048 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=84 rc=0 aborted=0 swap_end=928.31M

@@ -1,0 +1,20 @@
+run_id=G0-1024-E08 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170707Z-aec4f6-editsrc-E08-s1808.png
+prompt=Replace the bananas with pineapples. Do not change anything else.
+Wed  7 Oct 2026 03:18:14 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 1266.12M  free = 781.88M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+500112 /Users/nckandrw/.local/bin/claude
+390512 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+199408 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+105472 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 89776 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 64896 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=492 rc=0 aborted=0 swap_end=1288.12M

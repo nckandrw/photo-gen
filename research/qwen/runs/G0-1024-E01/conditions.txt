@@ -1,0 +1,20 @@
+run_id=G0-1024-E01 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165054Z-9afd59-editsrc-E01-s1101.png
+prompt=Change the red car to a blue motorcycle while preserving the street, lighting, perspective, and all other objects.
+Wed  7 Oct 2026 02:18:00 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1442.94M  free = 1629.06M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+478704 /Users/nckandrw/.local/bin/claude
+200688 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+170880 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+113888 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 88576 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 50944 /usr/libexec/duetexpertd
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=573 rc=0 aborted=0 swap_end=1474.50M

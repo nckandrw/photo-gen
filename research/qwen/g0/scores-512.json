@@ -1,0 +1,30 @@
+{
+ "config": "Qwen-Image-2.1 q4, mflux 0.21.0, production path (deferred DiT load), output_resolution 512, 40 steps, guidance 1.0, seed 42",
+ "runs": "research/qwen/runs/G0-512-E01..E11 (+ E05-repeat)",
+ "rater": "the AI assistant running the session (not blind: single configuration). Primed: E05's instruction equals the smoke instruction, and the smoke showed how Qwen handles background edits. Scored in one sitting from review sheets (source | output) before any edit_metrics value was computed.",
+ "scored_at": "2026-10-07T02:0x (during the 1024 suite's cooldown; no 1024 output had been viewed)",
+ "scores": {
+  "E01": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "blue motorcycle at about the car's place; street, shops, other cars, lighting and perspective unchanged; the uncovered black car's plate is re-rendered"},
+  "E02": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "knitted blue scarf around the neck; panda, pose, log and forest unchanged"},
+  "E03": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "mug removed, desk filled in cleanly; laptop, plant, wall unchanged"},
+  "E04": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "jacket forest/dark green, same cut and zip; face, hair, pose and park unchanged"},
+  "E05": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "MINOR", "text": null,
+          "notes": "sunset beach behind; vase and all sunflowers (count, shape, colour) and the marble counter kept. MINOR: two sun-like glows on the horizon; the subject keeps its daylight lighting (pasted look)"},
+  "E06": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "convincing watercolour; lighthouse position/shape, railing and rock layout preserved"},
+  "E07": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "blond hair, same cut; eyebrows lightened too; face identity, sweater, watch and backdrop unchanged"},
+  "E08": {"adherence": "PASS", "preservation": "PARTIAL", "composition": "PASS", "quality": "PASS", "text": null,
+          "notes": "front banana crates became pineapples (a distant background bunch at another stall is unchanged). PARTIAL: the ORANGES crate was also turned into pineapples (one listed preserved element materially altered). Apples, crates, chalkboard (incl. its garbled text) and background unchanged"},
+  "E09": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "MINOR", "text": null,
+          "notes": "night, lamp lit, window dark blue; furniture and layout identical. MINOR: faint daylight patches remain on the wall"},
+  "E10": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": "PASS",
+          "notes": "red tulip in the same flat style; 'SPRING SALE' letters, font, colour and position unchanged"},
+  "E11": {"adherence": "PASS", "preservation": "PASS", "composition": "PASS", "quality": "PASS", "text": "PASS",
+          "notes": "sign reads 'COFFEE' in a matching bold serif on the same board; storefront and door unchanged"}
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "E01": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 25.442,
+  "structure_corr": 0.6438,
+  "outside_fraction": 0.504,
+  "outside_mae": 7.364,
+  "outside_psnr": 28.35,
+  "outside_ssim": 0.8882,
+  "inside_mae": 50.648
+ },
+ "E02": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 13.992,
+  "structure_corr": 0.8659,
+  "outside_fraction": 0.847,
+  "outside_mae": 10.73,
+  "outside_psnr": 22.99,
+  "outside_ssim": 0.8804,
+  "inside_mae": 35.925
+ },
+ "E03": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 3.972,
+  "structure_corr": 0.9508,
+  "outside_fraction": 0.944,
+  "outside_mae": 3.058,
+  "outside_psnr": 33.53,
+  "outside_ssim": 0.9508,
+  "inside_mae": 29.743
+ },
+ "E04": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 24.729,
+  "structure_corr": 0.8928,
+  "outside_fraction": 0.549,
+  "outside_mae": 5.197,
+  "outside_psnr": 31.97,
+  "outside_ssim": 0.9543,
+  "inside_mae": 54.951
+ },
+ "E05": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 41.535,
+  "structure_corr": 0.575,
+  "outside_fraction": 0.301,
+  "outside_mae": 59.482,
+  "outside_psnr": 10.71,
+  "outside_ssim": 0.5417,
+  "inside_mae": 31.198
+ },
+ "E06": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 59.035,
+  "structure_corr": 0.3981
+ },
+ "E07": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 9.153,
+  "structure_corr": 0.8523,
+  "outside_fraction": 0.824,
+  "outside_mae": 6.666,
+  "outside_psnr": 29.24,
+  "outside_ssim": 0.8422,
+  "inside_mae": 25.672
+ },
+ "E08": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 28.597,
+  "structure_corr": 0.3778,
+  "outside_fraction": 0.756,
+  "outside_mae": 19.344,
+  "outside_psnr": 16.79,
+  "outside_ssim": 0.5988,
+  "inside_mae": 60.028
+ },
+ "E09": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 102.896,
+  "structure_corr": 0.7456
+ },
+ "E10": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 13.466,
+  "structure_corr": 0.9534,
+  "outside_fraction": 0.685,
+  "outside_mae": 2.351,
+  "outside_psnr": 33.75,
+  "outside_ssim": 0.9594,
+  "inside_mae": 45.735
+ },
+ "E11": {
+  "size": [
+   512,
+   512
+  ],
+  "global_mae": 6.989,
+  "structure_corr": 0.9051,
+  "outside_fraction": 0.862,
+  "outside_mae": 5.238,
+  "outside_psnr": 29.88,
+  "outside_ssim": 0.9311,
+  "inside_mae": 24.311
+ }
+}

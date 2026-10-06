@@ -1,0 +1,20 @@
+run_id=G0-512-E06 mode=app res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170239Z-cc260a-editsrc-E06-s1606.png
+prompt=Turn this photo into a watercolor painting while keeping the composition unchanged.
+Wed  7 Oct 2026 01:44:26 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 1125.31M  free = 922.69M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 81%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+319984 /Users/nckandrw/.local/bin/claude
+197584 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 82528 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 62496 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 54144 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 43024 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=104 rc=0 aborted=0 swap_end=1125.31M

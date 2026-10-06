@@ -1,0 +1,28 @@
+{
+ "created": "2026-10-07T04:29:45",
+ "seed": 20261007,
+ "pairs_file": "research/qwen/g1/pairs.json",
+ "pairs_sha256": "ad873d11d81bb69ef751fa26f325a0c0a7361295a205fd75037618a0e4596512",
+ "inputs": {
+  "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T173442Z-beda43.png": "3e8e9bcaf2bc75b1994b55b31031637e9c9ef0d826432456a21c6feed8bb50c6",
+  "research/qwen/runs/G1-sdcpp-E01/sdcpp.png": "840c9eb6a1b8c32447abbe2ec6e6b215d0f59c57a47ef0d39049b681d8448b1c",
+  "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T174224Z-a3441c.png": "13ecf5f4c97ffbdcebf48d3833096fdd0d9392c8097131e0c8363274ca2a2cd9",
+  "research/qwen/runs/G1-sdcpp-E05/sdcpp.png": "bc160f619c8e028d6b55c93e060abf0e42912cfced1737987d728d48cfa35c1f",
+  "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T174630Z-37a307.png": "0a31cd2d8afcf92a4bec5a9d64bb2690c63c45878ee76988330810c19091c432",
+  "research/qwen/runs/G1-sdcpp-E07/sdcpp.png": "bf2bc3c6815f918dc618736a8bbbb46b0c73a3936f30f4e655e5032bfa251b12",
+  "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T175500Z-664aa7.png": "6ad9e86c1bafd61ab999a0881d02264a2709dc62fcf5b7ec8e06ce4058340d60",
+  "research/qwen/runs/G1-sdcpp-E11/sdcpp.png": "3ef8684b17c8283c94d70c09547074994ca0032dc373465332d2a66475f551e9"
+ },
+ "key_sha256": "bac40ba3eabfa6425a2ee0f63c39c0ad5cf737d8135d5ec2ec97a3f56d98d6e6",
+ "composites": {
+  "C01": "de5987af7ff49dc896d3a6e199bab5a7392ac1886d7dfadfab9435b28d39df9e",
+  "C02": "33c91082a5f66c91fb2e12199519881c116fdbbceae287d8df9f9d236dfeebad",
+  "C03": "e660fc1859504489b5ad5e4c0141c371f4e3a7fc2c18d408f8204c83b87bf2e3",
+  "C04": "ffd964e27f57921e8868aabee4be3b47419ba08e2d04c3059b99bdda36b0b98d"
+ },
+ "scores_frozen": {
+  "file": "research/qwen/g1/blind/SCORES-FROZEN.txt",
+  "sha256": "957ef2296cabecef8e59bcf534c310d9f3c9da9e8ff217d820e26f33e55ad820",
+  "at": "2026-10-07T04:30:16"
+ }
+}

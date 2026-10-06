@@ -1,0 +1,20 @@
+run_id=G1-sdcpp-E05 mode=sdcpp res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E05-512.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 04:13:26 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1371.06M  free = 1700.94M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 82%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+268832 /Users/nckandrw/.local/bin/claude
+194528 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 52336 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 51424 /usr/libexec/hybridsearchd
+ 45440 /System/Library/PrivateFrameworks/ScreenTimeCore.framework/Versions/A/ScreenTimeAgent
+ 41488 /System/Library/PrivateFrameworks/DataAccess.framework/Support/dataaccessd
+git_head=2b55619ba29db152c1aee232fca2493932ca1063
+git_dirty(app,config,research/qwen):
+wall_s=294 rc=0 aborted=0 swap_end=1285.31M

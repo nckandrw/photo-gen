@@ -1,0 +1,20 @@
+run_id=G1-sdcpp-SMOKE mode=sdcpp res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/SMOKE-512.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 04:00:58 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1740.50M  free = 1331.50M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+417904 /Users/nckandrw/.local/bin/claude
+121440 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 95504 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 43344 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 42288 /usr/libexec/mobileassetd
+ 37984 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+git_head=2b55619ba29db152c1aee232fca2493932ca1063
+git_dirty(app,config,research/qwen):
+wall_s=288 rc=0 aborted=0 swap_end=1556.25M

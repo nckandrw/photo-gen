@@ -1,0 +1,20 @@
+run_id=G0-1024-E11 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T171338Z-f0f509-editsrc-E11-s2111.png
+prompt=Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text.
+Wed  7 Oct 2026 03:43:27 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1649.50M  free = 1422.50M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 86%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+287808 /Users/nckandrw/.local/bin/claude
+259552 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 99552 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 97424 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 61776 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 52032 /usr/libexec/duetexpertd
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=484 rc=0 aborted=0 swap_end=1720.62M

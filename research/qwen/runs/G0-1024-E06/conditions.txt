@@ -1,0 +1,20 @@
+run_id=G0-1024-E06 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170239Z-cc260a-editsrc-E06-s1606.png
+prompt=Turn this photo into a watercolor painting while keeping the composition unchanged.
+Wed  7 Oct 2026 02:57:54 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 968.06M  free = 1079.94M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 77%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+387456 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+288768 /Users/nckandrw/.local/bin/claude
+ 96192 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 91088 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 91008 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 76816 /System/Library/Frameworks/Contacts.framework/Support/contactsd
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=602 rc=0 aborted=0 swap_end=1503.81M

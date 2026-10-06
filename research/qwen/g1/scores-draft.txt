@@ -1,0 +1,6 @@
+G1 blind scores (research/qwen/g1/blind, prepared seed 20261007). Rule: per pair, the better side on edit adherence -> preservation -> visual quality (lexicographic), else TIE. Source and instruction consulted from research/editing (not arm information).
+Rater: the AI assistant. DISCLOSURE: one arm reuses the G0-512 mflux outputs, which this rater scored earlier in the session, so blinding is weak. The rater recognized C01-RIGHT (the motorcycle) and C02-LEFT (the double sun) as previously seen images. Both verdicts below rest on large defects, not preferences.
+C01 (E01 car -> blue motorcycle): RIGHT. LEFT fails adherence: the car became a blue car fused with motorcycle parts (malformed hybrid, still a car). RIGHT is a proper blue motorcycle; street preserved in both.
+C02 (E05 background -> sunset beach): RIGHT. Both adhere and preserve vase/flowers/counter; LEFT has two sun-like glows on the horizon (quality MINOR); RIGHT has a single sun.
+C03 (E07 hair -> blond): TIE. Both blond, identity, watch and sweater preserved; LEFT a brighter blond, RIGHT ash blond; no artifacts in either.
+C04 (E11 BAKERY -> COFFEE): TIE. Both read 'COFFEE' in a matching bold serif on the same board; storefront preserved; near-identical.

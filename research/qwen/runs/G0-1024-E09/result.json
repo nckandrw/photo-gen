@@ -1,0 +1,183 @@
+{
+ "job_id": "20261006T192647Z-18369d",
+ "task": "image-edit",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-06T19:26:47.004+00:00",
+ "started_at": "2026-10-06T19:26:47.006+00:00",
+ "finished_at": "2026-10-06T19:34:44.976+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Turn the scene into nighttime with the floor lamp switched on, keeping the furniture and layout unchanged.",
+  "width": 1024,
+  "height": 1024,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170919Z-b85860-editsrc-E09-s1909.png",
+   "source_file_sha256": "17c29eeb02412dbc58d996b4937eb65a1de4621d7186c54670d385ef121c86d2",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/dc1ba0cc87d47ff6e717b03d327f01824e8c59bf627bcdab76aa036ab8d3f27d.png",
+   "pixel_sha256": "dc1ba0cc87d47ff6e717b03d327f01824e8c59bf627bcdab76aa036ab8d3f27d",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T192647Z-18369d.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T192647Z-18369d.json",
+ "pixel_sha256": "3275187a9f5768d77e16c71108cf68b38ef80a96328978c32b5852f11faf9768",
+ "file_sha256": "cea747a7d8dfb755e251a86e99a7e33670803e299916153aef9ae3d059df7b1c",
+ "generation_seconds": 477.892,
+ "phases": {
+  "load": {
+   "seconds": 1.498,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.21,
+   "mlx_peak_gb": 7.193,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.807,
+   "mlx_peak_gb": 9.768,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 11.879,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 474.052,
+   "mlx_peak_gb": 6.116,
+   "calls": 1
+  },
+  "denoise_seconds": 455.606,
+  "other_seconds": 0.55
+ },
+ "step_seconds": [
+  19.803,
+  10.13,
+  9.998,
+  10.293,
+  10.508,
+  10.885,
+  11.076,
+  11.32,
+  11.408,
+  11.52,
+  11.463,
+  11.419,
+  11.369,
+  11.304,
+  11.268,
+  11.252,
+  11.257,
+  11.23,
+  11.31,
+  11.205,
+  11.235,
+  11.228,
+  11.236,
+  11.193,
+  11.204,
+  11.196,
+  11.21,
+  11.56,
+  11.252,
+  11.259,
+  11.319,
+  11.282,
+  11.232,
+  11.272,
+  11.353,
+  11.209,
+  11.278,
+  11.464,
+  11.227,
+  11.271
+ ],
+ "memory": {
+  "peak_footprint_gb": 12.101,
+  "mlx_peak_gb": 9.768,
+  "denoise_mlx_peak_gb": 11.015
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 233,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "4bd646e2a8312f0c28408939b1925056f4f20fb514d8d3c4739e976cc39f1158"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Turn the scene into nighttime with the floor lamp switched on, keeping the furniture and layout unchanged.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/dc1ba0cc87d47ff6e717b03d327f01824e8c59bf627bcdab76aa036ab8d3f27d.png",
+   "--seed",
+   "42",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T192647Z-18369d.png"
+  ]
+ },
+ "error": null
+}

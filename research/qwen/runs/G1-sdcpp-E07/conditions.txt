@@ -1,0 +1,20 @@
+run_id=G1-sdcpp-E07 mode=sdcpp res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E07-512.png
+prompt=Change the hair color to blond.
+Wed  7 Oct 2026 04:18:50 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 1285.31M  free = 762.69M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 81%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+268288 /Users/nckandrw/.local/bin/claude
+193072 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 40192 /usr/libexec/mobileassetd
+ 38704 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 37728 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+ 35072 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+git_head=2b55619ba29db152c1aee232fca2493932ca1063
+git_dirty(app,config,research/qwen):
+wall_s=294 rc=0 aborted=0 swap_end=1350.19M

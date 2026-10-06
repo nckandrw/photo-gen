@@ -1,0 +1,20 @@
+run_id=G0-1024-E02 mode=app res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T165314Z-37f899-editsrc-E02-s1202.png
+prompt=Give the panda a blue scarf.
+Wed  7 Oct 2026 02:27:53 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1466.50M  free = 1605.50M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+586720 /Users/nckandrw/.local/bin/claude
+202368 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+142832 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+106656 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85360 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 57680 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+git_head=a7cc4512fbb85aa9771ea8c850c917b60a00b538
+git_dirty(app,config,research/qwen):
+wall_s=588 rc=0 aborted=0 swap_end=1257.69M

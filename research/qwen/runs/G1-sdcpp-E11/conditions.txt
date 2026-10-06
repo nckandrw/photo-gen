@@ -1,0 +1,20 @@
+run_id=G1-sdcpp-E11 mode=sdcpp res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E11-512.png
+prompt=Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text.
+Wed  7 Oct 2026 04:24:14 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1350.19M  free = 1721.81M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 82%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+310928 /Users/nckandrw/.local/bin/claude
+293696 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 98096 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 46928 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 42800 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 37040 /usr/libexec/mobileassetd
+git_head=2b55619ba29db152c1aee232fca2493932ca1063
+git_dirty(app,config,research/qwen):
+wall_s=294 rc=0 aborted=0 swap_end=1388.12M

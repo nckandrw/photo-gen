@@ -1,0 +1,183 @@
+{
+ "job_id": "20261006T175250Z-ff27fa",
+ "task": "image-edit",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-06T17:52:50.936+00:00",
+ "started_at": "2026-10-06T17:52:50.938+00:00",
+ "finished_at": "2026-10-06T17:54:39.358+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the flower to a red tulip. Keep the text exactly as it is.",
+  "width": 512,
+  "height": 512,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T171126Z-76fd40-editsrc-E10-s2010.png",
+   "source_file_sha256": "8f6e9d9b122332cd5a50e9ab4015e6bfa219b2ac46b476955fc1faf7d516d42a",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/ce3ca6e9f6086426b119ae5993e7915fae34a439b7bfb05f3b15937f8ac856e0.png",
+   "pixel_sha256": "ce3ca6e9f6086426b119ae5993e7915fae34a439b7bfb05f3b15937f8ac856e0",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T175250Z-ff27fa.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T175250Z-ff27fa.json",
+ "pixel_sha256": "58f97b38c1afac9face74c761c532cf888c74cd1fde545c9be7eae40f47396e2",
+ "file_sha256": "8b65e2f1211280ddb2ee949bf6df810399b463acb3b75f807d692af2a07eba47",
+ "generation_seconds": 108.364,
+ "phases": {
+  "load": {
+   "seconds": 1.492,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.06,
+   "mlx_peak_gb": 7.385,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.563,
+   "mlx_peak_gb": 7.852,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.69,
+   "mlx_peak_gb": 6.087,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 104.646,
+   "mlx_peak_gb": 6.087,
+   "calls": 1
+  },
+  "denoise_seconds": 101.041,
+  "other_seconds": 0.292
+ },
+ "step_seconds": [
+  4.964,
+  2.384,
+  2.293,
+  2.278,
+  2.262,
+  2.283,
+  2.267,
+  2.265,
+  2.273,
+  2.254,
+  2.287,
+  2.282,
+  2.276,
+  2.324,
+  2.318,
+  2.309,
+  2.524,
+  2.406,
+  2.323,
+  2.397,
+  2.42,
+  2.419,
+  2.43,
+  2.542,
+  2.771,
+  2.522,
+  2.452,
+  2.497,
+  2.56,
+  2.579,
+  2.593,
+  2.602,
+  2.725,
+  2.616,
+  2.655,
+  2.719,
+  2.645,
+  2.715,
+  2.892,
+  2.63
+ ],
+ "memory": {
+  "peak_footprint_gb": 8.813,
+  "mlx_peak_gb": 7.852,
+  "denoise_mlx_peak_gb": 7.241
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 232,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "06d11f425cfc32e5ded034bb0d30d253de63709742f70c0f3dabafed0aa1360e"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 512,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the flower to a red tulip. Keep the text exactly as it is.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/ce3ca6e9f6086426b119ae5993e7915fae34a439b7bfb05f3b15937f8ac856e0.png",
+   "--seed",
+   "42",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "512",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T175250Z-ff27fa.png"
+  ]
+ },
+ "error": null
+}

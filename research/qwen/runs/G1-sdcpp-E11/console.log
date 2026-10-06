@@ -1,0 +1,424 @@
+[VERBOSE] main.cpp:697  - version: stable-diffusion.cpp version unknown, commit 88411ef
+ggml_metal_device_init: testing tensor API for f16 support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010e81f0 | th_max = 1024 | th_width =   32
+ggml_metal_device_init: testing tensor API for bfloat support
+ggml_metal_library_compile_pipeline: compiling pipeline: base = 'dummy_kernel', name = 'dummy_kernel'
+ggml_metal_library_compile_pipeline: loaded dummy_kernel                                  0x1010e8ab0 | th_max = 1024 | th_width =   32
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_init: loaded in 0.015 sec
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M5)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple10  (1010)
+ggml_metal_device_init: GPU family: MTLGPUFamilyCommon3 (3003)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal4  (5002)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = true
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 12713.12 MB
+[VERBOSE] main.cpp:698  - System Info: 
+   NEON = 1 |    ARM_FMA = 1 |    FP16_VA = 1 |    DOTPROD = 1 |    ACCELERATE = 1 |    REPACK = 1 | 
+[VERBOSE] main.cpp:699  - SDCliParams {
+  mode: img_gen,
+  output_path: "research/qwen/runs/G1-sdcpp-E11/sdcpp.png",
+  image_path: "",
+  metadata_format: "text",
+  log_level: verbose,
+  color: false,
+  convert_name: false,
+  preview_method: none,
+  preview_interval: 1,
+  preview_path: "preview.png",
+  preview_fps: 16,
+  taesd_preview: false,
+  preview_noisy: false,
+  imatrix_out: "",
+  metadata_raw: false,
+  metadata_brief: false,
+  metadata_all: false
+}
+[VERBOSE] main.cpp:700  - SDContextParams {
+  n_threads: 4,
+  conditioning_cache_size: 0,
+  model_path: "",
+  clip_l_path: "",
+  clip_g_path: "",
+  clip_vision_path: "",
+  t5xxl_path: "",
+  llm_path: "/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf",
+  llm_vision_path: "/Users/nckandrw/Dev/photo-gen/models/text_encoders/mmproj-Qwen3VL-8B-Instruct-F16.gguf",
+  tokenizer: "",
+  diffusion_model_path: "/Users/nckandrw/Dev/photo-gen/models/diffusion_models/qwen_image_2.1-Q4_K.gguf",
+  high_noise_diffusion_model_path: "",
+  uncond_diffusion_model_path: "",
+  embeddings_connectors_path: "",
+  vae_path: "/Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors",
+  vae_format: "auto",
+  audio_vae_path: "",
+  audio_encoder_path: "",
+  taesd_path: "",
+  esrgan_path: "",
+  control_net_path: "",
+  embedding_dir: "",
+  embeddings: {
+  }
+  wtype: NONE,
+  tensor_type_rules: "",
+  lora_model_dir: ".",
+  hires_upscalers_dir: "",
+  photo_maker_path: "",
+  rng_type: cuda,
+  sampler_rng_type: NONE,
+  offload_params_to_cpu: false,
+  max_vram: "0",
+  disable_prefetch: false,
+  disable_segmented_compute: false,
+  eager_load: false,
+  backend: "",
+  params_backend: "",
+  split_mode: "",
+  model_args: "",
+  auto_fit: true,
+  enable_mmap: false,
+  control_net_cpu: false,
+  clip_on_cpu: false,
+  vae_on_cpu: false,
+  flash_attn: false,
+  diffusion_flash_attn: false,
+  sage_attn: false,
+  linear_scale: 0,
+  attn_scale: 0,
+  diffusion_conv_direct: false,
+  vae_conv_direct: false,
+  prediction: NONE,
+  lora_apply_mode: auto,
+  force_sdxl_vae_conv_scale: false
+}
+[VERBOSE] main.cpp:701  - SDGenerationParams {
+  loras: "{
+  }",
+  high_noise_loras: "{
+  }",
+  prompt: "Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text.",
+  negative_prompt: "",
+  ad_model_path: "",
+  ad_prompt: "",
+  ad_negative_prompt: "",
+  extra_ad_args: "",
+  clip_skip: -1,
+  width: 512,
+  height: 512,
+  batch_count: 1,
+  qwen_image_layers: 3,
+  init_image_path: "",
+  end_image_path: "",
+  mask_image_path: "",
+  control_image_path: "",
+  ref_image_paths: ["/Users/nckandrw/Dev/photo-gen/research/qwen/g1/refs/E11-512.png"],
+  ref_video_paths: [],
+  ref_video_audio_paths: [],
+  ref_audio_paths: [],
+  control_video_path: "",
+  image_preprocess: ,
+  ref_image_args: ,
+  increase_ref_index: false,
+  pm_id_images_dir: "",
+  pm_id_embed_path: "",
+  pm_style_strength: 20,
+  skip_layers: [7, 8, 9],
+  sample_params: (txt_cfg: 1.00, img_cfg: 1.00, distilled_guidance: 3.50, slg.layer_count: 0, slg.layer_start: 0.01, slg.layer_end: 0.20, slg.scale: 0.00, scheduler: NONE, sample_method: euler, sample_steps: 40, eta: inf, shifted_timestep: 0, flow_shift: inf, extra_sample_args: ),
+  high_noise_skip_layers: [7, 8, 9],
+  high_noise_sample_params: (txt_cfg: 7.00, img_cfg: 7.00, distilled_guidance: 3.50, slg.layer_count: 0, slg.layer_start: 0.01, slg.layer_end: 0.20, slg.scale: 0.00, scheduler: NONE, sample_method: NONE, sample_steps: 20, eta: inf, shifted_timestep: 0, flow_shift: inf, extra_sample_args: ),
+  custom_sigmas: [],
+  cache_mode: "",
+  cache_option: "",
+  cache: disabled (threshold=inf, start=0.15, end=0.95),
+  moe_boundary: 0.875,
+  video_frames: 1,
+  fps: 16,
+  vace_strength: 1,
+  strength: 0.75,
+  control_strength: 0.9,
+  seed: 42,
+  upscale_repeats: 1,
+  upscale_tile_size: 128,
+  hires: { enabled: false, upscaler: "Latent", model_path: "", scale: 2, target_width: 0, target_height: 0, steps: 0, denoising_strength: 0.7, custom_sigmas: [], upscale_tile_size: 128 },
+  vae_tiling_params: { 0, 0, 0, 0, 0.5, 0, 0, "" },
+}
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:714  - loading diffusion model from '/Users/nckandrw/Dev/photo-gen/models/diffusion_models/qwen_image_2.1-Q4_K.gguf'
+[INFO   ] model_loader.cpp:215  - load /Users/nckandrw/Dev/photo-gen/models/diffusion_models/qwen_image_2.1-Q4_K.gguf using gguf format
+[VERBOSE] model_loader.cpp:261  - init from '/Users/nckandrw/Dev/photo-gen/models/diffusion_models/qwen_image_2.1-Q4_K.gguf'
+[INFO   ] diffusion_engine.cpp:771  - loading llm from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf'
+[INFO   ] model_loader.cpp:215  - load /Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf using gguf format
+[VERBOSE] model_loader.cpp:261  - init from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf'
+[INFO   ] diffusion_engine.cpp:778  - loading llm vision from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/mmproj-Qwen3VL-8B-Instruct-F16.gguf'
+[INFO   ] model_loader.cpp:215  - load /Users/nckandrw/Dev/photo-gen/models/text_encoders/mmproj-Qwen3VL-8B-Instruct-F16.gguf using gguf format
+[VERBOSE] model_loader.cpp:261  - init from '/Users/nckandrw/Dev/photo-gen/models/text_encoders/mmproj-Qwen3VL-8B-Instruct-F16.gguf'
+[INFO   ] diffusion_engine.cpp:785  - loading vae from '/Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors'
+[INFO   ] model_loader.cpp:221  - load /Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors using safetensors format
+[VERBOSE] model_loader.cpp:289  - init from '/Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors', prefix = 'vae.'
+[INFO   ] diffusion_engine.cpp:977  - Version: Qwen Image 2.1 
+[INFO   ] backend_fit.cpp:323  - auto-fit plan:
+[INFO   ] backend_fit.cpp:324  -   devices:
+[INFO   ] backend_fit.cpp:328  -     MTL0         Apple M5                         free  12123 MiB, budget  11611 MiB
+[INFO   ] backend_fit.cpp:334  -     RAM          free  11482 MiB, params budget   9434 MiB
+[INFO   ] backend_fit.cpp:336  -   compute-device weight cache priority: diffusion > te > vae
+[INFO   ] backend_fit.cpp:337  -   components (params: compute device -> RAM -> other GPU -> disk):
+[INFO   ] backend_fit.cpp:348  -     DiT          params   4003 MiB, compute reserve  2048 MiB -> compute MTL0, params MTL0
+[INFO   ] backend_fit.cpp:348  -     Conditioner  params   5894 MiB, compute reserve  2048 MiB -> compute MTL0, params cpu
+[INFO   ] backend_fit.cpp:348  -     VAE          params    644 MiB, compute reserve  1024 MiB -> compute MTL0, params cpu
+[INFO   ] backend_fit.cpp:477  - auto-fit: --backend "diffusion=MTL0,te=MTL0,vae=MTL0" --params-backend "te=cpu,vae=cpu"
+[VERBOSE] ggml_extend_backend.cpp:404  - Initializing backend: MTL0
+[INFO   ] ggml - ggml_metal_init: allocating
+[INFO   ] ggml - ggml_metal_init: found device: Apple M5
+[INFO   ] ggml - ggml_metal_init: picking default device: Apple M5
+[INFO   ] ggml - ggml_metal_init: use fusion         = true
+[INFO   ] ggml - ggml_metal_init: use concurrency    = true
+[INFO   ] ggml - ggml_metal_init: use graph optimize = true
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:1494 - Weight type stat:                      f32: 379  |     f16: 118  |    q4_K: 409  |    q6_K: 37   |    bf16: 311  
+[INFO   ] diffusion_engine.cpp:1495 - Conditioner weight type stat:          f32: 379  |     f16: 118  |    q4_K: 217  |    q6_K: 37   
+[INFO   ] diffusion_engine.cpp:1496 - Diffusion model weight type stat:     q4_K: 192  |    bf16: 73   
+[INFO   ] diffusion_engine.cpp:1497 - VAE weight type stat:                 bf16: 238  
+[VERBOSE] diffusion_engine.cpp:1499 - ggml tensor size = 432 bytes
+[VERBOSE] ggml_extend_backend.cpp:404  - Initializing backend: CPU
+[VERBOSE] llm.hpp:374  - llm: num_layers = 36, vocab_size = 151936, hidden_size = 4096, intermediate_size = 12288
+[VERBOSE] llm.hpp:2213 - enable llm vision
+[VERBOSE] qwen2_tokenizer.cpp:14   - merges size 151387
+[VERBOSE] qwen2_tokenizer.cpp:39   - vocab size: 151674
+[VERBOSE] qwen_image_2_1.hpp:54   - qwen_image_2_1: layers = 32, hidden_size = 4096, context_dim = 4096
+[INFO   ] model_builders.cpp:587  - using VAE for encoding / decoding
+[VERBOSE] wan_vae.hpp:1320 - Wan VAE convolution type: 3D
+[VERBOSE] diffusion_engine.cpp:1193 - validating model metadata
+[VERBOSE] diffusion_engine.cpp:1258 - model metadata validated; weights will be prepared lazily
+[INFO   ] diffusion_engine.cpp:1319 - total params memory size = 10055.07MB (VRAM 4003.05MB, RAM 6052.03MB): text_encoders 5407.65MB(RAM), diffusion_model 4003.05MB(VRAM), vae 644.38MB(RAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A)
+[INFO   ] diffusion_engine.cpp:1438 - running in FLOW mode
+[INFO   ] image_preprocess.cpp:268  - preprocess ref[0]: 512x512 crop=(0,0,512,512) resize=512x512 pad=(0,0) output=512x512 filter=auto(0) antialias=false
+[INFO   ] image.cpp:807  - generate_image 512x512
+[VERBOSE] model_loader.cpp:189  - using 4 threads for model loading
+[INFO   ] diffusion_engine.cpp:2927 - Using 'qwen' preset for reference images
+[INFO   ] denoiser.hpp:1180 - get_sigmas with Flux scheduler
+[VERBOSE] denoiser.hpp:767  - Flux scheduler: image_seq_len=1024, steps=40, mu=0.630
+[INFO   ] request.cpp:420  - sampling using Euler method
+[INFO   ] image.cpp:272  - EDIT mode
+[VERBOSE] image.cpp:282  - auto resize ref images
+[VERBOSE] image.cpp:311  - resize vae ref image 0 from 512x512 to 512x512
+[INFO   ] ggml_graph_cut.cpp:1034 - wan_vae build cached graph cut plan done (taking 0 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 98/238 tensors from /Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors
+  |##################################################| 98/98 - 691.23MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 0.22s (read: 0.19s, memcpy: 0.00s, convert: 0.01s, copy_to_backend: 0.00s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (148.67 MB, 98 tensors, 1 blocks, RAM) on CPU
+[VERBOSE] model_manager.cpp:621  - model manager staged compute params (148.67 MB, 98 tensors, 1 blocks) to MTL0, taking 0.01s
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_pad_f32', name = 'kernel_pad_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_pad_f32                                0x1010eed70 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_roll_f32', name = 'kernel_roll_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_roll_f32                               0x1010f6f30 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_im2col_f16', name = 'kernel_im2col_f16'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_im2col_f16                             0x1010f79b0 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f16_f16_4', name = 'kernel_mul_mv_f16_f16_4_nsg=1_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f16_f16_4_nsg=1_ne12=1_r2=1_r3=1      0x1010f83b0 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_cpy_f32_f32', name = 'kernel_cpy_f32_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_cpy_f32_f32                            0x1010f8730 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=1     0x78f9854000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_rms_norm_mul_f32_4', name = 'kernel_rms_norm_mul_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_rms_norm_mul_f32_4                    0x78f9854380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=106_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=106_cnt=0          0x78f9854700 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f16', name = 'kernel_mul_mm_f16_f16_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f16_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f9854a80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32_4', name = 'kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_4_op=0_nf=1_rb=0_cb=0     0x78f9855180 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_sum_rows_f32_f32_4', name = 'kernel_sum_rows_f32_f32_4_op=11'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_sum_rows_f32_f32_4_op=11              0x78f9855500 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f16', name = 'kernel_mul_mm_f16_f16_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f16_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f9855880 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_sum_rows_f32_f32', name = 'kernel_sum_rows_f32_f32_op=11'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_sum_rows_f32_f32_op=11                0x78f9855c00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f9855f80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=10_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=10_cnt=0           0x78f9856300 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_soft_max_f32_4', name = 'kernel_soft_max_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_soft_max_f32_4                        0x78f9856680 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - wan_vae compute buffer size: 750.81 MB(VRAM) on MTL0 (peak across 1 segment)
+[VERBOSE] vae.hpp:262  - computing vae encode graph completed, taking 1.34s
+[INFO   ] image.cpp:396  - encode_first_stage completed, taking 1.35s
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_start|>system
+Comprehend and analyze the provided prompt.<|im_end|>
+" to 14 tokens ["<|im_start|>", "system", "Ċ", "Com", "preh", "end", "Ġand", "Ġanalyze", "Ġthe", "Ġprovided", "Ġprompt", ".", "<|im_end|>", "Ċ", ]
+[INFO   ] ggml_graph_cut.cpp:1034 - qwen3vl build cached graph cut plan done (taking 1 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 352/352 tensors from /Users/nckandrw/Dev/photo-gen/models/text_encoders/mmproj-Qwen3VL-8B-Instruct-F16.gguf
+  |##########                                        | 66/352 - 623.80MB/s[K  |###################                               | 128/352 - 697.94MB/s[K  |############################                      | 194/352 - 711.54MB/s[K  |#####################################             | 258/352 - 727.84MB/s[K  |##############################################    | 320/352 - 731.30MB/s[K  |################################################  | 334/352 - 637.72MB/s[K  |##################################################| 346/352 - 653.76MB/s[K  |##################################################| 352/352 - 671.52MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 1.65s (read: 1.47s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (1105.32 MB, 352 tensors, 1 blocks, RAM) on CPU
+[VERBOSE] model_manager.cpp:621  - model manager staged compute params (1105.32 MB, 352 tensors, 2 blocks) to MTL0, taking 0.09s
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_concat_f32', name = 'kernel_concat_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_concat_f32                            0x78f9856d80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=0_nf=1_rb=0_cb=0     0x78f9857100 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_get_rows_f32', name = 'kernel_get_rows_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_get_rows_f32                          0x78f9857480 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=1     0x78f9857800 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_norm_mul_f32_4', name = 'kernel_norm_mul_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_norm_mul_f32_4                        0x78f9857b80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f32', name = 'kernel_mul_mm_f16_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f99ec000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_repeat_f32', name = 'kernel_repeat_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_repeat_f32                            0x78f99ec380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32', name = 'kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_op=2_nf=1_rb=0_cb=0     0x78f99ec700 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=1_bco=0_ne12=16_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=1_bco=0_ne12=16_ne13=1_r2=1_r3=1     0x78f99eca80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=16_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=16_ne13=1_r2=1_r3=1     0x78f99ece00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f32', name = 'kernel_mul_mm_f16_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f99ed180 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=103_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=103_cnt=0          0x78f99ed500 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f32', name = 'kernel_mul_mm_f16_f32_bci=1_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f32_bci=1_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f99ed880 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=104_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=104_cnt=0          0x78f99edf80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - qwen3vl compute buffer size: 103.59 MB(VRAM) on MTL0 (peak across 1 segment)
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_start|>system
+Comprehend and analyze the provided prompt.<|im_end|>
+<|im_start|>user
+<image1><|vision_start|>" to 22 tokens ["<|im_start|>", "system", "Ċ", "Com", "preh", "end", "Ġand", "Ġanalyze", "Ġthe", "Ġprovided", "Ġprompt", ".", "<|im_end|>", "Ċ", "<|im_start|>", "user", "Ċ", "<", "image", "1", ">", "<|vision_start|>", ]
+[VERBOSE] conditioner.hpp:2146 - parse '<|im_start|>system
+Comprehend and analyze the provided prompt.<|im_end|>
+<|im_start|>user
+<image1><|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text.<|im_end|>
+<|im_start|>assistant
+' to [['<|im_start|>system
+Comprehend and analyze the provided prompt.<|im_end|>
+<|im_start|>user
+<image1><|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>', 1], ['Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text.', 1], ['<|im_end|>
+<|im_start|>assistant
+', 1], ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_start|>system
+Comprehend and analyze the provided prompt.<|im_end|>
+<|im_start|>user
+<image1><|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|>" to 279 tokens ["<|im_start|>", "system", "Ċ", "Com", "preh", "end", "Ġand", "Ġanalyze", "Ġthe", "Ġprovided", "Ġprompt", ".", "<|im_end|>", "Ċ", "<|im_start|>", "user", "Ċ", "<", "image", "1", ">", "<|vision_start|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|image_pad|>", "<|vision_end|>", ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text." to 23 tokens ["Replace", "Ġthe", "Ġtext", "Ġ"", "BA", "K", "ERY", """, "Ġwith", "Ġ"", "CO", "FF", "EE", "",", "Ġkeeping", "Ġthe", "Ġsame", "Ġfont", "Ġof", "Ġthe", "Ġoriginal", "Ġtext", ".", ]
+[VERBOSE] bpe_tokenizer.cpp:245  - split prompt "<|im_end|>
+<|im_start|>assistant
+" to 5 tokens ["<|im_end|>", "Ċ", "<|im_start|>", "assistant", "Ċ", ]
+[INFO   ] ggml_graph_cut.cpp:1034 - qwen3vl build cached graph cut plan done (taking 0 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 397/399 tensors from /Users/nckandrw/Dev/photo-gen/models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf
+  |###                                               | 17/397 - 380.14MB/s[K  |####                                              | 28/397 - 474.14MB/s[K  |#####                                             | 39/397 - 508.44MB/s[K  |#######                                           | 50/397 - 520.73MB/s[K  |#########                                         | 65/397 - 567.77MB/s[K  |##########                                        | 78/397 - 567.79MB/s[K  |############                                      | 89/397 - 567.05MB/s[K  |#############                                     | 100/397 - 558.97MB/s[K  |###############                                   | 116/397 - 738.39MB/s[K  |#################                                 | 134/397 - 764.15MB/s[K  |###################                               | 149/397 - 746.47MB/s[K  |#####################                             | 166/397 - 766.07MB/s[K  |#######################                           | 182/397 - 754.02MB/s[K  |##########################                        | 200/397 - 772.91MB/s[K  |############################                      | 215/397 - 760.32MB/s[K  |##############################                    | 236/397 - 775.77MB/s[K  |################################                  | 248/397 - 763.62MB/s[K  |##################################                | 265/397 - 775.16MB/s[K  |####################################              | 280/397 - 764.90MB/s[K  |#####################################             | 291/397 - 755.29MB/s[K  |#######################################           | 303/397 - 744.59MB/s[K  |#########################################         | 320/397 - 749.06MB/s[K  |###########################################       | 335/397 - 748.08MB/s[K  |############################################      | 347/397 - 740.28MB/s[K  |##############################################    | 358/397 - 734.05MB/s[K  |###############################################   | 373/397 - 740.28MB/s[K  |################################################# | 386/397 - 734.44MB/s[K  |##################################################| 397/397 - 730.69MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 5.89s (read: 5.85s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (4302.32 MB, 397 tensors, 1 blocks, RAM) on CPU
+[VERBOSE] model_manager.cpp:621  - model manager staged compute params (4302.32 MB, 397 tensors, 5 blocks) to MTL0, taking 2.71s
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_get_rows_q4_K', name = 'kernel_get_rows_q4_K'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_get_rows_q4_K                         0x78f99ee680 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q6_K_f32', name = 'kernel_mul_mm_q6_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q6_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f99eea00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q4_K_f32', name = 'kernel_mul_mm_q4_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q4_K_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f99eed80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_rope_multi_f32', name = 'kernel_rope_multi_f32_imrope=1_is_back=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_rope_multi_f32_imrope=1_is_back=0     0x78f99ef100 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=4_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=4_r3=1     0x78f99ef480 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32', name = 'kernel_unary_f32_f32_op=10_cnt=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_op=10_cnt=0             0x78f99ef800 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_soft_max_f32', name = 'kernel_soft_max_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_soft_max_f32                          0x78f99efb80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=1_bco=1_ne12=32_ne13=1_r2=4_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=1_bco=1_ne12=32_ne13=1_r2=4_r3=1     0x78f9856a00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_bin_fuse_f32_f32_f32_4', name = 'kernel_bin_fuse_f32_f32_f32_4_op=2_nf=1_rb=0_cb=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_bin_fuse_f32_f32_f32_4_op=2_nf=1_rb=0_cb=0     0x78f9854e00 | th_max = 1024 | th_width =   32
+[VERBOSE] conditioner.hpp:3139 - computing condition graph completed, taking 12024 ms
+[INFO   ] image.cpp:522  - get_learned_condition completed, taking 12.02s
+[INFO   ] image.cpp:859  - generating image: 1/1 - seed 42
+[INFO   ] ggml_graph_cut.cpp:1034 - qwen_image_2_1 build cached graph cut plan done (taking 3 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 265/265 tensors from /Users/nckandrw/Dev/photo-gen/models/diffusion_models/qwen_image_2.1-Q4_K.gguf
+  |###                                               | 14/265 - 447.62MB/s[K  |#####                                             | 22/265 - 395.24MB/s[K  |######                                            | 29/265 - 440.52MB/s[K  |########                                          | 38/265 - 626.81MB/s[K  |##########                                        | 49/265 - 625.61MB/s[K  |###########                                       | 58/265 - 621.28MB/s[K  |##############                                    | 73/265 - 688.80MB/s[K  |################                                  | 81/265 - 672.10MB/s[K  |#################                                 | 90/265 - 665.06MB/s[K  |###################                               | 100/265 - 687.50MB/s[K  |######################                            | 113/265 - 696.79MB/s[K  |########################                          | 122/265 - 690.82MB/s[K  |#########################                         | 132/265 - 706.22MB/s[K  |###########################                       | 140/265 - 697.53MB/s[K  |#############################                     | 153/265 - 704.39MB/s[K  |###############################                   | 161/265 - 696.68MB/s[K  |#################################                 | 171/265 - 693.44MB/s[K  |###################################               | 181/265 - 709.33MB/s[K  |#####################################             | 193/265 - 707.20MB/s[K  |#######################################           | 202/265 - 703.08MB/s[K  |########################################          | 211/265 - 698.05MB/s[K  |##########################################        | 222/265 - 712.86MB/s[K  |############################################      | 233/265 - 707.98MB/s[K  |##############################################    | 243/265 - 705.20MB/s[K  |################################################  | 253/265 - 715.49MB/s[K  |##################################################| 263/265 - 712.63MB/s[K  |##################################################| 265/265 - 721.53MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 5.55s (read: 5.41s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.05s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (4003.05 MB, 265 tensors, 4 blocks, VRAM) on MTL0
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_rms_norm_f32_4', name = 'kernel_rms_norm_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_rms_norm_f32_4                        0x78f9a40700 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=10_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=10_cnt=1           0x78f9a40a80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_bf16_f32', name = 'kernel_mul_mm_bf16_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_bf16_f32_bci=0_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f9a40e00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_bf16_f32', name = 'kernel_mul_mm_bf16_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_bf16_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f9a41180 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_norm_f32_4', name = 'kernel_norm_f32_4'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_norm_f32_4                            0x78f9a41500 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32', name = 'kernel_unary_f32_f32_op=10_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_op=10_cnt=1             0x78f9a41880 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_timestep_embedding_f32', name = 'kernel_timestep_embedding_f32'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_timestep_embedding_f32                0x78f9a41c00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_ext_bf16_f32_r1_2', name = 'kernel_mul_mv_ext_bf16_f32_r1_2_nsg=2_nxpsg=16_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ext_bf16_f32_r1_2_nsg=2_nxpsg=16_ne12=1_r2=1_r3=1     0x78f9a41f80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=106_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=106_cnt=1          0x78f9a42300 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_ext_f32_f32_r1_4', name = 'kernel_mul_mv_ext_f32_f32_r1_4_nsg=2_nxpsg=8_ne12=32_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ext_f32_f32_r1_4_nsg=2_nxpsg=8_ne12=32_r2=1_r3=1     0x78f9a42680 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f32_f32_short', name = 'kernel_mul_mv_f32_f32_short_nsg=1_ne12=32_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f32_f32_short_nsg=1_ne12=32_r2=1_r3=1     0x78f9a42a00 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=0_bco=1_ne12=32_ne13=1_r2=1_r3=1     0x78f9a42d80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=1_bco=0_ne12=32_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=1_bco=0_ne12=32_ne13=1_r2=1_r3=1     0x78f9a43100 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f32_f32', name = 'kernel_mul_mm_f32_f32_bci=1_bco=1_ne12=32_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f32_f32_bci=1_bco=1_ne12=32_ne13=1_r2=1_r3=1     0x78f9a43480 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_unary_f32_f32_4', name = 'kernel_unary_f32_f32_4_op=100_cnt=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_unary_f32_f32_4_op=100_cnt=1          0x78f9a43800 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_bf16_f32_4', name = 'kernel_mul_mv_bf16_f32_4_nsg=4_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_bf16_f32_4_nsg=4_ne12=1_r2=1_r3=1     0x78f9a40000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - qwen_image_2_1 compute buffer size: 3625.58 MB(VRAM) on MTL0 (peak across 1 segment)
+  |=>                                                | 1/40 - 18.51s/it[K[INFO   ] ggml_graph_cut.cpp:1034 - qwen_image_2_1 build cached graph cut plan done (taking 1 ms)
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_q4_K_f32', name = 'kernel_mul_mm_q4_K_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_q4_K_f32_bci=0_bco=0_ne12=1_ne13=1_r2=1_r3=1     0x78f99edc00 | th_max = 1024 | th_width =   32
+  |==>                                               | 2/40 - 5.78s/it[K  |===>                                              | 3/40 - 5.76s/it[K  |=====>                                            | 4/40 - 5.73s/it[K  |======>                                           | 5/40 - 5.77s/it[K  |=======>                                          | 6/40 - 5.77s/it[K  |========>                                         | 7/40 - 5.78s/it[K  |==========>                                       | 8/40 - 5.78s/it[K  |===========>                                      | 9/40 - 5.77s/it[K  |============>                                     | 10/40 - 5.88s/it[K  |=============>                                    | 11/40 - 6.24s/it[K  |===============>                                  | 12/40 - 6.28s/it[K  |================>                                 | 13/40 - 6.71s/it[K  |=================>                                | 14/40 - 6.52s/it[K  |==================>                               | 15/40 - 6.59s/it[K  |====================>                             | 16/40 - 6.70s/it[K  |=====================>                            | 17/40 - 6.84s/it[K  |======================>                           | 18/40 - 7.40s/it[K  |=======================>                          | 19/40 - 6.93s/it[K  |=========================>                        | 20/40 - 7.04s/it[K  |==========================>                       | 21/40 - 7.00s/it[K  |===========================>                      | 22/40 - 7.00s/it[K  |============================>                     | 23/40 - 6.94s/it[K  |==============================>                   | 24/40 - 6.91s/it[K  |===============================>                  | 25/40 - 6.88s/it[K  |================================>                 | 26/40 - 6.86s/it[K  |=================================>                | 27/40 - 6.80s/it[K  |===================================>              | 28/40 - 6.81s/it[K  |====================================>             | 29/40 - 6.80s/it[K  |=====================================>            | 30/40 - 6.76s/it[K  |======================================>           | 31/40 - 6.79s/it[K  |========================================>         | 32/40 - 6.87s/it[K  |=========================================>        | 33/40 - 6.75s/it[K  |==========================================>       | 34/40 - 6.76s/it[K  |===========================================>      | 35/40 - 6.74s/it[K  |=============================================>    | 36/40 - 6.73s/it[K  |==============================================>   | 37/40 - 6.72s/it[K  |===============================================>  | 38/40 - 6.75s/it[K  |================================================> | 39/40 - 6.72s/it[K  |==================================================| 40/40 - 6.76s/it[K
+[INFO   ] image.cpp:892  - sampling completed, taking 274.15s
+[INFO   ] image.cpp:906  - generating 1 latent images completed, taking 274.15s
+[INFO   ] image.cpp:547  - decoding 1 latents
+[INFO   ] ggml_graph_cut.cpp:1034 - wan_vae build cached graph cut plan done (taking 1 ms)
+[VERBOSE] model_loader.cpp:1090 - loading 128/238 tensors from /Users/nckandrw/Dev/photo-gen/models/vae/qwen_image_2.1_vae_bf16.safetensors
+  |###############                                   | 36/128 - 510.36MB/s[K  |########################                          | 59/128 - 698.20MB/s[K  |######################################            | 97/128 - 765.37MB/s[K  |##################################################| 128/128 - 587.22MB/s[K
+[INFO   ] model_loader.cpp:1361 - loading tensors completed, taking 0.82s (read: 0.59s, memcpy: 0.00s, convert: 0.03s, copy_to_backend: 0.00s)
+[VERBOSE] model_manager.cpp:494  - model manager prepared params backend buffers (482.81 MB, 128 tensors, 1 blocks, RAM) on CPU
+[VERBOSE] model_manager.cpp:621  - model manager staged compute params (482.81 MB, 128 tensors, 1 blocks) to MTL0, taking 0.06s
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_upscale_nearest_f32', name = 'kernel_upscale_nearest_f32_aa=0'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_upscale_nearest_f32_aa=0              0x78f9a43b80 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mm_f16_f16', name = 'kernel_mul_mm_f16_f16_bci=1_bco=1_ne12=1_ne13=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mm_f16_f16_bci=1_bco=1_ne12=1_ne13=1_r2=1_r3=1     0x78f9bf0000 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: compiling pipeline: base = 'kernel_mul_mv_f16_f16_4', name = 'kernel_mul_mv_f16_f16_4_nsg=4_ne12=1_r2=1_r3=1'
+[VERBOSE] ggml - ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_f16_f16_4_nsg=4_ne12=1_r2=1_r3=1     0x78f9bf0380 | th_max = 1024 | th_width =   32
+[VERBOSE] ggml_runner.cpp:1007 - wan_vae compute buffer size: 1944.25 MB(VRAM) on MTL0 (peak across 1 segment)
+[VERBOSE] vae.hpp:319  - computing vae decode graph completed, taking 5.44s
+[INFO   ] image.cpp:613  - latent 1 decoded, taking 5.44s
+[INFO   ] image.cpp:617  - decode_first_stage completed, taking 5.44s
+[INFO   ] image.cpp:1043 - generate_image completed in 293.01s
+[VERBOSE] model_manager.cpp:1179 - model manager released params backend buffers (6039.12 MB, 975 tensors, 4 blocks, RAM) from CPU
+[VERBOSE] model_manager.cpp:1179 - model manager released params backend buffers (4003.05 MB, 265 tensors, 4 blocks, VRAM) from MTL0
+[INFO   ] ggml - ggml_metal_free: deallocating
+[INFO   ] main.cpp:497  - save result image 0 to 'research/qwen/runs/G1-sdcpp-E11/sdcpp.png' (success)
+[INFO   ] main.cpp:573  - 1/1 images saved
+      293.42 real         2.33 user         9.15 sys
+          7334395904  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1523504  page reclaims
+                1485  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              646119  voluntary context switches
+              104217  involuntary context switches
+         90469501093  instructions retired
+         44066426388  cycles elapsed
+         12423816648  peak memory footprint

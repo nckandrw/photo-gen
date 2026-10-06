@@ -44,3 +44,18 @@ Negative results are kept on purpose.
 | 4-step probe (Z-Image base + PAI 4-step LoRA vs Turbo 8 / Turbo 4, 1024²) | **REJECTED** (2026-09-29) | 4step-probe/results.md, quality-results.md, benchmark.csv | blind: C lost 6–18 to Turbo 4 and 8–16 to FAST; all losses from a 16-px grain (grid16 5.4 vs 1.1); adherence on par (6–5, 8–5); +6% time and +0.84 GB vs Turbo 4 |
 | Turbo bf16 + 4 steps at 1024² (probe control) | **SUPERSEDED by Stage A gate: REJECTED at 1024²** | 4step-probe/results.md §E2 | blind vs FAST: 2 / 3 / 19 ties at 0.50× denoise; contradicts the older unblinded step-sweep label. Needs its own pre-registered gate before any production use |
 
+
+## Phase 4 (2026-10-07): image-edit backend (Qwen-Image-2.1). Evidence in `research/qwen/` and `research/editing/`
+| experiment | status | evidence | one-line result |
+|---|---|---|---|
+| Qwen editing model selection | **SELECTED: Qwen-Image-2.1 @ d26bb61** (research licence, accepted by the user for research use) | qwen/QWEN-SOURCE-AUDIT.md | 7B DiT + Qwen3-VL-8B; native editing; the only Qwen editing family that plausibly fits 16 GB |
+| Qwen-Image-Edit-2509/2511 (20B, Apache-2.0) | **REJECTED** (desk, memory) | QWEN-SOURCE-AUDIT.md §3 | q4 DiT ≈ 11.5 GB alone, against a 12.71 GB Metal working set; true CFG doubles passes |
+| Pre-quantized MLX packs (mlx-community q4, JoyFusionAI 4-bit) | **REJECTED** (cannot edit) | QWEN-SOURCE-AUDIT.md §5 | text-only exports (0 vision keys); the mlx-community pack also mislabels its licence (D2) |
+| mflux 0.21.0 `QwenImage21Edit` in a separate venv | **ADOPTED AS THE EXPERIMENTAL EDIT BACKEND** | QWEN-SOURCE-AUDIT.md §7, config/backend-qwen21-edit-mflux.json | MLX 0.32.2 pinned; deterministic q4 export (2 runs byte-identical); production venv untouched |
+| mflux 0.21.0 for Z-Image | **DEFERRED** (would change hashes) | MEMORY.md 2026-10-06 | upstream fixed our #760/#761 (#802, #803: bf16 stream default) → needs its own pixel-parity/gate work |
+| PHOTO-GEN edit worker probes | **VERIFIED PASSIVE** | QWEN-EDITING-BASELINE.md §1 | production = plain mflux CLI, pixel-identical RGB and RGBA; repeat-deterministic |
+| Deferred DiT load (edit worker lifetime fix) | **ADOPTED** (edit backend default) | QWEN-EDITING-BASELINE.md §3 | pixel-identical at 512/1024; peak footprint 12.63 → 8.85 GB (512), 14.20 → 12.08 GB (1024); removes the critical-pressure episodes |
+| Editing benchmark v1 + gate G0 at 512 | **CAPABLE** | QWEN-EDITING-QUALITY.md, qwen/g0/ | 11/11 adherence PASS; preservation 10 PASS + 1 PARTIAL (E08: oranges also replaced); 2 MINOR, 0 MAJOR; R and D pass |
+| Gate G0 at 1024 | **CAPABLE** | QWEN-EDITING-QUALITY.md, qwen/g0/ | 11/11 adherence and 11/11 preservation PASS (E08 kept the oranges at 1024); 2 MINOR (lighting), 0 MAJOR; cold 496.8 s, sustained median 556 s; 12.1 GB peak, 0 critical samples |
+| G1 runtime A/B (mflux vs sd.cpp, bounded) | **DONE: mflux kept; sd.cpp NOT ADOPTED** | QWEN-RUNTIME-COMPARISON.md, qwen/g1/ | blind 4 pairs 1 / 1 / 2 ties (no quality separation; one sd.cpp adherence failure); sd.cpp ≈ 2.9× slower at 512 (≈ 290 vs ≈ 100 s), 12.8 vs 9.0 GB peak, critical-pressure samples in 3/5 runs |
+| Qwen production adoption | **NOT ADOPTED: EXPERIMENTAL** | — | needs a blinded quality gate of a fixed edit configuration; any commercial use is blocked by the licence |
