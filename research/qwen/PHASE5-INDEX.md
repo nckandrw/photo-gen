@@ -71,4 +71,6 @@
 - `cf96d4a`: G2 run records + blind sheets + amendment 2 (before any output was scored)
 - `6577b09`: rater scores frozen (before unblinding)
 - `0ccc0b7`: G2 results (REJECTED), rater audit, sidecars, Qwen G2 section, source disposition RETAIN LOCALLY
-- (closing): Phase 5 docs + ledger
+- `2007271`: Phase 5 docs + ledger + this index
+- `d1dc2b7`: docs corrections (adherence qualified to primary items; PARTIAL attribution; sustained-chain timing baseline; status wording)
+- **Open in the app (not changed; user decision):** `/capabilities` reports the edit task as `status: experimental`, and the job warning says "no edit configuration has passed a quality gate". Both are accurate, but neither names G2 REJECTED.
