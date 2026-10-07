@@ -1,0 +1,198 @@
+{
+ "job_id": "20261007T035510Z-b1913f",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T03:55:10.860+00:00",
+ "started_at": "2026-10-07T03:55:10.862+00:00",
+ "finished_at": "2026-10-07T03:56:30.605+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the background to a sunset beach",
+  "width": 512,
+  "height": 512,
+  "steps": 40,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "source_file_sha256": "629e4eb6c9ac8699d272a325afdc453bc243a2ed365826caab3c6fc61e69737f",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "pixel_sha256": "8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a",
+   "width": 1024,
+   "height": 1024,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T035510Z-b1913f.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T035510Z-b1913f.json",
+ "pixel_sha256": "bd548f1bf8cace9b29fc86124feae2ed024c5a8e4213937b4e172ca6aad64246",
+ "file_sha256": "858223f95075dd0ff4ca500b084f9f6195ba3f24d9974684e02b893eebd5cb3d",
+ "generation_seconds": 79.683,
+ "phases": {
+  "load": {
+   "seconds": 1.462,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 0.957,
+   "mlx_peak_gb": 7.385,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.378,
+   "mlx_peak_gb": 3.071,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.327,
+   "mlx_peak_gb": 5.742,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 76.127,
+   "mlx_peak_gb": 5.742,
+   "calls": 1
+  },
+  "denoise_seconds": 73.206,
+  "other_seconds": 0.259
+ },
+ "step_seconds": [
+  3.796,
+  1.803,
+  1.781,
+  1.748,
+  1.745,
+  1.745,
+  1.752,
+  1.745,
+  1.745,
+  1.752,
+  1.747,
+  1.747,
+  1.748,
+  1.749,
+  1.747,
+  1.75,
+  1.753,
+  1.748,
+  1.748,
+  1.751,
+  1.75,
+  1.749,
+  1.751,
+  1.758,
+  1.749,
+  1.753,
+  1.754,
+  1.752,
+  1.754,
+  1.774,
+  1.884,
+  1.849,
+  1.904,
+  1.833,
+  1.811,
+  1.816,
+  1.822,
+  1.824,
+  1.888,
+  1.858
+ ],
+ "memory": {
+  "peak_footprint_gb": 8.167,
+  "mlx_peak_gb": 7.385,
+  "denoise_mlx_peak_gb": 5.881
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 252,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "bdc03c3672237ec922a0a99f3dd7db387621b0a440f24590ff206aac1d7bb107"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 512,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the background to a sunset beach",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+   "--seed",
+   "42",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "512",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T035510Z-b1913f.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

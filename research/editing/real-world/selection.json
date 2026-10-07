@@ -1,0 +1,21 @@
+{
+ "_comment": "G2 real-world source selection (Phase 5). Chosen 2026-10-07 from Wikimedia Commons searches restricted to files whose structured data declares CC0 (P275=Q6938433) or public-domain status (P6216=Q19652), from 300-900 px previews only (no full-size file was decoded and no edit was run before the protocol was committed). Criteria: a real camera photograph; licence CC0 or public domain; within photo-gen's input limits (no resizing); no public figures, no minors as subjects, no edit that alters a person's identity; subject categories of directive section 11; a mix of orientations. fetch_sources.py re-checks the licence from the Commons API at download time and records full provenance in source-manifest.json.",
+ "sources": [
+  {"id": "R01", "category": "people / portrait", "title": "File:Close portrait of a young woman wearing black sunglasses in Maracaibo, Venezuela.jpg"},
+  {"id": "R02", "category": "street", "title": "File:Architecture of the 1930's in Amsterdam city - free photo, Fons Heijnsbroek.jpg"},
+  {"id": "R03", "category": "product", "title": "File:Tapaha鞋子.jpg"},
+  {"id": "R04", "category": "food", "title": "File:Chicken Quesadilla dish at Latin Bistro restaurant Summit NJ.JPG"},
+  {"id": "R05", "category": "interior", "title": "File:At Home (Unsplash).jpg", "notes": "Unsplash origin, imported to Commons under CC0 (Unsplash's pre-June-2017 licence); Commons licence CC0"},
+  {"id": "R06", "category": "landscape", "title": "File:Hartz Lake at Hartz Mountain.jpg"},
+  {"id": "R07", "category": "vehicle", "title": "File:Cyan 1952 Chevrolet beside a cobra-head street light in San Juan Bautista, Margarita Island, Venezuela.jpg"},
+  {"id": "R08", "category": "sign / text", "title": "File:Brick houses in a street view; Amsterdam city - free photo, Fons Heijnsbroek.jpg"},
+  {"id": "R09", "category": "busy scene (market)", "title": "File:20191212 Luang Prabang vegetable market-1.jpg"},
+  {"id": "R10", "category": "fine texture (knitted wool)", "title": "File:Dog sweater 2.jpg"},
+  {"id": "R11", "category": "transparent / reflective (glass, liquid)", "title": "File:Glass of wine at Kalandak Rooftop, Tibetan Colony, New Aruna Nagar, Delhi (2023).jpg"},
+  {"id": "R12", "category": "difficult lighting (night, rain, neon) + busy + text", "title": "File:Mathew Street in the rain at dusk - MATHEW STREET, BIRTHPLACE of THE BEATLES, written on a message banner of north side entrance, near REISS and Elle, Liverpool (2011-08-06 21.26.23 by SomeDriftwood).jpg"},
+  {"id": "R13", "category": "architecture / sky", "title": "File:St. Martin Külsheim Ansicht 2.jpg"},
+  {"id": "R14", "category": "animal", "title": "File:Karjalankarhukoira, Karelian Bear Dog looking at camera.jpg"},
+  {"id": "R15", "category": "storefront with text", "title": "File:The Beguiling Bookstore.jpg"},
+  {"id": "R16", "category": "everyday object, simple scene", "title": "File:Kafo.jpg"}
+ ]
+}

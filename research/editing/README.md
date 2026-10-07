@@ -5,9 +5,13 @@
 ```text
 PHOTO-GEN BENCHMARK
 ├── Generation  → research/experiments/ (Z-Image; the step-count, FAST and BALANCED gates)
-└── Editing     → research/editing/ (this suite)  ── results per backend:
-                  research/qwen/ (Qwen-Image-2.1 on mflux 0.21.0; the sd.cpp comparator)
+└── Editing     → research/editing/
+    ├── synthetic controls → this suite (v1, E01–E11, Z-Image-generated sources; gates G0/G1)
+    └── real world         → research/editing/real-world/ (real camera photographs; gate G2, Phase 5)
+                  results per backend: research/qwen/ (Qwen-Image-2.1 on mflux 0.21.0; the sd.cpp comparator)
 ```
+
+**Phase 5 (2026-10-07).** This suite is the **synthetic-control** half of the editing benchmark. It stays in place (no files moved) because committed reports and tools reference its paths. The real-photograph half, gate G2, is in `real-world/` and is now the main quality evidence; see `real-world/README.md`.
 
 **Pre-registered 2026-10-07, before any benchmark edit was run.** It was committed with `suite-v1.json`. Sources are generated and frozen first, then `regions.json` is written, and only then are edits run.
 

@@ -5,7 +5,20 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing + image-task layer; Z-Image production unchanged)._
+_Last updated 2026-10-07 ~12:05 (PHASE 5 IN PROGRESS: see `research/qwen/PHASE5-INDEX.md` first)._
+
+**PHASE 5 (2026-10-07) RESUME → `research/qwen/PHASE5-INDEX.md`.**
+- Phase 4 is pushed (`origin/main` = `401e400`); tag **v3** → `401e400`, pushed.
+- The duplicate Qwen export is deleted (+10.67 GB); the canonical export was re-verified in full.
+- Backend-identity hardening is committed (`51d4d6a`).
+- **Memory lifetime P2 ADOPTED** (`a3a225c` results, `973ef7f` switch; `research/qwen/QWEN-MEMORY-LIFETIME.md`):
+  - exact parity 5/5 pairs;
+  - 1024 peak footprint −1.35 GB (12.08 → ~10.8), swap growth 1.30 → 0.32 GB, wall unchanged;
+  - production-path re-check of E05 512 = `bd548f1b`, same ids;
+  - tests 91/91.
+- **Next:** G2 on real photographs (`research/editing/real-world/`). Pre-registration committed before any source fetch; then fetch → frozen chain → G2 (~4.5 h, marker `G2_CHAIN_DONE`).
+
+_The Phase 4 snapshot below is kept for reference._
 
 **RESUME HERE → `research/qwen/PHASE4-INDEX.md`** is the lossless Phase 4 index: read order, verification commands, state, decisions, assets, code map, research map, results, reference hashes, rules learned, open items, commits. Nothing is running. `main` is 10 commits ahead of `origin/main` and **not pushed**.
 

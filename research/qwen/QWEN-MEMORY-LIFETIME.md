@@ -127,4 +127,20 @@ E08c at 1024 has the same pattern: peak footprint 12.24 → 10.66 GB; denoise ML
 - **Memory policy stays model-specific (directive §8).** Z-Image keeps its own `_install_transformer_release` and is untouched. The Qwen flags live only in the Qwen runtime.
 
 ## 7. Production-path confirmation (after the adoption commit)
-_Filled in after the run._
+The adoption is commit `973ef7f`. The same edit then ran through the real CLI, `bin/photo-gen edit` (GPU lock honoured), at that commit. Evidence: `memory/postadopt/` (CLI JSON, log, copy of the sidecar, conditions).
+
+| | preflight (P0, `6d95ada`) | after adoption (P2, `973ef7f`) |
+|---|---|---|
+| RGB `pixel_sha256` | `bd548f1bf8cace9b…` | `bd548f1bf8cace9b…` ✅ |
+| RGBA sha256 | `bdc03c3672237ec9…` | `bdc03c3672237ec9…` ✅ |
+| `configuration_id` | `3cd79615e8a685fc…` | `3cd79615e8a685fc…` ✅ |
+| `edit_id` | `584040d912f19396…` | `584040d912f19396…` ✅ |
+| worker sha256 | `3094e942…` | `3094e942…` |
+| `execution.memory_policy` (worker-reported) | `defer_transformer_load` only | all three requested; `text_encoder_released_after_encode` and `vae_reloaded_lazily` true |
+| peak footprint | 8.906 GB | **8.167 GB** |
+| MLX peak (phase) | 7.851 (VAE encode) | 7.385 (text encode) |
+| reference-VAE-encode MLX peak | 7.851 | 3.071 |
+| denoise MLX peak | 7.232 | 5.881 |
+| wall (generation_seconds) | 86.4 s | 79.7 s (single runs; no speed claim) |
+
+The production path reproduces the A/B exactly: same pixels, same identity ids, the patches applied, and the same per-phase MLX peaks as `M5-512-E05-P2`.
