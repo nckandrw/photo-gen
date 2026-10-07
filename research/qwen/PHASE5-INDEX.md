@@ -7,7 +7,7 @@
 - G2 rater: a **fresh subagent** (provenance-blind);
 - GPU blocks: **clean conditions** (heavy apps closed, AC).
 
-_This file is updated as Phase 5 progresses; the live status is in §2._
+**Outcome: Phase 5 COMPLETE (2026-10-07 ~18:30). Qwen editing: G2 REJECTED at 512 and 1024; not promoted; research opt-in only. Source checkpoint: RETAIN LOCALLY. Nothing is running. Phase 5 commits are NOT pushed.**
 
 ## 0. Start here (new session)
 1. Read `CLAUDE.md`, then `MEMORY.md` ("Current state" plus the 2026-10-07 Phase 5 entry), then this file.
@@ -27,11 +27,11 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 | 6 | real-photograph benchmark exists | ✅ | `research/editing/real-world/` (16 sources, 16 tasks) |
 | 7 | source provenance and licences recorded | ✅ | `source-manifest.json` (14 CC0, 2 PD; Commons SHA-1 verified) |
 | 8 | G2 pre-registered | ✅ (committed before any source fetch) | `research/editing/real-world/protocol.md`, `task-manifest.json`, `selection.json` |
-| 9 | evaluated at 512 and 1024 | pending | G2 chain |
-| 10 | provenance-blind review | pending | `g2/` |
-| 11 | VALIDATED / EXPERIMENTAL / REJECTED | pending | `results.md` |
-| 12 | 1024 limitations documented | pending | `results.md` §memory class |
-| 13 | docs match reality | pending | — |
+| 9 | evaluated at 512 and 1024 | ✅ | 45 edits, 12:11:05–16:45:07, 45/45 rc 0 (`benchmark.csv`, `research/qwen/runs/G2-*`) |
+| 10 | provenance-blind review | ✅ | fresh-subagent rater; frozen `f14deba4…` before unblinding (`g2/`, `RATER-AUDIT.json`) |
+| 11 | VALIDATED / EXPERIMENTAL / REJECTED | ✅ **REJECTED** (512 and 1024) | `results.md`, `results-summary.json` |
+| 12 | 1024 limitations documented | ✅ MARGINAL (wall 592 s; 10.87 GB; swap ≤ 1.19 GB; 0 critical) | `results.md` §4, `docs/HARDWARE.md`, `PERFORMANCE-MAP.md` |
+| 13 | docs match reality | ✅ | README, guide, HARDWARE, REPRODUCIBILITY, THIRD-PARTY-LICENSES, USAGE, RELEASE-NOTES, STATUS, PERFORMANCE-MAP, EXPERIMENT-BACKLOG, CLAUDE.md |
 
 ## 2. Live status
 - **10:33–11:48:** memory A/B chain (done; `MEMCHAIN_DONE`).
@@ -41,17 +41,16 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 - **~12:00–12:20:** G2 sources acquired (16 CC0/PD, `source-manifest.json`).
   - Two Panasonic/Sony MPO camera JPEGs were rejected by photo-gen; the input fix is `e653122` (amendment 1 in `protocol.md`).
   - Regions and orientation were checked on the staged images.
-- **IN FLIGHT from ~12:25:** G2 chain (45 edits, ~4.5 h), marker `G2_CHAIN_DONE` (§3). Run no photo-gen jobs during it.
-- **Next:**
-  1. `analyze_g2.py --runs-only`;
-  2. items.json (40 distinct outputs);
-  3. `g2_blind.py prepare`;
-  4. fresh-subagent rater (reads only `g2/blind/`);
-  5. freeze, then unblind;
-  6. `analyze_g2.py`;
-  7. `results.md`, `QWEN-EDITING-QUALITY.md` § G2;
-  8. source-checkpoint disposition;
-  9. docs.
+- **12:11:05–16:45:07:** G2 chain at git `f16e092` (`G2_CHAIN_DONE`). 45/45 rc 0, no abort, 0 critical samples, all 5 repeats bit-identical. *Correction:* earlier versions of this file said "~12:25".
+- **16:46:** `make_items.py` → 40 items; `g2_blind.py prepare`, seed 20261007, key `652bfa45…` sealed; amendment 2 committed (`cf96d4a`) before any output was viewed.
+- **16:50:** `verify_assets.py` post-G2: source checkpoint and canonical export unchanged.
+- **~16:50–17:12:** fresh-subagent rater. The audit shows it read only `g2/blind/` and its crops. Format checks passed; frozen 17:13 (`6577b09`).
+- **17:13:** unblind → `analyze_g2.py` → **REJECTED at 512 and 1024**. Spot check after the freeze (descriptive): all 6 forcing text FAILs confirmed at native resolution.
+- **~17:30–18:30:** `results.md`, `QWEN-EDITING-QUALITY.md` § G2, `QWEN-ASSET-PROVENANCE.md` §6 (`0ccc0b7`); docs (closing commit).
+- **Open user decisions:**
+  1. keep or remove the rejected edit task;
+  2. Q-Q diagnostic (dense-weight export, `EXPERIMENT-BACKLOG.md`) or trigger the source-checkpoint DELETE;
+  3. push the Phase 5 commits.
 
 ## 3. Chains (script → log, marker)
 | chain | script | log | marker |
@@ -68,4 +67,8 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 - `973ef7f`: P2 adopted as the production default (tests 91/91)
 - `8694119`: G2 pre-registration + post-adoption confirmation
 - `e653122`: MPO camera-JPEG input fix (tests 92/92)
-- (next): G2 sources + amendment 1 + frozen chain
+- `f16e092`: G2 sources + amendment 1 + frozen chain (the chain ran at this commit)
+- `cf96d4a`: G2 run records + blind sheets + amendment 2 (before any output was scored)
+- `6577b09`: rater scores frozen (before unblinding)
+- `0ccc0b7`: G2 results (REJECTED), rater audit, sidecars, Qwen G2 section, source disposition RETAIN LOCALLY
+- (closing): Phase 5 docs + ledger

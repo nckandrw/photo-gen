@@ -4,7 +4,7 @@
 
 ## What it does
 - Text-to-image with Z-Image-Turbo, one generation at a time, queued.
-- **Experimental image editing** with Qwen-Image-2.1 (research licence, non-commercial), through the same queue: see [Image editing](#image-editing-experimental).
+- **Research opt-in image editing** with Qwen-Image-2.1 (research licence, non-commercial), through the same queue. It is **not validated**: the real-photograph gate G2 rejected it. See [Image editing](#image-editing-experimental).
 - Every image gets a JSON metadata record: prompt, seed, resolution, steps, model and revision, runtime versions, per-phase and per-step timings, peak memory, and both **pixel SHA-256** (canonical identity) and file SHA-256.
 - The same seed + prompt + settings reproduces the same pixels. This is verified against the research reference.
 - Startup verifies runtime versions, model file hashes and mflux's own capability declarations, and **refuses to run on drift**. Nothing is ever downloaded or repaired automatically.
@@ -66,7 +66,12 @@ A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and get
 ## Image editing (experimental)
 - **Backend:** Qwen-Image-2.1 @ `d26bb61` (**Qwen Research License: non-commercial, research or evaluation only**), local q4 export.
 - **Runtime:** mflux 0.21.0 in its own venv `mflux-qwen/.venv` (production Z-Image stays on mflux 0.20.0). Setup: `docs/REPRODUCIBILITY.md` §5.
-- **Status:** every edit is `validated_configuration: false`, and requests need `allow_experimental`.
+- **Status:** **not a production feature.** The real-photograph quality gate **G2 REJECTED** both gated budgets, 512 and 1024 (`research/editing/real-world/results.md`). Every edit is `validated_configuration: false`, and requests need `allow_experimental`.
+- **Known failure modes on real photographs** (G2):
+  - small text elsewhere in the photo (street signs, posters, decals, banners) is often re-drawn as gibberish, even when the edit is somewhere else;
+  - edits leak to similar or attached objects: neighbouring fruit piles, shoe laces, a glass stem, garment edging.
+  - Requested text replacement on a sign worked.
+- **Licence:** commercial use is not permitted, whatever the engineering status.
 
 ```sh
 bin/photo-gen verify --edit                                   # edit backend: venv versions + 18 export hashes
@@ -96,7 +101,7 @@ curl -s -X POST http://127.0.0.1:8765/edit -H 'Content-Type: application/json' \
 
 **Outputs:** an RGBA PNG plus a `photogen.edit/1` sidecar recording the input identity, instruction, model, licence, export, settings, timings, memory, `pixel_sha256` (RGB) + `output_alpha`, and `reproduce.cli`.
 
-**Cost on this M5 16 GB** (apps closed): 512 ≈ 1.5–2 min per edit, 8.7–9.0 GB peak; 1024 ≈ 8.3 min cold, 12.1 GB peak. Close large apps before 1024 edits.
+**Cost on this M5 16 GB** (apps closed; Phase 5 memory policy P2; G2 medians under the monitored harness): 512 ≈ 104 s per edit (about 80 s unmonitored), 8.2 GB peak; **1024 ≈ 592 s (≈ 10 min)**, 10.9 GB peak, up to 1.2 GB swap growth. 1024 is the request default but rates only MARGINAL (wall time). Close large apps before 1024 edits.
 
 ## Resolutions and steps
 - **Validated:** 512×512, 768×768, 1024×1024 at 9 steps, guidance 0.
@@ -191,7 +196,7 @@ The Air throttles after 1–2 images and recovers after about 10 minutes idle. B
 | CLI "waiting: another process is generating" | the API server holds the GPU lock; the CLI starts when it's released |
 
 ## Limitations
-- One backend, one model, text-to-image only. No editing, img2img, LoRA, ControlNet or negative prompts.
+- Text-to-image: one backend, one model. No img2img, LoRA, ControlNet or negative prompts. Image editing exists only as the research opt-in above (G2 REJECTED).
 - One generation at a time. Concurrency isn't validated on this hardware.
 - No progress streaming (use `?wait=` long-polling). No GUI.
 - Each job pays ≈2.6 s of worker start-up (≈3% at 1024²) in exchange for the validated memory profile.

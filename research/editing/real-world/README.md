@@ -1,5 +1,7 @@
 # PHOTO-GEN editing benchmark: real-world photographs (v1)
 
+> **G2 result (2026-10-07), Qwen-Image-2.1 q4 on mflux 0.21.0: REJECTED at 512 and 1024** ([`results.md`](results.md)).
+
 **This benchmark belongs to PHOTO-GEN, not to any model.** The source photographs, the task definitions and the rubric here are model-independent. Results for a particular backend go to that backend's report, e.g. `research/qwen/QWEN-EDITING-QUALITY.md` § G2.
 
 ```text
@@ -28,6 +30,13 @@ G0 used Z-Image-generated sources. Those are clean, centred, noise-free renders 
 | `benchmark.csv` | one row per run: identity, timing, memory, pressure |
 | `scores.csv` | frozen rater scores joined with the unblinded mapping |
 | `results.md` | the G2 outcome |
+| `make_g2_chain.py` → `g2-chain.sh`, `g2-chain.log` | the frozen 45-run chain (generated from the task manifest) and its console log |
+| `make_items.py` → `g2-items.json` | the 40 rated items (every distinct output) built from the run records |
+| `check_scores_format.py` | format-only checks on the rater's sheet before the freeze (amendment 2) |
+| `analyze_g2.py` → `results-summary.json` | the mechanical tally (criteria, memory class, decision); written before any output existed |
+| `g2-metrics.json` | descriptive edit metrics (after the freeze; never override the visual verdict) |
+| `g2/` | `MANIFEST.json` (hashes), `SCORES-FROZEN.csv`, key + `key-unblinded.json`, `blind/` (ITEMS.md, instructions, draft sheet; composites gitignored), `RATER-AUDIT.json`, `RATER-REPORT.md` |
+| `acquisition/` | the first acquisition attempt's manifest (amendment 1) |
 
 ## Licensing and storage
 - **Licences.** Only **CC0** or **public domain** photographs from Wikimedia Commons are used. The licence is re-read from the Commons API at download time, and anything else is rejected. Creator and credit are recorded even where attribution isn't required.

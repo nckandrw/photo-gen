@@ -1,5 +1,5 @@
 # Experiment status register (research/experiments/)
-Updated 2026-09-25.
+Updated 2026-10-07 (Phase 5).
 
 **Statuses**
 - **REFERENCE:** a permanent baseline.
@@ -58,4 +58,18 @@ Negative results are kept on purpose.
 | Editing benchmark v1 + gate G0 at 512 | **CAPABLE** | QWEN-EDITING-QUALITY.md, qwen/g0/ | 11/11 adherence PASS; preservation 10 PASS + 1 PARTIAL (E08: oranges also replaced); 2 MINOR, 0 MAJOR; R and D pass |
 | Gate G0 at 1024 | **CAPABLE** | QWEN-EDITING-QUALITY.md, qwen/g0/ | 11/11 adherence and 11/11 preservation PASS (E08 kept the oranges at 1024); 2 MINOR (lighting), 0 MAJOR; cold 496.8 s, sustained median 556 s; 12.1 GB peak, 0 critical samples |
 | G1 runtime A/B (mflux vs sd.cpp, bounded) | **DONE: mflux kept; sd.cpp NOT ADOPTED** | QWEN-RUNTIME-COMPARISON.md, qwen/g1/ | blind 4 pairs 1 / 1 / 2 ties (no quality separation; one sd.cpp adherence failure); sd.cpp ≈ 3.3× slower at 512 than the same-chain mflux control (≈ 290 vs 88.9 s; ≈ 2.8× vs the G0-512 sustained median), 12.8 vs 9.0 GB peak, critical-pressure samples in 3/5 runs |
-| Qwen production adoption | **NOT ADOPTED: EXPERIMENTAL** | — | needs a blinded quality gate of a fixed edit configuration; any commercial use is blocked by the licence |
+| Qwen production adoption | **NOT ADOPTED: EXPERIMENTAL** | — | needs a blinded quality gate of a fixed edit configuration; any commercial use is blocked by the licence | *(superseded by Phase 5 below: G2 REJECTED)*
+
+## Phase 5 (2026-10-07): hardening, real-photograph gate G2, production decision. Resume index: `research/qwen/PHASE5-INDEX.md`
+| experiment | status | evidence | one-line result |
+|---|---|---|---|
+| Backend identity (SQLite `backend_id` + migration; manifest-authoritative identity; `configuration_id` / `edit_id`) | **ADOPTED** | commit `51d4d6a`; PHASE5-INDEX.md | identity mismatch refuses a run at execute time; Z-Image sidecar golden unchanged |
+| Qwen memory lifetime P2 (text encoder released after encoding + lazy VAE during denoise) | **ADOPTED** (edit backend default) | qwen/QWEN-MEMORY-LIFETIME.md, qwen/memory/ | exact pixel parity 5/5; 1024 peak 12.08 → ~10.8 GB, 512 8.9 → 8.2 GB; no runtime regression |
+| Duplicate q4 export | **DELETED** (byte-identical, unreferenced) | qwen/QWEN-ASSET-PROVENANCE.md §3, §5 | +10.67 GB; canonical export re-verified 18/18 |
+| Qwen source checkpoint (33.13 GB) after G2 | **RETAIN LOCALLY** (DELETE trigger defined) | QWEN-ASSET-PROVENANCE.md §6 | unchanged through G2 (87 files, same sha256/inode); keeps the q4-vs-higher-precision diagnostic possible without a re-download |
+| Camera MPO (multi-picture JPEG) inputs | **ADOPTED** (fix of a photo-gen defect found by G2) | commit `e653122`; editing/real-world/protocol.md amendment 1 | MPO staged as its primary image with a warning; other multi-frame inputs still rejected |
+| Real-photograph benchmark (16 CC0/PD Commons photos, pre-registered tasks) | **DONE** | editing/real-world/ | model-independent; images not committed |
+| **G2 at 512** (`3cd79615…`) | **REJECTED** | editing/real-world/results.md | adherence 0 FAIL; **preservation 4 FAIL** (incidental text garbled R02/R12/R15; edit leakage R09); text 3 FAIL; O, D pass; S fails; COMFORTABLE (104 s, 8.16 GB) |
+| **G2 at 1024** (`fffe8df3…`) | **REJECTED** | editing/real-world/results.md | same failure modes, slightly less text garbling; **preservation 4 FAIL**; O, D pass; S fails; MARGINAL (592 s ≈ 9.9 min; 10.87 GB; swap ≤ 1.19 GB) |
+| **Qwen editing: local production** | **REJECTED** (not promoted; research opt-in via `--allow-experimental`, `validated: false`) | results.md §7, qwen/QWEN-EDITING-QUALITY.md § G2 | integration validated · capability shown · quality G2 REJECTED · commercial use not permitted (Qwen Research License) |
+| Qwen speed / model work (directive §24–§25) | **NOT STARTED** (gated on a quality pass) | — | open question: is the text garbling caused by the q4 export? Needs a dense-weight export (EXPERIMENT-BACKLOG.md) |

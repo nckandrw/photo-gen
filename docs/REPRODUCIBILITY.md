@@ -104,13 +104,13 @@ bin/photo-gen generate -p "$P" --seed 42                               # REFEREN
 
 **A matching hash is the proof of reproduction.** A different hash on the validated machine means something in §2/§3 differs; `verify` should say what. On other hardware, a different hash is expected and is not evidence of a bug.
 
-## 5. Optional: the image-edit backend (Qwen-Image-2.1; EXPERIMENTAL; Qwen Research License, non-commercial)
-Z-Image generation (§1–§4) does not need any of this. Without it, `photo-gen edit` and `POST /edit` report the backend as unavailable (503), and everything else is unaffected.
+## 5. Optional: the image-edit backend (Qwen-Image-2.1; research opt-in, G2 REJECTED; Qwen Research License, non-commercial)
+The edit backend is **not a production feature**: the real-photograph gate G2 rejected both gated configurations (`research/editing/real-world/results.md`). Rebuild it only for research. Z-Image generation (§1–§4) does not need any of this. Without it, `photo-gen edit` and `POST /edit` report the backend as unavailable (503), and everything else is unaffected.
 
 | not in Git | size | how to get it back |
 |---|---:|---|
 | `mflux-qwen/.venv` (separate venv: mflux **0.21.0**, MLX 0.32.2) | ≈ 1.5 GB | §5.1 |
-| `models/research/qwen-image-2.1/` (official checkpoint) | 33.13 GB | §5.2 |
+| `models/research/qwen-image-2.1/` (official checkpoint; post-G2 disposition RETAIN LOCALLY, `research/qwen/QWEN-ASSET-PROVENANCE.md` §6) | 33.13 GB | §5.2 |
 | `models/qwen/qwen-image-2.1-edit-mflux-q4/` (local q4 export) | 10.64 GB | §5.3 |
 | `data/inputs/` (staged input images, content-addressed) | — | created by the app |
 
@@ -147,6 +147,18 @@ bin/photo-gen edit --image data/outputs/<that job>.png -p "Change the background
     --seed 42 --output-resolution 512 --allow-experimental
 ```
 Expected on the validated machine: pixel sha256 `f7aa22f650100d7858c16f6c67c487c81ee7f5b40803d9b7f9e0c105240f106a` (RGB). The output PNG is RGBA; its RGBA sha256 is `49a202cb…`. The plain mflux CLI with the same arguments gives the same pixels (`research/qwen/QWEN-EDITING-BASELINE.md`).
+The Phase 5 memory policy P2 is pixel-identical (exact parity on 5/5 pairs, `research/qwen/QWEN-MEMORY-LIFETIME.md` §2), so it doesn't change this hash.
+
+### 5.5 Reproduce the real-photograph gate G2 (research)
+```sh
+mflux/.venv/bin/python3.12 -I research/editing/real-world/fetch_sources.py research/editing/real-world/selection.json
+#   CC0/PD Wikimedia Commons originals -> data/benchmark/real-world/originals/ (gitignored); file and pixel
+#   sha256 must match research/editing/real-world/source-manifest.json
+nohup zsh research/editing/real-world/g2-chain.sh > g2-chain.log 2>&1 < /dev/null & disown   # 45 edits, ~4.5 h
+```
+- `run_edit.sh` refuses to overwrite an existing run directory, and the committed `research/qwen/runs/G2-*` records are evidence. To re-run, use a fresh checkout or change the run ids in a copy of the chain. Never delete the committed records.
+- Every run's expected output `pixel_sha256` is recorded in `research/editing/real-world/benchmark.csv`. The repeats show the configuration is deterministic on this machine.
+- Rating is provenance-blind. Follow the order `g2_blind.py prepare` → rater → `check_scores_format.py` → `freeze` → `unblind` → `analyze_g2.py` (`protocol.md` §5 and amendment 2).
 
 ## 6. Offline and privacy
 - The API binds to `127.0.0.1`. There is no telemetry.

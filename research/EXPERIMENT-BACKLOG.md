@@ -43,6 +43,23 @@ Directive §26 applies: correct → measured → **then** optimized. Nothing bel
 | Q-U | One venv for both tasks | Test whether mflux 0.21.0 with `--float32` reproduces REFERENCE `fe47d88d`/`9ae59f59` (upstream #803 says it "keeps the old float32 stream") and whether its #802 release equals our transformer-release patch | exact hashes for every pinned configuration | the Z-Image worker patches target 0.20.0 internals; any mismatch keeps the two-venv design |
 | Q-C | More edit capability (multi-reference, masks, RGBA) | Only on a user request; each is a separate capability with its own benchmark category | — | mask/auto-mask/verify are mflux additions, not upstream pipeline features |
 
+## Phase 5 update (2026-10-07): after G2
+**G2 rejected the q4 configuration at 512 and 1024** (`research/editing/real-world/results.md`). The failures are incidental text being garbled and edits leaking to adjacent objects; adherence was strong.
+
+| # | status after Phase 5 |
+|---|---|
+| Q-G | **DONE: REJECTED** (G2, provenance-blind; both budgets fail A2/A5/S; 1024 also MARGINAL on wall time) |
+| Q-M | **DONE: ADOPTED** as P2 (`research/qwen/QWEN-MEMORY-LIFETIME.md`): 1024 peak 12.08 → ~10.9 GB, pixel-identical |
+| Q-S | **ON HOLD.** Directive §24–§25: no speed work on a configuration that failed its quality gate |
+| Q-U, Q-C | unchanged (not started) |
+
+New items. **Not started.** Each needs the user's decision to continue with Qwen at all.
+
+| # | frontier | first step (measured on this M5) | what would justify going further | risk / blocker |
+|---|---|---|---|---|
+| Q-Q | **Is the incidental-text failure a q4 artifact?** | Desk check first: the q8 (or q4-DiT / q8-encoder mixed) export size and the per-phase memory under P2 (text encoder and DiT are never resident together). If feasible, export from the retained source checkpoint (`QWEN-ASSET-PROVENANCE.md` §6), then re-run only the G2 text items (R02, R12, R15) on the **same seeds**, scored provenance-blind against the frozen q4 outputs. | text-preservation FAILs disappear on most items. Only then would a full fresh-seed G2 of that configuration be justified; G2's thresholds stay unchanged. | memory: q8 DiT ≈ 2× q4; the export needs the 33 GB checkpoint; the cause may instead be the VAE round trip or the budget (1024 garbles less than 512), which Q-Q would not fix |
+| Q-A | An alternative editing model that preserves incidental text | Desk survey only: licence, size vs 16 GB, mflux/MLX support, published text-preservation evidence | a candidate that fits 16 GB, with a licence compatible with the intended use | every Qwen-Image-Edit 20B variant is out on memory (`QWEN-SOURCE-AUDIT.md` §3) |
+
 ## Rejected (with reason)
 | Idea | Why rejected | Evidence |
 |---|---|---|

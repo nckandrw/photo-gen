@@ -107,3 +107,23 @@ Cold, one run each after 600 s idle, p01 seed 42. The 8-step column is the same-
 
 Peak footprint equals FAST within 0.001 GB. Per-step time is unchanged between 5 and 8 steps, so the saving is the step count, as in Stage A.
 
+
+## Image editing: Qwen-Image-2.1 q4 (separate venv; G2 REJECTED, research opt-in; added 2026-10-07)
+**Settings:** mflux 0.21.0 / MLX 0.32.2 in `mflux-qwen/.venv`; upstream defaults (40 steps, guidance 1.0, prefix KV cache, `--low-ram`); same M5 16 GB machine, AC power, apps closed.
+- "wall" is the job's `generation_seconds` (worker spawn to exit, including about 2 s of model load). "denoise" is the 40-step DiT loop.
+- **Every row names its baseline.** The monitored harness (`run_edit.sh`, 1 Hz monitor) ran slower than unmonitored production edits of the same request (`QWEN-MEMORY-LIFETIME.md` §4); the cause is not isolated.
+- The quality status of every row is **G2 REJECTED** (`research/editing/real-world/results.md`). These are timings, not an endorsement.
+
+| budget | lifetime policy | baseline | n | wall (s) | denoise (s) | VAE decode (s) | peak footprint (GB) | swap Δ (GB) | pressure | source |
+|---|---|---|---:|---:|---:|---:|---:|---:|---|---|
+| 512 | P2 (production) | G2, monitored, sustained chain | 23 | **104** median [80–115] | 96 [73–107] | 2.4 | **8.16** [8.07–8.37] | 0.00 [0–0.04] | ≤ 1 warn sample, 0 critical | real-world/benchmark.csv |
+| 512 | P2 | single unmonitored production edit (E05), after adoption | 1 | 79.7 | — | — | 8.17 | — | — | QWEN-MEMORY-LIFETIME.md §7 |
+| 512 | P0 (deferred DiT only; Phase 4) | G0, sustained | 12 | 83–112 | — | — | 8.85 | ≤ 0.36 | 0 critical | QWEN-EDITING-QUALITY.md |
+| 1024 | P2 (production) | G2, monitored, sustained chain | 22 | **592** median [523–634] | 571 [504–613] | 10.2 | **10.87** [10.72–11.10] | 0.45 [0.10–1.19] | 4–11 warn samples (≤ 2.7%), 0 critical | real-world/benchmark.csv |
+| 1024 | P2 | memory A/B, monitored | 3 | 549.5–576.5 | 529.8–555.7 | 9.6–10.8 | 10.73–10.96 (E05) | 0.11–0.37 | 3–5 warn, 0 critical | QWEN-MEMORY-LIFETIME.md §4 |
+| 1024 | P0 (Phase 4) | G0, cold after 600 s idle | 1 | 496.8 | 474.1 | 12.8 | 12.08 | — | warn, 0 critical | QWEN-EDITING-BASELINE.md |
+| 1024 | P0 (Phase 4) | G0, sustained (non-cold G0 runs) | — | 556 median [478–601] | — | — | 12.08 | 1.3–2.1 | warn, 0 critical | QWEN-EDITING-QUALITY.md |
+
+- **Memory/UX class (G2, `real-world/protocol.md` §8):** 512 COMFORTABLE; 1024 **MARGINAL**. At 1024, wall time binds (median above the 360 s USABLE limit), not memory. Since P2, 1024 shows no critical pressure, and swap growth stays at 1.19 GB or less.
+- **Per-step cost:** about 2.4 s at 512 and 14 s at 1024 (G2 denoise ÷ 40). Compare Z-Image FAST at 1024²: 48.7 s for 8 steps.
+- **No speed work was done.** Directive §24–§25 gates it on a quality pass, and G2 did not pass.

@@ -60,7 +60,7 @@ Validity applies to the exact combination of model + precision + steps + schedul
 - Cold and sustained figures are never averaged together. Details: [`research/experiments/PERFORMANCE-MAP.md`](../research/experiments/PERFORMANCE-MAP.md).
 - **These numbers are measurements of this exact machine, not predictions for any other hardware.**
 
-## Image editing on this machine (Phase 4; EXPERIMENTAL)
+## Image editing on this machine (Phase 4; gated in Phase 5: G2 REJECTED, research opt-in only)
 The image-edit task (Qwen-Image-2.1, research licence) runs on the same machine, in a separate venv (`mflux-qwen/.venv`: mflux 0.21.0, MLX 0.32.2, Python 3.12.14; lock [`config/qwen-python-requirements.lock.txt`](../config/qwen-python-requirements.lock.txt)), one job at a time through the shared GPU lock.
 - **Model:** `Qwen/Qwen-Image-2.1` @ `d26bb61`, local q4 export (DiT + Qwen3-VL text/vision encoder q4, VAE fp32), 10.64 GB, pinned in [`config/backend-qwen21-edit-mflux.json`](../config/backend-qwen21-edit-mflux.json).
 - **Memory** (16 GB is the binding constraint):
@@ -68,12 +68,18 @@ The image-edit task (Qwen-Image-2.1, research licence) runs on the same machine,
   | lifecycle | peak footprint at 512 | at 1024 | memory pressure |
   |---|---:|---:|---|
   | mflux stock (all components loaded first) | 12.63 GB | 14.20 GB | **critical** episodes |
-  | production: deferred DiT load (pixel-identical) | **8.85 GB** | **12.08 GB** | normal at 512; warn but never critical at 1024 |
+  | Phase 4: deferred DiT load (pixel-identical) | 8.85 GB | 12.08 GB | normal at 512; warn but never critical at 1024 |
+  | **production since Phase 5: P2** (deferred DiT + text encoder released after encoding + lazy VAE during denoise; pixel-identical, [`QWEN-MEMORY-LIFETIME.md`](../research/qwen/QWEN-MEMORY-LIFETIME.md)) | **8.16 GB** (G2 median, 23 runs) | **10.87 GB** (G2 median, 22 runs) | 512: swap growth ≤ 0.04 GB; 1024: swap growth 0.10–1.19 GB, warn ≤ 2.7% of samples, never critical |
 
 - **Timings** (apps closed, AC, 40 steps):
-  - 1024 cold (after 600 s idle): **496.8 s** wall (text+vision encode 3.6 s, reference VAE encode 1.6 s, denoise 474.1 s at a 12.8 s/step median, VAE decode 12.8 s).
-  - 512 sustained: 83–112 s per edit (1.8–2.5 s/step). 1024 sustained: median 556 s (478–601 s).
-- **Not validated:** every edit is experimental (no edit configuration has passed a quality gate). Gate G0 (capability/reliability) results are in [`research/qwen/QWEN-EDITING-QUALITY.md`](../research/qwen/QWEN-EDITING-QUALITY.md). On other hardware nothing about editing is known. Edits above a 1024 budget are not offered on 16 GB.
+  - G2 (Phase 5, P2, **monitored harness**, which ran slower than unmonitored edits in the memory A/B): 512 median **104 s** (80–115 s); 1024 median **592 s** (523–634 s), of which denoise is 571 s.
+  - Phase 4 (deferred load only): 1024 cold (after 600 s idle) **496.8 s**; 512 sustained 83–112 s; 1024 sustained median 556 s (478–601 s).
+- **Memory/UX class (G2, protocol §8):** 512 **COMFORTABLE**; 1024 **MARGINAL**. At 1024 the limit is wall time (about 10 min per edit, against 6 min for USABLE), not memory. An accepted edit usually takes several attempts.
+- **Not validated.**
+  - The real-photograph quality gate G2 **rejected** both budgets: incidental text is garbled and edits leak to adjacent or similar objects ([`research/editing/real-world/results.md`](../research/editing/real-world/results.md)).
+  - Every edit reports `validated: false` and needs `--allow-experimental`.
+  - On other hardware nothing about editing is known.
+  - Edits above a 1024 budget are not offered on 16 GB.
 
 ## Not yet validated
 None of the following has been tested by this project. Nothing here means "unsupported forever"; each would need its own validation (versions, memory profile, timings, pixel parity / quality gates).

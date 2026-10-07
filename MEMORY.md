@@ -5,21 +5,23 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-07 ~12:05 (PHASE 5 IN PROGRESS: see `research/qwen/PHASE5-INDEX.md` first)._
+_Last updated 2026-10-07 ~18:30 (PHASE 5 COMPLETE; read `research/qwen/PHASE5-INDEX.md` first)._
 
-**PHASE 5 (2026-10-07) RESUME → `research/qwen/PHASE5-INDEX.md`.**
-- Phase 4 is pushed (`origin/main` = `401e400`); tag **v3** → `401e400`, pushed.
-- The duplicate Qwen export is deleted (+10.67 GB); the canonical export was re-verified in full.
-- Backend-identity hardening is committed (`51d4d6a`).
-- **Memory lifetime P2 ADOPTED** (`a3a225c` results, `973ef7f` switch; `research/qwen/QWEN-MEMORY-LIFETIME.md`):
-  - exact parity 5/5 pairs;
-  - 1024 peak footprint −1.35 GB (12.08 → ~10.8), swap growth 1.30 → 0.32 GB, wall unchanged;
-  - production-path re-check of E05 512 = `bd548f1b`, same ids;
-  - tests 91/91.
-- **G2 pre-registered** (`8694119`). Sources acquired: 16 CC0/PD (`source-manifest.json`).
-  - **MPO input defect found and fixed** (`e653122`, amendment 1 in `protocol.md`): photo-gen rejected 2 camera JPEGs in multi-picture form; they are now staged as their primary image; 14/14 other sources parity-checked.
-- **IN FLIGHT: G2 chain** `research/editing/real-world/g2-chain.sh` → `g2-chain.log`, marker **`G2_CHAIN_DONE`** (45 edits; started ~12:25 PST, about 4.5 h). It bypasses `gpu.lock`: run no photo-gen jobs. Edit nothing under `app/`, `config/` or `research/qwen/run_edit.sh` until it is done.
-- **After it:** `analyze_g2.py --runs-only` → items.json → `g2_blind.py prepare` → fresh-subagent rater → freeze → unblind → `analyze_g2.py` → results.md and docs.
+**PHASE 5 (2026-10-07) COMPLETE → `research/qwen/PHASE5-INDEX.md`. Nothing is running.**
+- **Qwen editing: G2 REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
+  - Preservation 4 FAIL per budget (incidental text garbled R02/R12/R15; edit leakage R09); adherence 0 FAIL.
+  - O and D pass (45/45 clean, 5/5 repeats bit-identical); S fails.
+  - Memory/UX: 512 COMFORTABLE (104 s, 8.16 GB); 1024 MARGINAL (592 s, 10.87 GB).
+  - **Not promoted.** Editing stays a research opt-in (`validated=false`, `--allow-experimental`). Commercial use is not permitted (Qwen Research License).
+- **Identity:** Phase 4 pushed (`origin/main` = `401e400`); tag **v3** → `401e400`, pushed. Backend-identity hardening `51d4d6a`.
+- **Memory lifetime P2 ADOPTED** (`973ef7f`): 1024 peak 12.08 → ~10.9 GB, exact parity 5/5.
+- **MPO camera-JPEG input fix** `e653122` (a photo-gen defect found by G2).
+- **Assets:** duplicate q4 export deleted (+10.67 GB). Source checkpoint 33 GB **RETAIN LOCALLY**, re-verified unchanged after G2; DELETE trigger in `QWEN-ASSET-PROVENANCE.md` §6.
+- **Commits:** Phase 5 commits are on local `main` after `401e400`, **NOT pushed**. Push only when the user asks. Tests 92/92.
+- **Open user decisions:**
+  1. keep or remove the (rejected) edit task;
+  2. pursue the Q-Q diagnostic (is the text garbling a q4 artifact?) or trigger the source DELETE;
+  3. push the Phase 5 commits / any v4 tag.
 
 _The Phase 4 snapshot below is kept for reference._
 
@@ -46,7 +48,7 @@ _The Phase 4 snapshot below is kept for reference._
   - 1024² balanced `befe1b3c`. All re-verified through the Phase 4 refactored app 2026-10-07.
 
 **Git**
-- Private `nckandrw/photo-gen`, branch `main`. Tags v1 (`db10040`) and v2 (`3961404`) are immutable; never move them.
+- Private `nckandrw/photo-gen`, branch `main`. Tags v1 (`db10040`), v2 (`3961404`) and v3 (`401e400`, Phase 4 close) are immutable; never move them.
 - Push over HTTPS: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main` (the SSH key isn't authorized on GitHub).
 - Stage explicitly, never `git add .`.
 
@@ -84,6 +86,28 @@ _The Phase 4 snapshot below is kept for reference._
   - `mflux-qwen/.venv` (edit venv).
 
 ---
+
+## 2026-10-07 — Phase 5 (directive "PHOTO-GEN PHASE 5: Harden Qwen editing, validate it on real photographs, and determine production readiness" + addendum on source-checkpoint disposition)
+- **Done, in order:**
+  1. Push and tag: `origin/main` → `401e400`; **v3** tag.
+  2. Duplicate q4 export verified byte-identical and deleted (`0d15f49`; `QWEN-ASSET-PROVENANCE.md`).
+  3. Backend identity (`51d4d6a`).
+  4. Memory lifetime A/B, P2 ADOPTED (`a3a225c`, `973ef7f`; `QWEN-MEMORY-LIFETIME.md`).
+  5. G2 pre-registration (`8694119`).
+  6. Sources: 16 CC0/PD Commons photos, plus the MPO input fix (`e653122`, `f16e092`; protocol amendment 1).
+  7. **G2 chain 12:11:05 → 16:45:07 PST** at git `f16e092`. *Correction:* the earlier current-state block said "started ~12:25"; the chain log's start is 12:11:05.
+  8. Blind sheets with seed 20261007, plus amendment 2 (`cf96d4a`).
+  9. Fresh-subagent rater; sheet frozen 17:13, `f14deba4…` (`6577b09`); unblind and tally.
+  10. Results, Qwen G2 section and source disposition (`0ccc0b7`). Docs in the closing commit.
+- **Result: REJECTED at 512 and 1024** (pre-registered §9: preservation FAIL ≥ 3).
+  - 4 preservation FAILs per budget: R02, R12, R15 (text-derived; the rater also scored them FAIL directly) and R09.
+  - The verdict doesn't depend on R09. The session assistant spot-checked all 6 forcing text FAILs at native resolution after the freeze; this was descriptive, not a re-score.
+- **Disclosed deviations:**
+  - amendment 2 (procedural only): shuffle seed, zoom crops, incremental rows, extra format checks, anonymization limits (sheet sizes differ per budget, the harness may load CLAUDE.md into the rater);
+  - the rater revised 3 of its own preservation scores before hand-back; no tallied count changed (`g2/RATER-AUDIT.json`);
+  - G2 wall times come from the monitored harness, which ran slower than unmonitored edits.
+- **Evidence:** `research/editing/real-world/` (`results.md`, `benchmark.csv`, `scores.csv`, `results-summary.json`, `g2/`), `research/qwen/runs/G2-*` (incl. sidecars), `QWEN-EDITING-QUALITY.md` § G2, `QWEN-ASSET-PROVENANCE.md` §6.
+- **Open:** see the current-state "Open user decisions". Backlog Q-Q and Q-A are in `research/EXPERIMENT-BACKLOG.md`. Nothing is running.
 
 ## 2026-10-06 — Phase 4 started (directive "PHOTO-GEN PHASE 4: Qwen editing backend + unified image-task layer")
 - **Pending CLI check CLOSED (directive §2).**

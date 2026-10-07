@@ -2,8 +2,26 @@
 
 photo-gen has no semantic versioning. Each tag marks a **known-good, restorable state validated on the target machine** (MacBook Air M5, 16 GB, 8-core GPU, macOS 27.0; see [HARDWARE.md](HARDWARE.md)). Tags are immutable; they are never moved or rewritten.
 
-## Unreleased (`main`, not a validated tag): BALANCED/ULTRA and Phase 4 image editing
-**No tag has been created for these changes; the user decides whether a `v3` restore point is warranted.**
+## Unreleased (`main`, after v3; not a validated tag): Phase 5 hardening and the real-photograph editing gate
+**No tag has been created for these changes.** The Phase 5 commits are local, on `main` after `401e400`, and not yet pushed.
+- **Text-to-image unchanged:** profiles and `VALIDATED_COMBINATIONS` are as in v3. The Phase 5 app reproduced the Z-Image regression set exactly (5/5 at `6d95ada`, `research/qwen/memory/preflight/zimage-*.json`); no Z-Image runtime, worker, job, store or manifest code changed after that run. The Z-Image sidecar is still pinned by its golden test.
+- **Backend identity:**
+  - every job row has a `backend_id`, stamped from the runtime's manifest; a `schema_migrations` migration backfilled the old rows;
+  - at execute time a job whose backend, model, revision or manifest no longer matches is refused;
+  - edit sidecars carry `configuration_id` (manifest + steps + output resolution) and `edit_id` (adds input pixels, instruction, seed).
+- **Edit memory policy P2** (adopted, pixel-identical on 5/5 pairs): the text encoder is released after encoding, and only a lazy VAE copy is kept during denoise. 1024 peak footprint 12.08 → ~10.9 GB; 512 peak 8.9 → 8.2 GB (`research/qwen/QWEN-MEMORY-LIFETIME.md`).
+- **Inputs:** a camera MPO (multi-picture JPEG) is staged as its primary image, with a warning. This photo-gen defect was found while acquiring G2's sources (`e653122`).
+- **Real-photograph editing gate G2: REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
+  - Adherence 0 FAIL at each budget.
+  - Preservation 4 FAIL at each budget: incidental text garbled, edits leaking to adjacent objects.
+  - 45/45 runs clean; repeats bit-identical.
+  - Memory/UX: 512 COMFORTABLE, 1024 MARGINAL.
+  - **Editing is not a production feature.** It stays a research opt-in (`--allow-experimental`, `validated: false`). The Qwen Research License forbids commercial use in any case.
+- **Assets:** the byte-identical duplicate q4 export was deleted (+10.67 GB). The 33 GB source checkpoint is retained locally, with a deletion trigger (`research/qwen/QWEN-ASSET-PROVENANCE.md`).
+- **Tests:** 92/92. **Resume index:** `research/qwen/PHASE5-INDEX.md`.
+
+## photo-gen-m5-16gb-v3 (2026-10-07): Phase 4 close, `401e400`
+**Tag:** `photo-gen-m5-16gb-v3`, an annotated tag on `401e400`. It was created and pushed at the start of Phase 5, before any Phase 5 change, and is immutable. It marks text-to-image production plus the Phase 4 experimental editing integration, before Phase 5's hardening and quality gate. The changes it contains since v2:
 - **Since v2 (2026-09-29):** ULTRA (bf16 + 4, 512² only) and BALANCED (bf16 + 5, 1024² only) profiles, each with its own blinded gate (`research/experiments/step-count-quality-gate/results.md`). Their CLI end-to-end check was closed 2026-10-06 (BALANCED `befe1b3c…`, 768² refused).
 - **Phase 4 (2026-10-07): image-task layer + experimental Qwen editing.**
   - **Task layer:** explicit task router (`text-to-image` → Z-Image, `image-edit` → Qwen); one queue, store, GPU lock and API.

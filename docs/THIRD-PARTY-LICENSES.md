@@ -62,7 +62,7 @@ The Qwen-Image 2.1 / Z-Image GGUF files, Qwen3 GGUF text encoders, VAEs, and the
 - Their sources and pins are in `research/model-pins.txt`, `research/z-image-model-pins.txt` and `research/REPORT.md`.
 - `research/REPORT.md` records a **conflicting** licence statement for one Qwen-2.1 derivative (the derivative's card says Apache-2.0, the official card says the Qwen Research License). The official license governs.
 
-## 5. Image-edit backend (Phase 4; EXPERIMENTAL; installed and downloaded separately, never in Git)
+## 5. Image-edit backend (Phase 4; research opt-in, G2 REJECTED; installed and downloaded separately, never in Git)
 Inspected 2026-10-07 (package metadata in `mflux-qwen/.venv`; HF card metadata and LICENSE at the pinned revisions). Full audit: [`research/qwen/QWEN-SOURCE-AUDIT.md`](../research/qwen/QWEN-SOURCE-AUDIT.md).
 
 **Software** (separate project-local venv `mflux-qwen/.venv`; lock in [`config/qwen-python-requirements.lock.txt`](../config/qwen-python-requirements.lock.txt); code included in this repository: none):
@@ -87,8 +87,22 @@ Inspected 2026-10-07 (package metadata in `mflux-qwen/.venv`; HF card metadata a
 - Qwen-Image-2.1 weights and their q4 export are **never committed and never redistributed**. photo-gen records only their identity.
 - The edit backend is labelled *"Qwen Research License (non-commercial)"* in `/capabilities`, job metadata and docs.
 - **Any commercial use of the edit backend is blocked by the licence**, independent of engineering status.
+- **Licence boundary.**
+  ```text
+  photo-gen code          → MIT (LICENSE): photo-gen's own code only
+  Qwen-Image-2.1 weights  → Qwen Research License: research/evaluation, non-commercial
+  ```
+  - photo-gen's MIT licence grants **no** rights to the Qwen weights or their q4 export.
+  - The Phase 5 quality gate (G2: REJECTED) is a technical result. A validation would not have changed the licence either.
+  - Any public distribution of an editing feature would need its own licensing review first.
 - The Apache-2.0 alternative (`Qwen/Qwen-Image-Edit-2509/2511`, a 20B DiT) does not fit this 16 GB machine (audit §3).
 - **Discrepancy (D2):** `mlx-community/Qwen-Image-2.1-mflux-q4` declares Apache-2.0 for its conversion of the research-licensed checkpoint. The upstream LICENSE governs; that pack is not used.
+
+## 5a. Real-photograph benchmark sources (Phase 5 gate G2; not in Git)
+- **What:** 16 photographs from Wikimedia Commons, 14 CC0 and 2 public domain. The licence of each was re-read from the Commons API at download time.
+- **Records:** per-file creator, credit, URL, licence and hashes are in [`research/editing/real-world/source-manifest.json`](../research/editing/real-world/source-manifest.json).
+- **Not redistributed:** the images aren't committed (repository image policy, even though CC0/PD would allow it). They live in `data/benchmark/real-world/` (gitignored), and edited outputs aren't published.
+- **People:** adults only, no public figures.
 
 ## 6. Candidate experimental assets (not downloaded)
 See [`research/experiments/4step-probe-acquisition.md`](../research/experiments/4step-probe-acquisition.md). Nothing listed there is part of photo-gen, and nothing there is licensed through photo-gen's MIT license.
