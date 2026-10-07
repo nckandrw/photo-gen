@@ -1,4 +1,6 @@
-# Qwen-Image-2.1 editing quality: G0 capability gate (and G1 runtime A/B)
+# Qwen-Image-2.1 editing quality: G0 capability gate, G1 runtime A/B, G2 real-photograph gate
+
+> **Phase 5 outcome (2026-10-07):** the real-photograph gate **G2 REJECTED both gated configurations** (512 `3cd79615…`, 1024 `fffe8df3…`). See [§ G2](#g2-phase-5-real-photograph-gate-rejected-at-512-and-1024) and `research/editing/real-world/results.md`. The G0/G1 sections below are the Phase 4 record, unchanged.
 
 - **Benchmark:** PHOTO-GEN editing benchmark v1 (`research/editing/`; pre-registered in `c6c01a9`; sources and regions frozen in `cf21eaa` before any edit).
 - **Configuration under test:** Qwen-Image-2.1 q4 on mflux 0.21.0 through the production path (`bin/photo-gen edit`), 40 steps, guidance 1.0, prefix KV cache, seed 42.
@@ -110,3 +112,46 @@ Runs `G0-512-*`, 2026-10-07 01:34–01:59, AC, apps closed, git `a7cc451`. Score
 - **Not tested:** sd.cpp repeat determinism (no repeat run; bounded).
 
 The decisive differences are **performance and memory**, not quality (`QWEN-RUNTIME-COMPARISON.md` §2).
+
+## G2 (Phase 5): real-photograph gate, REJECTED at 512 and 1024
+The full record is in `research/editing/real-world/results.md` and the pre-registration in `protocol.md` (the benchmark is model-independent). This section summarizes what it means for this backend.
+
+- **Configuration under test:** the Phase 4 configuration (q4 export @ `d26bb61`, mflux 0.21.0 upstream defaults: 40 steps, guidance 1.0, prefix KV cache), now with the adopted P2 memory policy, which is pixel-neutral (`QWEN-MEMORY-LIFETIME.md`). `configuration_id` `3cd79615…` at 512 and `fffe8df3…` at 1024.
+- **Inputs:** 16 CC0/PD camera photographs with pre-registered MUST CHANGE / MUST NOT CHANGE lists.
+- **Runs:** 45 edits on fresh seeds: 16 primary + 4 second-seed + repeats per budget.
+- **Rating:** provenance-blind, by a fresh subagent; frozen before unblinding.
+
+| | 512 | 1024 |
+|---|---|---|
+| adherence (16 primary) | 15 PASS / 1 PARTIAL / 0 FAIL | 15 PASS / 1 PARTIAL / 0 FAIL |
+| preservation (16 primary) | 7 PASS / 5 PARTIAL / **4 FAIL** | 9 PASS / 3 PARTIAL / **4 FAIL** |
+| text (R02, R08, R12, R15) | R08 PASS; **R02, R12, R15 FAIL** | R08 PASS; **R02, R12, R15 FAIL** |
+| quality MINOR / MAJOR | 6 / 0 | 1 / 0 |
+| composition FAIL | 0 | 0 |
+| second-seed adherence + preservation FAILs | 3 of 4 items | 2 of 4 items |
+| operations / determinism | 23/23 clean; 3/3 repeats bit-identical | 22/22 clean; 2/2 repeats bit-identical |
+| wall, monitored harness (median) | 104 s | 592 s |
+| peak footprint (median) | 8.16 GB | 10.87 GB |
+| memory/UX class | COMFORTABLE | MARGINAL (wall time) |
+| **decision** | **REJECTED** | **REJECTED** |
+
+**Failure modes (systematic: they recur across seeds and budgets, and the repeats are deterministic):**
+1. **Incidental text is re-synthesized and garbled.**
+   - Where the edit is elsewhere in the frame, existing small lettering is not carried through: street-name signs, sub-plates, banners, posters, door decals.
+   - That is 8 of 8 text-preservation items; 1024 garbles somewhat less than 512.
+   - Requested text replacement works (R08: 4 of 4 PASS).
+2. **The edit leaks to adjacent or related elements.**
+   - Similar neighbouring objects are swapped too: in a market stall, the mango, netted and red-apple piles became green apples along with the dragon fruit.
+   - Colour or material spreads to attached parts: laces with the shoes, edging with the yarn, the glass stem with the wine.
+   - G0's E08 (oranges → pineapples) was the first instance.
+
+**What G0 missed.**
+- G0's synthetic sources had one prominent sign per text test and few dense clusters of similar objects.
+- G0 was rated by the session assistant, not blind, without native-resolution inspection.
+- G0 stays a valid *capability* result (CAPABLE). G2 shows that capability does not carry over to reliable preservation on real photographs.
+
+**Status after G2.**
+- **Integration validated; capability shown; G2 quality REJECTED; local production REJECTED** (not promoted). Every edit stays `validated: false` behind `--allow-experimental`, as a research opt-in.
+- **Commercial use:** not permitted (Qwen Research License).
+- **Not established:** whether failure mode 1 comes from the q4 export (DiT or text/vision encoder), from the VAE round trip, or from the output budget. Only an export from the retained source checkpoint could separate the first from the others (`QWEN-ASSET-PROVENANCE.md` §6). Per directive §24–§25, no speed or model work is started on a rejected configuration.
+

@@ -1,0 +1,251 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T04:37:23.677+00:00",
+  "job_id": "20261007T043531Z-870300",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Replace the clear blue sky with a dramatic sunset sky with orange and pink clouds.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R13/St._Martin_K\u00fclsheim_Ansicht_2.jpg",
+    "source_file_sha256": "b2f9ea148094bdbb4714040c26fd0d55f0ac73156e087f19ac4bf008a098b130",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9.png",
+    "pixel_sha256": "2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9",
+    "width": 2848,
+    "height": 4272,
+    "exif_orientation": 8,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 512,
+  "width": 416,
+  "height": 640,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510713,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "generation_time_seconds": 111.63,
+  "phases": {
+    "load": {
+      "seconds": 1.393,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 1.519,
+      "mlx_peak_gb": 7.407,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 0.423,
+      "mlx_peak_gb": 3.103,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 2.435,
+      "mlx_peak_gb": 4.877,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 108.144,
+      "mlx_peak_gb": 4.877,
+      "calls": 1
+    },
+    "denoise_seconds": 103.271,
+    "other_seconds": 0.496
+  },
+  "step_seconds": [
+    4.789,
+    2.408,
+    2.319,
+    2.331,
+    2.326,
+    2.305,
+    2.308,
+    2.29,
+    2.32,
+    2.315,
+    2.315,
+    2.352,
+    2.338,
+    2.344,
+    2.386,
+    2.377,
+    2.455,
+    2.477,
+    2.437,
+    2.458,
+    2.653,
+    2.493,
+    2.532,
+    2.566,
+    2.568,
+    2.571,
+    2.607,
+    2.629,
+    2.649,
+    2.667,
+    2.686,
+    2.702,
+    2.721,
+    2.757,
+    2.763,
+    2.777,
+    2.788,
+    2.791,
+    2.8,
+    2.813
+  ],
+  "memory": {
+    "peak_footprint_gb": 8.2,
+    "mlx_peak_gb": 7.407,
+    "denoise_mlx_peak_gb": 5.915
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043531Z-870300.png",
+  "pixel_sha256": "17608248df7a04a048928c30cd4268b4726c102066a9bf31145a6d316ca12837",
+  "file_sha256": "d1c72297a3b6423169a79a0ec4b35bdbcdcda6583480f0c95b0e89ab5a7a7b3a",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 252,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "079a0a2c185e8699feee88a698d02d7cae97cf14fa52d20972d97907e143770d"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 512,
+    "adapters": []
+  },
+  "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+  "edit_identity": {
+    "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+    "input_pixel_sha256": "2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9",
+    "instruction": "Replace the clear blue sky with a dramatic sunset sky with orange and pink clouds.",
+    "seed": 2510713,
+    "width": 416,
+    "height": 640
+  },
+  "edit_id": "af8c8595fa8f426d3715e5a691f6d97f2df274329d8e54ad38858e2220727c4e",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.37,
+      "swap_total_gb": 3.0,
+      "free_percent": 78,
+      "compressed_gb": 1.26,
+      "wired_gb": 2.07
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.41,
+      "swap_total_gb": 3.0,
+      "free_percent": 78,
+      "compressed_gb": 1.43,
+      "wired_gb": 2.04
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9.png' --prompt 'Replace the clear blue sky with a dramatic sunset sky with orange and pink clouds.' --output-resolution 512 --steps 40 --seed 2510713 --allow-experimental"
+  }
+}

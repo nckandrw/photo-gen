@@ -1,0 +1,251 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T05:29:48.932+00:00",
+  "job_id": "20261007T052005Z-cf5913",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Make the shoes out of brown suede instead of blue canvas.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R03/Tapaha\u978b\u5b50.jpg",
+    "source_file_sha256": "2610f0ff89ca1db528a7d01eca347d6b71467a626e986d7daaddbb18c8c161a3",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14.png",
+    "pixel_sha256": "aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14",
+    "width": 4087,
+    "height": 2495,
+    "exif_orientation": null,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "width": 1312,
+  "height": 800,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510703,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "generation_time_seconds": 582.848,
+  "phases": {
+    "load": {
+      "seconds": 1.385,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 4.664,
+      "mlx_peak_gb": 7.194,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 1.389,
+      "mlx_peak_gb": 4.983,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 10.502,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 578.916,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "denoise_seconds": 561.969,
+    "other_seconds": 0.392
+  },
+  "step_seconds": [
+    23.183,
+    12.091,
+    12.385,
+    13.165,
+    13.921,
+    14.288,
+    14.548,
+    14.619,
+    14.83,
+    17.327,
+    14.378,
+    14.217,
+    14.129,
+    13.787,
+    13.81,
+    13.582,
+    13.666,
+    13.646,
+    13.695,
+    13.635,
+    13.637,
+    13.642,
+    13.61,
+    13.602,
+    13.62,
+    13.562,
+    13.676,
+    13.722,
+    13.687,
+    13.716,
+    13.714,
+    13.701,
+    13.668,
+    13.704,
+    13.629,
+    13.601,
+    13.658,
+    13.569,
+    13.637,
+    13.641
+  ],
+  "memory": {
+    "peak_footprint_gb": 10.785,
+    "mlx_peak_gb": 7.194,
+    "denoise_mlx_peak_gb": 9.664
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T052005Z-cf5913.png",
+  "pixel_sha256": "8b7a7a82639999ea740b7b6dc54b64937a5b13163586b07d4dab0b24884663b9",
+  "file_sha256": "49cafe62aaa23a71920431cf147e1c8618d727cc89ddf85845f9471be6813b81",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 251,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "1c6532d2b474b702252ded80c70ea4f6d81da10b2e1749d7c16763bdc74510a5"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 1024,
+    "adapters": []
+  },
+  "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+  "edit_identity": {
+    "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+    "input_pixel_sha256": "aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14",
+    "instruction": "Make the shoes out of brown suede instead of blue canvas.",
+    "seed": 2510703,
+    "width": 1312,
+    "height": 800
+  },
+  "edit_id": "b10b77fbefd44fba531c37ddc4dc91398df4a5d544d38405a85c33cd2f3d4b63",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.0,
+      "swap_total_gb": 3.0,
+      "free_percent": 85,
+      "compressed_gb": 0.19,
+      "wired_gb": 2.03
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.75,
+      "swap_total_gb": 3.0,
+      "free_percent": 86,
+      "compressed_gb": 0.2,
+      "wired_gb": 2.03
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14.png' --prompt 'Make the shoes out of brown suede instead of blue canvas.' --output-resolution 1024 --steps 40 --seed 2510703 --allow-experimental"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T05:19:45.306+00:00",
+  "job_id": "20261007T050955Z-7835e9",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Remove the dark grey van parked in front of the building.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R02/Architecture_of_the_1930's_in_Amsterdam_city_-_free_photo,_Fons_Heijnsbroek.jpg",
+    "source_file_sha256": "55f8ef809fa3d9dd83bc4b19b9ac67743755d4c42b50b503fa3e7ca092932766",
+    "source_format": "MPO",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+    "pixel_sha256": "73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9",
+    "width": 4592,
+    "height": 3448,
+    "exif_orientation": 1,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "width": 1184,
+  "height": 896,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510702,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+    "input is a multi-picture JPEG (MPO) with 2 images; only the primary image is used"
+  ],
+  "generation_time_seconds": 589.713,
+  "phases": {
+    "load": {
+      "seconds": 1.36,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 4.241,
+      "mlx_peak_gb": 7.205,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 1.397,
+      "mlx_peak_gb": 5.016,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 9.76,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 586.082,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "denoise_seconds": 570.175,
+    "other_seconds": 0.509
+  },
+  "step_seconds": [
+    21.73,
+    11.304,
+    11.401,
+    11.908,
+    12.564,
+    13.273,
+    13.873,
+    13.777,
+    13.904,
+    13.829,
+    15.103,
+    14.221,
+    14.067,
+    14.152,
+    14.286,
+    14.357,
+    14.639,
+    14.535,
+    14.583,
+    14.401,
+    14.722,
+    14.368,
+    14.314,
+    14.32,
+    14.288,
+    14.561,
+    14.242,
+    14.4,
+    14.45,
+    14.507,
+    14.445,
+    14.415,
+    14.43,
+    14.386,
+    14.434,
+    14.406,
+    14.351,
+    14.396,
+    14.406,
+    14.362
+  ],
+  "memory": {
+    "peak_footprint_gb": 10.882,
+    "mlx_peak_gb": 7.205,
+    "denoise_mlx_peak_gb": 9.724
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png",
+  "pixel_sha256": "13d1e1bb674e5c546cacb1bb97ef707a096075b337535988387a93fccdc7d7c8",
+  "file_sha256": "cf723d5d122b5c719fc5f1c787a5bf094affa5a6d5618e9a742ce84de50b6d7d",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 205,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "fd3cb2d05f72d0b47d54afce6abfa97a5e3f879ce5f49a4c723a654341cf8487"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 1024,
+    "adapters": []
+  },
+  "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+  "edit_identity": {
+    "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+    "input_pixel_sha256": "73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9",
+    "instruction": "Remove the dark grey van parked in front of the building.",
+    "seed": 2510702,
+    "width": 1184,
+    "height": 896
+  },
+  "edit_id": "b457b6e1dc4d9d7720da3a80fe4338e50bf03f92b8b1c35e283ad61a27787ee7",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.33,
+      "swap_total_gb": 3.0,
+      "free_percent": 84,
+      "compressed_gb": 0.28,
+      "wired_gb": 2.08
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.0,
+      "swap_total_gb": 3.0,
+      "free_percent": 85,
+      "compressed_gb": 0.2,
+      "wired_gb": 1.99
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png' --prompt 'Remove the dark grey van parked in front of the building.' --output-resolution 1024 --steps 40 --seed 2510702 --allow-experimental"
+  }
+}

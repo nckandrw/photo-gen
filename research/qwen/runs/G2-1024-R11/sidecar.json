@@ -1,0 +1,251 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T06:50:34.009+00:00",
+  "job_id": "20261007T064035Z-2e44b8",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Change the red wine in the glass to white wine.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R11/Glass_of_wine_at_Kalandak_Rooftop,_Tibetan_Colony,_New_Aruna_Nagar,_Delhi_(2023).jpg",
+    "source_file_sha256": "495e34e0588667fbbca0cabb0cc8a549becbb0a1c035cb1ec581f2cb17bb838d",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+    "pixel_sha256": "c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d",
+    "width": 2250,
+    "height": 4000,
+    "exif_orientation": 6,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "width": 768,
+  "height": 1376,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510711,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "generation_time_seconds": 598.747,
+  "phases": {
+    "load": {
+      "seconds": 1.344,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 4.419,
+      "mlx_peak_gb": 7.201,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 1.385,
+      "mlx_peak_gb": 4.993,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 11.586,
+      "mlx_peak_gb": 5.777,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 594.963,
+      "mlx_peak_gb": 5.777,
+      "calls": 1
+    },
+    "denoise_seconds": 577.119,
+    "other_seconds": 0.454
+  },
+  "step_seconds": [
+    23.021,
+    11.941,
+    12.182,
+    12.822,
+    13.601,
+    14.113,
+    14.382,
+    14.529,
+    14.425,
+    14.437,
+    14.509,
+    14.36,
+    14.344,
+    14.243,
+    14.266,
+    14.182,
+    14.254,
+    14.184,
+    14.213,
+    14.146,
+    14.113,
+    14.158,
+    14.182,
+    14.256,
+    14.277,
+    14.248,
+    14.249,
+    14.266,
+    14.348,
+    14.358,
+    14.314,
+    14.371,
+    14.106,
+    14.224,
+    14.214,
+    14.299,
+    15.679,
+    15.145,
+    14.967,
+    15.123
+  ],
+  "memory": {
+    "peak_footprint_gb": 10.821,
+    "mlx_peak_gb": 7.201,
+    "denoise_mlx_peak_gb": 9.702
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T064035Z-2e44b8.png",
+  "pixel_sha256": "502c4f5503a9f8cc6bb7fefdee2c863fba162a989e1d73b20dceba2cf1a0bc1f",
+  "file_sha256": "1d54102d444a8686eb13c09ebb32a4ef06c2df4720196118f07148795796d667",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 251,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "8a9705dd213709863c92ab6a8e796a073975981f4608915102ffc06c02d53ac8"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 1024,
+    "adapters": []
+  },
+  "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+  "edit_identity": {
+    "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+    "input_pixel_sha256": "c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d",
+    "instruction": "Change the red wine in the glass to white wine.",
+    "seed": 2510711,
+    "width": 768,
+    "height": 1376
+  },
+  "edit_id": "59c2cebd9f4209e7559eb555cdf9a12c272a26ae9be012016be7eff6b907da17",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.07,
+      "swap_total_gb": 3.0,
+      "free_percent": 85,
+      "compressed_gb": 0.31,
+      "wired_gb": 1.95
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.42,
+      "swap_total_gb": 3.0,
+      "free_percent": 86,
+      "compressed_gb": 0.2,
+      "wired_gb": 1.92
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png' --prompt 'Change the red wine in the glass to white wine.' --output-resolution 1024 --steps 40 --seed 2510711 --allow-experimental"
+  }
+}

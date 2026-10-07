@@ -1,0 +1,251 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T04:43:48.939+00:00",
+  "job_id": "20261007T044158Z-928d7e",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Add a croissant on the table next to the coffee cup.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R16/Kafo.jpg",
+    "source_file_sha256": "cf3eb9810aacba9a0bffd7c11805ec3b2ba4a47d4362bb90fa5acf9797233cb0",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91.png",
+    "pixel_sha256": "2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91",
+    "width": 7360,
+    "height": 4912,
+    "exif_orientation": null,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 512,
+  "width": 640,
+  "height": 416,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510716,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "generation_time_seconds": 110.04,
+  "phases": {
+    "load": {
+      "seconds": 1.364,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 1.157,
+      "mlx_peak_gb": 7.407,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 0.417,
+      "mlx_peak_gb": 3.103,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 2.415,
+      "mlx_peak_gb": 4.876,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 106.572,
+      "mlx_peak_gb": 4.876,
+      "calls": 1
+    },
+    "denoise_seconds": 101.974,
+    "other_seconds": 0.609
+  },
+  "step_seconds": [
+    4.789,
+    2.41,
+    2.303,
+    2.321,
+    2.3,
+    2.286,
+    2.308,
+    2.299,
+    2.293,
+    2.325,
+    2.302,
+    2.324,
+    2.34,
+    2.332,
+    2.354,
+    2.379,
+    2.374,
+    2.401,
+    2.434,
+    2.433,
+    2.451,
+    2.477,
+    2.511,
+    2.502,
+    2.52,
+    2.544,
+    2.579,
+    2.606,
+    2.615,
+    2.629,
+    2.632,
+    2.666,
+    2.668,
+    2.694,
+    2.713,
+    2.743,
+    2.746,
+    2.759,
+    2.767,
+    2.776
+  ],
+  "memory": {
+    "peak_footprint_gb": 8.366,
+    "mlx_peak_gb": 7.407,
+    "denoise_mlx_peak_gb": 5.879
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T044158Z-928d7e.png",
+  "pixel_sha256": "7ab42f46e1a61205be410fdc50f496b6dcdc7cd84a3946b8ad9c2f002d385b2f",
+  "file_sha256": "2dedc9c9320682de7977f1941f51db0ac782d1abb4a7729348550bbbf8c745e2",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 253,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "ecaaf81a4d6ea9852963b7cb76ae7c830ff08e275874c6e9b39cac695aa75b16"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 512,
+    "adapters": []
+  },
+  "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+  "edit_identity": {
+    "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+    "input_pixel_sha256": "2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91",
+    "instruction": "Add a croissant on the table next to the coffee cup.",
+    "seed": 2510716,
+    "width": 640,
+    "height": 416
+  },
+  "edit_id": "1c430c158cd22fc2ab1e87d303d3bbadf5f20681fcc6717df25ffc077066a334",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.4,
+      "swap_total_gb": 3.0,
+      "free_percent": 79,
+      "compressed_gb": 1.33,
+      "wired_gb": 2.03
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.4,
+      "swap_total_gb": 3.0,
+      "free_percent": 77,
+      "compressed_gb": 1.52,
+      "wired_gb": 2.03
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91.png' --prompt 'Add a croissant on the table next to the coffee cup.' --output-resolution 512 --steps 40 --seed 2510716 --allow-experimental"
+  }
+}

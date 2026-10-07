@@ -1,0 +1,252 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T04:28:46.481+00:00",
+  "job_id": "20261007T042650Z-2b0b1a",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Replace the pink dragon fruits with green apples. Do not change anything else.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R09/20191212_Luang_Prabang_vegetable_market-1.jpg",
+    "source_file_sha256": "1b54b252db41b85f541d1bd2fb31c0741bb77f7046aa7b7ea9e3afb8f4d7501c",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+    "pixel_sha256": "6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e",
+    "width": 5760,
+    "height": 3840,
+    "exif_orientation": null,
+    "alpha_dropped": false,
+    "icc_profile": true
+  },
+  "output_resolution": 512,
+  "width": 640,
+  "height": 416,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510709,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+    "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "generation_time_seconds": 115.146,
+  "phases": {
+    "load": {
+      "seconds": 1.353,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 1.164,
+      "mlx_peak_gb": 7.407,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 0.436,
+      "mlx_peak_gb": 3.103,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 2.463,
+      "mlx_peak_gb": 4.877,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 111.714,
+      "mlx_peak_gb": 4.877,
+      "calls": 1
+    },
+    "denoise_seconds": 106.965,
+    "other_seconds": 0.686
+  },
+  "step_seconds": [
+    5.244,
+    2.521,
+    2.367,
+    2.368,
+    2.383,
+    2.37,
+    2.358,
+    2.546,
+    2.511,
+    2.346,
+    2.396,
+    2.409,
+    2.405,
+    2.412,
+    2.46,
+    2.459,
+    2.47,
+    2.484,
+    2.526,
+    2.541,
+    2.559,
+    2.561,
+    2.6,
+    2.625,
+    2.856,
+    2.683,
+    2.693,
+    2.722,
+    2.754,
+    2.781,
+    2.796,
+    2.811,
+    2.828,
+    2.84,
+    2.856,
+    2.857,
+    2.879,
+    2.872,
+    2.869,
+    2.873
+  ],
+  "memory": {
+    "peak_footprint_gb": 8.259,
+    "mlx_peak_gb": 7.407,
+    "denoise_mlx_peak_gb": 5.915
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042650Z-2b0b1a.png",
+  "pixel_sha256": "66abdbbae39ad7dc66c7be2e1f1cd6553dbdfb1cd19eca05c0d38ce0b5aeb305",
+  "file_sha256": "da1daecafc0cc85a0fe4c91f2b5d630abff2aff3bc0c6a4b69a9f4ea53e18667",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 135,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "f388c3ede273976db1ef85235add74bfb15f3affd61ae94cc0754773c6615303"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 512,
+    "adapters": []
+  },
+  "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+  "edit_identity": {
+    "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+    "input_pixel_sha256": "6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e",
+    "instruction": "Replace the pink dragon fruits with green apples. Do not change anything else.",
+    "seed": 2510709,
+    "width": 640,
+    "height": 416
+  },
+  "edit_id": "c1a50c93ebe399b05547bbf81a5882439da07d3262d246fbd94db34ec92684c8",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.8,
+      "swap_total_gb": 3.0,
+      "free_percent": 85,
+      "compressed_gb": 0.45,
+      "wired_gb": 1.93
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.47,
+      "swap_total_gb": 3.0,
+      "free_percent": 82,
+      "compressed_gb": 0.79,
+      "wired_gb": 1.94
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png' --prompt 'Replace the pink dragon fruits with green apples. Do not change anything else.' --output-resolution 512 --steps 40 --seed 2510709 --allow-experimental"
+  }
+}

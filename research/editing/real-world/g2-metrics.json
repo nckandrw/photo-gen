@@ -1,0 +1,472 @@
+{
+ "G2-1024-R01": {
+  "size": [
+   1216,
+   864
+  ],
+  "global_mae": 24.201,
+  "structure_corr": 0.7304,
+  "outside_fraction": 0.688,
+  "outside_mae": 5.746,
+  "outside_psnr": 30.12,
+  "outside_ssim": 0.8531,
+  "inside_mae": 76.133
+ },
+ "G2-1024-R02": {
+  "size": [
+   1184,
+   896
+  ],
+  "global_mae": 14.735,
+  "structure_corr": 0.7613,
+  "outside_fraction": 0.83,
+  "outside_mae": 9.443,
+  "outside_psnr": 24.79,
+  "outside_ssim": 0.7842,
+  "inside_mae": 43.832
+ },
+ "G2-1024-R03": {
+  "size": [
+   1312,
+   800
+  ],
+  "global_mae": 13.478,
+  "structure_corr": 0.8946,
+  "outside_fraction": 0.415,
+  "outside_mae": 3.087,
+  "outside_psnr": 36.84,
+  "outside_ssim": 0.9672,
+  "inside_mae": 23.809
+ },
+ "G2-1024-R04": {
+  "size": [
+   1184,
+   896
+  ],
+  "global_mae": 8.212,
+  "structure_corr": 0.5969,
+  "outside_fraction": 0.897,
+  "outside_mae": 6.346,
+  "outside_psnr": 27.95,
+  "outside_ssim": 0.809,
+  "inside_mae": 35.901
+ },
+ "G2-1024-R05": {
+  "size": [
+   1248,
+   832
+  ],
+  "global_mae": 6.777,
+  "structure_corr": 0.8798,
+  "outside_fraction": 0.703,
+  "outside_mae": 4.285,
+  "outside_psnr": 30.46,
+  "outside_ssim": 0.9096,
+  "inside_mae": 15.639
+ },
+ "G2-1024-R06": {
+  "size": [
+   1184,
+   896
+  ],
+  "global_mae": 88.746,
+  "structure_corr": 0.2473
+ },
+ "G2-1024-R07": {
+  "size": [
+   1344,
+   768
+  ],
+  "global_mae": 15.016,
+  "structure_corr": 0.5984,
+  "outside_fraction": 0.834,
+  "outside_mae": 11.279,
+  "outside_psnr": 22.81,
+  "outside_ssim": 0.5351,
+  "inside_mae": 47.747
+ },
+ "G2-1024-R08": {
+  "size": [
+   896,
+   1184
+  ],
+  "global_mae": 10.814,
+  "structure_corr": 0.7569,
+  "outside_fraction": 0.919,
+  "outside_mae": 9.911,
+  "outside_psnr": 23.94,
+  "outside_ssim": 0.7883,
+  "inside_mae": 27.829
+ },
+ "G2-1024-R08-s2": {
+  "size": [
+   896,
+   1184
+  ],
+  "global_mae": 11.815,
+  "structure_corr": 0.7193,
+  "outside_fraction": 0.919,
+  "outside_mae": 10.907,
+  "outside_psnr": 23.06,
+  "outside_ssim": 0.7522,
+  "inside_mae": 29.089
+ },
+ "G2-1024-R09": {
+  "size": [
+   1248,
+   832
+  ],
+  "global_mae": 20.879,
+  "structure_corr": 0.7663,
+  "outside_fraction": 0.761,
+  "outside_mae": 12.276,
+  "outside_psnr": 22.25,
+  "outside_ssim": 0.814,
+  "inside_mae": 58.898
+ },
+ "G2-1024-R09-s2": {
+  "size": [
+   1248,
+   832
+  ],
+  "global_mae": 27.592,
+  "structure_corr": 0.5131,
+  "outside_fraction": 0.761,
+  "outside_mae": 19.798,
+  "outside_psnr": 17.47,
+  "outside_ssim": 0.5649,
+  "inside_mae": 62.04
+ },
+ "G2-1024-R10": {
+  "size": [
+   1216,
+   864
+  ],
+  "global_mae": 26.36,
+  "structure_corr": 0.7578,
+  "outside_fraction": 0.24,
+  "outside_mae": 6.639,
+  "outside_psnr": 30.48,
+  "outside_ssim": 0.8831,
+  "inside_mae": 37.616
+ },
+ "G2-1024-R11": {
+  "size": [
+   768,
+   1376
+  ],
+  "global_mae": 22.3,
+  "structure_corr": 0.449,
+  "outside_fraction": 0.751,
+  "outside_mae": 14.729,
+  "outside_psnr": 20.82,
+  "outside_ssim": 0.5479,
+  "inside_mae": 59.461
+ },
+ "G2-1024-R11-s2": {
+  "size": [
+   768,
+   1376
+  ],
+  "global_mae": 27.811,
+  "structure_corr": 0.3872,
+  "outside_fraction": 0.751,
+  "outside_mae": 17.932,
+  "outside_psnr": 19.42,
+  "outside_ssim": 0.5089,
+  "inside_mae": 76.416
+ },
+ "G2-1024-R12": {
+  "size": [
+   896,
+   1184
+  ],
+  "global_mae": 9.241,
+  "structure_corr": 0.859,
+  "outside_fraction": 0.912,
+  "outside_mae": 7.182,
+  "outside_psnr": 27.48,
+  "outside_ssim": 0.8491,
+  "inside_mae": 46.037
+ },
+ "G2-1024-R12-s2": {
+  "size": [
+   896,
+   1184
+  ],
+  "global_mae": 9.044,
+  "structure_corr": 0.8506,
+  "outside_fraction": 0.912,
+  "outside_mae": 7.081,
+  "outside_psnr": 27.35,
+  "outside_ssim": 0.8478,
+  "inside_mae": 43.045
+ },
+ "G2-1024-R13": {
+  "size": [
+   832,
+   1248
+  ],
+  "global_mae": 44.994,
+  "structure_corr": 0.6548
+ },
+ "G2-1024-R14": {
+  "size": [
+   1248,
+   832
+  ],
+  "global_mae": 46.402,
+  "structure_corr": 0.2469
+ },
+ "G2-1024-R15": {
+  "size": [
+   896,
+   1184
+  ],
+  "global_mae": 41.366,
+  "structure_corr": 0.6443
+ },
+ "G2-1024-R16": {
+  "size": [
+   1248,
+   832
+  ],
+  "global_mae": 9.303,
+  "structure_corr": 0.7245
+ },
+ "G2-512-R01": {
+  "size": [
+   608,
+   416
+  ],
+  "global_mae": 22.644,
+  "structure_corr": 0.8015,
+  "outside_fraction": 0.685,
+  "outside_mae": 4.28,
+  "outside_psnr": 32.79,
+  "outside_ssim": 0.9115,
+  "inside_mae": 74.253
+ },
+ "G2-512-R02": {
+  "size": [
+   576,
+   448
+  ],
+  "global_mae": 14.438,
+  "structure_corr": 0.8054,
+  "outside_fraction": 0.83,
+  "outside_mae": 8.929,
+  "outside_psnr": 25.72,
+  "outside_ssim": 0.8376,
+  "inside_mae": 44.748
+ },
+ "G2-512-R03": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 10.813,
+  "structure_corr": 0.9351,
+  "outside_fraction": 0.416,
+  "outside_mae": 2.159,
+  "outside_psnr": 39.71,
+  "outside_ssim": 0.9802,
+  "inside_mae": 19.471
+ },
+ "G2-512-R04": {
+  "size": [
+   576,
+   448
+  ],
+  "global_mae": 7.247,
+  "structure_corr": 0.8619,
+  "outside_fraction": 0.897,
+  "outside_mae": 4.374,
+  "outside_psnr": 32.43,
+  "outside_ssim": 0.9279,
+  "inside_mae": 49.461
+ },
+ "G2-512-R05": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 6.732,
+  "structure_corr": 0.942,
+  "outside_fraction": 0.7,
+  "outside_mae": 4.306,
+  "outside_psnr": 31.08,
+  "outside_ssim": 0.9458,
+  "inside_mae": 15.551
+ },
+ "G2-512-R06": {
+  "size": [
+   576,
+   448
+  ],
+  "global_mae": 94.064,
+  "structure_corr": 0.2697
+ },
+ "G2-512-R07": {
+  "size": [
+   672,
+   384
+  ],
+  "global_mae": 12.044,
+  "structure_corr": 0.8261,
+  "outside_fraction": 0.833,
+  "outside_mae": 7.889,
+  "outside_psnr": 26.83,
+  "outside_ssim": 0.7703,
+  "inside_mae": 47.196
+ },
+ "G2-512-R08": {
+  "size": [
+   448,
+   576
+  ],
+  "global_mae": 21.383,
+  "structure_corr": 0.4271,
+  "outside_fraction": 0.918,
+  "outside_mae": 20.214,
+  "outside_psnr": 17.43,
+  "outside_ssim": 0.4384,
+  "inside_mae": 44.622
+ },
+ "G2-512-R08-s2": {
+  "size": [
+   448,
+   576
+  ],
+  "global_mae": 19.437,
+  "structure_corr": 0.5666,
+  "outside_fraction": 0.918,
+  "outside_mae": 18.609,
+  "outside_psnr": 18.34,
+  "outside_ssim": 0.4829,
+  "inside_mae": 37.947
+ },
+ "G2-512-R09": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 25.256,
+  "structure_corr": 0.6636,
+  "outside_fraction": 0.759,
+  "outside_mae": 17.695,
+  "outside_psnr": 19.16,
+  "outside_ssim": 0.6966,
+  "inside_mae": 57.238
+ },
+ "G2-512-R09-s2": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 20.794,
+  "structure_corr": 0.8011,
+  "outside_fraction": 0.759,
+  "outside_mae": 12.363,
+  "outside_psnr": 22.4,
+  "outside_ssim": 0.8488,
+  "inside_mae": 58.822
+ },
+ "G2-512-R10": {
+  "size": [
+   608,
+   416
+  ],
+  "global_mae": 30.149,
+  "structure_corr": 0.8126,
+  "outside_fraction": 0.237,
+  "outside_mae": 6.335,
+  "outside_psnr": 30.73,
+  "outside_ssim": 0.933,
+  "inside_mae": 43.841
+ },
+ "G2-512-R11": {
+  "size": [
+   384,
+   672
+  ],
+  "global_mae": 19.196,
+  "structure_corr": 0.7361,
+  "outside_fraction": 0.75,
+  "outside_mae": 9.766,
+  "outside_psnr": 23.83,
+  "outside_ssim": 0.8103,
+  "inside_mae": 63.863
+ },
+ "G2-512-R11-s2": {
+  "size": [
+   384,
+   672
+  ],
+  "global_mae": 18.386,
+  "structure_corr": 0.7609,
+  "outside_fraction": 0.75,
+  "outside_mae": 9.433,
+  "outside_psnr": 25.22,
+  "outside_ssim": 0.8455,
+  "inside_mae": 61.233
+ },
+ "G2-512-R12": {
+  "size": [
+   448,
+   576
+  ],
+  "global_mae": 8.604,
+  "structure_corr": 0.89,
+  "outside_fraction": 0.912,
+  "outside_mae": 6.951,
+  "outside_psnr": 27.21,
+  "outside_ssim": 0.8753,
+  "inside_mae": 36.565
+ },
+ "G2-512-R12-s2": {
+  "size": [
+   448,
+   576
+  ],
+  "global_mae": 9.032,
+  "structure_corr": 0.8753,
+  "outside_fraction": 0.912,
+  "outside_mae": 7.329,
+  "outside_psnr": 26.18,
+  "outside_ssim": 0.856,
+  "inside_mae": 37.161
+ },
+ "G2-512-R13": {
+  "size": [
+   416,
+   640
+  ],
+  "global_mae": 40.616,
+  "structure_corr": 0.8453
+ },
+ "G2-512-R14": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 50.226,
+  "structure_corr": 0.249
+ },
+ "G2-512-R15": {
+  "size": [
+   448,
+   576
+  ],
+  "global_mae": 38.097,
+  "structure_corr": 0.7664
+ },
+ "G2-512-R16": {
+  "size": [
+   640,
+   416
+  ],
+  "global_mae": 7.987,
+  "structure_corr": 0.7535
+ }
+}

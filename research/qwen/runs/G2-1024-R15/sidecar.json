@@ -1,0 +1,252 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T07:32:20.789+00:00",
+  "job_id": "20261007T072214Z-31d5b1",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R15/The_Beguiling_Bookstore.jpg",
+    "source_file_sha256": "e07fd140a4b236ab51e56676c2ef64703b33ec21761f60a296b2d9b85ba96d9c",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+    "pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+    "width": 3024,
+    "height": 4032,
+    "exif_orientation": 6,
+    "alpha_dropped": false,
+    "icc_profile": true
+  },
+  "output_resolution": 1024,
+  "width": 896,
+  "height": 1184,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510715,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+    "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "generation_time_seconds": 606.036,
+  "phases": {
+    "load": {
+      "seconds": 1.353,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 4.535,
+      "mlx_peak_gb": 7.205,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 1.388,
+      "mlx_peak_gb": 5.016,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 9.812,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 602.262,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "denoise_seconds": 586.082,
+    "other_seconds": 0.445
+  },
+  "step_seconds": [
+    23.499,
+    12.225,
+    12.412,
+    13.199,
+    13.937,
+    14.4,
+    14.817,
+    14.755,
+    14.818,
+    14.807,
+    14.597,
+    14.631,
+    14.533,
+    14.509,
+    14.519,
+    14.536,
+    14.592,
+    14.582,
+    14.626,
+    14.603,
+    14.525,
+    14.992,
+    14.266,
+    14.509,
+    14.618,
+    14.575,
+    14.534,
+    14.537,
+    14.574,
+    14.535,
+    14.628,
+    14.591,
+    14.539,
+    14.59,
+    14.53,
+    14.582,
+    14.662,
+    14.548,
+    14.511,
+    14.57
+  ],
+  "memory": {
+    "peak_footprint_gb": 10.868,
+    "mlx_peak_gb": 7.205,
+    "denoise_mlx_peak_gb": 9.731
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T072214Z-31d5b1.png",
+  "pixel_sha256": "bd8e3f1b50789ce14dc3fea9419f4a5b0befd8ecfeadcfe54427f2cbc4f30acb",
+  "file_sha256": "d74e2394bf0f948ade0665acef76a155d158a0a2c7fef776f330c29477ead570",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 249,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "6822eb3dc3129641ea93fc723870afe3465992b71d5ac10d7854ac27ed944f19"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 1024,
+    "adapters": []
+  },
+  "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+  "edit_identity": {
+    "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+    "input_pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+    "instruction": "Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+    "seed": 2510715,
+    "width": 896,
+    "height": 1184
+  },
+  "edit_id": "34b0436f072e3176486cdadfb9cdb3bdad904c807a3c7f9ce26c44f10aa24be0",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.84,
+      "swap_total_gb": 3.0,
+      "free_percent": 84,
+      "compressed_gb": 0.43,
+      "wired_gb": 1.96
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.08,
+      "swap_total_gb": 3.0,
+      "free_percent": 86,
+      "compressed_gb": 0.21,
+      "wired_gb": 1.96
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png' --prompt 'Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.' --output-resolution 1024 --steps 40 --seed 2510715 --allow-experimental"
+  }
+}

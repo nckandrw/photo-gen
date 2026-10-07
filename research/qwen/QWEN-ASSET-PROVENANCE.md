@@ -59,4 +59,44 @@ Full verification record: `research/qwen/assets/qwen-assets-verification.json`, 
 - **Disk:** free space went from 186,092,972 KiB to 196,517,288 KiB, so **+10.67 GB freed** (the directory held 10.64 GB of file bytes; the rest is filesystem block overhead). Free space is now 201.2 GB (`df-before.txt`, `df-after.txt`).
 
 ## 6. Post-G2 decision on the source checkpoint
-_Filled after G2._
+Decided 2026-10-07 at about 17:45 PST, after G2 completed and was tallied. Outcome: **REJECTED at 512 and 1024**; `research/editing/real-world/results.md`.
+
+**Re-verification after G2.**
+- `verify_assets.py` was re-run at 16:50, after the last G2 edit, to a new file: `assets/qwen-assets-verification-post-g2.json`, log `verify-assets-post-g2.log`. It is a full read with no cache, and took 31 s.
+- **Source checkpoint:** all 87 files (28 upstream plus 59 HF cache metadata) have the **same sha256, size and inode** as in the pre-G2 record. The 28 upstream files still match `upstream-file-manifest.json` (0 mismatched, 0 missing). Nothing modified, moved or re-quantized it.
+- **Canonical export:** 18/18 files equal the manifest pins, with the same sha256 and inodes as before G2.
+- **Duplicate path:** absent (0 files). The JSON's `duplicate byte_identical: false` reflects only that absence, since the path sets differ, and is not a finding about any content.
+
+**Report (addendum §5)**
+| item | value |
+|---|---|
+| canonical Qwen source path | `models/research/qwen-image-2.1` (`Qwen/Qwen-Image-2.1` @ `d26bb61231c349cf6b7896fa83353113880e1ba3`; 28 upstream files, 33,134,957,942 bytes) |
+| canonical q4 export path | `models/qwen/qwen-image-2.1-edit-mflux-q4` (18 files, 10,638,923,400 bytes; pinned in `config/backend-qwen21-edit-mflux.json`) |
+| redundant copy deleted | **yes**: `models/qwen/ABORTED-20261007T0005-qwen-image-2.1-edit-mflux-q4`, 2026-10-07 10:20 PST, after the byte-identity check in §3; +10.67 GB freed (§5) |
+| 33 GB source | **RETAIN LOCALLY** (for now, with the reclassification trigger below) |
+| disk impact of this decision | **0 GB.** Retaining frees nothing. Free space at 16:50 was 193,512,168 KiB = **198.2 GB** (58% of the volume used). Deleting would free about 33.1 GB. |
+
+**Rationale.**
+1. **G2 leaves exactly one open question, and only the source checkpoint can answer it locally.**
+   - G2 rejected the q4 configuration mainly because incidental text is garbled (failure mode 1 in `results.md` §3). The cause is not isolated.
+   - **Candidates:** the q4 quantization of the DiT or of the Qwen3-VL text/vision encoder; the fp32 VAE encode/decode round trip; the output-resolution budget (1024 garbles less than 512).
+   - Of these, only the first needs the dense weights: a q8 or mixed-precision export from `d26bb61`, re-run on the G2 text items. Whether such an export fits in 16 GB has not been evaluated.
+   - Without the local checkpoint, that diagnostic starts with a 33 GB download.
+   - This is a reason to keep the option open, **not** a claim that quantization is the cause.
+2. **There is no clear reason to delete,** which the addendum requires for DELETE. The volume has 198 GB free and nothing in the project is short of space.
+3. **ARCHIVE needs storage the project doesn't have.** No external or cold storage is configured, and moving 33 GB off the machine needs the user's hardware.
+4. **Dense weights are the input to the next research layer** (directive §30: model modification, specialization). For Qwen that layer is now conditional on the user deciding the backend is still worth pursuing after a REJECTED gate, so this point carries less weight than 1 and 2.
+
+**Reclassification trigger.**
+- **Reclassify as DELETE** if the user decides to pursue no further Qwen work, i.e. neither the export diagnostic in 1 nor removal/replacement research that would need the dense weights.
+- DELETE is then justified: the model can be reacquired exactly. Upstream still served `d26bb61` (28 siblings, not gated) on 2026-10-07, every file's digest is pinned in `upstream-file-manifest.json`, and full sha256 values are in both verification JSONs.
+- Before deleting: re-run `verify_assets.py`, then check `df` before and after, then log the deletion here, as in §5.
+- **ARCHIVE instead** if cold storage becomes available and the user wants to avoid a re-download.
+
+**What deleting the source would lose** (§4 already covers the general case):
+- The ability to run the export diagnostic in 1 without a 33 GB re-download, and under the risk that upstream changes or withdraws `d26bb61`.
+- Independent re-verification of the q4 pack against the dense weights.
+- Any dense-weight research on Qwen (quantization-error maps, block sensitivity, distillation teacher).
+- The only local copy whose bytes have been checked against the recorded manifest.
+
+What would remain is enough to identify and reacquire it exactly (§4): the repository, the revision, the 28-file manifest and digests, full sha256 for every file, the licence identity, and the export script, configuration, software lock and 18 pins.

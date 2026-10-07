@@ -1,0 +1,252 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T08:24:11.352+00:00",
+  "job_id": "20261007T081406Z-dac4b5",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R12/Mathew_Street_in_the_rain_at_dusk_-_MATHEW_STREET,_BIRTHPLACE_of_THE_BEATLES,_written_on_a_message_banner_of_north_side_entrance,_near_REISS_and_Elle,_Liverpool_(2011-08-06_21.26.23_by_SomeDriftwood).jpg",
+    "source_file_sha256": "cf6cec5ab5af40d8d3ff62d06531d912b67d67fd145813762e224ea001d3b887",
+    "source_format": "JPEG",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+    "pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+    "width": 3024,
+    "height": 4032,
+    "exif_orientation": null,
+    "alpha_dropped": false,
+    "icc_profile": true
+  },
+  "output_resolution": 1024,
+  "width": 896,
+  "height": 1184,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2520712,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+    "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "generation_time_seconds": 604.118,
+  "phases": {
+    "load": {
+      "seconds": 1.357,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 4.755,
+      "mlx_peak_gb": 7.205,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 1.397,
+      "mlx_peak_gb": 5.016,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 9.814,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 600.312,
+      "mlx_peak_gb": 5.778,
+      "calls": 1
+    },
+    "denoise_seconds": 583.899,
+    "other_seconds": 0.447
+  },
+  "step_seconds": [
+    23.107,
+    12.181,
+    12.447,
+    13.178,
+    13.899,
+    14.37,
+    14.701,
+    14.929,
+    14.777,
+    14.789,
+    14.707,
+    14.623,
+    14.566,
+    14.542,
+    14.509,
+    14.537,
+    14.501,
+    14.572,
+    14.412,
+    14.462,
+    14.466,
+    14.479,
+    14.429,
+    14.463,
+    14.464,
+    14.427,
+    14.475,
+    14.526,
+    14.501,
+    14.935,
+    14.341,
+    14.521,
+    14.524,
+    14.516,
+    14.479,
+    14.607,
+    14.516,
+    14.435,
+    14.453,
+    14.47
+  ],
+  "memory": {
+    "peak_footprint_gb": 10.867,
+    "mlx_peak_gb": 7.205,
+    "denoise_mlx_peak_gb": 9.728
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T081406Z-dac4b5.png",
+  "pixel_sha256": "56e4a18973e254e5ae99752d6e07e8b7c2bcc4a0a479e27ca04e4563b45800cb",
+  "file_sha256": "57de8de3665d281da8e8e878616b3ffaaa7348a2f4b1620c382715c2a6fc42c6",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 244,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "62301ade5f644e036207ae0c0aca6aab8e9c8c85996e243ca1fc0fa6303f29ee"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 1024,
+    "adapters": []
+  },
+  "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+  "edit_identity": {
+    "configuration_id": "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b",
+    "input_pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+    "instruction": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+    "seed": 2520712,
+    "width": 896,
+    "height": 1184
+  },
+  "edit_id": "188965c52b0fc22a8918d14080a305302808555777d2c2faac8acfbde675692f",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.09,
+      "swap_total_gb": 3.0,
+      "free_percent": 86,
+      "compressed_gb": 0.13,
+      "wired_gb": 1.98
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 2.19,
+      "swap_total_gb": 3.0,
+      "free_percent": 86,
+      "compressed_gb": 0.18,
+      "wired_gb": 1.96
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png' --prompt 'Remove the man in dark clothes walking towards the camera in the middle of the street.' --output-resolution 1024 --steps 40 --seed 2520712 --allow-experimental"
+  }
+}

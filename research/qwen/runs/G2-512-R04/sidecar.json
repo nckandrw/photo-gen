@@ -1,0 +1,252 @@
+{
+  "schema": "photogen.edit/1",
+  "timestamp": "2026-10-07T04:18:05.749+00:00",
+  "job_id": "20261007T041627Z-7d753b",
+  "status": "completed",
+  "task": "image-edit",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "backend_status": "experimental",
+  "runtime": "mflux",
+  "runtime_version": "0.21.0",
+  "runtime_versions": {
+    "mflux": "0.21.0",
+    "mlx": "0.32.2",
+    "mlx-metal": "0.32.2",
+    "transformers": "5.15.0",
+    "torch": "2.13.0"
+  },
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_export": {
+    "api": "mflux.models.qwen21.variants.edit.qwen_image_21_edit.QwenImage21Edit(quantize=4).save_model",
+    "quantize": 4,
+    "script": "research/qwen/export_q4.py (via export-q4.sh)",
+    "versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "transformers": "5.15.0",
+      "torch": "2.13.0"
+    },
+    "seconds": 70.1,
+    "reproducible": "two independent exports (2026-10-07 00:04 and 00:11) are byte-identical in all 18 files"
+  },
+  "model_manifest": {
+    "path": "config/backend-qwen21-edit-mflux.json",
+    "sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "files_verified_before_run": true
+  },
+  "prompt": "Replace the small bowl of guacamole with a small bowl of black olives.",
+  "input_image": {
+    "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R04/Chicken_Quesadilla_dish_at_Latin_Bistro_restaurant_Summit_NJ.JPG",
+    "source_file_sha256": "2ca63c89c162046fef43307e179e08fcdb0415cd966c52d99aaa6ebb392ff4e6",
+    "source_format": "MPO",
+    "source_mode": "RGB",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3.png",
+    "pixel_sha256": "195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3",
+    "width": 2592,
+    "height": 1944,
+    "exif_orientation": 1,
+    "alpha_dropped": false,
+    "icc_profile": false
+  },
+  "output_resolution": 512,
+  "width": 576,
+  "height": 448,
+  "steps": 40,
+  "guidance": 1.0,
+  "negative_prompt": null,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "defer_transformer_load": {
+    "installed": true,
+    "deferred": [
+      "transformer"
+    ]
+  },
+  "adapters": [],
+  "seed": 2510704,
+  "seed_source": "explicit",
+  "validated_configuration": false,
+  "warnings": [
+    "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+    "input is a multi-picture JPEG (MPO) with 2 images; only the primary image is used"
+  ],
+  "generation_time_seconds": 98.514,
+  "phases": {
+    "load": {
+      "seconds": 1.343,
+      "mlx_peak_gb": 6.141,
+      "calls": 1
+    },
+    "text_encode": {
+      "seconds": 1.092,
+      "mlx_peak_gb": 7.367,
+      "calls": 1
+    },
+    "vae_encode": {
+      "seconds": 0.419,
+      "mlx_peak_gb": 3.047,
+      "calls": 1
+    },
+    "vae_decode": {
+      "seconds": 2.323,
+      "mlx_peak_gb": 5.168,
+      "calls": 1
+    },
+    "generate_total": {
+      "seconds": 95.126,
+      "mlx_peak_gb": 5.168,
+      "calls": 1
+    },
+    "denoise_seconds": 90.967,
+    "other_seconds": 0.325
+  },
+  "step_seconds": [
+    4.315,
+    2.154,
+    2.025,
+    2.03,
+    2.008,
+    2.025,
+    2.136,
+    2.085,
+    2.28,
+    2.121,
+    2.149,
+    2.105,
+    2.051,
+    2.225,
+    2.054,
+    2.093,
+    2.155,
+    2.095,
+    2.113,
+    2.12,
+    2.151,
+    2.155,
+    2.176,
+    2.205,
+    2.19,
+    2.241,
+    2.235,
+    2.284,
+    2.282,
+    2.326,
+    2.35,
+    2.356,
+    2.376,
+    2.413,
+    2.428,
+    2.439,
+    2.455,
+    2.494,
+    2.497,
+    2.507
+  ],
+  "memory": {
+    "peak_footprint_gb": 8.133,
+    "mlx_peak_gb": 7.367,
+    "denoise_mlx_peak_gb": 5.863
+  },
+  "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041627Z-7d753b.png",
+  "pixel_sha256": "5350c4f81b3924b6fd3472e460bbe63304f988f62f1e6ef57470927702658824",
+  "file_sha256": "6577beff728553cd7204ddd33e6948dfd3caa8302cf93e946f4b4fef5df6f253",
+  "output_alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 253,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "08da4d2442df055b0074fe41722b08de8cacfe7f3ed221e03560b0f15c8b026e"
+  },
+  "configuration": {
+    "task": "image-edit",
+    "backend_id": "mflux-qwen-image-2.1-edit-q4",
+    "model": "Qwen-Image-2.1",
+    "model_repo": "Qwen/Qwen-Image-2.1",
+    "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+    "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+    "precision": "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE",
+    "runtime": "mflux",
+    "runtime_versions": {
+      "mflux": "0.21.0",
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "torch": "2.13.0",
+      "transformers": "5.15.0"
+    },
+    "entry_point": "mflux.models.qwen21.cli.qwen21_edit_generate:main",
+    "base_model": "qwen-image-2.1",
+    "steps": 40,
+    "guidance": 1.0,
+    "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+    "use_kv_cache": true,
+    "low_ram": true,
+    "output_resolution": 512,
+    "adapters": []
+  },
+  "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+  "edit_identity": {
+    "configuration_id": "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f",
+    "input_pixel_sha256": "195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3",
+    "instruction": "Replace the small bowl of guacamole with a small bowl of black olives.",
+    "seed": 2510704,
+    "width": 576,
+    "height": 448
+  },
+  "edit_id": "51bd5a553240d09d210f022c14e6afd0039bc4487501ea783dfe3599d7a5bb75",
+  "execution": {
+    "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+    "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+    "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+    "memory_policy": {
+      "defer_transformer_load": true,
+      "release_text_encoder_after_encode": true,
+      "release_vae_during_denoise": true,
+      "text_encoder_released_after_encode": true,
+      "vae_reloaded_lazily": true
+    }
+  },
+  "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same machine/software are expected to reproduce the same pixels (verified per backend in research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not transfer to other implementations",
+  "system_before": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.84,
+      "swap_total_gb": 3.0,
+      "free_percent": 83,
+      "compressed_gb": 0.66,
+      "wired_gb": 1.98
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    },
+    "power": "AC Power"
+  },
+  "system_after": {
+    "memory": {
+      "pressure_level": "normal",
+      "swap_used_gb": 1.84,
+      "swap_total_gb": 3.0,
+      "free_percent": 85,
+      "compressed_gb": 0.4,
+      "wired_gb": 1.94
+    },
+    "thermal": {
+      "source": "pmset -g therm (warning levels only; not a temperature)",
+      "thermal_warning_recorded": false,
+      "performance_warning_recorded": false
+    }
+  },
+  "reproduce": {
+    "cli": "bin/photo-gen edit --image '/Users/nckandrw/Dev/photo-gen/data/inputs/195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3.png' --prompt 'Replace the small bowl of guacamole with a small bowl of black olives.' --output-resolution 512 --steps 40 --seed 2510704 --allow-experimental"
+  }
+}

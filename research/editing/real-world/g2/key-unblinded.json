@@ -1,0 +1,322 @@
+{
+ "Q01": {
+  "run": "G2-512-R15",
+  "task": "R15",
+  "budget": 512,
+  "seed": 2510715,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043954Z-bce165.png"
+ },
+ "Q02": {
+  "run": "G2-1024-R11-s2",
+  "task": "R11",
+  "budget": 1024,
+  "seed": 2520711,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T080341Z-25da9c.png"
+ },
+ "Q03": {
+  "run": "G2-1024-R03",
+  "task": "R03",
+  "budget": 1024,
+  "seed": 2510703,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T052005Z-cf5913.png"
+ },
+ "Q04": {
+  "run": "G2-512-R13",
+  "task": "R13",
+  "budget": 512,
+  "seed": 2510713,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043531Z-870300.png"
+ },
+ "Q05": {
+  "run": "G2-1024-R08",
+  "task": "R08",
+  "budget": 1024,
+  "seed": 2510708,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T061007Z-c34085.png"
+ },
+ "Q06": {
+  "run": "G2-1024-R13",
+  "task": "R13",
+  "budget": 1024,
+  "seed": 2510713,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/2922dff960c70946caadd5cba5d8565c3bf275ab6262351558615a01fa07a7d9.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T070149Z-e5da0c.png"
+ },
+ "Q07": {
+  "run": "G2-1024-R02",
+  "task": "R02",
+  "budget": 1024,
+  "seed": 2510702,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png"
+ },
+ "Q08": {
+  "run": "G2-1024-R11",
+  "task": "R11",
+  "budget": 1024,
+  "seed": 2510711,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T064035Z-2e44b8.png"
+ },
+ "Q09": {
+  "run": "G2-512-R11-s2",
+  "task": "R11",
+  "budget": 512,
+  "seed": 2520711,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T044825Z-ee9565.png"
+ },
+ "Q10": {
+  "run": "G2-512-R14",
+  "task": "R14",
+  "budget": 512,
+  "seed": 2510714,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/67dcda4aabe093311db117cd7abf12c284a1a21e2e76d5303dd33123f0720bbc.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043744Z-c9df9d.png"
+ },
+ "Q11": {
+  "run": "G2-512-R09-s2",
+  "task": "R09",
+  "budget": 512,
+  "seed": 2520709,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T044613Z-3af1c0.png"
+ },
+ "Q12": {
+  "run": "G2-1024-R09",
+  "task": "R09",
+  "budget": 1024,
+  "seed": 2510709,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T062021Z-c4f545.png"
+ },
+ "Q13": {
+  "run": "G2-512-R08",
+  "task": "R08",
+  "budget": 512,
+  "seed": 2510708,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042445Z-0f3c83.png"
+ },
+ "Q14": {
+  "run": "G2-1024-R16",
+  "task": "R16",
+  "budget": 1024,
+  "seed": 2510716,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T073242Z-10bf60.png"
+ },
+ "Q15": {
+  "run": "G2-512-R16",
+  "task": "R16",
+  "budget": 512,
+  "seed": 2510716,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/2f4ad78dbd52663b9c92b26642ed30ae667e7f623418263e967a6fe8a4cbab91.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T044158Z-928d7e.png"
+ },
+ "Q16": {
+  "run": "G2-512-R08-s2",
+  "task": "R08",
+  "budget": 512,
+  "seed": 2520708,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T044410Z-46e29c.png"
+ },
+ "Q17": {
+  "run": "G2-1024-R10",
+  "task": "R10",
+  "budget": 1024,
+  "seed": 2510710,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c23b23a3344eccd815b7e4a05ac44c654c5e0db9490ddb77c3bf18b051ec3d90.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T063022Z-7c264c.png"
+ },
+ "Q18": {
+  "run": "G2-512-R06",
+  "task": "R06",
+  "budget": 512,
+  "seed": 2510706,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/a64029d3935cab725b2317996eb81695b643691aa4dd6d0df099f2664325d016.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042035Z-f50ab4.png"
+ },
+ "Q19": {
+  "run": "G2-1024-R09-s2",
+  "task": "R09",
+  "budget": 1024,
+  "seed": 2520709,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T075326Z-65fc52.png"
+ },
+ "Q20": {
+  "run": "G2-512-R05",
+  "task": "R05",
+  "budget": 512,
+  "seed": 2510705,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041826Z-0c0277.png"
+ },
+ "Q21": {
+  "run": "G2-512-R02",
+  "task": "R02",
+  "budget": 512,
+  "seed": 2510702,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041247Z-42bd62.png"
+ },
+ "Q22": {
+  "run": "G2-1024-R06",
+  "task": "R06",
+  "budget": 1024,
+  "seed": 2510706,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/a64029d3935cab725b2317996eb81695b643691aa4dd6d0df099f2664325d016.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054943Z-155a46.png"
+ },
+ "Q23": {
+  "run": "G2-512-R12",
+  "task": "R12",
+  "budget": 512,
+  "seed": 2510712,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043325Z-1c8e43.png"
+ },
+ "Q24": {
+  "run": "G2-512-R09",
+  "task": "R09",
+  "budget": 512,
+  "seed": 2510709,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042650Z-2b0b1a.png"
+ },
+ "Q25": {
+  "run": "G2-512-R04",
+  "task": "R04",
+  "budget": 512,
+  "seed": 2510704,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041627Z-7d753b.png"
+ },
+ "Q26": {
+  "run": "G2-512-R10",
+  "task": "R10",
+  "budget": 512,
+  "seed": 2510710,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c23b23a3344eccd815b7e4a05ac44c654c5e0db9490ddb77c3bf18b051ec3d90.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042907Z-67ca12.png"
+ },
+ "Q27": {
+  "run": "G2-512-R01",
+  "task": "R01",
+  "budget": 512,
+  "seed": 2510701,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041105Z-35b82d.png"
+ },
+ "Q28": {
+  "run": "G2-1024-R01",
+  "task": "R01",
+  "budget": 1024,
+  "seed": 2510701,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050051Z-9dc070.png"
+ },
+ "Q29": {
+  "run": "G2-1024-R12-s2",
+  "task": "R12",
+  "budget": 1024,
+  "seed": 2520712,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T081406Z-dac4b5.png"
+ },
+ "Q30": {
+  "run": "G2-1024-R04",
+  "task": "R04",
+  "budget": 1024,
+  "seed": 2510704,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/195e3906a155861f134e646ff75b1862cf7e6d5b40ab33d959ebad99303821b3.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T053010Z-7e1abc.png"
+ },
+ "Q31": {
+  "run": "G2-512-R07",
+  "task": "R07",
+  "budget": 512,
+  "seed": 2510707,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/b0aeb3a82305abb84f9debcf0a5a9c3e6e465c98e210860f5f093aacd09c797b.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T042239Z-5fb3ad.png"
+ },
+ "Q32": {
+  "run": "G2-512-R12-s2",
+  "task": "R12",
+  "budget": 512,
+  "seed": 2520712,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T045028Z-1dbe61.png"
+ },
+ "Q33": {
+  "run": "G2-512-R11",
+  "task": "R11",
+  "budget": 512,
+  "seed": 2510711,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043117Z-2294a2.png"
+ },
+ "Q34": {
+  "run": "G2-1024-R08-s2",
+  "task": "R08",
+  "budget": 1024,
+  "seed": 2520708,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T074258Z-484659.png"
+ },
+ "Q35": {
+  "run": "G2-1024-R14",
+  "task": "R14",
+  "budget": 1024,
+  "seed": 2510714,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/67dcda4aabe093311db117cd7abf12c284a1a21e2e76d5303dd33123f0720bbc.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T071202Z-c47bfd.png"
+ },
+ "Q36": {
+  "run": "G2-1024-R07",
+  "task": "R07",
+  "budget": 1024,
+  "seed": 2510707,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/b0aeb3a82305abb84f9debcf0a5a9c3e6e465c98e210860f5f093aacd09c797b.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T060006Z-1adc33.png"
+ },
+ "Q37": {
+  "run": "G2-1024-R15",
+  "task": "R15",
+  "budget": 1024,
+  "seed": 2510715,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T072214Z-31d5b1.png"
+ },
+ "Q38": {
+  "run": "G2-1024-R05",
+  "task": "R05",
+  "budget": 1024,
+  "seed": 2510705,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054006Z-b40954.png"
+ },
+ "Q39": {
+  "run": "G2-512-R03",
+  "task": "R03",
+  "budget": 512,
+  "seed": 2510703,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/aa3f4468998751d8a16edfb3cc1815e60a2d79fd33b83d6e1030ee334e8ebe14.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041431Z-31912a.png"
+ },
+ "Q40": {
+  "run": "G2-1024-R12",
+  "task": "R12",
+  "budget": 1024,
+  "seed": 2510712,
+  "source": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T065055Z-2d482d.png"
+ }
+}

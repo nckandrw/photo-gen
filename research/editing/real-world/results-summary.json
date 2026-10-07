@@ -1,0 +1,167 @@
+{
+ "per_budget": {
+  "512": {
+   "budget": 512,
+   "counts": {
+    "A1": {
+     "FAIL": 0,
+     "PARTIAL": 1
+    },
+    "A2": {
+     "FAIL": 4,
+     "PARTIAL": 5
+    },
+    "A3": {
+     "FAIL": 0
+    },
+    "A4": {
+     "MAJOR": 0,
+     "families": {
+      "detail-loss/blur": 1,
+      "texture-smear": 1,
+      "malformed-object": 2,
+      "grain/grid": 1,
+      "lighting-mismatch": 1
+     }
+    },
+    "A5": {
+     "FAIL": 3,
+     "PARTIAL": 0,
+     "items": 4
+    },
+    "O": {
+     "bad_runs": [],
+     "runs": 23
+    },
+    "D": [
+     {
+      "task": "R08",
+      "pixel_equal": true,
+      "rgba_equal": true,
+      "ids_equal": true
+     },
+     {
+      "task": "R09",
+      "pixel_equal": true,
+      "rgba_equal": true,
+      "ids_equal": true
+     },
+     {
+      "task": "R12",
+      "pixel_equal": true,
+      "rgba_equal": true,
+      "ids_equal": true
+     }
+    ],
+    "S": {
+     "fail_marks": 3,
+     "items": 4
+    }
+   },
+   "criteria": {
+    "A1": true,
+    "A2": false,
+    "A3": true,
+    "A4": true,
+    "A5": false,
+    "O": true,
+    "D": true,
+    "S": false
+   },
+   "g2_pass": false,
+   "memory": {
+    "runs": 23,
+    "median_wall_s": 103.93,
+    "max_wall_s": 115.146,
+    "critical_samples": 0,
+    "median_swap_growth_gb": 0.0,
+    "max_swap_growth_gb": 0.041,
+    "max_warn_fraction": 0.014,
+    "aborts": 0,
+    "median_peak_footprint_gb": 8.162,
+    "class": "COMFORTABLE"
+   },
+   "decision": "REJECTED",
+   "configuration_ids": [
+    "3cd79615e8a685fcce970a6941ed77d3704152d1a56ef1f595fcdbbdd29aef1f"
+   ]
+  },
+  "1024": {
+   "budget": 1024,
+   "counts": {
+    "A1": {
+     "FAIL": 0,
+     "PARTIAL": 1
+    },
+    "A2": {
+     "FAIL": 4,
+     "PARTIAL": 3
+    },
+    "A3": {
+     "FAIL": 0
+    },
+    "A4": {
+     "MAJOR": 0,
+     "families": {
+      "lighting-mismatch": 1
+     }
+    },
+    "A5": {
+     "FAIL": 3,
+     "PARTIAL": 0,
+     "items": 4
+    },
+    "O": {
+     "bad_runs": [],
+     "runs": 22
+    },
+    "D": [
+     {
+      "task": "R09",
+      "pixel_equal": true,
+      "rgba_equal": true,
+      "ids_equal": true
+     },
+     {
+      "task": "R12",
+      "pixel_equal": true,
+      "rgba_equal": true,
+      "ids_equal": true
+     }
+    ],
+    "S": {
+     "fail_marks": 2,
+     "items": 4
+    }
+   },
+   "criteria": {
+    "A1": true,
+    "A2": false,
+    "A3": true,
+    "A4": true,
+    "A5": false,
+    "O": true,
+    "D": true,
+    "S": false
+   },
+   "g2_pass": false,
+   "memory": {
+    "runs": 22,
+    "median_wall_s": 591.627,
+    "max_wall_s": 633.807,
+    "critical_samples": 0,
+    "median_swap_growth_gb": 0.4465,
+    "max_swap_growth_gb": 1.188,
+    "max_warn_fraction": 0.027,
+    "aborts": 0,
+    "median_peak_footprint_gb": 10.8655,
+    "class": "MARGINAL"
+   },
+   "decision": "REJECTED",
+   "configuration_ids": [
+    "fffe8df31c8b964b382deee2e6a7ad1c77e7fd6982169dbaee838dc810a0274b"
+   ]
+  }
+ },
+ "overall": "REJECTED"
+}
