@@ -75,6 +75,7 @@ class EditRequest:
     backend_id: str | None = None      # identity known from submission on, so queued/failed jobs name their model
     model: str | None = None
     model_revision: str | None = None
+    manifest_sha256: str | None = None  # the backend manifest at submission; re-checked before the job runs
 
     def to_dict(self) -> dict:
         d = asdict(self)

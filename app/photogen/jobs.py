@@ -25,7 +25,8 @@ from pathlib import Path
 
 from . import system
 from .config import AppConfig
-from .errors import (ConflictError, GenerationError, JobCancelledError, PhotoGenError, QueueFullError)
+from .errors import (ConflictError, GenerationError, IdentityMismatchError, JobCancelledError, PhotoGenError,
+                     QueueFullError)
 from .models import JobStatus, new_job_id, utcnow
 from .runtimes.base import CancelToken, ImageRuntime
 from .store import JobStore
@@ -57,7 +58,8 @@ class JobManager:
         for w in req.warnings:
             log.warning("request: %s", w)
         job_id = new_job_id()
-        job = self.store.create(job_id, source, os.getpid(), runtime.capabilities().runtime, req.to_dict())
+        job = self.store.create(job_id, source, os.getpid(), runtime.capabilities().runtime, req.to_dict(),
+                                backend_id=runtime.backend_id)
         log.info("job %s queued (%s, %s, %dx%d, steps=%d, seed=%d/%s)", job_id, source, req.task, req.width,
                  req.height, req.steps, req.seed, req.seed_source)
         if source == "api":
@@ -114,6 +116,11 @@ class JobManager:
         with self._tokens_lock:
             self._tokens[job_id] = token
         try:
+            if job["backend_id"] != runtime.backend_id:
+                raise IdentityMismatchError(f"job {job_id} was submitted for backend '{job['backend_id']}' but its task "
+                                            f"now runs on '{runtime.backend_id}'; resubmit it",
+                                            recorded=job["backend_id"], current=runtime.backend_id)
+            runtime.verify_identity(req)
             with self._gpu_lock(job_id, token):
                 if token.cancelled:
                     raise JobCancelledError("cancelled before start")

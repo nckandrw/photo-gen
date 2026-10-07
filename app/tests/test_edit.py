@@ -54,7 +54,9 @@ class ZImageRegressionTests(unittest.TestCase):
             self.assertEqual(sorted(meta), g["sidecar_keys"], name)
             self.assertEqual({k: v for k, v in meta.items() if k not in golden["volatile"]}, g["sidecar"], name)
             self.assertEqual(done["request"], g["request"], name)
-            self.assertEqual(sorted(done), g["job_row_keys"], name)
+            # Phase 5 adds exactly one key to the job row: the backend_id column (the fixture is not regenerated)
+            self.assertEqual(sorted(set(done) - {"backend_id"}), g["job_row_keys"], name)
+            self.assertEqual(done["backend_id"], "mflux-zimage-turbo-q4", name)
             self.assertEqual(meta["schema"], "photogen.generation/1")
 
     def test_generate_still_rejects_image_parameters(self):
@@ -93,7 +95,7 @@ class RouterTests(unittest.TestCase):
         jm = JobManager(cfg, TaskRouter({TEXT_TO_IMAGE: t2i, IMAGE_EDIT: edit}))
         req = t2i.normalize({"prompt": "p", "width": 512, "height": 512, "seed": 3}, DEFAULTS).to_dict()
         del req["task"]                                                   # a row written before tasks existed
-        jm.store.create("20260101T000000Z-aaaaaa", "cli", os.getpid(), "mflux", req)
+        jm.store.create("20260101T000000Z-aaaaaa", "cli", os.getpid(), "mflux", req, backend_id=t2i.backend_id)
         done = jm.run_sync("20260101T000000Z-aaaaaa")
         self.assertEqual(done["status"], "completed")
         self.assertEqual(public_job(done)["task"], TEXT_TO_IMAGE)

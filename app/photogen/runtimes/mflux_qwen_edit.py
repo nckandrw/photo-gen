@@ -31,14 +31,14 @@ from pathlib import Path
 from PIL import Image
 
 from ..config import AppConfig, ModelFile
-from ..errors import (GenerationError, JobCancelledError, OutputCorruptedError, RuntimeUnavailableError,
-                      UnsupportedParameterError, ValidationError)
+from ..errors import (GenerationError, IdentityMismatchError, JobCancelledError, OutputCorruptedError,
+                      RuntimeUnavailableError, UnsupportedParameterError, ValidationError)
 from ..imaging import check_output, inspect_image
 from ..inputs import stage_input_image, verify_staged
 from ..integrity import _check_file
 from ..models import EditRequest, GenerationResult, JobStatus, utcnow
 from ..tasks import IMAGE_EDIT
-from .base import CancelToken, Capabilities, ImageRuntime, RuntimeHealth
+from .base import CancelToken, Capabilities, ImageRuntime, RuntimeHealth, check_worker_versions
 from .mflux_zimage import KILL_GRACE_SECONDS, MAX_SEED, _as_int, _terminate
 
 log = logging.getLogger(__name__)
@@ -77,6 +77,15 @@ REJECTED = {
 }
 EXPERIMENTAL_WARNING = ("image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a "
                         "quality gate (research/qwen/); Qwen Research License (non-commercial)")
+# Numeric precision of the pinned export as executed by mflux 0.21.0 (part of the configuration identity).
+PRECISION = "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE"
+WORKER_PATH = Path(__file__).with_name("mflux_qwen_edit_worker.py")
+
+
+def canonical_sha256(obj) -> str:
+    """sha256 of the canonical JSON form of obj (sorted keys, no whitespace): the identity of a configuration."""
+    return hashlib.sha256(json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+                          .encode()).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -141,6 +150,44 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
         if self._manifest is None:
             raise RuntimeUnavailableError(f"image-edit backend unavailable: {self._manifest_error}")
         return self._manifest
+
+    @property
+    def backend_id(self) -> str | None:
+        return self._manifest.backend_id if self._manifest else None
+
+    # ---------- authoritative identity (Phase 5) ----------
+    def verify_identity(self, request: EditRequest) -> None:
+        """A stored edit runs only against the manifest it was submitted under. Rows from before a field existed
+        (None) are not rejected for lacking it; any recorded value must equal the trusted local manifest."""
+        m = self.m
+        current = {"backend_id": m.backend_id, "model": m.model_name, "model_revision": m.model_revision,
+                   "manifest_sha256": self._manifest_sha256}
+        drift = {k: {"recorded": getattr(request, k), "manifest": v} for k, v in current.items()
+                 if getattr(request, k) is not None and getattr(request, k) != v}
+        if drift:
+            raise IdentityMismatchError("the image-edit backend manifest changed since this job was submitted; "
+                                        "resubmit it", drift=drift)
+
+    def configuration(self, req: EditRequest) -> dict:
+        """The output-determining identity of an edit configuration (what a quality gate validates), entirely from the
+        trusted local manifest plus the request's steps and output budget. Input, instruction and seed are not part
+        of it (see edit_identity); memory-lifetime policy is not either: those patches are pixel-identical by their
+        parity gates and are recorded separately under `execution`."""
+        m = self.m
+        return {"task": IMAGE_EDIT, "backend_id": m.backend_id, "model": m.model_name, "model_repo": m.model_repo,
+                "model_revision": m.model_revision, "model_manifest_sha256": self._manifest_sha256,
+                "quantization": m.quantization, "precision": PRECISION, "runtime": m.raw["runtime"]["name"],
+                "runtime_versions": dict(sorted(m.packages.items())), "entry_point": m.entry_point,
+                "base_model": m.defaults["base_model"], "steps": req.steps, "guidance": m.defaults["guidance"],
+                "scheduler": m.defaults["scheduler"], "use_kv_cache": True, "low_ram": True,
+                "output_resolution": req.output_resolution, "adapters": []}
+
+    def edit_identity(self, req: EditRequest) -> dict:
+        """Everything that determines an edit's pixels: configuration + input pixels + instruction + seed (+ the size
+        derived from the input's aspect ratio). Same edit_id on the same machine/software => same pixels."""
+        return {"configuration_id": canonical_sha256(self.configuration(req)),
+                "input_pixel_sha256": req.input_image["pixel_sha256"], "instruction": req.prompt, "seed": req.seed,
+                "width": req.width, "height": req.height}
 
     # ---------- capabilities / health ----------
     def capabilities(self) -> Capabilities:
@@ -275,7 +322,7 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
                            seed_source=seed_source, output_format=fmt, validated=False, input_image=inp.to_dict(),
                            output_resolution=resolution, warnings=(EXPERIMENTAL_WARNING, *input_warnings),
                            output_name=name, backend_id=m.backend_id, model=m.model_name,
-                           model_revision=m.model_revision)
+                           model_revision=m.model_revision, manifest_sha256=self._manifest_sha256)
 
     def request_from_dict(self, d: dict) -> EditRequest:
         return EditRequest.from_dict(d)
@@ -299,8 +346,10 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
             "output_resolution": request.output_resolution, "output_path": output_path,
             "defer_transformer_load": DEFER_TRANSFORMER_LOAD, "expected_size": [request.width, request.height]},
             indent=1))
+        memory_policy = {"defer_transformer_load": DEFER_TRANSFORMER_LOAD}
         cmd = [str(m.interpreter), "-m", WORKER_MODULE, str(req_file), str(res_file)]
         log.debug("job %s: launching edit worker %s", job_id, cmd)
+        worker_sha256 = hashlib.sha256(WORKER_PATH.read_bytes()).hexdigest()  # the module this launch executes
         t0 = time.perf_counter()
         with log_file.open("wb") as lf:
             proc = subprocess.Popen(cmd, stdout=lf, stderr=subprocess.STDOUT, env=_worker_env(self.cfg),
@@ -326,6 +375,7 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
                 detail = f"worker killed by signal {-rc} (possible out-of-memory or crash); {detail}"
             raise GenerationError(f"edit failed: {detail}", error_type=res.get("error_type"), exit_code=rc,
                                   log=str(log_file))
+        check_worker_versions(res.get("versions"), m.packages, m.backend_id)
         ident = inspect_image(Path(output_path))
         check_output(ident, request.width, request.height)
         alpha = _alpha_identity(Path(output_path))
@@ -339,13 +389,16 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
                           "backend_id": m.backend_id, "model": m.model_name, "model_repo": m.model_repo,
                           "model_revision": m.model_revision, "model_license": m.model_license,
                           "quantization": m.quantization, "model_path": str(m.model_path),
-                          "interpreter": str(m.interpreter), "output_alpha": alpha},
+                          "interpreter": str(m.interpreter), "output_alpha": alpha,
+                          "model_manifest_sha256": self._manifest_sha256, "worker_module": WORKER_MODULE,
+                          "worker_sha256": worker_sha256},
             effective_parameters={"guidance": m.defaults["guidance"], "scheduler": m.defaults["scheduler"],
                                   "use_kv_cache": True, "low_ram": True, "vae_tiling": res.get("vae_tiling"),
                                   "output_resolution": request.output_resolution,
                                   "text_encoder_released": res.get("text_encoder_released"),
                                   "transformer_released": res.get("transformer_released"),
-                                  "defer_transformer_load": res.get("defer_transformer_load"), "argv": res.get("argv")},
+                                  "defer_transformer_load": res.get("defer_transformer_load"), "argv": res.get("argv"),
+                                  "memory_policy": memory_policy},
         )
 
     # ---------- metadata sidecar (schema photogen.edit/1) ----------
@@ -398,7 +451,17 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
             "pixel_sha256": result.pixel_sha256,
             "file_sha256": result.file_sha256,
             "output_alpha": result.runtime_info.get("output_alpha"),
-            "determinism": "same input pixels + instruction + seed + steps + resolution + model export on the same "
+            # Phase 5 configuration identity (additive). configuration_id: what a gate validates; edit_id: what
+            # determines the pixels; execution: how it ran (pixel-neutral by evidence, recorded for audit).
+            "configuration": (config := self.configuration(req)),
+            "configuration_id": canonical_sha256(config),
+            "edit_identity": (ident := self.edit_identity(req)),
+            "edit_id": canonical_sha256(ident),
+            "execution": {"worker_module": result.runtime_info.get("worker_module"),
+                          "worker_sha256": result.runtime_info.get("worker_sha256"),
+                          "interpreter": result.runtime_info.get("interpreter"),
+                          "memory_policy": result.effective_parameters.get("memory_policy")},
+            "determinism":"same input pixels + instruction + seed + steps + resolution + model export on the same "
                            "machine/software are expected to reproduce the same pixels (verified per backend in "
                            "research/qwen/QWEN-EDITING-BASELINE.md); MLX and PyTorch RNGs differ, so seeds do not "
                            "transfer to other implementations",

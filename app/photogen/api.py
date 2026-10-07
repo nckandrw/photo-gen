@@ -46,6 +46,7 @@ def public_job(job: dict) -> dict:
     return {
         "job_id": job["id"],
         "task": req.get("task") or TEXT_TO_IMAGE,
+        "backend_id": job.get("backend_id"),
         "status": job["status"],
         "source": job["source"],
         "created_at": job["created_at"],

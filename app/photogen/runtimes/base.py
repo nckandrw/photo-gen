@@ -7,6 +7,7 @@ import abc
 import threading
 from dataclasses import asdict, dataclass, field
 
+from ..errors import IdentityMismatchError
 from ..models import GenerationRequest, GenerationResult
 from ..tasks import TEXT_TO_IMAGE
 
@@ -78,6 +79,16 @@ class ImageRuntime(abc.ABC):
     task: str = TEXT_TO_IMAGE
     name: str = "runtime"
 
+    @property
+    def backend_id(self) -> str | None:
+        """The backend_id of this runtime's immutable manifest (None if the backend is not installed). Stored on every
+        job row: the backend, not the client, is the authority on what runs."""
+        return None
+
+    def verify_identity(self, request) -> None:
+        """Called by the job system right before a stored request runs. Raise IdentityMismatchError if the identity
+        recorded at submission differs from the trusted local manifest that would now execute it."""
+
     @abc.abstractmethod
     def capabilities(self) -> Capabilities: ...
 
@@ -99,3 +110,13 @@ class ImageRuntime(abc.ABC):
     @abc.abstractmethod
     def sidecar(self, job_id: str, request, result: GenerationResult, before: dict, after: dict) -> dict:
         """The JSON metadata written next to a completed job's output (schema + model identity + timings)."""
+
+
+def check_worker_versions(reported: dict | None, pinned: dict, backend_id: str) -> None:
+    """The worker reports the package versions it actually imported; every package its manifest pins must match.
+    A mismatch fails the job (the output is left in place, but no completed job or sidecar refers to it)."""
+    reported = reported or {}
+    drift = {p: {"pinned": v, "executed": reported.get(p)} for p, v in pinned.items() if reported.get(p) != v}
+    if drift:
+        raise IdentityMismatchError(f"backend '{backend_id}' executed with package versions that differ from its "
+                                    "pinned manifest; the result is not recorded", drift=drift)

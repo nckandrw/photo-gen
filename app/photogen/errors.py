@@ -56,5 +56,11 @@ class OutputCorruptedError(GenerationError):
     code = "output_corrupted"
 
 
+class IdentityMismatchError(GenerationError):
+    """A job's recorded backend/model identity differs from the trusted local backend manifest that would execute it
+    (or a worker reported software that differs from its manifest). Never reconciled silently: the job fails."""
+    code = "backend_identity_mismatch"
+
+
 class JobCancelledError(PhotoGenError):
     code = "cancelled"

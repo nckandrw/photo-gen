@@ -25,7 +25,7 @@ from ..integrity import check_versions, verify_model_files
 from ..models import GenerationRequest, GenerationResult, JobStatus, utcnow
 from ..tasks import TEXT_TO_IMAGE
 from ..text_encoders import STOCK, load_registry, verify_entry
-from .base import CancelToken, Capabilities, ImageRuntime, RuntimeHealth
+from .base import CancelToken, Capabilities, ImageRuntime, RuntimeHealth, check_worker_versions
 
 log = logging.getLogger(__name__)
 
@@ -90,6 +90,10 @@ class MFluxZImageRuntime(ImageRuntime):
         self.cfg = config
         self.m = config.backend
         self.text_encoders = load_registry(config.root / "config" / "text-encoders.json", config.root)
+
+    @property
+    def backend_id(self) -> str:
+        return self.m.backend_id
 
     # ---------- capabilities / health ----------
     def capabilities(self) -> Capabilities:
@@ -313,6 +317,7 @@ class MFluxZImageRuntime(ImageRuntime):
             raise GenerationError(f"generation failed: {detail}", error_type=res.get("error_type"),
                                   exit_code=rc, log=str(log_file))
 
+        check_worker_versions(res.get("versions"), self.m.packages, self.m.backend_id)
         ident = inspect_image(Path(output_path))
         check_output(ident, request.width, request.height)
         return GenerationResult(
@@ -320,7 +325,9 @@ class MFluxZImageRuntime(ImageRuntime):
             pixel_sha256=ident.pixel_sha256, file_sha256=ident.file_sha256, generation_seconds=wall,
             phases=res.get("phases", {}), step_seconds=res.get("step_seconds", []),
             memory={"peak_footprint_gb": res.get("peak_footprint_gb"), "mlx_peak_gb": res.get("mlx_peak_gb")},
+            # identity stamped from the trusted local manifest (the sidecar, photogen.generation/1, is unchanged)
             runtime_info={"runtime": "mflux", "versions": res.get("versions"), "device": res.get("mlx_device"),
+                          "backend_id": self.m.backend_id, "model_manifest_sha256": self.m.sha256,
                           "model": self.m.model_name, "model_repo": self.m.model_repo,
                           "model_revision": self.m.model_revision, "quantization": self.m.quantization,
                           "model_path": str(model_path), "text_encoder": te_info},

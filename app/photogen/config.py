@@ -1,6 +1,7 @@
 """Configuration: immutable backend manifest (JSON) + user/application settings (TOML)."""
 from __future__ import annotations
 
+import hashlib
 import ipaddress
 import json
 import logging
@@ -50,11 +51,14 @@ class BackendManifest:
     dimension_multiple: int
     min_dimension: int
     max_dimension: int
+    source_path: Path | None = None  # the manifest file this identity was read from
+    sha256: str | None = None        # sha256 of that file's bytes (stamped into job metadata)
 
     @classmethod
     def load(cls, path: Path = DEFAULT_BACKEND_MANIFEST, root: Path = PROJECT_ROOT) -> "BackendManifest":
         try:
-            raw = json.loads(Path(path).read_text())
+            data = Path(path).read_bytes()
+            raw = json.loads(data)
             rt, m, v, lim = raw["runtime"], raw["model"], raw["validated"], raw["limits"]
             return cls(
                 backend_id=raw["backend_id"],
@@ -78,6 +82,8 @@ class BackendManifest:
                 dimension_multiple=int(lim["dimension_multiple"]),
                 min_dimension=int(lim["min_dimension"]),
                 max_dimension=int(lim["max_dimension"]),
+                source_path=Path(path),
+                sha256=hashlib.sha256(data).hexdigest(),
             )
         except (OSError, KeyError, TypeError, ValueError) as e:
             raise ConfigError(f"cannot load backend manifest {path}: {e}") from e
