@@ -1,0 +1,20 @@
+run_id=G2-1024-R03 mode=app res=1024 seed=2510703 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R03/Tapaha鞋子.jpg
+prompt=Make the shoes out of brown suede instead of blue canvas.
+Wed  7 Oct 2026 13:20:05 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2043.62M  free = 1028.38M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+345808 /Users/nckandrw/.local/bin/claude
+199760 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+102448 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 84368 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+ 81712 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 79728 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=584 rc=0 aborted=0 swap_end=1785.50M

@@ -1,0 +1,20 @@
+run_id=G2-1024-R01 mode=app res=1024 seed=2510701 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R01/Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo,_Venezuela.jpg
+prompt=Change her white top to a dark green top.
+Wed  7 Oct 2026 13:00:50 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1433.38M  free = 1638.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 79%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+240096 /Users/nckandrw/.local/bin/claude
+ 60096 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+ 51184 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 45440 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+ 43568 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 38512 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=524 rc=0 aborted=0 swap_end=2401.44M

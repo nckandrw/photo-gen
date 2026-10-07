@@ -1,0 +1,10 @@
+2026-10-07 12:29:07,372 INFO    photogen: image-edit check manifest    ok
+2026-10-07 12:29:07,372 INFO    photogen: image-edit check interpreter ok
+2026-10-07 12:29:07,372 INFO    photogen: image-edit check model       ok
+2026-10-07 12:29:07,372 INFO    photogen: image-edit check low_ram     ok
+2026-10-07 12:29:07,372 INFO    photogen: image-edit check offline     ok
+2026-10-07 12:29:07,539 WARNING photogen.jobs: request: image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)
+2026-10-07 12:29:07,540 INFO    photogen.jobs: job 20261007T042907Z-67ca12 queued (cli, image-edit, 608x416, steps=40, seed=2510710/explicit)
+job 20261007T042907Z-67ca12: 608x416 steps=40 seed=2510710
+2026-10-07 12:29:07,563 INFO    photogen.jobs: job 20261007T042907Z-67ca12 running
+2026-10-07 12:30:56,778 INFO    photogen.jobs: job 20261007T042907Z-67ca12 completed in 109.1s (pixel_sha256 af64f28a0c59…)

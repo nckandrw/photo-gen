@@ -1,0 +1,198 @@
+{
+ "job_id": "20261007T063022Z-7c264c",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T06:30:22.006+00:00",
+ "started_at": "2026-10-07T06:30:22.007+00:00",
+ "finished_at": "2026-10-07T06:40:13.944+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the turquoise yarn of the knitted sweater to red yarn.",
+  "width": 1216,
+  "height": 864,
+  "steps": 40,
+  "seed": 2510710,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R10/Dog_sweater_2.jpg",
+   "source_file_sha256": "b93802cb102170e11641b4e8f99dbd546e8bed99f32fd8c56b61fc8a3c57f08b",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/c23b23a3344eccd815b7e4a05ac44c654c5e0db9490ddb77c3bf18b051ec3d90.png",
+   "pixel_sha256": "c23b23a3344eccd815b7e4a05ac44c654c5e0db9490ddb77c3bf18b051ec3d90",
+   "width": 4144,
+   "height": 2896,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510710,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T063022Z-7c264c.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T063022Z-7c264c.json",
+ "pixel_sha256": "b42353fe7727b599001a0a2ea508de2ceabb8e61d016e73c3903e2f809bc33e0",
+ "file_sha256": "918f87e95f4ac799769358783c35e2613ffbed46d26de5f3eff4351721de659a",
+ "generation_seconds": 591.726,
+ "phases": {
+  "load": {
+   "seconds": 1.38,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.674,
+   "mlx_peak_gb": 7.195,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.375,
+   "mlx_peak_gb": 4.978,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 10.294,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 587.911,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 571.117,
+  "other_seconds": 0.451
+ },
+ "step_seconds": [
+  22.484,
+  12.035,
+  12.249,
+  12.895,
+  13.538,
+  14.112,
+  14.355,
+  14.439,
+  14.541,
+  14.733,
+  14.229,
+  14.286,
+  14.278,
+  14.104,
+  14.137,
+  13.996,
+  14.096,
+  14.109,
+  14.16,
+  14.151,
+  14.122,
+  14.149,
+  14.09,
+  14.271,
+  14.139,
+  14.235,
+  14.238,
+  14.332,
+  14.22,
+  14.256,
+  14.274,
+  14.198,
+  14.171,
+  14.219,
+  14.086,
+  14.255,
+  14.212,
+  14.198,
+  14.217,
+  14.241
+ ],
+ "memory": {
+  "peak_footprint_gb": 10.803,
+  "mlx_peak_gb": 7.195,
+  "denoise_mlx_peak_gb": 9.67
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 253,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "43c9a7fd03b4ada63c72e258323d9c22a9ac407638b493a446dc1825a5bf6ea7"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the turquoise yarn of the knitted sweater to red yarn.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/c23b23a3344eccd815b7e4a05ac44c654c5e0db9490ddb77c3bf18b051ec3d90.png",
+   "--seed",
+   "2510710",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T063022Z-7c264c.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

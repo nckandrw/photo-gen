@@ -1,0 +1,20 @@
+run_id=G2-512-R02 mode=app res=512 seed=2510702 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R02/Architecture_of_the_1930's_in_Amsterdam_city_-_free_photo,_Fons_Heijnsbroek.jpg
+prompt=Remove the dark grey van parked in front of the building.
+Wed  7 Oct 2026 12:12:46 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1903.69M  free = 1168.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 83%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+506048 /Users/nckandrw/.local/bin/claude
+254448 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+100896 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 57616 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 51888 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 47936 /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=84 rc=0 aborted=0 swap_end=1895.69M

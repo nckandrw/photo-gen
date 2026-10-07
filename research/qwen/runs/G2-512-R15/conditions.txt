@@ -1,0 +1,20 @@
+run_id=G2-512-R15 mode=app res=512 seed=2510715 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R15/The_Beguiling_Bookstore.jpg
+prompt=Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.
+Wed  7 Oct 2026 12:39:54 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1433.38M  free = 1638.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 78%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+256096 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+232976 /Users/nckandrw/.local/bin/claude
+ 80176 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+ 55728 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+ 50512 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 46192 /System/Library/CoreServices/iconservicesagent
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=103 rc=0 aborted=0 swap_end=1433.38M

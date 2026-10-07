@@ -1,0 +1,199 @@
+{
+ "job_id": "20261007T081406Z-dac4b5",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T08:14:06.991+00:00",
+ "started_at": "2026-10-07T08:14:06.993+00:00",
+ "finished_at": "2026-10-07T08:24:11.353+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+  "width": 896,
+  "height": 1184,
+  "steps": 40,
+  "seed": 2520712,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R12/Mathew_Street_in_the_rain_at_dusk_-_MATHEW_STREET,_BIRTHPLACE_of_THE_BEATLES,_written_on_a_message_banner_of_north_side_entrance,_near_REISS_and_Elle,_Liverpool_(2011-08-06_21.26.23_by_SomeDriftwood).jpg",
+   "source_file_sha256": "cf6cec5ab5af40d8d3ff62d06531d912b67d67fd145813762e224ea001d3b887",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+   "pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+   "width": 3024,
+   "height": 4032,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": true
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+   "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2520712,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T081406Z-dac4b5.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T081406Z-dac4b5.json",
+ "pixel_sha256": "56e4a18973e254e5ae99752d6e07e8b7c2bcc4a0a479e27ca04e4563b45800cb",
+ "file_sha256": "57de8de3665d281da8e8e878616b3ffaaa7348a2f4b1620c382715c2a6fc42c6",
+ "generation_seconds": 604.118,
+ "phases": {
+  "load": {
+   "seconds": 1.357,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.755,
+   "mlx_peak_gb": 7.205,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.397,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 9.814,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 600.312,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 583.899,
+  "other_seconds": 0.447
+ },
+ "step_seconds": [
+  23.107,
+  12.181,
+  12.447,
+  13.178,
+  13.899,
+  14.37,
+  14.701,
+  14.929,
+  14.777,
+  14.789,
+  14.707,
+  14.623,
+  14.566,
+  14.542,
+  14.509,
+  14.537,
+  14.501,
+  14.572,
+  14.412,
+  14.462,
+  14.466,
+  14.479,
+  14.429,
+  14.463,
+  14.464,
+  14.427,
+  14.475,
+  14.526,
+  14.501,
+  14.935,
+  14.341,
+  14.521,
+  14.524,
+  14.516,
+  14.479,
+  14.607,
+  14.516,
+  14.435,
+  14.453,
+  14.47
+ ],
+ "memory": {
+  "peak_footprint_gb": 10.867,
+  "mlx_peak_gb": 7.205,
+  "denoise_mlx_peak_gb": 9.728
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 244,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "62301ade5f644e036207ae0c0aca6aab8e9c8c85996e243ca1fc0fa6303f29ee"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Remove the man in dark clothes walking towards the camera in the middle of the street.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+   "--seed",
+   "2520712",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T081406Z-dac4b5.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

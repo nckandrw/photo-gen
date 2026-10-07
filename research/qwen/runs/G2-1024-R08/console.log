@@ -1,0 +1,11 @@
+2026-10-07 14:10:07,482 INFO    photogen: image-edit check manifest    ok
+2026-10-07 14:10:07,482 INFO    photogen: image-edit check interpreter ok
+2026-10-07 14:10:07,482 INFO    photogen: image-edit check model       ok
+2026-10-07 14:10:07,482 INFO    photogen: image-edit check low_ram     ok
+2026-10-07 14:10:07,482 INFO    photogen: image-edit check offline     ok
+2026-10-07 14:10:07,876 WARNING photogen.jobs: request: image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)
+2026-10-07 14:10:07,876 WARNING photogen.jobs: request: input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)
+2026-10-07 14:10:07,877 INFO    photogen.jobs: job 20261007T061007Z-c34085 queued (cli, image-edit, 896x1184, steps=40, seed=2510708/explicit)
+job 20261007T061007Z-c34085: 896x1184 steps=40 seed=2510708
+2026-10-07 14:10:07,901 INFO    photogen.jobs: job 20261007T061007Z-c34085 running
+2026-10-07 14:19:59,747 INFO    photogen.jobs: job 20261007T061007Z-c34085 completed in 591.5s (pixel_sha256 c264ec552f89…)

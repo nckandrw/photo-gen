@@ -1,0 +1,20 @@
+run_id=G2-1024-R09-s2 mode=app res=1024 seed=2520709 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R09/20191212_Luang_Prabang_vegetable_market-1.jpg
+prompt=Replace the pink dragon fruits with green apples. Do not change anything else.
+Wed  7 Oct 2026 15:53:26 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2210.75M  free = 861.25M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+307040 /Users/nckandrw/.local/bin/claude
+252128 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 96736 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 51312 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 45296 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 44736 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=595 rc=0 aborted=0 swap_end=1928.75M

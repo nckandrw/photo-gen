@@ -1,0 +1,20 @@
+run_id=G2-1024-R11-s2 mode=app res=1024 seed=2520711 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R11/Glass_of_wine_at_Kalandak_Rooftop,_Tibetan_Colony,_New_Aruna_Nagar,_Delhi_(2023).jpg
+prompt=Change the red wine in the glass to white wine.
+Wed  7 Oct 2026 16:03:41 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1928.75M  free = 1143.25M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+383040 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+261328 /Users/nckandrw/.local/bin/claude
+209360 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+106448 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 62256 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 53088 /usr/libexec/hybridsearchd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=605 rc=0 aborted=0 swap_end=2137.25M

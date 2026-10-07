@@ -158,3 +158,16 @@ That is 45 edits in total (512: 23; 1024: 22). The seeds are fresh: every earlie
   - R12: the man walking towards the camera is right of the image centre but in the middle of the walkway. He is the only figure that fits the instruction, so it is unchanged.
 - **Colour:** R15 carries a Display P3 profile. As §3 states, it is ignored (no colour management), and the rater sees the staged pixels.
 - **Provenance:** 14 sources are CC0 and 2 are Public domain (R09, R15); every licence passed the script's CC0/PD check. `source-manifest.json` records every field listed in §3.
+
+## Amendment 2 (2026-10-07, ~16:55 PST): rating procedure. Made after the 45 G2 edits and `g2_blind.py prepare`, before any G2 output was viewed or scored by anyone. Criteria unchanged.
+**Run records at this point (mechanical, from `benchmark.csv`, no output viewed):** 45/45 completed, rc 0, no aborts, 0 critical-pressure samples; all 5 repeats equal their originals in RGB pixels, RGBA and both ids. These records feed O, D and the memory class only.
+
+**Procedural notes (nothing in §2–§9 changes):**
+- **Shuffle seed:** `g2_blind.py prepare` was run with seed 20261007 (§5 fixes a seeded shuffle but did not name the seed). Key sha256 `652bfa45…`, sealed read-only before any composite existed.
+- **Zoom (fixed now, uniformly, for every item):** composites are up to 1608 px wide; an image viewer downscales them, which would put the text checks (dropped letters, ghosting) and grain/grid artifacts below what the rater can see. The rater **may crop any region of any composite at native composite resolution** (e.g. `sips -c … --cropOffset …`), writing crops only to a scratch directory outside the repository. Crops are views of the same composite, not new information.
+- **Durability:** the rater appends each row to `g2/blind/scores-draft.csv` as soon as the item is scored, in ITEMS.md order, so that a partial sheet survives an interruption. One rater, as §5 requires; the sheet is not split across instances.
+- **Format checks before `freeze`, beyond `g2_blind.py`'s vocabulary checks:** every ITEMS.md "text: scored" item has text ∈ {PASS, PARTIAL, FAIL} and every other item has NA; `quality_family` is empty when quality is PASS. A violation is sent back to the same rater as a format-only correction (no content comment); the session assistant does not view composites before the freeze.
+
+**Disclosed limits of the anonymization (§5):**
+- **Pixel dimensions.** §5 says equal display size hides the budget. That holds only partly: the output size is derived per budget with multiple-of-32 rounding, so the aspect ratio differs slightly between budgets for 15 of 16 tasks (R07 is the exception), and so do the composite sheet sizes (e.g. R01: 1024×1418 at 512, 1024×1472 at 1024). Sheet size can show that two items are different runs of the same task, but not which budget is which. Disclosed alongside the sharpness hint; not re-prepared.
+- **Rater context.** The rater is a fresh subagent whose harness may load the repository's `CLAUDE.md`, which names the edit backend and mentions G2, but contains no run, item or key information. The rater prompt names no model, budget, seed, run kind, threshold or criterion.

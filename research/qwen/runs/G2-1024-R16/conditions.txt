@@ -1,0 +1,20 @@
+run_id=G2-1024-R16 mode=app res=1024 seed=2510716 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R16/Kafo.jpg
+prompt=Add a croissant on the table next to the coffee cup.
+Wed  7 Oct 2026 15:32:41 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2134.69M  free = 937.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 86%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+215664 /Users/nckandrw/.local/bin/claude
+114240 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+112224 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 94000 /System/Library/PrivateFrameworks/MediaConversionService.framework/Versions/A/XPCServices/com.apple.photos.ImageConversionService.xpc/Contents/MacOS/com.apple.photos.ImageConversionService
+ 66480 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 54880 /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/Versions/A/Support/photolibraryd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=596 rc=0 aborted=0 swap_end=1782.88M

@@ -1,0 +1,20 @@
+run_id=G2-1024-R12 mode=app res=1024 seed=2510712 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R12/Mathew_Street_in_the_rain_at_dusk_-_MATHEW_STREET,_BIRTHPLACE_of_THE_BEATLES,_written_on_a_message_banner_of_north_side_entrance,_near_REISS_and_Elle,_Liverpool_(2011-08-06_21.26.23_by_SomeDriftwood).jpg
+prompt=Remove the man in dark clothes walking towards the camera in the middle of the street.
+Wed  7 Oct 2026 14:50:54 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1450.38M  free = 1621.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 86%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+264256 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+256096 /Users/nckandrw/.local/bin/claude
+106976 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85600 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 82480 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 61632 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=635 rc=0 aborted=0 swap_end=1706.12M

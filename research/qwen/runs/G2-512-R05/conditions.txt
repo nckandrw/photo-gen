@@ -1,0 +1,20 @@
+run_id=G2-512-R05 mode=app res=512 seed=2510705 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R05/At_Home_(Unsplash).jpg
+prompt=Add a grey cat sleeping on the sofa.
+Wed  7 Oct 2026 12:18:26 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1887.69M  free = 1184.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+449968 /Users/nckandrw/.local/bin/claude
+249584 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 90416 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 87536 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 57824 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+ 53360 /usr/libexec/duetexpertd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=109 rc=0 aborted=0 swap_end=1871.69M

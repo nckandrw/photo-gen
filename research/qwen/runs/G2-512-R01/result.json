@@ -1,0 +1,199 @@
+{
+ "job_id": "20261007T041105Z-35b82d",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T04:11:05.930+00:00",
+ "started_at": "2026-10-07T04:11:05.932+00:00",
+ "finished_at": "2026-10-07T04:12:26.165+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change her white top to a dark green top.",
+  "width": 608,
+  "height": 416,
+  "steps": 40,
+  "seed": 2510701,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R01/Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo,_Venezuela.jpg",
+   "source_file_sha256": "df373d2fc90bc8e9157fc556d90f6c83d94f068ae74e60248c0d13d690e005e0",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+   "pixel_sha256": "e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8",
+   "width": 3413,
+   "height": 2411,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": true
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+   "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510701,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041105Z-35b82d.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041105Z-35b82d.json",
+ "pixel_sha256": "1c254fc1559649c105ee3ce5fc50b61e1432b13e8630b2765e7827209b698324",
+ "file_sha256": "8fe6b0137437cf85c3c5fe2c75141ae8596384041a98504dbc94a44e94ec9ed1",
+ "generation_seconds": 80.096,
+ "phases": {
+  "load": {
+   "seconds": 1.35,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.163,
+   "mlx_peak_gb": 7.343,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.408,
+   "mlx_peak_gb": 3.013,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.799,
+   "mlx_peak_gb": 4.876,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 76.656,
+   "mlx_peak_gb": 4.876,
+   "calls": 1
+  },
+  "denoise_seconds": 72.93,
+  "other_seconds": 0.356
+ },
+ "step_seconds": [
+  3.686,
+  1.794,
+  1.753,
+  1.754,
+  1.749,
+  1.758,
+  1.757,
+  1.752,
+  1.767,
+  1.766,
+  1.755,
+  1.757,
+  1.754,
+  1.756,
+  1.752,
+  1.761,
+  1.763,
+  1.754,
+  1.757,
+  1.761,
+  1.754,
+  1.759,
+  1.758,
+  1.763,
+  1.764,
+  1.766,
+  1.771,
+  1.78,
+  1.788,
+  1.785,
+  1.796,
+  1.802,
+  1.802,
+  1.805,
+  1.804,
+  1.808,
+  1.811,
+  1.811,
+  1.811,
+  1.819
+ ],
+ "memory": {
+  "peak_footprint_gb": 8.107,
+  "mlx_peak_gb": 7.343,
+  "denoise_mlx_peak_gb": 5.789
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 252,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "ee847ed435ae83405d833486a0371a07425dfe3ef59ccf3d21618d0142ba660e"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 512,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change her white top to a dark green top.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+   "--seed",
+   "2510701",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "512",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T041105Z-35b82d.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

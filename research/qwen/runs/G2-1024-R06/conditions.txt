@@ -1,0 +1,20 @@
+run_id=G2-1024-R06 mode=app res=1024 seed=2510706 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R06/Hartz_Lake_at_Hartz_Mountain.jpg
+prompt=Turn this into a winter scene with snow covering the mountains and the rocky slopes.
+Wed  7 Oct 2026 13:49:43 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2159.62M  free = 912.38M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+261744 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+253120 /Users/nckandrw/.local/bin/claude
+ 61088 /System/Library/PrivateFrameworks/CoreEmbeddedSpeechRecognition.framework/Versions/A/XPCServices/com.apple.siri.embeddedspeech.xpc/Contents/MacOS/com.apple.siri.embeddedspeech
+ 52352 /usr/libexec/duetexpertd
+ 51904 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 47856 /System/Library/PrivateFrameworks/CoreEmbeddedSpeechRecognition.framework/speechmaintenanced
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=603 rc=0 aborted=0 swap_end=2209.94M

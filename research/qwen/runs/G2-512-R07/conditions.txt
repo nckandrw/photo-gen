@@ -1,0 +1,20 @@
+run_id=G2-512-R07 mode=app res=512 seed=2510707 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R07/Cyan_1952_Chevrolet_beside_a_cobra-head_street_light_in_San_Juan_Bautista,_Margarita_Island,_Venezuela.jpg
+prompt=Change the color of the car from turquoise to bright red.
+Wed  7 Oct 2026 12:22:39 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1871.69M  free = 1200.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+440864 /Users/nckandrw/.local/bin/claude
+225248 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 56352 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 53824 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 52240 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 51264 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=105 rc=0 aborted=0 swap_end=1863.69M

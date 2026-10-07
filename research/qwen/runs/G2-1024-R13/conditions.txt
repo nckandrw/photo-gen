@@ -1,0 +1,20 @@
+run_id=G2-1024-R13 mode=app res=1024 seed=2510713 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R13/St._Martin_Külsheim_Ansicht_2.jpg
+prompt=Replace the clear blue sky with a dramatic sunset sky with orange and pink clouds.
+Wed  7 Oct 2026 15:01:49 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1706.12M  free = 1365.88M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 86%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+227104 /Users/nckandrw/.local/bin/claude
+204848 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+101840 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 93280 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 58160 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+ 53296 /usr/libexec/duetexpertd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=592 rc=0 aborted=0 swap_end=1663.69M

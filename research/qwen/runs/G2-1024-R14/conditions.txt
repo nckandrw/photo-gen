@@ -1,0 +1,20 @@
+run_id=G2-1024-R14 mode=app res=1024 seed=2510714 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R14/Karjalankarhukoira,_Karelian_Bear_Dog_looking_at_camera.jpg
+prompt=Turn this photo into a watercolor painting.
+Wed  7 Oct 2026 15:12:01 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1663.69M  free = 1408.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+363376 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+222544 /Users/nckandrw/.local/bin/claude
+202224 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 99120 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 53712 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 52208 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=592 rc=0 aborted=0 swap_end=1884.06M

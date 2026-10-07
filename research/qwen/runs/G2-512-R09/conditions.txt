@@ -1,0 +1,20 @@
+run_id=G2-512-R09 mode=app res=512 seed=2510709 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R09/20191212_Luang_Prabang_vegetable_market-1.jpg
+prompt=Replace the pink dragon fruits with green apples. Do not change anything else.
+Wed  7 Oct 2026 12:26:50 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1847.69M  free = 1224.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+441264 /Users/nckandrw/.local/bin/claude
+229424 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+105216 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 60608 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 53904 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 52208 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=117 rc=0 aborted=0 swap_end=1503.69M

@@ -1,0 +1,20 @@
+run_id=G2-1024-R08 mode=app res=1024 seed=2510708 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R08/Brick_houses_in_a_street_view;_Amsterdam_city_-_free_photo,_Fons_Heijnsbroek.jpg
+prompt=Change the text on the hanging sign from "MacBike" to "CityBike".
+Wed  7 Oct 2026 14:10:07 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1657.94M  free = 1414.06M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 86%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+452384 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+228912 /Users/nckandrw/.local/bin/claude
+212208 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+115120 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 75696 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 60832 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=593 rc=0 aborted=0 swap_end=1614.50M

@@ -1,0 +1,199 @@
+{
+ "job_id": "20261007T054943Z-155a46",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T05:49:43.543+00:00",
+ "started_at": "2026-10-07T05:49:43.544+00:00",
+ "finished_at": "2026-10-07T05:59:45.562+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Turn this into a winter scene with snow covering the mountains and the rocky slopes.",
+  "width": 1184,
+  "height": 896,
+  "steps": 40,
+  "seed": 2510706,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R06/Hartz_Lake_at_Hartz_Mountain.jpg",
+   "source_file_sha256": "a3bc1b2a797787e46d88775c7922603b3b7412441a1cbe3b5cf9b4399c2421d6",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/a64029d3935cab725b2317996eb81695b643691aa4dd6d0df099f2664325d016.png",
+   "pixel_sha256": "a64029d3935cab725b2317996eb81695b643691aa4dd6d0df099f2664325d016",
+   "width": 4032,
+   "height": 3024,
+   "exif_orientation": 1,
+   "alpha_dropped": false,
+   "icc_profile": true
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+   "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510706,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054943Z-155a46.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054943Z-155a46.json",
+ "pixel_sha256": "cbde87252b8050a3643da00201d080f649565b10721c6db8e56f595152506409",
+ "file_sha256": "31f0c14df3e09db02ef2ddbf1ebeeb643ee4aa0d5205eea24d2cd2f3d5b633f3",
+ "generation_seconds": 601.763,
+ "phases": {
+  "load": {
+   "seconds": 1.358,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.304,
+   "mlx_peak_gb": 7.205,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.391,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 10.174,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 597.981,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 581.625,
+  "other_seconds": 0.487
+ },
+ "step_seconds": [
+  22.213,
+  11.698,
+  11.718,
+  12.357,
+  13.046,
+  13.686,
+  14.008,
+  14.094,
+  14.167,
+  14.144,
+  14.083,
+  14.029,
+  14.105,
+  13.948,
+  15.575,
+  14.583,
+  14.436,
+  14.581,
+  14.738,
+  14.835,
+  14.885,
+  14.782,
+  14.814,
+  14.77,
+  14.868,
+  14.762,
+  14.741,
+  14.782,
+  14.741,
+  14.806,
+  14.772,
+  14.862,
+  14.771,
+  14.712,
+  14.766,
+  14.666,
+  14.735,
+  14.891,
+  14.644,
+  14.739
+ ],
+ "memory": {
+  "peak_footprint_gb": 10.865,
+  "mlx_peak_gb": 7.205,
+  "denoise_mlx_peak_gb": 9.727
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 243,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "f683a93d654bd74c41d91e99ddf6971cdbe8201cbcd36f02787ec49758b4a979"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Turn this into a winter scene with snow covering the mountains and the rocky slopes.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/a64029d3935cab725b2317996eb81695b643691aa4dd6d0df099f2664325d016.png",
+   "--seed",
+   "2510706",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054943Z-155a46.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

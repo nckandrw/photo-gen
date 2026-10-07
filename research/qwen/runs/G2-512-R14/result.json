@@ -1,0 +1,198 @@
+{
+ "job_id": "20261007T043744Z-c9df9d",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T04:37:44.744+00:00",
+ "started_at": "2026-10-07T04:37:44.746+00:00",
+ "finished_at": "2026-10-07T04:39:33.920+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Turn this photo into a watercolor painting.",
+  "width": 640,
+  "height": 416,
+  "steps": 40,
+  "seed": 2510714,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R14/Karjalankarhukoira,_Karelian_Bear_Dog_looking_at_camera.jpg",
+   "source_file_sha256": "ba572fadf76d77306e13b45b53383a58dabc9121fcc811c4a2920525cd9ee3d3",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/67dcda4aabe093311db117cd7abf12c284a1a21e2e76d5303dd33123f0720bbc.png",
+   "pixel_sha256": "67dcda4aabe093311db117cd7abf12c284a1a21e2e76d5303dd33123f0720bbc",
+   "width": 3888,
+   "height": 2592,
+   "exif_orientation": 1,
+   "alpha_dropped": false,
+   "icc_profile": false
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510714,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043744Z-c9df9d.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043744Z-c9df9d.json",
+ "pixel_sha256": "5223665cd1dbc277163a118841b94103efe6c306c1f9e207420965e2e147deff",
+ "file_sha256": "e6e308ce4d06a4f68bfecebdae703968e7821dcdd558019cd62753988b616b08",
+ "generation_seconds": 108.991,
+ "phases": {
+  "load": {
+   "seconds": 1.358,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.141,
+   "mlx_peak_gb": 7.407,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.412,
+   "mlx_peak_gb": 3.103,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 2.391,
+   "mlx_peak_gb": 4.876,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 105.51,
+   "mlx_peak_gb": 4.876,
+   "calls": 1
+  },
+  "denoise_seconds": 101.13,
+  "other_seconds": 0.436
+ },
+ "step_seconds": [
+  4.801,
+  2.399,
+  2.309,
+  2.285,
+  2.263,
+  2.281,
+  2.265,
+  2.274,
+  2.278,
+  2.263,
+  2.289,
+  2.283,
+  2.335,
+  2.287,
+  2.309,
+  2.333,
+  2.349,
+  2.349,
+  2.38,
+  2.401,
+  2.432,
+  2.443,
+  2.518,
+  2.455,
+  2.499,
+  2.64,
+  2.516,
+  2.581,
+  2.586,
+  2.602,
+  2.613,
+  2.633,
+  2.66,
+  2.692,
+  2.711,
+  2.731,
+  2.738,
+  2.752,
+  2.764,
+  2.765
+ ],
+ "memory": {
+  "peak_footprint_gb": 8.067,
+  "mlx_peak_gb": 7.407,
+  "denoise_mlx_peak_gb": 5.91
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 253,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "7684ec000dd7d678906770e4afab774cb86030cdc456d25dcddf0d23eb93aed9"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 512,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Turn this photo into a watercolor painting.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/67dcda4aabe093311db117cd7abf12c284a1a21e2e76d5303dd33123f0720bbc.png",
+   "--seed",
+   "2510714",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "512",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T043744Z-c9df9d.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

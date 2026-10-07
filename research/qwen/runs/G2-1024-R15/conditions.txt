@@ -1,0 +1,20 @@
+run_id=G2-1024-R15 mode=app res=1024 seed=2510715 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R15/The_Beguiling_Bookstore.jpg
+prompt=Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.
+Wed  7 Oct 2026 15:22:14 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1884.06M  free = 1187.94M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+221344 /Users/nckandrw/.local/bin/claude
+204992 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 94224 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 73360 /System/Library/Frameworks/Contacts.framework/Support/contactsd
+ 51216 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 47536 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+git_head=f16e092c1e7bc68856d784704f5339c49cf29f2b
+git_dirty(app,config,research/qwen):
+wall_s=607 rc=0 aborted=0 swap_end=2134.69M

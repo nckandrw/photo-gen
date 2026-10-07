@@ -1,0 +1,199 @@
+{
+ "job_id": "20261007T061007Z-c34085",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T06:10:07.876+00:00",
+ "started_at": "2026-10-07T06:10:07.878+00:00",
+ "finished_at": "2026-10-07T06:19:59.746+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Change the text on the hanging sign from \"MacBike\" to \"CityBike\".",
+  "width": 896,
+  "height": 1184,
+  "steps": 40,
+  "seed": 2510708,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/benchmark/real-world/originals/R08/Brick_houses_in_a_street_view;_Amsterdam_city_-_free_photo,_Fons_Heijnsbroek.jpg",
+   "source_file_sha256": "d656d35091c349cd6bc595819296ba2c396b1f0c2329a983d26fb337f654f7c6",
+   "source_format": "JPEG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+   "pixel_sha256": "32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f",
+   "width": 3543,
+   "height": 4724,
+   "exif_orientation": 1,
+   "alpha_dropped": false,
+   "icc_profile": true
+  },
+  "output_resolution": 1024,
+  "warnings": [
+   "image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a quality gate (research/qwen/); Qwen Research License (non-commercial)",
+   "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510708,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T061007Z-c34085.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T061007Z-c34085.json",
+ "pixel_sha256": "c264ec552f89f803ddfdd577f80dc37601978fdb08d9c282ab8fa345e89f4c0a",
+ "file_sha256": "c1b20879fc7f08a19391591f6a82305190df07578f6b68904f2090df436e9b10",
+ "generation_seconds": 591.528,
+ "phases": {
+  "load": {
+   "seconds": 1.381,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.649,
+   "mlx_peak_gb": 7.205,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.423,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 9.748,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 587.567,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 571.169,
+  "other_seconds": 0.578
+ },
+ "step_seconds": [
+  22.649,
+  11.958,
+  12.128,
+  12.804,
+  13.496,
+  14.063,
+  14.279,
+  14.482,
+  14.556,
+  14.373,
+  14.376,
+  14.374,
+  14.528,
+  14.152,
+  14.449,
+  14.017,
+  14.111,
+  14.316,
+  14.155,
+  14.191,
+  14.179,
+  14.165,
+  14.113,
+  14.114,
+  14.118,
+  14.109,
+  14.1,
+  14.106,
+  14.109,
+  14.144,
+  14.117,
+  14.107,
+  14.293,
+  14.212,
+  14.251,
+  14.144,
+  14.256,
+  14.279,
+  14.548,
+  14.174
+ ],
+ "memory": {
+  "peak_footprint_gb": 10.888,
+  "mlx_peak_gb": 7.205,
+  "denoise_mlx_peak_gb": 9.729
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 251,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "d36140ed58d86b005a43a237db46304fb4b9cf88d556be209a214f97ea2a17b1"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 1024,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Change the text on the hanging sign from \"MacBike\" to \"CityBike\".",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/32756dabfa9bb1cfe41587d8e6bbe251ff72767521e0b10e07c73f9cfdc6e16f.png",
+   "--seed",
+   "2510708",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "1024",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T061007Z-c34085.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}
