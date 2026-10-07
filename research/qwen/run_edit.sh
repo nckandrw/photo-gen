@@ -4,6 +4,7 @@
 #   app   = the production path: bin/photo-gen edit (job system, staging, edit worker with passive probes)
 #   plain = the unmodified mflux 0.21.0 CLI on the same staged input and arguments (parity control for the probes)
 #   worker0/worker1 = the production edit worker run directly (worker_run.py) with defer_transformer_load off/on
+#   mem:<P0|P1|PV|P2> = the production edit worker with a named Phase 5 lifetime policy (research/qwen/memory/mem_run.py)
 #   sdcpp = comparator: sd.cpp master-908 (the 2026-09-24 baseline configuration: auto-fit, no memory flags, euler,
 #           cfg 1) + official Qwen3-VL-8B-Instruct Q4_K_M + mmproj F16, reference via -r; output = res x res
 # Abort thresholds (declared before any run): swap grows by > 6144 MB over its starting value, OR the kernel memory
@@ -23,7 +24,7 @@ mkdir -p $OUT
   memory_pressure | grep "free percentage"; pmset -g therm | grep -i -E "warning|limit"
   ps -axo rss,comm | sort -rn | head -6
   echo "git_head=$(git rev-parse HEAD)"; echo "git_dirty(app,config,research/qwen):"
-  git status --porcelain app config research/qwen/run_edit.sh research/qwen/worker_run.py; } > $OUT/conditions.txt 2>&1
+  git status --porcelain app config research/qwen/run_edit.sh research/qwen/worker_run.py research/qwen/memory; } > $OUT/conditions.txt 2>&1
 local PROC=python3.12; [[ $MODE == sdcpp ]] && PROC=sd-cli
 zsh research/monitor.sh $OUT/monitor.csv $PROC 1 &
 MON=$!
@@ -40,6 +41,9 @@ elif [[ $MODE == plain ]]; then
     --output $OUT/plain.png > $OUT/console.log 2>&1 &
 elif [[ $MODE == worker0 || $MODE == worker1 ]]; then   # production worker directly; defer_transformer_load 0/1
   mflux/.venv/bin/python3.12 research/qwen/worker_run.py $OUT/worker "$IMG" $RES $SEED "$PROMPT" ${MODE#worker} $STEPS \
+    > $OUT/result.json 2> $OUT/console.log &
+elif [[ $MODE == mem:* ]]; then   # Phase 5 memory-lifetime A/B: production worker with a named policy (mem_run.py)
+  mflux/.venv/bin/python3.12 research/qwen/memory/mem_run.py $OUT/worker "$IMG" $RES $SEED "$PROMPT" ${MODE#mem:} $STEPS \
     > $OUT/result.json 2> $OUT/console.log &
 elif [[ $MODE == sdcpp ]]; then
   local M=$PWD/models

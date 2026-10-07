@@ -1,0 +1,33 @@
+{
+ "E05": {
+  "from": "research/editing/sources.json E05",
+  "transform": null,
+  "source_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/06/20261006T170025Z-9f37b9-editsrc-E05-s1505.png",
+  "source_file_sha256": "e81930012654d8f06f83cb9ff43de977dd66e16031806b4828758f58660c565f",
+  "source_format": "PNG",
+  "source_mode": "RGB",
+  "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+  "pixel_sha256": "8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a",
+  "width": 1024,
+  "height": 1024,
+  "exif_orientation": null,
+  "alpha_dropped": false,
+  "icc_profile": false
+ },
+ "E08c": {
+  "from": "research/editing/sources.json E08",
+  "transform": "crop box (0, 170, 1024, 853)",
+  "source_pixel_sha256": "79b0a959f410cfa25bbf9c8e46e7ee32fe78bf31461598aa7795a1c10421d681",
+  "source_path": "/Users/nckandrw/Dev/photo-gen/data/research-inputs/memory-ab-E08-crop-3x2.png",
+  "source_file_sha256": "ad7f56dd68ed531838d52d10a9096cfc42fec813b5fa5db1e1a1a53f15c840b8",
+  "source_format": "PNG",
+  "source_mode": "RGB",
+  "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/b373952e329b3432e0dfd0f831935751df70d0556ade2166c905431f46ab5dd2.png",
+  "pixel_sha256": "b373952e329b3432e0dfd0f831935751df70d0556ade2166c905431f46ab5dd2",
+  "width": 1024,
+  "height": 683,
+  "exif_orientation": null,
+  "alpha_dropped": false,
+  "icc_profile": false
+ }
+}

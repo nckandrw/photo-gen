@@ -1,0 +1,95 @@
+{
+ "rc": 0,
+ "wall_seconds": 11.205,
+ "policy": "P0",
+ "policy_flags": {
+  "defer_transformer_load": true
+ },
+ "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+ "pixel_sha256": "7aeefe0a53f8a008358f9c988515345f65c1f491873018a0c0e93ca756c8475c",
+ "size": [
+  384,
+  384
+ ],
+ "output_alpha": {
+  "mode": "RGBA",
+  "has_alpha": true,
+  "alpha_min": 234,
+  "alpha_max": 255,
+  "opaque": false,
+  "rgba_sha256": "2175256c3d81a6c0e661c3ad7b174357eca34b782eabe517a46a050879e53bac"
+ },
+ "peak_footprint_gb": 8.4,
+ "mlx_peak_gb": 7.111,
+ "denoise_mlx_peak_gb": 6.482,
+ "denoise_active_gb_max": 6.13,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 6.142,
+  "after_vae_encode": 6.145,
+  "before_loop": 1.365,
+  "after_step0": 6.13,
+  "after_vae_decode": 1.359,
+  "after_generate_total": 1.351
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.68,
+  "after_text_encode": 7.693,
+  "after_vae_encode": 7.762,
+  "before_loop": 1.953,
+  "after_step0": 6.965,
+  "after_loop": 2.804,
+  "after_vae_decode": 3.472,
+  "after_generate_total": 3.331,
+  "end": 2.734
+ },
+ "phases": {
+  "load": {
+   "seconds": 1.424,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.268,
+   "mlx_peak_gb": 6.975,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.811,
+   "mlx_peak_gb": 7.111,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 0.877,
+   "mlx_peak_gb": 5.244,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 7.475,
+   "mlx_peak_gb": 5.244,
+   "calls": 1
+  },
+  "denoise_seconds": 4.286,
+  "other_seconds": 0.233
+ },
+ "step_seconds": [
+  2.223,
+  1.056,
+  0.952
+ ],
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": false,
+  "release_vae_during_denoise": false,
+  "text_encoder_released_after_encode": false,
+  "vae_reloaded_lazily": false
+ },
+ "deferred": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "error": null
+}
