@@ -98,6 +98,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - All run sequentially with `research/monitor.sh`, and must not share the GPU with other runs.
 - **Upstream reports:** mflux-community/mflux #760 and #761 (`upstream-mflux-issue-SUBMITTED.md`). Both were closed 2026-10-01, fixed upstream in 0.21.0 (#802, #803); production stays on 0.20.0.
 - **Phase 4 (editing):**
+  - **Resume index:** `research/qwen/PHASE4-INDEX.md` (start there after MEMORY.md for anything editing-related).
   - `research/editing/` is the **model-independent** editing benchmark: suite v1, sources, regions, rubric, gates G0/G1, `edit_metrics.py`, `review_sheet.py`.
   - `research/qwen/` holds the Qwen backend evidence: `QWEN-SOURCE-AUDIT.md`, `QWEN-RUNTIME-COMPARISON.md`, `QWEN-EDITING-BASELINE.md`, `QWEN-EDITING-QUALITY.md`, `INCIDENTS.md`, `runs/<id>/`, `g0/`, `g1/`.
   - Harness: `research/qwen/run_edit.sh` with modes `app`, `plain`, `worker0/1` and `sdcpp`. It runs the 1 Hz monitor with abort thresholds and records the git HEAD per run. It also **bypasses `gpu.lock`**, so run no photo-gen jobs during its chains.

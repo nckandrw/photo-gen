@@ -7,6 +7,8 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ## Current state (snapshot, keep this block up to date)
 _Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing + image-task layer; Z-Image production unchanged)._
 
+**RESUME HERE → `research/qwen/PHASE4-INDEX.md`** is the lossless Phase 4 index: read order, verification commands, state, decisions, assets, code map, research map, results, reference hashes, rules learned, open items, commits. Nothing is running. `main` is 10 commits ahead of `origin/main` and **not pushed**.
+
 **Phase 4 summary (2026-10-07):**
 - **Task layer:** `tasks.TaskRouter` routes `text-to-image` → Z-Image (production) and `image-edit` → Qwen-Image-2.1 (**EXPERIMENTAL**; Qwen Research License, non-commercial). One queue, store, GPU lock and API. `POST /edit`, `photo-gen edit`, `verify --edit`.
 - **Edit backend:** mflux **0.21.0** in a separate venv `mflux-qwen/.venv` (MLX 0.32.2). Local q4 export `models/qwen/qwen-image-2.1-edit-mflux-q4` (pinned in `config/backend-qwen21-edit-mflux.json`). Deferred DiT load is the production default (pixel-identical; memory-safety fix).
@@ -19,12 +21,13 @@ _Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing 
 
 **Production (Z-Image; unchanged since v2 apart from BALANCED/ULTRA)**
 - **Production = tag `photo-gen-m5-16gb-v2`** (commit `3961404`, verified from a clean clone 2026-09-28). mflux 0.20.0 / MLX 0.32.2, Z-Image-Turbo q4 @ d2d30500, `--low-ram`.
-  - **Validated combinations** (`VALIDATED_COMBINATIONS` in `app/photogen/runtimes/mflux_zimage.py`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only. Everything else needs `--allow-experimental`.
-  - 40/40 tests. Transformer-release fix ON. MIT for photo-gen code (`LICENSE`); third-party licences in `docs/THIRD-PARTY-LICENSES.md`; `docs/RELEASE-NOTES.md` (v1 → v2).
+  - **Validated combinations** (`VALIDATED_COMBINATIONS` in `app/photogen/runtimes/mflux_zimage.py`): fp32+9 (REFERENCE) and bf16+8 (FAST) at 512², 768², 1024²; bf16+9 at 1024² only; bf16+5 (BALANCED) at 1024² only; bf16+4 (ULTRA) at 512² only. Everything else needs `--allow-experimental`.
+  - The v2 tag had 40 tests; `main` now has 72 (2026-10-07). Transformer-release fix ON. MIT for photo-gen code (`LICENSE`); third-party licences in `docs/THIRD-PARTY-LICENSES.md`; `docs/RELEASE-NOTES.md` (v1 → v2).
 - **Regression hashes** (p01 apple, seed 42):
   - 1024²: reference `fe47d88d`, fast `7b45cfbe`, bf16/9 `11b19277`.
   - 768²: reference `94a023d3`, fast `20ff9e2c`.
-  - 512²: reference `9ae59f59`, fast `0b9cc20a`.
+  - 512²: reference `9ae59f59`, fast `0b9cc20a`, ultra `6aa2b842`.
+  - 1024² balanced `befe1b3c`. All re-verified through the Phase 4 refactored app 2026-10-07.
 
 **Git**
 - Private `nckandrw/photo-gen`, branch `main`. Tags v1 (`db10040`) and v2 (`3961404`) are immutable; never move them.
@@ -36,23 +39,33 @@ _Last updated 2026-10-07 (Phase 4 complete: experimental Qwen-Image-2.1 editing 
   - REFERENCE fp32/9 and FAST bf16/8 at 512/768/1024;
   - **BALANCED bf16/5 at 1024² only** (commit `b59036c`, hash `befe1b3c`, from the production worker via prod_runner);
   - ULTRA bf16/4 at 512² only (`6aa2b842`).
-  - 42/42 tests.
+  - 72/72 tests (Phase 4).
 - **Resolution matrix (minimum validated compute):** 512² → ULTRA (4); 768² → FAST (8); 1024² → BALANCED (5).
 - **768² bf16 + 5: NOT CONFIRMED.**
   - Stage B was the narrowest possible pass (3/0/21). The focused confirmation came out 3/1/28 and failed criterion 4: the c03 poster subtitle was 8-better in both seeds.
   - The outcome isn't covered by a pre-registered verdict row, and I disclosed that; the consequence is identical either way (768² stays FAST).
   - Evidence: `results.md` § "768² BALANCED confirmation".
 
-**Next steps (all await the user; none auto-start)**
+**Next steps (all await the user; none auto-start).** Full list: `research/qwen/PHASE4-INDEX.md` §10.
 1. ~~Pending CLI check.~~ **CLOSED 2026-10-06** (see the 2026-10-06 entry): BALANCED 1024² → `befe1b3c…`, validated; 768² refused.
-2. Decide whether a dedicated 6-step gate at 768² is worth it (directive §17). Stage C as a full sweep stays deferred.
-3. Resolution-aware automatic step selection: not to be implemented yet.
+2. Phase 4 decisions:
+   - push to origin (not pushed);
+   - a `v3` tag or not;
+   - delete `models/research/qwen-image-2.1` (31 GiB) and `models/qwen/ABORTED-…` (9.9 GiB) only with OK;
+   - edit production adoption (needs backlog Q-G; the licence is non-commercial).
+3. Editing backlog: Q-G (blinded G2), Q-S (fewer steps), Q-M (1024 memory), Q-U (one venv?), Q-C (more capability).
+4. Phase 3 leftovers: decide whether a dedicated 6-step gate at 768² is worth it (Stage C as a full sweep stays deferred). Resolution-aware automatic step selection is not to be implemented yet.
 
 **Research assets (gitignored)**
 - `models/research/z-image-base-mflux-q4` @ 087eaf40 and `models/research/loras/Z-Image-Fun-Lora-Distill-4-Steps-2603-ComfyUI.safetensors` @ f9a4db41.
 - 15/15 files verified against HF digests (`4step-probe/asset-manifest.json`).
 - `research/experiments/p3b/cap/*.gputrace` (≈16 GB) are summarized in `nax-status.md`. Delete them only with the user's OK.
 - The user deferred any cleanup of old sd.cpp/Qwen models (≈15.5 GB) and the uv cache. Don't delete without being asked.
+- **Phase 4 (gitignored):**
+  - `models/research/qwen-image-2.1` (official Qwen-Image-2.1 @ d26bb61, 31 GiB);
+  - `models/qwen/qwen-image-2.1-edit-mflux-q4` (canonical export) and `models/qwen/ABORTED-…` (a byte-identical duplicate);
+  - `models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf` + `mmproj-…-F16.gguf` (sd.cpp comparator);
+  - `mflux-qwen/.venv` (edit venv).
 
 ---
 
