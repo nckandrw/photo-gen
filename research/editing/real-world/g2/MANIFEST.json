@@ -105,5 +105,6 @@
   "Q40": "e3a176eacd4f2c8f5176a202a019f69c14a208e906f17db314d11fc09b5e04ed"
  },
  "items_md_sha256": "f4df6e20127f8a0084d9f0c6b5f4d23ae76b48fdee702a0c9b02e4336edb2bf6",
- "frozen_scores_sha256": null
+ "frozen_scores_sha256": "f14deba4be668b0d4c78d69d031f5c293d366a6ccc171502200e9a15821571b9",
+ "frozen_at": "2026-10-07T17:13:34+0800"
 }
