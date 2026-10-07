@@ -124,3 +124,37 @@ That is 45 edits in total (512: 23; 1024: 22). The seeds are fresh: every earlie
 
 ## 11. Outputs of the gate
 `source-manifest.json`, `benchmark.csv` (one row per run), `scores.csv` (frozen rater scores plus the unblinded mapping), `results.md` (verdicts, memory class, decision, G0-vs-G2 comparison), and `research/qwen/QWEN-EDITING-QUALITY.md` § G2 (Qwen-specific). The benchmark definition here stays model-independent.
+
+## Amendment 1 (2026-10-07, ~12:15 PST): source acquisition. Made before any G2 edit ran; no G2 output exists. Criteria unchanged.
+**What happened.** `fetch_sources.py` (as committed in `8694119`, after this pre-registration) downloaded and decoded the full-size sources. That is the first time any full-size source was decoded. Two problems turned up:
+
+1. **Filename bug (tooling).** Commons' `imageinfo.url` now ends in a `?utm_…` query string, and the script used it in the local filename. Fix: take the name from the URL path.
+   - The two files from that first attempt (R01, R02) were moved aside, not deleted.
+   - Their manifest is kept at `acquisition/source-manifest-attempt1.json`.
+   - Both re-downloaded files are byte-identical to attempt 1 (sha256 `df373d2f…` and `55f8ef80…`).
+2. **Two camera files rejected by photo-gen's own input staging (a product defect).**
+   - R02 (Panasonic DMC-GF6) and R04 (Sony DSC-W530) are **MPO** multi-picture JPEGs: a primary JPEG plus a preview image, saved as ordinary `.jpg`.
+   - `inputs.py` rejected them with "input format MPO is not accepted". It would do the same for any user of such a camera.
+   - The script now records a staging rejection instead of aborting, so the other 14 sources were acquired and staged normally.
+
+**Improvement Clause (directive, material plan change):**
+- **Original approach:** G2 runs on the original downloaded camera files through `bin/photo-gen edit`, exactly as a user would.
+- **Proposed change:** fix the input pipeline so an MPO stages as its primary image (frame 0), with a warning. Every other multi-frame or animated input is still rejected. This is commit `e653122`, with a test; tests 92/92.
+- **Evidence:**
+  - Re-staging the 14 already-staged originals with the fixed code reproduces all 14 `pixel_sha256` values and sizes.
+  - R02 and R04 stage at their primary sizes, 4592×3448 and 2592×1944, not the preview.
+  - They were staged from the already-downloaded files, with the sha256 re-verified (`fetch_sources.py --restage`).
+- **Why it is better than the alternatives:**
+  - Keeping R02 and R04 unfixed would fail them at submission at both budgets and trip criterion O. `len(ops_bad) ≥ 2` then means REJECTED, so the gate would reject Qwen for a photo-gen staging bug unrelated to the backend.
+  - Replacing them would change pre-registered items.
+  - Dropping them would break the N = 16 thresholds.
+  - Pre-converting them would hide a defect that real users would hit.
+- **Expected information gain:** G2 measures the edit backend on all 16 pre-registered real photographs. The MPO defect is reported separately as a photo-gen finding.
+- **What it replaces:** the "reject MPO" input behaviour. Nothing in §2–§9 changes: no task, seed, region, threshold or rule.
+
+**Checks on the staged sources (before freezing the chain):**
+- **Orientation matches §3:** 5 portrait (R08, R11, R12, R13, R15) and 11 landscape. R11, R13 and R15 carry EXIF orientations 6, 8 and 6; they are upright after staging.
+- **Regions:** every pre-registered region was drawn on the 900-px previews. Each was checked on the staged image and is on its intended object; no region was changed.
+  - R12: the man walking towards the camera is right of the image centre but in the middle of the walkway. He is the only figure that fits the instruction, so it is unchanged.
+- **Colour:** R15 carries a Display P3 profile. As §3 states, it is ignored (no colour management), and the rater sees the staged pixels.
+- **Provenance:** 14 sources are CC0 and 2 are Public domain (R09, R15); every licence passed the script's CC0/PD check. `source-manifest.json` records every field listed in §3.

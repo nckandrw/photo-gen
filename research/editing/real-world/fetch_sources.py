@@ -12,7 +12,7 @@ For each selected file it:
     (photogen.inputs.stage_input_image) to obtain the canonical pixel SHA-256 and staged path that edits will use.
 Writes research/editing/real-world/source-manifest.json. Images are never committed.
 
-Usage: mflux/.venv/bin/python3.12 -I research/editing/real-world/fetch_sources.py <selection.json>"""
+Usage: mflux/.venv/bin/python3.12 -I research/editing/real-world/fetch_sources.py <selection.json> [--restage <note>]"""
 import hashlib
 import html
 import io
@@ -29,6 +29,7 @@ sys.path.insert(0, str(ROOT / "app"))
 from PIL import Image, ImageCms  # noqa: E402
 
 from photogen.config import AppConfig  # noqa: E402
+from photogen.errors import ValidationError  # noqa: E402
 from photogen.inputs import stage_input_image  # noqa: E402
 
 UA = "photo-gen-research/0.1 (local benchmark curation; https://github.com/nckandrw)"
@@ -54,10 +55,31 @@ def text(v):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", v or ""))).strip() or None
 
 
+def restage(manifest_path: Path, cfg, note: str) -> None:
+    """Stage sources whose staging was rejected at acquisition, from the already-downloaded file (verified against
+    its recorded sha256 first; never re-downloaded). The original staging_error is kept as history."""
+    manifest = json.loads(manifest_path.read_text())
+    for sid, e in manifest["sources"].items():
+        if e.get("staged"):
+            continue
+        f = ROOT / e["local_path"]
+        if hashlib.sha256(f.read_bytes()).hexdigest() != e["file_sha256"]:
+            raise SystemExit(f"{sid}: local file no longer matches its recorded sha256")
+        staged, warnings = stage_input_image(str(f), cfg.inputs_dir)
+        e["staged"] = {"pixel_sha256": staged.pixel_sha256, "staged_path": staged.staged_path,
+                       "width": staged.width, "height": staged.height, "orientation": "portrait"
+                       if staged.height > staged.width else "landscape", "warnings": warnings}
+        e["restaged"] = {"at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "note": note}
+        manifest_path.write_text(json.dumps(manifest, indent=1, ensure_ascii=False))
+        print(sid, "restaged", staged.source_format, staged.width, staged.height, staged.pixel_sha256[:16], warnings)
+
+
 def main(selection_path: str) -> None:
     sel = json.loads(Path(selection_path).read_text())
     cfg = AppConfig.load()
     manifest_path = Path(__file__).with_name("source-manifest.json")
+    if "--restage" in sys.argv:
+        return restage(manifest_path, cfg, sys.argv[sys.argv.index("--restage") + 1])
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"sources": {}}
     for item in sel["sources"]:
         sid, title = item["id"], item["title"]
@@ -84,7 +106,7 @@ def main(selection_path: str) -> None:
             continue
         d = ORIG / sid
         d.mkdir(parents=True, exist_ok=False)  # its own new, empty directory
-        name = urllib.parse.unquote(ii["url"].rsplit("/", 1)[1])
+        name = urllib.parse.unquote(urllib.parse.urlsplit(ii["url"]).path.rsplit("/", 1)[1])  # no ?utm_ query
         data = get(ii["url"], binary=True)
         sha1 = hashlib.sha1(data).hexdigest()
         if sha1 != ii["sha1"]:
@@ -103,7 +125,11 @@ def main(selection_path: str) -> None:
             info = {"format": im.format, "mode": im.mode, "width": im.width, "height": im.height,
                     "exif_orientation": exif.get(0x0112), "exif_make": exif.get(0x010F), "exif_model": exif.get(0x0110),
                     "exif_datetime": exif.get(0x0132), "icc_profile": icc_desc}
-        staged, warnings = stage_input_image(str(f), cfg.inputs_dir)
+        try:
+            staged, warnings = stage_input_image(str(f), cfg.inputs_dir)
+        except ValidationError as e:  # recorded, not hidden: a real camera file photo-gen rejects is a finding
+            staged, warnings = None, [f"staging rejected: {e}"]
+            print(sid, "STAGING REJECTED:", e)
         manifest["sources"][sid] = {
             "id": sid, "category": item["category"],
             "source": "Wikimedia Commons", "title": title, "page_url": ii.get("descriptionurl"),
@@ -120,12 +146,14 @@ def main(selection_path: str) -> None:
             **{k: info[k] for k in ("format", "mode", "width", "height", "exif_orientation", "icc_profile")},
             "staged": {"pixel_sha256": staged.pixel_sha256, "staged_path": staged.staged_path,
                        "width": staged.width, "height": staged.height, "orientation": "portrait"
-                       if staged.height > staged.width else "landscape", "warnings": warnings},
+                       if staged.height > staged.width else "landscape", "warnings": warnings} if staged else None,
+            "staging_error": None if staged else warnings[0],
             "retrieved": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "notes": item.get("notes"),
         }
         manifest_path.write_text(json.dumps(manifest, indent=1, ensure_ascii=False))
-        print(sid, name[:60], info["width"], info["height"], lic, info["exif_make"], info["exif_model"],
-              "icc:", icc_desc, "orient:", info["exif_orientation"], "staged", staged.width, staged.height)
+        print(sid, name[:60], info["format"], info["width"], info["height"], lic, info["exif_make"],
+              info["exif_model"], "icc:", icc_desc, "orient:", info["exif_orientation"],
+              "staged", (staged.width, staged.height) if staged else None)
         time.sleep(1)
 
 

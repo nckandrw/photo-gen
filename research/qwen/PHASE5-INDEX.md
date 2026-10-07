@@ -14,7 +14,7 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 2. Check what is running: `pgrep -fl "run_edit|mem-chain|g2-chain|mflux_qwen_edit_worker"`. Then the chain logs and markers (§3).
 3. Verify the machine (no GPU):
    - `bin/photo-gen verify` and `bin/photo-gen verify --edit` must both be ok;
-   - the tests (`cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest`) must report **91 OK**.
+   - the tests (`cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest`) must report **92 OK**.
 
 ## 1. Directive §31 success conditions
 | # | condition | status | evidence |
@@ -24,8 +24,8 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 | 3 | authoritative identity stamped by the backend | ✅ | manifest-stamped identity; execute-time identity check; worker version check (`51d4d6a`) |
 | 4 | Qwen memory lifetime investigated; exact safe improvement adopted | ✅ | `QWEN-MEMORY-LIFETIME.md`: P2 ADOPTED (5/5 criteria; 1024 peak −1.35 GB; exact parity); `a3a225c`, `973ef7f` |
 | 5 | duplicate q4 storage cleaned | ✅ | `QWEN-ASSET-PROVENANCE.md` (deleted 10:20; +10.67 GB) |
-| 6 | real-photograph benchmark exists | in progress | `research/editing/real-world/` |
-| 7 | source provenance and licences recorded | in progress | `source-manifest.json` |
+| 6 | real-photograph benchmark exists | ✅ | `research/editing/real-world/` (16 sources, 16 tasks) |
+| 7 | source provenance and licences recorded | ✅ | `source-manifest.json` (14 CC0, 2 PD; Commons SHA-1 verified) |
 | 8 | G2 pre-registered | ✅ (committed before any source fetch) | `research/editing/real-world/protocol.md`, `task-manifest.json`, `selection.json` |
 | 9 | evaluated at 512 and 1024 | pending | G2 chain |
 | 10 | provenance-blind review | pending | `g2/` |
@@ -38,14 +38,20 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
   - Preflight: Z-Image 5/5 exact; production edit `bd548f1b` exact.
   - Verdict **ADOPT** (`memory/ab-summary.json`); runtime switched in `973ef7f`.
   - Production-path re-check (`memory/postadopt/`): `bd548f1b` / `bdc03c36`, same `configuration_id` and `edit_id`, peak 8.91 → 8.17 GB at 512.
+- **~12:00–12:20:** G2 sources acquired (16 CC0/PD, `source-manifest.json`).
+  - Two Panasonic/Sony MPO camera JPEGs were rejected by photo-gen; the input fix is `e653122` (amendment 1 in `protocol.md`).
+  - Regions and orientation were checked on the staged images.
+- **IN FLIGHT from ~12:25:** G2 chain (45 edits, ~4.5 h), marker `G2_CHAIN_DONE` (§3). Run no photo-gen jobs during it.
 - **Next:**
-  1. fetch the G2 sources (`fetch_sources.py`);
-  2. check licences, regions and orientation; commit `source-manifest.json`;
-  3. freeze the chain (`make_g2_chain.py > g2-chain.sh`, commit);
-  4. run G2 (~4.5 h);
-  5. score blind;
-  6. analyze;
-  7. docs.
+  1. `analyze_g2.py --runs-only`;
+  2. items.json (40 distinct outputs);
+  3. `g2_blind.py prepare`;
+  4. fresh-subagent rater (reads only `g2/blind/`);
+  5. freeze, then unblind;
+  6. `analyze_g2.py`;
+  7. `results.md`, `QWEN-EDITING-QUALITY.md` § G2;
+  8. source-checkpoint disposition;
+  9. docs.
 
 ## 3. Chains (script → log, marker)
 | chain | script | log | marker |
@@ -60,3 +66,6 @@ _This file is updated as Phase 5 progresses; the live status is in §2._
 - `6d95ada`: memory A/B pre-registration (worker patches default off, probes, frozen chain)
 - `a3a225c`: memory A/B results (P2 passes 5/5)
 - `973ef7f`: P2 adopted as the production default (tests 91/91)
+- `8694119`: G2 pre-registration + post-adoption confirmation
+- `e653122`: MPO camera-JPEG input fix (tests 92/92)
+- (next): G2 sources + amendment 1 + frozen chain

@@ -16,7 +16,10 @@ _Last updated 2026-10-07 ~12:05 (PHASE 5 IN PROGRESS: see `research/qwen/PHASE5-
   - 1024 peak footprint −1.35 GB (12.08 → ~10.8), swap growth 1.30 → 0.32 GB, wall unchanged;
   - production-path re-check of E05 512 = `bd548f1b`, same ids;
   - tests 91/91.
-- **Next:** G2 on real photographs (`research/editing/real-world/`). Pre-registration committed before any source fetch; then fetch → frozen chain → G2 (~4.5 h, marker `G2_CHAIN_DONE`).
+- **G2 pre-registered** (`8694119`). Sources acquired: 16 CC0/PD (`source-manifest.json`).
+  - **MPO input defect found and fixed** (`e653122`, amendment 1 in `protocol.md`): photo-gen rejected 2 camera JPEGs in multi-picture form; they are now staged as their primary image; 14/14 other sources parity-checked.
+- **IN FLIGHT: G2 chain** `research/editing/real-world/g2-chain.sh` → `g2-chain.log`, marker **`G2_CHAIN_DONE`** (45 edits; started ~12:25 PST, about 4.5 h). It bypasses `gpu.lock`: run no photo-gen jobs. Edit nothing under `app/`, `config/` or `research/qwen/run_edit.sh` until it is done.
+- **After it:** `analyze_g2.py --runs-only` → items.json → `g2_blind.py prepare` → fresh-subagent rater → freeze → unblind → `analyze_g2.py` → results.md and docs.
 
 _The Phase 4 snapshot below is kept for reference._
 

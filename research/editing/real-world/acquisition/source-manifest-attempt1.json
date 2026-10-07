@@ -1,0 +1,48 @@
+{
+ "sources": {
+  "R01": {
+   "id": "R01",
+   "category": "people / portrait",
+   "source": "Wikimedia Commons",
+   "title": "File:Close portrait of a young woman wearing black sunglasses in Maracaibo, Venezuela.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo,_Venezuela.jpg",
+   "file_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo%2C_Venezuela.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "commons_pageid": 25195626,
+   "uploaded": "2013-03-20T03:33:33Z",
+   "uploader": "Wilfredor",
+   "licence": "CC0",
+   "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "usage_terms": "Creative Commons Zero, Public Domain Dedication",
+   "creator": "Wilfredor",
+   "credit": "Own work",
+   "attribution_required": "false",
+   "description": "Close three-quarter portrait of a young woman in Maracaibo, Venezuela, with shoulder-length black hair, oversized black sunglasses, square silver earrings, a white top, and a softly blurred outdoor market or street background.",
+   "date_original": "2013-03-16 09:02:43",
+   "original_filename": "Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo,_Venezuela.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "local_path": "data/benchmark/real-world/originals/R01/Close_portrait_of_a_young_woman_wearing_black_sunglasses_in_Maracaibo,_Venezuela.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "file_bytes": 4510175,
+   "file_sha1_commons": "902022813731a1547089760dedc2a30b841ca73c",
+   "file_sha256": "df373d2fc90bc8e9157fc556d90f6c83d94f068ae74e60248c0d13d690e005e0",
+   "camera_make": "NIKON CORPORATION",
+   "camera_model": "NIKON D300",
+   "format": "JPEG",
+   "mode": "RGB",
+   "width": 3413,
+   "height": 2411,
+   "exif_orientation": null,
+   "icc_profile": "sRGB IEC61966-2.1",
+   "staged": {
+    "pixel_sha256": "e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8",
+    "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+    "width": 3413,
+    "height": 2411,
+    "orientation": "landscape",
+    "warnings": [
+     "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+    ]
+   },
+   "retrieved": "2026-10-07T11:58:41+0800",
+   "notes": null
+  }
+ }
+}
