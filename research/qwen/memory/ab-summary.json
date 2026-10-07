@@ -1,0 +1,752 @@
+{
+ "parity": [
+  {
+   "pair": [
+    "M5-512-E05-P0",
+    "M5-512-E05-P2"
+   ],
+   "rgb": true,
+   "rgba": true
+  },
+  {
+   "pair": [
+    "M5-512-E08c-P0",
+    "M5-512-E08c-P2"
+   ],
+   "rgb": true,
+   "rgba": true
+  },
+  {
+   "pair": [
+    "M5-1024-E05-P0a",
+    "M5-1024-E05-P2a"
+   ],
+   "rgb": true,
+   "rgba": true
+  },
+  {
+   "pair": [
+    "M5-1024-E05-P0b",
+    "M5-1024-E05-P2b"
+   ],
+   "rgb": true,
+   "rgba": true
+  },
+  {
+   "pair": [
+    "M5-1024-E08c-P0",
+    "M5-1024-E08c-P2"
+   ],
+   "rgb": true,
+   "rgba": true
+  }
+ ],
+ "g0_match": {
+  "512": true,
+  "1024": true
+ },
+ "determinism": {
+  "P0": true,
+  "P2": true
+ },
+ "peak_reduction_1024_gb": [
+  1.123,
+  1.35,
+  1.574
+ ],
+ "median_peak_reduction_1024_gb": 1.35,
+ "median_swap_growth_1024_gb": {
+  "P0": 1.297,
+  "P2": 0.316
+ },
+ "median_wall_1024_s": {
+  "P0": 558.422,
+  "P2": 560.292,
+  "ratio": 1.0033
+ },
+ "decode_delta_1024_s": [
+  -3.038,
+  -2.148,
+  -3.047
+ ],
+ "criteria": {
+  "1_parity": true,
+  "2_determinism": true,
+  "3_reduction": true,
+  "4_runtime": true,
+  "5_operational": true
+ },
+ "verdict": "ADOPT",
+ "runs": {
+  "M5-1024-E05-P0a": {
+   "run": "M5-1024-E05-P0a",
+   "rc": 0,
+   "wall": 546.913,
+   "pixel": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+   "rgba": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd",
+   "peak": 12.078,
+   "mlx_peak": 9.768,
+   "denoise_mlx_peak": 11.006,
+   "denoise_active_max": 9.849,
+   "denoise_s": 523.69,
+   "decode_s": 13.806,
+   "text_encode": {
+    "seconds": 3.51,
+    "mlx_peak_gb": 7.193,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 1.721,
+    "mlx_peak_gb": 9.768,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 13.806,
+    "mlx_peak_gb": 6.116,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.343,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.681,
+    "after_text_encode": 7.778,
+    "after_vae_encode": 8.589,
+    "before_loop": 2.732,
+    "after_step0": 11.676,
+    "after_loop": 5.16,
+    "after_vae_decode": 3.031,
+    "after_generate_total": 2.812,
+    "end": 2.812
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 6.149,
+    "after_vae_encode": 6.171,
+    "before_loop": 1.391,
+    "after_step0": 9.849,
+    "after_vae_decode": 1.402,
+    "after_generate_total": 1.351
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": false,
+    "release_vae_during_denoise": false,
+    "text_encoder_released_after_encode": false,
+    "vae_reloaded_lazily": false
+   },
+   "aborted": false,
+   "samples": 379,
+   "swap_growth_gb": 2.809,
+   "warn": 8,
+   "critical": 0,
+   "min_free_pct": 28.0
+  },
+  "M5-1024-E05-P0b": {
+   "run": "M5-1024-E05-P0b",
+   "rc": 0,
+   "wall": 565.477,
+   "pixel": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+   "rgba": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd",
+   "peak": 12.078,
+   "mlx_peak": 9.768,
+   "denoise_mlx_peak": 11.006,
+   "denoise_active_max": 9.849,
+   "denoise_s": 542.61,
+   "decode_s": 12.77,
+   "text_encode": {
+    "seconds": 4.093,
+    "mlx_peak_gb": 7.193,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 1.951,
+    "mlx_peak_gb": 9.768,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 12.77,
+    "mlx_peak_gb": 6.116,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.349,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.68,
+    "after_text_encode": 7.778,
+    "after_vae_encode": 8.609,
+    "before_loop": 2.731,
+    "after_step0": 11.474,
+    "after_loop": 4.979,
+    "after_vae_decode": 2.941,
+    "after_generate_total": 2.874,
+    "end": 2.856
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 6.149,
+    "after_vae_encode": 6.171,
+    "before_loop": 1.391,
+    "after_step0": 9.849,
+    "after_vae_decode": 1.402,
+    "after_generate_total": 1.351
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": false,
+    "release_vae_during_denoise": false,
+    "text_encoder_released_after_encode": false,
+    "vae_reloaded_lazily": false
+   },
+   "aborted": false,
+   "samples": 398,
+   "swap_growth_gb": 1.257,
+   "warn": 7,
+   "critical": 0,
+   "min_free_pct": 31.0
+  },
+  "M5-1024-E05-P2a": {
+   "run": "M5-1024-E05-P2a",
+   "rc": 0,
+   "wall": 576.455,
+   "pixel": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+   "rgba": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd",
+   "peak": 10.955,
+   "mlx_peak": 7.193,
+   "denoise_mlx_peak": 9.655,
+   "denoise_active_max": 8.498,
+   "denoise_s": 555.735,
+   "decode_s": 10.768,
+   "text_encode": {
+    "seconds": 4.454,
+    "mlx_peak_gb": 7.193,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 1.375,
+    "mlx_peak_gb": 4.988,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 10.768,
+    "mlx_peak_gb": 5.777,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.489,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.678,
+    "after_text_encode": 2.248,
+    "after_vae_encode": 3.854,
+    "before_loop": 1.539,
+    "after_step0": 10.351,
+    "after_loop": 3.856,
+    "after_vae_decode": 2.877,
+    "after_generate_total": 2.592,
+    "end": 2.592
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 1.369,
+    "after_vae_encode": 1.391,
+    "before_loop": 0.04,
+    "after_step0": 8.498,
+    "after_vae_decode": 1.063,
+    "after_generate_total": 1.012
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": true,
+    "release_vae_during_denoise": true,
+    "text_encoder_released_after_encode": true,
+    "vae_reloaded_lazily": true
+   },
+   "aborted": false,
+   "samples": 402,
+   "swap_growth_gb": 0.367,
+   "warn": 5,
+   "critical": 0,
+   "min_free_pct": 29.0
+  },
+  "M5-1024-E05-P2b": {
+   "run": "M5-1024-E05-P2b",
+   "rc": 0,
+   "wall": 560.292,
+   "pixel": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+   "rgba": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd",
+   "peak": 10.728,
+   "mlx_peak": 7.193,
+   "denoise_mlx_peak": 9.655,
+   "denoise_active_max": 8.498,
+   "denoise_s": 540.047,
+   "decode_s": 10.622,
+   "text_encode": {
+    "seconds": 4.359,
+    "mlx_peak_gb": 7.193,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 1.393,
+    "mlx_peak_gb": 4.988,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 10.622,
+    "mlx_peak_gb": 5.777,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.347,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.681,
+    "after_text_encode": 2.216,
+    "after_vae_encode": 3.84,
+    "before_loop": 0.777,
+    "after_step0": 10.46,
+    "after_loop": 3.852,
+    "after_vae_decode": 2.785,
+    "after_generate_total": 2.541,
+    "end": 2.523
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 1.369,
+    "after_vae_encode": 1.391,
+    "before_loop": 0.04,
+    "after_step0": 8.498,
+    "after_vae_decode": 1.063,
+    "after_generate_total": 1.012
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": true,
+    "release_vae_during_denoise": true,
+    "text_encoder_released_after_encode": true,
+    "vae_reloaded_lazily": true
+   },
+   "aborted": false,
+   "samples": 394,
+   "swap_growth_gb": 0.112,
+   "warn": 4,
+   "critical": 0,
+   "min_free_pct": 29.0
+  },
+  "M5-1024-E08c-P0": {
+   "run": "M5-1024-E08c-P0",
+   "rc": 0,
+   "wall": 558.422,
+   "pixel": "396ff1007a21ef2a89222f1893d9e2fb1cda7e73bd86cd67c668b0b90dc2285e",
+   "rgba": "f6362fe60c06690b32f3b3b408444c399bee6d68eed68adc91b77773cd421ba4",
+   "peak": 12.238,
+   "mlx_peak": 9.722,
+   "denoise_mlx_peak": 10.956,
+   "denoise_active_max": 9.81,
+   "denoise_s": 535.613,
+   "decode_s": 12.628,
+   "text_encode": {
+    "seconds": 3.999,
+    "mlx_peak_gb": 7.232,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 2.019,
+    "mlx_peak_gb": 9.722,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 12.628,
+    "mlx_peak_gb": 6.116,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.336,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.678,
+    "after_text_encode": 7.792,
+    "after_vae_encode": 8.001,
+    "before_loop": 3.026,
+    "after_step0": 11.875,
+    "after_loop": 5.378,
+    "after_vae_decode": 3.311,
+    "after_generate_total": 3.043,
+    "end": 3.026
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 6.149,
+    "after_vae_encode": 6.171,
+    "before_loop": 1.391,
+    "after_step0": 9.81,
+    "after_vae_decode": 1.402,
+    "after_generate_total": 1.351
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": false,
+    "release_vae_during_denoise": false,
+    "text_encoder_released_after_encode": false,
+    "vae_reloaded_lazily": false
+   },
+   "aborted": false,
+   "samples": 396,
+   "swap_growth_gb": 1.297,
+   "warn": 6,
+   "critical": 0,
+   "min_free_pct": 29.0
+  },
+  "M5-1024-E08c-P2": {
+   "run": "M5-1024-E08c-P2",
+   "rc": 0,
+   "wall": 549.451,
+   "pixel": "396ff1007a21ef2a89222f1893d9e2fb1cda7e73bd86cd67c668b0b90dc2285e",
+   "rgba": "f6362fe60c06690b32f3b3b408444c399bee6d68eed68adc91b77773cd421ba4",
+   "peak": 10.664,
+   "mlx_peak": 7.183,
+   "denoise_mlx_peak": 9.605,
+   "denoise_active_max": 8.459,
+   "denoise_s": 529.837,
+   "decode_s": 9.581,
+   "text_encode": {
+    "seconds": 4.565,
+    "mlx_peak_gb": 7.183,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 1.379,
+    "mlx_peak_gb": 4.942,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 9.581,
+    "mlx_peak_gb": 5.777,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.476,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.68,
+    "after_text_encode": 2.359,
+    "after_vae_encode": 3.221,
+    "before_loop": 1.454,
+    "after_step0": 9.901,
+    "after_loop": 3.813,
+    "after_vae_decode": 2.788,
+    "after_generate_total": 2.537,
+    "end": 2.52
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 1.369,
+    "after_vae_encode": 1.391,
+    "before_loop": 0.04,
+    "after_step0": 8.459,
+    "after_vae_decode": 1.063,
+    "after_generate_total": 1.012
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": true,
+    "release_vae_during_denoise": true,
+    "text_encoder_released_after_encode": true,
+    "vae_reloaded_lazily": true
+   },
+   "aborted": false,
+   "samples": 389,
+   "swap_growth_gb": 0.316,
+   "warn": 3,
+   "critical": 0,
+   "min_free_pct": 29.0
+  },
+  "M5-512-E05-P0": {
+   "run": "M5-512-E05-P0",
+   "rc": 0,
+   "wall": 114.869,
+   "pixel": "bd548f1bf8cace9b29fc86124feae2ed024c5a8e4213937b4e172ca6aad64246",
+   "rgba": "bdc03c3672237ec922a0a99f3dd7db387621b0a440f24590ff206aac1d7bb107",
+   "peak": 8.874,
+   "mlx_peak": 7.851,
+   "denoise_mlx_peak": 7.232,
+   "denoise_active_max": 6.603,
+   "denoise_s": 104.932,
+   "decode_s": 1.57,
+   "text_encode": {
+    "seconds": 1.189,
+    "mlx_peak_gb": 7.385,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 0.496,
+    "mlx_peak_gb": 7.851,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 1.57,
+    "mlx_peak_gb": 6.087,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.694,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.678,
+    "after_text_encode": 7.747,
+    "after_vae_encode": 7.791,
+    "before_loop": 2.304,
+    "after_step0": 7.895,
+    "after_loop": 3.083,
+    "after_vae_decode": 3.015,
+    "after_generate_total": 2.721,
+    "end": 2.721
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 6.143,
+    "after_vae_encode": 6.149,
+    "before_loop": 1.369,
+    "after_step0": 6.603,
+    "after_vae_decode": 1.364,
+    "after_generate_total": 1.351
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": false,
+    "release_vae_during_denoise": false,
+    "text_encoder_released_after_encode": false,
+    "vae_reloaded_lazily": false
+   },
+   "aborted": false,
+   "samples": 71,
+   "swap_growth_gb": 0.234,
+   "warn": 2,
+   "critical": 0,
+   "min_free_pct": 27.0
+  },
+  "M5-512-E05-P2": {
+   "run": "M5-512-E05-P2",
+   "rc": 0,
+   "wall": 100.603,
+   "pixel": "bd548f1bf8cace9b29fc86124feae2ed024c5a8e4213937b4e172ca6aad64246",
+   "rgba": "bdc03c3672237ec922a0a99f3dd7db387621b0a440f24590ff206aac1d7bb107",
+   "peak": 8.152,
+   "mlx_peak": 7.385,
+   "denoise_mlx_peak": 5.881,
+   "denoise_active_max": 5.252,
+   "denoise_s": 93.219,
+   "decode_s": 1.513,
+   "text_encode": {
+    "seconds": 1.47,
+    "mlx_peak_gb": 7.385,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 0.408,
+    "mlx_peak_gb": 3.071,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 1.513,
+    "mlx_peak_gb": 5.742,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.499,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.681,
+    "after_text_encode": 2.996,
+    "after_vae_encode": 2.961,
+    "before_loop": 0.736,
+    "after_step0": 6.379,
+    "after_loop": 1.802,
+    "after_vae_decode": 3.116,
+    "after_generate_total": 2.832,
+    "end": 2.38
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 1.363,
+    "after_vae_encode": 1.369,
+    "before_loop": 0.017,
+    "after_step0": 5.252,
+    "after_vae_decode": 1.025,
+    "after_generate_total": 1.012
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": true,
+    "release_vae_during_denoise": true,
+    "text_encoder_released_after_encode": true,
+    "vae_reloaded_lazily": true
+   },
+   "aborted": false,
+   "samples": 71,
+   "swap_growth_gb": 0.069,
+   "warn": 1,
+   "critical": 0,
+   "min_free_pct": 30.0
+  },
+  "M5-512-E08c-P0": {
+   "run": "M5-512-E08c-P0",
+   "rc": 0,
+   "wall": 109.7,
+   "pixel": "41ee9205515b4b6ca642f93f0304339e78ecbfb1cd5fec047f3a3ca602e3404f",
+   "rgba": "75fe5d7b1b30b5a57ad479dd8ff8e018c1fbebd87f7469f5d3cee69922a37aee",
+   "peak": 8.873,
+   "mlx_peak": 7.883,
+   "denoise_mlx_peak": 7.265,
+   "denoise_active_max": 6.623,
+   "denoise_s": 101.474,
+   "decode_s": 2.751,
+   "text_encode": {
+    "seconds": 1.297,
+    "mlx_peak_gb": 7.407,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 0.455,
+    "mlx_peak_gb": 7.883,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 2.751,
+    "mlx_peak_gb": 5.221,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.372,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.681,
+    "after_text_encode": 7.743,
+    "after_vae_encode": 7.782,
+    "before_loop": 2.091,
+    "after_step0": 7.763,
+    "after_loop": 2.965,
+    "after_vae_decode": 3.273,
+    "after_generate_total": 3.036,
+    "end": 2.729
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 6.143,
+    "after_vae_encode": 6.149,
+    "before_loop": 1.369,
+    "after_step0": 6.623,
+    "after_vae_decode": 1.364,
+    "after_generate_total": 1.351
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": false,
+    "release_vae_during_denoise": false,
+    "text_encoder_released_after_encode": false,
+    "vae_reloaded_lazily": false
+   },
+   "aborted": false,
+   "samples": 77,
+   "swap_growth_gb": 0.033,
+   "warn": 1,
+   "critical": 0,
+   "min_free_pct": 32.0
+  },
+  "M5-512-E08c-P2": {
+   "run": "M5-512-E08c-P2",
+   "rc": 0,
+   "wall": 109.417,
+   "pixel": "41ee9205515b4b6ca642f93f0304339e78ecbfb1cd5fec047f3a3ca602e3404f",
+   "rgba": "75fe5d7b1b30b5a57ad479dd8ff8e018c1fbebd87f7469f5d3cee69922a37aee",
+   "peak": 8.049,
+   "mlx_peak": 7.407,
+   "denoise_mlx_peak": 5.914,
+   "denoise_active_max": 5.272,
+   "denoise_s": 101.606,
+   "decode_s": 2.408,
+   "text_encode": {
+    "seconds": 1.154,
+    "mlx_peak_gb": 7.407,
+    "calls": 1
+   },
+   "vae_encode": {
+    "seconds": 0.432,
+    "mlx_peak_gb": 3.103,
+    "calls": 1
+   },
+   "vae_decode": {
+    "seconds": 2.408,
+    "mlx_peak_gb": 4.876,
+    "calls": 1
+   },
+   "load": {
+    "seconds": 1.484,
+    "mlx_peak_gb": 6.141,
+    "calls": 1
+   },
+   "footprint": {
+    "startup": 0.272,
+    "after_load": 6.678,
+    "after_text_encode": 2.814,
+    "after_vae_encode": 3.001,
+    "before_loop": 0.777,
+    "after_step0": 6.578,
+    "after_loop": 2.004,
+    "after_vae_decode": 2.694,
+    "after_generate_total": 2.641,
+    "end": 2.471
+   },
+   "active": {
+    "after_load": 6.141,
+    "after_text_encode": 1.363,
+    "after_vae_encode": 1.369,
+    "before_loop": 0.018,
+    "after_step0": 5.272,
+    "after_vae_decode": 1.026,
+    "after_generate_total": 1.012
+   },
+   "policy": {
+    "defer_transformer_load": true,
+    "release_text_encoder_after_encode": true,
+    "release_vae_during_denoise": true,
+    "text_encoder_released_after_encode": true,
+    "vae_reloaded_lazily": true
+   },
+   "aborted": false,
+   "samples": 77,
+   "swap_growth_gb": 0.0,
+   "warn": 1,
+   "critical": 0,
+   "min_free_pct": 37.0
+  }
+ }
+}

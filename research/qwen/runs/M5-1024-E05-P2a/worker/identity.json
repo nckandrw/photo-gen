@@ -1,0 +1,134 @@
+{
+ "rc": 0,
+ "wall_seconds": 576.455,
+ "policy": "P2",
+ "policy_flags": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true
+ },
+ "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+ "pixel_sha256": "792fdaa977a165679322cad650f06871207aab87228cde064393d07a85b6db6d",
+ "size": [
+  1024,
+  1024
+ ],
+ "output_alpha": {
+  "mode": "RGBA",
+  "has_alpha": true,
+  "alpha_min": 251,
+  "alpha_max": 255,
+  "opaque": false,
+  "rgba_sha256": "d4a6f9b55a6c26d7a45e3e1238d672f850f1f65890d036de8fe4e1c8893ac3fd"
+ },
+ "peak_footprint_gb": 10.955,
+ "mlx_peak_gb": 7.193,
+ "denoise_mlx_peak_gb": 9.655,
+ "denoise_active_gb_max": 8.498,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.369,
+  "after_vae_encode": 1.391,
+  "before_loop": 0.04,
+  "after_step0": 8.498,
+  "after_vae_decode": 1.063,
+  "after_generate_total": 1.012
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.678,
+  "after_text_encode": 2.248,
+  "after_vae_encode": 3.854,
+  "before_loop": 1.539,
+  "after_step0": 10.351,
+  "after_loop": 3.856,
+  "after_vae_decode": 2.877,
+  "after_generate_total": 2.592,
+  "end": 2.592
+ },
+ "phases": {
+  "load": {
+   "seconds": 1.489,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.454,
+   "mlx_peak_gb": 7.193,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.375,
+   "mlx_peak_gb": 4.988,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 10.768,
+   "mlx_peak_gb": 5.777,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 572.621,
+   "mlx_peak_gb": 5.777,
+   "calls": 1
+  },
+  "denoise_seconds": 555.735,
+  "other_seconds": 0.289
+ },
+ "step_seconds": [
+  23.025,
+  11.864,
+  12.001,
+  12.665,
+  13.296,
+  13.758,
+  14.04,
+  14.123,
+  14.215,
+  14.165,
+  14.117,
+  14.108,
+  14.001,
+  14.056,
+  14.124,
+  14.052,
+  14.052,
+  14.063,
+  16.499,
+  14.153,
+  13.791,
+  13.624,
+  13.543,
+  13.475,
+  13.423,
+  13.388,
+  13.419,
+  13.302,
+  13.338,
+  13.331,
+  13.415,
+  13.504,
+  13.423,
+  13.46,
+  13.466,
+  13.529,
+  13.481,
+  13.498,
+  13.437,
+  13.428
+ ],
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "deferred": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "error": null
+}

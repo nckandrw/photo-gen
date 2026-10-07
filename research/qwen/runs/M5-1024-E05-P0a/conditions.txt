@@ -1,0 +1,22 @@
+run_id=M5-1024-E05-P0a mode=mem:P0 res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 10:50:59 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 2048.00M  used = 891.69M  free = 1156.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 76%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+601808 /Users/nckandrw/.local/bin/claude
+ 73808 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 47904 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 45696 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 40384 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+ 39920 /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+git_head=6d95adaea3e2127e9c46d6f2bb9c80abb5f0a3bb
+git_dirty(app,config,research/qwen):
+?? research/qwen/memory/mem-chain.log
+?? research/qwen/memory/preflight/
+wall_s=547 rc=0 aborted=0 swap_end=1707.12M

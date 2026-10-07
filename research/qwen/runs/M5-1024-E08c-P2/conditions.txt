@@ -1,0 +1,23 @@
+run_id=M5-1024-E08c-P2 mode=mem:P2 res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/b373952e329b3432e0dfd0f831935751df70d0556ade2166c905431f46ab5dd2.png
+prompt=Replace the bananas with pineapples. Do not change anything else.
+Wed  7 Oct 2026 11:29:51 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2000.25M  free = 1071.75M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 85%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+255840 /Users/nckandrw/.local/bin/claude
+117184 /System/Library/Frameworks/Contacts.framework/Support/contactsd
+ 54624 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 44272 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+ 43968 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 39696 /System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod
+git_head=6d95adaea3e2127e9c46d6f2bb9c80abb5f0a3bb
+git_dirty(app,config,research/qwen):
+?? research/qwen/memory/analyze_mem.py
+?? research/qwen/memory/mem-chain.log
+?? research/qwen/memory/preflight/
+wall_s=550 rc=0 aborted=0 swap_end=2139.31M

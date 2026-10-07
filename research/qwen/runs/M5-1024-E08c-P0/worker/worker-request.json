@@ -1,0 +1,11 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "base_model": "qwen-image-2.1",
+ "prompt": "Replace the bananas with pineapples. Do not change anything else.",
+ "image_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/b373952e329b3432e0dfd0f831935751df70d0556ade2166c905431f46ab5dd2.png",
+ "seed": 42,
+ "steps": 40,
+ "output_resolution": 1024,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/M5-1024-E08c-P0/worker/out.png",
+ "defer_transformer_load": true
+}

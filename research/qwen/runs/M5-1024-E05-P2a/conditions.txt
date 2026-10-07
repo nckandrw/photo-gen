@@ -1,0 +1,23 @@
+run_id=M5-1024-E05-P2a mode=mem:P2 res=1024 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png
+prompt=Change the background to a sunset beach
+Wed  7 Oct 2026 11:00:27 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1707.12M  free = 1364.88M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+574896 /Users/nckandrw/.local/bin/claude
+200160 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 89088 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 83200 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+ 62656 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+ 61472 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+git_head=6d95adaea3e2127e9c46d6f2bb9c80abb5f0a3bb
+git_dirty(app,config,research/qwen):
+?? research/qwen/memory/analyze_mem.py
+?? research/qwen/memory/mem-chain.log
+?? research/qwen/memory/preflight/
+wall_s=577 rc=0 aborted=0 swap_end=1890.81M

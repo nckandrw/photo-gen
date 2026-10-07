@@ -1,0 +1,115 @@
+{
+ "job_id": "20261007T023741Z-48a4f1",
+ "task": "text-to-image",
+ "backend_id": "mflux-zimage-turbo-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-07T02:37:41.636+00:00",
+ "started_at": "2026-10-07T02:37:41.638+00:00",
+ "finished_at": "2026-10-07T02:37:51.537+00:00",
+ "request": {
+  "task": "text-to-image",
+  "prompt": "a red apple on a wooden table, soft window light",
+  "width": 512,
+  "height": 512,
+  "steps": 4,
+  "seed": 42,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": true,
+  "warnings": [],
+  "output_name": null,
+  "precision": "bf16",
+  "profile": "ultra",
+  "text_encoder": "stock"
+ },
+ "seed": 42,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T023741Z-48a4f1.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T023741Z-48a4f1.json",
+ "pixel_sha256": "6aa2b8422c7213e7ad17d6113aaef7d41f009be185361c9ea5d2023adcf3c2a9",
+ "file_sha256": "af37969685a90cd655c4e416de4a818251ae522d48adec51c3daeaaaf9d74d80",
+ "generation_seconds": 9.83,
+ "phases": {
+  "load": {
+   "seconds": 1.088,
+   "mlx_peak_gb": 0.001
+  },
+  "text_encode": {
+   "seconds": 0.638,
+   "mlx_peak_gb": 3.721
+  },
+  "vae_decode": {
+   "seconds": 0.367,
+   "mlx_peak_gb": 2.158
+  },
+  "generate_total": {
+   "seconds": 7.564,
+   "mlx_peak_gb": 2.158
+  },
+  "denoise_seconds": 6.559
+ },
+ "step_seconds": [
+  1.66,
+  1.573,
+  1.52,
+  1.615
+ ],
+ "memory": {
+  "peak_footprint_gb": 5.414,
+  "mlx_peak_gb": 3.721
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.20.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-zimage-turbo-q4",
+  "model_manifest_sha256": "5e9bafadbe04962a9c568e74915d22a7b9208059c8e1029d16a7be207b28404d",
+  "model": "Z-Image-Turbo",
+  "model_repo": "mflux-community/z-image-turbo-mflux-q4",
+  "model_revision": "d2d30500c4bc0d19770bd952951df3e7c635ae9e",
+  "quantization": "mflux q4 (MLX affine, pre-quantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+  "text_encoder": {
+   "name": "stock"
+  }
+ },
+ "effective_parameters": {
+  "guidance": 0.0,
+  "scheduler": "mflux 0.20.0 default for Z-Image-Turbo (linear sigmas + resolution-dependent shift)",
+  "low_ram": true,
+  "precision": "bf16",
+  "dit_dtypes": {
+   "sdpa_q": [
+    "mlx.core.bfloat16"
+   ]
+  },
+  "transformer_release": {
+   "installed": true,
+   "released": true
+  },
+  "compile_calls": 1,
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/mflux/z-image-turbo-mflux-q4",
+   "--base-model",
+   "z-image-turbo",
+   "--prompt=a red apple on a wooden table, soft window light",
+   "--width",
+   "512",
+   "--height",
+   "512",
+   "--steps",
+   "4",
+   "--seed",
+   "42",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T023741Z-48a4f1.png"
+  ]
+ },
+ "error": null
+}

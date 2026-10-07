@@ -1,0 +1,29 @@
+MEMCHAIN_START Wed  7 Oct 2026 10:33:37 PST git=6d95adaea3e2127e9c46d6f2bb9c80abb5f0a3bb
+ZREG reference 1024 rc=0 fe47d88dfb4bec549060c29c527eeff280d863e8e12176cdc1c28d3d8003a118 82.737 mflux-zimage-turbo-q4
+ZREG fast 1024 rc=0 7b45cfbe2eed1cd1f732df87196b93e746dd422e0e9f5b64631ddbbea2ad9342 55.27 mflux-zimage-turbo-q4
+ZREG balanced 1024 rc=0 befe1b3c8af5424cc5f65868fec96938bfac782238f46c18652244fada3bdd42 36.646 mflux-zimage-turbo-q4
+ZREG ultra 512 rc=0 6aa2b8422c7213e7ad17d6113aaef7d41f009be185361c9ea5d2023adcf3c2a9 9.83 mflux-zimage-turbo-q4
+ZREG reference 512 rc=0 9ae59f590e8c0b3ad067448cbed61f2969ec759918339626f76157f8b6529c9c 20.781 mflux-zimage-turbo-q4
+EDITPRE rc=0 bd548f1bf8cace9b29fc86124feae2ed024c5a8e4213937b4e172ca6aad64246 86.374 mflux-qwen-image-2.1-edit-q4
+wall_s=116 rc=0 aborted=0 swap_end=803.50M
+EDIT_RUN_END M5-512-E05-P0 rc=0 aborted=0
+wall_s=102 rc=0 aborted=0 swap_end=874.06M
+EDIT_RUN_END M5-512-E05-P2 rc=0 aborted=0
+wall_s=111 rc=0 aborted=0 swap_end=907.69M
+EDIT_RUN_END M5-512-E08c-P0 rc=0 aborted=0
+wall_s=109 rc=0 aborted=0 swap_end=899.69M
+EDIT_RUN_END M5-512-E08c-P2 rc=0 aborted=0
+COOLDOWN 10:48:59
+wall_s=547 rc=0 aborted=0 swap_end=1707.12M
+EDIT_RUN_END M5-1024-E05-P0a rc=0 aborted=0
+wall_s=577 rc=0 aborted=0 swap_end=1890.81M
+EDIT_RUN_END M5-1024-E05-P2a rc=0 aborted=0
+wall_s=561 rc=0 aborted=0 swap_end=1901.31M
+EDIT_RUN_END M5-1024-E05-P2b rc=0 aborted=0
+wall_s=566 rc=0 aborted=0 swap_end=2000.25M
+EDIT_RUN_END M5-1024-E05-P0b rc=0 aborted=0
+wall_s=550 rc=0 aborted=0 swap_end=2139.31M
+EDIT_RUN_END M5-1024-E08c-P2 rc=0 aborted=0
+wall_s=559 rc=0 aborted=0 swap_end=2135.69M
+EDIT_RUN_END M5-1024-E08c-P0 rc=0 aborted=0
+MEMCHAIN_DONE Wed  7 Oct 2026 11:48:41 PST
