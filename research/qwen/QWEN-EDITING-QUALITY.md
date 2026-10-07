@@ -130,7 +130,7 @@ The full record is in `research/editing/real-world/results.md` and the pre-regis
 | composition FAIL | 0 | 0 |
 | second-seed adherence + preservation FAILs | 3 of 4 items | 2 of 4 items |
 | operations / determinism | 23/23 clean; 3/3 repeats bit-identical | 22/22 clean; 2/2 repeats bit-identical |
-| wall, monitored harness (median) | 104 s | 592 s |
+| wall, sustained chain under the monitor (median) | 104 s (first, cool runs ≈ 80 s) | 592 s (first run 523 s) |
 | peak footprint (median) | 8.16 GB | 10.87 GB |
 | memory/UX class | COMFORTABLE | MARGINAL (wall time) |
 | **decision** | **REJECTED** | **REJECTED** |
@@ -151,7 +151,7 @@ The full record is in `research/editing/real-world/results.md` and the pre-regis
 - G0 stays a valid *capability* result (CAPABLE). G2 shows that capability does not carry over to reliable preservation on real photographs.
 
 **Status after G2.**
-- **Integration validated; capability shown; G2 quality REJECTED; local production REJECTED** (not promoted). Every edit stays `validated: false` behind `--allow-experimental`, as a research opt-in.
+- **Integration validated; capability validated (G0 CAPABLE at 512 and 1024); G2 quality REJECTED; local production REJECTED** (not promoted). Every edit stays `validated: false` behind `--allow-experimental`, as a research opt-in.
 - **Commercial use:** not permitted (Qwen Research License).
 - **Not established:** whether failure mode 1 comes from the q4 export (DiT or text/vision encoder), from the VAE round trip, or from the output budget. Only an export from the retained source checkpoint could separate the first from the others (`QWEN-ASSET-PROVENANCE.md` §6). Per directive §24–§25, no speed or model work is started on a rejected configuration.
 

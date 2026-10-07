@@ -51,7 +51,7 @@ Mechanical tally: `analyze_g2.py` → `results-summary.json`. Per-run records: `
 The rater's note for every item is in `scores.csv`.
 
 ## 3. Why it was rejected: two systematic failure modes
-Adherence was strong: 30 of 32 primary items PASS and none FAIL. The one PARTIAL at each budget is mild (R09 at 512; R05 at 1024, where the cat is resting rather than asleep). Composition never failed. No MAJOR artifact occurred. **The failures are in preservation**, and they repeat across seeds and budgets, so they are properties of the configuration rather than unlucky samples.
+Adherence was strong on the primary items: 30 of 32 PASS and none FAIL. One second-seed item did fail adherence: R09 at 512, where the dragon fruit was left unchanged. The one primary PARTIAL at each budget is mild (R09 at 512; R05 at 1024, where the cat is resting rather than asleep). Composition never failed. No MAJOR artifact occurred. **The failures are in preservation**, and they repeat across seeds and budgets, so they are properties of the configuration rather than unlucky samples.
 
 **(a) Incidental text elsewhere in the photo is re-synthesized and garbled: R02, R12, R15.**
 - Each of these three tasks asks for an edit somewhere else in the frame (remove a van, remove a person, paint a wall) and lists the existing lettering as MUST NOT CHANGE.
@@ -65,13 +65,17 @@ Adherence was strong: 30 of 32 primary items PASS and none FAIL. The one PARTIAL
 - What fails is the preservation of small, secondary lettering that the model has to carry through unchanged. In a real photograph that is street signs, posters, decals and banners.
 - Signs and text are a required category of real-world use (directive §11), so this is not an edge case.
 
-**(b) The edit leaks to adjacent or related elements: R09, plus every preservation PARTIAL.**
+**(b) The edit leaks to adjacent or related elements: R09, plus the PARTIALs of R03, R10 and R11.**
 - **R09 (busy market stall):** the green apples replaced the mango, pink-netted and red-apple piles as well as the dragon fruit. At 512 the dragon fruit itself became indistinct beige fruit (primary) or was left unchanged (second seed). Preservation FAIL on all 4 items. The rater applied the rubric's "identity of an object lost" clause.
-- **The same mechanism, milder, produced the PARTIALs:**
+- **The same mechanism, milder, produced these PARTIALs:**
   - R03: the laces turned brown with the uppers (both budgets).
   - R10: the dark-blue edging and cuffs turned red with the turquoise yarn (both budgets).
   - R11: the red glass stem lost its colour with the wine (all 4 items).
-  - R12 second seed at 512: two other passers-by were also removed.
+- R12's second seed at 512 also removed two other passers-by. That item is a FAIL anyway, through its text.
+- **The other two PARTIALs, both at 512, are not leakage:**
+  - R06: the winter edit buried the rocky trail and flattened mid-ground ridges.
+  - R08 (both seeds): a distant woman with a pram was smeared and distorted. That is re-synthesis of small far-away detail, akin to mode (a). Neither recurred at 1024.
+- The commit message of `0ccc0b7` says "all PARTIALs"; this paragraph is the correct attribution.
 - **G0 had already shown this mode once** (E08 at 512: the oranges became pineapples along with the bananas). G2 shows it is systematic on real, cluttered photographs.
 
 **What the verdict rests on (descriptive; the frozen scores are not re-scored).**
@@ -81,7 +85,7 @@ Adherence was strong: 30 of 32 primary items PASS and none FAIL. The one PARTIAL
 - The rater revised three preservation scores in its own draft before hand-back (§6). Those revisions don't change any tallied count, because those items carry text FAILs.
 
 ## 4. Memory, time and operations (protocol §8, §19)
-All values are over all runs at the budget, as medians with the range in brackets. Wall time is the job's `generation_seconds` **under the monitored harness** (`run_edit.sh`, 1 Hz monitor). In the memory A/B that harness ran slower than unmonitored production edits of the same request; at 512 that was about 100–115 s monitored against 80–86 s unmonitored (`research/qwen/QWEN-MEMORY-LIFETIME.md` §4). The classes are applied to the monitored times as measured.
+All values are over all runs at the budget, as medians with the range in brackets. Wall time is the job's `generation_seconds` **under the monitored harness** (`run_edit.sh`, 1 Hz monitor). In the memory A/B that harness ran slower than unmonitored production edits of the same request; at 512 that was about 100–115 s monitored against 80–86 s unmonitored (`research/qwen/QWEN-MEMORY-LIFETIME.md` §4). The classes are applied to the monitored times as measured. The wall times rise with position in the chain (runs 20 s apart; fanless machine). Under the same monitor, the first two 512 runs took 80.1 s and 82.9 s, then 94, 99 and 108 s; the median of runs 5–23 is 105 s. The first 1024 run, after a 120 s pause, took 523 s against a 592 s median. So cold-versus-sustained (most likely thermal) explains the gap that `QWEN-MEMORY-LIFETIME.md` §4 attributed to monitoring at least as well as monitoring overhead does; the cause is still not isolated. Medians here are **sustained-chain** figures.
 
 | | 512 (23 runs) | 1024 (22 runs) |
 |---|---|---|
@@ -107,7 +111,7 @@ All values are over all runs at the budget, as medians with the range in bracket
 | sources | 11 Z-Image-generated images | 16 real camera photographs (CC0/PD Wikimedia Commons) |
 | seeds | 42 (one per test) | fresh pre-registered seeds; second seeds on 4 hard cases; repeats |
 | rater | the session assistant, not blind | a fresh subagent, provenance-blind, with native-resolution crops |
-| adherence PASS (primary) | 11/11 at each budget | 15/16 at each budget (0 FAIL) |
+| adherence PASS (primary) | 11/11 at each budget | 15/16 at each budget (0 primary FAIL; 1 second-seed FAIL at 512, R09) |
 | preservation FAIL (primary) | 0 at each budget (E08 PARTIAL at 512) | **4 at each budget** |
 | text | 2/2 PASS (one prominent sign each) | requested text 4/4 PASS; preserved incidental text **0/8** items |
 | quality MAJOR | 0 | 0 |
@@ -134,13 +138,13 @@ All values are over all runs at the budget, as medians with the range in bracket
   - The rater cross-referenced same-scene items in its notes (e.g. "same treatment as Q03", later removed). Recognizing a repeated scene is unavoidable with one instruction per photograph.
 - **Spot check after the freeze:** the session assistant looked at R02, R12 and R15 at both budgets at native resolution (§3). This was descriptive only; it confirmed the rater's description of the garbled lettering. No score was changed or re-derived.
 - **Descriptive metrics** (§10; computed after the freeze): `g2-metrics.json`. Whole-region metrics do not detect the text failures; for example, R12's outside-region SSIM is 0.85–0.88 although its lettering is garbled. That is why the gate is a visual one.
-- **Timing baseline:** the monitored harness, as stated in §4 and protocol §8.
+- **Timing baseline:** a sustained chain under the monitored harness (§4). Protocol §8 attributed the slower times to the monitor; the chain-position evidence in §4 points at cold versus sustained instead. The classes are unaffected: 512 stays under 180 s, and 1024 is above 360 s even on its first run.
 
 ## 7. What this means
 - **Not promoted.** No edit configuration is validated, and the code keeps every edit at `validated: false` behind `allow_experimental`. Protocol §9 adds a validated-configuration table only for a VALIDATED budget, so nothing changes in `app/`.
 - **Status lines** (directive §27):
   - **integration:** validated (backend identity, manifests, P2 memory policy, MPO inputs, sidecars, determinism);
-  - **capability:** shown (G0 CAPABLE; G2 adherence 0 FAIL at each budget);
+  - **capability:** validated (G0 CAPABLE at 512 and 1024; G2 adherence 0 FAIL on the 16 primary items per budget, plus one second-seed FAIL at 512);
   - **quality:** G2 **REJECTED** at 512 and 1024 (incidental-text preservation and edit leakage);
   - **local production:** **REJECTED.** Not a production feature. It stays reachable only as an explicit research opt-in (`--allow-experimental`);
   - **commercial use:** not permitted under the Qwen Research License (non-commercial). photo-gen's MIT licence covers only photo-gen's code.

@@ -101,7 +101,7 @@ curl -s -X POST http://127.0.0.1:8765/edit -H 'Content-Type: application/json' \
 
 **Outputs:** an RGBA PNG plus a `photogen.edit/1` sidecar recording the input identity, instruction, model, licence, export, settings, timings, memory, `pixel_sha256` (RGB) + `output_alpha`, and `reproduce.cli`.
 
-**Cost on this M5 16 GB** (apps closed; Phase 5 memory policy P2; G2 medians under the monitored harness): 512 ≈ 104 s per edit (about 80 s unmonitored), 8.2 GB peak; **1024 ≈ 592 s (≈ 10 min)**, 10.9 GB peak, up to 1.2 GB swap growth. 1024 is the request default but rates only MARGINAL (wall time). Close large apps before 1024 edits.
+**Cost on this M5 16 GB** (apps closed; Phase 5 memory policy P2; G2 sustained-chain medians): 512 ≈ 104 s per edit (≈ 80 s for the first, cool runs), 8.2 GB peak; **1024 ≈ 592 s (≈ 10 min)**, 10.9 GB peak, up to 1.2 GB swap growth. 1024 is the request default but rates only MARGINAL (wall time). Close large apps before 1024 edits.
 
 ## Resolutions and steps
 - **Validated:** 512×512, 768×768, 1024×1024 at 9 steps, guidance 0.

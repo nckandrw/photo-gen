@@ -72,7 +72,7 @@ The image-edit task (Qwen-Image-2.1, research licence) runs on the same machine,
   | **production since Phase 5: P2** (deferred DiT + text encoder released after encoding + lazy VAE during denoise; pixel-identical, [`QWEN-MEMORY-LIFETIME.md`](../research/qwen/QWEN-MEMORY-LIFETIME.md)) | **8.16 GB** (G2 median, 23 runs) | **10.87 GB** (G2 median, 22 runs) | 512: swap growth ≤ 0.04 GB; 1024: swap growth 0.10–1.19 GB, warn ≤ 2.7% of samples, never critical |
 
 - **Timings** (apps closed, AC, 40 steps):
-  - G2 (Phase 5, P2, **monitored harness**, which ran slower than unmonitored edits in the memory A/B): 512 median **104 s** (80–115 s); 1024 median **592 s** (523–634 s), of which denoise is 571 s.
+  - G2 (Phase 5, P2, **sustained chain**, 20 s between runs): 512 median **104 s** (80–115 s); the first, cool runs took about 80 s and the time rose with chain position. 1024 median **592 s** (523–634 s; first run 523 s), of which denoise is 571 s.
   - Phase 4 (deferred load only): 1024 cold (after 600 s idle) **496.8 s**; 512 sustained 83–112 s; 1024 sustained median 556 s (478–601 s).
 - **Memory/UX class (G2, protocol §8):** 512 **COMFORTABLE**; 1024 **MARGINAL**. At 1024 the limit is wall time (about 10 min per edit, against 6 min for USABLE), not memory. An accepted edit usually takes several attempts.
 - **Not validated.**

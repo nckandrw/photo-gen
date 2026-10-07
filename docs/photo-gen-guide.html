@@ -493,8 +493,8 @@ GET /health  with  Host: evil.example
 <h3>Measured on the M5 16 GB (AC, other apps closed)</h3>
 <table>
 <tr><th>budget</th><th>wall per edit</th><th>denoise</th><th>peak footprint</th><th>memory pressure</th></tr>
-<tr><td>512 (Phase 5, P2; G2 chain)</td><td><strong>median 104 s</strong> (80–115 s; monitored harness, which ran slower than unmonitored edits: ≈ 80 s)</td><td>≈ 2.4 s/step × 40</td><td><strong>8.2 GB</strong></td><td>normal (swap growth ≤ 0.04 GB) · class <strong>COMFORTABLE</strong></td></tr>
-<tr><td>1024 (Phase 5, P2; G2 chain)</td><td><strong>median 592 s</strong> (≈ 9.9 min; 523–634 s, monitored harness)</td><td>≈ 14 s/step × 40</td><td><strong>10.9 GB</strong></td><td>warn at times (≤ 2.7% of samples), never critical; swap growth 0.1–1.2 GB · class <strong>MARGINAL</strong> (wall time)</td></tr>
+<tr><td>512 (Phase 5, P2; G2 chain)</td><td><strong>median 104 s</strong> sustained (80–115 s; ≈ 80 s for the first, cool runs of a chain)</td><td>≈ 2.4 s/step × 40</td><td><strong>8.2 GB</strong></td><td>normal (swap growth ≤ 0.04 GB) · class <strong>COMFORTABLE</strong></td></tr>
+<tr><td>1024 (Phase 5, P2; G2 chain)</td><td><strong>median 592 s</strong> sustained (≈ 9.9 min; 523–634 s; first run 523 s)</td><td>≈ 14 s/step × 40</td><td><strong>10.9 GB</strong></td><td>warn at times (≤ 2.7% of samples), never critical; swap growth 0.1–1.2 GB · class <strong>MARGINAL</strong> (wall time)</td></tr>
 <tr><td>512 (Phase 4, before P2)</td><td>83–112 s sustained</td><td>≈ 1.8–2.5 s/step × 40</td><td>8.7–9.0 GB</td><td>normal</td></tr>
 <tr><td>1024 (Phase 4, before P2)</td><td>497 s cold; median 556 s sustained</td><td>12.8 s/step median (cold) × 40</td><td>12.1 GB</td><td>warn at times, never critical; +1.3–2.1 GB swap</td></tr>
 </table>
@@ -502,7 +502,7 @@ GET /health  with  Host: evil.example
 <h3>Quality status: real photographs, gate G2 (Phase 5): <span class="badge b-bad">REJECTED</span> at 512 and 1024</h3>
 <p>16 real camera photographs (CC0/public domain), one pre-registered edit each with explicit MUST CHANGE / MUST NOT CHANGE lists, fresh seeds plus second seeds and repeats. Rated provenance-blind by a fresh rater (it was not told the model, budget or seed), with the scores frozen before unblinding. Full record: <code>research/editing/real-world/results.md</code>.</p>
 <ul>
-<li><strong>Adherence was strong:</strong> 0 failures at either budget (15/16 PASS each).</li>
+<li><strong>Adherence was strong:</strong> 15/16 primary items PASS at each budget, 0 primary failures (one second-seed failure at 512).</li>
 <li><strong>Preservation failed:</strong> 4 of 16 at each budget, above the pre-registered limit of 0. The decision rule rejects at 3 or more.
   <ul>
   <li><strong>Incidental text is garbled</strong>, even though the edit was elsewhere in the photo: a street-name sign, a banner, a door poster (8/8 text-preservation items). Replacing text on request worked (4/4).</li>
@@ -510,7 +510,7 @@ GET /health  with  Host: evil.example
   </ul></li>
 <li><strong>Operations were clean:</strong> 45/45 runs completed, no critical memory pressure, and every repeat was bit-identical.</li>
 <li><strong>Memory/UX class:</strong> 512 COMFORTABLE; 1024 MARGINAL on wall time (about 10 min per edit).</li>
-<li><strong>Status:</strong> integration validated · capability shown · quality G2 REJECTED · local production REJECTED · commercial use not permitted.</li>
+<li><strong>Status:</strong> integration validated · capability validated (G0) · quality G2 REJECTED · local production REJECTED · commercial use not permitted.</li>
 </ul>
 <h3>Quality status (PHOTO-GEN editing benchmark v1, gate G0; Phase 4, synthetic sources)</h3>
 <p>The benchmark (<code>research/editing/</code>) is model-independent: 11 tests, one per edit category, scored on <em>edit adherence → preservation → composition → visual quality</em> (+ text).</p>

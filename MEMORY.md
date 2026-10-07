@@ -9,7 +9,7 @@ _Last updated 2026-10-07 ~18:30 (PHASE 5 COMPLETE; read `research/qwen/PHASE5-IN
 
 **PHASE 5 (2026-10-07) COMPLETE → `research/qwen/PHASE5-INDEX.md`. Nothing is running.**
 - **Qwen editing: G2 REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
-  - Preservation 4 FAIL per budget (incidental text garbled R02/R12/R15; edit leakage R09); adherence 0 FAIL.
+  - Preservation 4 FAIL per budget (incidental text garbled R02/R12/R15; edit leakage R09); adherence 0 FAIL on primary items (1 second-seed FAIL at 512).
   - O and D pass (45/45 clean, 5/5 repeats bit-identical); S fails.
   - Memory/UX: 512 COMFORTABLE (104 s, 8.16 GB); 1024 MARGINAL (592 s, 10.87 GB).
   - **Not promoted.** Editing stays a research opt-in (`validated=false`, `--allow-experimental`). Commercial use is not permitted (Qwen Research License).

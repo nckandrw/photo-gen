@@ -55,7 +55,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - `REJECTED` covers CFG, scheduler, width/height (derived from `output_resolution` + input aspect, multiples of 32), multi-reference, and the mflux-only mask/strength/enhance/verify/step-cache options.
   - **Every edit is experimental** (`validated=false`; needs `allow_experimental`).
   - **G2 (Phase 5): REJECTED** for both gated configurations, `configuration_id` `3cd79615…` (512) and `fffe8df3…` (1024).
-    - Preservation failed 4/16 at each budget: incidental text elsewhere in the photo is garbled, and edits leak to adjacent or similar objects. Adherence: 0 FAIL.
+    - Preservation failed 4/16 at each budget: incidental text elsewhere in the photo is garbled, and edits leak to adjacent or similar objects. Adherence: 0 FAIL on primary items (one second-seed FAIL at 512).
     - 1024 is also MARGINAL on wall time (≈ 592 s per edit).
     - No validated-configuration table exists; adding one needs a new pre-registered gate. Don't promote on G0/G2 adherence.
   - Lifetime fix `_defer_transformer_load` (default on, `DEFER_TRANSFORMER_LOAD`): pixel-identical; lowers the peak footprint 12.63 → 8.85 GB at 512.

@@ -111,15 +111,18 @@ Peak footprint equals FAST within 0.001 GB. Per-step time is unchanged between 5
 ## Image editing: Qwen-Image-2.1 q4 (separate venv; G2 REJECTED, research opt-in; added 2026-10-07)
 **Settings:** mflux 0.21.0 / MLX 0.32.2 in `mflux-qwen/.venv`; upstream defaults (40 steps, guidance 1.0, prefix KV cache, `--low-ram`); same M5 16 GB machine, AC power, apps closed.
 - "wall" is the job's `generation_seconds` (worker spawn to exit, including about 2 s of model load). "denoise" is the 40-step DiT loop.
-- **Every row names its baseline.** The monitored harness (`run_edit.sh`, 1 Hz monitor) ran slower than unmonitored production edits of the same request (`QWEN-MEMORY-LIFETIME.md` §4); the cause is not isolated.
+- **Every row names its baseline.**
+  - G2 rows are a **sustained chain** (runs 20 s apart) under the 1 Hz monitor.
+  - Wall time rises with chain position: the first two 512 runs took 80.1 s and 82.9 s, the median of runs 5–23 is 105 s, and the first 1024 run took 523 s against a 592 s median. This is consistent with cold versus sustained (thermal) on a fanless machine.
+  - It explains the "monitored vs unmonitored" gap noted in `QWEN-MEMORY-LIFETIME.md` §4 at least as well as monitoring overhead does. The cause is not isolated.
 - The quality status of every row is **G2 REJECTED** (`research/editing/real-world/results.md`). These are timings, not an endorsement.
 
 | budget | lifetime policy | baseline | n | wall (s) | denoise (s) | VAE decode (s) | peak footprint (GB) | swap Δ (GB) | pressure | source |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|---|
-| 512 | P2 (production) | G2, monitored, sustained chain | 23 | **104** median [80–115] | 96 [73–107] | 2.4 | **8.16** [8.07–8.37] | 0.00 [0–0.04] | ≤ 1 warn sample, 0 critical | real-world/benchmark.csv |
+| 512 | P2 (production) | G2, sustained chain (monitored) | 23 | **104** median [80–115] | 96 [73–107] | 2.4 | **8.16** [8.07–8.37] | 0.00 [0–0.04] | ≤ 1 warn sample, 0 critical | real-world/benchmark.csv |
 | 512 | P2 | single unmonitored production edit (E05), after adoption | 1 | 79.7 | — | — | 8.17 | — | — | QWEN-MEMORY-LIFETIME.md §7 |
 | 512 | P0 (deferred DiT only; Phase 4) | G0, sustained | 12 | 83–112 | — | — | 8.85 | ≤ 0.36 | 0 critical | QWEN-EDITING-QUALITY.md |
-| 1024 | P2 (production) | G2, monitored, sustained chain | 22 | **592** median [523–634] | 571 [504–613] | 10.2 | **10.87** [10.72–11.10] | 0.45 [0.10–1.19] | 4–11 warn samples (≤ 2.7%), 0 critical | real-world/benchmark.csv |
+| 1024 | P2 (production) | G2, sustained chain (monitored) | 22 | **592** median [523–634] | 571 [504–613] | 10.2 | **10.87** [10.72–11.10] | 0.45 [0.10–1.19] | 4–11 warn samples (≤ 2.7%), 0 critical | real-world/benchmark.csv |
 | 1024 | P2 | memory A/B, monitored | 3 | 549.5–576.5 | 529.8–555.7 | 9.6–10.8 | 10.73–10.96 (E05) | 0.11–0.37 | 3–5 warn, 0 critical | QWEN-MEMORY-LIFETIME.md §4 |
 | 1024 | P0 (Phase 4) | G0, cold after 600 s idle | 1 | 496.8 | 474.1 | 12.8 | 12.08 | — | warn, 0 critical | QWEN-EDITING-BASELINE.md |
 | 1024 | P0 (Phase 4) | G0, sustained (non-cold G0 runs) | — | 556 median [478–601] | — | — | 12.08 | 1.3–2.1 | warn, 0 critical | QWEN-EDITING-QUALITY.md |

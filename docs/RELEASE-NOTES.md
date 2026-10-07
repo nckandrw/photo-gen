@@ -12,7 +12,7 @@ photo-gen has no semantic versioning. Each tag marks a **known-good, restorable 
 - **Edit memory policy P2** (adopted, pixel-identical on 5/5 pairs): the text encoder is released after encoding, and only a lazy VAE copy is kept during denoise. 1024 peak footprint 12.08 → ~10.9 GB; 512 peak 8.9 → 8.2 GB (`research/qwen/QWEN-MEMORY-LIFETIME.md`).
 - **Inputs:** a camera MPO (multi-picture JPEG) is staged as its primary image, with a warning. This photo-gen defect was found while acquiring G2's sources (`e653122`).
 - **Real-photograph editing gate G2: REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
-  - Adherence 0 FAIL at each budget.
+  - Adherence 0 FAIL on the 16 primary items per budget (one second-seed FAIL at 512).
   - Preservation 4 FAIL at each budget: incidental text garbled, edits leaking to adjacent objects.
   - 45/45 runs clean; repeats bit-identical.
   - Memory/UX: 512 COMFORTABLE, 1024 MARGINAL.
