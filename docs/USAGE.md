@@ -90,7 +90,7 @@ curl -s -X POST http://127.0.0.1:8765/edit -H 'Content-Type: application/json' \
 - `lora`, `profile`, `precision`, `text_encoder`, `model`, `quantize`.
 
 **Inputs** are staged at submission:
-- PNG / JPEG / WebP, not animated, ≤ 50 MB, 64–8192 px per side;
+- PNG / JPEG / WebP, not animated, ≤ 50 MB, 64–8192 px per side. A camera JPEG in multi-picture (MPO) form is accepted as its primary image (the extra preview images are ignored, with a warning);
 - EXIF orientation applied, fully opaque only, ICC ignored with a warning;
 - written as a canonical RGB PNG at `data/inputs/<pixel_sha256>.png` and re-verified before the run.
 

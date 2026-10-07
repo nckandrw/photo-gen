@@ -23,6 +23,10 @@ from PIL import Image, ImageOps
 from .errors import GenerationError, ValidationError
 
 ACCEPTED_FORMATS = ("PNG", "JPEG", "WEBP")
+# MPO (CIPA DC-007 multi-picture JPEG) is what many cameras (e.g. Panasonic, Sony) write as ordinary .jpg files: a
+# baseline JPEG primary image followed by extra images (previews, stereo pairs). It is accepted as its primary image
+# (frame 0) only; nothing else multi-frame or animated is. Found by the Phase 5 real-photograph gate (G2).
+JPEG_CONTAINERS = ("MPO",)
 ACCEPTED_MODES = ("1", "L", "LA", "P", "RGB", "RGBA")
 MAX_INPUT_BYTES = 50 * 1024 * 1024
 MIN_SIDE, MAX_SIDE = 64, 8192
@@ -64,9 +68,13 @@ def stage_input_image(path, inputs_dir: Path) -> tuple[InputImage, list[str]]:
     try:
         with Image.open(real) as im:
             fmt, mode, (w, h) = im.format, im.mode, im.size
-            if fmt not in ACCEPTED_FORMATS:
+            if fmt not in ACCEPTED_FORMATS + JPEG_CONTAINERS:
                 raise ValidationError(f"input format {fmt} is not accepted ({', '.join(ACCEPTED_FORMATS)})")
-            if getattr(im, "is_animated", False):
+            if fmt in JPEG_CONTAINERS:
+                if getattr(im, "n_frames", 1) > 1:
+                    warnings.append(f"input is a multi-picture JPEG ({fmt}) with {im.n_frames} images; only the "
+                                    "primary image is used")
+            elif getattr(im, "is_animated", False):
                 raise ValidationError("animated images are not accepted")
             if w * h > MAX_PIXELS:
                 raise ValidationError(f"input is {w}x{h}; at most {MAX_PIXELS} pixels are accepted")
@@ -74,7 +82,7 @@ def stage_input_image(path, inputs_dir: Path) -> tuple[InputImage, list[str]]:
                 raise ValidationError(f"input mode {mode} is not accepted ({', '.join(ACCEPTED_MODES)})")
             im.verify()
         with Image.open(real) as im:
-            im.load()
+            im.load()  # frame 0: for an MPO, its primary image
             orientation = im.getexif().get(0x0112)
             icc = bool(im.info.get("icc_profile"))
             oriented = ImageOps.exif_transpose(im)

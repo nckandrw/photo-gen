@@ -55,7 +55,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     e = sub.add_parser("edit", help="edit one image now with Qwen-Image-2.1 (RESEARCH/EXPERIMENTAL; Qwen Research "
                                     "License, non-commercial)")
-    e.add_argument("--image", "-i", required=True, help="input image: PNG, JPEG or WebP, opaque, 64..8192 px per side")
+    e.add_argument("--image", "-i", required=True, help="input image: PNG, JPEG (camera MPO: primary image) or WebP, opaque, 64..8192 px per side")
     e.add_argument("--prompt", "-p", required=True, help="the edit instruction")
     e.add_argument("--seed", type=_seed, help="integer or 'random' (default from config)")
     e.add_argument("--steps", type=int, help="denoising steps (default 40, the upstream recommendation)")

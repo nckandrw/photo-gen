@@ -165,6 +165,30 @@ class InputStagingTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             stage_input_image(None, self.inputs)
 
+    def test_mpo_camera_jpeg_staged_as_primary_image(self):
+        """Phase 5 G2 finding: cameras write MPO (primary JPEG + preview images) as ordinary .jpg files. It stages as
+        its primary image with a warning; other multi-frame inputs stay rejected."""
+        primary = Image.new("RGB", (320, 240), (200, 30, 30))
+        for x in range(0, 320, 8):
+            primary.paste((20, 200, 40), (x, 0, x + 4, 240))
+        p = self.src / "camera.jpg"
+        try:
+            primary.save(p, format="MPO", save_all=True, append_images=[Image.new("RGB", (160, 120), (0, 0, 255))])
+        except (KeyError, ValueError, OSError) as e:
+            self.skipTest(f"this Pillow cannot write MPO: {e}")
+        with Image.open(p) as im:
+            self.assertEqual((im.format, im.n_frames), ("MPO", 2))
+        ident, warnings = stage_input_image(str(p), self.inputs)
+        self.assertEqual((ident.source_format, ident.width, ident.height), ("MPO", 320, 240))  # not the preview
+        self.assertTrue(any("multi-picture JPEG (MPO) with 2 images" in w for w in warnings))
+        with Image.open(p) as im, Image.open(ident.staged_path) as staged:
+            im.seek(0)
+            self.assertEqual(staged.tobytes(), im.convert("RGB").tobytes())
+        w = self.src / "anim.webp"
+        primary.save(w, format="WEBP", save_all=True, append_images=[Image.new("RGB", (320, 240), (0, 0, 0))])
+        with self.assertRaisesRegex(ValidationError, "animated"):
+            stage_input_image(str(w), self.inputs)
+
     def test_symlink_resolved_and_icc_warned(self):
         target = make_image(self.src / "real.png", icc_profile=b"fake-icc-profile")
         link = self.src / "link.png"
