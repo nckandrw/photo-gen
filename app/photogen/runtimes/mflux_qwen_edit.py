@@ -51,6 +51,13 @@ WORKER_TIMEOUT_SECONDS = 90 * 60  # generous upper bound; guards against hangs
 # encoder. Pixel-identical (RGB and RGBA) to the stock lifecycle and to the plain mflux CLI; at 512 it lowers the
 # peak footprint 12.63 -> 8.85 GB and removed the critical-pressure episode (research/qwen/QWEN-EDITING-BASELINE.md).
 DEFER_TRANSFORMER_LOAD = True
+# Lifetime-only memory fixes (worker _install_lifetime_policy), production default since 2026-10-07 (Phase 5 gate,
+# research/qwen/QWEN-MEMORY-LIFETIME.md; pre-registered in research/qwen/memory/PROTOCOL.md): drop the text encoder
+# as soon as its output is evaluated, and keep only a lazy, unread VAE copy resident during denoising. Exact RGB and
+# RGBA parity on 5/5 pairs (512 and 1024), G0 hashes reproduced; at 1024 the median peak footprint drops 1.35 GB
+# (12.08 -> 10.73-10.96) and swap growth 1.30 -> 0.32 GB, with no runtime change (median wall ratio 1.003).
+RELEASE_TEXT_ENCODER_AFTER_ENCODE = True
+RELEASE_VAE_DURING_DENOISE = True
 
 ACCEPTED = {"task", "prompt", "image", "seed", "steps", "output_resolution", "output_format", "output_name",
             "allow_experimental"}
@@ -328,6 +335,16 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
         return EditRequest.from_dict(d)
 
     # ---------- execution ----------
+    def _worker_request(self, request: EditRequest, output_path: str) -> dict:
+        m = self.m
+        return {"model_path": str(m.model_path), "base_model": m.defaults["base_model"], "prompt": request.prompt,
+                "image_path": request.input_image["staged_path"], "seed": request.seed, "steps": request.steps,
+                "output_resolution": request.output_resolution, "output_path": output_path,
+                "defer_transformer_load": DEFER_TRANSFORMER_LOAD,
+                "release_text_encoder_after_encode": RELEASE_TEXT_ENCODER_AFTER_ENCODE,
+                "release_vae_during_denoise": RELEASE_VAE_DURING_DENOISE,
+                "expected_size": [request.width, request.height]}
+
     def generate(self, job_id: str, request: EditRequest, output_path: str, work_dir: str,
                  cancel: CancelToken) -> GenerationResult:
         m = self.m
@@ -340,13 +357,7 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
         work.mkdir(parents=True, exist_ok=True)
         req_file, res_file, log_file = work / "worker-request.json", work / "worker-result.json", work / "worker.log"
         res_file.unlink(missing_ok=True)
-        req_file.write_text(json.dumps({
-            "model_path": str(m.model_path), "base_model": m.defaults["base_model"], "prompt": request.prompt,
-            "image_path": request.input_image["staged_path"], "seed": request.seed, "steps": request.steps,
-            "output_resolution": request.output_resolution, "output_path": output_path,
-            "defer_transformer_load": DEFER_TRANSFORMER_LOAD, "expected_size": [request.width, request.height]},
-            indent=1))
-        memory_policy = {"defer_transformer_load": DEFER_TRANSFORMER_LOAD}
+        req_file.write_text(json.dumps(self._worker_request(request, output_path), indent=1))
         cmd = [str(m.interpreter), "-m", WORKER_MODULE, str(req_file), str(res_file)]
         log.debug("job %s: launching edit worker %s", job_id, cmd)
         worker_sha256 = hashlib.sha256(WORKER_PATH.read_bytes()).hexdigest()  # the module this launch executes
@@ -376,6 +387,12 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
             raise GenerationError(f"edit failed: {detail}", error_type=res.get("error_type"), exit_code=rc,
                                   log=str(log_file))
         check_worker_versions(res.get("versions"), m.packages, m.backend_id)
+        # record what the worker reports it applied, not what was requested (pixel-neutral either way)
+        memory_policy = res.get("memory_policy")
+        for flag, done in (("release_text_encoder_after_encode", "text_encoder_released_after_encode"),
+                           ("release_vae_during_denoise", "vae_reloaded_lazily")):
+            if (memory_policy or {}).get(flag) and not memory_policy.get(done):
+                log.warning("job %s: worker did not apply %s (memory only; pixels unaffected)", job_id, flag)
         ident = inspect_image(Path(output_path))
         check_output(ident, request.width, request.height)
         alpha = _alpha_identity(Path(output_path))

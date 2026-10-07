@@ -211,6 +211,23 @@ class EditRequestTests(unittest.TestCase):
         with self.assertRaises(ValidationError):  # every edit needs the explicit opt-in
             self.rt.normalize({"task": IMAGE_EDIT, "prompt": "x", "image": self.img}, DEFAULTS)
 
+    def test_worker_request_carries_adopted_memory_policy(self):
+        """Phase 5 gate (research/qwen/QWEN-MEMORY-LIFETIME.md): all three lifetime patches are production defaults,
+        and nothing else in the worker request changed (the configuration identity does not include them)."""
+        r = self.n(seed=42, output_resolution=512)
+        req = self.rt._worker_request(r, "/tmp/out.png")
+        self.assertEqual({k: req[k] for k in ("defer_transformer_load", "release_text_encoder_after_encode",
+                                              "release_vae_during_denoise")},
+                         {"defer_transformer_load": True, "release_text_encoder_after_encode": True,
+                          "release_vae_during_denoise": True})
+        self.assertEqual(sorted(req), sorted(["model_path", "base_model", "prompt", "image_path", "seed", "steps",
+                                              "output_resolution", "output_path", "defer_transformer_load",
+                                              "release_text_encoder_after_encode", "release_vae_during_denoise",
+                                              "expected_size"]))
+        self.assertEqual((req["seed"], req["steps"], req["output_resolution"], req["expected_size"]),
+                         (42, 40, 512, [512, 512]))
+        self.assertNotIn("memory", json.dumps(self.rt.configuration(r)))
+
     def test_output_size_follows_input_aspect(self):
         img = str(make_image(tmpdir() / "wide.png", size=(600, 400)))
         r = self.n(image=img, output_resolution=1024)
