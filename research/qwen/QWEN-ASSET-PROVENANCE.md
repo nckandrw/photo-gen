@@ -54,7 +54,9 @@ Full verification record: `research/qwen/assets/qwen-assets-verification.json`, 
 **What would remain if it were deleted:** enough metadata to identify and re-acquire it exactly. That is the repo, the revision, the 28-file manifest with digests (`upstream-file-manifest.json`), full sha256 for every file (verification JSON), the licence identity, the export script, configuration and software lock, and the canonical export's 18 pins.
 
 ## 5. Deletion log
-_Filled after the deletion (§3)._
+- **2026-10-07 10:20 PST.** After commit `0d15f49` (this record plus the verification), I ran `rm -r` on `models/qwen/ABORTED-20261007T0005-qwen-image-2.1-edit-mflux-q4` after checking that it was a real directory and not a symlink. Only that directory was removed. The canonical export, both `.export.json` files and the source checkpoint were not touched.
+- **Afterwards, `bin/photo-gen verify --edit --full`:** `ok: true`, 18/18 files re-hashed in full (`hashed_now` 18), 0 failed (`research/qwen/assets/verify-edit-full-after-delete.json`).
+- **Disk:** free space went from 186,092,972 KiB to 196,517,288 KiB, so **+10.67 GB freed** (the directory held 10.64 GB of file bytes; the rest is filesystem block overhead). Free space is now 201.2 GB (`df-before.txt`, `df-after.txt`).
 
 ## 6. Post-G2 decision on the source checkpoint
 _Filled after G2._
