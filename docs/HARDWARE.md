@@ -15,7 +15,7 @@ Values below were read from the machine on 2026-09-25 (editing section: 2026-10-
 | chip | Apple M5: 10-core CPU (4 super + 6 efficiency), **8-core GPU** |
 | GPU architecture (MLX) | `applegpu_g17g` |
 | unified memory | **16 GB** (Metal recommended working set 12.71 GB) |
-| OS | **macOS 27.0 (26A428)** |
+| OS | **macOS 27.0 (26A428)** *[Discrepancy noted 2026-10-09 (Phase 8): the machine was updated to **macOS 27.0.1 (26A434)** on 2026-09-29 22:50 (`system_profiler SPInstallHistoryDataType`), so the Phase 4–8 evidence was produced on 27.0.1. Z-Image REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` were re-checked exact through the CLI on 2026-10-08, i.e. on 27.0.1. The validated-target statement above is unchanged pending your decision.]* |
 | power during validation | AC power |
 
 ## Validated software
