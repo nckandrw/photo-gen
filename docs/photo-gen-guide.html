@@ -113,7 +113,7 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
 <div class="layout">
 <nav class="toc" aria-label="Contents">
   <div class="brand">photo-gen</div>
-  <div class="sub">User &amp; developer guide · generated 2026-09-25 · updated 2026-10-07 (Phase 4: editing; Phase 5: real-photograph gate G2)</div>
+  <div class="sub">User &amp; developer guide · generated 2026-09-25 · updated 2026-10-07 (Phase 4: editing; Phase 5: real-photograph gate G2) and 2026-10-08 (Phase 6: explicit research-only status, Q-Q diagnostic, tag v4)</div>
   <a class="qs" href="#first-image">First image →</a>
   <ol>
     <li class="grp">Start here</li>
@@ -154,8 +154,8 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
 <header class="top">
   <h1>photo-gen</h1>
   <div class="callout warn"><p class="t">Validated target: MacBook Air M5, 16 GB unified memory, 8-core GPU, macOS 27.0 (26A428).</p><p>Performance figures and profile validation here are specific to this machine and environment. photo-gen is not currently a general-purpose, cross-platform package; other hardware may work but has not been validated (<code>docs/HARDWARE.md</code>).</p></div>
-  <p class="lede">A local image generator for one machine: a command-line tool and a localhost HTTP API that run Z-Image-Turbo through mflux on Apple's MLX framework. It's built and validated for a MacBook Air M5 with 16 GB of unified memory. Since 2026-10-07 it also has an <strong>experimental image-editing task</strong> (Qwen-Image-2.1, research licence, non-commercial) that shares the same queue, job store and API (<a href="#editing">Image editing</a>).</p>
-  <p class="meta">Documentation generated: <strong>2026-09-25</strong>, updated <strong>2026-10-07</strong> (Phase 4) · photo-gen state: Git repository <code>nckandrw/photo-gen</code> (private), validated tag <code>photo-gen-m5-16gb-v2</code>, see <code>docs/RELEASE-NOTES.md</code> (package version string <code>0.1.0</code>, as reported by <code>GET /health</code>; there is no release process) · Commands on this page were run against this build on the generation date. See <a href="#audit">audit notes</a>.</p>
+  <p class="lede">A local image generator for one machine: a command-line tool and a localhost HTTP API that run Z-Image-Turbo through mflux on Apple's MLX framework. It's built and validated for a MacBook Air M5 with 16 GB of unified memory. Since 2026-10-07 it also has a <strong>research-only image-editing task</strong> (Qwen-Image-2.1, research licence, non-commercial; <strong>rejected</strong> by the real-photograph quality gate G2) that shares the same queue, job store and API (<a href="#editing">Image editing</a>).</p>
+  <p class="meta">Documentation generated: <strong>2026-09-25</strong>, updated <strong>2026-10-08</strong> (Phase 6) · photo-gen state: Git repository <code>nckandrw/photo-gen</code> (private), latest tag <code>photo-gen-m5-16gb-v4</code> (text-to-image behaviour unchanged since v3), see <code>docs/RELEASE-NOTES.md</code> (package version string <code>0.1.0</code>, as reported by <code>GET /health</code>; there is no release process) · Commands on this page were run against this build on the generation date. See <a href="#audit">audit notes</a>.</p>
 </header>
 
 <!-- ============================================================ -->
@@ -163,12 +163,12 @@ footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid
 <h2>Current status <a class="anchor" href="#status">#</a></h2>
 <div class="status">
   <div class="cell"><div class="k">Build</div><div class="v">Working</div><div class="n"><code>verify</code>: all checks ok</div></div>
-  <div class="cell"><div class="k">Tests</div><div class="v">72 / 72 passing</div><div class="n">stdlib unittest, run 2026-10-07</div></div>
+  <div class="cell"><div class="k">Tests</div><div class="v">93 / 93 passing</div><div class="n">stdlib unittest, run 2026-10-08</div></div>
   <div class="cell"><div class="k">REFERENCE (default)</div><div class="v">fp32 + 9 steps</div><div class="n"><span class="badge b-ref">REFERENCE</span> 512² · 768² · 1024²</div></div>
   <div class="cell"><div class="k">FAST</div><div class="v">bf16 + 8 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 512² · 768² · 1024²</div></div>
   <div class="cell"><div class="k">BALANCED</div><div class="v">bf16 + 5 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 1024² only</div></div>
   <div class="cell"><div class="k">ULTRA</div><div class="v">bf16 + 4 steps</div><div class="n"><span class="badge b-ok">VALIDATED</span> 512² only</div></div>
-  <div class="cell"><div class="k">Image edit</div><div class="v">Qwen-Image-2.1 q4</div><div class="n"><span class="badge b-bad">G2 REJECTED</span> research opt-in only · non-commercial licence · <code>photo-gen edit</code></div></div>
+  <div class="cell"><div class="k">Image edit</div><div class="v">Qwen-Image-2.1 q4</div><div class="n"><span class="badge b-bad">G2 REJECTED</span> research-only (<code>/capabilities</code>: <code>"research-only"</code>) · 8-bit weights don't fix it (Q-Q) · non-commercial licence · <code>photo-gen edit --allow-experimental</code></div></div>
   <div class="cell"><div class="k">Backend</div><div class="v">mflux 0.20.0 · MLX 0.32.2</div><div class="n">Z-Image-Turbo q4 @ <code>d2d30500</code></div></div>
   <div class="cell"><div class="k">Network</div><div class="v">Offline · 127.0.0.1</div><div class="n">no downloads, no telemetry</div></div>
 </div>
@@ -263,7 +263,7 @@ curl -s -o image.png http://127.0.0.1:8765/outputs/&lt;job_id&gt;</pre></div>
 <tr><th>command</th><th>what it does</th><th>exit code</th></tr>
 <tr><td><code>serve [--full-verify]</code></td><td>verify, then run the HTTP API on <code>server.host:server.port</code></td><td>2 if verification fails</td></tr>
 <tr><td><code>generate …</code></td><td>generate one image now (synchronously, in this process)</td><td>0 completed · 1 failed/cancelled · 2 invalid request / runtime unavailable</td></tr>
-<tr><td><code>edit …</code></td><td><span class="badge b-exp">EXPERIMENTAL</span> edit one image now with Qwen-Image-2.1 (synchronously; waits for the GPU lock). See <a href="#editing">Image editing</a>.</td><td>0 completed · 1 failed/cancelled · 2 invalid request / edit backend unavailable</td></tr>
+<tr><td><code>edit …</code></td><td><span class="badge b-bad">RESEARCH-ONLY</span> edit one image now with Qwen-Image-2.1 (G2 REJECTED) (synchronously; waits for the GPU lock). See <a href="#editing">Image editing</a>.</td><td>0 completed · 1 failed/cancelled · 2 invalid request / edit backend unavailable</td></tr>
 <tr><td><code>jobs [--status S] [--limit N] [--json]</code></td><td>list jobs, newest first (default 20). <code>S</code>: queued, running, completed, failed, cancelled</td><td>0</td></tr>
 <tr><td><code>job &lt;job_id&gt;</code></td><td>print one job record (JSON)</td><td>2 if not found</td></tr>
 <tr><td><code>cancel &lt;job_id&gt;</code></td><td>cancel a <em>queued</em> job. A job running in the API server must be cancelled with <code>POST /jobs/{id}/cancel</code>; from the CLI you get a <code>conflict</code> error.</td><td>2 on conflict</td></tr>
@@ -285,7 +285,7 @@ curl -s -o image.png http://127.0.0.1:8765/outputs/&lt;job_id&gt;</pre></div>
 <tr><td><code>--allow-experimental</code></td><td>off</td><td>permit non-validated sizes and step counts. The result is labelled <code>validated_configuration: false</code> with warnings.</td></tr>
 <tr><td><code>--json</code></td><td>off</td><td>print the full job record</td></tr>
 </table>
-<h3><code>edit</code> options <span class="badge b-exp">EXPERIMENTAL</span></h3>
+<h3><code>edit</code> options <span class="badge b-bad">RESEARCH-ONLY</span></h3>
 <table>
 <tr><th>option</th><th>default</th><th>notes</th></tr>
 <tr><td><code>-i, --image</code></td><td>required</td><td>input image: PNG, JPEG (a camera MPO is read as its primary image) or WebP; fully opaque; each side 64–8192 px; ≤ 50 MB. A relative path is resolved by the CLI. The image is staged (see <a href="#editing">Image editing</a>).</td></tr>
@@ -301,7 +301,9 @@ curl -s -o image.png http://127.0.0.1:8765/outputs/&lt;job_id&gt;</pre></div>
 <pre>service: ok  runtime: mflux 0.20.0  model: Z-Image-Turbo@d2d3050  low_ram: True
 active: none  queued: 0
 last generation: 122.803s  recent: [122.803, 66.586, 83.347, 60.369, 126.564, …]
-memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: False  power: AC Power</pre></details>
+memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: False  power: AC Power</pre>
+<p>Since Phase 6 (2026-10-08) the output ends with one more line:</p>
+<pre>image-edit: research-only (G2 REJECTED at 512 and 1024: small text elsewhere in the photo gets garbled; edits spread to similar or attached objects; Qwen Research License: non-commercial research/evaluation only)</pre></details>
 </section>
 
 <!-- ============================================================ -->
@@ -313,9 +315,9 @@ memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: Fal
 <tr><th>method</th><th>path</th><th>purpose</th><th>success</th></tr>
 <tr><td>GET</td><td><code>/health</code></td><td>service state, version, runtime/model identity, startup checks</td><td>200 (503 if degraded)</td></tr>
 <tr><td>GET</td><td><code>/status</code></td><td>health + active jobs, queue length, recent durations, per-step timing, memory, thermal flags, power source, capabilities</td><td>200</td></tr>
-<tr><td>GET</td><td><code>/capabilities</code></td><td>what the text-to-image backend supports, plus <code>tasks</code> (every task's backend)</td><td>200</td></tr>
+<tr><td>GET</td><td><code>/capabilities</code></td><td>what the text-to-image backend supports, plus <code>tasks</code> (every task's backend). Since Phase 6, <code>tasks["image-edit"]</code> reports <code>status: "research-only"</code> and a <code>quality_status</code> record (G2 REJECTED).</td><td>200</td></tr>
 <tr><td>POST</td><td><code>/generate</code></td><td>submit a text-to-image job (Z-Image)</td><td>202 + job</td></tr>
-<tr><td>POST</td><td><code>/edit</code></td><td><span class="badge b-exp">EXPERIMENTAL</span> submit an image-edit job (Qwen-Image-2.1)</td><td>202 + job · 503 if the edit backend is unavailable</td></tr>
+<tr><td>POST</td><td><code>/edit</code></td><td><span class="badge b-bad">RESEARCH-ONLY</span> submit an image-edit job (Qwen-Image-2.1; G2 REJECTED)</td><td>202 + job · 503 if the edit backend is unavailable</td></tr>
 <tr><td>GET</td><td><code>/jobs?status=&amp;limit=&amp;pixel_sha256=</code></td><td>history/search, newest first (limit default 50, max 1000)</td><td>200 <code>{"jobs":[…]}</code></td></tr>
 <tr><td>GET</td><td><code>/jobs/{id}[?wait=SECONDS]</code></td><td>one job; <code>wait</code> long-polls until terminal (max 900 s)</td><td>200 + job</td></tr>
 <tr><td>POST</td><td><code>/jobs/{id}/cancel</code></td><td>cancel a queued job, or a running job owned by this server</td><td>200 + job</td></tr>
@@ -342,7 +344,7 @@ memory: pressure=normal free=49% swap_used=0.58GB  thermal warning recorded: Fal
      -H 'Content-Type: application/json' \
      -d '{"prompt":"a red apple on a wooden table, soft window light","profile":"fast","seed":42}'</pre></div>
 
-<h3 id="api-edit">POST /edit <span class="badge b-exp">EXPERIMENTAL</span></h3>
+<h3 id="api-edit">POST /edit <span class="badge b-bad">RESEARCH-ONLY</span></h3>
 <table>
 <tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr>
 <tr><td><code>image</code></td><td>string</td><td><em>required</em></td><td><strong>absolute</strong> path of a local input image (PNG/JPEG/WebP, opaque). The server reads it once, at submission, and stages a copy.</td></tr>
@@ -639,7 +641,7 @@ GET /health  with  Host: evil.example
 ├── app/photogen/            application package (see Development)
 ├── app/tests/               unit + API tests
 ├── bin/photo-gen            launcher
-├── config/                  photogen.toml · backend-zimage-mflux.json · text-encoders.json
+├── config/                  photogen.toml · backend-zimage-mflux.json · backend-qwen21-edit-mflux.json · text-encoders.json · *.lock.txt
 ├── data/                    runtime data (created automatically)
 │   ├── outputs/YYYY/MM/DD/&lt;job_id&gt;[-name].png    image (UTC date folders)
 │   ├── outputs/YYYY/MM/DD/&lt;job_id&gt;[-name].json   metadata sidecar (photogen.generation/1)
@@ -735,8 +737,8 @@ GET /health  with  Host: evil.example
 <h2>Current limitations <a class="anchor" href="#limitations">#</a></h2>
 <h3>Known limitations of the current build</h3>
 <ul>
-<li>Text-to-image is Z-Image only. Editing is a separate, <strong>experimental</strong> task (Qwen-Image-2.1, research licence): a single input image, no masks or multi-reference, and no validated configuration yet. No img2img, LoRA, ControlNet or negative prompts; each is rejected explicitly.</li>
-<li>Edits are slow at 1024 (≈ 8 min cold per edit) and use up to ≈ 12 GB, so close large apps first. 512 edits take ≈ 1.5–2 min.</li>
+<li>Text-to-image is Z-Image only. Editing is a separate, <strong>research-only</strong> task (Qwen-Image-2.1, research licence): a single input image, no masks or multi-reference. The real-photograph gate G2 <strong>rejected</strong> it: small text elsewhere in the photo gets garbled, and edits spread to similar objects. 8-bit weights do not fix this (Phase 6 Q-Q). No img2img, LoRA, ControlNet or negative prompts; each is rejected explicitly.</li>
+<li>Edits are slow at 1024 (≈ 9.9 min per edit in a sustained chain, 10.9 GB peak), so close large apps first. 512 edits take ≈ 1.5–2 min (8.2 GB).</li>
 <li>One generation at a time, machine-wide. Concurrency is not validated on this hardware.</li>
 <li>No progress streaming and no GUI. Use <code>?wait=</code> long-polling, and <code>step_seconds</code> after completion.</li>
 <li>≈2.6 s worker start-up per job, the cost of the per-job process.</li>
@@ -829,10 +831,14 @@ GET /health  with  Host: evil.example
 <tr><td><code>runtimes/base.py</code></td><td><code>ImageRuntime</code> interface, <code>Capabilities</code>, <code>RuntimeHealth</code>, <code>CancelToken</code></td></tr>
 <tr><td><code>runtimes/mflux_zimage.py</code></td><td>the Z-Image-Turbo runtime adapter (policy, normalization, worker launch)</td></tr>
 <tr><td><code>runtimes/mflux_zimage_worker.py</code></td><td>the per-job worker: mflux CLI + evidence-backed in-process patches + probes</td></tr>
+<tr><td><code>tasks.py</code></td><td>explicit task → runtime routing (<code>text-to-image</code> → Z-Image, <code>image-edit</code> → Qwen)</td></tr>
+<tr><td><code>inputs.py</code></td><td>edit input staging: EXIF orientation, opaque PNG/JPEG/WebP (camera MPO → primary image), content-addressed copies in <code>data/inputs/</code></td></tr>
+<tr><td><code>runtimes/mflux_qwen_edit.py</code></td><td>the Qwen-Image-2.1 edit runtime: normalization, manifest identity, <code>configuration_id</code>/<code>edit_id</code>, research-only status (<code>QUALITY_STATUS</code>)</td></tr>
+<tr><td><code>runtimes/mflux_qwen_edit_worker.py</code></td><td>the edit worker, run in <code>mflux-qwen/.venv</code>: mflux 0.21.0 CLI + deferred DiT load + memory policy P2 + probes</td></tr>
 </table>
 <h3>Run the tests</h3>
 <div class="codewrap"><pre>cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest -v</pre></div>
-<p>39 tests (<code>test_core.py</code>, <code>test_api.py</code>, <code>test_worker_lifetime.py</code>); about 12 s. They use a <code>FakeRuntime</code> (<code>app/tests/helpers.py</code>), so no GPU is needed, except <code>test_worker_lifetime</code>, which imports mflux. A single test:</p>
+<p>93 tests (<code>test_core.py</code>, <code>test_api.py</code>, <code>test_edit.py</code>, <code>test_identity.py</code>, <code>test_worker_lifetime.py</code>); about 11 s. They use a <code>FakeRuntime</code> and a <code>FakeEditRuntime</code> (<code>app/tests/helpers.py</code>), so no GPU is needed, except <code>test_worker_lifetime</code>, which imports mflux. A single test:</p>
 <div class="codewrap"><pre>cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python3.12 -m unittest test_core.ValidationTests.test_profiles</pre></div>
 <h3>Run the app during development</h3>
 <p>Always use <code>bin/photo-gen …</code>: it sets the interpreter, <code>PYTHONPATH</code> and offline environment. The system <code>python3</code> lacks MLX and Pillow. There is no build step and no linter configuration.</p>
@@ -923,21 +929,29 @@ GET /health  with  Host: evil.example
 <tr><td>2026-09-25</td><td>8-step discovery: in mflux, N steps = N NFE; 8-step gate passed → FAST profile</td><td><code>scheduler-nfe-note.md</code>, <code>8step-quality-gate-report.md</code></td></tr>
 <tr><td>2026-09-25</td><td>Caching rejected: low cross-step redundancy</td><td><code>cache-audit-report.md</code></td></tr>
 <tr><td>2026-09-25</td><td>heretic-v2 text encoder closed: compatible, but no advantage</td><td><code>te-heretic-v2-report.md</code></td></tr>
-<tr><td>2026-09-25</td><td>Upstream reports filed: mflux-community/mflux #760 (transformer lifetime), #761 (fp32 hidden stream); no maintainer response yet</td><td><code>upstream-mflux-issue-SUBMITTED.md</code></td></tr>
+<tr><td>2026-09-25</td><td>Upstream reports filed: mflux-community/mflux #760 (transformer lifetime), #761 (fp32 hidden stream). Both were closed 2026-10-01 and fixed upstream in mflux 0.21.0 (#802, #803). Production Z-Image stays on 0.20.0, because 0.21.0 changes the reference hashes</td><td><code>upstream-mflux-issue-SUBMITTED.md</code></td></tr>
 <tr><td>2026-09-25</td><td>Phase 3 began: resolution gates, sigma-schedule audit, model/kernel research</td><td><code>research/experiments/phase3-plan.md</code></td></tr>
+<tr><td>2026-09-28</td><td>FAST validated at 512², 768² and 1024² by direct blinded gates → tag v2. Phase 3 measurements: block-sensitivity map (no block removable), FFN-width reduction blocked without recovery training, quantization speed map (q4 g64 fastest), NAX dispatch verified, kernel profile</td><td><code>fast-resolution-gates-report.md</code>, <code>block-sensitivity-map.md</code>, <code>ffn-reduction-design.md</code>, <code>quantization-map.md</code>, <code>nax-status.md</code>, <code>kernel-profile.md</code></td></tr>
+<tr><td>2026-09-29</td><td>Step-count gates: ULTRA (bf16 + 4) validated at 512² only, BALANCED (bf16 + 5) at 1024² only (768² not confirmed); 4-step Z-Image base + LoRA probe rejected</td><td><code>step-count-quality-gate/results.md</code>, <code>4step-probe/results.md</code></td></tr>
+<tr><td>2026-10-07</td><td>Phase 4: image-task layer and Qwen-Image-2.1 editing on mflux 0.21.0 in a separate venv; G0 capability CAPABLE at 512 and 1024; mflux kept over sd.cpp (G1) → tag v3</td><td><code>research/qwen/PHASE4-INDEX.md</code>, <code>QWEN-EDITING-QUALITY.md</code></td></tr>
+<tr><td>2026-10-07</td><td>Phase 5: backend identity, edit memory policy P2 (pixel-identical, −1.35 GB at 1024), real-photograph gate G2 on 16 CC0/PD photos: <strong>editing REJECTED</strong> at 512 and 1024</td><td><code>research/qwen/PHASE5-INDEX.md</code>, <code>research/editing/real-world/results.md</code></td></tr>
+<tr><td>2026-10-08</td><td>Phase 6: the app labels editing research-only (G2 REJECTED); the Q-Q diagnostic found 8-bit weights do not fix the text garbling (q4 not the primary cause) → tag v4</td><td><code>research/qwen/PHASE6-INDEX.md</code>, <code>research/qwen/QWEN-QQ-DIAGNOSTIC.md</code></td></tr>
 </table>
 </section>
 
 <!-- ============================================================ -->
 <section id="next">
 <h2>What's next? <a class="anchor" href="#next">#</a></h2>
-<div class="callout info"><p class="t">Research directions, not currently supported production features.</p></div>
+<div class="callout info"><p class="t">Research directions, not currently supported production features. Nothing here starts without a decision.</p></div>
 <ul>
-<li><strong>Resolution validation: done</strong> (FAST validated at all three sizes). The sigma-schedule audit is also complete: mflux's resolution-dependent shift differs from the official static schedule but showed no quality or runtime cost (<code>research/experiments/sigma-schedule-audit.md</code>).</li>
-<li><strong>Model reduction:</strong> a block-sensitivity map, and a structurally valid FFN-width reduction experiment.</li>
-<li><strong>Quantization:</strong> a speed map of the other MLX formats (q3/q5/q6, group sizes, mxfp4/nvfp4/mxfp8) before any quality work.</li>
-<li><strong>Apple/MLX/Metal kernels and NAX:</strong> profiling the denoise loop, and establishing which kernels actually use the M5's neural accelerators.</li>
-<li><strong>Few-step distillation:</strong> a feasibility study only; no training planned.</li>
+<li><strong>Done or closed:</strong> resolution validation (FAST at all three sizes); the sigma-schedule audit; the step-count gates (ULTRA 512², BALANCED 1024²); the block-sensitivity map; the quantization speed map (q4 g64 stays fastest); NAX verification and the kernel profile; the 4-step probe (rejected). Structured FFN reduction is <strong>blocked</strong> (it needs recovery training). Few-step distillation exists only as a desk feasibility study (<code>research/experiments/distillation-feasibility.md</code>); nothing was trained.</li>
+<li><strong>Text-to-image, open:</strong> whether a dedicated 6-step gate at 768² is worth running; mflux 0.21.0 for Z-Image is deferred, because it changes the reference hashes and would need its own parity and gate work.</li>
+<li><strong>Editing, open</strong> (it stays research-only either way):
+<ul>
+<li>a VAE round-trip ceiling test (backlog Q-V): do the staged photos' small texts survive the VAE alone at 512 and 1024?</li>
+<li>a desk survey of alternative editing models that fit 16 GB (Q-A).</li>
+</ul>
+See <code>research/EXPERIMENT-BACKLOG.md</code> and <code>research/qwen/PHASE6-INDEX.md</code> §7.</li>
 </ul>
 </section>
 
@@ -958,11 +972,14 @@ GET /health  with  Host: evil.example
 <tr><td>(2026-10-07) mflux's README says its Qwen-Image-Edit command uses <code>Qwen-Image-Edit-2511</code>; its model config names <code>Qwen-Image-Edit-2509</code></td><td>mflux source</td><td>not used (that 20B family doesn't fit 16 GB); recorded in <code>research/qwen/QWEN-SOURCE-AUDIT.md</code> D1</td></tr>
 <tr><td>(2026-10-07) <code>mlx-community/Qwen-Image-2.1-mflux-q4</code> declares Apache-2.0</td><td>the upstream Qwen Research License</td><td>pack not used (also text-only); D2</td></tr>
 <tr><td>(2026-10-07) sd.cpp's Qwen-2.1 docs use <code>--cfg-scale 6.0</code>; the official pipeline samples without guidance</td><td>Diffusers <code>QwenImage21Pipeline</code> / model card</td><td>both runtimes run at guidance 1.0; D4</td></tr>
+<tr><td>(2026-10-08) Phase 5 reports: R04's task label said "black-bean dip" (it was black olives); one table counted criterion S in items instead of FAIL marks; several approximate times disagreed with commit times</td><td>task manifest, <code>results-summary.json</code>, <code>git log</code></td><td>corrected in place with a visible note (<code>e7e0b61</code>); no score changed</td></tr>
+<tr><td>(2026-10-08) "PST" in the Phase 5–6 records</td><td>the machine's zone, Asia/Manila</td><td>it means Philippine Standard Time (UTC+8), not US Pacific</td></tr>
+<tr><td>(2026-10-08) <code>/capabilities</code> said only "experimental" for image-edit, which did not say it had been rejected</td><td><code>research/editing/real-world/results.md</code></td><td>the app now reports <code>research-only</code> + <code>quality_status</code> (<code>a4f9d57</code>); the immutable manifest keeps <code>status: experimental</code></td></tr>
 </table>
 </section>
 
 <footer>
-photo-gen guide · generated 2026-09-25, updated 2026-09-28 (v2) and 2026-10-07 (Phase 4: image-task layer, experimental Qwen editing) · photo-gen's own code is MIT-licensed (<code>LICENSE</code>); third-party software and model weights keep their own licenses (<code>docs/THIRD-PARTY-LICENSES.md</code>) · self-contained, works offline (no external resources).
+photo-gen guide · generated 2026-09-25, updated 2026-09-28 (v2), 2026-10-07 (Phase 4: image-task layer, Qwen editing; Phase 5: G2) and 2026-10-08 (Phase 6: research-only status, Q-Q, v4) · photo-gen's own code is MIT-licensed (<code>LICENSE</code>); third-party software and model weights keep their own licenses (<code>docs/THIRD-PARTY-LICENSES.md</code>) · self-contained, works offline (no external resources).
 </footer>
 </main>
 </div>

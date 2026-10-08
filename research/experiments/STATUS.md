@@ -31,7 +31,7 @@ Negative results are kept on purpose.
 | TMP pruning reproduction | **BLOCKED** | pruning-tmp-assessment.md | no pruned weights or code; recovery training infeasible locally |
 | Tier-1 TE substitution (heretic V2) | **CLOSED / REJECTED** | te-heretic-v2-report.md, tev2/PROVENANCE-heretic-v2.json | compatible and zero-cost, but no advantage; artifacts removed |
 | User explicit-prompt TE test (`te_userfile_ab.py`) | **CLOSED** (not run, by decision) | te-heretic-v2-report.md | — |
-| Upstream mflux report | **SUBMITTED** 2026-09-25: mflux-community/mflux #761 (fp32 stream), #760 (transformer lifetime) | upstream-mflux-issue-SUBMITTED.md | awaiting maintainer response |
+| Upstream mflux report | **SUBMITTED** 2026-09-25: mflux-community/mflux #761 (fp32 stream), #760 (transformer lifetime) | upstream-mflux-issue-SUBMITTED.md | awaiting maintainer response *(update 2026-10-08: both closed 2026-10-01 and fixed upstream in mflux 0.21.0, #802 and #803; production Z-Image stays on 0.20.0, see the "mflux 0.21.0 for Z-Image" row)* |
 | E10 fp32-promotion ablation | **CLOSED** (answered) | e10/, E02-RESULTS.md correction | the two required sources are the timestep embedding and RoPE; pad tokens are not a source (corrects E01/E02 docs) |
 | Performance map (tiers) | **REFERENCE DATA** | PERFORMANCE-MAP.md | cold + ABBA sustained; 1024² sustained block not steady-state (disclosed) |
 | mflux 512² sigma shift ≠ official static 3.0 | **CLOSED** (2026-09-25: implementation difference, quality-neutral) | sigma-schedule-audit.md, sigma/ | source-verified FLUX dynamic shift vs official static 3.0; blinded 24 pairs each: 512² M 3 / S 0 / 21 ties, 768² M 2 / S 0 / 22 ties, 1024² sanity 11 ties + 1 S; no runtime effect; production unchanged |

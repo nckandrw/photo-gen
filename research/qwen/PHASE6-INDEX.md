@@ -105,9 +105,60 @@
   - `f2ff5a6` q8 deleted;
   - the closing commit, tagged v4.
 - **Push:** fast-forward of `main` from `401e400`, no force.
-- **Tags:** v3 unchanged (`1c097eb` → `401e400`); v4 annotated on the closing commit.
+- **Tags:**
+  - v3 unchanged: `1c097eb` → `401e400`;
+  - **v4: annotated tag object `1741179` → `33669eb`.** Pushed as `refs/tags/photo-gen-m5-16gb-v4`. `ls-remote` showed `main` = `33669eb`, v3^{} = `401e400` and v4^{} = `33669eb`.
+- **After v4:** `main` has docs-only resume-aid commits (ledger, this index, rater prompts, guide). They change no code, config or evidence. The v4 tree is the Phase 6 state.
 
 ## 6. Open decisions for the user
 1. **Source checkpoint (33.1 GB):** Q-Q, the reason given for retaining it, has now been run. Keep it (bf16 and dense-weight research stay possible) or trigger DELETE. The model can be re-acquired exactly (`QWEN-ASSET-PROVENANCE.md` §6–§7).
 2. **Phase 7:** the VAE round-trip ceiling test (Q-V), and/or a desk survey of alternative editing models (Q-A). Or stop investing in editing.
 3. **The edit task:** it stays as research-only. Removing it remains your call.
+4. **Dependabot:** GitHub reports 4 open alerts on `config/qwen-python-requirements.lock.txt` (the edit venv, locked in Phase 4): fsspec (high), and urllib3 (1 medium, 2 high). They are not fixed, because venv packages must not be upgraded (CLAUDE.md hard constraint). The edit backend runs offline (`HF_HUB_OFFLINE=1`, loopback API). Fixing them would change the pinned edit environment and need a parity re-check (see §7).
+
+## 7. How to start each next step (nothing here has started)
+**Before any GPU work:** ask once for clean conditions (heavy apps closed, AC). Remind the user that research harnesses bypass `data/gpu.lock`.
+
+**Source checkpoint DELETE** (only on the user's word):
+1. `mflux/.venv/bin/python3.12 research/qwen/assets/verify_assets.py research/qwen/assets/qwen-assets-verification-<new-name>.json`, to a new file.
+2. Run `df -k .` and save the output.
+3. Confirm `models/research/qwen-image-2.1` is a real directory, not a symlink, then `rm -r` it.
+4. Run `df -k .` again.
+5. Log it as `QWEN-ASSET-PROVENANCE.md` §8, then update STATUS and MEMORY.
+
+Re-acquisition stays exact: `research/qwen/qwen-download.sh` at revision `d26bb61`, checked against `research/qwen/upstream-file-manifest.json`.
+
+**Q-V, the VAE round-trip ceiling test** (the recommended Phase 7 diagnostic; `EXPERIMENT-BACKLOG.md` Q-V; `QWEN-QQ-DIAGNOSTIC.md` §7):
+- **Pre-register first,** like `research/qwen/qq/PROTOCOL.md`: question, items, scoring, classification thresholds, and a commit before any output exists.
+- **Inputs:** the staged G2 sources R02, R12 and R15 (`input_image.staged_path` in `research/qwen/runs/G2-<budget>-<task>/sidecar.json`). Use the same output sizes as G2: `output_dimensions` in `app/photogen/runtimes/mflux_qwen_edit.py`, or the G2 sidecar width and height.
+- **VAE:** load only the q4 export's VAE (fp32; identical to q8's) through mflux 0.21.0's own loader, as the worker's lifetime policy does: `Qwen21Initializer.load_components` with a vae-only weight definition, in `app/photogen/runtimes/mflux_qwen_edit_worker.py` `_install_lifetime_policy`. Then encode and decode each source at the output size, exactly as the edit path does (find the edit variant's preprocessing in `mflux/models/qwen21/variants/edit/qwen_image_21_edit.py`). Run it in `mflux-qwen/.venv`. The work is seconds per image.
+- **Scoring:**
+  - reuse the text elements `research/qwen/qq/qq_blind.py` `ELEMENTS` and the categories PRESERVED / DEGRADED / GARBLED / REMOVED / NA;
+  - a fresh-subagent rater, using `research/qwen/qq/review/RATER-PROMPT.md` as the template;
+  - freeze, then unblind; audit with `research/qwen/qq/rater_audit.py`. Subagent transcripts are in `~/.claude-.claude-nck/projects/-Users-nckandrw-Dev-photo-gen/<session-id>/subagents/agent-*.jsonl`.
+- **Reading the result:**
+  - VAE keeps the text legible → the DiT's re-synthesis is the failure (then Q-A);
+  - VAE garbles it → the VAE or the budget is the ceiling.
+
+**Q-A, alternative editing model:** a desk survey only (licence, fit within 16 GB, mflux/MLX support, published text-preservation evidence). Every Qwen-Image-Edit 20B variant is out on memory (`QWEN-SOURCE-AUDIT.md` §3).
+
+**Removing the edit task** (if the user decides to):
+- code: `app/photogen/tasks.py` routing, `runtimes/mflux_qwen_edit*.py`, `POST /edit` and `photo-gen edit`, the edit tests;
+- keep every research record, and the immutable manifest as history;
+- separate commit, and re-run the Z-Image regression.
+
+**Dependabot fix** (if the user decides to):
+- this upgrades packages in `mflux-qwen/.venv` and changes `config/qwen-python-requirements.lock.txt`, the pinned edit environment;
+- it needs a parity re-check: the E05 512 seed-42 edit must still give `bd548f1b…` / `bdc03c36…`, plus `verify --edit`;
+- never touch `mflux/.venv` (Z-Image).
+
+## 8. Session mechanics that worked (Phase 5–6)
+- **Long GPU chains:** `nohup zsh <chain>.sh > <log> 2>&1 < /dev/null & disown`, each with a completion marker. Wait with an `until grep -q MARKER log; do sleep 20; done` loop (blocking foreground `sleep` is refused), or with the Monitor tool. A Monitor expires after 30 minutes; re-arm it.
+- Never edit a script, `app/` or `config/` while a chain uses it.
+- **Blind reviews:**
+  - generate the item list from run records, then `prepare` (key sealed first);
+  - commit before rating;
+  - spawn a fresh general-purpose subagent in the background with the committed prompt (G2: `research/editing/real-world/g2/RATER-PROMPT.md`; Q-Q: `research/qwen/qq/review/RATER-PROMPT.md`);
+  - run format-only checks, freeze, commit, then unblind, tally and audit;
+  - the session assistant views no output before the freeze. Post-freeze looks are descriptive only and are disclosed.
+- **Watchdog:** abort if swap grows by more than 6144 MB or on 20 consecutive critical-pressure samples (`run_edit.sh`, `export-q8.sh`). Kill the python child as well as the wrapper.
