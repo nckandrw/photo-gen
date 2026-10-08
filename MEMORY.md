@@ -124,7 +124,7 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
   - the start swap was 4.3 GB;
   - the monitor samples about every 2.5 s;
   - regional SSIM doesn't track the text failures.
-- **Close:** report `QWEN-QV-DIAGNOSTIC.md`; docs (STATUS, backlog, QWEN-EDITING-QUALITY, PERFORMANCE-MAP, guide, README, RELEASE-NOTES "Unreleased", CLAUDE.md); `PHASE7-INDEX.md`. Not pushed or tagged.
+- **Close** (`a257500`, `6981582`): review crops preserved (`research/review-crops/MANIFEST.sha256`, directive §11); budgets > 1024 labelled untested; report `QWEN-QV-DIAGNOSTIC.md`; docs (STATUS, backlog, QWEN-EDITING-QUALITY, PERFORMANCE-MAP, guide, README, RELEASE-NOTES "Unreleased", CLAUDE.md); `PHASE7-INDEX.md`. Not pushed or tagged.
 - **Dependabot:** the 4 alerts are documented in `docs/REPRODUCIBILITY.md` §5.1. The lock is unchanged.
 
 ---

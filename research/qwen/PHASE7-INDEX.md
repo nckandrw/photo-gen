@@ -70,7 +70,9 @@
   - `6e527f0` rater prompt;
   - `670642e` frozen sheets;
   - `f718359` unblinded tally;
-  - the closing commit (report, docs, this index, ledger).
+  - `a257500` report, docs, this index, ledger;
+  - `6981582` review crops preserved, and budgets > 1024 labelled as untested;
+  - plus this commit-list update.
 - **Not pushed, not tagged.** `origin/main` is still `56880d2`; v4 stays at `33669eb`.
 
 ## 5. Open decisions for the user
