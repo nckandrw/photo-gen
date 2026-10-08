@@ -59,7 +59,7 @@ Full verification record: `research/qwen/assets/qwen-assets-verification.json`, 
 - **Disk:** free space went from 186,092,972 KiB to 196,517,288 KiB, so **+10.67 GB freed** (the directory held 10.64 GB of file bytes; the rest is filesystem block overhead). Free space is now 201.2 GB (`df-before.txt`, `df-after.txt`).
 
 ## 6. Post-G2 decision on the source checkpoint
-Decided 2026-10-07 at about 17:45 PST, after G2 completed and was tallied. Outcome: **REJECTED at 512 and 1024**; `research/editing/real-world/results.md`.
+Recorded 2026-10-07 and committed at 17:23:40 PST in `0ccc0b7`, after G2 completed and was tallied (scores frozen 17:13). *Correction (2026-10-08):* this line previously said "decided at about 17:45 PST"; the commit time is the evidence. Outcome: **REJECTED at 512 and 1024**; `research/editing/real-world/results.md`.
 
 **Re-verification after G2.**
 - `verify_assets.py` was re-run at 16:50, after the last G2 edit, to a new file: `assets/qwen-assets-verification-post-g2.json`, log `verify-assets-post-g2.log`. It is a full read with no cache, and took 31 s.

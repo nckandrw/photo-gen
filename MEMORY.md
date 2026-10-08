@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-07 ~18:30 (PHASE 5 COMPLETE; read `research/qwen/PHASE5-INDEX.md` first)._
+_Last updated 2026-10-08 (PHASE 6 IN PROGRESS: corrections, status labels, Q-Q diagnostic, v4; see the 2026-10-08 entry). Phase 5 completed 2026-10-07; its last commit `63c24a5` is at 17:33:39 (this line previously said "~18:30")._
 
 **PHASE 5 (2026-10-07) COMPLETE → `research/qwen/PHASE5-INDEX.md`. Nothing is running.**
 - **Qwen editing: G2 REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
@@ -84,6 +84,15 @@ _The Phase 4 snapshot below is kept for reference._
   - `models/qwen/qwen-image-2.1-edit-mflux-q4` (canonical export) and `models/qwen/ABORTED-…` (a byte-identical duplicate);
   - `models/text_encoders/Qwen3VL-8B-Instruct-Q4_K_M.gguf` + `mmproj-…-F16.gguf` (sd.cpp comparator);
   - `mflux-qwen/.venv` (edit venv).
+
+---
+
+## 2026-10-08 — Phase 6 (directive "PHOTO-GEN Phase 6 — Phase 5 closeout, Q-Q diagnostic, status hardening, and v4 release")
+- **Step 0, checks:** working tree clean; `origin/main` = `401e400`; v3 = tag object `1c097eb` → `401e400` (local and remote); **15 Phase 5 commits** `0d15f49` … `63c24a5` (`git rev-list --count 401e400..63c24a5`). *Correction:* the Phase 5 closing chat summary said 13, then 19.
+- **Step 1, documentation corrections** (docs only; every correction is marked in place; no score, evidence file or criterion changed; `SCORES-FROZEN.csv` still `f14deba4…`):
+  1. `results.md` per-item table: R04 is "guacamole → black olives" (it said "black-bean dip").
+  2. `QWEN-EDITING-QUALITY.md` G2 table: criterion S counts FAIL marks: 512 = 3 marks on 2 items (R09 adh + pres, R12 pres); 1024 = 2 marks on 2 items (it said "3 of 4 items" / "2 of 4 items").
+  3. Times now from commit timestamps: amendment 1 = `f16e092` 12:11:01 (4 s before the chain's 12:11:05; it said ~12:15); amendment 2 = `cf96d4a` 16:49:21 (it said ~16:55); provenance §6 = `0ccc0b7` 17:23:40 (it said about 17:45); Phase 5 complete = `63c24a5` 17:33:39 (it said ~18:30); sources acquired ~12:00–12:11 (it said ~12:00–12:20).
 
 ---
 

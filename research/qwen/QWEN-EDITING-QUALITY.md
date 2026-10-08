@@ -128,12 +128,14 @@ The full record is in `research/editing/real-world/results.md` and the pre-regis
 | text (R02, R08, R12, R15) | R08 PASS; **R02, R12, R15 FAIL** | R08 PASS; **R02, R12, R15 FAIL** |
 | quality MINOR / MAJOR | 6 / 0 | 1 / 0 |
 | composition FAIL | 0 | 0 |
-| second-seed adherence + preservation FAILs | 3 of 4 items | 2 of 4 items |
+| second-seed adherence + preservation FAIL marks (criterion S, ≤ 1 to pass) | **3 marks on 2 of 4 items** (R09 adherence + preservation, R12 preservation) | **2 marks on 2 of 4 items** (R09 preservation, R12 preservation) |
 | operations / determinism | 23/23 clean; 3/3 repeats bit-identical | 22/22 clean; 2/2 repeats bit-identical |
 | wall, sustained chain under the monitor (median) | 104 s (first, cool runs ≈ 80 s) | 592 s (first run 523 s) |
 | peak footprint (median) | 8.16 GB | 10.87 GB |
 | memory/UX class | COMFORTABLE | MARGINAL (wall time) |
 | **decision** | **REJECTED** | **REJECTED** |
+
+*Correction (2026-10-08, Phase 6):* the second-seed row previously read "3 of 4 items" / "2 of 4 items". Criterion S counts FAIL marks, not items (`protocol.md` §7); `results.md` §1 and `results-summary.json` (`S.fail_marks`) already had the correct tally. No score changed.
 
 **Failure modes (systematic: they recur across seeds and budgets, and the repeats are deterministic):**
 1. **Incidental text is re-synthesized and garbled.**

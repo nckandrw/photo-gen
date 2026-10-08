@@ -7,7 +7,7 @@
 - G2 rater: a **fresh subagent** (provenance-blind);
 - GPU blocks: **clean conditions** (heavy apps closed, AC).
 
-**Outcome: Phase 5 COMPLETE (2026-10-07 ~18:30). Qwen editing: G2 REJECTED at 512 and 1024; not promoted; research opt-in only. Source checkpoint: RETAIN LOCALLY. Nothing is running. Phase 5 commits are NOT pushed.**
+**Outcome: Phase 5 COMPLETE (2026-10-07; last Phase 5 commit `63c24a5` at 17:33:39 PST. *Correction (2026-10-08):* this line previously said "~18:30"). Qwen editing: G2 REJECTED at 512 and 1024; not promoted; research opt-in only. Source checkpoint: RETAIN LOCALLY. Nothing is running. Phase 5 commits are NOT pushed.**
 
 ## 0. Start here (new session)
 1. Read `CLAUDE.md`, then `MEMORY.md` ("Current state" plus the 2026-10-07 Phase 5 entry), then this file.
@@ -38,7 +38,7 @@
   - Preflight: Z-Image 5/5 exact; production edit `bd548f1b` exact.
   - Verdict **ADOPT** (`memory/ab-summary.json`); runtime switched in `973ef7f`.
   - Production-path re-check (`memory/postadopt/`): `bd548f1b` / `bdc03c36`, same `configuration_id` and `edit_id`, peak 8.91 → 8.17 GB at 512.
-- **~12:00–12:20:** G2 sources acquired (16 CC0/PD, `source-manifest.json`).
+- **~12:00–12:11:** G2 sources acquired (16 CC0/PD, `source-manifest.json`); committed with amendment 1 and the frozen chain in `f16e092` at 12:11:01. *Correction (2026-10-08):* this line previously said "~12:00–12:20", which would overlap the chain start.
   - Two Panasonic/Sony MPO camera JPEGs were rejected by photo-gen; the input fix is `e653122` (amendment 1 in `protocol.md`).
   - Regions and orientation were checked on the staged images.
 - **12:11:05–16:45:07:** G2 chain at git `f16e092` (`G2_CHAIN_DONE`). 45/45 rc 0, no abort, 0 critical samples, all 5 repeats bit-identical. *Correction:* earlier versions of this file said "~12:25".
@@ -46,7 +46,7 @@
 - **16:50:** `verify_assets.py` post-G2: source checkpoint and canonical export unchanged.
 - **~16:50–17:12:** fresh-subagent rater. The audit shows it read only `g2/blind/` and its crops. Format checks passed; frozen 17:13 (`6577b09`).
 - **17:13:** unblind → `analyze_g2.py` → **REJECTED at 512 and 1024**. Spot check after the freeze (descriptive): all 6 forcing text FAILs confirmed at native resolution.
-- **~17:30–18:30:** `results.md`, `QWEN-EDITING-QUALITY.md` § G2, `QWEN-ASSET-PROVENANCE.md` §6 (`0ccc0b7`); docs (closing commit).
+- **17:23–17:34 (commit times):** `results.md`, `QWEN-EDITING-QUALITY.md` § G2, `QWEN-ASSET-PROVENANCE.md` §6 (`0ccc0b7`, 17:23:40); docs (`2007271`, 17:30:11); docs corrections (`d1dc2b7`, 17:33:30); this index (`63c24a5`, 17:33:39). *Correction (2026-10-08):* this line previously said "~17:30–18:30".
 - **Open user decisions:**
   1. keep or remove the rejected edit task;
   2. Q-Q diagnostic (dense-weight export, `EXPERIMENT-BACKLOG.md`) or trigger the source-checkpoint DELETE;
@@ -73,4 +73,6 @@
 - `0ccc0b7`: G2 results (REJECTED), rater audit, sidecars, Qwen G2 section, source disposition RETAIN LOCALLY
 - `2007271`: Phase 5 docs + ledger + this index
 - `d1dc2b7`: docs corrections (adherence qualified to primary items; PARTIAL attribution; sustained-chain timing baseline; status wording)
+- `63c24a5`: this index's final commit list and the open app-label item
+- **Total: 15 Phase 5 commits after `401e400`** (`0d15f49` … `63c24a5`). *Correction (2026-10-08):* a chat summary at the close of Phase 5 said 13 and then 19; `git rev-list --count 401e400..63c24a5` is 15.
 - **Open in the app (not changed; user decision):** `/capabilities` reports the edit task as `status: experimental`, and the job warning says "no edit configuration has passed a quality gate". Both are accurate, but neither names G2 REJECTED.

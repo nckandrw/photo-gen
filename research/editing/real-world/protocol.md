@@ -125,7 +125,7 @@ That is 45 edits in total (512: 23; 1024: 22). The seeds are fresh: every earlie
 ## 11. Outputs of the gate
 `source-manifest.json`, `benchmark.csv` (one row per run), `scores.csv` (frozen rater scores plus the unblinded mapping), `results.md` (verdicts, memory class, decision, G0-vs-G2 comparison), and `research/qwen/QWEN-EDITING-QUALITY.md` § G2 (Qwen-specific). The benchmark definition here stays model-independent.
 
-## Amendment 1 (2026-10-07, ~12:15 PST): source acquisition. Made before any G2 edit ran; no G2 output exists. Criteria unchanged.
+## Amendment 1 (2026-10-07; committed 12:11:01 PST in `f16e092`, 4 s before the G2 chain started at 12:11:05; this header previously said "~12:15 PST"): source acquisition. Made before any G2 edit ran; no G2 output exists. Criteria unchanged.
 **What happened.** `fetch_sources.py` (as committed in `8694119`, after this pre-registration) downloaded and decoded the full-size sources. That is the first time any full-size source was decoded. Two problems turned up:
 
 1. **Filename bug (tooling).** Commons' `imageinfo.url` now ends in a `?utm_…` query string, and the script used it in the local filename. Fix: take the name from the URL path.
@@ -159,7 +159,7 @@ That is 45 edits in total (512: 23; 1024: 22). The seeds are fresh: every earlie
 - **Colour:** R15 carries a Display P3 profile. As §3 states, it is ignored (no colour management), and the rater sees the staged pixels.
 - **Provenance:** 14 sources are CC0 and 2 are Public domain (R09, R15); every licence passed the script's CC0/PD check. `source-manifest.json` records every field listed in §3.
 
-## Amendment 2 (2026-10-07, ~16:55 PST): rating procedure. Made after the 45 G2 edits and `g2_blind.py prepare`, before any G2 output was viewed or scored by anyone. Criteria unchanged.
+## Amendment 2 (2026-10-07; committed 16:49:21 PST in `cf96d4a`, before the rater started; this header previously said "~16:55 PST"): rating procedure. Made after the 45 G2 edits and `g2_blind.py prepare`, before any G2 output was viewed or scored by anyone. Criteria unchanged.
 **Run records at this point (mechanical, from `benchmark.csv`, no output viewed):** 45/45 completed, rc 0, no aborts, 0 critical-pressure samples; all 5 repeats equal their originals in RGB pixels, RGBA and both ids. These records feed O, D and the memory class only.
 
 **Procedural notes (nothing in §2–§9 changes):**
@@ -171,3 +171,6 @@ That is 45 edits in total (512: 23; 1024: 22). The seeds are fresh: every earlie
 **Disclosed limits of the anonymization (§5):**
 - **Pixel dimensions.** §5 says equal display size hides the budget. That holds only partly: the output size is derived per budget with multiple-of-32 rounding, so the aspect ratio differs slightly between budgets for 15 of 16 tasks (R07 is the exception), and so do the composite sheet sizes (e.g. R01: 1024×1418 at 512, 1024×1472 at 1024). Sheet size can show that two items are different runs of the same task, but not which budget is which. Disclosed alongside the sharpness hint; not re-prepared.
 - **Rater context.** The rater is a fresh subagent whose harness may load the repository's `CLAUDE.md`, which names the edit backend and mentions G2, but contains no run, item or key information. The rater prompt names no model, budget, seed, run kind, threshold or criterion.
+
+## Corrections (2026-10-08, Phase 6)
+The two amendment headers above gave approximate clock times ("~12:15", "~16:55") that were later than the commits that actually carry the amendments. The headers now give the commit times from `git log`; the earlier wording is quoted in each header. The amendments' content, and every criterion, threshold, task, seed and region, are unchanged.

@@ -34,7 +34,7 @@ Mechanical tally: `analyze_g2.py` → `results-summary.json`. Per-run records: `
 | R01 | top white → dark green (portrait) | PASS/PASS/PASS/PASS/– | | PASS/PASS/PASS/PASS/– | |
 | R02 | remove the van (street) | PASS/**FAIL**/PASS/PASS/**FAIL** | | PASS/**FAIL**/PASS/PASS/**FAIL** | |
 | R03 | blue canvas shoes → brown suede | PASS/PARTIAL/PASS/PASS/– | | PASS/PARTIAL/PASS/PASS/– | |
-| R04 | guacamole → black-bean dip | PASS/PASS/PASS/PASS/– | | PASS/PASS/PASS/PASS/– | |
+| R04 | guacamole → black olives | PASS/PASS/PASS/PASS/– | | PASS/PASS/PASS/PASS/– | |
 | R05 | add a sleeping grey cat | PASS/PASS/PASS/MINOR/– | | PARTIAL/PASS/PASS/PASS/– | |
 | R06 | winter scene (global) | PASS/PARTIAL/PASS/MINOR/– | | PASS/PASS/PASS/PASS/– | |
 | R07 | car turquoise → red | PASS/PASS/PASS/PASS/– | | PASS/PASS/PASS/PASS/– | |
@@ -49,6 +49,8 @@ Mechanical tally: `analyze_g2.py` → `results-summary.json`. Per-run records: `
 | R16 | add a croissant | PASS/PASS/PASS/PASS/– | | PASS/PASS/PASS/PASS/– | |
 
 The rater's note for every item is in `scores.csv`.
+
+*Correction (2026-10-08, Phase 6):* R04's edit label in this table previously read "guacamole → black-bean dip". The task was black olives (`task-manifest.json`, both run sidecars, `g2/blind/ITEMS.md`, the rater's notes). Only the label changed; no score did.
 
 ## 3. Why it was rejected: two systematic failure modes
 Adherence was strong on the primary items: 30 of 32 PASS and none FAIL. One second-seed item did fail adherence: R09 at 512, where the dragon fruit was left unchanged. The one primary PARTIAL at each budget is mild (R09 at 512; R05 at 1024, where the cat is resting rather than asleep). Composition never failed. No MAJOR artifact occurred. **The failures are in preservation**, and they repeat across seeds and budgets, so they are properties of the configuration rather than unlucky samples.
