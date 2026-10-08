@@ -1,6 +1,6 @@
 {
  "tool": "research/qwen/qv-reference/analyze_qvr.py",
- "classification": "PENDING-REVIEW",
+ "classification": "RUNTIME-MATCHED",
  "gates": {
   "weights": true,
   "conv_banding": true,
@@ -135,7 +135,189 @@
   "R15-1024": "PE"
  },
  "tf32_attribution": "precision-mode difference (documented MLX default), not a defect",
- "review": null,
+ "review": {
+  "calls": {
+   "R02-512-t1": {
+    "TF": "GARBLED",
+    "D0": "GARBLED",
+    "A1": "GARBLED",
+    "A2": "GARBLED"
+   },
+   "R02-512-t2": {
+    "TF": "GARBLED",
+    "D0": "DEGRADED",
+    "A1": "GARBLED",
+    "A2": "GARBLED"
+   },
+   "R12-512-t1": {
+    "D0": "PRESERVED",
+    "A1": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R12-512-t2": {
+    "D0": "PRESERVED",
+    "A1": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R12-512-t3": {
+    "D0": "DEGRADED",
+    "A1": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R12-512-t4": {
+    "D0": "PRESERVED",
+    "A1": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R12-512-t5": {
+    "D0": "GARBLED",
+    "A1": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R15-512-t1": {
+    "A1": "PRESERVED",
+    "ID": "DEGRADED",
+    "D0": "PRESERVED",
+    "A2": "PRESERVED",
+    "TF": "PRESERVED"
+   },
+   "R15-512-t2": {
+    "A1": "DEGRADED",
+    "ID": "GARBLED",
+    "D0": "PRESERVED",
+    "A2": "DEGRADED",
+    "TF": "DEGRADED"
+   },
+   "R15-512-t3": {
+    "A1": "PRESERVED",
+    "ID": "GARBLED",
+    "D0": "DEGRADED",
+    "A2": "PRESERVED",
+    "TF": "PRESERVED"
+   },
+   "R15-512-t4": {
+    "A1": "GARBLED",
+    "ID": "GARBLED",
+    "D0": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R15-512-t5": {
+    "A1": "GARBLED",
+    "ID": "GARBLED",
+    "D0": "GARBLED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R02-1024-t1": {
+    "A1": "GARBLED",
+    "D0": "PRESERVED",
+    "A2": "GARBLED",
+    "TF": "GARBLED"
+   },
+   "R02-1024-t2": {
+    "A1": "DEGRADED",
+    "D0": "PRESERVED",
+    "A2": "DEGRADED",
+    "TF": "DEGRADED"
+   },
+   "R12-1024-t1": {
+    "A2": "DEGRADED",
+    "A1": "DEGRADED",
+    "D0": "PRESERVED",
+    "TF": "DEGRADED"
+   },
+   "R12-1024-t2": {
+    "A2": "PRESERVED",
+    "A1": "PRESERVED",
+    "D0": "PRESERVED",
+    "TF": "PRESERVED"
+   },
+   "R12-1024-t3": {
+    "A2": "GARBLED",
+    "A1": "GARBLED",
+    "D0": "PRESERVED",
+    "TF": "GARBLED"
+   },
+   "R12-1024-t4": {
+    "A2": "PRESERVED",
+    "A1": "PRESERVED",
+    "D0": "PRESERVED",
+    "TF": "PRESERVED"
+   },
+   "R12-1024-t5": {
+    "A2": "GARBLED",
+    "A1": "GARBLED",
+    "D0": "PRESERVED",
+    "TF": "GARBLED"
+   },
+   "R15-1024-t1": {
+    "TF": "PRESERVED",
+    "A2": "PRESERVED",
+    "D0": "PRESERVED",
+    "A1": "PRESERVED"
+   },
+   "R15-1024-t2": {
+    "TF": "PRESERVED",
+    "A2": "PRESERVED",
+    "D0": "PRESERVED",
+    "A1": "PRESERVED"
+   },
+   "R15-1024-t3": {
+    "TF": "DEGRADED",
+    "A2": "DEGRADED",
+    "D0": "PRESERVED",
+    "A1": "DEGRADED"
+   },
+   "R15-1024-t4": {
+    "TF": "GARBLED",
+    "A2": "GARBLED",
+    "D0": "DEGRADED",
+    "A1": "GARBLED"
+   },
+   "R15-1024-t5": {
+    "TF": "GARBLED",
+    "A2": "GARBLED",
+    "D0": "DEGRADED",
+    "A1": "GARBLED"
+   }
+  },
+  "512": {
+   "R_A2_not_A1": 0,
+   "Q_A1_not_A2": 0,
+   "R_TF_not_A2": 0,
+   "Q_A2_not_TF": 0,
+   "ID_lost_vs_A1": 2,
+   "ID_gained_vs_A1": 0,
+   "legible": {
+    "D0": 8,
+    "A1": 3,
+    "A2": 3,
+    "TF": 3,
+    "ID": 1
+   }
+  },
+  "1024": {
+   "R_A2_not_A1": 0,
+   "Q_A1_not_A2": 0,
+   "R_TF_not_A2": 0,
+   "Q_A2_not_TF": 0,
+   "ID_lost_vs_A1": 0,
+   "ID_gained_vs_A1": 0,
+   "legible": {
+    "D0": 12,
+    "A1": 7,
+    "A2": 7,
+    "TF": 7,
+    "ID": 0
+   }
+  }
+ },
  "items": {
   "R02-512": {
    "tensors": {
