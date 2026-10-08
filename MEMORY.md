@@ -19,15 +19,18 @@ _Last updated 2026-10-09 (PHASE 8 COMPLETE). Read `research/qwen/PHASE8-INDEX.md
     - Compositing (R02-1024, n = 1): viable with a conservative feathered mask, not with G2's box.
     - Report: `research/qwen/QWEN-QVR-REFERENCE.md`.
   - **Q-A** (Phase 8): desk survey `research/editing/QA-ALTERNATIVE-MODELS.md`; FLUX.2 [klein] 4B first.
-  - **Recommendation (awaiting you, not implemented):** stop Qwen-Image-2.1-focused work, and run the FLUX.2 [klein]
-    4B VAE round-trip entry screen next (`PHASE8-INDEX.md` §6).
+  - **Primary recommendation (awaiting you, not implemented):** investigate preservation-aware compositing / local
+    editing. Next is a pre-registered compositing falsification on existing G2 outputs (no GPU).
+    - This means stopping Qwen-Image-2.1-focused model work, but keeping the edit task as the test bed.
+    - FLUX.2 [klein] 4B (VAE entry screen first) is the medium-term step.
+    - See `QWEN-QVR-REFERENCE.md` §10.
 - **Git:**
   - Phase 7 is pushed (`56880d2..817a7c2`). The **Phase 8 commits are local, NOT pushed** (the directive did not
     authorise it).
   - Tags: v4 (`1741179` → `33669eb`) is the latest. No v5, and none recommended.
 - **Open decisions (all yours):**
-  1. Stop Qwen editing work, and keep or remove the edit task.
-  2. The FLUX.2 [klein] 4B entry screen.
+  1. The compositing falsification (recommended next); stop Qwen model work, keeping the edit task as the test bed.
+  2. The FLUX.2 [klein] 4B entry screen (medium term).
   3. The Texture-Fix VAE (1.35 GB): its delete trigger is met; it is kept pending your word.
   4. The 33 GB Qwen source checkpoint: RETAIN LOCALLY; its DELETE trigger fires if Qwen work stops.
   5. Push the Phase 8 commits.

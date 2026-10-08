@@ -63,6 +63,9 @@ Hugging Face revisions are the current heads on 2026-10-09 (`api/models`).
 - `Tongyi-MAI/Z-Image-Edit`: not public (the API returned not-found/unauthorised).
 
 ## 3. Ranked shortlist and the next verification step
+*Phase 8 update:* compositing (report §10) is the recommended first step, and FLUX.2 is the medium-term in-mask
+editor. The ranking below is unchanged.
+
 1. **FLUX.2 [klein] 4B.** It is the only candidate that combines an Apache licence, a runtime already installed and
    pinned (mflux 0.21.0), a 4-step distilled editor small enough for 16 GB, and the highest-capacity VAE (f8c32).
    **Next:** an acquisition audit, then a VAE-only round trip of the staged G2 sources R02/R12/R15 at the budgets the
@@ -81,7 +84,7 @@ Hugging Face revisions are the current heads on 2026-10-09 (`api/models`).
 
 | direction | prior art (availability) | rationale | feasibility here | novelty | cheapest falsification |
 |---|---|---|---|---|---|
-| **Text-aware hard preservation** (composite original pixels back outside the edit; protect detected text) | the classic masked composite; KV-Edit (ICCV 2025, training-free background KV reuse in DiTs, code public, S) | Q-V/Q-VR: the output path loses text even with a perfect copy, so keeping the *input pixels* is the only way to keep tiny text; the Phase 8 CMP baseline measures the simplest form | high: pixel ops, no model change | low for compositing; moderate for automatic text-region protection plus seam-free blending | Phase 8 (n = 1): with G2's box it failed on coverage; with a conservative feathered whole-van mask it was **viable** (edit PASS, text kept, seam/realism MINOR). Next: an automatic, shadow-aware mask from the instruction (e.g. the edit's own difference map or a segmenter), tested on G2 |
+| **Text-aware hard preservation** (composite original pixels back outside the edit; protect detected text) | the classic masked composite; KV-Edit (ICCV 2025, training-free background KV reuse in DiTs, code public, S) | Q-V/Q-VR: the output path loses text even with a perfect copy, so keeping the *input pixels* is the only way to keep tiny text; the Phase 8 CMP baseline measures the simplest form | high: pixel ops, no model change | low for compositing; moderate for automatic text-region protection plus seam-free blending | Phase 8 (n = 1): with G2's box it failed on coverage; with a conservative feathered whole-van mask it was **viable** (edit PASS, text kept, seam/realism MINOR). Next: a pre-registered falsification with hand masks on more G2 items and both canvases. Automatic masks are untested: a difference-map mask is doubtful while the edit's drift moves most of the frame by more than 8 levels, so a segmenter or instruction-grounded mask is more likely |
 | **Localized regeneration** (regenerate only the edit region's tokens) | KV-Edit; inpainting models (FLUX Fill, mflux `fill`, L) | removes global drift: the Phase 8 identity probe (and CMP: 56 % of pixels outside the box changed) shows the editor regenerates the whole frame | medium: needs token masking inside the DiT loop (worker patch) | moderate on MLX | KV-Edit-style background-token reuse on one G2 item with Qwen-2.1 or FLUX.2 klein |
 | **Higher-capacity or text-aware VAE** | Qwen-Image-VAE-2.0 (f16c128: NED 0.962, weights not stated as released, P); FLUX.2 VAE (f8c32) | Phase 8: the runtime is not the cause; the representation is | high for a screen (VAE-only runs) | low (adopt); high (train) | the Q-A VAE entry screen |
 | **Residual editing** (predict a delta and apply it only where it is non-zero) | instruction-editing works that predict deltas (S, scattered) | preserves everything the delta does not touch, by construction | low now: needs training | high | none without a training-feasibility phase |

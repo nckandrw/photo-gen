@@ -56,6 +56,8 @@ Directive §26 applies: correct → measured → **then** optimized. Nothing bel
 | Q-A | **Justified if editing remains a goal** (Phase 7). Entry screen: a candidate's VAE/conditioning round trip keeps the G2 text elements legible at a feasible budget, before any editing gate (the Q-V harness generalises) |
 | Q-Q | **DONE (Phase 6): AGAINST.** q8 vs q4 on the six G2 text FAILs: 1 of 19 garbled elements rescued, text FAIL 6/6 in both arms; q4 not supported as the primary cause (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`) |
 | Q-VR | **DONE (Phase 8): RUNTIME-MATCHED.** MLX matches the official Diffusers CPU reference (residual = TF32 default; 24/24 text calls identical); Texture-Fix decoder no text rescue; identity edit drifts beyond the ceiling (n = 1) (`research/qwen/QWEN-QVR-REFERENCE.md`) |
+| Q-P (Phase 8 recommendation) | **Recommended next, not started.** Preservation-aware compositing falsification on existing G2 outputs: masks pre-registered on D0, canvases D0 and source resolution, fresh blind rater; FLUX.2 returns to primary if it fails (`research/qwen/QWEN-QVR-REFERENCE.md` §10) |
+| SEC | **Open (not research).** Dependency security: 4 Dependabot alerts on `config/qwen-python-requirements.lock.txt` (fsspec < 2026.6.0, urllib3 < 2.8.0). Upgrading the edit venv needs the E05 parity re-check (`PHASE6-INDEX.md` §7). The Phase 8 `torch-ref` venv already uses the patched versions |
 | Q-A (Phase 8) | **Desk survey DONE** (`research/editing/QA-ALTERNATIVE-MODELS.md`). Next: FLUX.2 [klein] 4B VAE round-trip entry screen (VAE file only); not started |
 
 New items. **Not started.** Each needs the user's decision to continue with Qwen at all.

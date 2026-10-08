@@ -43,11 +43,15 @@ the official reference implementation lose the same text. **Q-V's MIXED stands, 
 
 ## 2. Gates (all passed; `qvr-summary.json`)
 1. **Weights** (`runs/GATE-weights`): all **238/238** tensors of the canonical export's `vae/0.safetensors`
-   (`248d52c5…`) are bit-identical to the dense source checkpoint's VAE, after the transforms derived per tensor:
+   (`248d52c5…`) are bit-identical to the dense source checkpoint's VAE (`vae/diffusion_pytorch_model.safetensors`
+   `a07a1b7c4ee2966a…`, `Qwen/Qwen-Image-2.1` @ `d26bb61`), after the transforms derived per tensor:
    88 identical, 88 conv transposes (0, 2, 3, 1), 62 squeezes. MLX's in-memory parameters equal the file (238/238).
 2. **A1 reproduces Phase 7:** for 6/6 items, the round-trip and input `pixel_sha256` equal Phase 7's run `a` records.
 3. **Preprocessing:** the CPU side recomputed the input from the staged PNG with its own PIL calls, bit-identical
    (6/6).
+   - *Reference runtime identity:* torch 2.14.0 (CPU, 4 threads, no oneDNN) and diffusers 0.41.0 (wheel sha256
+     `ea8918b7…a25990`) in `torch-ref/.venv`, built from the hashed lock `qv-reference/requirements.lock.txt`. The
+     venv has no MLX.
    - *Labelled variable:* Diffusers' `VaeImageProcessor.preprocess` also gives an identical tensor (max |Δ| = 0), and
      `calculate_dimensions` gives the same sizes.
 4. **bf16 cast:** torch's cast of A1's normalised latent equals A1's decoder input bit for bit (6/6), and it commutes
@@ -158,8 +162,15 @@ decisive only because the numbers fell outside the pixel-equivalence bound.
 
   - The **feathered composite meets the "viable" bar** (§8.3), on this one case. Its remaining flaw is a small
     fragment of the van's shadow that the mask did not cover, cut by the box's right edge.
-  - **Limits:** n = 1; the mask was chosen post-hoc, by hand, after the coverage failure was known; the rater differs
-    from the main review's.
+  - Two of the calls the bar rests on were **flagged borderline** by the rater:
+    - realism: an uncast shadow fragment, where the MAJOR wording names "wrong shadows";
+    - adherence: whether the shadow remnant counts as a remnant of the object.
+  - **Limits:**
+    - n = 1, with one rater, who is not the main review's;
+    - the mask was chosen post-hoc, by hand, after the coverage failure was known;
+    - **the canvas was D0**, so the composite keeps the *scaled input's* text, not the original's. At 512, scaling
+      alone already loses about half the elements. Keeping the original's text would need compositing into the
+      full-resolution source with the edited region upscaled, and that is untested.
 - **Conclusion:** keeping the original pixels outside a mask that covers the object (and its shadow), with a feathered
   edge, can keep the incidental text **and** carry the edit in a valid image, where the edit alone garbled both signs.
   - The hard problem is the mask: G2's box failed. An automatic, conservative and shadow-aware edit-region mask is the
@@ -207,12 +218,37 @@ decisive only because the numbers fell outside the pixel-equivalence bound.
   - With G2's box it failed on mask coverage.
   - With a covering, feathered mask (post-hoc) it was **viable**: the edit carried, both signs kept, seam and realism
     MINOR.
-  - The cheapest path to text preservation is therefore *not* inside the Qwen model: it is a preservation-aware
-    pipeline, whose open problem is automatic masking.
+  - On this one case, the only intervention that kept the text *and* carried the edit sat outside the model: a
+    preservation-aware pipeline. Its open problems are automatic, shadow-aware masking and source-resolution
+    compositing.
 - **Together:** for this model on this machine, no remaining runtime, precision or decoder experiment is likely to
   change the G2 outcome. The constraints are the representation and the regenerating editor.
-- **Recommendation:** stop Qwen-Image-2.1-focused work and redirect to `research/editing/QA-ALTERNATIVE-MODELS.md`,
-  starting with the FLUX.2 [klein] 4B VAE entry screen.
+- **Two failure mechanisms are now separated:**
+  - output-path loss of small glyphs (Q-V, Q-VR): a better VAE can reduce it;
+  - global regeneration drift (the identity probe; G2 moved 56 % of pixels outside the box): no VAE fixes it.
+  Compositing is the only measured intervention that addressed both, and it does not depend on the model.
+
+## 10. Recommendations (directive §28 F and H)
+- **Primary (H): investigate preservation-aware compositing / local editing.**
+  - Scope consequence: **stop Qwen-Image-2.1-focused model work** (runtime, precision and decoder are exhausted).
+  - Keep the research-only edit task and the q4 export as the test bed. New edits may be needed, so "stop" should not
+    default to removing the task.
+  - The source checkpoint's DELETE trigger is unaffected.
+- **Immediate next experiment (F1).** It needs no GPU and uses existing G2 outputs: a pre-registered compositing
+  falsification.
+  - Masks are drawn on D0 and committed before any output is viewed.
+  - The viable bar is fixed in advance, with a fresh blind rater.
+  - Items: R12 at 1024 (all five elements lie outside the person) plus a few non-text localized G2 items, to test
+    adherence and seams.
+  - Both canvases are compared: D0, and the source resolution with the edited region upscaled.
+  - **If it fails on most items, FLUX.2 [klein] 4B returns to primary.**
+- **Medium term (F2): FLUX.2 [klein] 4B as the in-mask editor**, after its VAE round-trip entry screen
+  (`research/editing/QA-ALTERNATIVE-MODELS.md`). Its case is now edit quality inside the mask, with 4 steps instead
+  of 40 and an Apache licence, rather than rescuing incidental text by itself.
+- **Long term, original (F3): local editing by construction.** Regenerate only the edit region's tokens
+  (KV-Edit-style background reuse on MLX) and protect detected text regions. This removes the drift the identity
+  probe measured, instead of patching it afterwards.
+- **v5:** not recommended. No production or validated-configuration change was made.
 
 ## 9. Storage
 - **Kept:**

@@ -16,7 +16,9 @@ pasted by the user on 2026-10-09.
 - **Compositing (n = 1):** with G2's box, it keeps the text but fails on mask coverage. With a conservative,
   feathered whole-van mask (CMP2, post-hoc) it is **viable**: edit PASS, both signs PRESERVED, seam and realism MINOR.
 - **Q-A:** desk survey done. Shortlist: FLUX.2 [klein] 4B first, via a VAE round-trip entry screen.
-- **Recommendation:** stop Qwen-Image-2.1-focused work and redirect to the FLUX.2 [klein] 4B VAE entry screen.
+- **Primary recommendation:** investigate preservation-aware compositing / local editing. This means stopping
+  Qwen-Image-2.1-focused model work, but keeping the edit task as the test bed. FLUX.2 [klein] 4B, after its VAE
+  entry screen, comes medium-term (report §10).
 - **Status unchanged:** G2 REJECTED, Q-Q AGAINST, Q-V MIXED, research-only, `validated: false`.
 - **Git:** the Phase 7 commits were pushed (`56880d2..817a7c2`). **The Phase 8 commits are local, not pushed; there
   is no v5 tag.**
@@ -87,9 +89,9 @@ pasted by the user on 2026-10-09.
   on the A1/A2, TF or ID tallies).
 
 ## 5. Open decisions for the user
-1. **Stop Qwen-Image-2.1-focused work** (recommended). Then decide whether to keep the research-only edit task or
-   remove it (`PHASE6-INDEX.md` §7).
-2. **Q-A step 1:** the FLUX.2 [klein] 4B VAE round-trip entry screen. It needs an acquisition audit and the VAE file
+1. **Preservation-aware compositing falsification** (recommended next; no GPU; report §10 F1). Stop
+   Qwen-Image-2.1-focused model work, but keep the edit task as the test bed.
+2. **FLUX.2 [klein] 4B** VAE round-trip entry screen (medium term). It needs an acquisition audit and the VAE file
    only (~160 MB).
 3. **Assets:**
    - Texture-Fix VAE (1.35 GB): its deletion trigger is met; it is kept pending your word.
@@ -100,8 +102,14 @@ pasted by the user on 2026-10-09.
 6. Dependabot alerts on the edit-venv lock: unchanged. The new `torch-ref` venv uses the patched fsspec 2026.9.0 and
    urllib3 2.8.0.
 
-## 6. How to start the recommended next step (not started)
-**FLUX.2 [klein] 4B VAE entry screen.**
+## 6. How to start the next steps (not started)
+**Compositing falsification (recommended first):** see report §10 F1.
+- Pre-register the masks (drawn on D0, committed before viewing outputs), the canvases (D0 and source resolution)
+  and the viable bar.
+- Reuse `qv-reference/composite.py` (explicit pixel box) and `qvr_blind.py` (edit sheets).
+- Use a fresh rater.
+
+**FLUX.2 [klein] 4B VAE entry screen (medium term).**
 1. Write an acquisition audit for `black-forest-labs/FLUX.2-klein-4B` @ `e7b7dc27f9`, covering the VAE files only
    (licence Apache-2.0).
 2. Pre-register:

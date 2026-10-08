@@ -2,6 +2,13 @@
  "rows": [
   {
    "element": "R02-512-t1",
+   "wording": "NIEUWE UILENBURGER / STRAAT / CENTRUM",
+   "box_out_px": [
+    313,
+    176,
+    360,
+    199
+   ],
    "main_px": 3.1,
    "smallest_px": 1.9,
    "bin": "<10",
@@ -15,6 +22,13 @@
   },
   {
    "element": "R02-512-t2",
+   "wording": "uitgezonderd (+ two bicycle pictograms)",
+   "box_out_px": [
+    35,
+    267,
+    74,
+    290
+   ],
    "main_px": 2.5,
    "smallest_px": 1.6,
    "bin": "<10",
@@ -28,6 +42,13 @@
   },
   {
    "element": "R12-512-t1",
+   "wording": "MATHEW STREET / BIRTHPLACE of THE BEATLES (+ round logos)",
+   "box_out_px": [
+    226,
+    195,
+    423,
+    237
+   ],
    "main_px": 6.4,
    "smallest_px": 2.9,
    "bin": "<10",
@@ -41,6 +62,13 @@
   },
   {
    "element": "R12-512-t2",
+   "wording": "Quarry Quarter",
+   "box_out_px": [
+    35,
+    241,
+    90,
+    298
+   ],
    "main_px": 5.0,
    "smallest_px": 5.0,
    "bin": "<10",
@@ -54,6 +82,13 @@
   },
   {
    "element": "R12-512-t3",
+   "wording": "Club Cut / Barber Shop",
+   "box_out_px": [
+    151,
+    248,
+    179,
+    273
+   ],
    "main_px": 2.4,
    "smallest_px": 2.1,
    "bin": "<10",
@@ -67,6 +102,13 @@
   },
   {
    "element": "R12-512-t4",
+   "wording": "...arryQuarter fascia; round sign 'Q'",
+   "box_out_px": [
+    0,
+    288,
+    92,
+    334
+   ],
    "main_px": 4.3,
    "smallest_px": 4.3,
    "bin": "<10",
@@ -80,6 +122,13 @@
   },
   {
    "element": "R12-512-t5",
+   "wording": "tall sign 'ELL' / 'You'; red fascia 'LIVE SPORTS SHOWN'",
+   "box_out_px": [
+    421,
+    184,
+    448,
+    316
+   ],
    "main_px": 11.4,
    "smallest_px": 1.4,
    "bin": "10-20",
@@ -93,6 +142,13 @@
   },
   {
    "element": "R15-512-t1",
+   "wording": "The Beguiling",
+   "box_out_px": [
+    100,
+    145,
+    298,
+    221
+   ],
    "main_px": 22.9,
    "smallest_px": 8.6,
    "bin": ">20",
@@ -106,6 +162,13 @@
   },
   {
    "element": "R15-512-t2",
+   "wording": "...p in our new webstor[e] / ...uilingbooks.co[m]",
+   "box_out_px": [
+    295,
+    213,
+    399,
+    249
+   ],
    "main_px": 4.0,
    "smallest_px": 4.0,
    "bin": "<10",
@@ -119,6 +182,13 @@
   },
   {
    "element": "R15-512-t3",
+   "wording": "319",
+   "box_out_px": [
+    248,
+    230,
+    276,
+    253
+   ],
    "main_px": 6.4,
    "smallest_px": 6.4,
    "bin": "<10",
@@ -132,6 +202,13 @@
   },
   {
    "element": "R15-512-t4",
+   "wording": "TORONTO TINY SHELTERS / SAVE LIVES / STOP THE CITY / FROM REMOVING THEM / TELL JOHN TORY (+ small print)",
+   "box_out_px": [
+    228,
+    373,
+    258,
+    426
+   ],
    "main_px": 3.6,
    "smallest_px": 1.4,
    "bin": "<10",
@@ -145,6 +222,13 @@
   },
   {
    "element": "R15-512-t5",
+   "wording": "blogTO / BEST OF / TORONTO",
+   "box_out_px": [
+    259,
+    317,
+    277,
+    339
+   ],
    "main_px": 2.9,
    "smallest_px": 1.1,
    "bin": "<10",
@@ -158,6 +242,13 @@
   },
   {
    "element": "R02-1024-t1",
+   "wording": "NIEUWE UILENBURGER / STRAAT / CENTRUM",
+   "box_out_px": [
+    645,
+    353,
+    740,
+    399
+   ],
    "main_px": 6.4,
    "smallest_px": 3.9,
    "bin": "<10",
@@ -171,6 +262,13 @@
   },
   {
    "element": "R02-1024-t2",
+   "wording": "uitgezonderd (+ two bicycle pictograms)",
+   "box_out_px": [
+    73,
+    535,
+    152,
+    581
+   ],
    "main_px": 5.2,
    "smallest_px": 3.4,
    "bin": "<10",
@@ -184,6 +282,13 @@
   },
   {
    "element": "R12-1024-t1",
+   "wording": "MATHEW STREET / BIRTHPLACE of THE BEATLES (+ round logos)",
+   "box_out_px": [
+    452,
+    402,
+    847,
+    488
+   ],
    "main_px": 13.2,
    "smallest_px": 5.9,
    "bin": "10-20",
@@ -197,6 +302,13 @@
   },
   {
    "element": "R12-1024-t2",
+   "wording": "Quarry Quarter",
+   "box_out_px": [
+    71,
+    497,
+    179,
+    613
+   ],
    "main_px": 10.3,
    "smallest_px": 10.3,
    "bin": "10-20",
@@ -210,6 +322,13 @@
   },
   {
    "element": "R12-1024-t3",
+   "wording": "Club Cut / Barber Shop",
+   "box_out_px": [
+    302,
+    511,
+    358,
+    561
+   ],
    "main_px": 5.0,
    "smallest_px": 4.4,
    "bin": "<10",
@@ -223,6 +342,13 @@
   },
   {
    "element": "R12-1024-t4",
+   "wording": "...arryQuarter fascia; round sign 'Q'",
+   "box_out_px": [
+    0,
+    592,
+    184,
+    687
+   ],
    "main_px": 8.8,
    "smallest_px": 8.8,
    "bin": "<10",
@@ -236,6 +362,13 @@
   },
   {
    "element": "R12-1024-t5",
+   "wording": "tall sign 'ELL' / 'You'; red fascia 'LIVE SPORTS SHOWN'",
+   "box_out_px": [
+    842,
+    378,
+    896,
+    649
+   ],
    "main_px": 23.5,
    "smallest_px": 2.9,
    "bin": ">20",
@@ -249,6 +382,13 @@
   },
   {
    "element": "R15-1024-t1",
+   "wording": "The Beguiling",
+   "box_out_px": [
+    201,
+    298,
+    596,
+    455
+   ],
    "main_px": 47.0,
    "smallest_px": 17.6,
    "bin": ">20",
@@ -262,6 +402,13 @@
   },
   {
    "element": "R15-1024-t2",
+   "wording": "...p in our new webstor[e] / ...uilingbooks.co[m]",
+   "box_out_px": [
+    591,
+    438,
+    797,
+    513
+   ],
    "main_px": 8.2,
    "smallest_px": 8.2,
    "bin": "<10",
@@ -275,6 +422,13 @@
   },
   {
    "element": "R15-1024-t3",
+   "wording": "319",
+   "box_out_px": [
+    497,
+    473,
+    551,
+    521
+   ],
    "main_px": 13.2,
    "smallest_px": 13.2,
    "bin": "10-20",
@@ -288,6 +442,13 @@
   },
   {
    "element": "R15-1024-t4",
+   "wording": "TORONTO TINY SHELTERS / SAVE LIVES / STOP THE CITY / FROM REMOVING THEM / TELL JOHN TORY (+ small print)",
+   "box_out_px": [
+    456,
+    767,
+    517,
+    876
+   ],
    "main_px": 7.3,
    "smallest_px": 2.9,
    "bin": "<10",
@@ -301,6 +462,13 @@
   },
   {
    "element": "R15-1024-t5",
+   "wording": "blogTO / BEST OF / TORONTO",
+   "box_out_px": [
+    519,
+    653,
+    554,
+    696
+   ],
    "main_px": 5.9,
    "smallest_px": 2.3,
    "bin": "<10",
