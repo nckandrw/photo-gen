@@ -103,7 +103,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 - **Never delete or overwrite** research data, logs, hashes, benchmark CSVs or failed outputs. If an artifact is corrupted, record an incident instead.
 - **Evidence standard:** a production change needs pixel parity (exact changes) or a blinded quality gate (numeric changes). Speed claims must name their baseline (cold vs sustained, fp32 vs bf16); never multiply percentages.
 - **Discrepancies:** stop and surface them before a consequential change.
-- **Blind reviews:** use `research/experiments/blind_stage.py` (prepare → freeze → unblind). Rules are in `research/experiments/BLIND-PROTOCOL.md`.
+- **Blind reviews:** use `research/experiments/blind_stage.py` (prepare → freeze → unblind), or its siblings for editing: `research/editing/real-world/g2_blind.py`, `research/qwen/qq/qq_blind.py`, `research/qwen/qv/qv_blind.py`. Rules are in `research/experiments/BLIND-PROTOCOL.md`. Editing reviews use a fresh-subagent rater with a committed prompt (`review/RATER-PROMPT.md`), freeze before unblinding, and an audit (`research/qwen/qq/rater_audit.py`). Before the session ends, copy the rater's crops out of session scratch into the repo; PNGs are gitignored, so record a sha256 manifest (`research/review-crops/MANIFEST.sha256`). Workflow: `research/qwen/PHASE7-INDEX.md` §7.
 
 ## Research layout
 - **Where to start:** `research/experiments/STATUS.md` is the status register (adopted/rejected/blocked) and the place to look first. Tier timings are in `research/experiments/PERFORMANCE-MAP.md`.
@@ -144,7 +144,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
   - Push via HTTPS with `-c credential.helper= -c credential.helper='!gh auth git-credential'` (SSH is not authorized).
   - Tags v1–v4 are immutable restore points.
   - Commit text evidence (reports, JSON/JSONL, manifests). Never commit weights, PNGs, `.gputrace`, `data/` or `mflux/`.
-- **Research-only models** go in `models/research/` (gitignored), always with an acquisition audit (license, revision, sha256) before download. Currently: Z-Image base q4 + the alibaba-pai 4-step LoRA (`research/experiments/4step-probe/`).
+- **Research-only models** go in `models/research/` (gitignored), always with an acquisition audit (license, revision, sha256) before download. Currently: Z-Image base q4 + the alibaba-pai 4-step LoRA (`research/experiments/4step-probe/`), and the dense Qwen-Image-2.1 source checkpoint (`models/research/qwen-image-2.1`, RETAIN LOCALLY; DELETE trigger met if Qwen work stops, see `QWEN-ASSET-PROVENANCE.md` §6–§7).
 - **Long GPU chains:**
   - Run them as a top-level `nohup zsh script > log 2>&1 < /dev/null & disown`. A chain started inside a compound shell command was killed once.
   - Only one GPU job at a time. Research harnesses bypass `data/gpu.lock`, so don't run photo-gen generations while a chain is running.

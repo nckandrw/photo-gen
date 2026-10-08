@@ -15,6 +15,7 @@
 ## 0. Start here (new session)
 1. Read `CLAUDE.md`, then `MEMORY.md` ("Current state" and the 2026-10-08 Phase 7 entry), then this file. Earlier indexes: `PHASE6-INDEX.md`, `PHASE5-INDEX.md`, `PHASE4-INDEX.md`.
 2. Check that nothing is running: `pgrep -fl "run_edit|chain|qv_run|qq_run|mflux_qwen_edit_worker"`.
+   Check git: `git status -sb` shows `main` ahead of `origin/main` by the unpushed Phase 7 commits (§4), unless they were pushed since.
 3. Verify, without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; the tests must give **93 OK**.
 
 ## 1. The chronology (kept separate)
@@ -72,8 +73,9 @@
   - `f718359` unblinded tally;
   - `a257500` report, docs, this index, ledger;
   - `6981582` review crops preserved, and budgets > 1024 labelled as untested;
-  - plus this commit-list update.
-- **Not pushed, not tagged.** `origin/main` is still `56880d2`; v4 stays at `33669eb`.
+  - `b213b73` commit list completed;
+  - plus the resume-aid update (MEMORY current state rebuilt, §6–§7 here, CLAUDE.md review rules).
+- **Not pushed, not tagged.** `origin/main` is still `56880d2`; v4 stays at `33669eb` (tag object `1741179`); v3 at `401e400`. To push: `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main`, with no force, and only on your word.
 
 ## 5. Open decisions for the user
 1. **Qwen-Image-2.1 editing:** stop the work, as recommended. Then choose whether to keep the task as a research opt-in or remove it (removal steps in `PHASE6-INDEX.md` §7).
@@ -83,3 +85,57 @@
 3. **The 33 GB source checkpoint:** Q-V didn't need it, and stopping Qwen work meets the DELETE trigger in `QWEN-ASSET-PROVENANCE.md` §6. Delete it, or keep it on your word.
 4. **Push** the Phase 7 commits; decide on any tag.
 5. **Dependabot** alerts on the edit venv: they are documented, and the lock is unchanged.
+6. **Not Qwen:** whether to run a dedicated 6-step gate at 768² (Phase 3 leftover).
+
+## 6. How to start each next step (nothing here has started)
+**Stop Qwen editing work, keeping the task** (the default if you only say "stop"): nothing to do in code. Record the decision in STATUS, the backlog and MEMORY. The task stays research-only.
+
+**Stop and remove the edit task:** follow `PHASE6-INDEX.md` §7.
+- code to remove: `app/photogen/tasks.py` routing, `runtimes/mflux_qwen_edit*.py`, `POST /edit` and `photo-gen edit`, the edit tests;
+- keep every research record and the immutable manifest as history;
+- a separate commit, then a Z-Image regression check through the CLI (REFERENCE 512² `9ae59f59`, ULTRA 512² `6aa2b842`, or the full set).
+
+**Q-A, the alternative-model desk survey** (only if editing remains a goal):
+1. Desk survey first (no downloads). For each candidate: licence (commercial use?), parameter size against 16 GB, mflux/MLX support, and published evidence on preserving text in real photos.
+2. **Entry screen before any editing gate,** using Q-V's method:
+   - an acquisition audit (licence, revision, sha256) before any download into `models/research/`;
+   - a pre-registered round trip of the candidate's own VAE/conditioning path on the staged G2 sources R02, R12 and R15, at its feasible budgets;
+   - an equivalence gate against that model's real edit path, as in `qv_roundtrip.py gate`;
+   - a provenance-blind review with `qv_blind.py` (`qq_blind.ELEMENTS` text elements);
+   - a pass bar fixed in advance (for example, the round trip keeps the elements legible where the scaled input is legible).
+3. Only a candidate that passes the screen earns a G2-style gate (`research/editing/real-world/`; the benchmark is model-independent).
+
+**Source checkpoint DELETE** (on your word): `PHASE6-INDEX.md` §7.
+1. `verify_assets.py` to a new file;
+2. `df -k .`;
+3. confirm `models/research/qwen-image-2.1` is a real directory, not a symlink, then `rm -r` it;
+4. `df -k .` again;
+5. log it as `QWEN-ASSET-PROVENANCE.md` §8, and update STATUS and MEMORY.
+
+It can be re-acquired exactly: `research/qwen/qwen-download.sh` at revision `d26bb61`, checked against `upstream-file-manifest.json`. After deletion the q8 export can no longer be recreated without re-downloading.
+
+**Push:** see §4 (fast-forward, no force). A tag would need your decision and a release-notes entry. The "Unreleased" section in `docs/RELEASE-NOTES.md` already describes Phase 7.
+
+**Dependabot fix:** `PHASE6-INDEX.md` §7. It upgrades the edit venv, so it needs the E05 parity re-check (`bd548f1b…` / `bdc03c36…`) and `verify --edit`. Never touch `mflux/.venv`.
+
+## 7. Session mechanics that worked (Phases 5–7)
+- **Pre-registration first:**
+  - protocol, tools and fixed inputs (elements, boxes, seeds) are committed before any output exists;
+  - deviations become dated amendments in the protocol;
+  - times are taken from `git log`, never estimated.
+- **Equivalence gate for any harness that re-implements part of a pipeline:** run the real pipeline once on a non-evaluation input, with read-only capture hooks, and require bit-exact reproduction. Q-V: `qv_roundtrip.py gate`.
+- **GPU chains:**
+  - `nohup zsh <chain>.sh > <log> 2>&1 < /dev/null & disown`, each with a completion marker;
+  - `research/qwen/run_edit.sh` modes provide the monitor, watchdog and `conditions.txt`;
+  - wait with an `until grep -q MARKER log; do sleep 10; done` loop; blocking foreground `sleep` is refused;
+  - never edit a script, `app/` or `config/` while a chain uses them.
+- **Blind review:**
+  - build items from the run records;
+  - `prepare` with a seed, which seals the key;
+  - commit, plus the rater prompt (`review/RATER-PROMPT.md`);
+  - spawn a **fresh** general-purpose subagent in the background with that prompt. It takes about 25 minutes for 6 sheets and writes rows as it goes;
+  - wait for its hand-back, run `check`, then `freeze`, commit, `unblind`, tally;
+  - audit with `research/qwen/qq/rater_audit.py <transcript.jsonl> <blind_dir> <crops_dir> <out.json>`. Check any flagged "sensitive" match by hand; "git" matched the word "digit" here;
+  - the session assistant views no output before the freeze. Post-freeze looks are descriptive only and are disclosed.
+- **Before the session ends,** copy the rater's crops, and any spot-check crops, out of session scratch into the repo tree. PNGs are gitignored, so commit a sha256 manifest (`research/review-crops/MANIFEST.sha256`). Scratch directories don't persist.
+- **Never commit PNGs:** `git add` run directories without `-f`, and check that `git diff --cached --name-only | grep -c png` gives 0.

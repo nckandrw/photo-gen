@@ -5,60 +5,44 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-09 (PHASE 7 COMPLETE; read `research/qwen/PHASE7-INDEX.md` first). Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+_Last updated 2026-10-09 (PHASE 7 COMPLETE). Read `research/qwen/PHASE7-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
 
-**PHASE 7 (2026-10-08/09) COMPLETE → `research/qwen/PHASE7-INDEX.md`. Nothing is running. Phase 7 commits are local: NOT pushed, NOT tagged (`origin/main` = `56880d2`; v4 = `33669eb`).**
-- **Q-V: MIXED** (`research/qwen/QWEN-QV-DIAGNOSTIC.md`).
-  - A VAE-only round trip, bit-exact against the edit's path by an equivalence gate, is what a perfect copy of the reference latents would give. It keeps **3/12** incidental-text elements legible at 512 (scaling alone loses 6) and **7/12** at 1024 (the VAE loses 3 of 10 legible-input elements).
-  - Blind preference: scaled input over round trip on 6/6 sheets.
-- **Recommendation (awaiting you): stop Qwen-Image-2.1 editing work.** Q-A only if editing remains a goal, with a VAE round-trip entry screen.
-- **Status unchanged:** G2 REJECTED, Q-Q AGAINST, research-only, `validated: false`.
-- **Open decisions:**
-  1. stop Qwen editing work; keep or remove the research task;
-  2. Q-A or not;
-  3. source checkpoint DELETE (the trigger is met if Qwen work stops);
-  4. push the Phase 7 commits, and any tag;
-  5. Dependabot.
-
-_The Phase 6 snapshot below is superseded except where Phase 7 says otherwise._
-
-**PHASE 6 (2026-10-08) COMPLETE → `research/qwen/PHASE6-INDEX.md`. Nothing is running. Phase 6 closes at the commit tagged `photo-gen-m5-16gb-v4`; `main` and v4 are pushed.**
-- **Qwen editing: still G2 REJECTED at 512 and 1024; research-only.**
-  - `/capabilities`/`/status`: `tasks["image-edit"].status = "research-only"` + `quality_status` (integration validated · capability validated · quality G2 REJECTED · local production REJECTED · research opt-in · Qwen Research License, non-commercial).
-  - Warning, opt-in error and CLI help name G2. `validated=false`; `--allow-experimental` is the opt-in.
-- **Q-Q diagnostic: AGAINST** (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`). q8 vs q4 on G2's six text failures:
-  - 1 of 19 garbled elements rescued; text FAIL 6/6 in both arms; other dimensions identical; blind preference q8 3 / q4 0 / SAME 3.
-  - **q4 is not supported as the primary cause.**
-  - q8 at 1024: 810 s, 13.8 GB, swap +3.1 GB.
-  - The q8 export was deleted (recreatable exactly with `research/qwen/qq/export_q8_split.py`).
-- **Phase 5 corrections** `e7e0b61`; G2 evidence unchanged (`SCORES-FROZEN.csv` `f14deba4…`).
-- **Assets:**
-  - source checkpoint 33.1 GB **RETAIN LOCALLY**, re-verified 87/87 three times in Phase 6. The Q-Q rationale for keeping it is now spent; the DELETE trigger stands (`QWEN-ASSET-PROVENANCE.md` §6–§7);
-  - canonical q4 export 18/18;
-  - free space about 199 GB.
-- **Production (Z-Image)** behaviour unchanged since v3. REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` were re-checked through the CLI on 2026-10-08.
+**Where things stand. Nothing is running.**
+- **Production (text-to-image, Z-Image):** unchanged since v3. Standing facts are below.
+- **Image editing (Qwen-Image-2.1): research-only, not a production feature.** The four steps are kept separate:
+  - **G0** (Phase 4): CAPABLE at 512 and 1024 on synthetic sources.
+  - **G2** (Phase 5, real photographs): **REJECTED** at 512 and 1024. Incidental text elsewhere in the photo is garbled (8/8 text-preservation items), and edits leak to similar objects. 1024 is MARGINAL (≈ 592 s per edit). `research/editing/real-world/results.md`.
+  - **Q-Q** (Phase 6): **AGAINST.** q8 weights rescue 1 of 19 garbled elements, and text FAIL is 6/6 in both arms, so q4 is not the primary cause. `research/qwen/QWEN-QQ-DIAGNOSTIC.md`.
+  - **Q-V** (Phase 7): **MIXED.** A VAE-only round trip, bit-exact against the edit's path, is what a perfect copy of the reference would give.
+    - It keeps **3/12** text elements legible at 512: scaling loses 6, the VAE 4 of the remaining 6.
+    - It keeps **7/12** at 1024: the VAE loses 3 of 10 legible elements, at least one on every photo; two of those calls are borderline.
+    - `research/qwen/QWEN-QV-DIAGNOSTIC.md`.
+  - **Recommendation (awaiting you, not implemented): stop Qwen-Image-2.1 editing work.** Run Q-A (an alternative-model desk survey) only if editing remains a goal. Its entry screen: the candidate's VAE/conditioning round trip keeps the G2 text elements legible at a budget that fits 16 GB.
 - **Git:**
-  - Phase 5 = 15 commits (`0d15f49` … `63c24a5`); Phase 6 = 13 commits (`e7e0b61` … `33669eb`);
-  - pushed fast-forward (`401e400..33669eb`);
-  - **v4 = tag object `1741179` → `33669eb`**, annotated, pushed, and checked with `ls-remote`;
-  - after v4, `main` carries docs-only resume aids (`a5ac33c`, `56880d2`, pushed) and the Phase 7 Q-V research commits (local, not pushed). None changes `app/` or `config/`. The v4 tree is the Phase 6 state.
-- **Tests** 93/93.
-- **Open user decisions:**
-  1. source checkpoint: keep, or trigger DELETE;
-  2. Phase 7: VAE round-trip ceiling test (backlog Q-V) and/or an alternative-model survey (Q-A), or stop editing work;
-  3. keep or remove the research-only edit task;
-  4. **Dependabot:** GitHub reports 4 open alerts on the edit-venv lock `config/qwen-python-requirements.lock.txt` (present since the Phase 4 lock): fsspec (high), urllib3 (1 medium, 2 high). Not fixed: upgrading venv packages is a hard constraint, and the edit backend runs offline. Fix only on your decision; it would change the pinned edit environment.
+  - `main` = `b213b73`, **8 commits ahead of `origin/main` (`56880d2`), NOT pushed:** the Phase 7 commits `a390bef`, `0b2514d`, `6e527f0`, `670642e`, `f718359`, `a257500`, `6981582`, `b213b73`, plus this ledger update.
+  - **Tags:** v4 (`1741179` → `33669eb`) is the latest; v3 → `401e400`. All immutable. No Phase 7 tag.
+- **Open decisions (all yours; none started):**
+  1. Stop Qwen editing work (recommended), and keep or remove the research-only edit task. Removal steps: `PHASE6-INDEX.md` §7.
+  2. Q-A, only if editing remains a goal (`PHASE7-INDEX.md` §6).
+  3. The 33 GB source checkpoint `models/research/qwen-image-2.1`: its DELETE trigger is met if Qwen work stops. Procedure: `PHASE6-INDEX.md` §7. Otherwise keep it.
+  4. Push the 8 Phase 7 commits, and any tag.
+  5. Dependabot: 4 alerts on the edit-venv lock (fsspec high; urllib3 1 medium, 2 high). Documented in `docs/REPRODUCIBILITY.md` §5.1; the lock is unchanged. A fix needs a parity re-check.
+  6. Not Qwen: whether to run a dedicated 6-step gate at 768².
 
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
 2. This "Current state" block.
-3. `research/qwen/PHASE7-INDEX.md`: the latest phase and its open decisions. `research/qwen/PHASE6-INDEX.md` §7 has how-to procedures (source DELETE, removing the edit task, a Dependabot fix).
-4. Earlier indexes: `research/qwen/PHASE6-INDEX.md`, `research/qwen/PHASE5-INDEX.md` (G2, P2, identity), then `research/qwen/PHASE4-INDEX.md` (the edit backend's design).
+3. `research/qwen/PHASE7-INDEX.md`: the latest phase, the evidence, the open decisions (§5), how to start each next step (§6), and the session mechanics that work (§7).
+4. Earlier indexes, newest first: `research/qwen/PHASE6-INDEX.md` (Q-Q, status labels, v4; §7 procedures), `PHASE5-INDEX.md` (G2, P2, identity), `PHASE4-INDEX.md` (the edit backend's design).
 5. `research/experiments/STATUS.md` (every experiment's status) and `research/EXPERIMENT-BACKLOG.md` (next frontier).
 
-Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; the tests must give 93 OK (command in `CLAUDE.md`). Check that nothing is running: `pgrep -fl "run_edit|chain|qq_run|mflux_qwen_edit_worker"`.
+**Checks, no GPU:**
+- `git status -sb` should show `ahead 8` (or 9 with this update), unless pushed since;
+- `bin/photo-gen verify` and `verify --edit` must be ok;
+- the tests must give 93 OK (command in `CLAUDE.md`);
+- nothing should be running: `pgrep -fl "run_edit|chain|qv_run|qq_run|mflux_qwen_edit_worker"`.
 
-### Standing facts (current as of 2026-10-08; they replace the Phase 4 snapshot that used to sit here, which is preserved in `research/qwen/PHASE4-INDEX.md` and the 2026-10-06 entry)
+### Standing facts (current as of 2026-10-09; older snapshots are preserved in PHASE4/5/6-INDEX.md and their ledger entries)
 **Production (text-to-image, Z-Image-Turbo q4 @ `d2d30500`, mflux 0.20.0 / MLX 0.32.2, `--low-ram`)**
 - **Validated combinations** (`VALIDATED_COMBINATIONS`):
   - fp32 + 9 (REFERENCE) and bf16 + 8 (FAST) at 512², 768², 1024²;
@@ -73,20 +57,21 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
   - 512²: reference `9ae59f59`, fast `0b9cc20a`, ultra `6aa2b842`.
   - Last re-checked through the CLI on 2026-10-08: REFERENCE 512² and ULTRA 512², exact.
 
-**Editing (research-only):** Qwen-Image-2.1 @ `d26bb61`, q4 export, mflux 0.21.0 in `mflux-qwen/.venv`, policy P2. G2 REJECTED; Q-Q AGAINST. See above and in `CLAUDE.md`.
+**Editing (research-only):** Qwen-Image-2.1 @ `d26bb61`, q4 export, mflux 0.21.0 in `mflux-qwen/.venv`, policy P2. G0 CAPABLE → G2 REJECTED → Q-Q AGAINST → Q-V MIXED (see above and `CLAUDE.md`). The app reports `tasks["image-edit"].status = "research-only"` plus a `quality_status` record; `validated: false`; `--allow-experimental` is the opt-in.
 
 **Git:**
 - **Tags:** v1 `9ee051c` → `db10040`; v2 `d6c03d1` → `3961404`; v3 `1c097eb` → `401e400`; v4 `1741179` → `33669eb`. All are immutable; never move them.
 - **Push:** `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main`. SSH isn't authorized on GitHub.
 - Stage explicitly; never `git add .`. Never commit PNGs: `git add -f` on a run directory would stage `out.png`.
 
-**Machine:** MacBook Air M5, 16 GB, macOS 27.0. Local time zone Asia/Manila (UTC+8); `date` prints "PST". Free disk about 186 GiB (199 GB).
+**Machine:** MacBook Air M5, 16 GB, macOS 27.0. Local time zone Asia/Manila (UTC+8); `date` prints "PST". Free disk about 181 GiB (194.5 GB) on 2026-10-09.
 
 **Assets on disk (gitignored):**
 - **Qwen:**
   - `models/research/qwen-image-2.1`: 33.1 GB, RETAIN LOCALLY, DELETE trigger in `QWEN-ASSET-PROVENANCE.md` §6;
   - `models/qwen/qwen-image-2.1-edit-mflux-q4`: 10.64 GB, pinned, used by the backend;
   - the duplicate q4 export was deleted in Phase 5; the q8 export was deleted in Phase 6. Their `.export.json` / `merge-q8.json` records are kept.
+- **Review crops** (from session scratch, gitignored PNGs): `research/qwen/qv/review/{rater-crops,spot-check}/` and `research/review-crops/{g2-rater,qq-rater,qq-spot-check}/`; every file's sha256 is in `research/review-crops/MANIFEST.sha256`. Subagent transcripts, which hold rater tool calls, are session-local under `~/.claude-.claude-nck/projects/-Users-nckandrw-Dev-photo-gen/<session>/subagents/`. The audits extracted from them are committed (`RATER-AUDIT.json`).
 - **Z-Image research:** `models/research/z-image-base-mflux-q4` @ `087eaf40`, plus the LoRA at `models/research/loras/` @ `f9a4db41`; 15/15 files verified.
 - **sd.cpp comparator:** `sdcpp/`, `models/diffusion_models`, `models/text_encoders`, `models/vae`; about 15.5 GB of old sd.cpp/Qwen models, plus the uv cache. You deferred their cleanup: don't delete without being asked.
 - **`research/experiments/p3b/cap/*.gputrace`** (about 14 GB): summarized in `nax-status.md`; delete only with your OK.
@@ -94,7 +79,7 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
 **Still-open, not Qwen:**
 - Phase 3 leftover: whether a dedicated 6-step gate at 768² is worth it. Stage C stays deferred.
 - Resolution-aware automatic step selection is not to be implemented yet.
-- Editing backlog: Q-S on hold; Q-U and Q-C not started (`EXPERIMENT-BACKLOG.md`).
+- Editing backlog: Q-S on hold; Q-U and Q-C not started; Q-A conditional (`EXPERIMENT-BACKLOG.md`).
 
 ---
 
@@ -127,6 +112,11 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
 - **Close** (`a257500`, `6981582`): review crops preserved (`research/review-crops/MANIFEST.sha256`, directive §11); budgets > 1024 labelled untested; report `QWEN-QV-DIAGNOSTIC.md`; docs (STATUS, backlog, QWEN-EDITING-QUALITY, PERFORMANCE-MAP, guide, README, RELEASE-NOTES "Unreleased", CLAUDE.md); `PHASE7-INDEX.md`. Not pushed or tagged.
 - **Dependabot:** the 4 alerts are documented in `docs/REPRODUCIBILITY.md` §5.1. The lock is unchanged.
 
+- **Resume aids (2026-10-09, after the close):**
+  - The "Current state" block was rebuilt as one current picture: the G0 → G2 → Q-Q → Q-V chronology, git state (8 unpushed commits), and six consolidated open decisions. The stale Phase 6 snapshot was removed from it; it is preserved in `PHASE6-INDEX.md` and the Phase 6 entry below.
+  - `PHASE7-INDEX.md` gained §6 (how to start each open decision) and §7 (the session mechanics that work).
+  - CLAUDE.md: blind-review tools and the crop-preservation rule; the Qwen source checkpoint in the research-models list.
+  - Not pushed.
 ---
 
 ## 2026-10-08 — Phase 6 (directive "PHOTO-GEN Phase 6 — Phase 5 closeout, Q-Q diagnostic, status hardening, and v4 release")
