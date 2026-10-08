@@ -1,0 +1,235 @@
+{
+ "tool": "research/qwen/qq/merge_q8.py",
+ "time": "2026-10-08T08:46:27+0800",
+ "dst": "models/research/qwen-image-2.1-edit-mflux-q8",
+ "parts": [
+  "models/research/qq-staging/q8-part-vae-transformer",
+  "models/research/qq-staging/q8-part-text_encoder"
+ ],
+ "moved": [
+  "q8-part-vae-transformer/vae",
+  "q8-part-vae-transformer/transformer",
+  "q8-part-text_encoder/text_encoder",
+  "q8-part-vae-transformer/model_index.json",
+  "q8-part-vae-transformer/processor/chat_template.jinja",
+  "q8-part-vae-transformer/processor/preprocessor_config.json",
+  "q8-part-vae-transformer/processor/tokenizer.json",
+  "q8-part-vae-transformer/processor/tokenizer_config.json",
+  "q8-part-vae-transformer/scheduler/scheduler_config.json"
+ ],
+ "shared_files": {
+  "model_index.json": {
+   "part_a": "cf1ecd104ea090855d60d8cec0895c1e9d6ee41b2f87e231b678beecd1cf7809",
+   "part_b": "cf1ecd104ea090855d60d8cec0895c1e9d6ee41b2f87e231b678beecd1cf7809",
+   "canonical_q4": "cf1ecd104ea090855d60d8cec0895c1e9d6ee41b2f87e231b678beecd1cf7809",
+   "equal_to_canonical_q4": true
+  },
+  "processor/chat_template.jinja": {
+   "part_a": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+   "part_b": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+   "canonical_q4": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+   "equal_to_canonical_q4": true
+  },
+  "processor/preprocessor_config.json": {
+   "part_a": "29cb956472acf03f6ba6846ddcd8686d82c2a36f11cdfcda17845f95bdbd9a79",
+   "part_b": "29cb956472acf03f6ba6846ddcd8686d82c2a36f11cdfcda17845f95bdbd9a79",
+   "canonical_q4": "29cb956472acf03f6ba6846ddcd8686d82c2a36f11cdfcda17845f95bdbd9a79",
+   "equal_to_canonical_q4": true
+  },
+  "processor/tokenizer.json": {
+   "part_a": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+   "part_b": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+   "canonical_q4": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+   "equal_to_canonical_q4": true
+  },
+  "processor/tokenizer_config.json": {
+   "part_a": "bfbbc1983aa3f46c0f496d90a37fbbea8047581fbd7250534f112445be84b5a6",
+   "part_b": "bfbbc1983aa3f46c0f496d90a37fbbea8047581fbd7250534f112445be84b5a6",
+   "canonical_q4": "bfbbc1983aa3f46c0f496d90a37fbbea8047581fbd7250534f112445be84b5a6",
+   "equal_to_canonical_q4": true
+  },
+  "scheduler/scheduler_config.json": {
+   "part_a": "5895f3a167c14a967fe9ac70c64924ae5acc79799e0679fd12907e594a713cd1",
+   "part_b": "5895f3a167c14a967fe9ac70c64924ae5acc79799e0679fd12907e594a713cd1",
+   "canonical_q4": "5895f3a167c14a967fe9ac70c64924ae5acc79799e0679fd12907e594a713cd1",
+   "equal_to_canonical_q4": true
+  },
+  "text_encoder/config.json": {
+   "part_a": "369fe497e51469d3fe4e1c71c45fe98ec6853ea0885176f41cf4a224d113b44a",
+   "part_b": "369fe497e51469d3fe4e1c71c45fe98ec6853ea0885176f41cf4a224d113b44a",
+   "canonical_q4": "369fe497e51469d3fe4e1c71c45fe98ec6853ea0885176f41cf4a224d113b44a",
+   "equal_to_canonical_q4": true
+  },
+  "transformer/config.json": {
+   "part_a": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+   "part_b": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+   "canonical_q4": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+   "equal_to_canonical_q4": true
+  },
+  "vae/config.json": {
+   "part_a": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+   "part_b": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+   "canonical_q4": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+   "equal_to_canonical_q4": true
+  }
+ },
+ "leftovers_identical_and_removed": {
+  "q8-part-vae-transformer/text_encoder/config.json": true,
+  "q8-part-text_encoder/model_index.json": true,
+  "q8-part-text_encoder/processor/chat_template.jinja": true,
+  "q8-part-text_encoder/processor/preprocessor_config.json": true,
+  "q8-part-text_encoder/processor/tokenizer.json": true,
+  "q8-part-text_encoder/processor/tokenizer_config.json": true,
+  "q8-part-text_encoder/scheduler/scheduler_config.json": true,
+  "q8-part-text_encoder/transformer/config.json": true,
+  "q8-part-text_encoder/vae/config.json": true
+ },
+ "files": {
+  "model_index.json": {
+   "size": 447,
+   "sha256": "cf1ecd104ea090855d60d8cec0895c1e9d6ee41b2f87e231b678beecd1cf7809"
+  },
+  "processor/chat_template.jinja": {
+   "size": 5292,
+   "sha256": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4"
+  },
+  "processor/preprocessor_config.json": {
+   "size": 507,
+   "sha256": "29cb956472acf03f6ba6846ddcd8686d82c2a36f11cdfcda17845f95bdbd9a79"
+  },
+  "processor/tokenizer.json": {
+   "size": 11422650,
+   "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+  },
+  "processor/tokenizer_config.json": {
+   "size": 417,
+   "sha256": "bfbbc1983aa3f46c0f496d90a37fbbea8047581fbd7250534f112445be84b5a6"
+  },
+  "scheduler/scheduler_config.json": {
+   "size": 485,
+   "sha256": "5895f3a167c14a967fe9ac70c64924ae5acc79799e0679fd12907e594a713cd1"
+  },
+  "text_encoder/0.safetensors": {
+   "size": 2140924995,
+   "sha256": "6f5c959d447babbe84b6aa19a301a02844da09f3ff3f509dde9477c133655235"
+  },
+  "text_encoder/1.safetensors": {
+   "size": 2103643586,
+   "sha256": "c1991c1823350b42aa3ecec8d58f02c95aa1f00fcb2a74400bb01c6cb4404b81"
+  },
+  "text_encoder/2.safetensors": {
+   "size": 2103643537,
+   "sha256": "c2f557988bbfa378309ece1f4dea73e2d1b2eb27d317f36a1786ce3450c5632d"
+  },
+  "text_encoder/3.safetensors": {
+   "size": 2143616134,
+   "sha256": "aad7d5fbc4401b1ed8c81dfa234092ee8773569d9876f6593c9e71e54bfe8a11"
+  },
+  "text_encoder/4.safetensors": {
+   "size": 951295058,
+   "sha256": "6afb9e122c70b82c3ed6b340e36ef41724ff86604e12ed4e2777973581cea716"
+  },
+  "text_encoder/config.json": {
+   "size": 1516,
+   "sha256": "369fe497e51469d3fe4e1c71c45fe98ec6853ea0885176f41cf4a224d113b44a"
+  },
+  "text_encoder/model.safetensors.index.json": {
+   "size": 95963,
+   "sha256": "f40c34b0d79198c10e22c27cfb558128929a0edeaa89e8d41c39789c1782be27"
+  },
+  "transformer/0.safetensors": {
+   "size": 2131021969,
+   "sha256": "b39a9ff2e408e5da98a15dccfe957e0711a40815aa36b1fe754976f4557f79b7"
+  },
+  "transformer/1.safetensors": {
+   "size": 2139124143,
+   "sha256": "84db958f3fc98dda06de75cdfb79a7d0bf1e2aff67d900042fdb769e71b95716"
+  },
+  "transformer/2.safetensors": {
+   "size": 2139124261,
+   "sha256": "9060e71c83bb97047882594da633e8970036197d289683f59699ea8343140806"
+  },
+  "transformer/3.safetensors": {
+   "size": 1246003511,
+   "sha256": "2d9511903f2abcd59926892afe82f209e6a78631e5aab3ec1355b63075b919bf"
+  },
+  "transformer/config.json": {
+   "size": 369,
+   "sha256": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f"
+  },
+  "transformer/model.safetensors.index.json": {
+   "size": 48913,
+   "sha256": "32f35a9a199269c65332e415d028365c61efe79b328eb53352c70d7618e80570"
+  },
+  "vae/0.safetensors": {
+   "size": 1350988935,
+   "sha256": "642cdb0b70d1d64d10cceb61a71dccbe0c9da77dd2bb61083b9341a8f2f9733b"
+  },
+  "vae/config.json": {
+   "size": 2078,
+   "sha256": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd"
+  },
+  "vae/model.safetensors.index.json": {
+   "size": 15902,
+   "sha256": "b00242d139c1190f85c124abb281a6ce6ed2aa54280f4eea085ecc2bb8389306"
+  }
+ },
+ "file_count": 22,
+ "total_bytes": 18460980668,
+ "bytes_by_component": {
+  ".": 447,
+  "processor": 11428866,
+  "scheduler": 485,
+  "text_encoder": 9443220789,
+  "transformer": 7655323166,
+  "vae": 1351006915
+ },
+ "shard_metadata": {
+  "text_encoder/0.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "text_encoder/1.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "text_encoder/2.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "text_encoder/3.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "text_encoder/4.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "transformer/0.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "transformer/1.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "transformer/2.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "transformer/3.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  },
+  "vae/0.safetensors": {
+   "mflux_version": "0.21.0",
+   "quantization_level": "8"
+  }
+ },
+ "vae_vs_canonical_q4": {
+  "tensors_q4": 238,
+  "tensors_q8": 238,
+  "differing": [],
+  "tensor_identical": true
+ }
+}

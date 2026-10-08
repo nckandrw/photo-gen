@@ -1,0 +1,31 @@
+{
+ "mode": "export",
+ "argv": [
+  "export",
+  "models/research/qwen-image-2.1",
+  "models/research/qq-staging/q8-part-vae-transformer",
+  "8",
+  "vae,transformer",
+  "research/qwen/qq/export/export-q8-vae-transformer.json"
+ ],
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "started": "2026-10-08T08:44:07+0800",
+ "load_quantize_seconds": 4.0,
+ "mlx_active_gb_after_load": 9.016,
+ "mlx_peak_gb_after_load": 9.13,
+ "bits": 8,
+ "components": [
+  "vae",
+  "transformer"
+ ],
+ "save_seconds": 43.0,
+ "mlx_peak_gb_total": 10.304,
+ "api": "QwenImage21Edit(quantize=bits, model_path=src).save_model(dst), get_components narrowed",
+ "finished": "2026-10-08T08:44:56+0800"
+}

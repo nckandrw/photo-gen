@@ -1,0 +1,52 @@
+{
+ "time": "2026-10-08T08:46:12+0800",
+ "what": "q8 vae+transformer export: attempt 1 (failed after writing its shards) vs attempt 2 (amendment 1)",
+ "files": {
+  "vae/0.safetensors": {
+   "attempt2": "642cdb0b70d1d64d10cceb61a71dccbe0c9da77dd2bb61083b9341a8f2f9733b",
+   "attempt1": "642cdb0b70d1d64d10cceb61a71dccbe0c9da77dd2bb61083b9341a8f2f9733b",
+   "equal": true
+  },
+  "vae/config.json": {
+   "attempt2": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+   "attempt1": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+   "equal": true
+  },
+  "vae/model.safetensors.index.json": {
+   "attempt2": "b00242d139c1190f85c124abb281a6ce6ed2aa54280f4eea085ecc2bb8389306",
+   "attempt1": "b00242d139c1190f85c124abb281a6ce6ed2aa54280f4eea085ecc2bb8389306",
+   "equal": true
+  },
+  "transformer/0.safetensors": {
+   "attempt2": "b39a9ff2e408e5da98a15dccfe957e0711a40815aa36b1fe754976f4557f79b7",
+   "attempt1": "b39a9ff2e408e5da98a15dccfe957e0711a40815aa36b1fe754976f4557f79b7",
+   "equal": true
+  },
+  "transformer/1.safetensors": {
+   "attempt2": "84db958f3fc98dda06de75cdfb79a7d0bf1e2aff67d900042fdb769e71b95716",
+   "attempt1": "84db958f3fc98dda06de75cdfb79a7d0bf1e2aff67d900042fdb769e71b95716",
+   "equal": true
+  },
+  "transformer/2.safetensors": {
+   "attempt2": "9060e71c83bb97047882594da633e8970036197d289683f59699ea8343140806",
+   "attempt1": "9060e71c83bb97047882594da633e8970036197d289683f59699ea8343140806",
+   "equal": true
+  },
+  "transformer/3.safetensors": {
+   "attempt2": "2d9511903f2abcd59926892afe82f209e6a78631e5aab3ec1355b63075b919bf",
+   "attempt1": "2d9511903f2abcd59926892afe82f209e6a78631e5aab3ec1355b63075b919bf",
+   "equal": true
+  },
+  "transformer/config.json": {
+   "attempt2": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+   "attempt1": "807dc9508f46716e94e96815186b7a1977a6023f382998a86b6eae96f88fa22f",
+   "equal": true
+  },
+  "transformer/model.safetensors.index.json": {
+   "attempt2": "32f35a9a199269c65332e415d028365c61efe79b328eb53352c70d7618e80570",
+   "attempt1": "32f35a9a199269c65332e415d028365c61efe79b328eb53352c70d7618e80570",
+   "equal": true
+  }
+ },
+ "all_weight_files_equal": true
+}

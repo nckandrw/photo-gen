@@ -1,0 +1,30 @@
+{
+ "mode": "export",
+ "argv": [
+  "export",
+  "models/research/qwen-image-2.1",
+  "models/research/qq-staging/q8-part-text_encoder",
+  "8",
+  "text_encoder",
+  "research/qwen/qq/export/export-q8-text_encoder.json"
+ ],
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "started": "2026-10-08T08:45:18+0800",
+ "load_quantize_seconds": 4.1,
+ "mlx_active_gb_after_load": 8.784,
+ "mlx_peak_gb_after_load": 8.831,
+ "bits": 8,
+ "components": [
+  "text_encoder"
+ ],
+ "save_seconds": 5.5,
+ "mlx_peak_gb_total": 10.689,
+ "api": "QwenImage21Edit(quantize=bits, model_path=src).save_model(dst), get_components narrowed",
+ "finished": "2026-10-08T08:45:29+0800"
+}

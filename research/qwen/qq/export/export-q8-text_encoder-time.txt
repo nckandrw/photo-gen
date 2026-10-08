@@ -1,0 +1,26 @@
+Saving components:   0%|          | 0/1 [00:00<?, ?component/s]
+  text_encoder:   0%|          | 0/5 [00:00<?, ?shard/s][A
+  text_encoder:  20%|██        | 1/5 [00:01<00:06,  1.71s/shard][A
+  text_encoder:  40%|████      | 2/5 [00:02<00:02,  1.01shard/s][A
+  text_encoder:  60%|██████    | 3/5 [00:02<00:01,  1.30shard/s][A
+  text_encoder:  80%|████████  | 4/5 [00:03<00:00,  1.49shard/s][A
+  text_encoder: 100%|██████████| 5/5 [00:05<00:00,  1.21s/shard][A
+                                                                [ASaving components: 100%|██████████| 1/1 [00:05<00:00,  5.40s/component]Saving components: 100%|██████████| 1/1 [00:05<00:00,  5.40s/component]
+       11.90 real         1.58 user         4.71 sys
+          2181021696  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              863568  page reclaims
+                1617  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               26510  voluntary context switches
+               53898  involuntary context switches
+         56738079591  instructions retired
+         26906477830  cycles elapsed
+         11226293008  peak memory footprint

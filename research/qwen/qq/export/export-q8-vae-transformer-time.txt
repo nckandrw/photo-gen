@@ -1,0 +1,28 @@
+Saving components:   0%|          | 0/2 [00:00<?, ?component/s]
+  vae:   0%|          | 0/1 [00:00<?, ?shard/s][A
+  vae: 100%|██████████| 1/1 [00:04<00:00,  4.82s/shard][A
+                                                       [ASaving components:  50%|█████     | 1/2 [00:04<00:04,  4.83s/component]
+  transformer:   0%|          | 0/4 [00:00<?, ?shard/s][A
+  transformer:  25%|██▌       | 1/4 [00:10<00:31, 10.66s/shard][A
+  transformer:  50%|█████     | 2/4 [00:21<00:21, 10.94s/shard][A
+  transformer:  75%|███████▌  | 3/4 [00:31<00:10, 10.41s/shard][A
+  transformer: 100%|██████████| 4/4 [00:38<00:00,  8.85s/shard][A
+                                                               [ASaving components: 100%|██████████| 2/2 [00:42<00:00, 24.36s/component]Saving components: 100%|██████████| 2/2 [00:42<00:00, 21.43s/component]
+       49.77 real         1.58 user         7.00 sys
+          2473934848  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              751297  page reclaims
+                1116  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              243089  voluntary context switches
+               55096  involuntary context switches
+         82120358879  instructions retired
+         35442600969  cycles elapsed
+         10824536048  peak memory footprint
