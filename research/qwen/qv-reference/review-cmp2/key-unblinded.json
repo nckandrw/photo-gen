@@ -1,0 +1,19 @@
+{
+ "S01": {
+  "kind": "composite",
+  "task": "R02",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "instruction": "Remove the dark grey van parked in front of the building.",
+  "panels": {
+   "A": "HARD2",
+   "B": "G2",
+   "C": "FEATHER2"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP2-1024-R02/data/composite-hard.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP2-1024-R02/data/composite-feather.png"
+  }
+ }
+}

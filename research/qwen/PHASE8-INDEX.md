@@ -13,8 +13,8 @@ pasted by the user on 2026-10-09.
 - **Texture-Fix decoder:** no text rescue; 0.3–0.7 dB further from the scaled input.
 - **Identity edit (R15-512, n = 1):** extra loss beyond the output-path ceiling (1 clear + 1 borderline element),
   fidelity MAJOR.
-- **Compositing:** with G2's box, it keeps the text but fails adherence and realism on mask coverage. CMP2 (a
-  conservative mask, post-hoc) is in the report, §5.3.
+- **Compositing (n = 1):** with G2's box, it keeps the text but fails on mask coverage. With a conservative,
+  feathered whole-van mask (CMP2, post-hoc) it is **viable**: edit PASS, both signs PRESERVED, seam and realism MINOR.
 - **Q-A:** desk survey done. Shortlist: FLUX.2 [klein] 4B first, via a VAE round-trip entry screen.
 - **Recommendation:** stop Qwen-Image-2.1-focused work and redirect to the FLUX.2 [klein] 4B VAE entry screen.
 - **Status unchanged:** G2 REJECTED, Q-Q AGAINST, Q-V MIXED, research-only, `validated: false`.

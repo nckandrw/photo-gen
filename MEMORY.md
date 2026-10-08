@@ -5,29 +5,35 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-09 (PHASE 7 COMPLETE). Read `research/qwen/PHASE7-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+_Last updated 2026-10-09 (PHASE 8 COMPLETE). Read `research/qwen/PHASE8-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
 
 **Where things stand. Nothing is running.**
 - **Production (text-to-image, Z-Image):** unchanged since v3. Standing facts are below.
-- **Image editing (Qwen-Image-2.1): research-only, not a production feature.** The four steps are kept separate:
-  - **G0** (Phase 4): CAPABLE at 512 and 1024 on synthetic sources.
-  - **G2** (Phase 5, real photographs): **REJECTED** at 512 and 1024. Incidental text elsewhere in the photo is garbled (8/8 text-preservation items), and edits leak to similar objects. 1024 is MARGINAL (≈ 592 s per edit). `research/editing/real-world/results.md`.
-  - **Q-Q** (Phase 6): **AGAINST.** q8 weights rescue 1 of 19 garbled elements, and text FAIL is 6/6 in both arms, so q4 is not the primary cause. `research/qwen/QWEN-QQ-DIAGNOSTIC.md`.
-  - **Q-V** (Phase 7): **MIXED.** A VAE-only round trip, bit-exact against the edit's path, is what a perfect copy of the reference would give.
-    - It keeps **3/12** text elements legible at 512: scaling loses 6, the VAE 4 of the remaining 6. *[Clarified 2026-10-09 (Phase 8): 6 − 4 leaves 2; the third legible element is one reversal, R15 t3 (GARBLED after scaling, PRESERVED after the round trip; a 3–5 px decal call). Per-element table: `research/qwen/qv-reference/phase7-transitions.md`. No score or class changed.]*
-    - It keeps **7/12** at 1024: the VAE loses 3 of 10 legible elements, at least one on every photo; two of those calls are borderline.
-    - `research/qwen/QWEN-QV-DIAGNOSTIC.md`.
-  - **Recommendation (awaiting you, not implemented): stop Qwen-Image-2.1 editing work.** Run Q-A (an alternative-model desk survey) only if editing remains a goal. Its entry screen: the candidate's VAE/conditioning round trip keeps the G2 text elements legible at a budget that fits 16 GB.
+- **Image editing (Qwen-Image-2.1): research-only, not a production feature.** The steps are kept separate:
+  - **G0** (Phase 4): CAPABLE. **G2** (Phase 5): **REJECTED** at 512 and 1024. **Q-Q** (Phase 6): **AGAINST**.
+  - **Q-V** (Phase 7): **MIXED**. A perfect copy keeps 3/12 legible at 512 and 7/12 at 1024.
+  - **Q-VR** (Phase 8): **RUNTIME-MATCHED**. The MLX VAE path matches the official Diffusers CPU reference: residual
+    0.14–0.19/255 = MLX's TF32 default; 24/24 blind text calls identical. So Q-V's loss is not a runtime artefact.
+    - Texture-Fix decoder: no text rescue.
+    - Identity edit (R15-512, n = 1): drifts beyond the ceiling.
+    - Compositing (R02-1024, n = 1): viable with a conservative feathered mask, not with G2's box.
+    - Report: `research/qwen/QWEN-QVR-REFERENCE.md`.
+  - **Q-A** (Phase 8): desk survey `research/editing/QA-ALTERNATIVE-MODELS.md`; FLUX.2 [klein] 4B first.
+  - **Recommendation (awaiting you, not implemented):** stop Qwen-Image-2.1-focused work, and run the FLUX.2 [klein]
+    4B VAE round-trip entry screen next (`PHASE8-INDEX.md` §6).
 - **Git:**
-  - `main` = `b213b73`, **8 commits ahead of `origin/main` (`56880d2`), NOT pushed:** the Phase 7 commits `a390bef`, `0b2514d`, `6e527f0`, `670642e`, `f718359`, `a257500`, `6981582`, `b213b73`, plus this ledger update.
-  - **Tags:** v4 (`1741179` → `33669eb`) is the latest; v3 → `401e400`. All immutable. No Phase 7 tag.
-- **Open decisions (all yours; none started):**
-  1. Stop Qwen editing work (recommended), and keep or remove the research-only edit task. Removal steps: `PHASE6-INDEX.md` §7.
-  2. Q-A, only if editing remains a goal (`PHASE7-INDEX.md` §6).
-  3. The 33 GB source checkpoint `models/research/qwen-image-2.1`: its DELETE trigger is met if Qwen work stops. Procedure: `PHASE6-INDEX.md` §7. Otherwise keep it.
-  4. Push the 8 Phase 7 commits, and any tag.
-  5. Dependabot: 4 alerts on the edit-venv lock (fsspec high; urllib3 1 medium, 2 high). Documented in `docs/REPRODUCIBILITY.md` §5.1; the lock is unchanged. A fix needs a parity re-check.
-  6. Not Qwen: whether to run a dedicated 6-step gate at 768².
+  - Phase 7 is pushed (`56880d2..817a7c2`). The **Phase 8 commits are local, NOT pushed** (the directive did not
+    authorise it).
+  - Tags: v4 (`1741179` → `33669eb`) is the latest. No v5, and none recommended.
+- **Open decisions (all yours):**
+  1. Stop Qwen editing work, and keep or remove the edit task.
+  2. The FLUX.2 [klein] 4B entry screen.
+  3. The Texture-Fix VAE (1.35 GB): its delete trigger is met; it is kept pending your word.
+  4. The 33 GB Qwen source checkpoint: RETAIN LOCALLY; its DELETE trigger fires if Qwen work stops.
+  5. Push the Phase 8 commits.
+  6. `docs/HARDWARE.md`: the machine runs macOS 27.0.1 (since 2026-09-29) while the doc says 27.0; a note was added.
+  7. Dependabot alerts on the edit-venv lock: unchanged.
+  8. Not Qwen: a 6-step gate at 768².
 
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
@@ -37,7 +43,7 @@ _Last updated 2026-10-09 (PHASE 7 COMPLETE). Read `research/qwen/PHASE7-INDEX.md
 5. `research/experiments/STATUS.md` (every experiment's status) and `research/EXPERIMENT-BACKLOG.md` (next frontier).
 
 **Checks, no GPU:**
-- `git status -sb` should show `ahead 8` (or 9 with this update), unless pushed since;
+- `git status -sb` shows `main` ahead of `origin/main` by the unpushed Phase 8 commits, unless pushed since;
 - `bin/photo-gen verify` and `verify --edit` must be ok;
 - the tests must give 93 OK (command in `CLAUDE.md`);
 - nothing should be running: `pgrep -fl "run_edit|chain|qv_run|qq_run|mflux_qwen_edit_worker"`.
@@ -80,6 +86,36 @@ _Last updated 2026-10-09 (PHASE 7 COMPLETE). Read `research/qwen/PHASE7-INDEX.md
 - Phase 3 leftover: whether a dedicated 6-step gate at 768² is worth it. Stage C stays deferred.
 - Resolution-aware automatic step selection is not to be implemented yet.
 - Editing backlog: Q-S on hold; Q-U and Q-C not started; Q-A conditional (`EXPERIMENT-BACKLOG.md`).
+
+---
+
+## 2026-10-09 — Phase 8 COMPLETE (same directive; resumed after the usage-limit cut-off)
+- **Chain:** `qvr-chain.sh` → `QVR_CHAIN_DONE` 01:23:55 (23 steps rc 0, no abort). Analysis `134a618`.
+- **Q-VR result: RUNTIME-MATCHED.**
+  - All gates pass (weights 238/238; A1 = Phase 7 6/6; preprocessing, cast and tiler ports bit-exact; A2 deterministic).
+  - A1–A2 is SMALL on 6/6 (0.14–0.19/255 > B_i), and PE with TF32 off.
+  - Blind review (`3294fd2`): A1/A2 24/24 identical.
+  - MLX pad/AvgDown probes are bit-exact. The PyTorch-MPS defect does not reproduce on this machine (`b00846d`).
+- **Conditional arms:** `qvr-cond-chain-r2.sh` (`819a1c9`; attempt 1 stopped on a tool path bug, kept as `runs/FAILED-*`).
+  - Texture-Fix @ `702909b`: audit first, 1.35 GB downloaded and verified. Its encoder is bit-identical, its decoder
+    0.3–0.7 dB worse, and the text calls are the same.
+  - Identity probe `research/qwen/runs/QVR-ID-512-R15`: 26.0 vs 31.1 dB; 1 clear + 1 borderline loss; 1024 not
+    triggered.
+  - CMP (G2 box): coverage failure.
+  - **Amendment 2** (post-hoc, undeclared-deviation fix), CMP2 with a conservative whole-van mask: the feathered
+    composite is viable (`822fa77` + CMP2 freeze).
+- **Disclosed:**
+  - the rater revised three D0 calls via a helper script outside its permitted directories (no effect on the tallies);
+  - one TF step grew swap by 1.9 GB (under the 2 GB limit);
+  - the monitor cadence was 1.2–1.7 s;
+  - macOS 27.0.1;
+  - a second rater on Phase 7's pixels: 20/24 agreement; still MIXED by Q-V's rules (descriptive).
+- **Closing checks:** tests 93/93; `verify` and `verify --edit` ok; assets identical to pre-Phase-8
+  (`qwen-assets-verification-phase8-post.json`); frozen G2/Q-Q/Q-V sheets intact; no `app/`, `config/` or `bin/` change.
+- **Docs:** report `research/qwen/QWEN-QVR-REFERENCE.md`, Q-A doc, STATUS, backlog, PERFORMANCE-MAP,
+  QWEN-EDITING-QUALITY, RELEASE-NOTES "Unreleased", CLAUDE.md, ASSET-PROVENANCE §8, HARDWARE note, `PHASE8-INDEX.md`.
+  Review crops preserved (`research/review-crops/MANIFEST.sha256`).
+- **Not pushed; no tag.** Nothing is running.
 
 ---
 

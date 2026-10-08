@@ -98,6 +98,6 @@ Negative results are kept on purpose.
 | MPS-defect lead (ComfyUI #16433 / pytorch #194922) in MLX | **CLOSED: ABSENT** | qv-reference/runs/PROBE-mlx | 28 `mx.pad` calls + 12 AvgDown sites bit-exact vs NumPy; the PyTorch defect itself did not reproduce here (torch 2.14.0, macOS 27.0.1) |
 | Texture-Fix VAE decoder (madebyollin @ 702909b) | **CLOSED: NO TEXT RESCUE** | QWEN-QVR-REFERENCE.md §5.1 | encoder output bit-identical; decoder 0.3–0.7 dB further from D0; text calls = original decoder |
 | Identity-edit probe R15-512 ("change nothing") | **DONE (n = 1)** | §5.2 | PSNR vs D0 26.0 vs ceiling 31.1; loses 1 clear + 1 borderline element the ceiling keeps; fidelity MAJOR |
-| Compositing baseline R02-1024 | **DONE** | §5.3 | G2 box: text kept, adherence PARTIAL / realism MAJOR (mask coverage); CMP2 conservative mask: see §5.3 |
+| Compositing baseline R02-1024 | **DONE (n = 1)** | §5.3 | G2 box: text kept, adherence PARTIAL / realism MAJOR (mask coverage); CMP2 conservative whole-van mask (post-hoc), feathered: **viable** (adherence PASS, seam MINOR, realism MINOR, both signs PRESERVED; the G2 edit garbles both) |
 | Q-A alternative-model desk survey | **DONE (desk only)** | research/editing/QA-ALTERNATIVE-MODELS.md | shortlist: FLUX.2 [klein] 4B (Apache-2.0, f8c32 VAE, mflux-supported) → VAE entry screen next |
 | Qwen-Image-2.1 editing work | **RECOMMENDED: STOP** (awaits the user; reinforced) | QWEN-QVR-REFERENCE.md §8 | not runtime, not precision, not a decoder swap; the editor also drifts under a no-change instruction |
