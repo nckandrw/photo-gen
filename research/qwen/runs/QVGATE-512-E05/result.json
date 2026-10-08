@@ -1,0 +1,1 @@
+{"rc": 0, "process_wall_seconds": 18.311, "mode": "gate", "record": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QVGATE-512-E05/worker/gate.json", "pass": true, "roundtrip_pixel_sha256": null, "peak_footprint_gb": 8.04, "mlx_peak_gb": 7.095, "seconds": null}

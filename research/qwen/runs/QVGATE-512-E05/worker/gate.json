@@ -1,0 +1,75 @@
+{
+ "tool": "research/qwen/qv/qv_roundtrip.py gate",
+ "source": "G0 E05 (not a G2 item)",
+ "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+ "request": {
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "base_model": "qwen-image-2.1",
+  "prompt": "Change the background to a sunset beach",
+  "image_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+  "seed": 42,
+  "steps": 3,
+  "output_resolution": 512,
+  "output_path": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QVGATE-512-E05/worker/edit.png",
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true
+ },
+ "checks": {
+  "edit_rc": 0,
+  "captured": [
+   "dec_in",
+   "dec_out",
+   "dec_tiling",
+   "enc_in",
+   "enc_out",
+   "unpack_in_dtype"
+  ],
+  "encode_input_identical": true,
+  "encode_output_identical": true,
+  "latent_dtype_into_unpack": "mlx.core.bfloat16",
+  "tiling_pipeline": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "tiling_harness": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "tiling_identical": true,
+  "decode_output_identical": true,
+  "shapes": {
+   "enc_in": [
+    1,
+    4,
+    512,
+    512
+   ],
+   "enc_out": [
+    1,
+    64,
+    1,
+    32,
+    32
+   ],
+   "dec_in": [
+    1,
+    64,
+    1,
+    32,
+    32
+   ],
+   "dec_out": [
+    1,
+    4,
+    512,
+    512
+   ]
+  },
+  "pass": true
+ },
+ "vae_file_sha256": "248d52c5904e244e1e15b38d348deeb92cfe812ed1c6490b6b8164cac79a8cdf",
+ "peak_footprint_gb": 8.04,
+ "mlx_peak_gb": 7.095,
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "pillow": "12.3.0",
+  "numpy": "2.4.1"
+ }
+}

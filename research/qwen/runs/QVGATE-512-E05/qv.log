@@ -1,0 +1,54 @@
+INFO: Image saved successfully at: /Users/nckandrw/Dev/photo-gen/research/qwen/runs/QVGATE-512-E05/worker/edit.png
+INFO: Metadata embedded successfully at: /Users/nckandrw/Dev/photo-gen/research/qwen/runs/QVGATE-512-E05/worker/edit.png
+Peak MLX memory: 5.74 GB
+{
+ "checks": {
+  "edit_rc": 0,
+  "captured": [
+   "dec_in",
+   "dec_out",
+   "dec_tiling",
+   "enc_in",
+   "enc_out",
+   "unpack_in_dtype"
+  ],
+  "encode_input_identical": true,
+  "encode_output_identical": true,
+  "latent_dtype_into_unpack": "mlx.core.bfloat16",
+  "tiling_pipeline": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "tiling_harness": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "tiling_identical": true,
+  "decode_output_identical": true,
+  "shapes": {
+   "enc_in": [
+    1,
+    4,
+    512,
+    512
+   ],
+   "enc_out": [
+    1,
+    64,
+    1,
+    32,
+    32
+   ],
+   "dec_in": [
+    1,
+    64,
+    1,
+    32,
+    32
+   ],
+   "dec_out": [
+    1,
+    4,
+    512,
+    512
+   ]
+  },
+  "pass": true
+ },
+ "peak_footprint_gb": 8.04,
+ "mlx_peak_gb": 7.095
+}

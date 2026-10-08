@@ -1,0 +1,21 @@
+run_id=QVGATE-512-E05 mode=qv:gate res=512 seed=0 steps=3
+image=-
+prompt=-
+Thu  8 Oct 2026 23:50:16 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 5120.00M  used = 4292.75M  free = 827.25M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 78%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+1516944 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+1023408 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+613264 /Users/nckandrw/.local/bin/claude
+503520 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+403872 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/155.1.97.56/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+370496 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+git_head=a390befbb3ea4e5becfe85c45a1be3e3a55c6c21
+git_dirty(app,config,research/qwen):
+?? research/qwen/qv/qv-chain.log
+wall_s=20 rc=0 aborted=0 swap_end=4782.94M

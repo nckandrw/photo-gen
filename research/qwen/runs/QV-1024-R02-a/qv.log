@@ -1,0 +1,31 @@
+{
+ "size": [
+  1184,
+  896
+ ],
+ "roundtrip": {
+  "pixel_sha256": "abf612c966c19bf8a28648791db47d3065a8fd90e17853b031f5d656c501e703",
+  "size": [
+   1184,
+   896
+  ],
+  "alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 251,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "016e0450d9a7a165d30f0e31ffebee98b507cfde18042920fbf3928418508d16"
+  },
+  "file_sha256": "53b81f093f44f872f8a6da0fb5eea6a61a2324d7d05edf7db2982b4d619b2fb5"
+ },
+ "seconds": {
+  "load": 0.42,
+  "encode": 1.599,
+  "decode": 7.997,
+  "primary_total": 10.423,
+  "total_with_variants": 26.025
+ },
+ "peak_footprint_gb": 12.266,
+ "mlx_peak_gb": 15.497
+}

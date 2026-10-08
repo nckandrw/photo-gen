@@ -1,0 +1,125 @@
+{
+ "tool": "research/qwen/qv/qv_roundtrip.py roundtrip",
+ "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+ "budget": 512,
+ "size": [
+  448,
+  576
+ ],
+ "staged_identity": {
+  "pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+  "size": [
+   3024,
+   4032
+  ],
+  "alpha": {
+   "mode": "RGB",
+   "has_alpha": false
+  },
+  "file_sha256": "55cd49e3dab20dd2a074a683f24f205f8238c632f549188295623b68f129fd12"
+ },
+ "input": {
+  "pixel_sha256": "eddc1a1d809ccc20ef2b68704de39cfd4279041ce2263b5103b478e5ccd64906",
+  "size": [
+   448,
+   576
+  ],
+  "alpha": {
+   "mode": "RGB",
+   "has_alpha": false
+  },
+  "file_sha256": "b9e5688996d1d98aec7c18745959b183c1afc8e0af2c20d7040082f8257f3995"
+ },
+ "roundtrip": {
+  "pixel_sha256": "abca9c31f758912b81c3f05878a2355974beb61f9de01b0cfbcd27fdde544982",
+  "size": [
+   448,
+   576
+  ],
+  "alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 250,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "2852d3ab572c57cf0691775d82b7e8de6905adfc9387d076f0b4d0d317e9d1f4"
+  },
+  "file_sha256": "223f7dbcf45dc2c56eedfd7975e1cd6eea7a7e0ddfc4ac5aa6f7bd950ac1b7c2"
+ },
+ "variants": {
+  "fp32-latents": {
+   "identity": {
+    "pixel_sha256": "8a27db0a0410f7035322809d5e2c026f57b53497f6b8e2a883756f403f244165",
+    "size": [
+     448,
+     576
+    ],
+    "alpha": {
+     "mode": "RGBA",
+     "has_alpha": true,
+     "alpha_min": 250,
+     "alpha_max": 255,
+     "opaque": false,
+     "rgba_sha256": "949e8732bdf0ec8a029de4176d7c8d059e9840154aebc061d5e70d8c08f56002"
+    },
+    "file_sha256": "b45e681921c7aa0ea1f8b8d38720f61fb4034f1f771df5f6b7edddb24f06662d"
+   },
+   "max_abs_diff": 8,
+   "mean_abs_diff": 0.12229,
+   "pixels_differing": 0.359088
+  },
+  "untiled-decode": {
+   "identity": {
+    "pixel_sha256": "027b6fb34a990750ec11b0561dfe6260a4cbb67e7aa7a577d0994983888f301f",
+    "size": [
+     448,
+     576
+    ],
+    "alpha": {
+     "mode": "RGBA",
+     "has_alpha": true,
+     "alpha_min": 250,
+     "alpha_max": 255,
+     "opaque": false,
+     "rgba_sha256": "32cb828426faa3a233b9a4e6f545eab5f9d490bf44b3d567032da3430f6f1bc1"
+    },
+    "file_sha256": "7e7b44fb40d89986c7be73cbcb068dc7398af2b0d251138fab0e8fb39fcee797"
+   },
+   "max_abs_diff": 24,
+   "mean_abs_diff": 0.23775,
+   "pixels_differing": 0.410738
+  }
+ },
+ "latent_shape": [
+  1,
+  64,
+  1,
+  36,
+  28
+ ],
+ "latent_dtype_to_dit": "bfloat16",
+ "tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "vae_file_sha256": "248d52c5904e244e1e15b38d348deeb92cfe812ed1c6490b6b8164cac79a8cdf",
+ "vae_config_sha256": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+ "seconds": {
+  "load": 0.642,
+  "encode": 0.401,
+  "decode": 1.882,
+  "primary_total": 3.14,
+  "total_with_variants": 7.336
+ },
+ "memory_primary": {
+  "peak_footprint_gb": 5.194,
+  "mlx_peak_gb": 5.508
+ },
+ "peak_footprint_gb": 5.928,
+ "mlx_peak_gb": 6.005,
+ "mlx_cache_limit_bytes": 1000000000,
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "pillow": "12.3.0",
+  "numpy": "2.4.1"
+ }
+}

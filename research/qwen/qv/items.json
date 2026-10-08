@@ -1,0 +1,56 @@
+[
+ {
+  "item": "R02-512",
+  "task": "R02",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R02-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R02-a/worker/roundtrip.png",
+  "run": "QV-512-R02-a"
+ },
+ {
+  "item": "R12-512",
+  "task": "R12",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R12-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R12-a/worker/roundtrip.png",
+  "run": "QV-512-R12-a"
+ },
+ {
+  "item": "R15-512",
+  "task": "R15",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R15-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R15-a/worker/roundtrip.png",
+  "run": "QV-512-R15-a"
+ },
+ {
+  "item": "R02-1024",
+  "task": "R02",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R02-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R02-a/worker/roundtrip.png",
+  "run": "QV-1024-R02-a"
+ },
+ {
+  "item": "R12-1024",
+  "task": "R12",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R12-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R12-a/worker/roundtrip.png",
+  "run": "QV-1024-R12-a"
+ },
+ {
+  "item": "R15-1024",
+  "task": "R15",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "input": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R15-a/worker/input.png",
+  "roundtrip": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R15-a/worker/roundtrip.png",
+  "run": "QV-1024-R15-a"
+ }
+]

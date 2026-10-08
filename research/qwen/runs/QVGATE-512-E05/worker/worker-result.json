@@ -1,0 +1,106 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "--base-model",
+  "qwen-image-2.1",
+  "--prompt=Change the background to a sunset beach",
+  "--image-paths",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png",
+  "--seed",
+  "42",
+  "--steps",
+  "3",
+  "--output-resolution",
+  "512",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QVGATE-512-E05/worker/edit.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.919,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.186,
+   "mlx_peak_gb": 7.385,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.411,
+   "mlx_peak_gb": 3.071,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.583,
+   "mlx_peak_gb": 5.742,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 11.313,
+   "mlx_peak_gb": 5.742,
+   "calls": 1
+  },
+  "denoise_seconds": 7.568,
+  "other_seconds": 0.565
+ },
+ "step_seconds": [
+  3.817,
+  1.859,
+  1.787
+ ],
+ "mlx_peak_gb": 7.385,
+ "denoise_mlx_peak_gb": 5.881,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.363,
+  "after_vae_encode": 1.369,
+  "before_loop": 0.017,
+  "after_step0": 5.252,
+  "after_vae_decode": 1.025,
+  "after_generate_total": 1.012
+ },
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "text_encoder_released": true,
+ "transformer_released": true,
+ "bits": 4,
+ "defer_transformer_load": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "footprint_gb": {
+  "startup": 0.274,
+  "after_load": 6.684,
+  "after_text_encode": 2.971,
+  "after_vae_encode": 2.939,
+  "before_loop": 0.752,
+  "after_step0": 6.386,
+  "after_loop": 1.723,
+  "after_vae_decode": 2.983,
+  "after_generate_total": 2.849,
+  "end": 2.398
+ },
+ "denoise_active_gb_max": 5.252,
+ "process_seconds": 15.326,
+ "peak_footprint_gb": 8.04
+}

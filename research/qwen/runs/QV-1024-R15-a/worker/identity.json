@@ -1,0 +1,125 @@
+{
+ "tool": "research/qwen/qv/qv_roundtrip.py roundtrip",
+ "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+ "budget": 1024,
+ "size": [
+  896,
+  1184
+ ],
+ "staged_identity": {
+  "pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+  "size": [
+   3024,
+   4032
+  ],
+  "alpha": {
+   "mode": "RGB",
+   "has_alpha": false
+  },
+  "file_sha256": "62a098cbcb540d72ce7beb049d05573919c22207c29c0bfc89a31ad54600dbc6"
+ },
+ "input": {
+  "pixel_sha256": "4d991dc4333b8d63fb7edd6f3b0ac34051efc78d549115d4ecb20fa68576540b",
+  "size": [
+   896,
+   1184
+  ],
+  "alpha": {
+   "mode": "RGB",
+   "has_alpha": false
+  },
+  "file_sha256": "0917688ea7756e7a3332744dc90a2b11aa9db0f980ba5b499d858e52b20476fc"
+ },
+ "roundtrip": {
+  "pixel_sha256": "d8138139c25516a35b49562a8f1d17ce38fd58185fba59478810635f3c7c591b",
+  "size": [
+   896,
+   1184
+  ],
+  "alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 245,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "f176480c757bc2bf86159ad068a0175875ccb6650fb1084aa77d65c3eb4ff7e5"
+  },
+  "file_sha256": "4a1211ff1cbf68fb95875ddc8a54ac6381bdc2d4f2b89e91c7ac42bd335acb44"
+ },
+ "variants": {
+  "fp32-latents": {
+   "identity": {
+    "pixel_sha256": "77716ffb162ebdd3d29ff3ee0a808df3ddcacb7417d5fe5b7d13785a681f569b",
+    "size": [
+     896,
+     1184
+    ],
+    "alpha": {
+     "mode": "RGBA",
+     "has_alpha": true,
+     "alpha_min": 245,
+     "alpha_max": 255,
+     "opaque": false,
+     "rgba_sha256": "993543def2e35fddd35574290707c385ddabda25f3cbd2a34234f0eda6a74519"
+    },
+    "file_sha256": "7d84968011f44bdcb80c1706cce9667c00590bade412d20cffac08e6dab682a6"
+   },
+   "max_abs_diff": 14,
+   "mean_abs_diff": 0.1264,
+   "pixels_differing": 0.358655
+  },
+  "untiled-decode": {
+   "identity": {
+    "pixel_sha256": "d1edf7c01e4cb5f381030f9c23221302fbd5f5abbd12615dbc7b314ea3399fc7",
+    "size": [
+     896,
+     1184
+    ],
+    "alpha": {
+     "mode": "RGBA",
+     "has_alpha": true,
+     "alpha_min": 251,
+     "alpha_max": 255,
+     "opaque": false,
+     "rgba_sha256": "9c9faa087d1c54c2bb9f00648af5b332128c74663e2466ed53294beda2caedf2"
+    },
+    "file_sha256": "55d04b9cccb4b9adbd7823e71beb6f36f91e526bc4abe84fa6951cf8d0f49c1b"
+   },
+   "max_abs_diff": 47,
+   "mean_abs_diff": 0.54318,
+   "pixels_differing": 0.745427
+  }
+ },
+ "latent_shape": [
+  1,
+  64,
+  1,
+  74,
+  56
+ ],
+ "latent_dtype_to_dit": "bfloat16",
+ "tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "vae_file_sha256": "248d52c5904e244e1e15b38d348deeb92cfe812ed1c6490b6b8164cac79a8cdf",
+ "vae_config_sha256": "fa1ef934cc3bc905c8db73980f161639a0cac48cee4b09ee428d7d52b14412fd",
+ "seconds": {
+  "load": 0.635,
+  "encode": 1.399,
+  "decode": 11.842,
+  "primary_total": 14.302,
+  "total_with_variants": 32.954
+ },
+ "memory_primary": {
+  "peak_footprint_gb": 6.478,
+  "mlx_peak_gb": 6.101
+ },
+ "peak_footprint_gb": 12.409,
+ "mlx_peak_gb": 15.497,
+ "mlx_cache_limit_bytes": 1000000000,
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "pillow": "12.3.0",
+  "numpy": "2.4.1"
+ }
+}

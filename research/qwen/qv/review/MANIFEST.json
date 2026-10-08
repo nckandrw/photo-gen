@@ -1,0 +1,35 @@
+{
+ "tool": "research/qwen/qv/qv_blind.py",
+ "prepared": "2026-10-08T23:56:12+0800",
+ "seed": 20261009,
+ "sheets": 6,
+ "input_sha256": {
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png": "08bf52907d9ce67a7f7ffc1b7a4a9d62d127ab5878397beb0c41a37dd2cf7544",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R02-a/worker/input.png": "1e856d55089dfacefdeaee56a1a59c1634ef3c9a87b93601c33786e5002cc40a",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R02-a/worker/roundtrip.png": "84b4dc750cbc441fbdd3af649502f3f3f486d4791fa043565ab0826fd944b584",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png": "55cd49e3dab20dd2a074a683f24f205f8238c632f549188295623b68f129fd12",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R12-a/worker/input.png": "b9e5688996d1d98aec7c18745959b183c1afc8e0af2c20d7040082f8257f3995",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R12-a/worker/roundtrip.png": "223f7dbcf45dc2c56eedfd7975e1cd6eea7a7e0ddfc4ac5aa6f7bd950ac1b7c2",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png": "62a098cbcb540d72ce7beb049d05573919c22207c29c0bfc89a31ad54600dbc6",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R15-a/worker/input.png": "7d930fdb24e78777ad83482a9efdc44c23247ad4dd68672bfd17f90040d3db5f",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R15-a/worker/roundtrip.png": "8a000100d43e9a6c0e346be2a332e0d7d9771279592c74113acb2c16354e0c48",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R02-a/worker/input.png": "4dd224071a1324d0c34cff53d8236921ffb1f6929bf6ea09e97f147f9590fb9c",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R02-a/worker/roundtrip.png": "53b81f093f44f872f8a6da0fb5eea6a61a2324d7d05edf7db2982b4d619b2fb5",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R12-a/worker/input.png": "b5c71cc46aaee7e8325d4d18b67fd15483cb27fc40ea6b4f5228a1c89c83f9ae",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R12-a/worker/roundtrip.png": "e1cf499839d8270a6d3e49ed02b8abf6d9ffd94cb2f658d63587911f558ae6ac",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R15-a/worker/input.png": "0917688ea7756e7a3332744dc90a2b11aa9db0f980ba5b499d858e52b20476fc",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R15-a/worker/roundtrip.png": "4a1211ff1cbf68fb95875ddc8a54ac6381bdc2d4f2b89e91c7ac42bd335acb44"
+ },
+ "key_sha256": "4e29f6757f5be03f5dfaebabaf9698f9126ac4a8be8a2ca271869609505ef20a",
+ "composite_sha256": {
+  "V01": "da533587d276927dbf3a8f85df76837b87b42f502f1196049608a37e3ffb4061",
+  "V02": "bfd739c3f8545f47ded0187c66e22ceb8055ddb3b858f42dea70cdf634beaa26",
+  "V03": "3e6ec7395ea0808dd4b223f873ff1cc1a6a62fbb0897f0c7c9adaee105aa6234",
+  "V04": "634b183b51e715702c530d3b48ccca8adf36fa74b22ac735c46d2c3dceb91c99",
+  "V05": "4167e39299bffa70668975668b93eff74d81b927c51835149aa375cbc39de742",
+  "V06": "824c2a9b1ab0b9955f7e7e9ad5514802dcedc20bdee9168a0433fec24f612a4d"
+ },
+ "items_md_sha256": "c9c06722fa718f415bd38e6a99e75fe70c8779ab1f515215986706edafd93b04",
+ "frozen_scores_sha256": null,
+ "frozen_preference_sha256": null
+}
