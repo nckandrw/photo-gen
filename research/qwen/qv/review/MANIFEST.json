@@ -30,6 +30,7 @@
   "V06": "824c2a9b1ab0b9955f7e7e9ad5514802dcedc20bdee9168a0433fec24f612a4d"
  },
  "items_md_sha256": "c9c06722fa718f415bd38e6a99e75fe70c8779ab1f515215986706edafd93b04",
- "frozen_scores_sha256": null,
- "frozen_preference_sha256": null
+ "frozen_scores_sha256": "00c1b5e3e719e696617ccc6a28699c2d40c4d63aca3188e1ec08cfce9b883b8a",
+ "frozen_preference_sha256": "4306654821da643f7e2681944f81a38e123bf4adc28cbd82ec8243957449082a",
+ "frozen_at": "2026-10-09T00:25:20+0800"
 }
