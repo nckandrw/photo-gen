@@ -1,0 +1,21 @@
+{
+ "tool": "research/qwen/qv-reference/qvr_blind.py",
+ "prepared": "2026-10-09T05:14:40+0800",
+ "seed": 26091009,
+ "sheets": 1,
+ "input_sha256": {
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png": "08bf52907d9ce67a7f7ffc1b7a4a9d62d127ab5878397beb0c41a37dd2cf7544",
+  "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png": "cf723d5d122b5c719fc5f1c787a5bf094affa5a6d5618e9a742ce84de50b6d7d",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP2-1024-R02/data/composite-hard.png": "20cd5bf374f969a8fe167abc61d2c3fb4c73ffbfbcc2f299e0c66418d194e41e",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP2-1024-R02/data/composite-feather.png": "432c418b531872699c59500a86d131f058bb4c1df19e023077bec302c6572744"
+ },
+ "key_sha256": "20e0da9c27df39ca3d5cd65a04e2fb4ccfe2fc349b7458a593b6a14af402b7c4",
+ "rendered_sha256": {
+  "S01-ORIGINAL.png": "a9ee91755a16cd9065c737c9c391c70a5016e2506cbd43371a9b79e390898766",
+  "S01-A.png": "20cd5bf374f969a8fe167abc61d2c3fb4c73ffbfbcc2f299e0c66418d194e41e",
+  "S01-B.png": "ea37a043180120b0c6c112941897789426eda3d4be76c1bd8a905645f2f5f729",
+  "S01-C.png": "432c418b531872699c59500a86d131f058bb4c1df19e023077bec302c6572744"
+ },
+ "items_md_sha256": "e4834fa4157b1c45ac1cadf21b08176837042571364150010b1d1b5358208b62",
+ "frozen_scores_sha256": null
+}
