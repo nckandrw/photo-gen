@@ -264,4 +264,17 @@ an OCR failure would mostly measure the OCR engine. Workstream B (Q-A) is desk r
 and its log, `qvr-summary.json`, `review/`, the report `research/qwen/QWEN-QVR-REFERENCE.md`.
 
 ## Amendments
-(none)
+**Amendment 1 (2026-10-09, before any G2 photograph, any weight-identity check or any probe ran; synthetic smoke only).**
+*What:* the CPU reference executes large convolutions in bands of output rows (`ref_side.install_banded_conv`, im2col
+budget 256 MB per call). *Why:* the synthetic 512 smoke (`synthetic:640x480`, never a G2 item) reached a peak footprint
+of 11.2 GB with +1.9 GB swap, just under the §9 limit, because torch 2.14.0 here has no oneDNN and runs batch-1 CPU
+convolutions as im2col + GEMM with a full (C_in·k·k) × (H_out·W_out) buffer (≈ 5.4 GB for the decoder's 576-channel
+3×3 conv on one 512-px tile). *Validity:* each band is `F.conv2d` on exactly the input rows its outputs need, after the
+layer's own zero padding, so every output element is the same dot product with the same weights; a new gate
+(`ref_side.py conv-gate`, run in the chain as `GATE-conv`) requires the banded and unbanded results to agree, and a
+synthetic pre-check already gave **bit-identical** outputs for six VAE-shaped convolutions and for a full 256-px encode
+and decode with the real weights (62 banded calls), and byte-identical `dec`/`dec_x12` arrays for the 512 smoke run with
+and without banding. *Cost:* the smoke's peak fell to 6.9 GB with no swap growth and its wall time from 23 s to 13 s.
+Diffusers' code, weights and arithmetic are unchanged; only the im2col buffer is smaller. Added to §5.1 as gate 8
+("banded convolution bit-identical to unbanded"); a non-bit-identical result with max |Δ| ≤ 1e-5 would be recorded
+and accepted, larger fails the gate.
