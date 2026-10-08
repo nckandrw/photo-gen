@@ -169,7 +169,7 @@ Elsewhere:
 - run records in `research/qwen/runs/QQ-*` and `QQSMOKE-*`;
 - the report `research/qwen/QWEN-QQ-DIAGNOSTIC.md`.
 
-## Amendment 1 (2026-10-08, 08:4x PST; before any q8 edit; tooling only, nothing in §1–§10 changes)
+## Amendment 1 (2026-10-08; committed 08:44:03 in `95b99ce`, before any q8 edit; this header previously said "08:4x PST"; tooling only, nothing in §1–§10 changes)
 **What happened.** The export chain (`export-chain-attempt1.log`, started 08:40:43 at `fea3872`) passed `qerr` and gate E. Gate E held for both component groups, with 0 mismatches: vae 238/238 tensors, transformer 753/753, text_encoder 1440/1440.
 
 Then `export-q8-vae-transformer` failed with rc 1 after writing every vae and transformer shard. `QwenImage21Edit.save_model` writes `<dst>/<name>/config.json` for **all three** components (`_component_configs`), but `ModelSaver` creates only the directories of the components it saves. So the write of `text_encoder/config.json` raised `FileNotFoundError`. No watchdog abort occurred (peak footprint 10.74 GB, swap +0.79 GB).
@@ -181,3 +181,6 @@ Then `export-q8-vae-transformer` failed with rc 1 after writing every vae and tr
 **Kept:**
 - the attempt's logs, renamed `*-attempt1*`;
 - the partial part directory, as `models/research/qq-staging/ATTEMPT1-q8-part-vae-transformer`. It is compared file by file (sha256) with the re-run's vae and transformer shards, which is an export-determinism check. It is removed only after that comparison is recorded.
+
+## Note on times (2026-10-08)
+All clock times in this file and in the Q-Q records are the machine's local time, zone **Asia/Manila (UTC+8)**. `date` prints its abbreviation as "PST" (Philippine Standard Time), not US Pacific time. The same applies to the Phase 5 records.
