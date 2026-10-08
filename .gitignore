@@ -63,3 +63,9 @@ research/**/*.png
 # ---- FFN calibration intermediates (deterministic; hashes in research/experiments/p3b/calib-intermediates.sha256; merged scores ffn-scores.npz IS versioned) ----
 research/experiments/p3b/calib-c*.npz
 research/experiments/p3b/smoke/calib-*.npz
+
+# ---- Phase 8 CPU reference toolchain (research-only venv: torch CPU + diffusers 0.41.0; research/qwen/qv-reference/requirements.lock.txt) ----
+torch-ref/
+
+# ---- Phase 8 tensor dumps (large .npy intermediates; sha256s are in the run records) ----
+research/qwen/qv-reference/runs/**/*.npy
