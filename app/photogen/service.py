@@ -10,7 +10,7 @@ from .config import AppConfig
 from .errors import RuntimeUnavailableError
 from .jobs import JobManager
 from .runtimes.base import ImageRuntime, RuntimeHealth
-from .runtimes.mflux_qwen_edit import MFluxQwenImageEditRuntime
+from .runtimes.mflux_qwen_edit import EDIT_TASK_STATUS, QUALITY_STATUS, MFluxQwenImageEditRuntime
 from .runtimes.mflux_zimage import MFluxZImageRuntime
 from .tasks import IMAGE_EDIT, TEXT_TO_IMAGE, TaskRouter
 
@@ -40,7 +40,7 @@ class PhotoGenService:
     """One application, one job system, one API; one explicitly selected runtime per task (tasks.py).
 
     Health is per backend: the text-to-image backend (Z-Image) decides the service status exactly as before; the
-    image-edit backend (Qwen, experimental) is checked separately and its absence or failure only disables editing."""
+    image-edit backend (Qwen; research-only, G2 REJECTED) is checked separately and its absence or failure only disables editing."""
 
     def __init__(self, cfg: AppConfig, runtime: ImageRuntime | None = None, edit_runtime: ImageRuntime | None = None):
         self.cfg = cfg
@@ -91,7 +91,9 @@ class PhotoGenService:
             TEXT_TO_IMAGE: {"endpoint": "POST /generate", "cli": "photo-gen generate", "runtime": self.runtime.name,
                             "status": "production", "models": list(self.runtime.capabilities().supported_models)},
             IMAGE_EDIT: {"endpoint": "POST /edit", "cli": "photo-gen edit", "runtime": self.edit_runtime.name,
-                         "status": edit_caps.get("memory_profile", {}).get("status", "unavailable"),
+                         "status": ("unavailable" if edit_caps.get("memory_profile", {}).get("status", "unavailable")
+                                    == "unavailable" else EDIT_TASK_STATUS),
+                         "quality_status": QUALITY_STATUS,
                          "available": None if eh is None else eh.ok, "models": edit_caps["supported_models"],
                          "capabilities": edit_caps},
         }

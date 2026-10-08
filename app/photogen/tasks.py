@@ -5,7 +5,7 @@ explicit and deterministic (no automatic model selection). The router only maps 
 registered for it; validation stays in each runtime's normalize().
 
   text-to-image -> MFluxZImageRuntime          (Z-Image-Turbo; production)
-  image-edit    -> MFluxQwenImageEditRuntime    (Qwen-Image-2.1; RESEARCH / EXPERIMENTAL)
+  image-edit    -> MFluxQwenImageEditRuntime    (Qwen-Image-2.1; RESEARCH-ONLY: REJECTED by quality gate G2)
 """
 from __future__ import annotations
 

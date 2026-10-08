@@ -294,7 +294,7 @@ curl -s -o image.png http://127.0.0.1:8765/outputs/&lt;job_id&gt;</pre></div>
 <tr><td><code>--steps</code></td><td>40</td><td>2–60. 40 is the upstream recommendation.</td></tr>
 <tr><td><code>--seed</code></td><td><code>random</code></td><td>as for <code>generate</code></td></tr>
 <tr><td><code>--output-name</code></td><td>none</td><td>as for <code>generate</code></td></tr>
-<tr><td><code>--allow-experimental</code></td><td>off</td><td><strong>required</strong>: no edit configuration has passed a quality gate (the real-photograph gate G2 rejected both 512 and 1024)</td></tr>
+<tr><td><code>--allow-experimental</code></td><td>off</td><td><strong>required</strong> research/testing opt-in: Qwen editing was <strong>REJECTED</strong> by the real-photograph quality gate G2 (both 512 and 1024)</td></tr>
 <tr><td><code>--json</code></td><td>off</td><td>print the full job record</td></tr>
 </table>
 <details><summary>Example: <code>status</code> output (captured 2026-09-25)</summary>
@@ -455,6 +455,11 @@ GET /health  with  Host: evil.example
 <p>An edit takes <strong>one input image</strong> and a <strong>natural-language instruction</strong> and returns the edited image. Typical instructions: "Change the background to a sunset beach", "Give the panda a blue scarf.", "Remove the coffee mug. Keep everything else unchanged.", "Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text."</p>
 <div class="codewrap"><pre>bin/photo-gen edit --image path/to/input.png -p "Change the background to a sunset beach" \
     --output-resolution 512 --seed 42 --allow-experimental</pre></div>
+<h3>How the application labels it</h3>
+<ul>
+<li><code>/capabilities</code> and <code>/status</code>: <code>tasks["image-edit"].status</code> is <code>"research-only"</code>, and <code>tasks["image-edit"].quality_status</code> lists integration: validated; capability: validated (G0 CAPABLE); quality: G2 REJECTED at 512 and 1024; local production: REJECTED; availability: research/testing opt-in only; licence: Qwen Research License, non-commercial. <code>photo-gen status</code> prints the same on its <code>image-edit:</code> line.</li>
+<li>Every edit job carries the warning "image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 at 512 and 1024 …" (the CLI prints it to stderr), and a request without <code>allow_experimental</code> is refused with an error that names G2. Every edit stays <code>validated: false</code>.</li>
+</ul>
 <h3>How it fits</h3>
 <ul>
 <li><strong>Model-selective, explicit routing.</strong> <code>text-to-image</code> goes to Z-Image and <code>image-edit</code> goes to Qwen (<code>app/photogen/tasks.py</code>). There is no automatic model selection.</li>

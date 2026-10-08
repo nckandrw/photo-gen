@@ -72,6 +72,9 @@ A local agent can call `POST /generate`, then `GET /jobs/{id}?wait=…`, and get
   - edits leak to similar or attached objects: neighbouring fruit piles, shoe laces, a glass stem, garment edging.
   - Requested text replacement on a sign worked.
 - **Licence:** commercial use is not permitted, whatever the engineering status.
+- **How the application labels it** (Phase 6):
+  - `/capabilities` and `/status`: `tasks["image-edit"].status` is `"research-only"`; `tasks["image-edit"].quality_status` = integration validated · capability validated (G0 CAPABLE) · quality G2 REJECTED at 512 and 1024 · local production REJECTED · research/testing opt-in only · Qwen Research License, non-commercial. `photo-gen status` prints an `image-edit:` line with the same.
+  - Every edit job carries the warning "image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 at 512 and 1024 …"; the CLI prints it to stderr. A request without `allow_experimental` is refused with an error naming G2. Every edit stays `validated: false`.
 
 ```sh
 bin/photo-gen verify --edit                                   # edit backend: venv versions + 18 export hashes

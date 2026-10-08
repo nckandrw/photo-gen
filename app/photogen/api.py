@@ -5,7 +5,8 @@ Endpoints
   GET  /status                     queue, active job, recent durations/step timing, memory/thermal telemetry
   GET  /capabilities               what the text-to-image runtime supports, plus "tasks" (every task's backend)
   POST /generate                   submit a text-to-image job (Z-Image) -> 202 {job}
-  POST /edit                       submit an image-edit job (Qwen-Image-2.1, EXPERIMENTAL) -> 202 {job};
+  POST /edit                       submit an image-edit job (Qwen-Image-2.1; RESEARCH-ONLY, REJECTED by quality gate G2;
+                                   Qwen Research License, non-commercial) -> 202 {job};
                                    body {"image": "<absolute path>", "prompt": "<instruction>", "allow_experimental": true,
                                    "seed"?, "steps"?, "output_resolution"?, "output_name"?}
   GET  /jobs?status=&limit=&pixel_sha256=

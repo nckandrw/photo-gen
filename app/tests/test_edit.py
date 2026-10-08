@@ -229,10 +229,12 @@ class EditRequestTests(unittest.TestCase):
         self.assertEqual((r.task, r.width, r.height, r.steps, r.output_resolution, r.seed, r.seed_source),
                          (IMAGE_EDIT, 1024, 1024, 40, 1024, 42, "explicit"))
         self.assertFalse(r.validated)
-        self.assertTrue(any("EXPERIMENTAL" in w for w in r.warnings))
+        # Phase 6: the job warning names the G2 rejection, not just "experimental"
+        self.assertTrue(any("RESEARCH-ONLY" in w and "REJECTED by the real-photograph quality gate G2" in w
+                            and "non-commercial" in w for w in r.warnings))
         self.assertEqual(r.input_image["width"], 512)
         self.assertEqual((r.backend_id, r.model), ("test-qwen-edit", "Qwen-Image-2.1"))  # known while queued
-        with self.assertRaises(ValidationError):  # every edit needs the explicit opt-in
+        with self.assertRaisesRegex(ValidationError, "RESEARCH-ONLY.*REJECTED.*G2"):  # every edit needs the opt-in
             self.rt.normalize({"task": IMAGE_EDIT, "prompt": "x", "image": self.img}, DEFAULTS)
 
     def test_worker_request_carries_adopted_memory_policy(self):
@@ -451,7 +453,18 @@ class ServiceAndApiTests(unittest.TestCase):
         self.assertEqual(caps["supported_tasks"], [TEXT_TO_IMAGE])
         self.assertEqual(set(caps["tasks"]), {TEXT_TO_IMAGE, IMAGE_EDIT})
         self.assertEqual(caps["tasks"][IMAGE_EDIT]["endpoint"], "POST /edit")
-        self.assertEqual(caps["tasks"][IMAGE_EDIT]["status"], "experimental")
+        edit = caps["tasks"][IMAGE_EDIT]
+        self.assertEqual(edit["status"], "research-only")  # Phase 6: no longer a bare "experimental"
+        self.assertEqual(edit["quality_status"], {
+            "integration": "validated", "capability": "validated (G0 CAPABLE at 512 and 1024)",
+            "quality": "G2 REJECTED at 512 and 1024: small text elsewhere in the photo gets garbled; edits spread to "
+                       "similar or attached objects",
+            "local_production": "REJECTED",
+            "availability": "research/testing opt-in only (allow_experimental=true / --allow-experimental)",
+            "license": "Qwen Research License: non-commercial research/evaluation only",
+            "evidence": "research/editing/real-world/results.md"})
+        self.assertEqual(edit["capabilities"]["validated_resolutions"], [])  # nothing is validated
+        self.assertEqual(caps["tasks"][TEXT_TO_IMAGE]["status"], "production")  # Z-Image unchanged
         s, h = self.req("GET", "/health")
         self.assertEqual((s, h["service"]), (200, "ok"))
         self.assertTrue(h["backends"][IMAGE_EDIT]["ok"])
@@ -487,6 +500,14 @@ class CliTests(unittest.TestCase):
                 p.parse_args(missing)
         g = p.parse_args(["generate", "-p", "x", "--profile", "balanced"])  # unchanged
         self.assertEqual((g.cmd, g.profile), ("generate", "balanced"))
+
+    def test_edit_help_names_the_g2_rejection(self):
+        p = build_parser()
+        sub = next(a for a in p._actions if a.dest == "cmd")
+        edit = sub.choices["edit"]
+        self.assertIn("REJECTED", next(a.help for a in sub._choices_actions if a.dest == "edit"))
+        self.assertIn("REJECTED", next(a.help for a in edit._actions if a.dest == "allow_experimental"))
+        self.assertNotIn("experimental image editing", p.description)
 
 
 class ProductionManifestTests(unittest.TestCase):

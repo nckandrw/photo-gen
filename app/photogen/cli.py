@@ -25,7 +25,7 @@ def _seed(v: str):
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="photo-gen", description="Local image generation (Z-Image-Turbo on mflux/MLX) and "
-                                "experimental image editing (Qwen-Image-2.1 on mflux/MLX).")
+                                "research-only image editing (Qwen-Image-2.1 on mflux/MLX; REJECTED by quality gate G2).")
     p.add_argument("--config", help="path to photogen.toml (default: config/photogen.toml)")
     p.add_argument("-v", "--verbose", action="store_true", help="DEBUG logging")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -53,8 +53,8 @@ def build_parser() -> argparse.ArgumentParser:
                    help="permit non-validated resolutions/step counts (still bounded to ≤1024² pixels)")
     g.add_argument("--json", action="store_true", help="print the full job record as JSON")
 
-    e = sub.add_parser("edit", help="edit one image now with Qwen-Image-2.1 (RESEARCH/EXPERIMENTAL; Qwen Research "
-                                    "License, non-commercial)")
+    e = sub.add_parser("edit", help="edit one image now with Qwen-Image-2.1 (RESEARCH-ONLY: REJECTED by the "
+                                    "real-photograph quality gate G2; Qwen Research License, non-commercial)")
     e.add_argument("--image", "-i", required=True, help="input image: PNG, JPEG (camera MPO: primary image) or WebP, opaque, 64..8192 px per side")
     e.add_argument("--prompt", "-p", required=True, help="the edit instruction")
     e.add_argument("--seed", type=_seed, help="integer or 'random' (default from config)")
@@ -64,7 +64,8 @@ def build_parser() -> argparse.ArgumentParser:
                         "input's aspect ratio")
     e.add_argument("--output-name", help="optional name suffix for the output file")
     e.add_argument("--allow-experimental", action="store_true",
-                   help="required: no edit configuration has passed a quality gate yet")
+                   help="required research/testing opt-in: Qwen editing was REJECTED by the real-photograph "
+                        "quality gate G2 (research/editing/real-world/results.md)")
     e.add_argument("--json", action="store_true", help="print the full job record as JSON")
 
     j = sub.add_parser("jobs", help="list jobs")
@@ -173,6 +174,9 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"memory: pressure={mem.get('pressure_level')} free={mem.get('free_percent')}% "
                       f"swap_used={mem.get('swap_used_gb')}GB  thermal warning recorded: "
                       f"{th.get('thermal_warning_recorded')}  power: {st['power_source']}")
+                edit = st.get("tasks", {}).get(IMAGE_EDIT, {})
+                print(f"image-edit: {edit.get('status')} ({(edit.get('quality_status') or {}).get('quality', 'n/a')}; "
+                      f"{(edit.get('quality_status') or {}).get('license', 'n/a')})")
             return 0
     except PhotoGenError as e:
         print(json.dumps(e.to_dict(), indent=1), file=sys.stderr)
@@ -184,6 +188,9 @@ def _run_and_report(svc: PhotoGenService, params: dict, as_json: bool) -> int:
     """Submit one job, run it in this process (waiting for the GPU lock), and report it."""
     job = svc.jobs.submit(params, source="cli")
     print(f"job {job['id']}: {job['width']}x{job['height']} steps={job['steps']} seed={job['seed']}", file=sys.stderr)
+    if (job.get("request") or {}).get("task") == IMAGE_EDIT:
+        for w in job["request"].get("warnings") or ():
+            print(f"warning: {w}", file=sys.stderr)
     job = public_job(svc.jobs.run_sync(job["id"]))
     if as_json:
         print(json.dumps(job, indent=1))

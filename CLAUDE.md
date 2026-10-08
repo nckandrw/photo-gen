@@ -53,7 +53,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 - **Edit runtime:** `runtimes/mflux_qwen_edit.py` (`MFluxQwenImageEditRuntime`) + `runtimes/mflux_qwen_edit_worker.py`.
   - The worker runs in the edit venv and calls mflux's `mflux-generate-qwen-2.1-edit` `main()` unmodified, with upstream defaults: 40 steps, guidance 1.0, prefix KV cache, linear schedule, `--low-ram`.
   - `REJECTED` covers CFG, scheduler, width/height (derived from `output_resolution` + input aspect, multiples of 32), multi-reference, and the mflux-only mask/strength/enhance/verify/step-cache options.
-  - **Every edit is experimental** (`validated=false`; needs `allow_experimental`).
+  - **Every edit is research-only** (`validated=false`; needs `allow_experimental`). Since Phase 6 the app says so explicitly: `/capabilities` and `/status` report `tasks["image-edit"].status = "research-only"` plus a `quality_status` record (G2 REJECTED; local production REJECTED; non-commercial licence), the job warning and the no-opt-in error name G2, and `photo-gen status` prints an `image-edit:` line. These labels live in code (`EDIT_TASK_STATUS`, `QUALITY_STATUS`, `EXPERIMENTAL_WARNING` in `mflux_qwen_edit.py`); the manifest's own `status: experimental` is untouched (it is immutable and feeds `configuration_id`).
   - **G2 (Phase 5): REJECTED** for both gated configurations, `configuration_id` `3cd79615…` (512) and `fffe8df3…` (1024).
     - Preservation failed 4/16 at each budget: incidental text elsewhere in the photo is garbled, and edits leak to adjacent or similar objects. Adherence: 0 FAIL on primary items (one second-seed FAIL at 512).
     - 1024 is also MARGINAL on wall time (≈ 592 s per edit).

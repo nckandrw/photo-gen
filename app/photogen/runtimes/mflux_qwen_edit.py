@@ -1,4 +1,5 @@
-"""Qwen-Image-2.1 instruction editing on mflux 0.21.0 / MLX 0.32.2. RESEARCH / EXPERIMENTAL (Phase 4).
+"""Qwen-Image-2.1 instruction editing on mflux 0.21.0 / MLX 0.32.2. RESEARCH-ONLY: integrated in Phase 4, REJECTED by the
+real-photograph quality gate G2 in Phase 5 (research/editing/real-world/results.md).
 
 Selected in research/qwen/QWEN-SOURCE-AUDIT.md. The checkpoint is under the Qwen Research License
 (non-commercial: research or evaluation only); it is never committed or redistributed.
@@ -13,7 +14,9 @@ one input image + an instruction, 40 steps, no CFG (guidance 1.0), prefix KV cac
 output size derived from output_resolution and the input's aspect ratio. mflux-only additions (masks, auto-mask,
 strength, prompt enhancement, verification, step cache) are rejected, not ignored.
 
-Every edit is experimental (validated=false) and needs allow_experimental until an edit configuration passes a gate.
+Every edit is validated=false and needs allow_experimental. G2 REJECTED both gated configurations (512 and 1024), so
+this task is a research/testing opt-in only, never a production feature; promoting any configuration needs a new
+pre-registered gate. Status record: QUALITY_STATUS (shown by /capabilities).
 """
 from __future__ import annotations
 
@@ -82,8 +85,23 @@ REJECTED = {
     "text_encoder": "not applicable to the Qwen edit backend",
     "profile": "no edit profiles exist yet",
 }
-EXPERIMENTAL_WARNING = ("image-edit with Qwen-Image-2.1 is RESEARCH/EXPERIMENTAL: no edit configuration has passed a "
-                        "quality gate (research/qwen/); Qwen Research License (non-commercial)")
+# Phase 5 real-photograph gate G2 (research/editing/real-world/results.md): both gated configurations
+# (configuration_id 3cd79615... at 512, fffe8df3... at 1024) were REJECTED. Shown under /capabilities "tasks".
+EDIT_TASK_STATUS = "research-only"
+QUALITY_STATUS = {
+    "integration": "validated",
+    "capability": "validated (G0 CAPABLE at 512 and 1024)",
+    "quality": "G2 REJECTED at 512 and 1024: small text elsewhere in the photo gets garbled; edits spread to similar "
+               "or attached objects",
+    "local_production": "REJECTED",
+    "availability": "research/testing opt-in only (allow_experimental=true / --allow-experimental)",
+    "license": "Qwen Research License: non-commercial research/evaluation only",
+    "evidence": "research/editing/real-world/results.md",
+}
+EXPERIMENTAL_WARNING = ("image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 "
+                        "at 512 and 1024 (small text elsewhere in the photo gets garbled; edits spread to similar "
+                        "objects); not a production feature; Qwen Research License, non-commercial research/evaluation "
+                        "only")
 # Numeric precision of the pinned export as executed by mflux 0.21.0 (part of the configuration identity).
 PRECISION = "q4 weights (MLX affine, group 64) for the DiT and the Qwen3-VL encoder; bf16 activations; fp32 VAE"
 WORKER_PATH = Path(__file__).with_name("mflux_qwen_edit_worker.py")
@@ -320,8 +338,9 @@ class MFluxQwenImageEditRuntime(ImageRuntime):
                                  or len(name) > 100):
             raise ValidationError("output_name must be a plain file name without path separators")
         if not params.get("allow_experimental", False):
-            raise ValidationError("image-edit is RESEARCH/EXPERIMENTAL (no edit configuration is gated yet); "
-                                  "pass allow_experimental=true to run it")
+            raise ValidationError("image-edit is RESEARCH-ONLY: Qwen-Image-2.1 editing was REJECTED by the "
+                                  "real-photograph quality gate G2 (research/editing/real-world/results.md); pass "
+                                  "allow_experimental=true to run it for research/testing")
 
         inp, input_warnings = stage_input_image(params["image"], self.cfg.inputs_dir)
         width, height = output_dimensions(resolution, inp.width / inp.height)

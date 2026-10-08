@@ -75,4 +75,4 @@
 - `d1dc2b7`: docs corrections (adherence qualified to primary items; PARTIAL attribution; sustained-chain timing baseline; status wording)
 - `63c24a5`: this index's final commit list and the open app-label item
 - **Total: 15 Phase 5 commits after `401e400`** (`0d15f49` … `63c24a5`). *Correction (2026-10-08):* a chat summary at the close of Phase 5 said 13 and then 19; `git rev-list --count 401e400..63c24a5` is 15.
-- **Open in the app (not changed; user decision):** `/capabilities` reports the edit task as `status: experimental`, and the job warning says "no edit configuration has passed a quality gate". Both are accurate, but neither names G2 REJECTED.
+- *(Phase 6, 2026-10-08: resolved; the app now reports `research-only` + `quality_status` naming G2 REJECTED; see `research/qwen/PHASE6-INDEX.md`.)* **Open in the app at Phase 5 close (not changed; user decision):** `/capabilities` reports the edit task as `status: experimental`, and the job warning says "no edit configuration has passed a quality gate". Both are accurate, but neither names G2 REJECTED.
