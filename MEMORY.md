@@ -93,6 +93,9 @@ _The Phase 4 snapshot below is kept for reference._
   1. `results.md` per-item table: R04 is "guacamole → black olives" (it said "black-bean dip").
   2. `QWEN-EDITING-QUALITY.md` G2 table: criterion S counts FAIL marks: 512 = 3 marks on 2 items (R09 adh + pres, R12 pres); 1024 = 2 marks on 2 items (it said "3 of 4 items" / "2 of 4 items").
   3. Times now from commit timestamps: amendment 1 = `f16e092` 12:11:01 (4 s before the chain's 12:11:05; it said ~12:15); amendment 2 = `cf96d4a` 16:49:21 (it said ~16:55); provenance §6 = `0ccc0b7` 17:23:40 (it said about 17:45); Phase 5 complete = `63c24a5` 17:33:39 (it said ~18:30); sources acquired ~12:00–12:11 (it said ~12:00–12:20).
+- **Step 2, labels** (`a4f9d57`): `/capabilities`/`/status` `tasks["image-edit"].status = "research-only"` + `quality_status` (G2 REJECTED); warning, opt-in error, CLI help name G2; manifest, worker (`3094e942`), `validated=false` untouched; `configuration_id` 3cd79615/fffe8df3 unchanged; tests 93/93.
+- **Step 3, Q-Q diagnostic** (`research/qwen/qq/PROTOCOL.md`, pre-registered `fea3872`): q8 export built per component (`models/research/qwen-image-2.1-edit-mflux-q8`, 18.46 GB; gates E and V passed; `135decd`); smoke `924bc96`.
+  - **IN FLIGHT:** chain `research/qwen/qq/qq-chain.sh` → log `research/qwen/qq/qq-chain.log`, marker `QQ_CHAIN_DONE` (started 2026-10-08 08:51:44, 18 runs, ~2.3 h). Then: gate Q (q4 = G2 pixels), `make_pairs.py` → `qq_blind.py prepare` → fresh-subagent rater → freeze → unblind → `analyze_qq.py`.
 
 ---
 
