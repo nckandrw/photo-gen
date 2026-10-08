@@ -1,0 +1,270 @@
+{
+ "tool": "research/qwen/qv-reference/phase7_transitions.py",
+ "inputs": {
+  "research/qwen/qv/review/SCORES-FROZEN.csv": "00c1b5e3e719e696617ccc6a28699c2d40c4d63aca3188e1ec08cfce9b883b8a",
+  "research/qwen/qv/review/key-unblinded.json": "4e29f6757f5be03f5dfaebabaf9698f9126ac4a8be8a2ca271869609505ef20a"
+ },
+ "identity": "legible_after_vae = K - L + reversals",
+ "summary": {
+  "512": {
+   "units": 12,
+   "legible_after_resize_K": 6,
+   "lost_by_vae_L": 4,
+   "kept_from_K": 2,
+   "reversals_illegible_to_legible": 1,
+   "legible_after_vae": 3,
+   "identity_holds": true
+  },
+  "1024": {
+   "units": 12,
+   "legible_after_resize_K": 10,
+   "lost_by_vae_L": 3,
+   "kept_from_K": 7,
+   "reversals_illegible_to_legible": 0,
+   "legible_after_vae": 7,
+   "identity_holds": true
+  }
+ },
+ "table": [
+  {
+   "budget": 512,
+   "task": "R02",
+   "element": "t1",
+   "sheet": "V03",
+   "description": "the blue street-name sign on the wall above the van (white lettering, three lines)",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 512,
+   "task": "R02",
+   "element": "t2",
+   "sheet": "V03",
+   "description": "the small white plate under the red no-entry sign (one word above two bicycle pictograms)",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 512,
+   "task": "R12",
+   "element": "t1",
+   "sheet": "V05",
+   "description": "the banner hung across the street (two lines of lettering, round logos at both ends)",
+   "after_resize": "DEGRADED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 512,
+   "task": "R12",
+   "element": "t2",
+   "sheet": "V05",
+   "description": "the pink half-disc hanging sign at the upper left (two words)",
+   "after_resize": "PRESERVED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 512,
+   "task": "R12",
+   "element": "t3",
+   "sheet": "V05",
+   "description": "the small green sign on the brick wall (two lines)",
+   "after_resize": "DEGRADED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 512,
+   "task": "R12",
+   "element": "t4",
+   "sheet": "V05",
+   "description": "the purple shopfront fascia lettering at the left edge, and the pink round sign with a letter below it",
+   "after_resize": "PRESERVED",
+   "after_vae": "DEGRADED",
+   "transition": "legible -> legible (softened P -> D)"
+  },
+  {
+   "budget": 512,
+   "task": "R12",
+   "element": "t5",
+   "sheet": "V05",
+   "description": "the signs at the right edge (the tall vertical sign; the red fascia above the lit window)",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 512,
+   "task": "R15",
+   "element": "t1",
+   "sheet": "V01",
+   "description": "the large shop sign above the windows (the main word and the small word beside it)",
+   "after_resize": "PRESERVED",
+   "after_vae": "PRESERVED",
+   "transition": "legible -> legible"
+  },
+  {
+   "budget": 512,
+   "task": "R15",
+   "element": "t2",
+   "sheet": "V01",
+   "description": "the white banner at the top of the right-hand window (two lines)",
+   "after_resize": "PRESERVED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 512,
+   "task": "R15",
+   "element": "t3",
+   "sheet": "V01",
+   "description": "the number in the speech-bubble decal at the top of the door glass",
+   "after_resize": "GARBLED",
+   "after_vae": "PRESERVED",
+   "transition": "illegible -> legible (REVERSAL: the round trip reads where the scaled input did not)"
+  },
+  {
+   "budget": 512,
+   "task": "R15",
+   "element": "t4",
+   "sheet": "V01",
+   "description": "the poster on the lower door panel (several lines)",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 512,
+   "task": "R15",
+   "element": "t5",
+   "sheet": "V01",
+   "description": "the small round red sticker on the door glass",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 1024,
+   "task": "R02",
+   "element": "t1",
+   "sheet": "V04",
+   "description": "the blue street-name sign on the wall above the van (white lettering, three lines)",
+   "after_resize": "PRESERVED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 1024,
+   "task": "R02",
+   "element": "t2",
+   "sheet": "V04",
+   "description": "the small white plate under the red no-entry sign (one word above two bicycle pictograms)",
+   "after_resize": "PRESERVED",
+   "after_vae": "DEGRADED",
+   "transition": "legible -> legible (softened P -> D)"
+  },
+  {
+   "budget": 1024,
+   "task": "R12",
+   "element": "t1",
+   "sheet": "V02",
+   "description": "the banner hung across the street (two lines of lettering, round logos at both ends)",
+   "after_resize": "PRESERVED",
+   "after_vae": "DEGRADED",
+   "transition": "legible -> legible (softened P -> D)"
+  },
+  {
+   "budget": 1024,
+   "task": "R12",
+   "element": "t2",
+   "sheet": "V02",
+   "description": "the pink half-disc hanging sign at the upper left (two words)",
+   "after_resize": "PRESERVED",
+   "after_vae": "PRESERVED",
+   "transition": "legible -> legible"
+  },
+  {
+   "budget": 1024,
+   "task": "R12",
+   "element": "t3",
+   "sheet": "V02",
+   "description": "the small green sign on the brick wall (two lines)",
+   "after_resize": "PRESERVED",
+   "after_vae": "DEGRADED",
+   "transition": "legible -> legible (softened P -> D)"
+  },
+  {
+   "budget": 1024,
+   "task": "R12",
+   "element": "t4",
+   "sheet": "V02",
+   "description": "the purple shopfront fascia lettering at the left edge, and the pink round sign with a letter below it",
+   "after_resize": "PRESERVED",
+   "after_vae": "PRESERVED",
+   "transition": "legible -> legible"
+  },
+  {
+   "budget": 1024,
+   "task": "R12",
+   "element": "t5",
+   "sheet": "V02",
+   "description": "the signs at the right edge (the tall vertical sign; the red fascia above the lit window)",
+   "after_resize": "DEGRADED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 1024,
+   "task": "R15",
+   "element": "t1",
+   "sheet": "V06",
+   "description": "the large shop sign above the windows (the main word and the small word beside it)",
+   "after_resize": "PRESERVED",
+   "after_vae": "PRESERVED",
+   "transition": "legible -> legible"
+  },
+  {
+   "budget": 1024,
+   "task": "R15",
+   "element": "t2",
+   "sheet": "V06",
+   "description": "the white banner at the top of the right-hand window (two lines)",
+   "after_resize": "PRESERVED",
+   "after_vae": "PRESERVED",
+   "transition": "legible -> legible"
+  },
+  {
+   "budget": 1024,
+   "task": "R15",
+   "element": "t3",
+   "sheet": "V06",
+   "description": "the number in the speech-bubble decal at the top of the door glass",
+   "after_resize": "PRESERVED",
+   "after_vae": "GARBLED",
+   "transition": "legible -> illegible (VAE loss, L)"
+  },
+  {
+   "budget": 1024,
+   "task": "R15",
+   "element": "t4",
+   "sheet": "V06",
+   "description": "the poster on the lower door panel (several lines)",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  },
+  {
+   "budget": 1024,
+   "task": "R15",
+   "element": "t5",
+   "sheet": "V06",
+   "description": "the small round red sticker on the door glass",
+   "after_resize": "GARBLED",
+   "after_vae": "GARBLED",
+   "transition": "illegible -> illegible (scaling loss; stays lost)"
+  }
+ ]
+}
