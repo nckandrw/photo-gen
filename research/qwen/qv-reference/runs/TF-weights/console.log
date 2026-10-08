@@ -1,0 +1,28 @@
+{
+ "summary": {
+  "decoder": {
+   "identical": 0,
+   "differs": 132,
+   "constant_ratio": 3,
+   "missing-or-shape": 0
+  },
+  "encoder": {
+   "identical": 50,
+   "differs": 52,
+   "constant_ratio": 52,
+   "missing-or-shape": 0
+  },
+  "post_quant_conv": {
+   "identical": 2,
+   "differs": 0,
+   "constant_ratio": 0,
+   "missing-or-shape": 0
+  },
+  "quant_conv": {
+   "identical": 2,
+   "differs": 0,
+   "constant_ratio": 0,
+   "missing-or-shape": 0
+  }
+ }
+}

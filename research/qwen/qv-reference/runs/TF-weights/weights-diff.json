@@ -1,0 +1,1299 @@
+{
+ "tool": "research/qwen/qv-reference/ref_side.py weights-diff",
+ "a": "models/research/qwen-image-2.1/vae",
+ "b": "models/research/texture-fix-vae-qwen-image-2.1",
+ "summary": {
+  "decoder": {
+   "identical": 0,
+   "differs": 132,
+   "constant_ratio": 3,
+   "missing-or-shape": 0
+  },
+  "encoder": {
+   "identical": 50,
+   "differs": 52,
+   "constant_ratio": 52,
+   "missing-or-shape": 0
+  },
+  "post_quant_conv": {
+   "identical": 2,
+   "differs": 0,
+   "constant_ratio": 0,
+   "missing-or-shape": 0
+  },
+  "quant_conv": {
+   "identical": 2,
+   "differs": 0,
+   "constant_ratio": 0,
+   "missing-or-shape": 0
+  }
+ },
+ "tensors": {
+  "decoder.conv_in.bias": {
+   "status": "differs",
+   "max_abs": 0.8915803787531331,
+   "rel_l2": 0.9980406333545724,
+   "constant_ratio": null
+  },
+  "decoder.conv_in.weight": {
+   "status": "differs",
+   "max_abs": 0.5342051119077951,
+   "rel_l2": 0.9980545037753003,
+   "constant_ratio": null
+  },
+  "decoder.conv_out.bias": {
+   "status": "differs",
+   "max_abs": 0.03073142806533724,
+   "rel_l2": 0.06210235349556883,
+   "constant_ratio": null
+  },
+  "decoder.conv_out.weight": {
+   "status": "differs",
+   "max_abs": 0.02321874164044857,
+   "rel_l2": 0.08803522991895223,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.attentions.0.norm.gamma": {
+   "status": "differs",
+   "max_abs": 0.013303622603416443,
+   "rel_l2": 0.025118885606232565,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.attentions.0.proj.bias": {
+   "status": "differs",
+   "max_abs": 0.33257264108397067,
+   "rel_l2": 0.9980438656892878,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.attentions.0.proj.weight": {
+   "status": "differs",
+   "max_abs": 0.5196403512964025,
+   "rel_l2": 0.9980390272424416,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.attentions.0.to_qkv.bias": {
+   "status": "differs",
+   "max_abs": 0.011995823122560978,
+   "rel_l2": 0.01534800216161966,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.attentions.0.to_qkv.weight": {
+   "status": "differs",
+   "max_abs": 0.002909719944000244,
+   "rel_l2": 0.0031804820971280913,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.46868011355400085,
+   "rel_l2": 0.9373544823544426,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.0414770916104317,
+   "rel_l2": 0.937803749923257,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.39058678678702563,
+   "rel_l2": 0.9980549072443942,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.2407140873838216,
+   "rel_l2": 0.9980518288716914,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.010386034846305847,
+   "rel_l2": 0.005885233282612033,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.0099867582321167,
+   "rel_l2": 0.01236592568829108,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.35958406701684,
+   "rel_l2": 0.8750729259895236,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.4503055661916733,
+   "rel_l2": 0.8747146444602333,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.15802445355802774,
+   "rel_l2": 0.9980040643095816,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.800104257883504,
+   "rel_l2": 0.9980396086901487,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.010950952768325806,
+   "rel_l2": 0.008974515578865895,
+   "constant_ratio": null
+  },
+  "decoder.mid_block.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.012429773807525635,
+   "rel_l2": 0.011673022617977652,
+   "constant_ratio": null
+  },
+  "decoder.norm_out.gamma": {
+   "status": "differs",
+   "max_abs": 0.11276882886886597,
+   "rel_l2": 0.087201969623821,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.11407944560050964,
+   "rel_l2": 0.7555843904173366,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.463509738445282,
+   "rel_l2": 0.7490321380442319,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.22709794522961602,
+   "rel_l2": 0.9980476047777234,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.5964439923409373,
+   "rel_l2": 0.9980518735474462,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.012942641973495483,
+   "rel_l2": 0.012293939656932451,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.009991422295570374,
+   "rel_l2": 0.011756196170525252,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.13176292181015015,
+   "rel_l2": 0.8761177228688903,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.6523763239383698,
+   "rel_l2": 0.8746506279468593,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.20574354991549626,
+   "rel_l2": 0.9980513632063784,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.6728079742752016,
+   "rel_l2": 0.9980586491856891,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.01570773497223854,
+   "rel_l2": 0.011427635623428575,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.011368989944458008,
+   "rel_l2": 0.011459490817396901,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.20945686101913452,
+   "rel_l2": 0.5027923114832826,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.5082380175590515,
+   "rel_l2": 0.49812229727934515,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.6006157125812024,
+   "rel_l2": 0.9980505484955672,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.2475972883403301,
+   "rel_l2": 0.9980428991867151,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.016563914716243744,
+   "rel_l2": 0.018167856869310967,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.resnets.2.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.01988804340362549,
+   "rel_l2": 0.01172256957862549,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.upsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.46285000210627913,
+   "rel_l2": 0.9980590746935849,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.upsampler.resample.1.weight": {
+   "status": "differs",
+   "max_abs": 0.005573272705078125,
+   "rel_l2": 0.003953400723205388,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.0.upsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.029395840887445956,
+   "rel_l2": 0.9980468750011605,
+   "constant_ratio": 0.001953125
+  },
+  "decoder.up_blocks.0.upsampler.time_conv.weight": {
+   "status": "differs",
+   "max_abs": 5.587935447692871e-09,
+   "rel_l2": 6.923758877162857e-08,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.16633170284330845,
+   "rel_l2": 0.8762884642918997,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.9718563258647919,
+   "rel_l2": 0.8743837230648454,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.3296961192972958,
+   "rel_l2": 0.998046822529751,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 2.182490128092468,
+   "rel_l2": 0.9980315341849145,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.018150627613067627,
+   "rel_l2": 0.004682040712449784,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.018964797258377075,
+   "rel_l2": 0.006563148982384115,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.21038056537508965,
+   "rel_l2": 0.8726467971820921,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 2.250110298395157,
+   "rel_l2": 0.8756240477420382,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.29573428869480267,
+   "rel_l2": 0.9980373243217706,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.8424631427042186,
+   "rel_l2": 0.9980486183116798,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.015363872051239014,
+   "rel_l2": 0.005844077036621523,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.02451711893081665,
+   "rel_l2": 0.0071754638307453536,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.23496412485837936,
+   "rel_l2": 0.8740757716263395,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.conv1.weight": {
+   "status": "differs",
+   "max_abs": 2.687962383031845,
+   "rel_l2": 0.8757753711974949,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.1854487997770775,
+   "rel_l2": 0.9980335579704953,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.648663343861699,
+   "rel_l2": 0.9980280823525514,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.02074730396270752,
+   "rel_l2": 0.006030852252182551,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.resnets.2.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.023005008697509766,
+   "rel_l2": 0.008063609911687876,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.upsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.7829956748755649,
+   "rel_l2": 0.9980446712306918,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.upsampler.resample.1.weight": {
+   "status": "differs",
+   "max_abs": 0.008023619651794434,
+   "rel_l2": 0.006121398617493885,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.1.upsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.02938699944934342,
+   "rel_l2": 0.9980468750007784,
+   "constant_ratio": 0.001953125
+  },
+  "decoder.up_blocks.1.upsampler.time_conv.weight": {
+   "status": "differs",
+   "max_abs": 5.587935447692871e-09,
+   "rel_l2": 6.918998013937618e-08,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.21394132263958454,
+   "rel_l2": 0.8722404567379654,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.6462648063898087,
+   "rel_l2": 0.8757769473329241,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.25021685723913833,
+   "rel_l2": 0.9980244352673415,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 2.167720962315798,
+   "rel_l2": 0.9980594111499238,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.24757305131061003,
+   "rel_l2": 0.9980247779957802,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.conv_shortcut.weight": {
+   "status": "differs",
+   "max_abs": 0.0014376938343048096,
+   "rel_l2": 0.0055623328154586526,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.02421116828918457,
+   "rel_l2": 0.006226911842440925,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.03709745407104492,
+   "rel_l2": 0.004815798156383639,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.20966652035713196,
+   "rel_l2": 0.744668116782376,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.749004304409027,
+   "rel_l2": 0.7513220280184169,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2555624775704928,
+   "rel_l2": 0.9979708836478571,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.9038580949418247,
+   "rel_l2": 0.99805748434344,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.032313525676727295,
+   "rel_l2": 0.007149663278085407,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.03786313533782959,
+   "rel_l2": 0.0067992556754390785,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.4617738723754883,
+   "rel_l2": 0.7450421221814002,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.3916794657707214,
+   "rel_l2": 0.7516835553602983,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2928724167868495,
+   "rel_l2": 0.9979813288126321,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.6100497951265424,
+   "rel_l2": 0.9980544909955765,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.028507739305496216,
+   "rel_l2": 0.00974535290287638,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.resnets.2.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.5883854627609253,
+   "rel_l2": 0.10721951220821269,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.upsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.9350926171755418,
+   "rel_l2": 0.9976625286711562,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.upsampler.resample.1.weight": {
+   "status": "differs",
+   "max_abs": 0.0019010603427886963,
+   "rel_l2": 0.003964794089289866,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.2.upsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.04158247687155381,
+   "rel_l2": 0.9980468750036369,
+   "constant_ratio": 0.001953125
+  },
+  "decoder.up_blocks.2.upsampler.time_conv.weight": {
+   "status": "differs",
+   "max_abs": 3.725290298461914e-09,
+   "rel_l2": 4.589510673604247e-08,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.44501232355833054,
+   "rel_l2": 0.7830654374873182,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.718928337097168,
+   "rel_l2": 0.6388346347931966,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.33139031782047823,
+   "rel_l2": 0.9982752154579742,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.550321607850492,
+   "rel_l2": 0.9979937923156841,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.324482663650997,
+   "rel_l2": 0.9982677592019961,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.conv_shortcut.weight": {
+   "status": "differs",
+   "max_abs": 0.02253824006766081,
+   "rel_l2": 0.3338808658659418,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.8710367940366268,
+   "rel_l2": 0.17232814964725354,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.869377613067627,
+   "rel_l2": 0.11115538982710471,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.3730746991932392,
+   "rel_l2": 0.7304492948599763,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.06484812498092651,
+   "rel_l2": 0.10136150155729083,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.30843284432194196,
+   "rel_l2": 0.9982329048200245,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 2.183027964551002,
+   "rel_l2": 0.997823096870425,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.7103250920772552,
+   "rel_l2": 0.12738432892334647,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.6469471454620361,
+   "rel_l2": 0.11154634740810092,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.35677918791770935,
+   "rel_l2": 1.6059674739820984,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.2638440728187561,
+   "rel_l2": 0.31084104212469765,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.18814281589584425,
+   "rel_l2": 0.9985228044809511,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.8411871758289635,
+   "rel_l2": 0.9978800096649095,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.5858604609966278,
+   "rel_l2": 0.1518899335429856,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.resnets.2.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 1.5347187519073486,
+   "rel_l2": 0.15361352108505222,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.upsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 1.0546902653877623,
+   "rel_l2": 0.9980597002325131,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.3.upsampler.resample.1.weight": {
+   "status": "differs",
+   "max_abs": 0.028910070657730103,
+   "rel_l2": 0.08555528424600489,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.2655879780650139,
+   "rel_l2": 1.3254225014740282,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.056499678641557693,
+   "rel_l2": 0.09969222083476768,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2163826815376524,
+   "rel_l2": 0.9976102395059396,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.358495072228834,
+   "rel_l2": 0.9982319497011223,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.22118806149228476,
+   "rel_l2": 0.9976350918495611,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.conv_shortcut.weight": {
+   "status": "differs",
+   "max_abs": 0.017930789850652218,
+   "rel_l2": 0.18583162403038878,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.34702205657958984,
+   "rel_l2": 0.1278635388702073,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.0.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.4093385487794876,
+   "rel_l2": 0.09726941340566826,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.16713859792798758,
+   "rel_l2": 0.8229121693884492,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.04415324702858925,
+   "rel_l2": 0.07406551486576272,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.21756921510677785,
+   "rel_l2": 0.9977215290129674,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.0860029358882457,
+   "rel_l2": 0.9980718204637086,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.24410033226013184,
+   "rel_l2": 0.08777082092133219,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.1.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.36025822162628174,
+   "rel_l2": 0.0941595853211871,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.312899112701416,
+   "rel_l2": 1.938994413719697,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.05819461680948734,
+   "rel_l2": 0.10752770746571351,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2101030667545274,
+   "rel_l2": 0.9983058672779848,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.4353925599716604,
+   "rel_l2": 0.998180811377817,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.norm1.gamma": {
+   "status": "differs",
+   "max_abs": 0.27658745646476746,
+   "rel_l2": 0.1414176323185686,
+   "constant_ratio": null
+  },
+  "decoder.up_blocks.4.resnets.2.norm2.gamma": {
+   "status": "differs",
+   "max_abs": 0.9981647729873657,
+   "rel_l2": 0.1621503200878327,
+   "constant_ratio": null
+  },
+  "encoder.conv_in.bias": {
+   "status": "differs",
+   "max_abs": 0.19442982971668243,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.conv_in.weight": {
+   "status": "differs",
+   "max_abs": 0.18272335454821587,
+   "rel_l2": 0.8749999999999999,
+   "constant_ratio": 0.125
+  },
+  "encoder.conv_out.bias": {
+   "status": "identical"
+  },
+  "encoder.conv_out.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.downsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.2431228719651699,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.0.downsampler.resample.1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.0.conv1.bias": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.0.conv1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.07468296401202679,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.0.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.41502391919493675,
+   "rel_l2": 0.8750000000000003,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.0.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.1.conv1.bias": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.1.conv1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.09419839549809694,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.0.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.2512500658631325,
+   "rel_l2": 0.8750000000000007,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.0.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.0.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.downsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.3575834408402443,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.downsampler.resample.1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.downsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.06287056393921375,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.downsampler.time_conv.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.0.conv1.bias": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.0.conv1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.1864695157855749,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.5674442499876022,
+   "rel_l2": 0.8750000000000008,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.19840583391487598,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.resnets.0.conv_shortcut.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.1.conv1.bias": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.1.conv1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.1814535465091467,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.4981323331594467,
+   "rel_l2": 0.8750000000000008,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.1.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.1.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.downsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.458102785050869,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.downsampler.resample.1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.downsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.04445543326437473,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.downsampler.time_conv.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.0.conv1.bias": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.0.conv1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2662839703261852,
+   "rel_l2": 0.8750000000000002,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.7217127829790115,
+   "rel_l2": 0.8749999999999989,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.2748397924005985,
+   "rel_l2": 0.8750000000000002,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.resnets.0.conv_shortcut.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.1354958713054657,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.2.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.7066287398338318,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.2.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.25077880173921585,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.0855154991149902,
+   "rel_l2": 0.8749999999999988,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.2.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.2.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.downsampler.resample.1.bias": {
+   "status": "differs",
+   "max_abs": 0.49834272265434265,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.downsampler.resample.1.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.downsampler.time_conv.bias": {
+   "status": "differs",
+   "max_abs": 0.03156475769355893,
+   "rel_l2": 0.8750000000000003,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.downsampler.time_conv.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.1232030913233757,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.3.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.198525071144104,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.3.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.2555355131626129,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 3.8196030259132385,
+   "rel_l2": 0.8749999999999939,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.resnets.0.conv_shortcut.bias": {
+   "status": "differs",
+   "max_abs": 0.26094699278473854,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.resnets.0.conv_shortcut.weight": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.3360624611377716,
+   "rel_l2": 0.7500000000000001,
+   "constant_ratio": 0.25
+  },
+  "encoder.down_blocks.3.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 3.684467911720276,
+   "rel_l2": 0.7499999999999969,
+   "constant_ratio": 0.25
+  },
+  "encoder.down_blocks.3.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.20908847264945507,
+   "rel_l2": 0.8750000000000003,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.8244044482707977,
+   "rel_l2": 0.8749999999999936,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.3.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.3.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.4.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.09814812988042831,
+   "rel_l2": 0.75,
+   "constant_ratio": 0.25
+  },
+  "encoder.down_blocks.4.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.4939490854740143,
+   "rel_l2": 0.749999999999997,
+   "constant_ratio": 0.25
+  },
+  "encoder.down_blocks.4.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.4525134861469269,
+   "rel_l2": 0.8750000000000003,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.4.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 0.8340073227882385,
+   "rel_l2": 0.874999999999992,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.4.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.4.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.4.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.07466912269592285,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.4.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.9351881146430969,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.down_blocks.4.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.5342108979821205,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.4.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 1.376340851187706,
+   "rel_l2": 0.8749999999999919,
+   "constant_ratio": 0.125
+  },
+  "encoder.down_blocks.4.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.down_blocks.4.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.mid_block.attentions.0.norm.gamma": {
+   "status": "identical"
+  },
+  "encoder.mid_block.attentions.0.proj.bias": {
+   "status": "differs",
+   "max_abs": 0.38807398453354836,
+   "rel_l2": 0.8750000000000003,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.attentions.0.proj.weight": {
+   "status": "differs",
+   "max_abs": 0.971968486905098,
+   "rel_l2": 0.8749999999999999,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.attentions.0.to_qkv.bias": {
+   "status": "identical"
+  },
+  "encoder.mid_block.attentions.0.to_qkv.weight": {
+   "status": "identical"
+  },
+  "encoder.mid_block.resnets.0.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.09525351971387863,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.mid_block.resnets.0.conv1.weight": {
+   "status": "differs",
+   "max_abs": 0.8054850101470947,
+   "rel_l2": 0.5,
+   "constant_ratio": 0.5
+  },
+  "encoder.mid_block.resnets.0.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.3659350275993347,
+   "rel_l2": 0.875,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.resnets.0.conv2.weight": {
+   "status": "differs",
+   "max_abs": 2.9214653968811035,
+   "rel_l2": 0.8749999999999923,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.resnets.0.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.mid_block.resnets.0.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.mid_block.resnets.1.conv1.bias": {
+   "status": "differs",
+   "max_abs": 0.11676124110817909,
+   "rel_l2": 0.75,
+   "constant_ratio": 0.25
+  },
+  "encoder.mid_block.resnets.1.conv1.weight": {
+   "status": "differs",
+   "max_abs": 1.2464827001094818,
+   "rel_l2": 0.7499999999999968,
+   "constant_ratio": 0.25
+  },
+  "encoder.mid_block.resnets.1.conv2.bias": {
+   "status": "differs",
+   "max_abs": 0.3601665012538433,
+   "rel_l2": 0.8750000000000001,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.resnets.1.conv2.weight": {
+   "status": "differs",
+   "max_abs": 2.1646127104759216,
+   "rel_l2": 0.874999999999993,
+   "constant_ratio": 0.125
+  },
+  "encoder.mid_block.resnets.1.norm1.gamma": {
+   "status": "identical"
+  },
+  "encoder.mid_block.resnets.1.norm2.gamma": {
+   "status": "identical"
+  },
+  "encoder.norm_out.gamma": {
+   "status": "identical"
+  },
+  "post_quant_conv.bias": {
+   "status": "identical"
+  },
+  "post_quant_conv.weight": {
+   "status": "identical"
+  },
+  "quant_conv.bias": {
+   "status": "identical"
+  },
+  "quant_conv.weight": {
+   "status": "identical"
+  }
+ }
+}

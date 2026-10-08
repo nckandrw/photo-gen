@@ -1,0 +1,14 @@
+There are modules in AutoencoderKLQwenImage21 that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+Traceback (most recent call last):
+  File "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/ref_side.py", line 371, in <module>
+    r = {"run": run, "texturefix": texturefix, "weights-diff": weights_diff, "mps-probe": mps_probe,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/ref_side.py", line 272, in texturefix
+    vae, lm, ls, rec["vae"] = load_vae(Path(tf_dir))
+                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/ref_side.py", line 122, in load_vae
+    info = {"vae_dir": str(vae_dir.relative_to(ROOT)), "file": files[0].name, "file_sha256": sha_file(files[0]),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nckandrw/Dev/photo-gen/mflux/python/cpython-3.12.14-macos-aarch64-none/lib/python3.12/pathlib.py", line 682, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'models/research/texture-fix-vae-qwen-image-2.1' is not in the subpath of '/Users/nckandrw/Dev/photo-gen'

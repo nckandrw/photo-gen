@@ -109,6 +109,7 @@ def versions() -> dict:
 def load_vae(vae_dir: Path):
     from diffusers import AutoencoderKLQwenImage21
     from safetensors.torch import load_file
+    vae_dir = Path(vae_dir).resolve()  # relative paths are resolved (incident 2026-10-09 04:34, TF-512-R02)
     cfg = json.loads((vae_dir / "config.json").read_text())
     vae = AutoencoderKLQwenImage21.from_config(cfg)
     files = sorted(vae_dir.glob("*.safetensors"))

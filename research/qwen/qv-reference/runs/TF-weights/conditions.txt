@@ -1,0 +1,18 @@
+run_dir=research/qwen/qv-reference/runs/TF-weights
+command=env HF_HUB_OFFLINE=1 torch-ref/.venv/bin/python3.12 -I research/qwen/qv-reference/ref_side.py weights-diff models/research/texture-fix-vae-qwen-image-2.1 research/qwen/qv-reference/runs/TF-weights/weights-diff.json
+Fri  9 Oct 2026 04:34:27 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1699.62M  free = 1372.38M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 63%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+709168 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+513776 /Users/nckandrw/.local/bin/claude
+404608 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/154.0.4258.37/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+330912 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/155.1.97.56/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+324448 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/155.1.97.56/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+319760 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+git_head=b00846dce49422c2a011c3005db2188ecd2c65a1
+git_dirty(qv-reference tools, app, config):

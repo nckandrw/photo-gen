@@ -1,0 +1,6 @@
+QVR_COND_START Fri  9 Oct 2026 04:34:26 PST head=b00846d
+STEP TF-weights 04:34:26
+REF_RUN_END research/qwen/qv-reference/runs/TF-weights rc=0 aborted=0
+STEP TF-512-R02 04:34:34
+REF_RUN_END research/qwen/qv-reference/runs/TF-512-R02 rc=1 aborted=0
+QVR_COND_STOPPED TF-512-R02 04:34:37
