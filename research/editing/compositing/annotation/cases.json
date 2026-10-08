@@ -1,0 +1,197 @@
+{
+ "R01": {
+  "instruction": "Change her white top to a dark green top.",
+  "must_change": "the white top she is wearing becomes dark green",
+  "must_not_change": [
+   "her face and identity (features, expression, skin tone)",
+   "her hair",
+   "the sunglasses",
+   "the earring",
+   "the market background",
+   "framing and camera viewpoint"
+  ],
+  "what": "white top",
+  "text_elements_to_protect": [],
+  "view": {
+   "file": "views/R01.png",
+   "size": [
+    2048,
+    1447
+   ],
+   "grid": "views/R01-grid.png",
+   "source_size": [
+    3413,
+    2411
+   ]
+  }
+ },
+ "R05": {
+  "instruction": "Add a grey cat sleeping on the sofa.",
+  "must_change": "a grey cat lies asleep on the sofa",
+  "must_not_change": [
+   "the sofa's shape and light-blue colour",
+   "the cushions",
+   "the framed picture on the wall",
+   "the floor lamp",
+   "the small side table",
+   "the wooden floor and the walls",
+   "lighting"
+  ],
+  "what": "sofa (where the cat may appear)",
+  "text_elements_to_protect": [],
+  "view": {
+   "file": "views/R05.png",
+   "size": [
+    2048,
+    1360
+   ],
+   "grid": "views/R05-grid.png",
+   "source_size": [
+    3897,
+    2588
+   ]
+  }
+ },
+ "R09": {
+  "instruction": "Replace the pink dragon fruits with green apples. Do not change anything else.",
+  "must_change": "the pile of pink dragon fruits becomes a pile of green apples",
+  "must_not_change": [
+   "the mangoes, oranges, avocados, grapes and the other fruit piles",
+   "the crates and the stall",
+   "the blue canopy",
+   "the vendor",
+   "the ground and the scene layout"
+  ],
+  "what": "dragon fruit piles",
+  "text_elements_to_protect": [],
+  "view": {
+   "file": "views/R09.png",
+   "size": [
+    2048,
+    1365
+   ],
+   "grid": "views/R09-grid.png",
+   "source_size": [
+    5760,
+    3840
+   ]
+  }
+ },
+ "R11": {
+  "instruction": "Change the red wine in the glass to white wine.",
+  "must_change": "the wine in the glass is a pale white wine, still transparent",
+  "must_not_change": [
+   "the glass's shape, rim and reflections",
+   "the red glass stem and the foot",
+   "the liquid level",
+   "the granite table",
+   "the background"
+  ],
+  "what": "wine in the bowl of the glass",
+  "text_elements_to_protect": [],
+  "view": {
+   "file": "views/R11.png",
+   "size": [
+    1152,
+    2048
+   ],
+   "grid": "views/R11-grid.png",
+   "source_size": [
+    2250,
+    4000
+   ]
+  }
+ },
+ "R12": {
+  "instruction": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+  "must_change": "that man is gone; the wet pavement and the people behind him are plausibly filled in",
+  "must_not_change": [
+   "all other people",
+   "the \"MATHEW STREET - BIRTHPLACE of THE BEATLES\" banner and its lettering",
+   "the \"Quarry Quarter\" and other shop signs",
+   "the string lights",
+   "the wet reflections and the night lighting",
+   "the buildings"
+  ],
+  "what": "the man walking towards the camera",
+  "text_elements_to_protect": [
+   "the banner hung across the street (two lines of lettering, round logos at both ends)",
+   "the pink half-disc hanging sign at the upper left (two words)",
+   "the small green sign on the brick wall (two lines)",
+   "the purple shopfront fascia lettering at the left edge, and the pink round sign with a letter below it",
+   "the signs at the right edge (the tall vertical sign; the red fascia above the lit window)"
+  ],
+  "view": {
+   "file": "views/R12.png",
+   "size": [
+    1536,
+    2048
+   ],
+   "grid": "views/R12-grid.png",
+   "source_size": [
+    3024,
+    4032
+   ]
+  }
+ },
+ "R15": {
+  "instruction": "Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+  "must_change": "the brick facade around the shop becomes white-painted brick",
+  "must_not_change": [
+   "the \"Beguiling\" sign and all its lettering and artwork",
+   "the window displays, posters and the lettering on the glass",
+   "the door",
+   "the pavement",
+   "framing"
+  ],
+  "what": "facade edit; preserve = sign + shop windows + door",
+  "text_elements_to_protect": [
+   "the large shop sign above the windows (the main word and the small word beside it)",
+   "the white banner at the top of the right-hand window (two lines)",
+   "the number in the speech-bubble decal at the top of the door glass",
+   "the poster on the lower door panel (several lines)",
+   "the small round red sticker on the door glass"
+  ],
+  "view": {
+   "file": "views/R15.png",
+   "size": [
+    1536,
+    2048
+   ],
+   "grid": "views/R15-grid.png",
+   "source_size": [
+    3024,
+    4032
+   ]
+  }
+ },
+ "R02": {
+  "instruction": "Remove the dark grey van parked in front of the building.",
+  "must_change": "the van is gone; the pavement, street and building base behind it are plausibly filled in",
+  "must_not_change": [
+   "the building facade, windows and balcony",
+   "the red no-entry sign and its pole",
+   "the parked bicycles",
+   "the blue street-name sign on the wall",
+   "sunlight direction and shadows",
+   "framing"
+  ],
+  "what": "van",
+  "text_elements_to_protect": [
+   "the blue street-name sign on the wall above the van (white lettering, three lines)",
+   "the small white plate under the red no-entry sign (one word above two bicycle pictograms)"
+  ],
+  "view": {
+   "file": "views/R02.png",
+   "size": [
+    2048,
+    1538
+   ],
+   "grid": "views/R02-grid.png",
+   "source_size": [
+    4592,
+    3448
+   ]
+  }
+ }
+}
