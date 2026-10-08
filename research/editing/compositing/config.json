@@ -1,0 +1,117 @@
+{
+ "_comment": "Phase 9 CMPF run configuration (PROTOCOL.md \u00a74). Inputs only; masks are frozen separately in masks/.",
+ "budget": 1024,
+ "seed": "G2 primary seed",
+ "feather": {
+  "F_ref_px": 16,
+  "L_ref_long_side": 1184,
+  "rule": "F = round(16 * L / 1184); alpha = sum_{k<F} erode^k(M) / F, 3x3 min filter, edge-replicated borders"
+ },
+ "c3_resample": "PIL LANCZOS of the G2 output to the staged source size",
+ "rounding": "float32, numpy.rint (half to even), clip uint8",
+ "alignment": "integer shift search in [-4,4]^2, grey MAE outside the mask dilated by F; aligned iff best = (0,0)",
+ "primary_cases": [
+  "R01",
+  "R05",
+  "R09",
+  "R11",
+  "R12",
+  "R15"
+ ],
+ "demonstration_cases": [
+  "R02"
+ ],
+ "cases": {
+  "R01": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+   "staged_pixel_sha256": "e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R01/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050051Z-9dc070.png",
+   "g2_output_pixel_sha256": "1fbd012e48c5afdb17fb3e05746168d6f898a77b124f477d302d040c6ac945f9",
+   "d0": "research/editing/compositing/runs/D0/R01.png",
+   "d0_pixel_sha256": "c17213082cc7b65bb0763b0e918a06bd0a58165f9ef638af9f516d9627a902a2",
+   "size": [
+    1216,
+    864
+   ]
+  },
+  "R05": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435.png",
+   "staged_pixel_sha256": "f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R05/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054006Z-b40954.png",
+   "g2_output_pixel_sha256": "04650dff2b9eab7006aeb3c6e92197e2c670c393808bb9a98041285741dbd63e",
+   "d0": "research/editing/compositing/runs/D0/R05.png",
+   "d0_pixel_sha256": "14bf91b18cb1db512559f2c0f2c2309527ab5f7d145fd1378ee75b81ea8465f0",
+   "size": [
+    1248,
+    832
+   ]
+  },
+  "R09": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+   "staged_pixel_sha256": "6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R09/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T062021Z-c4f545.png",
+   "g2_output_pixel_sha256": "a46af4ce294bf16220400b95ec75b15106b65c4d4f403633ebe5490c993a05a6",
+   "d0": "research/editing/compositing/runs/D0/R09.png",
+   "d0_pixel_sha256": "29fc59b8c58112ca455abd339cce0c19b1ed5e0bb58108c35bab2da16730e91e",
+   "size": [
+    1248,
+    832
+   ]
+  },
+  "R11": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+   "staged_pixel_sha256": "c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R11/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T064035Z-2e44b8.png",
+   "g2_output_pixel_sha256": "502c4f5503a9f8cc6bb7fefdee2c863fba162a989e1d73b20dceba2cf1a0bc1f",
+   "d0": "research/editing/compositing/runs/D0/R11.png",
+   "d0_pixel_sha256": "79108c9f00cefa3feb74e5703f9292b2b76694bf20e831a6de8c00efeee0e8b8",
+   "size": [
+    768,
+    1376
+   ]
+  },
+  "R12": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+   "staged_pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R12/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T065055Z-2d482d.png",
+   "g2_output_pixel_sha256": "85c0235ae4e5b15d1982c4e398968418ae4bc01f69d7d758b6254973f7ec2cb4",
+   "d0": "research/editing/compositing/runs/D0/R12.png",
+   "d0_pixel_sha256": "ed934500e980c4903f680444681643a366f9e17c8de6cf8562325be45248aabb",
+   "size": [
+    896,
+    1184
+   ]
+  },
+  "R15": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+   "staged_pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R15/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T072214Z-31d5b1.png",
+   "g2_output_pixel_sha256": "bd8e3f1b50789ce14dc3fea9419f4a5b0befd8ecfeadcfe54427f2cbc4f30acb",
+   "d0": "research/editing/compositing/runs/D0/R15.png",
+   "d0_pixel_sha256": "4d991dc4333b8d63fb7edd6f3b0ac34051efc78d549115d4ecb20fa68576540b",
+   "size": [
+    896,
+    1184
+   ]
+  },
+  "R02": {
+   "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+   "staged_pixel_sha256": "73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9",
+   "g2_sidecar": "research/qwen/runs/G2-1024-R02/sidecar.json",
+   "g2_output": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png",
+   "g2_output_pixel_sha256": "13d1e1bb674e5c546cacb1bb97ef707a096075b337535988387a93fccdc7d7c8",
+   "d0": "research/editing/compositing/runs/D0/R02.png",
+   "d0_pixel_sha256": "f940ba52e83e7ad3e6bf7eb10e6ee6161fe37960fa620b6e390628b76466f680",
+   "size": [
+    1184,
+    896
+   ]
+  }
+ }
+}
