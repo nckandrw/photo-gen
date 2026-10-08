@@ -1,0 +1,8 @@
+{
+ "_comment": "Phase 7 Q-V: text-element boxes for the descriptive regional metrics only (never for scoring). Fractions [x0, y0, x1, y1] of the staged source, drawn on the SOURCE photographs before any Q-V output existed. Element numbering and wording follow research/qwen/qq/qq_blind.py ELEMENTS (Q-Q).",
+ "R02": {"t1": [0.545, 0.395, 0.625, 0.445], "t2": [0.062, 0.598, 0.128, 0.648]},
+ "R12": {"t1": [0.505, 0.340, 0.945, 0.412], "t2": [0.080, 0.420, 0.200, 0.518], "t3": [0.338, 0.432, 0.400, 0.474],
+         "t4": [0.000, 0.500, 0.205, 0.580], "t5": [0.940, 0.320, 1.000, 0.548]},
+ "R15": {"t1": [0.225, 0.252, 0.665, 0.384], "t2": [0.660, 0.370, 0.890, 0.433], "t3": [0.555, 0.400, 0.615, 0.440],
+         "t4": [0.510, 0.648, 0.577, 0.740], "t5": [0.580, 0.552, 0.618, 0.588]}
+}

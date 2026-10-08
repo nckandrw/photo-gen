@@ -125,6 +125,7 @@ uv pip install --python mflux-qwen/.venv/bin/python3.12 mflux-0.21.0-py3-none-an
 ```
 - `config/qwen-venv-constraints.txt` pins every package to mflux 0.21.0's own `uv.lock` (CPython 3.12, darwin), **except MLX**: pinned to 0.32.2, production's M5-verified MLX, instead of the lock's 0.32.0. Both are within mflux's declared `mlx>=0.32.0,<0.33`.
 - The resulting environment is frozen in `config/qwen-python-requirements.lock.txt`.
+- **Known security advisories** (GitHub Dependabot, seen 2026-10-08; recorded in Phase 7): 4 open alerts on `config/qwen-python-requirements.lock.txt`: **fsspec** (high: server-side template injection in ReferenceFileSystem), and **urllib3** (one medium: chunked-deflate infinite loop; two high: unbounded chunk-size line buffering, HTTPS proxy TLS configuration possibly ignored). The edit venv is intentionally pinned and runs offline (`HF_HUB_OFFLINE=1`, loopback-only API, no remote filesystems), and the lock is **not** changed for these alerts. Upgrading would change the pinned edit environment, so it needs its own security assessment and a parity re-check (`research/qwen/PHASE6-INDEX.md` §7). It is not part of any research phase so far.
 
 ### 5.2 Checkpoint (33.13 GB; pinned)
 ```sh

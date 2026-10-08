@@ -83,6 +83,18 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
 
 ---
 
+## 2026-10-08 — Phase 7 (directive "PHOTO-GEN Phase 7 — Q-V VAE round-trip ceiling test and Qwen decision gate")
+- **Step 0, checks:** tree clean; `main` = `56880d2` = origin; v3 `1c097eb`→`401e400`, v4 `1741179`→`33669eb`; Q-Q frozen `bcef9aa3`/`4c8d6f36` and G2 `f14deba4` intact; `assets/qwen-assets-verification-phase7-pre-qv.json`: source 87/87, q4 export 18/18; no q8 export.
+- **Pre-registration:** `research/qwen/qv/PROTOCOL.md`.
+  - The VAE-only round trip of the staged G2 inputs R02, R12 and R15 at 512 and 1024, using mflux's own edit-path functions; the primary path is a ceiling (bf16 latent cast, tiled decode).
+  - The E05 pipeline-equivalence gate runs first.
+  - Provenance-blind review: ORIGINAL | scaled input | round trip, with randomised order.
+  - Rules INCONCLUSIVE / VAE-IMPLICATED / BUDGET-LIMITED / VAE-CLEARED / MIXED, applied within one rater.
+- **Chain (to run):** `research/qwen/qv/qv-chain.sh` → `research/qwen/qv/qv-chain.log`, marker `QV_CHAIN_DONE` (or `QV_CHAIN_STOPPED_GATE_FAILED`); 1 gate plus 12 round trips, minutes in total.
+- **Dependabot:** the 4 alerts are documented in `docs/REPRODUCIBILITY.md` §5.1. The lock is unchanged.
+
+---
+
 ## 2026-10-08 — Phase 6 (directive "PHOTO-GEN Phase 6 — Phase 5 closeout, Q-Q diagnostic, status hardening, and v4 release")
 - **Step 0, checks:** working tree clean; `origin/main` = `401e400`; v3 = tag object `1c097eb` → `401e400` (local and remote); **15 Phase 5 commits** `0d15f49` … `63c24a5` (`git rev-list --count 401e400..63c24a5`). *Correction:* the Phase 5 closing chat summary said 13, then 19.
 - **Step 1, documentation corrections** (docs only; every correction is marked in place; no score, evidence file or criterion changed; `SCORES-FROZEN.csv` still `f14deba4…`):
