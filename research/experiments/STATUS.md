@@ -1,5 +1,5 @@
 # Experiment status register (research/experiments/)
-Updated 2026-10-08 (Phase 6).
+Updated 2026-10-09 (Phase 7).
 
 **Statuses**
 - **REFERENCE:** a permanent baseline.
@@ -82,4 +82,11 @@ Negative results are kept on purpose.
 | **Q-Q: q8 vs q4 weights on the G2 text failures** (R02/R12/R15 at 512 and 1024 + R12 second seed; arm-blind paired review) | **CLOSED: AGAINST** (pre-registered) | qwen/QWEN-QQ-DIAGNOSTIC.md, qwen/qq/ | q8 rescued 1 of 19 garbled text elements, worsened 0; text FAIL 6/6 in both arms; other dimensions identical; blind preference q8 3 / q4 0 / SAME 3. **q4 not supported as the primary cause.** q8 cost at 1024: 810 vs 570 s, 13.76 vs 10.87 GB, swap +3.08 GB |
 | q8 diagnostic export (18.46 GB) | **DELETED** after its identity and results were committed | QWEN-ASSET-PROVENANCE.md §7 | recreatable exactly from the retained source in ~2 min (gate E; export deterministic) |
 | Qwen source checkpoint | **RETAIN LOCALLY** (DELETE trigger unchanged) | QWEN-ASSET-PROVENANCE.md §6–§7 | re-verified 87/87 three times in Phase 6; the Q-Q rationale for keeping it is now spent |
-| VAE round-trip ceiling test (next question) | **NOT STARTED** (Phase 7 candidate) | QWEN-QQ-DIAGNOSTIC.md §7 | would tell whether the VAE/budget or the DiT's re-synthesis limits incidental text |
+| VAE round-trip ceiling test (next question) | **NOT STARTED** (Phase 7 candidate) | QWEN-QQ-DIAGNOSTIC.md §7 | would tell whether the VAE/budget or the DiT's re-synthesis limits incidental text | *(Phase 7: done, see below)*
+
+## Phase 7 (2026-10-08/09): Q-V VAE round-trip ceiling test. Resume index: `research/qwen/PHASE7-INDEX.md`
+| experiment | status | evidence | one-line result |
+|---|---|---|---|
+| **Q-V: VAE-only round trip of the staged G2 photos R02/R12/R15 at 512 and 1024** (the edit's exact path, bit-exact by an equivalence gate; provenance-blind review vs the scaled input) | **CLOSED: MIXED** (pre-registered) | qwen/QWEN-QV-DIAGNOSTIC.md, qwen/qv/ | a perfect copy of the reference loses incidental text: 512 keeps 3/12 legible (scaling loses 6, VAE 4 of the remaining 6); 1024 keeps 7/12 (VAE loses 3 of 10, one per photo; thresholds: implicated ≥ 5, cleared ≤ 1). Scaled input preferred 6/6. Cross-rater: of Q-Q's 19 edit-garbled units, 7 scaling / 6 VAE / 6 regeneration |
+| Qwen-Image-2.1 editing work | **RECOMMENDED: STOP** (awaits the user) | QWEN-QV-DIAGNOSTIC.md §7 | neither precision (Q-Q) nor a perfect copy (Q-V) keeps the text at 512; 1024 still loses some and is MARGINAL; > 1024 not practical on 16 GB |
+| Q-A alternative-model survey | **NOT STARTED** (justified by Q-V if editing remains a goal) | EXPERIMENT-BACKLOG.md | entry screen proposed: a candidate's VAE/conditioning round trip must keep the G2 text elements legible at a feasible budget |

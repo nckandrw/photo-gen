@@ -146,3 +146,9 @@ Both arms ran in one interleaved, sustained, monitored chain: production worker,
   - At 1024, the q8 DiT (7.66 GB) plus activations sets it, and the machine pages for the whole denoise.
   - By G2's memory/UX definitions (descriptive), q8 would be MARGINAL at both budgets.
 - **The q8 export itself** (per component): peak footprint 10.8 and 11.2 GB, about 2 minutes in total.
+
+### Q-V diagnostic (Phase 7, 2026-10-08): the VAE round trip alone (q4 export's fp32 VAE; tiled decode; 1 GB MLX cache cap). **Diagnostic only**
+| budget | runs | encode (s) | decode (s) | load → round trip (s) | peak footprint after the round trip (GB) | MLX peak (GB) | swap / critical |
+|---|---:|---:|---:|---:|---|---:|---|
+| 512 | 6 | 0.40 | 1.88 | 3.1 | 5.19–5.98 | 5.51 | 0 / 0 |
+| 1024 | 6 | 1.46 | 10.2 | 12.7 | 6.05–6.93 | 6.10 | ≤ 1.72 GB / 3, all in the untiled-variant phase, none in the primary path |

@@ -172,3 +172,17 @@ Full record: `research/qwen/QWEN-QQ-DIAGNOSTIC.md`; pre-registration `research/q
 - **Cost of q8 on this machine** (same chain): 512: 133 s against 104 s, 12.0 GB against 8.2 GB peak. 1024: 810 s against 570 s, 13.8 GB against 10.9 GB, swap +3.1 GB; paging throughout, 0 critical.
 - **Status unchanged.** G2 REJECTED; research opt-in only; no precision becomes a default. The q8 export was deleted after its identity was recorded.
 - **Next question (not started):** a VAE round-trip ceiling test (backlog Q-V).
+
+## Q-V (Phase 7): the output path itself loses incidental text (MIXED)
+Full record: `research/qwen/QWEN-QV-DIAGNOSTIC.md`; pre-registration `research/qwen/qv/PROTOCOL.md`.
+
+- **Test:** a VAE-only round trip of the staged G2 photos R02, R12 and R15 at 512 and 1024, through the edit's own functions: RGBA, LANCZOS to the budget, encode, bf16 latents, tiled decode. An equivalence gate showed it bit-exact against a real production-worker edit. It is a ceiling: what a perfect copy of the reference latents would give.
+- **Review:** provenance-blind. Each sheet shows the original, the scaled input and the round trip, with the order randomised; one fresh-subagent rater; frozen before unblinding.
+- **Result: MIXED.**
+  - At 512 the round trip keeps **3 of 12** lettering elements legible: scaling alone loses 6, and the VAE loses 4 of the remaining 6.
+  - At 1024 it keeps **7 of 12:** the VAE loses 3 of the 10 legible-input elements, one per photo.
+  - The 1024 loss sits between the thresholds (implicated ≥ 5; cleared or budget-limited ≤ 1).
+  - The blind rater preferred the scaled input to the round trip on 6/6 sheets.
+- **Meaning:** faithfully copying the reference does not keep this text, severely at 512 and partly at 1024. Neither precision (Q-Q) nor a perfect copy (Q-V) rescues 512, and 1024 is MARGINAL on time.
+- **Recommendation (not implemented):** stop Qwen-Image-2.1 editing work. Q-A becomes the next step only if editing remains a goal, with a VAE round-trip entry screen.
+- **Status unchanged:** G2 REJECTED, Q-Q AGAINST, research-only, `validated: false`.

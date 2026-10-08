@@ -455,6 +455,7 @@ GET /health  with  Host: evil.example
 <h2>Image editing (Qwen-Image-2.1) <span class="badge b-bad">G2 REJECTED</span> <span class="badge b-exp">RESEARCH OPT-IN</span> <a class="anchor" href="#editing">#</a></h2>
 <div class="callout warn"><p class="t">Not a production feature · non-commercial licence</p><p><strong>The real-photograph quality gate G2 rejected editing at both budgets (512 and 1024).</strong> On real photographs, small text elsewhere in the picture (street signs, posters, decals) is often re-drawn as gibberish, and edits leak onto similar or attached objects. Editing stays available only as a research opt-in: every edit is labelled <code>validated_configuration: false</code> and needs <code>--allow-experimental</code>. Editing uses <strong>Qwen-Image-2.1</strong>, whose weights are under the <strong>Qwen Research License (non-commercial: research or evaluation only)</strong>; photo-gen's MIT licence grants no rights to them. The weights are never committed or redistributed (<code>docs/THIRD-PARTY-LICENSES.md</code> §5).</p></div>
 <div class="callout"><p class="t">Phase 6 diagnostic: higher precision does not fix it</p><p>A pre-registered, arm-blind test re-ran G2's six text failures with 8-bit instead of 4-bit weights, changing nothing else. The 8-bit weights rescued 1 of 19 garbled text elements, and text still failed on 6 of 6 results. They cost about 40% more time and about 3 GB more memory at 1024. 4-bit quantization is not supported as the primary cause (<code>research/qwen/QWEN-QQ-DIAGNOSTIC.md</code>). Editing stays research-only.</p></div>
+<div class="callout"><p class="t">Phase 7 diagnostic: the output path itself loses small text</p><p>A VAE-only round trip of the same photographs reproduces the edit's exact path, but with no regeneration. It is what a perfect copy of the photo would give. At 512 it keeps 3 of 12 lettering elements legible; at 1024, 7 of 12. The pre-registered class is MIXED. Recommendation: stop Qwen-Image-2.1 editing work (<code>research/qwen/QWEN-QV-DIAGNOSTIC.md</code>).</p></div>
 <p>An edit takes <strong>one input image</strong> and a <strong>natural-language instruction</strong> and returns the edited image. Typical instructions: "Change the background to a sunset beach", "Give the panda a blue scarf.", "Remove the coffee mug. Keep everything else unchanged.", "Replace the text "BAKERY" with "COFFEE", keeping the same font of the original text."</p>
 <div class="codewrap"><pre>bin/photo-gen edit --image path/to/input.png -p "Change the background to a sunset beach" \
     --output-resolution 512 --seed 42 --allow-experimental</pre></div>
@@ -935,6 +936,7 @@ GET /health  with  Host: evil.example
 <tr><td>2026-09-29</td><td>Step-count gates: ULTRA (bf16 + 4) validated at 512² only, BALANCED (bf16 + 5) at 1024² only (768² not confirmed); 4-step Z-Image base + LoRA probe rejected</td><td><code>step-count-quality-gate/results.md</code>, <code>4step-probe/results.md</code></td></tr>
 <tr><td>2026-10-07</td><td>Phase 4: image-task layer and Qwen-Image-2.1 editing on mflux 0.21.0 in a separate venv; G0 capability CAPABLE at 512 and 1024; mflux kept over sd.cpp (G1) → tag v3</td><td><code>research/qwen/PHASE4-INDEX.md</code>, <code>QWEN-EDITING-QUALITY.md</code></td></tr>
 <tr><td>2026-10-07</td><td>Phase 5: backend identity, edit memory policy P2 (pixel-identical, −1.35 GB at 1024), real-photograph gate G2 on 16 CC0/PD photos: <strong>editing REJECTED</strong> at 512 and 1024</td><td><code>research/qwen/PHASE5-INDEX.md</code>, <code>research/editing/real-world/results.md</code></td></tr>
+<tr><td>2026-10-08/09</td><td>Phase 7: the Q-V VAE round-trip test (MIXED): even a perfect copy of the reference loses most incidental text at 512 and some at 1024; recommendation: stop Qwen-Image-2.1 editing work</td><td><code>research/qwen/PHASE7-INDEX.md</code>, <code>research/qwen/QWEN-QV-DIAGNOSTIC.md</code></td></tr>
 <tr><td>2026-10-08</td><td>Phase 6: the app labels editing research-only (G2 REJECTED); the Q-Q diagnostic found 8-bit weights do not fix the text garbling (q4 not the primary cause) → tag v4</td><td><code>research/qwen/PHASE6-INDEX.md</code>, <code>research/qwen/QWEN-QQ-DIAGNOSTIC.md</code></td></tr>
 </table>
 </section>
@@ -948,8 +950,8 @@ GET /health  with  Host: evil.example
 <li><strong>Text-to-image, open:</strong> whether a dedicated 6-step gate at 768² is worth running; mflux 0.21.0 for Z-Image is deferred, because it changes the reference hashes and would need its own parity and gate work.</li>
 <li><strong>Editing, open</strong> (it stays research-only either way):
 <ul>
-<li>a VAE round-trip ceiling test (backlog Q-V): do the staged photos' small texts survive the VAE alone at 512 and 1024?</li>
-<li>a desk survey of alternative editing models that fit 16 GB (Q-A).</li>
+<li><s>a VAE round-trip ceiling test (Q-V)</s>: done in Phase 7 (MIXED; the output path itself loses small text). Stopping Qwen-Image-2.1 editing work is recommended;</li>
+<li>a desk survey of alternative editing models that fit 16 GB (Q-A), only if editing remains a goal, with a VAE round-trip entry screen.</li>
 </ul>
 See <code>research/EXPERIMENT-BACKLOG.md</code> and <code>research/qwen/PHASE6-INDEX.md</code> §7.</li>
 </ul>

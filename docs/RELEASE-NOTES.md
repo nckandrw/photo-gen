@@ -2,6 +2,14 @@
 
 photo-gen has no semantic versioning. Each tag marks a **known-good, restorable state validated on the target machine** (MacBook Air M5, 16 GB, 8-core GPU, macOS 27.0; see [HARDWARE.md](HARDWARE.md)). Tags are immutable; they are never moved or rewritten.
 
+## Unreleased (`main`, after v4; not a validated tag): Phase 7 Q-V diagnostic
+**No tag; local commits.** Text-to-image and the app are unchanged since v4. Research only:
+- **Q-V** (`research/qwen/QWEN-QV-DIAGNOSTIC.md`): a VAE-only round trip of the staged G2 photos, bit-exact against the edit's path.
+  - At 512 it keeps 3/12 incidental-text elements legible; at 1024, 7/12. The pre-registered class is MIXED.
+  - Recommendation: stop Qwen-Image-2.1 editing work.
+  - Qwen stays research-only, G2 REJECTED, Q-Q AGAINST.
+- **Dependabot:** the 4 alerts on the edit-venv lock are documented (`docs/REPRODUCIBILITY.md` §5.1); the lock is unchanged.
+
 ## photo-gen-m5-16gb-v4 (2026-10-08): Phase 5 (real-photograph editing gate: Qwen editing REJECTED) + Phase 6 (corrections, explicit status, Q-Q diagnostic)
 **Tag:** `photo-gen-m5-16gb-v4`, an annotated tag on the Phase 6 closing commit (`git rev-list -n1 photo-gen-m5-16gb-v4`). It contains the 15 Phase 5 commits after v3 (`0d15f49` … `63c24a5`) and the Phase 6 commits after them, with no history rewritten. v3 (`401e400`) is unchanged.
 

@@ -52,6 +52,8 @@ Directive §26 applies: correct → measured → **then** optimized. Nothing bel
 | Q-M | **DONE: ADOPTED** as P2 (`research/qwen/QWEN-MEMORY-LIFETIME.md`): 1024 peak 12.08 → ~10.9 GB, pixel-identical |
 | Q-S | **ON HOLD.** Directive §24–§25: no speed work on a configuration that failed its quality gate |
 | Q-U, Q-C | unchanged (not started) |
+| Q-V | **DONE (Phase 7): MIXED.** The VAE-only round trip (the edit's exact path) keeps 3/12 text elements legible at 512 (scaling loses 6) and 7/12 at 1024 (the VAE loses 3 of 10). The output path limits small text; stop Qwen-Image-2.1 editing work is recommended (`research/qwen/QWEN-QV-DIAGNOSTIC.md`) |
+| Q-A | **Justified if editing remains a goal** (Phase 7). Entry screen: a candidate's VAE/conditioning round trip keeps the G2 text elements legible at a feasible budget, before any editing gate (the Q-V harness generalises) |
 | Q-Q | **DONE (Phase 6): AGAINST.** q8 vs q4 on the six G2 text FAILs: 1 of 19 garbled elements rescued, text FAIL 6/6 in both arms; q4 not supported as the primary cause (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`) |
 
 New items. **Not started.** Each needs the user's decision to continue with Qwen at all.

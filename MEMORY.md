@@ -5,7 +5,22 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-08 (PHASE 6 COMPLETE; read `research/qwen/PHASE6-INDEX.md` first). Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+_Last updated 2026-10-09 (PHASE 7 COMPLETE; read `research/qwen/PHASE7-INDEX.md` first). Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+
+**PHASE 7 (2026-10-08/09) COMPLETE → `research/qwen/PHASE7-INDEX.md`. Nothing is running. Phase 7 commits are local: NOT pushed, NOT tagged (`origin/main` = `56880d2`; v4 = `33669eb`).**
+- **Q-V: MIXED** (`research/qwen/QWEN-QV-DIAGNOSTIC.md`).
+  - A VAE-only round trip, bit-exact against the edit's path by an equivalence gate, is what a perfect copy of the reference latents would give. It keeps **3/12** incidental-text elements legible at 512 (scaling alone loses 6) and **7/12** at 1024 (the VAE loses 3 of 10 legible-input elements).
+  - Blind preference: scaled input over round trip on 6/6 sheets.
+- **Recommendation (awaiting you): stop Qwen-Image-2.1 editing work.** Q-A only if editing remains a goal, with a VAE round-trip entry screen.
+- **Status unchanged:** G2 REJECTED, Q-Q AGAINST, research-only, `validated: false`.
+- **Open decisions:**
+  1. stop Qwen editing work; keep or remove the research task;
+  2. Q-A or not;
+  3. source checkpoint DELETE (the trigger is met if Qwen work stops);
+  4. push the Phase 7 commits, and any tag;
+  5. Dependabot.
+
+_The Phase 6 snapshot below is superseded except where Phase 7 says otherwise._
 
 **PHASE 6 (2026-10-08) COMPLETE → `research/qwen/PHASE6-INDEX.md`. Nothing is running. Phase 6 closes at the commit tagged `photo-gen-m5-16gb-v4`; `main` and v4 are pushed.**
 - **Qwen editing: still G2 REJECTED at 512 and 1024; research-only.**
@@ -26,7 +41,7 @@ _Last updated 2026-10-08 (PHASE 6 COMPLETE; read `research/qwen/PHASE6-INDEX.md`
   - Phase 5 = 15 commits (`0d15f49` … `63c24a5`); Phase 6 = 13 commits (`e7e0b61` … `33669eb`);
   - pushed fast-forward (`401e400..33669eb`);
   - **v4 = tag object `1741179` → `33669eb`**, annotated, pushed, and checked with `ls-remote`;
-  - after v4, `main` carries only docs-only resume aids (these ledger/index updates). The v4 tree is the Phase 6 state.
+  - after v4, `main` carries docs-only resume aids (`a5ac33c`, `56880d2`, pushed) and the Phase 7 Q-V research commits (local, not pushed). None changes `app/` or `config/`. The v4 tree is the Phase 6 state.
 - **Tests** 93/93.
 - **Open user decisions:**
   1. source checkpoint: keep, or trigger DELETE;
@@ -37,8 +52,8 @@ _Last updated 2026-10-08 (PHASE 6 COMPLETE; read `research/qwen/PHASE6-INDEX.md`
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
 2. This "Current state" block.
-3. `research/qwen/PHASE6-INDEX.md`: the latest phase, the open decisions, and how to start each one (§7).
-4. Earlier indexes: `research/qwen/PHASE5-INDEX.md` (G2, P2, identity), then `research/qwen/PHASE4-INDEX.md` (the edit backend's design).
+3. `research/qwen/PHASE7-INDEX.md`: the latest phase and its open decisions. `research/qwen/PHASE6-INDEX.md` §7 has how-to procedures (source DELETE, removing the edit task, a Dependabot fix).
+4. Earlier indexes: `research/qwen/PHASE6-INDEX.md`, `research/qwen/PHASE5-INDEX.md` (G2, P2, identity), then `research/qwen/PHASE4-INDEX.md` (the edit backend's design).
 5. `research/experiments/STATUS.md` (every experiment's status) and `research/EXPERIMENT-BACKLOG.md` (next frontier).
 
 Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; the tests must give 93 OK (command in `CLAUDE.md`). Check that nothing is running: `pgrep -fl "run_edit|chain|qq_run|mflux_qwen_edit_worker"`.
@@ -90,7 +105,26 @@ Verify without the GPU: `bin/photo-gen verify` and `verify --edit` must be ok; t
   - The E05 pipeline-equivalence gate runs first.
   - Provenance-blind review: ORIGINAL | scaled input | round trip, with randomised order.
   - Rules INCONCLUSIVE / VAE-IMPLICATED / BUDGET-LIMITED / VAE-CLEARED / MIXED, applied within one rater.
-- **Chain (to run):** `research/qwen/qv/qv-chain.sh` → `research/qwen/qv/qv-chain.log`, marker `QV_CHAIN_DONE` (or `QV_CHAIN_STOPPED_GATE_FAILED`); 1 gate plus 12 round trips, minutes in total.
+- **Chain:** `research/qwen/qv/qv-chain.sh` → `research/qwen/qv/qv-chain.log`. **DONE** 23:55:48 (`QV_CHAIN_DONE`); all rc 0; all gates passed (`0b2514d`).
+  - **Equivalence gate:** a real 3-step E05 production-worker edit; the harness reproduced the encode input/output and decode output bit for bit; bf16 into unpack; tiling identical.
+- **Rating:** rater prompt `6e527f0`; fresh-subagent rater; frozen 2026-10-09 00:25:20 (`670642e`); unblinded `f718359`.
+- **Result: MIXED.**
+  - 512: N 12, S 6, K 6, L 4 → the round trip keeps 3/12 legible.
+  - 1024: N 12, S 2, K 10, L 3 (one per photo) → it keeps 7/12.
+  - Thresholds: implicated ≥ 5; cleared or budget-limited ≤ 1.
+  - Preference: scaled input 6/6.
+  - Cross-rater, the 19 edit-garbled units: 7 scaling / 6 VAE / 6 regeneration.
+- **Disclosed:**
+  - the Improvement Clause items: equivalence gate, scaled-input panel, ceiling framing, a/b repeats, 1 GB cache cap;
+  - the hypothesis may have leaked to the rater via CLAUDE.md;
+  - panel sizes reveal the budget;
+  - the rater's helper scripts in its crop directory;
+  - the audit's "git " matches were the word "digit";
+  - 3 critical samples, all in the untiled variant only;
+  - the start swap was 4.3 GB;
+  - the monitor samples about every 2.5 s;
+  - regional SSIM doesn't track the text failures.
+- **Close:** report `QWEN-QV-DIAGNOSTIC.md`; docs (STATUS, backlog, QWEN-EDITING-QUALITY, PERFORMANCE-MAP, guide, README, RELEASE-NOTES "Unreleased", CLAUDE.md); `PHASE7-INDEX.md`. Not pushed or tagged.
 - **Dependabot:** the 4 alerts are documented in `docs/REPRODUCIBILITY.md` §5.1. The lock is unchanged.
 
 ---
