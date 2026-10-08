@@ -185,5 +185,5 @@ revision and hash.
 **Not recreated:** the q8 export.
 
 **Research venv `torch-ref/`** (Phase 8 CPU reference: torch 2.14.0, diffusers 0.41.0; 675 MB; gitignored; hashed
-lock `research/qwen/qv-reference/requirements.lock.txt`): **kept** for future numerical regression testing. It uses
+lock `research/qwen/qv-reference/requirements.lock.txt`; 675 MB at creation, 737 MB on 2026-10-09 with bytecode caches): **kept** for future numerical regression testing. It uses
 the patched fsspec 2026.9.0 and urllib3 2.8.0, and has no MLX.
