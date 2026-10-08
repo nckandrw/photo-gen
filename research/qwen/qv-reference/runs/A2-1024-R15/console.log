@@ -1,0 +1,42 @@
+There are modules in AutoencoderKLQwenImage21 that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+{
+ "torch_threads": 4,
+ "seconds": {
+  "load": 2.704,
+  "encode": 5.817,
+  "decode_tiled": 26.995,
+  "decode_tiled_x12": 26.7,
+  "total": 62.765
+ },
+ "preprocessing_gate": {
+  "pass": true,
+  "size": [
+   896,
+   1184
+  ]
+ },
+ "diffusers_preprocessing_variable": {
+  "shape_equal": true,
+  "max_abs": 0.0,
+  "elements_differing": 0,
+  "elements": 4243456,
+  "dims_equal_mflux": true
+ },
+ "cast_gate": {
+  "pass": true,
+  "elements_differing": 0
+ },
+ "finite": {
+  "moments": true,
+  "z_norm": true,
+  "z_dec_in": true,
+  "dec": true,
+  "dec_x12": true
+ },
+ "banded_conv": {
+  "limit_bytes": 268435456,
+  "banded_calls": 289,
+  "plain_calls": 299
+ },
+ "peak_footprint_gb": 9.18
+}

@@ -1,0 +1,48 @@
+QVR_CHAIN_START Fri  9 Oct 2026 01:17:08 PST head=db190f8
+STEP GATE-weights 01:17:08
+REF_RUN_END research/qwen/qv-reference/runs/GATE-weights rc=0 aborted=0
+STEP PROBE-mlx 01:17:11
+REF_RUN_END research/qwen/qv-reference/runs/PROBE-mlx rc=0 aborted=0
+STEP PROBE-mps 01:17:41
+REF_RUN_END research/qwen/qv-reference/runs/PROBE-mps rc=0 aborted=0
+STEP GATE-conv 01:17:44
+REF_RUN_END research/qwen/qv-reference/runs/GATE-conv rc=0 aborted=0
+STEP A1-512-R12 01:17:51
+REF_RUN_END research/qwen/qv-reference/runs/A1-512-R12 rc=0 aborted=0
+STEP A2-512-R12 01:17:57
+REF_RUN_END research/qwen/qv-reference/runs/A2-512-R12 rc=0 aborted=0
+STEP A2b-512-R12 01:18:12
+REF_RUN_END research/qwen/qv-reference/runs/A2b-512-R12 rc=0 aborted=0
+STEP A1-1024-R12 01:18:26
+REF_RUN_END research/qwen/qv-reference/runs/A1-1024-R12 rc=0 aborted=0
+STEP A2-1024-R12 01:18:47
+REF_RUN_END research/qwen/qv-reference/runs/A2-1024-R12 rc=0 aborted=0
+STEP A1-512-R02 01:19:49
+REF_RUN_END research/qwen/qv-reference/runs/A1-512-R02 rc=0 aborted=0
+STEP A2-512-R02 01:19:54
+REF_RUN_END research/qwen/qv-reference/runs/A2-512-R02 rc=0 aborted=0
+STEP A1-512-R15 01:20:10
+REF_RUN_END research/qwen/qv-reference/runs/A1-512-R15 rc=0 aborted=0
+STEP A2-512-R15 01:20:14
+REF_RUN_END research/qwen/qv-reference/runs/A2-512-R15 rc=0 aborted=0
+STEP A1-1024-R02 01:20:29
+REF_RUN_END research/qwen/qv-reference/runs/A1-1024-R02 rc=0 aborted=0
+STEP A2-1024-R02 01:20:42
+REF_RUN_END research/qwen/qv-reference/runs/A2-1024-R02 rc=0 aborted=0
+STEP A1-1024-R15 01:21:45
+REF_RUN_END research/qwen/qv-reference/runs/A1-1024-R15 rc=0 aborted=0
+STEP A2-1024-R15 01:21:57
+REF_RUN_END research/qwen/qv-reference/runs/A2-1024-R15 rc=0 aborted=0
+STEP A1T-512-R02 01:23:01
+REF_RUN_END research/qwen/qv-reference/runs/A1T-512-R02 rc=0 aborted=0
+STEP A1T-512-R12 01:23:07
+REF_RUN_END research/qwen/qv-reference/runs/A1T-512-R12 rc=0 aborted=0
+STEP A1T-512-R15 01:23:11
+REF_RUN_END research/qwen/qv-reference/runs/A1T-512-R15 rc=0 aborted=0
+STEP A1T-1024-R02 01:23:15
+REF_RUN_END research/qwen/qv-reference/runs/A1T-1024-R02 rc=0 aborted=0
+STEP A1T-1024-R12 01:23:28
+REF_RUN_END research/qwen/qv-reference/runs/A1T-1024-R12 rc=0 aborted=0
+STEP A1T-1024-R15 01:23:42
+REF_RUN_END research/qwen/qv-reference/runs/A1T-1024-R15 rc=0 aborted=0
+QVR_CHAIN_DONE Fri  9 Oct 2026 01:23:55 PST

@@ -1,0 +1,18 @@
+run_dir=research/qwen/qv-reference/runs/A2b-512-R12
+command=env HF_HUB_OFFLINE=1 torch-ref/.venv/bin/python3.12 -I research/qwen/qv-reference/ref_side.py run research/qwen/qv-reference/runs/A1-512-R12/data research/qwen/qv-reference/runs/A2b-512-R12/data
+Fri  9 Oct 2026 01:18:12 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 4096.00M  used = 3168.06M  free = 927.94M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 79%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+455328 /Users/nckandrw/.local/bin/claude
+233744 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/154.0.4258.37/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+209248 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+141856 /Applications/Slack.app/Contents/Frameworks/Slack Helper (Renderer).app/Contents/MacOS/Slack Helper (Renderer)
+ 75840 /Applications/Slack.app/Contents/MacOS/Slack
+ 74560 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/MacOS/Microsoft Teams WebView
+git_head=db190f8f256d69a0193c2d92137b6dd69acd14de
+git_dirty(qv-reference tools, app, config):

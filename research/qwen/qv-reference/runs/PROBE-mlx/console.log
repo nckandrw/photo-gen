@@ -1,0 +1,6 @@
+{
+ "distinct_pad_calls": 28,
+ "temporal_avgdown_sites": 12,
+ "pass": true
+}
+{"rc": 0, "process_wall_seconds": 28.497, "tf32_off": false, "mlx_env": {}}

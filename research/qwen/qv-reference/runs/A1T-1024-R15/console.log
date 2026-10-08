@@ -1,0 +1,19 @@
+{
+ "param_check": {
+  "pass": true
+ },
+ "seconds": {
+  "load": 0.688,
+  "encode": 1.414,
+  "decode_tiled": 8.647,
+  "total": 12.579
+ },
+ "cast_commutes_with_pack": true,
+ "to_uint8_port_vs_to_pil": {
+  "differing_values": 0,
+  "pass": true
+ },
+ "peak_footprint_gb": 8.441,
+ "mlx_peak_gb": 6.104
+}
+{"rc": 0, "process_wall_seconds": 12.709, "tf32_off": true, "mlx_env": {"MLX_ENABLE_TF32": "0"}}

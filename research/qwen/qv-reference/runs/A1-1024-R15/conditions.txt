@@ -1,0 +1,19 @@
+run_dir=research/qwen/qv-reference/runs/A1-1024-R15
+command=mflux/.venv/bin/python3.12 research/qwen/qv-reference/mlx_run.py capture /Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png 1024 research/qwen/qv-reference/runs/A1-1024-R15/data
+Fri  9 Oct 2026 01:21:45 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 4096.00M  used = 3032.06M  free = 1063.94M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 81%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+495440 /Users/nckandrw/.local/bin/claude
+215840 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/154.0.4258.37/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+147856 /Applications/Slack.app/Contents/Frameworks/Slack Helper (Renderer).app/Contents/MacOS/Slack Helper (Renderer)
+109152 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 98496 /System/Library/Frameworks/Contacts.framework/Support/contactsd
+ 88960 /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+git_head=db190f8f256d69a0193c2d92137b6dd69acd14de
+git_dirty(qv-reference tools, app, config):
+?? research/qwen/qv-reference/qvr_blind.py
