@@ -1,0 +1,4 @@
+id,fidelity,fidelity_family,adherence,seam,realism,unintended,t1,t2,t3,t4,t5,notes
+S01-A,-,-,PASS,MAJOR,MINOR,NONE,PRESERVED,PRESERVED,-,-,-,"Van fully removed; a straight vertical seam runs down the pavement at the right edge of the filled area (visible tone step), cutting off a leftover fragment of the van's shadow that now has no caster."
+S01-B,-,-,PASS,NONE,MINOR,MAJOR,GARBLED,GARBLED,-,-,-,"Van and its shadow fully removed, pavement continuous; t1 wrong letters (first line reads like 'WIUVE UILNUIAER', STRAAT and CENTRUM replaced by gibberish strokes); t2 wrong letters (reads like 'ultsanderd', not 'uitgezonderd'); brick and branch texture softened over the whole image; gibberish sign lettering is the realism flaw."
+S01-C,-,-,PASS,MINOR,MINOR,NONE,PRESERVED,PRESERVED,-,-,-,"Van fully removed; a leftover fragment of the van's shadow remains at the right edge of the filled area, cut by a straight vertical edge with a faint lighter band beside it."
