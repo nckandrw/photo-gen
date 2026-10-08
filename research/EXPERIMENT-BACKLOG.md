@@ -55,6 +55,8 @@ Directive §26 applies: correct → measured → **then** optimized. Nothing bel
 | Q-V | **DONE (Phase 7): MIXED.** The VAE-only round trip (the edit's exact path) keeps 3/12 text elements legible at 512 (scaling loses 6) and 7/12 at 1024 (the VAE loses 3 of 10). The output path limits small text; stop Qwen-Image-2.1 editing work is recommended (`research/qwen/QWEN-QV-DIAGNOSTIC.md`) |
 | Q-A | **Justified if editing remains a goal** (Phase 7). Entry screen: a candidate's VAE/conditioning round trip keeps the G2 text elements legible at a feasible budget, before any editing gate (the Q-V harness generalises) |
 | Q-Q | **DONE (Phase 6): AGAINST.** q8 vs q4 on the six G2 text FAILs: 1 of 19 garbled elements rescued, text FAIL 6/6 in both arms; q4 not supported as the primary cause (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`) |
+| Q-VR | **DONE (Phase 8): RUNTIME-MATCHED.** MLX matches the official Diffusers CPU reference (residual = TF32 default; 24/24 text calls identical); Texture-Fix decoder no text rescue; identity edit drifts beyond the ceiling (n = 1) (`research/qwen/QWEN-QVR-REFERENCE.md`) |
+| Q-A (Phase 8) | **Desk survey DONE** (`research/editing/QA-ALTERNATIVE-MODELS.md`). Next: FLUX.2 [klein] 4B VAE round-trip entry screen (VAE file only); not started |
 
 New items. **Not started.** Each needs the user's decision to continue with Qwen at all.
 

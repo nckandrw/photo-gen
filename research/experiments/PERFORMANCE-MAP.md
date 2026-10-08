@@ -152,3 +152,16 @@ Both arms ran in one interleaved, sustained, monitored chain: production worker,
 |---|---:|---:|---:|---:|---|---:|---|
 | 512 | 6 | 0.40 | 1.88 | 3.1 | 5.19–5.98 | 5.51 | 0 / 0 |
 | 1024 | 6 | 1.46 | 10.2 | 12.7 | 6.05–6.93 | 6.10 | ≤ 1.72 GB / 3, all in the untiled-variant phase, none in the primary path |
+
+### Q-VR reference runtimes (Phase 8, 2026-10-09). **Diagnostic only**
+Same VAE weights; wall time per process, including load and saving every intermediate tensor
+(`research/qwen/QWEN-QVR-REFERENCE.md` §6). Monitor cadence 1.2–1.7 s.
+
+| arm | 512 | 1024 | peak footprint 512 / 1024 |
+|---|---|---|---|
+| A1, MLX GPU (production path + captures) | 4–6 s | 12–21 s | 6.8–7.5 / 7.9–8.1 GB |
+| A2, torch 2.14.0 CPU fp32 (Diffusers; banded convs; encode + two tiled decodes) | 14–16 s | 62–63 s | 6.9 / 8.9–9.2 GB |
+| A2 without banding (synthetic smoke only) | — | not run (≈ 11 GB im2col, estimated) | 11.2 GB at 512 |
+
+The baselines differ in hardware unit (GPU vs CPU) and in the work done (A2 decodes twice), so no speed ratio is
+claimed. Production is unaffected.

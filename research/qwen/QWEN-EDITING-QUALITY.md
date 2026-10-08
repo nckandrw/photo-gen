@@ -186,3 +186,10 @@ Full record: `research/qwen/QWEN-QV-DIAGNOSTIC.md`; pre-registration `research/q
 - **Meaning:** faithfully copying the reference does not keep this text, severely at 512 and partly at 1024. Neither precision (Q-Q) nor a perfect copy (Q-V) rescues 512, and 1024 is MARGINAL on time.
 - **Recommendation (not implemented):** stop Qwen-Image-2.1 editing work. Q-A becomes the next step only if editing remains a goal, with a VAE round-trip entry screen.
 - **Status unchanged:** G2 REJECTED, Q-Q AGAINST, research-only, `validated: false`.
+
+## Q-VR (Phase 8): the Q-V loss is not an MLX artefact (RUNTIME-MATCHED)
+- The MLX VAE path matches the official Diffusers implementation on CPU (fp32, same weights): 0.14–0.19/255, which
+  falls to 0.002–0.004 with TF32 off. Blind text calls are 24/24 identical.
+- A Texture-Fix decoder does not rescue the text.
+- A "change nothing" edit of R15 at 512 drifts beyond the output-path ceiling (n = 1).
+- Report: `QWEN-QVR-REFERENCE.md`. Statuses unchanged: G2 REJECTED, Q-Q AGAINST, Q-V MIXED.
