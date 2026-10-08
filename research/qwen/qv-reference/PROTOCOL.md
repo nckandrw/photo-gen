@@ -278,3 +278,15 @@ and without banding. *Cost:* the smoke's peak fell to 6.9 GB with no swap growth
 Diffusers' code, weights and arithmetic are unchanged; only the im2col buffer is smaller. Added to §5.1 as gate 8
 ("banded convolution bit-identical to unbanded"); a non-bit-identical result with max |Δ| ≤ 1e-5 would be recorded
 and accepted, larger fails the gate.
+
+**Amendment 2 (2026-10-09, after the review was unblinded; post-hoc, disclosed as such).** *What:* §8.3 used G2's
+`regions.change` box as the mask. That substitution for directive §18's "manually define a conservative mask" was not
+declared in advance, which is an **undeclared deviation**. The unblinded review showed the box does not cover the
+van's roof load (`y0 = 0.70` cuts through it): the composites left it floating, with adherence PARTIAL and realism
+MAJOR. That result tests G2's box, not compositing. *Added arm CMP2:* a conservative whole-van mask drawn by the
+session assistant on the R02-1024 scaled input (D0) only, never on any edit output: van body, roof load, wheels and
+pavement shadow plus a margin, **pixel box x 205–775, y 590–896** at 1184×896. Both R02 text elements lie outside it.
+It uses the same composite arithmetic (hard and 16-px feathered), the same alignment check and the same pre-registered
+"viable" bar (§8.3). It is rated by a **new fresh rater** on one small sheet (the G2 output and the two CMP2 composites,
+the §10 edit rubric). *Validity:* the mask was chosen after seeing that coverage failed, so CMP2 can show whether a
+covering mask fixes adherence. It cannot be read as a pre-registered result. The §8.3 result stands as recorded.

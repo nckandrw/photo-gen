@@ -6,7 +6,7 @@ shift between the edit and D0 above the box is not (0, 0), no composite is made.
   output = (1 - M) * D0 + M * edit      hard: M = 1 inside the box; feathered: 16-px linear ramp on box edges that are
                                         not on the image border
 
-Run: mflux/.venv/bin/python3.12 research/qwen/qv-reference/composite.py <out_dir> [task=R02] [budget=1024]"""
+Run: mflux/.venv/bin/python3.12 research/qwen/qv-reference/composite.py <out_dir> [task=R02] [budget=1024] [x0,y0,x1,y1]"""
 import hashlib
 import json
 import sys
@@ -37,7 +37,7 @@ def phase_shift(a: np.ndarray, b: np.ndarray) -> tuple[int, int, float]:
     return int(dy), int(dx), float(c.max())
 
 
-def main(out_dir: str, task: str = "R02", budget: str = "1024") -> None:
+def main(out_dir: str, task: str = "R02", budget: str = "1024", box_px: str | None = None) -> None:
     from photogen.imaging import inspect_image
     budget = int(budget)
     out = Path(out_dir).resolve()
@@ -50,6 +50,9 @@ def main(out_dir: str, task: str = "R02", budget: str = "1024") -> None:
     tasks = {t["id"]: t for t in json.loads((ROOT / "research/editing/real-world/task-manifest.json").read_text())["tasks"]}
     (fx0, fy0, fx1, fy1), = tasks[task]["regions"]["change"]
     d0 = np.asarray(Image.open(d0_path).convert("RGB"))
+    if box_px:  # PROTOCOL.md amendment 2: an explicit pixel box (drawn on D0 only) instead of G2's regions.change
+        bx = [int(v) for v in box_px.split(",")]
+        fx0, fy0, fx1, fy1 = bx[0] / d0.shape[1], bx[1] / d0.shape[0], bx[2] / d0.shape[1], bx[3] / d0.shape[0]
     ed = np.asarray(Image.open(edit_path).convert("RGB"))
     assert d0.shape == ed.shape, (d0.shape, ed.shape)
     h, w = d0.shape[:2]
@@ -59,6 +62,7 @@ def main(out_dir: str, task: str = "R02", budget: str = "1024") -> None:
     outside[y0:y1, x0:x1] = False
     diff = np.abs(d0.astype(np.int16) - ed.astype(np.int16))
     rec = {"tool": "research/qwen/qv-reference/composite.py", "task": task, "budget": budget,
+           "mask_source": "explicit pixel box (amendment 2)" if box_px else "G2 task-manifest regions.change",
            "instruction": tasks[task]["instruction"], "d0": str(d0_path.relative_to(ROOT)),
            "d0_sha256": hashlib.sha256(d0_path.read_bytes()).hexdigest(), "edit": str(edit_path),
            "edit_pixel_sha256": ident.pixel_sha256, "size": [w, h], "mask_fraction_box": [fx0, fy0, fx1, fy1],
