@@ -1,6 +1,6 @@
 # Hardware and compatibility
 
-> **Validated target: MacBook Air M5, 16 GB unified memory, 8-core GPU, macOS 27.0.**
+> **Validated target: MacBook Air M5, 16 GB unified memory, 8-core GPU, macOS 27.0.1 (26A434).** Historical baseline: macOS 27.0 (26A428), the OS of every measurement taken before 2026-09-29 22:50. [`config/machine-profile-m5-16gb.json`](../config/machine-profile-m5-16gb.json) remains the dated 2026-09-25 read-out and still records 27.0.
 >
 > Performance figures and production profile validation in this repository are specific to this machine and environment unless explicitly stated otherwise.
 >
@@ -15,7 +15,7 @@ Values below were read from the machine on 2026-09-25 (editing section: 2026-10-
 | chip | Apple M5: 10-core CPU (4 super + 6 efficiency), **8-core GPU** |
 | GPU architecture (MLX) | `applegpu_g17g` |
 | unified memory | **16 GB** (Metal recommended working set 12.71 GB) |
-| OS | **macOS 27.0 (26A428)** *[Discrepancy noted 2026-10-09 (Phase 8): the machine was updated to **macOS 27.0.1 (26A434)** on 2026-09-29 22:50 (`system_profiler SPInstallHistoryDataType`), so the Phase 4–8 evidence was produced on 27.0.1. Z-Image REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` were re-checked exact through the CLI on 2026-10-08, i.e. on 27.0.1. The validated-target statement above is unchanged pending your decision.]* |
+| OS | **macOS 27.0.1 (26A434)**, current since 2026-09-29 22:50 (`system_profiler SPInstallHistoryDataType`). **Historical baseline: macOS 27.0 (26A428)**, the OS of the 2026-09-25 read-out and of every measurement before 2026-09-29; older benchmark records keep their original environment. Evidence on 27.0.1: Phases 4–9; Z-Image REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` re-checked exact through the CLI on 2026-10-08. *(Updated 2026-10-09, Phase 9; the 2026-10-09 Phase 8 discrepancy note is superseded by this row.)* |
 | power during validation | AC power |
 
 ## Validated software
@@ -89,7 +89,7 @@ None of the following has been tested by this project. Nothing here means "unsup
 | other Apple Silicon chips | M5 Pro, M5 Max, M4, M3, M2, M1 |
 | other Mac models | MacBook Pro, Mac mini, Mac Studio, iMac |
 | other memory sizes | 8 GB, 24 GB, 32 GB and larger |
-| other OS versions | any macOS other than 27.0 (26A428) |
+| other OS versions | any macOS other than 27.0.1 (26A434) (current) and 27.0 (26A428) (historical baseline) |
 | non-Apple platforms | NVIDIA/CUDA, AMD, Windows, Linux |
 
 Known hardware-specific facts that make this boundary real, not cosmetic:
