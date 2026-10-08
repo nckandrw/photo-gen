@@ -156,3 +156,34 @@ unchanged: it fires if Qwen-Image-2.1 work stops.
 - **Deletion trigger:** delete at Phase 8 close unless you decide to keep it. It is re-acquirable exactly from the
   revision and hash above.
 - **At Phase 8 close (2026-10-09): trigger met; kept pending your decision.**
+
+## 9. Phase 9 (2026-10-09): Texture-Fix VAE deleted; the research venv is kept
+**Texture-Fix VAE deleted 2026-10-09 05:56:36.** It was `models/research/texture-fix-vae-qwen-image-2.1/`
+(`config.json` and `diffusion_pytorch_model.safetensors`).
+
+**Checks before deletion** (directive Phase 9 §19):
+1. The path was a real directory, not a symlink.
+2. Identity: sha256 `9c4a3e6b970fe82e99fae227b70529646427333c4378a51b2e853c93f492a6a8` (1,350,989,544 B) and config
+   `9785d527…`, the values recorded at acquisition.
+3. No open file handles (`lsof +D`) and no running Phase 8 tool.
+4. The only code references are the completed Phase 8 conditional chains. No Phase 9 experiment uses it.
+5. Source, licence, revision (`702909b4…`) and hashes are documented in
+   `research/qwen/qv-reference/TEXTURE-FIX-ACQUISITION.md` and §8 above.
+6. It was a different file from both protected VAEs (different inode, size and hash):
+   - the canonical q4 `vae/0.safetensors` `248d52c5…`;
+   - the dense `vae/diffusion_pytorch_model.safetensors`.
+   Both are present after the deletion.
+
+**Reason:** the Phase 8 experiment is complete (no text rescue, worse reconstruction PSNR) and no named experiment
+needs it. **Free space:** 188,038,192 → 189,364,728 KiB (+1.33 GB). It is re-acquirable exactly from the pinned
+revision and hash.
+
+**Retained:**
+- the dense source checkpoint (RETAIN LOCALLY);
+- the canonical q4 export.
+
+**Not recreated:** the q8 export.
+
+**Research venv `torch-ref/`** (Phase 8 CPU reference: torch 2.14.0, diffusers 0.41.0; 675 MB; gitignored; hashed
+lock `research/qwen/qv-reference/requirements.lock.txt`): **kept** for future numerical regression testing. It uses
+the patched fsspec 2026.9.0 and urllib3 2.8.0, and has no MLX.

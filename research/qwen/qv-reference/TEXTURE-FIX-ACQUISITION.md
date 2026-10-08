@@ -16,3 +16,4 @@ Texture-Fix arm may run.
 | use | §8.1 only: a decoder comparison on identical latents, encoder-equivalence check, per-tensor weight diff. Never a default, never in `app/` or `config/`. |
 | deletion trigger | delete when Phase 8 closes unless the user decides to keep it; it is re-acquirable exactly from the pinned revision and hash above |
 | **disposition at Phase 8 close (2026-10-09)** | **trigger met; kept pending your decision** (deletion is yours to authorise; re-acquirable exactly). Result: no text rescue (`research/qwen/QWEN-QVR-REFERENCE.md` §5.1). |
+| **deleted 2026-10-09 05:56:36** (Phase 9 directive §19, after identity, open-handle, dependency and protected-asset checks) | `research/qwen/QWEN-ASSET-PROVENANCE.md` §9 |
