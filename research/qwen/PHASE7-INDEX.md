@@ -6,7 +6,7 @@
 
 **Outcome: Phase 7 COMPLETE (2026-10-09). Q-V: MIXED** (pre-registered).
 - Even a perfect copy of the reference latents, decoded exactly as the edit decodes, loses incidental text.
-- At 512 it keeps **3/12** lettering elements legible: scaling alone loses 6, the VAE 4 of the remaining 6.
+- At 512 it keeps **3/12** lettering elements legible: scaling alone loses 6, the VAE 4 of the remaining 6. *[Clarified 2026-10-09 (Phase 8): 6 − 4 leaves 2; the third legible element is one reversal, R15 t3 (GARBLED after scaling, PRESERVED after the round trip; a 3–5 px decal call). Per-element table: `research/qwen/qv-reference/phase7-transitions.md`. No score or class changed.]*
 - At 1024 it keeps **7/12:** the VAE loses 3 of 10 legible-input elements, one per photo.
 - **Recommendation (not implemented): stop Qwen-Image-2.1 editing work.** Run Q-A only if editing remains a goal, with a VAE round-trip entry screen.
 - **Status unchanged:** G2 REJECTED, Q-Q AGAINST, research-only, `validated: false`.

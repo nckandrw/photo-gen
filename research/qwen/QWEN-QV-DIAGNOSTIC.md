@@ -4,7 +4,7 @@
 
 **The output path is not clean.**
 - Even a perfect copy of the reference latents, decoded exactly as the edit decodes, loses incidental text.
-- **At 512 it is a severe limit:** of 12 lettering elements readable in the original, scaling to the 512 budget already leaves 6 unreadable, and the VAE round trip loses 4 of the remaining 6. The round trip keeps **3 of 12** legible.
+- **At 512 it is a severe limit:** of 12 lettering elements readable in the original, scaling to the 512 budget already leaves 6 unreadable, and the VAE round trip loses 4 of the remaining 6. The round trip keeps **3 of 12** legible. *[Clarified 2026-10-09 (Phase 8): 6 − 4 leaves 2; the third legible element is one reversal, R15 t3 (GARBLED after scaling, PRESERVED after the round trip; a 3–5 px decal call). Per-element table: `research/qwen/qv-reference/phase7-transitions.md`. No score or class changed.]*
 - **At 1024 it is a partial limit:** the scaled input keeps 10 of 12 legible. The round trip loses 3 of those (one per photo) and keeps **7 of 12** legible.
 - The 1024 loss falls between the pre-registered thresholds. VAE-IMPLICATED needs 5 or more losses; BUDGET-LIMITED and VAE-CLEARED need 1 or fewer. Hence MIXED.
 - In every sheet the blind rater preferred the scaled input's lettering to the round trip's (6/6).

@@ -14,7 +14,7 @@ _Last updated 2026-10-09 (PHASE 7 COMPLETE). Read `research/qwen/PHASE7-INDEX.md
   - **G2** (Phase 5, real photographs): **REJECTED** at 512 and 1024. Incidental text elsewhere in the photo is garbled (8/8 text-preservation items), and edits leak to similar objects. 1024 is MARGINAL (≈ 592 s per edit). `research/editing/real-world/results.md`.
   - **Q-Q** (Phase 6): **AGAINST.** q8 weights rescue 1 of 19 garbled elements, and text FAIL is 6/6 in both arms, so q4 is not the primary cause. `research/qwen/QWEN-QQ-DIAGNOSTIC.md`.
   - **Q-V** (Phase 7): **MIXED.** A VAE-only round trip, bit-exact against the edit's path, is what a perfect copy of the reference would give.
-    - It keeps **3/12** text elements legible at 512: scaling loses 6, the VAE 4 of the remaining 6.
+    - It keeps **3/12** text elements legible at 512: scaling loses 6, the VAE 4 of the remaining 6. *[Clarified 2026-10-09 (Phase 8): 6 − 4 leaves 2; the third legible element is one reversal, R15 t3 (GARBLED after scaling, PRESERVED after the round trip; a 3–5 px decal call). Per-element table: `research/qwen/qv-reference/phase7-transitions.md`. No score or class changed.]*
     - It keeps **7/12** at 1024: the VAE loses 3 of 10 legible elements, at least one on every photo; two of those calls are borderline.
     - `research/qwen/QWEN-QV-DIAGNOSTIC.md`.
   - **Recommendation (awaiting you, not implemented): stop Qwen-Image-2.1 editing work.** Run Q-A (an alternative-model desk survey) only if editing remains a goal. Its entry screen: the candidate's VAE/conditioning round trip keeps the G2 text elements legible at a budget that fits 16 GB.
