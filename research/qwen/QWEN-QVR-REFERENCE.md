@@ -228,6 +228,17 @@ decisive only because the numbers fell outside the pixel-equivalence bound.
   - global regeneration drift (the identity probe; G2 moved 56 % of pixels outside the box): no VAE fixes it.
   Compositing is the only measured intervention that addressed both, and it does not depend on the model.
 
+## 9. Storage
+- **Kept:**
+  - the dense source checkpoint (RETAIN LOCALLY; its VAE was read as the reference);
+  - the canonical q4 export (its VAE only was read);
+  - the Texture-Fix VAE (1.35 GB, `models/research/`). Its deletion trigger is met at Phase 8 close; it is **kept
+    pending your decision**.
+- **Not done:**
+  - the q8 export was not recreated;
+  - no production, `app/`, `config/` or pinned-venv change.
+- **New:** a research-only venv `torch-ref/` (675 MB, gitignored), installed from a hashed lock.
+
 ## 10. Recommendations (directive §28 F and H)
 - **Primary (H): investigate preservation-aware compositing / local editing.**
   - Scope consequence: **stop Qwen-Image-2.1-focused model work** (runtime, precision and decoder are exhausted).
@@ -249,14 +260,3 @@ decisive only because the numbers fell outside the pixel-equivalence bound.
   (KV-Edit-style background reuse on MLX) and protect detected text regions. This removes the drift the identity
   probe measured, instead of patching it afterwards.
 - **v5:** not recommended. No production or validated-configuration change was made.
-
-## 9. Storage
-- **Kept:**
-  - the dense source checkpoint (RETAIN LOCALLY; its VAE was read as the reference);
-  - the canonical q4 export (its VAE only was read);
-  - the Texture-Fix VAE (1.35 GB, `models/research/`). Its deletion trigger is met at Phase 8 close; it is **kept
-    pending your decision**.
-- **Not done:**
-  - the q8 export was not recreated;
-  - no production, `app/`, `config/` or pinned-venv change.
-- **New:** a research-only venv `torch-ref/` (675 MB, gitignored), installed from a hashed lock.
