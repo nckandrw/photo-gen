@@ -5,23 +5,34 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-08 (PHASE 6 IN PROGRESS: corrections, status labels, Q-Q diagnostic, v4; see the 2026-10-08 entry). Phase 5 completed 2026-10-07; its last commit `63c24a5` is at 17:33:39 (this line previously said "~18:30")._
+_Last updated 2026-10-08 (PHASE 6 COMPLETE; read `research/qwen/PHASE6-INDEX.md` first). Local times are Asia/Manila (UTC+8; `date` prints "PST")._
 
-**PHASE 5 (2026-10-07) COMPLETE → `research/qwen/PHASE5-INDEX.md`. Nothing is running.**
-- **Qwen editing: G2 REJECTED at 512 and 1024** (`research/editing/real-world/results.md`).
-  - Preservation 4 FAIL per budget (incidental text garbled R02/R12/R15; edit leakage R09); adherence 0 FAIL on primary items (1 second-seed FAIL at 512).
-  - O and D pass (45/45 clean, 5/5 repeats bit-identical); S fails.
-  - Memory/UX: 512 COMFORTABLE (104 s, 8.16 GB); 1024 MARGINAL (592 s, 10.87 GB).
-  - **Not promoted.** Editing stays a research opt-in (`validated=false`, `--allow-experimental`). Commercial use is not permitted (Qwen Research License).
-- **Identity:** Phase 4 pushed (`origin/main` = `401e400`); tag **v3** → `401e400`, pushed. Backend-identity hardening `51d4d6a`.
-- **Memory lifetime P2 ADOPTED** (`973ef7f`): 1024 peak 12.08 → ~10.9 GB, exact parity 5/5.
-- **MPO camera-JPEG input fix** `e653122` (a photo-gen defect found by G2).
-- **Assets:** duplicate q4 export deleted (+10.67 GB). Source checkpoint 33 GB **RETAIN LOCALLY**, re-verified unchanged after G2; DELETE trigger in `QWEN-ASSET-PROVENANCE.md` §6.
-- **Commits:** Phase 5 commits are on local `main` after `401e400`, **NOT pushed**. Push only when the user asks. Tests 92/92.
+**PHASE 6 (2026-10-08) COMPLETE → `research/qwen/PHASE6-INDEX.md`. Nothing is running. Phase 6 closes at the commit tagged `photo-gen-m5-16gb-v4`; `main` and v4 are pushed.**
+- **Qwen editing: still G2 REJECTED at 512 and 1024; research-only.**
+  - `/capabilities`/`/status`: `tasks["image-edit"].status = "research-only"` + `quality_status` (integration validated · capability validated · quality G2 REJECTED · local production REJECTED · research opt-in · Qwen Research License, non-commercial).
+  - Warning, opt-in error and CLI help name G2. `validated=false`; `--allow-experimental` is the opt-in.
+- **Q-Q diagnostic: AGAINST** (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`). q8 vs q4 on G2's six text failures:
+  - 1 of 19 garbled elements rescued; text FAIL 6/6 in both arms; other dimensions identical; blind preference q8 3 / q4 0 / SAME 3.
+  - **q4 is not supported as the primary cause.**
+  - q8 at 1024: 810 s, 13.8 GB, swap +3.1 GB.
+  - The q8 export was deleted (recreatable exactly with `research/qwen/qq/export_q8_split.py`).
+- **Phase 5 corrections** `e7e0b61`; G2 evidence unchanged (`SCORES-FROZEN.csv` `f14deba4…`).
+- **Assets:**
+  - source checkpoint 33.1 GB **RETAIN LOCALLY**, re-verified 87/87 three times in Phase 6. The Q-Q rationale for keeping it is now spent; the DELETE trigger stands (`QWEN-ASSET-PROVENANCE.md` §6–§7);
+  - canonical q4 export 18/18;
+  - free space about 199 GB.
+- **Production (Z-Image)** behaviour unchanged since v3. REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` were re-checked through the CLI on 2026-10-08.
+- **Git:**
+  - Phase 5 = 15 commits (`0d15f49` … `63c24a5`); Phase 6 = 13 commits (`e7e0b61` … the closing commit);
+  - pushed fast-forward;
+  - tags v1–v4 immutable: v3 → `401e400`; v4 → the Phase 6 closing commit.
+- **Tests** 93/93.
 - **Open user decisions:**
-  1. keep or remove the (rejected) edit task;
-  2. pursue the Q-Q diagnostic (is the text garbling a q4 artifact?) or trigger the source DELETE;
-  3. push the Phase 5 commits / any v4 tag.
+  1. source checkpoint: keep, or trigger DELETE;
+  2. Phase 7: VAE round-trip ceiling test (backlog Q-V) and/or an alternative-model survey (Q-A), or stop editing work;
+  3. keep or remove the research-only edit task.
+
+_The Phase 5 snapshot (2026-10-07) is superseded; see `research/qwen/PHASE5-INDEX.md`._
 
 _The Phase 4 snapshot below is kept for reference._
 
@@ -95,7 +106,18 @@ _The Phase 4 snapshot below is kept for reference._
   3. Times now from commit timestamps: amendment 1 = `f16e092` 12:11:01 (4 s before the chain's 12:11:05; it said ~12:15); amendment 2 = `cf96d4a` 16:49:21 (it said ~16:55); provenance §6 = `0ccc0b7` 17:23:40 (it said about 17:45); Phase 5 complete = `63c24a5` 17:33:39 (it said ~18:30); sources acquired ~12:00–12:11 (it said ~12:00–12:20).
 - **Step 2, labels** (`a4f9d57`): `/capabilities`/`/status` `tasks["image-edit"].status = "research-only"` + `quality_status` (G2 REJECTED); warning, opt-in error, CLI help name G2; manifest, worker (`3094e942`), `validated=false` untouched; `configuration_id` 3cd79615/fffe8df3 unchanged; tests 93/93.
 - **Step 3, Q-Q diagnostic** (`research/qwen/qq/PROTOCOL.md`, pre-registered `fea3872`): q8 export built per component (`models/research/qwen-image-2.1-edit-mflux-q8`, 18.46 GB; gates E and V passed; `135decd`); smoke `924bc96`.
-  - **IN FLIGHT:** chain `research/qwen/qq/qq-chain.sh` → log `research/qwen/qq/qq-chain.log`, marker `QQ_CHAIN_DONE` (started 2026-10-08 08:51:44, 18 runs, ~2.3 h). Then: gate Q (q4 = G2 pixels), `make_pairs.py` → `qq_blind.py prepare` → fresh-subagent rater → freeze → unblind → `analyze_qq.py`.
+  - **(was in flight; DONE 11:04:18, `QQ_CHAIN_DONE`)** chain `research/qwen/qq/qq-chain.sh` → log `research/qwen/qq/qq-chain.log`, marker `QQ_CHAIN_DONE` (started 2026-10-08 08:51:44, 18 runs, ~2.3 h). Then: gate Q (q4 = G2 pixels), `make_pairs.py` → `qq_blind.py prepare` → fresh-subagent rater → freeze → unblind → `analyze_qq.py`.
+  - Chain: 18/18 runs rc 0, no abort, 0 critical. Gate Q: 8/8 q4 runs = G2 pixels. Gate D: passed (`f73c16c`).
+  - Rater sheets frozen 11:32 (`77f8a35`); unblinded (`f1f353e`). **AGAINST:** G4 19, R 1, W 0; text FAIL 6/6 both arms; preference q8 3 / q4 0 / SAME 3. Report `7fd3edc`.
+  - q8 export deleted 11:36:42 (+18.5 GB; `f2ff5a6`).
+- **Step 4, close:** Z-Image REFERENCE 512² `9ae59f59` and ULTRA 512² `6aa2b842` exact through the CLI. Docs updated: STATUS, PERFORMANCE-MAP, backlog (Q-Q done; Q-V next), QWEN-EDITING-QUALITY, RELEASE-NOTES v4, README, guide, REPRODUCIBILITY §5.6, THIRD-PARTY-LICENSES, CLAUDE.md. PHASE6-INDEX written. Pushed; v4 tagged on the closing commit.
+- **Disclosed:**
+  - Amendment 1: the export tool bug (save_model writes every component's config).
+  - Added after pre-registration, before any q8 G2 output: `make_pairs.py` and `smoke.sh`.
+  - `rater_audit.py` was extended after the rater finished.
+  - The rater moved P03–P06 quality from MINOR to PASS for both arms.
+  - AGAINST sits at its boundary (R ≤ 1). A post-freeze, unblinded look found one candidate (R15-512 banner); not counted.
+  - Local times are UTC+8, not US Pacific.
 
 ---
 

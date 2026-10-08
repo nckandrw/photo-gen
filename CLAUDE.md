@@ -11,7 +11,7 @@ The project has two halves:
 - `app/`: the production application.
 - `research/`: an evidence trail. Every production behaviour has a report behind it.
 
-Git: private repo `nckandrw/photo-gen` (branch `main`); validated builds are tagged `photo-gen-m5-16gb-v1`, `-v2` and `-v3` (v3 = Phase 4 close, `401e400`; immutable; see `docs/RELEASE-NOTES.md`). Model weights, `mflux/` toolchain, `data/`, `outputs/` and research PNGs are not versioned (see `.gitignore`, `docs/REPRODUCIBILITY.md`). Stage files explicitly; never `git add .`.
+Git: private repo `nckandrw/photo-gen` (branch `main`); validated builds are tagged `photo-gen-m5-16gb-v1`, `-v2`, `-v3` (v3 = Phase 4 close, `401e400`) and `-v4` (Phase 5 + Phase 6 close); all immutable; see `docs/RELEASE-NOTES.md`. Model weights, `mflux/` toolchain, `data/`, `outputs/` and research PNGs are not versioned (see `.gitignore`, `docs/REPRODUCIBILITY.md`). Stage files explicitly; never `git add .`.
 
 ## Commands
 ```sh
@@ -58,6 +58,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
     - Preservation failed 4/16 at each budget: incidental text elsewhere in the photo is garbled, and edits leak to adjacent or similar objects. Adherence: 0 FAIL on primary items (one second-seed FAIL at 512).
     - 1024 is also MARGINAL on wall time (≈ 592 s per edit).
     - No validated-configuration table exists; adding one needs a new pre-registered gate. Don't promote on G0/G2 adherence.
+  - **Q-Q (Phase 6): AGAINST.** q8 weights (both DiT and text encoder; mflux 0.21.0 refuses mixed bit widths) don't fix the incidental-text failure: 1 of 19 garbled elements rescued, text FAIL 6/6 in both arms. **q4 is not supported as the primary cause.** q8 at 1024 costs 810 s and 13.8 GB, and pages. The q8 export was deleted; it can be recreated exactly with `research/qwen/qq/export_q8_split.py` (per component; a single-pass q8 export needs about 18.4 GB) (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`). Next candidate (not started): a VAE round-trip ceiling test (backlog Q-V).
   - Lifetime fix `_defer_transformer_load` (default on, `DEFER_TRANSFORMER_LOAD`): pixel-identical; lowers the peak footprint 12.63 → 8.85 GB at 512.
   - Phase 5 lifetime policy P2 (worker `_install_lifetime_policy`; default on, `RELEASE_TEXT_ENCODER_AFTER_ENCODE` + `RELEASE_VAE_DURING_DENOISE`):
     - drops the text encoder right after encoding, and keeps only a lazy VAE copy during denoise;
@@ -121,6 +122,8 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
     - asset provenance (`QWEN-ASSET-PROVENANCE.md`);
     - the memory lifetime A/B (`research/qwen/memory/`, `QWEN-MEMORY-LIFETIME.md`);
     - the real-photograph gate G2 (`research/editing/real-world/`: 16 CC0/PD Commons photos; images never committed).
+  - **Phase 6:** `research/qwen/PHASE6-INDEX.md` is the resume index: Phase 5 corrections, explicit status labels, the Q-Q diagnostic (`research/qwen/qq/`: protocol, export tool, arm-blind review tool `qq_blind.py`, `analyze_qq.py`, `rater_audit.py`; runs `research/qwen/runs/QQ-*`), v4.
+  - **Local times** in the Phase 5 and 6 records are Asia/Manila (UTC+8). `date` prints "PST", meaning Philippine Standard Time.
   - `research/editing/` is the **model-independent** editing benchmark: suite v1, sources, regions, rubric, gates G0/G1, `edit_metrics.py`, `review_sheet.py`.
   - `research/qwen/` holds the Qwen backend evidence: `QWEN-SOURCE-AUDIT.md`, `QWEN-RUNTIME-COMPARISON.md`, `QWEN-EDITING-BASELINE.md`, `QWEN-EDITING-QUALITY.md` (G0, G1, G2), `QWEN-MEMORY-LIFETIME.md`, `QWEN-ASSET-PROVENANCE.md` (source checkpoint: RETAIN LOCALLY, with a DELETE trigger), `INCIDENTS.md`, `runs/<id>/`, `g0/`, `g1/`.
   - G2 blind tooling (`research/editing/real-world/`): `g2_blind.py` (prepare → freeze → unblind), `make_items.py`, `check_scores_format.py`, `analyze_g2.py`. The rater is a fresh subagent that reads only `g2/blind/`.
@@ -137,7 +140,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 - **Licensing:** `LICENSE` is MIT for photo-gen's own code only. It never relicenses mflux/MLX/models. The production q4 pack declares no license (flagged in THIRD-PARTY-LICENSES).
 - **Git:**
   - Push via HTTPS with `-c credential.helper= -c credential.helper='!gh auth git-credential'` (SSH is not authorized).
-  - Tags v1/v2/v3 are immutable restore points.
+  - Tags v1–v4 are immutable restore points.
   - Commit text evidence (reports, JSON/JSONL, manifests). Never commit weights, PNGs, `.gputrace`, `data/` or `mflux/`.
 - **Research-only models** go in `models/research/` (gitignored), always with an acquisition audit (license, revision, sha256) before download. Currently: Z-Image base q4 + the alibaba-pai 4-step LoRA (`research/experiments/4step-probe/`).
 - **Long GPU chains:**

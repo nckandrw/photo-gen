@@ -81,6 +81,7 @@ Inspected 2026-10-07 (package metadata in `mflux-qwen/.venv`; HF card metadata a
 |---|---|---|---|
 | **Qwen-Image-2.1** (DiT, Qwen3-VL-8B text/vision encoder, RGBA VAE) | `Qwen/Qwen-Image-2.1` @ `d26bb61` (weights identical to `b3179ad`, `790c926`, `840b4ad`) | **Qwen Research License Agreement** (release date 2026-09-20): **non-commercial**, defined as "research or evaluation purposes only"; commercial use requires a separate license from the licensor | the image-edit backend (research / evaluation) |
 | ↳ local q4 export | derived locally with mflux 0.21.0 (`research/qwen/export_q4.py`) | a derivative of the above; the same terms apply | the files the edit worker loads |
+| ↳ local q8 export (Phase 6, **deleted**) | derived locally with mflux 0.21.0 (`research/qwen/qq/export_q8_split.py`) for the Q-Q diagnostic only; deleted 2026-10-08 after its identity was recorded | a derivative of the above; the same terms apply | research diagnostic only (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`) |
 | Qwen3-VL-8B-Instruct GGUF Q4_K_M + mmproj F16 | `Qwen/Qwen3-VL-8B-Instruct-GGUF` @ `f982a07` | Apache-2.0 | sd.cpp **comparator only** (research) |
 
 **Consequences (accepted by the user 2026-10-07 for research use):**

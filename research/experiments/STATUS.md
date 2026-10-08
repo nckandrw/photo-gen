@@ -1,5 +1,5 @@
 # Experiment status register (research/experiments/)
-Updated 2026-10-07 (Phase 5).
+Updated 2026-10-08 (Phase 6).
 
 **Statuses**
 - **REFERENCE:** a permanent baseline.
@@ -72,4 +72,14 @@ Negative results are kept on purpose.
 | **G2 at 512** (`3cd79615…`) | **REJECTED** | editing/real-world/results.md | adherence 0 primary FAIL (1 second-seed FAIL); **preservation 4 FAIL** (incidental text garbled R02/R12/R15; edit leakage R09); text 3 FAIL; O, D pass; S fails; COMFORTABLE (104 s, 8.16 GB) |
 | **G2 at 1024** (`fffe8df3…`) | **REJECTED** | editing/real-world/results.md | same failure modes, slightly less text garbling; **preservation 4 FAIL**; O, D pass; S fails; MARGINAL (592 s ≈ 9.9 min; 10.87 GB; swap ≤ 1.19 GB) |
 | **Qwen editing: local production** | **REJECTED** (not promoted; research opt-in via `--allow-experimental`, `validated: false`) | results.md §7, qwen/QWEN-EDITING-QUALITY.md § G2 | integration validated · capability validated (G0) · quality G2 REJECTED · commercial use not permitted (Qwen Research License) |
-| Qwen speed / model work (directive §24–§25) | **NOT STARTED** (gated on a quality pass) | — | open question: is the text garbling caused by the q4 export? Needs a dense-weight export (EXPERIMENT-BACKLOG.md) |
+| Qwen speed / model work (directive §24–§25) | **NOT STARTED** (gated on a quality pass) | — | open question: is the text garbling caused by the q4 export? Needs a dense-weight export (EXPERIMENT-BACKLOG.md) *(Phase 6: answered by Q-Q below)* |
+
+## Phase 6 (2026-10-08): Phase 5 closeout, status hardening, Q-Q diagnostic. Resume index: `research/qwen/PHASE6-INDEX.md`
+| experiment | status | evidence | one-line result |
+|---|---|---|---|
+| Phase 5 documentation corrections (R04 label, criterion S wording, approximate times) | **DONE** | commit `e7e0b61` | docs only, marked in place; frozen G2 scores still `f14deba4…` |
+| App status labels for image-edit | **ADOPTED** | commit `a4f9d57`; app/photogen/runtimes/mflux_qwen_edit.py | `/capabilities`/`/status`: `tasks["image-edit"].status = "research-only"` + `quality_status` (G2 REJECTED); warning, opt-in error, CLI help name G2; `validated: false`; `configuration_id` unchanged |
+| **Q-Q: q8 vs q4 weights on the G2 text failures** (R02/R12/R15 at 512 and 1024 + R12 second seed; arm-blind paired review) | **CLOSED: AGAINST** (pre-registered) | qwen/QWEN-QQ-DIAGNOSTIC.md, qwen/qq/ | q8 rescued 1 of 19 garbled text elements, worsened 0; text FAIL 6/6 in both arms; other dimensions identical; blind preference q8 3 / q4 0 / SAME 3. **q4 not supported as the primary cause.** q8 cost at 1024: 810 vs 570 s, 13.76 vs 10.87 GB, swap +3.08 GB |
+| q8 diagnostic export (18.46 GB) | **DELETED** after its identity and results were committed | QWEN-ASSET-PROVENANCE.md §7 | recreatable exactly from the retained source in ~2 min (gate E; export deterministic) |
+| Qwen source checkpoint | **RETAIN LOCALLY** (DELETE trigger unchanged) | QWEN-ASSET-PROVENANCE.md §6–§7 | re-verified 87/87 three times in Phase 6; the Q-Q rationale for keeping it is now spent |
+| VAE round-trip ceiling test (next question) | **NOT STARTED** (Phase 7 candidate) | QWEN-QQ-DIAGNOSTIC.md §7 | would tell whether the VAE/budget or the DiT's re-synthesis limits incidental text |

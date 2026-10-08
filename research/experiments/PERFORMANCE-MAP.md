@@ -130,3 +130,19 @@ Peak footprint equals FAST within 0.001 GB. Per-step time is unchanged between 5
 - **Memory/UX class (G2, `real-world/protocol.md` §8):** 512 COMFORTABLE; 1024 **MARGINAL**. At 1024, wall time binds (median above the 360 s USABLE limit), not memory. Since P2, 1024 shows no critical pressure, and swap growth stays at 1.19 GB or less.
 - **Per-step cost:** about 2.4 s at 512 and 14 s at 1024 (G2 denoise ÷ 40). Compare Z-Image FAST at 1024²: 48.7 s for 8 steps.
 - **No speed work was done.** Directive §24–§25 gates it on a quality pass, and G2 did not pass.
+
+### Q-Q diagnostic (Phase 6, 2026-10-08): q8 weights vs q4, same chain. **Diagnostic only, not a configuration**
+Both arms ran in one interleaved, sustained, monitored chain: production worker, P2, 40 steps (`research/qwen/QWEN-QQ-DIAGNOSTIC.md` §4). The q8 export was deleted afterwards. Its quality result was AGAINST: it did not fix the text failure.
+
+| budget | weights | n | wall (s) | denoise (s) | step (s) | peak footprint (GB) | denoise MLX peak (GB) | swap Δ (GB) | warn samples | critical |
+|---|---|---:|---|---:|---:|---|---:|---|---|---:|
+| 512 | q4 | 4 | 103.6 [84.0–108.5] | 95.7 | 2.30 | 8.16 | 5.86 | 0.00 | 0% | 0 |
+| 512 | q8 | 5 | 133.5 [126.7–137.7] | 115.2 | 2.92 | 12.03 [11.93–12.06] | 9.34 | 1.86 [1.74–2.64] | 9% | 0 |
+| 1024 | q4 | 4 | 569.7 [559.7–585.5] | 550.3 | 13.77 | 10.87 | 9.73 | 0.55 [0.42–0.76] | 2% | 0 |
+| 1024 | q8 | 5 | 809.7 [766.4–863.8] | 772.4 | 17.95 | 13.76 [13.69–13.83] | 13.19 | 3.08 [2.57–3.65] | 76% | 0 |
+
+- **What q8 costs:**
+  - At 512, the q8 text encoder (about 9.4 GB) sets the peak.
+  - At 1024, the q8 DiT (7.66 GB) plus activations sets it, and the machine pages for the whole denoise.
+  - By G2's memory/UX definitions (descriptive), q8 would be MARGINAL at both budgets.
+- **The q8 export itself** (per component): peak footprint 10.8 and 11.2 GB, about 2 minutes in total.

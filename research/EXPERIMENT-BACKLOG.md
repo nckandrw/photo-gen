@@ -52,12 +52,14 @@ Directive §26 applies: correct → measured → **then** optimized. Nothing bel
 | Q-M | **DONE: ADOPTED** as P2 (`research/qwen/QWEN-MEMORY-LIFETIME.md`): 1024 peak 12.08 → ~10.9 GB, pixel-identical |
 | Q-S | **ON HOLD.** Directive §24–§25: no speed work on a configuration that failed its quality gate |
 | Q-U, Q-C | unchanged (not started) |
+| Q-Q | **DONE (Phase 6): AGAINST.** q8 vs q4 on the six G2 text FAILs: 1 of 19 garbled elements rescued, text FAIL 6/6 in both arms; q4 not supported as the primary cause (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`) |
 
 New items. **Not started.** Each needs the user's decision to continue with Qwen at all.
 
 | # | frontier | first step (measured on this M5) | what would justify going further | risk / blocker |
 |---|---|---|---|---|
 | Q-Q | **Is the incidental-text failure a q4 artifact?** | Desk check first: the q8 (or q4-DiT / q8-encoder mixed) export size and the per-phase memory under P2 (text encoder and DiT are never resident together). If feasible, export from the retained source checkpoint (`QWEN-ASSET-PROVENANCE.md` §6), then re-run only the G2 text items (R02, R12, R15) on the **same seeds**, scored provenance-blind against the frozen q4 outputs. | text-preservation FAILs disappear on most items. Only then would a full fresh-seed G2 of that configuration be justified; G2's thresholds stay unchanged. | memory: q8 DiT ≈ 2× q4; the export needs the 33 GB checkpoint; the cause may instead be the VAE round trip or the budget (1024 garbles less than 512), which Q-Q would not fix |
+| Q-V | **Phase 7 candidate (after Q-Q): is incidental text lost in the VAE round trip or in the DiT?** | Encode + decode each staged G2 source at the 512 and 1024 output sizes with the q4 export's VAE only (no DiT, no text encoder); score the same text elements as Q-Q (`qq_blind.ELEMENTS`) | if the VAE alone keeps the text legible, the DiT's re-synthesis is the failure (then Q-A); if it garbles, the VAE/budget is the ceiling | cheap (seconds per image); answers only VAE vs not-VAE |
 | Q-A | An alternative editing model that preserves incidental text | Desk survey only: licence, size vs 16 GB, mflux/MLX support, published text-preservation evidence | a candidate that fits 16 GB, with a licence compatible with the intended use | every Qwen-Image-Edit 20B variant is out on memory (`QWEN-SOURCE-AUDIT.md` §3) |
 
 ## Rejected (with reason)

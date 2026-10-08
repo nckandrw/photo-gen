@@ -160,6 +160,20 @@ nohup zsh research/editing/real-world/g2-chain.sh > g2-chain.log 2>&1 < /dev/nul
 - Every run's expected output `pixel_sha256` is recorded in `research/editing/real-world/benchmark.csv`. The repeats show the configuration is deterministic on this machine.
 - Rating is provenance-blind. Follow the order `g2_blind.py prepare` → rater → `check_scores_format.py` → `freeze` → `unblind` → `analyze_g2.py` (`protocol.md` §5 and amendment 2).
 
+### 5.6 Reproduce the Q-Q diagnostic (Phase 6, research)
+```sh
+nohup zsh research/qwen/qq/export-q8.sh > export-chain.log 2>&1 < /dev/null & disown    # q8 export from the retained source, per component (~2 min)
+mflux/.venv/bin/python3.12 research/qwen/qq/merge_q8.py models/research/qq-staging/q8-part-vae-transformer \
+    models/research/qq-staging/q8-part-text_encoder models/research/qwen-image-2.1-edit-mflux-q8 models/qwen/qwen-image-2.1-edit-mflux-q4 merge.json
+nohup zsh research/qwen/qq/qq-chain.sh > qq-chain.log 2>&1 < /dev/null & disown          # 18 edits, ~2.2 h
+```
+- The export is exact. Every file's sha256 must equal `research/qwen/qq/export/merge-q8.json`, and gate E checks the procedure against the canonical q4 tensors.
+- **Run directories:** `export-q8.sh` writes its records into `research/qwen/qq/export/` and `run_edit.sh` refuses existing run directories, so use a fresh checkout, or copies with new names, to re-run.
+- **Expected pixels:**
+  - every q4 run must reproduce its G2 run's pixels (gate Q);
+  - q8 pixels are in `research/qwen/runs/QQ-*/worker/identity.json`.
+- **Rating:** `make_pairs.py` → `qq_blind.py prepare` → fresh rater → `qq_blind.py check` → `freeze` → `unblind` → `analyze_qq.py` (`research/qwen/qq/PROTOCOL.md`).
+
 ## 6. Offline and privacy
 - The API binds to `127.0.0.1`. There is no telemetry.
 - Workers run with `HF_HUB_OFFLINE=1`, `HF_HUB_DISABLE_TELEMETRY=1`, `HF_HOME=mflux/hf`.

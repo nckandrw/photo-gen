@@ -157,3 +157,18 @@ The full record is in `research/editing/real-world/results.md` and the pre-regis
 - **Commercial use:** not permitted (Qwen Research License).
 - **Not established:** whether failure mode 1 comes from the q4 export (DiT or text/vision encoder), from the VAE round trip, or from the output budget. Only an export from the retained source checkpoint could separate the first from the others (`QWEN-ASSET-PROVENANCE.md` §6). Per directive §24–§25, no speed or model work is started on a rejected configuration.
 
+## Q-Q (Phase 6): q8 weights do not fix the incidental-text failure
+Full record: `research/qwen/QWEN-QQ-DIAGNOSTIC.md`; pre-registration `research/qwen/qq/PROTOCOL.md`.
+
+- **Question:** is G2 failure mode 1 (garbled incidental text) caused by q4 quantization?
+- **Test:** q4 (canonical) against q8 (a research export from the same `d26bb61` source). Only the weights change; the same worker, P2, inputs, seeds and budgets are used.
+  - Items: R02, R12 and R15 at 512 and 1024, plus R12's second seed.
+  - Review: arm-blind and paired, by a fresh subagent.
+  - The q4 arm is bit-identical to G2 (gate Q).
+- **Result: AGAINST.** On the 6 core pairs q8 rescued **1 of 19** garbled text elements and worsened 0. Text FAIL is **6/6 in both arms**, and adherence, preservation, composition and quality are identical.
+  - The blind preference chose q8 on 3 of 6 core sheets (and 2 of 2 supplementary), never q4. That is a small glyph-level effect, not a fix.
+  - The class rests on R ≤ 1. A post-freeze, unblinded look found one more candidate (R15-512 window banner). Under either reading, no G2 outcome changes.
+- **Conclusion:** higher precision did not materially reduce incidental-text corruption in the tested cases. The experiment does not support q4 quantization as the primary cause; DiT and text-encoder precision were raised together.
+- **Cost of q8 on this machine** (same chain): 512: 133 s against 104 s, 12.0 GB against 8.2 GB peak. 1024: 810 s against 570 s, 13.8 GB against 10.9 GB, swap +3.1 GB; paging throughout, 0 critical.
+- **Status unchanged.** G2 REJECTED; research opt-in only; no precision becomes a default. The q8 export was deleted after its identity was recorded.
+- **Next question (not started):** a VAE round-trip ceiling test (backlog Q-V).

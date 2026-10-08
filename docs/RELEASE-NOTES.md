@@ -2,8 +2,22 @@
 
 photo-gen has no semantic versioning. Each tag marks a **known-good, restorable state validated on the target machine** (MacBook Air M5, 16 GB, 8-core GPU, macOS 27.0; see [HARDWARE.md](HARDWARE.md)). Tags are immutable; they are never moved or rewritten.
 
-## Unreleased (`main`, after v3; not a validated tag): Phase 5 hardening and the real-photograph editing gate
-**No tag has been created for these changes.** The Phase 5 commits are local, on `main` after `401e400`, and not yet pushed.
+## photo-gen-m5-16gb-v4 (2026-10-08): Phase 5 (real-photograph editing gate: Qwen editing REJECTED) + Phase 6 (corrections, explicit status, Q-Q diagnostic)
+**Tag:** `photo-gen-m5-16gb-v4`, an annotated tag on the Phase 6 closing commit (`git rev-list -n1 photo-gen-m5-16gb-v4`). It contains the 15 Phase 5 commits after v3 (`0d15f49` … `63c24a5`) and the Phase 6 commits after them, with no history rewritten. v3 (`401e400`) is unchanged.
+
+**Text-to-image production behaviour is unchanged since v3:** the same profiles, `VALIDATED_COMBINATIONS` and regression hashes. Phase 5 added backend-identity stamping to the Z-Image runtime (`51d4d6a`) and re-verified the regression set 5/5 exactly (`6d95ada`). Phase 6 changed no Z-Image runtime, worker or manifest code, and re-checked REFERENCE 512² and ULTRA 512² through the real CLI before tagging (PHASE6-INDEX §2).
+
+**Phase 6 (2026-10-08):**
+- **Corrections** (`e7e0b61`; docs only, marked in place): R04's task label (black olives), criterion S counted as FAIL marks, and approximate times replaced by commit times. Frozen G2 scores unchanged.
+- **Explicit status in the app** (`a4f9d57`):
+  - `/capabilities` and `/status` report `tasks["image-edit"].status = "research-only"`, plus a `quality_status` record: integration validated · capability validated (G0) · quality G2 REJECTED · local production REJECTED · research/testing opt-in only · Qwen Research License, non-commercial.
+  - The job warning, the no-opt-in error and the CLI help name G2.
+  - `validated: false` and `--allow-experimental` are unchanged, and `configuration_id` is unchanged.
+- **Q-Q diagnostic** (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`): q8 against q4 weights on G2's six text failures, with arm-blind paired review. Result **AGAINST**: higher precision did not materially reduce incidental-text corruption (1 of 19 garbled elements rescued; text FAIL 6/6 in both arms). q4 is not supported as the primary cause.
+  - The q8 export (18.46 GB) was deleted after its identity was recorded.
+  - The source checkpoint is still retained, unchanged.
+
+**Phase 5 (2026-10-07):**
 - **Text-to-image unchanged:** profiles and `VALIDATED_COMBINATIONS` are as in v3. The Phase 5 app reproduced the Z-Image regression set exactly (5/5 at `6d95ada`, `research/qwen/memory/preflight/zimage-*.json`); no Z-Image runtime, worker, job, store or manifest code changed after that run. The Z-Image sidecar is still pinned by its golden test.
 - **Backend identity:**
   - every job row has a `backend_id`, stamped from the runtime's manifest; a `schema_migrations` migration backfilled the old rows;
@@ -18,7 +32,7 @@ photo-gen has no semantic versioning. Each tag marks a **known-good, restorable 
   - Memory/UX: 512 COMFORTABLE, 1024 MARGINAL.
   - **Editing is not a production feature.** It stays a research opt-in (`--allow-experimental`, `validated: false`). The Qwen Research License forbids commercial use in any case.
 - **Assets:** the byte-identical duplicate q4 export was deleted (+10.67 GB). The 33 GB source checkpoint is retained locally, with a deletion trigger (`research/qwen/QWEN-ASSET-PROVENANCE.md`).
-- **Tests:** 92/92. **Resume index:** `research/qwen/PHASE5-INDEX.md`.
+- **Tests:** 92/92 at Phase 5 close; **93/93 at v4**. **Resume indexes:** `research/qwen/PHASE5-INDEX.md`, `research/qwen/PHASE6-INDEX.md`.
 
 ## photo-gen-m5-16gb-v3 (2026-10-07): Phase 4 close, `401e400`
 **Tag:** `photo-gen-m5-16gb-v3`, an annotated tag on `401e400`. It was created and pushed at the start of Phase 5, before any Phase 5 change, and is immutable. It marks text-to-image production plus the Phase 4 experimental editing integration, before Phase 5's hardening and quality gate. The changes it contains since v2:
