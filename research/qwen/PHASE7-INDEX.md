@@ -60,6 +60,8 @@
 - **Blind preference:** the scaled input over the round trip on 6/6 sheets.
 - **Cross-rater** (Q-Q's 19 edit-garbled units): 7 scaling, 6 VAE, 6 regeneration. At 512: 5 / 4 / 2; at 1024: 2 / 2 / 4.
 - **Cost:** 512 takes 3.1 s at 5.2–6.0 GB; 1024 takes 12.7 s at 6.1–6.9 GB. The primary path had no critical sample.
+- **Crops kept** (directive §11): `research/qwen/qv/review/rater-crops/` and `review/spot-check/` (PNGs gitignored; sha256 in `research/review-crops/MANIFEST.sha256`, which also preserves the G2 and Q-Q rater crops under `research/review-crops/`).
+- **Budgets above 1024 were never tested.** Their impracticality is an extrapolation, and the stop recommendation does not rest on it: at 1024 a perfect copy already loses at least one legible element on every item.
 
 ## 4. Git
 - **Phase 7 commits** after `56880d2`:

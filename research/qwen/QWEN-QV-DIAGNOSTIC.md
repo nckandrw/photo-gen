@@ -178,9 +178,10 @@ Elements: R02 t1 street-name sign, t2 no-entry sub-plate. R12 t1 banner, t2 "Qua
 - **Unresolved:** at 1024, how the edit's text losses divide between the output path and regeneration. The cross-rater split is about 4 to 4.
 - **Why that need not be resolved** (decision-relevant facts, descriptive):
   - At 512, a perfect copy of the reference already loses most of the lettering on all three photographs. No Qwen-Image-2.1 configuration at 512 can preserve this text by copying.
-  - At 1024, a perfect copy still loses some (clearly R02's street sign), and 1024 is already MARGINAL (≈ 592 s per edit, G2).
-  - Budgets above 1024 are not practical on this 16 GB machine.
-  - So no remaining Qwen-Image-2.1 experiment at the feasible budgets is likely to change the G2 outcome.
+  - At 1024, a perfect copy still loses at least one element that the scaled input kept legible, **on every item** (within one rater): R02 t1 (the street sign; clear), R12 t5 and R15 t3 (both flagged as borderline by the rater). G2's text criterion allows no "text changed where it had to stay", so even a perfect DiT would plausibly still fail text preservation on all three items at 1024. This is descriptive; nothing is re-scored.
+  - 1024 is already MARGINAL on time (≈ 592 s per edit, G2).
+  - **Budgets above 1024 were not tested** in any phase. That they would be impractical on this 16 GB machine is an **untested extrapolation** from 1024 (592 s and 10.9 GB per edit, already MARGINAL). The recommendation does not rest on it.
+  - So no remaining Qwen-Image-2.1 experiment at the tested budgets is likely to change the G2 outcome.
 - **Recommendation (not implemented):**
   - **Stop Qwen-Image-2.1 editing work.** Keep the task research-only, as it is, or remove it if you decide to.
   - **If image editing is still a goal, the Q-A desk survey is now justified.** Q-V provides the reason a model change is needed: on this machine, the Qwen output path itself limits small-text preservation.
@@ -190,4 +191,5 @@ Elements: R02 t1 street-name sign, t2 no-entry sub-plate. R12 t1 banner, t2 "Qua
 - **Kept:** the dense source checkpoint (RETAIN LOCALLY, unused by Q-V), and the canonical q4 export (only its VAE was read).
 - **Not recreated:** the q8 export.
 - **Outputs:** all `QV-*` / `QVGATE-*` outputs are kept (gitignored PNGs; hashes in the run records).
+- **Crops (directive §11):** the rater's native-resolution crops and helper scripts are kept in `research/qwen/qv/review/rater-crops/`, and the post-freeze spot check in `review/spot-check/`, outside the scoring surface. The PNGs are gitignored; every file's sha256 is in `research/review-crops/MANIFEST.sha256`. The same manifest preserves the G2 and Q-Q rater crops (`research/review-crops/`), which were also in session-local scratch.
 - **Dependabot:** the 4 alerts on the edit-venv lock are documented in `docs/REPRODUCIBILITY.md` §5.1; the lock is unchanged.
