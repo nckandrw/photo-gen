@@ -1,0 +1,22 @@
+run_id=QQ-512-R12-s2-q4 mode=qq:q4 res=512 seed=2520712 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png
+prompt=Remove the man in dark clothes walking towards the camera in the middle of the street.
+Thu  8 Oct 2026 09:07:48 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 4096.00M  used = 2380.38M  free = 1715.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+371008 /Users/nckandrw/.local/bin/claude
+196368 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 76816 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 43184 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 40112 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+ 36512 /System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter
+git_head=881c318c7eb4d832da01176a3861ecfdf11b2ab3
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/qq-chain.log
+?? research/qwen/qq/rater_audit.py
+wall_s=110 rc=0 aborted=0 swap_end=1896.06M

@@ -1,0 +1,139 @@
+{
+ "rc": 0,
+ "wall_seconds": 566.656,
+ "arm": "q4",
+ "model_path": "models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "model_identity": {
+  "manifest": "config/backend-qwen21-edit-mflux.json",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "policy_flags": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true
+ },
+ "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+ "pixel_sha256": "bd8e3f1b50789ce14dc3fea9419f4a5b0befd8ecfeadcfe54427f2cbc4f30acb",
+ "size": [
+  896,
+  1184
+ ],
+ "output_alpha": {
+  "mode": "RGBA",
+  "has_alpha": true,
+  "alpha_min": 249,
+  "alpha_max": 255,
+  "opaque": false,
+  "rgba_sha256": "6822eb3dc3129641ea93fc723870afe3465992b71d5ac10d7854ac27ed944f19"
+ },
+ "peak_footprint_gb": 10.869,
+ "mlx_peak_gb": 7.205,
+ "denoise_mlx_peak_gb": 9.731,
+ "denoise_active_gb_max": 8.556,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.37,
+  "after_vae_encode": 1.392,
+  "before_loop": 0.041,
+  "after_step0": 8.556,
+  "after_vae_decode": 1.064,
+  "after_generate_total": 1.012
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.68,
+  "after_text_encode": 2.265,
+  "after_vae_encode": 4.153,
+  "before_loop": 1.423,
+  "after_step0": 10.088,
+  "after_loop": 3.903,
+  "after_vae_decode": 2.84,
+  "after_generate_total": 2.591,
+  "end": 2.574
+ },
+ "phases": {
+  "load": {
+   "seconds": 1.369,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.375,
+   "mlx_peak_gb": 7.205,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.41,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 9.226,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 562.75,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 547.297,
+  "other_seconds": 0.442
+ },
+ "step_seconds": [
+  22.242,
+  11.743,
+  11.722,
+  12.738,
+  13.2,
+  13.841,
+  14.089,
+  14.454,
+  14.17,
+  14.192,
+  16.595,
+  13.747,
+  14.037,
+  13.556,
+  13.437,
+  13.346,
+  13.289,
+  13.398,
+  13.221,
+  13.302,
+  13.382,
+  13.351,
+  13.291,
+  13.349,
+  13.458,
+  13.319,
+  13.338,
+  13.364,
+  13.406,
+  13.443,
+  13.288,
+  13.371,
+  13.314,
+  13.366,
+  13.284,
+  13.315,
+  13.314,
+  13.31,
+  13.305,
+  13.337
+ ],
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "deferred": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "error": null
+}

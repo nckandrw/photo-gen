@@ -1,0 +1,21 @@
+run_id=QQ-512-R02-q4 mode=qq:q4 res=512 seed=2510702 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png
+prompt=Remove the dark grey van parked in front of the building.
+Thu  8 Oct 2026 08:51:44 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2187.50M  free = 884.50M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+458608 /Users/nckandrw/.local/bin/claude
+ 78288 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 76400 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 53472 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 42816 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+ 40160 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+git_head=924bc963399b8559cfbcc730c39a78b7e7592c74
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/qq-chain.log
+wall_s=84 rc=0 aborted=0 swap_end=2139.50M

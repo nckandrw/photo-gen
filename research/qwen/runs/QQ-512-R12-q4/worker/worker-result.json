@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "--base-model",
+  "qwen-image-2.1",
+  "--prompt=Remove the man in dark clothes walking towards the camera in the middle of the street.",
+  "--image-paths",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "--seed",
+  "2510712",
+  "--steps",
+  "40",
+  "--output-resolution",
+  "512",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QQ-512-R12-q4/worker/out.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.478,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.089,
+   "mlx_peak_gb": 7.367,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.457,
+   "mlx_peak_gb": 3.047,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 2.367,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 99.07,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "denoise_seconds": 94.761,
+  "other_seconds": 0.396
+ },
+ "step_seconds": [
+  4.616,
+  2.277,
+  2.181,
+  2.159,
+  2.165,
+  2.134,
+  2.165,
+  2.127,
+  2.207,
+  2.11,
+  2.161,
+  2.14,
+  2.166,
+  2.278,
+  2.194,
+  2.162,
+  2.2,
+  2.197,
+  2.207,
+  2.231,
+  2.402,
+  2.253,
+  2.277,
+  2.282,
+  2.323,
+  2.326,
+  2.35,
+  2.383,
+  2.385,
+  2.41,
+  2.445,
+  2.469,
+  2.457,
+  2.492,
+  2.531,
+  2.535,
+  2.556,
+  2.565,
+  2.575,
+  2.601
+ ],
+ "mlx_peak_gb": 7.367,
+ "denoise_mlx_peak_gb": 5.863,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.363,
+  "after_vae_encode": 1.369,
+  "before_loop": 0.017,
+  "after_step0": 5.24,
+  "after_vae_decode": 1.025,
+  "after_generate_total": 1.012
+ },
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "text_encoder_released": true,
+ "transformer_released": true,
+ "bits": 4,
+ "defer_transformer_load": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.68,
+  "after_text_encode": 3.376,
+  "after_vae_encode": 2.944,
+  "before_loop": 1.362,
+  "after_step0": 6.419,
+  "after_loop": 1.848,
+  "after_vae_decode": 2.632,
+  "after_generate_total": 2.527,
+  "end": 2.527
+ },
+ "denoise_active_gb_max": 5.24,
+ "process_seconds": 102.388,
+ "peak_footprint_gb": 8.16
+}

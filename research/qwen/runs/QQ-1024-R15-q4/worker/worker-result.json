@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "--base-model",
+  "qwen-image-2.1",
+  "--prompt=Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+  "--image-paths",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "--seed",
+  "2510715",
+  "--steps",
+  "40",
+  "--output-resolution",
+  "1024",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QQ-1024-R15-q4/worker/out.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.369,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 4.375,
+   "mlx_peak_gb": 7.205,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.41,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 9.226,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 562.75,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 547.297,
+  "other_seconds": 0.442
+ },
+ "step_seconds": [
+  22.242,
+  11.743,
+  11.722,
+  12.738,
+  13.2,
+  13.841,
+  14.089,
+  14.454,
+  14.17,
+  14.192,
+  16.595,
+  13.747,
+  14.037,
+  13.556,
+  13.437,
+  13.346,
+  13.289,
+  13.398,
+  13.221,
+  13.302,
+  13.382,
+  13.351,
+  13.291,
+  13.349,
+  13.458,
+  13.319,
+  13.338,
+  13.364,
+  13.406,
+  13.443,
+  13.288,
+  13.371,
+  13.314,
+  13.366,
+  13.284,
+  13.315,
+  13.314,
+  13.31,
+  13.305,
+  13.337
+ ],
+ "mlx_peak_gb": 7.205,
+ "denoise_mlx_peak_gb": 9.731,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.37,
+  "after_vae_encode": 1.392,
+  "before_loop": 0.041,
+  "after_step0": 8.556,
+  "after_vae_decode": 1.064,
+  "after_generate_total": 1.012
+ },
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "text_encoder_released": true,
+ "transformer_released": true,
+ "bits": 4,
+ "defer_transformer_load": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.68,
+  "after_text_encode": 2.265,
+  "after_vae_encode": 4.153,
+  "before_loop": 1.423,
+  "after_step0": 10.088,
+  "after_loop": 3.903,
+  "after_vae_decode": 2.84,
+  "after_generate_total": 2.591,
+  "end": 2.574
+ },
+ "denoise_active_gb_max": 8.556,
+ "process_seconds": 566.107,
+ "peak_footprint_gb": 10.869
+}

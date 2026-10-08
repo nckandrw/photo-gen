@@ -1,0 +1,22 @@
+run_id=QQ-1024-R12-q8-rep mode=qq:q8 res=1024 seed=2510712 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png
+prompt=Remove the man in dark clothes walking towards the camera in the middle of the street.
+Thu  8 Oct 2026 10:50:29 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1713.12M  free = 1358.88M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 82%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+444608 /Users/nckandrw/.local/bin/claude
+235200 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+108992 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 85344 /System/Library/PrivateFrameworks/AppleMediaServicesUI.framework/amsengagementd
+ 69664 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+ 51232 /System/Applications/Siri AI.app/Contents/MacOS/Siri AI
+git_head=881c318c7eb4d832da01176a3861ecfdf11b2ab3
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/qq-chain.log
+?? research/qwen/qq/rater_audit.py
+wall_s=809 rc=0 aborted=0 swap_end=2238.06M

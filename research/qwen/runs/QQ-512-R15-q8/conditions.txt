@@ -1,0 +1,22 @@
+run_id=QQ-512-R15-q8 mode=qq:q8 res=512 seed=2510715 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png
+prompt=Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.
+Thu  8 Oct 2026 09:02:39 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1849.31M  free = 1222.69M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+468464 /Users/nckandrw/.local/bin/claude
+196672 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 90304 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 75696 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 58800 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 44336 /System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha
+git_head=881c318c7eb4d832da01176a3861ecfdf11b2ab3
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/qq-chain.log
+?? research/qwen/qq/rater_audit.py
+wall_s=136 rc=0 aborted=0 swap_end=2410.38M

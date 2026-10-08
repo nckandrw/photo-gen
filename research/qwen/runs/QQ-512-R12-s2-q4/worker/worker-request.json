@@ -1,0 +1,13 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "base_model": "qwen-image-2.1",
+ "prompt": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+ "image_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+ "seed": 2520712,
+ "steps": 40,
+ "output_resolution": 512,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QQ-512-R12-s2-q4/worker/out.png",
+ "defer_transformer_load": true,
+ "release_text_encoder_after_encode": true,
+ "release_vae_during_denoise": true
+}

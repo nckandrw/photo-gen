@@ -1,0 +1,22 @@
+run_id=QQ-512-R02-q8 mode=qq:q8 res=512 seed=2510702 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png
+prompt=Remove the dark grey van parked in front of the building.
+Thu  8 Oct 2026 08:53:28 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2115.50M  free = 956.50M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+554208 /Users/nckandrw/.local/bin/claude
+197680 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 60160 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 58288 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 47168 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 46032 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent
+git_head=881c318c7eb4d832da01176a3861ecfdf11b2ab3
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/qq-chain.log
+?? research/qwen/qq/rater_audit.py
+wall_s=127 rc=0 aborted=0 swap_end=1785.19M

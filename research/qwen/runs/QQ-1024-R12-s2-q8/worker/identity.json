@@ -1,0 +1,139 @@
+{
+ "rc": 0,
+ "wall_seconds": 766.426,
+ "arm": "q8",
+ "model_path": "models/research/qwen-image-2.1-edit-mflux-q8",
+ "model_identity": {
+  "record": "research/qwen/qq/export/merge-q8.json",
+  "record_sha256": "f7db6d0835124a48fe1bc383637c9280e5921490c17f73359b39ae76f4a42864"
+ },
+ "policy_flags": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true
+ },
+ "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e",
+ "pixel_sha256": "7c24c5398cb7fe6f297fc8e5e337a16b29592331d3ab60fc340ebdff8036168d",
+ "size": [
+  896,
+  1184
+ ],
+ "output_alpha": {
+  "mode": "RGBA",
+  "has_alpha": true,
+  "alpha_min": 245,
+  "alpha_max": 255,
+  "opaque": false,
+  "rgba_sha256": "c51b761fd91be14ac80f14b948fa97679502f5e22dd1d4dc0eed70de72c046de"
+ },
+ "peak_footprint_gb": 13.692,
+ "mlx_peak_gb": 11.209,
+ "denoise_mlx_peak_gb": 13.192,
+ "denoise_active_gb_max": 12.061,
+ "active_gb": {
+  "after_load": 10.144,
+  "after_text_encode": 1.37,
+  "after_vae_encode": 1.392,
+  "before_loop": 0.041,
+  "after_step0": 12.061,
+  "after_vae_decode": 1.064,
+  "after_generate_total": 1.012
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 10.686,
+  "after_text_encode": 2.265,
+  "after_vae_encode": 3.471,
+  "before_loop": 0.843,
+  "after_step0": 13.244,
+  "after_loop": 2.914,
+  "after_vae_decode": 2.839,
+  "after_generate_total": 2.591,
+  "end": 2.574
+ },
+ "phases": {
+  "load": {
+   "seconds": 2.513,
+   "mlx_peak_gb": 10.144,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 20.146,
+   "mlx_peak_gb": 11.209,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 1.399,
+   "mlx_peak_gb": 5.016,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 10.018,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 761.091,
+   "mlx_peak_gb": 5.778,
+   "calls": 1
+  },
+  "denoise_seconds": 728.823,
+  "other_seconds": 0.705
+ },
+ "step_seconds": [
+  23.941,
+  19.726,
+  14.244,
+  14.973,
+  15.297,
+  15.097,
+  15.103,
+  14.792,
+  14.846,
+  14.754,
+  14.672,
+  14.772,
+  14.862,
+  14.738,
+  14.765,
+  16.375,
+  21.159,
+  15.417,
+  15.857,
+  22.518,
+  31.574,
+  30.811,
+  29.55,
+  19.385,
+  17.893,
+  16.834,
+  16.694,
+  16.932,
+  19.152,
+  18.43,
+  17.272,
+  18.24,
+  18.862,
+  18.974,
+  17.638,
+  16.781,
+  18.363,
+  18.221,
+  18.842,
+  19.851
+ ],
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "deferred": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "error": null
+}

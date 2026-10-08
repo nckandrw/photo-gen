@@ -1,0 +1,143 @@
+{
+ "ok": true,
+ "argv": [
+  "--model",
+  "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "--base-model",
+  "qwen-image-2.1",
+  "--prompt=Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+  "--image-paths",
+  "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "--seed",
+  "2510715",
+  "--steps",
+  "40",
+  "--output-resolution",
+  "512",
+  "--low-ram",
+  "--output",
+  "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QQ-512-R15-q4/worker/out.png"
+ ],
+ "phases": {
+  "load": {
+   "seconds": 1.345,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.132,
+   "mlx_peak_gb": 7.367,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.454,
+   "mlx_peak_gb": 3.047,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 2.47,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 101.175,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "denoise_seconds": 96.714,
+  "other_seconds": 0.405
+ },
+ "step_seconds": [
+  4.761,
+  2.364,
+  2.188,
+  2.19,
+  2.172,
+  2.152,
+  2.202,
+  2.143,
+  2.174,
+  2.166,
+  2.22,
+  2.153,
+  2.205,
+  2.323,
+  2.232,
+  2.233,
+  2.209,
+  2.282,
+  2.234,
+  2.273,
+  2.294,
+  2.286,
+  2.329,
+  2.351,
+  2.342,
+  2.406,
+  2.407,
+  2.43,
+  2.443,
+  2.498,
+  2.506,
+  2.525,
+  2.527,
+  2.584,
+  2.616,
+  2.627,
+  2.621,
+  2.638,
+  2.64,
+  2.685
+ ],
+ "mlx_peak_gb": 7.367,
+ "denoise_mlx_peak_gb": 5.866,
+ "active_gb": {
+  "after_load": 6.141,
+  "after_text_encode": 1.363,
+  "after_vae_encode": 1.369,
+  "before_loop": 0.017,
+  "after_step0": 5.242,
+  "after_vae_decode": 1.025,
+  "after_generate_total": 1.012
+ },
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "mlx_device": "Device(gpu, 0)",
+ "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "text_encoder_released": true,
+ "transformer_released": true,
+ "bits": 4,
+ "defer_transformer_load": {
+  "installed": true,
+  "deferred": [
+   "transformer"
+  ]
+ },
+ "memory_policy": {
+  "defer_transformer_load": true,
+  "release_text_encoder_after_encode": true,
+  "release_vae_during_denoise": true,
+  "text_encoder_released_after_encode": true,
+  "vae_reloaded_lazily": true
+ },
+ "footprint_gb": {
+  "startup": 0.272,
+  "after_load": 6.68,
+  "after_text_encode": 3.853,
+  "after_vae_encode": 2.942,
+  "before_loop": 1.225,
+  "after_step0": 6.424,
+  "after_loop": 1.92,
+  "after_vae_decode": 2.598,
+  "after_generate_total": 2.528,
+  "end": 2.528
+ },
+ "denoise_active_gb_max": 5.242,
+ "process_seconds": 104.293,
+ "peak_footprint_gb": 8.162
+}

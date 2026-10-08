@@ -1,0 +1,13 @@
+{
+ "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "base_model": "qwen-image-2.1",
+ "prompt": "Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+ "image_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+ "seed": 2510715,
+ "steps": 40,
+ "output_resolution": 1024,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QQ-1024-R15-q4/worker/out.png",
+ "defer_transformer_load": true,
+ "release_text_encoder_after_encode": true,
+ "release_vae_during_denoise": true
+}
