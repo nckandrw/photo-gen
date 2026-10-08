@@ -1,0 +1,135 @@
+{
+ "S01": {
+  "kind": "composite",
+  "task": "R02",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "instruction": "Remove the dark grey van parked in front of the building.",
+  "panels": {
+   "A": "FEATHER",
+   "B": "G2",
+   "C": "HARD"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP-1024-R02/data/composite-feather.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/CMP-1024-R02/data/composite-hard.png"
+  }
+ },
+ "S02": {
+  "kind": "item",
+  "task": "R12",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "instruction": null,
+  "panels": {
+   "A": "D0",
+   "B": "A1",
+   "C": "A2",
+   "D": "TF"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R12-a/worker/input.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-512-R12/data/roundtrip.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-512-R12/data/roundtrip.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-512-R12/data/roundtrip-tf.png"
+  }
+ },
+ "S03": {
+  "kind": "item",
+  "task": "R02",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "instruction": null,
+  "panels": {
+   "A": "A1",
+   "B": "D0",
+   "C": "A2",
+   "D": "TF"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-1024-R02/data/roundtrip.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R02-a/worker/input.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-1024-R02/data/roundtrip.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-1024-R02/data/roundtrip-tf.png"
+  }
+ },
+ "S04": {
+  "kind": "item",
+  "task": "R02",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "instruction": null,
+  "panels": {
+   "A": "TF",
+   "B": "D0",
+   "C": "A1",
+   "D": "A2"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-512-R02/data/roundtrip-tf.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R02-a/worker/input.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-512-R02/data/roundtrip.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-512-R02/data/roundtrip.png"
+  }
+ },
+ "S05": {
+  "kind": "item",
+  "task": "R15",
+  "budget": 512,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "instruction": null,
+  "panels": {
+   "A": "A1",
+   "B": "ID",
+   "C": "D0",
+   "D": "A2",
+   "E": "TF"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-512-R15/data/roundtrip.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/08/20261008T203746Z-6d62c6.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-512-R15-a/worker/input.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-512-R15/data/roundtrip.png",
+   "E": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-512-R15/data/roundtrip-tf.png"
+  }
+ },
+ "S06": {
+  "kind": "item",
+  "task": "R12",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "instruction": null,
+  "panels": {
+   "A": "A2",
+   "B": "A1",
+   "C": "D0",
+   "D": "TF"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-1024-R12/data/roundtrip.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-1024-R12/data/roundtrip.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R12-a/worker/input.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-1024-R12/data/roundtrip-tf.png"
+  }
+ },
+ "S07": {
+  "kind": "item",
+  "task": "R15",
+  "budget": 1024,
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "instruction": null,
+  "panels": {
+   "A": "TF",
+   "B": "A2",
+   "C": "D0",
+   "D": "A1"
+  },
+  "paths": {
+   "A": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/TF-1024-R15/data/roundtrip-tf.png",
+   "B": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A2-1024-R15/data/roundtrip.png",
+   "C": "/Users/nckandrw/Dev/photo-gen/research/qwen/runs/QV-1024-R15-a/worker/input.png",
+   "D": "/Users/nckandrw/Dev/photo-gen/research/qwen/qv-reference/runs/A1-1024-R15/data/roundtrip.png"
+  }
+ }
+}
