@@ -1,0 +1,46 @@
+{
+ "mode": "check",
+ "argv": [
+  "check",
+  "models/research/qwen-image-2.1",
+  "models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "4",
+  "vae,transformer",
+  "research/qwen/qq/export/check-q4-vae-transformer.json"
+ ],
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "started": "2026-10-08T08:41:38+0800",
+ "load_quantize_seconds": 3.8,
+ "bits": 4,
+ "components": [
+  "vae",
+  "transformer"
+ ],
+ "canonical": "models/qwen/qwen-image-2.1-edit-mflux-q4",
+ "result": {
+  "vae": {
+   "tensors_in_canonical": 238,
+   "tensors_in_memory": 238,
+   "mismatched": [],
+   "mismatched_count": 0,
+   "only_in_memory": [],
+   "equal": true
+  },
+  "transformer": {
+   "tensors_in_canonical": 753,
+   "tensors_in_memory": 753,
+   "mismatched": [],
+   "mismatched_count": 0,
+   "only_in_memory": [],
+   "equal": true
+  }
+ },
+ "mlx_peak_gb_total": 7.635,
+ "finished": "2026-10-08T08:41:46+0800"
+}

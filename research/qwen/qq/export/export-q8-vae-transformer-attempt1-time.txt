@@ -1,0 +1,42 @@
+Saving components:   0%|          | 0/2 [00:00<?, ?component/s]
+  vae:   0%|          | 0/1 [00:00<?, ?shard/s][A
+  vae: 100%|██████████| 1/1 [00:02<00:00,  2.80s/shard][A
+                                                       [ASaving components:  50%|█████     | 1/2 [00:02<00:02,  2.80s/component]
+  transformer:   0%|          | 0/4 [00:00<?, ?shard/s][A
+  transformer:  25%|██▌       | 1/4 [00:09<00:27,  9.32s/shard][A
+  transformer:  50%|█████     | 2/4 [00:20<00:20, 10.39s/shard][A
+  transformer:  75%|███████▌  | 3/4 [00:31<00:10, 10.67s/shard][A
+  transformer: 100%|██████████| 4/4 [00:37<00:00,  8.88s/shard][A
+                                                               [ASaving components: 100%|██████████| 2/2 [00:40<00:00, 23.28s/component]Saving components: 100%|██████████| 2/2 [00:40<00:00, 20.21s/component]
+Traceback (most recent call last):
+  File "/Users/nckandrw/Dev/photo-gen/research/qwen/qq/export_q8_split.py", line 128, in <module>
+    main()
+  File "/Users/nckandrw/Dev/photo-gen/research/qwen/qq/export_q8_split.py", line 63, in main
+    model.save_model(dst)
+  File "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/lib/python3.12/site-packages/mflux/models/qwen21/variants/edit/qwen_image_21_edit.py", line 268, in save_model
+    (destination / name / "config.json").write_text(json.dumps(config, indent=2))
+  File "/Users/nckandrw/Dev/photo-gen/mflux/python/cpython-3.12.14-macos-aarch64-none/lib/python3.12/pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/nckandrw/Dev/photo-gen/mflux/python/cpython-3.12.14-macos-aarch64-none/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'models/research/qq-staging/q8-part-vae-transformer/text_encoder/config.json'
+       47.25 real         1.66 user         6.87 sys
+          2474229760  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              756484  page reclaims
+                 273  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              244145  voluntary context switches
+               53161  involuntary context switches
+         81468671386  instructions retired
+         34597538197  cycles elapsed
+         10735831944  peak memory footprint

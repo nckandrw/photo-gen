@@ -1,0 +1,12 @@
+QQ_EXPORT_START Thu  8 Oct 2026 08:40:43 PST git=fea3872f1a05fb3c27655515726e4848f8461fc0 Now drawing from 'AC Power'
+[08:40:43] step qerr-transformer start; swap0=853MB
+[08:40:45] step qerr-transformer rc=0 aborted=0 swap_end=853.44M
+[08:41:05] step qerr-text_encoder start; swap0=853MB
+[08:41:17] step qerr-text_encoder rc=0 aborted=0 swap_end=2058.19M
+[08:41:37] step check-q4-vae-transformer start; swap0=1914MB
+[08:41:47] step check-q4-vae-transformer rc=0 aborted=0 swap_end=1906.19M
+[08:42:07] step check-q4-text_encoder start; swap0=1874MB
+[08:42:16] step check-q4-text_encoder rc=0 aborted=0 swap_end=1866.19M
+[08:42:36] step export-q8-vae-transformer start; swap0=1858MB
+[08:43:24] step export-q8-vae-transformer rc=1 aborted=0 swap_end=2643.69M
+QQ_EXPORT_FAILED export-q8-vae-transformer

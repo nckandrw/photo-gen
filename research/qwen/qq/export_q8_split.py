@@ -60,6 +60,10 @@ def main() -> None:
         rec.update(load_quantize_seconds=t_load, mlx_active_gb_after_load=round(mx.get_active_memory() / 1e9, 3),
                    mlx_peak_gb_after_load=round(mx.get_peak_memory() / 1e9, 3), bits=model.bits, components=comps)
         t = time.perf_counter()
+        # save_model writes <dst>/<name>/config.json for EVERY component (QwenImage21Edit._component_configs), also the
+        # ones not loaded here, but only creates the directories of the components it saves (amendment 1).
+        for n in ("vae", "transformer", "text_encoder"):
+            os.makedirs(os.path.join(dst, n), exist_ok=True)
         model.save_model(dst)
         rec.update(save_seconds=round(time.perf_counter() - t, 1), mlx_peak_gb_total=round(mx.get_peak_memory() / 1e9, 3),
                    api="QwenImage21Edit(quantize=bits, model_path=src).save_model(dst), get_components narrowed")

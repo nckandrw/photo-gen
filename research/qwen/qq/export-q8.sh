@@ -18,7 +18,8 @@ mkdir -p $OUT $STAGE
 echo "QQ_EXPORT_START $(date) git=$(git rev-parse HEAD) $(pmset -g batt | head -1)"
 step() {  # step <name> <args...>
   local name=$1; shift
-  if [[ -e $OUT/$name.json ]]; then echo "refusing: $OUT/$name.json exists"; return 3; fi
+  if [[ -e $OUT/$name.json ]]; then echo "[$(date +%T)] step $name already recorded ($OUT/$name.json); skipped"; return 0; fi
+  if [[ -e $OUT/$name-stdout.log ]]; then echo "refusing: $OUT/$name-stdout.log exists (move an earlier attempt's logs aside)"; return 3; fi
   zsh research/monitor.sh $OUT/$name-monitor.csv python3.12 1 &
   local MON=$!
   local swap0=$(sysctl -n vm.swapusage | awk '{gsub("M","",$6);print int($6)}')

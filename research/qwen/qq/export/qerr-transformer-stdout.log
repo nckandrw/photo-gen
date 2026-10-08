@@ -1,0 +1,24 @@
+{
+ "mode": "qerr",
+ "argv": [
+  "qerr",
+  "models/research/qwen-image-2.1",
+  "transformer",
+  "8",
+  "research/qwen/qq/export/qerr-transformer.json"
+ ],
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "transformers": "5.15.0",
+  "torch": "2.13.0"
+ },
+ "started": "2026-10-08T08:40:43+0800",
+ "component": "transformer",
+ "sampled": 29,
+ "every_nth": 8,
+ "median_rel_rms_q4": 0.09532912820577621,
+ "median_rel_rms_q8": 0.0075151072815060616,
+ "finished": "2026-10-08T08:40:44+0800"
+}
