@@ -100,3 +100,33 @@ Recorded 2026-10-07 and committed at 17:23:40 PST in `0ccc0b7`, after G2 complet
 - The only local copy whose bytes have been checked against the recorded manifest.
 
 What would remain is enough to identify and reacquire it exactly (§4): the repository, the revision, the 28-file manifest and digests, full sha256 for every file, the licence identity, and the export script, configuration, software lock and 18 pins.
+
+## 7. Phase 6 (2026-10-08): the Q-Q diagnostic export, created and deleted
+Local times are Asia/Manila (UTC+8; `date` prints "PST").
+
+**Source checkpoint (still RETAIN LOCALLY):** used read-only as the input of the Q-Q diagnostic (`research/qwen/QWEN-QQ-DIAGNOSTIC.md`). Re-verified three times, each time a full read with no cache: all 87 files have the same sha256, size and inode as the post-G2 record, 28/28 match upstream, and the canonical q4 export matches 18/18.
+- before the diagnostic: `assets/qwen-assets-verification-phase6-pre-qq.json`;
+- after the q8 export: `-phase6-post-export.json`;
+- after the q8 export was deleted: `-phase6-post-qq.json`.
+
+**Canonical q4 export:** unchanged and still pinned. Gate E reproduced all of its tensors from the source, in memory only.
+
+**Deleted duplicate:** not recreated. No q4 file was written in Phase 6.
+
+**q8 diagnostic export:** `models/research/qwen-image-2.1-edit-mflux-q8`.
+- **Made:** by `research/qwen/qq/export_q8_split.py` (mflux 0.21.0 `QwenImage21Edit(quantize=8).save_model`, per component) at 08:44–08:46.
+- **Size:** 22 files, 18,460,980,668 bytes. Every file's sha256 is in `qq/export/merge-q8.json`.
+- **Use:** the 18-run Q-Q chain only.
+- **Deleted 2026-10-08 11:36:42,** after the report was committed (`7fd3edc`), as `qq/PROTOCOL.md` §10 pre-registers. No named follow-up needs it, and it can be recreated exactly in about 2 minutes from the retained source.
+- **Free space:** 176,492,496 → 194,572,988 KiB, so **+18.5 GB** (`qq/export/df-before-q8-delete.txt`, `df-after-q8-delete.txt`, `q8-delete.log`).
+- **Staging:** the staging parts were merged by rename. The attempt-1 partial (amendment 1) was removed only after its files were shown identical to attempt 2. Nothing else exists under `models/research/qq-staging`.
+
+**Effect on the source disposition (§6):**
+- The Q-Q diagnostic named in §6's rationale 1 has now been run, and its result is AGAINST (q4 is not the primary cause). That rationale is therefore spent.
+- Disposition stays **RETAIN LOCALLY** until you decide.
+- **What the source still enables:**
+  - re-creating the q8 export;
+  - a bf16 comparison (does not fit the working set on this machine);
+  - any dense-weight research.
+- The recommended next test, a VAE round-trip ceiling test, needs only the q4 export's VAE, not the source.
+- **The DELETE trigger in §6 applies unchanged:** if no further Qwen work is planned, reclassify as DELETE. That frees about 33.1 GB, and the model can be re-acquired exactly.
