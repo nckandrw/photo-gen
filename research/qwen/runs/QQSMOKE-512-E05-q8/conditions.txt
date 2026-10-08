@@ -1,0 +1,33 @@
+run_id=QQSMOKE-512-E05-q8 mode=qq:q8 res=512 seed=42 steps=40
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png
+prompt=Change the background to a sunset beach
+Thu  8 Oct 2026 08:47:16 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2115.69M  free = 956.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 84%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+458048 /Users/nckandrw/.local/bin/claude
+195088 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 85200 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 60528 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+ 60432 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+ 57904 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+git_head=95b99ce1d0b4dc0a137c024ac8628c8c41e79d75
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/export/attempt1-vs-attempt2.json
+?? research/qwen/qq/export/export-chain.log
+?? research/qwen/qq/export/export-q8-text_encoder-monitor.csv
+?? research/qwen/qq/export/export-q8-text_encoder-stdout.log
+?? research/qwen/qq/export/export-q8-text_encoder-time.txt
+?? research/qwen/qq/export/export-q8-text_encoder.json
+?? research/qwen/qq/export/export-q8-vae-transformer-monitor.csv
+?? research/qwen/qq/export/export-q8-vae-transformer-stdout.log
+?? research/qwen/qq/export/export-q8-vae-transformer-time.txt
+?? research/qwen/qq/export/export-q8-vae-transformer.json
+?? research/qwen/qq/export/merge-q8.json
+?? research/qwen/qq/smoke.log
+?? research/qwen/qq/smoke.sh
+wall_s=109 rc=0 aborted=0 swap_end=2103.00M

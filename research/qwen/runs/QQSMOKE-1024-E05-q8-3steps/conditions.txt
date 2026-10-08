@@ -1,0 +1,22 @@
+run_id=QQSMOKE-1024-E05-q8-3steps mode=qq:q8 res=1024 seed=42 steps=3
+image=/Users/nckandrw/Dev/photo-gen/data/inputs/8f55b71b446a702453dac9defa382e97d762ad94ac224940de46f11e21b39f4a.png
+prompt=Change the background to a sunset beach
+Thu  8 Oct 2026 08:49:25 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 2079.00M  free = 993.00M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 83%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+412480 /Users/nckandrw/.local/bin/claude
+275712 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+198272 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+ 99504 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+ 60528 /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd
+ 48832 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+git_head=135decdef363bdbd563f3d29307c882412cf1867
+git_dirty(app,config,research/qwen):
+?? research/qwen/qq/smoke.log
+?? research/qwen/qq/smoke.sh
+wall_s=92 rc=0 aborted=0 swap_end=2275.50M
