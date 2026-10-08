@@ -1,0 +1,19 @@
+run_dir=research/qwen/qv-reference/runs/TF-1024-R12
+command=env HF_HUB_OFFLINE=1 torch-ref/.venv/bin/python3.12 -I research/qwen/qv-reference/ref_side.py texturefix research/qwen/qv-reference/runs/A2-1024-R12/data models/research/texture-fix-vae-qwen-image-2.1 research/qwen/qv-reference/runs/TF-1024-R12/data
+Fri  9 Oct 2026 04:36:34 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 5120.00M  used = 4213.38M  free = 906.62M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 65%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+405008 /Users/nckandrw/.local/bin/claude
+363632 /System/Library/ExtensionKit/Extensions/TGOnDeviceInferenceProviderService.appex/Contents/MacOS/TGOnDeviceInferenceProviderService
+191888 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+150640 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/155.1.97.56/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+144272 /Applications/Brave Browser.app/Contents/MacOS/Brave Browser
+132992 /Applications/Brave Browser.app/Contents/Frameworks/Brave Browser Framework.framework/Versions/155.1.97.56/Helpers/Brave Browser Helper (Renderer).app/Contents/MacOS/Brave Browser Helper (Renderer)
+git_head=d4ccc31c4214a9c5bc5afc79b8da68fa5a32f4bf
+git_dirty(qv-reference tools, app, config):
+?? research/qwen/qv-reference/make_sheets.py

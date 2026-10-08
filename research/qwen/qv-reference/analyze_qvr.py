@@ -198,6 +198,17 @@ def main(out_json: str, review: str | None = None) -> None:
                           "z_norm_a1t_vs_a2": tensor_cmp(np.load(a1t / "z_norm.npy"), np.load(a2d / "z_norm.npy")),
                           "z_norm_a1t_vs_a1": tensor_cmp(np.load(a1t / "z_norm.npy"), np.load(a1d / "z_norm.npy"))}
             t32[f"{t}-{b}"] = rec["a1t"]["image_a1t_vs_a2"]["tier"]
+        tfd = RUNS / f"TF-{b}-{t}" / "data"
+        if (tfd / "dec_tf.npy").exists():  # section 8.1: TF decoder vs the original decoder on identical latents (A2)
+            tfr = js(tfd / "record.json")
+            rec["tf"] = {"image_tf_vs_a2": image_cmp(u8(tfd / "dec_tf.npy"), A2, d0, t, b_i),
+                         "encoder_equivalence": tfr.get("encoder_equivalence"), "nonfinite": tfr.get("nonfinite"),
+                         "seconds": tfr.get("seconds"), "peak_footprint_gb": tfr.get("peak_footprint_gb")}
+        idr = js(P7 / f"QVR-ID-{b}-{t}/result.json")
+        if idr.get("status") == "completed":  # section 8.2: identity-edit probe vs the output-path ceiling (A1)
+            idimg = np.asarray(Image.open(idr["output_path"]).convert("RGBA"))
+            rec["id"] = {"image_id_vs_a1": image_cmp(idimg, A1, d0, t, b_i), "output_path": idr["output_path"],
+                         "pixel_sha256": idr.get("pixel_sha256") or idr.get("result", {}).get("pixel_sha256")}
         zr = rec["tensors"]["z_norm"]["rel_l2"]
         rec["z_norm_wording"] = ("agreement at fp32/TF32 rounding level" if zr <= 1e-3 else
                                  "material latent mismatch" if zr >= 1e-2 else "between the pre-registered wordings")
@@ -212,8 +223,11 @@ def main(out_json: str, review: str | None = None) -> None:
                        "not attributable to TF32 alone")
     summary = {"tool": "research/qwen/qv-reference/analyze_qvr.py", "classification": cls, "gates": g, "tiers": tiers,
                "tf32_off_tiers": t32, "tf32_attribution": attribution, "review": tally, "items": items,
+               "composite": js(RUNS / "CMP-1024-R02/data/record.json") or None,
                "probes": {"mlx": {k: js(RUNS / "PROBE-mlx/data/probe.json").get(k) for k in ("pass", "distinct_pad_calls", "temporal_avgdown_sites")},
-                          "mps_positive_control": {k: js(RUNS / "PROBE-mps/data/mps-probe.json").get(k) for k in ("defect_reproduced", "torch")}},
+                          "mps_positive_control": {k: js(RUNS / "PROBE-mps/data/mps-probe.json").get(k) for k in ("defect_reproduced", "torch")},
+                          "mps_upstream_repros": {k: js(RUNS / "PROBE-mps-upstream/mps-upstream.json").get(k) for k in ("any_reproduced", "mac_ver")}},
+               "tf_weights": js(RUNS / "TF-weights/weights-diff.json").get("summary"),
                "inputs_sha256": {str(p.relative_to(HERE)): hashlib.sha256(p.read_bytes()).hexdigest() for p in
                                  sorted(RUNS.glob("*/data/*.json"))}}
     Path(out_json).write_text(json.dumps(summary, indent=1) + "\n")

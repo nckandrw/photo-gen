@@ -1,0 +1,13 @@
+2026-10-09 04:37:45,898 INFO    photogen: image-edit check manifest    ok
+2026-10-09 04:37:45,898 INFO    photogen: image-edit check interpreter ok
+2026-10-09 04:37:45,898 INFO    photogen: image-edit check model       ok
+2026-10-09 04:37:45,898 INFO    photogen: image-edit check low_ram     ok
+2026-10-09 04:37:45,898 INFO    photogen: image-edit check offline     ok
+2026-10-09 04:37:46,181 WARNING photogen.jobs: request: image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 at 512 and 1024 (small text elsewhere in the photo gets garbled; edits spread to similar objects); not a production feature; Qwen Research License, non-commercial research/evaluation only
+2026-10-09 04:37:46,181 WARNING photogen.jobs: request: input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)
+2026-10-09 04:37:46,182 INFO    photogen.jobs: job 20261008T203746Z-6d62c6 queued (cli, image-edit, 448x576, steps=40, seed=2510715/explicit)
+job 20261008T203746Z-6d62c6: 448x576 steps=40 seed=2510715
+warning: image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 at 512 and 1024 (small text elsewhere in the photo gets garbled; edits spread to similar objects); not a production feature; Qwen Research License, non-commercial research/evaluation only
+warning: input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)
+2026-10-09 04:37:46,210 INFO    photogen.jobs: job 20261008T203746Z-6d62c6 running
+2026-10-09 04:39:12,314 INFO    photogen.jobs: job 20261008T203746Z-6d62c6 completed in 85.9s (pixel_sha256 a8b90482b54c…)

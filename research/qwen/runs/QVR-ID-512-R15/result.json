@@ -1,0 +1,199 @@
+{
+ "job_id": "20261008T203746Z-6d62c6",
+ "task": "image-edit",
+ "backend_id": "mflux-qwen-image-2.1-edit-q4",
+ "status": "completed",
+ "source": "cli",
+ "created_at": "2026-10-08T20:37:46.181+00:00",
+ "started_at": "2026-10-08T20:37:46.183+00:00",
+ "finished_at": "2026-10-08T20:39:12.313+00:00",
+ "request": {
+  "task": "image-edit",
+  "prompt": "Preserve this image exactly. Do not change anything.",
+  "width": 448,
+  "height": 576,
+  "steps": 40,
+  "seed": 2510715,
+  "seed_source": "explicit",
+  "output_format": "png",
+  "validated": false,
+  "input_image": {
+   "source_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+   "source_file_sha256": "62a098cbcb540d72ce7beb049d05573919c22207c29c0bfc89a31ad54600dbc6",
+   "source_format": "PNG",
+   "source_mode": "RGB",
+   "staged_path": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+   "pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+   "width": 3024,
+   "height": 4032,
+   "exif_orientation": null,
+   "alpha_dropped": false,
+   "icc_profile": true
+  },
+  "output_resolution": 512,
+  "warnings": [
+   "image-edit (Qwen-Image-2.1) is RESEARCH-ONLY: REJECTED by the real-photograph quality gate G2 at 512 and 1024 (small text elsewhere in the photo gets garbled; edits spread to similar objects); not a production feature; Qwen Research License, non-commercial research/evaluation only",
+   "input has an embedded ICC profile; it is ignored (pixel values are used as-is, as sRGB)"
+  ],
+  "output_name": null,
+  "profile": null,
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200"
+ },
+ "seed": 2510715,
+ "output_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/08/20261008T203746Z-6d62c6.png",
+ "metadata_path": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/08/20261008T203746Z-6d62c6.json",
+ "pixel_sha256": "a8b90482b54cc548e47896718807ed71e2ace696d96c870b50098408f4baa9e8",
+ "file_sha256": "cd5ab47609769f3377c6162ca90e96f872ef04d6c0f643c0901c3027decd455f",
+ "generation_seconds": 85.93,
+ "phases": {
+  "load": {
+   "seconds": 1.519,
+   "mlx_peak_gb": 6.141,
+   "calls": 1
+  },
+  "text_encode": {
+   "seconds": 1.028,
+   "mlx_peak_gb": 7.367,
+   "calls": 1
+  },
+  "vae_encode": {
+   "seconds": 0.394,
+   "mlx_peak_gb": 3.047,
+   "calls": 1
+  },
+  "vae_decode": {
+   "seconds": 1.913,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "generate_total": {
+   "seconds": 81.95,
+   "mlx_peak_gb": 5.168,
+   "calls": 1
+  },
+  "denoise_seconds": 78.056,
+  "other_seconds": 0.559
+ },
+ "step_seconds": [
+  3.699,
+  1.822,
+  1.765,
+  1.774,
+  1.778,
+  1.789,
+  1.791,
+  1.804,
+  1.814,
+  1.809,
+  1.838,
+  1.855,
+  1.836,
+  1.836,
+  1.828,
+  1.845,
+  1.84,
+  1.84,
+  1.837,
+  1.84,
+  1.837,
+  1.85,
+  1.862,
+  1.868,
+  1.878,
+  1.891,
+  1.955,
+  2.124,
+  1.899,
+  2.028,
+  2.478,
+  1.998,
+  2.001,
+  2.005,
+  1.936,
+  1.988,
+  2.083,
+  2.071,
+  2.017,
+  1.967
+ ],
+ "memory": {
+  "peak_footprint_gb": 8.156,
+  "mlx_peak_gb": 7.367,
+  "denoise_mlx_peak_gb": 5.857
+ },
+ "runtime": {
+  "runtime": "mflux",
+  "versions": {
+   "mflux": "0.21.0",
+   "mlx": "0.32.2",
+   "mlx-metal": "0.32.2",
+   "transformers": "5.15.0",
+   "torch": "2.13.0"
+  },
+  "device": "Device(gpu, 0)",
+  "backend_id": "mflux-qwen-image-2.1-edit-q4",
+  "model": "Qwen-Image-2.1",
+  "model_repo": "Qwen/Qwen-Image-2.1",
+  "model_revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "model_license": "Qwen Research License (non-commercial: research or evaluation only); never committed or redistributed",
+  "quantization": "mflux q4 (MLX affine, group 64) of the transformer and the Qwen3-VL text/vision encoder incl. lm_head; VAE fp32 (unquantized)",
+  "model_path": "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+  "interpreter": "/Users/nckandrw/Dev/photo-gen/mflux-qwen/.venv/bin/python3.12",
+  "output_alpha": {
+   "mode": "RGBA",
+   "has_alpha": true,
+   "alpha_min": 252,
+   "alpha_max": 255,
+   "opaque": false,
+   "rgba_sha256": "98e97f6ee54c234059d1891029c2b43e90f631dd15461023500578b2fe87e572"
+  },
+  "model_manifest_sha256": "536fba17e382b7997c42cd80deb94ee3ba83d46a12d457c0b814a04377650200",
+  "worker_module": "photogen.runtimes.mflux_qwen_edit_worker",
+  "worker_sha256": "3094e94265847d7ab63761fb8b4b76d1e33e9c261ba3f8c78868b3466d27303e"
+ },
+ "effective_parameters": {
+  "guidance": 1.0,
+  "scheduler": "mflux 0.21.0 linear flow-match Euler with resolution-dependent shift (Diffusers QwenImage21Pipeline @ 80c7ed2 parity port)",
+  "use_kv_cache": true,
+  "low_ram": true,
+  "vae_tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+  "output_resolution": 512,
+  "text_encoder_released": true,
+  "transformer_released": true,
+  "defer_transformer_load": {
+   "installed": true,
+   "deferred": [
+    "transformer"
+   ]
+  },
+  "argv": [
+   "--model",
+   "/Users/nckandrw/Dev/photo-gen/models/qwen/qwen-image-2.1-edit-mflux-q4",
+   "--base-model",
+   "qwen-image-2.1",
+   "--prompt=Preserve this image exactly. Do not change anything.",
+   "--image-paths",
+   "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+   "--seed",
+   "2510715",
+   "--steps",
+   "40",
+   "--output-resolution",
+   "512",
+   "--low-ram",
+   "--output",
+   "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/08/20261008T203746Z-6d62c6.png"
+  ],
+  "memory_policy": {
+   "defer_transformer_load": true,
+   "release_text_encoder_after_encode": true,
+   "release_vae_during_denoise": true,
+   "text_encoder_released_after_encode": true,
+   "vae_reloaded_lazily": true
+  }
+ },
+ "error": null
+}

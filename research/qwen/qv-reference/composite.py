@@ -40,7 +40,7 @@ def phase_shift(a: np.ndarray, b: np.ndarray) -> tuple[int, int, float]:
 def main(out_dir: str, task: str = "R02", budget: str = "1024") -> None:
     from photogen.imaging import inspect_image
     budget = int(budget)
-    out = Path(out_dir)
+    out = Path(out_dir).resolve()
     out.mkdir(parents=True, exist_ok=False)
     d0_path = ROOT / f"research/qwen/runs/QV-{budget}-{task}-a/worker/input.png"
     side = json.loads((ROOT / f"research/qwen/runs/G2-{budget}-{task}/sidecar.json").read_text())

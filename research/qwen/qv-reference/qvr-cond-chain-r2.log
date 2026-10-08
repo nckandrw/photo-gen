@@ -1,0 +1,17 @@
+QVR_COND_START Fri  9 Oct 2026 04:35:28 PST head=d4ccc31
+STEP TF-512-R02 04:35:28
+REF_RUN_END research/qwen/qv-reference/runs/TF-512-R02 rc=0 aborted=0
+STEP TF-512-R12 04:35:38
+REF_RUN_END research/qwen/qv-reference/runs/TF-512-R12 rc=0 aborted=0
+STEP TF-512-R15 04:35:49
+REF_RUN_END research/qwen/qv-reference/runs/TF-512-R15 rc=0 aborted=0
+STEP TF-1024-R02 04:35:59
+REF_RUN_END research/qwen/qv-reference/runs/TF-1024-R02 rc=0 aborted=0
+STEP TF-1024-R12 04:36:34
+REF_RUN_END research/qwen/qv-reference/runs/TF-1024-R12 rc=0 aborted=0
+STEP TF-1024-R15 04:37:09
+REF_RUN_END research/qwen/qv-reference/runs/TF-1024-R15 rc=0 aborted=0
+STEP QVR-ID-512-R15 04:37:45
+wall_s=88 rc=0 aborted=0 swap_end=4525.75M
+EDIT_RUN_END QVR-ID-512-R15 rc=0 aborted=0
+QVR_COND_DONE Fri  9 Oct 2026 04:39:13 PST
