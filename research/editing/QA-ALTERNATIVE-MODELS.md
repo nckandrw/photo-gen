@@ -18,7 +18,7 @@ low collateral change, at practical sustained performance on the MacBook Air M5,
 Phases 7–8 showed that on these photographs the **output path itself** loses incidental text: even a perfect copy of
 the reference latents loses most lettering at 512 and some at 1024 (Q-V, **M**). Phase 8 compared the MLX path with the
 official CPU reference: the numerical differences are at the level of MLX's TF32 default and vanish with it off
-(Q-VR; `research/qwen/QWEN-QVR-REFERENCE.md`, **M**; the final class is in that report). A candidate whose VAE round trip cannot keep the G2 text
+(Q-VR: **RUNTIME-MATCHED**; `research/qwen/QWEN-QVR-REFERENCE.md`, **M**). A candidate whose VAE round trip cannot keep the G2 text
 elements legible cannot pass G2's text criterion, however good its editor is. So a candidate's VAE is screened first.
 
 **VAE geometry from the official config files (P, text files only):**

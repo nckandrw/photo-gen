@@ -15,3 +15,4 @@ Texture-Fix arm may run.
 | method | `curl` of the two files at the pinned revision; the sha256 is verified before any use, and the file is used read-only by `ref_side.py` (CPU, Diffusers `AutoencoderKLQwenImage21`, strict load) |
 | use | §8.1 only: a decoder comparison on identical latents, encoder-equivalence check, per-tensor weight diff. Never a default, never in `app/` or `config/`. |
 | deletion trigger | delete when Phase 8 closes unless the user decides to keep it; it is re-acquirable exactly from the pinned revision and hash above |
+| **disposition at Phase 8 close (2026-10-09)** | **trigger met; kept pending your decision** (deletion is yours to authorise; re-acquirable exactly). Result: no text rescue (`research/qwen/QWEN-QVR-REFERENCE.md` §5.1). |

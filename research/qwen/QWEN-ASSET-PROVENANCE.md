@@ -155,3 +155,4 @@ unchanged: it fires if Qwen-Image-2.1 work stops.
 - **Use:** Q-VR arm TF only.
 - **Deletion trigger:** delete at Phase 8 close unless you decide to keep it. It is re-acquirable exactly from the
   revision and hash above.
+- **At Phase 8 close (2026-10-09): trigger met; kept pending your decision.**
