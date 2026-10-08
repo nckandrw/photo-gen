@@ -42,6 +42,9 @@ def main(transcript: str, blind: str, crops: str, out: str) -> None:
                     if w:
                         programs[w[0]] += 1
                 paths += re.findall(r"(/(?:Users|private|tmp|var|etc|opt)[^\s'\"<>|;)]*)", cmd)
+                for tgt in re.findall(r"(?<![<0-9&])>>?\s*['\"]?([^\s'\";|&)]+)", cmd):  # shell redirection targets
+                    if tgt != "/dev/null":
+                        writes.append(f"bash>{tgt}")
                 for s in ("KEY-DO-NOT-OPEN", "key-unblinded", "research/qwen/runs", "MANIFEST.json", "qq-summary",
                           "git ", "PROTOCOL.md", "SCORES-FROZEN"):
                     if s in cmd:

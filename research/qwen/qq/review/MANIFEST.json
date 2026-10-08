@@ -36,6 +36,7 @@
   "P08": "baa7bd42394dac1e6426ca6a39b5095881c70a5632c0634664f1cf53072816d8"
  },
  "items_md_sha256": "b6e187fd166dc73d110251517cfa855e25d225e05e1a58ef4c0b1193f2264f98",
- "frozen_scores_sha256": null,
- "frozen_preference_sha256": null
+ "frozen_scores_sha256": "bcef9aa3858d8d8f74ec6d73f843efb722af0a384ae4be24408434828d9554b9",
+ "frozen_preference_sha256": "4c8d6f3695e1e3218543ccec1709fb74b4c5bcee110d2213ae72a251e742e9a0",
+ "frozen_at": "2026-10-08T11:32:02+0800"
 }
