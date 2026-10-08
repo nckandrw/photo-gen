@@ -130,3 +130,28 @@ Local times are Asia/Manila (UTC+8; `date` prints "PST").
   - any dense-weight research.
 - The recommended next test, a VAE round-trip ceiling test, needs only the q4 export's VAE, not the source.
 - **The DELETE trigger in §6 applies unchanged:** if no further Qwen work is planned, reclassify as DELETE. That frees about 33.1 GB, and the model can be re-acquired exactly.
+
+## 8. Phase 8 (2026-10-09): the source checkpoint's VAE used as the CPU reference; the Texture-Fix VAE acquired
+**Source checkpoint, used read-only.** Phase 8's CPU reference (Q-VR arm A2) loads
+`models/research/qwen-image-2.1/vae/diffusion_pytorch_model.safetensors` directly with Diffusers 0.41.0
+(`load_state_dict(strict=True)`). `research/qwen/qv-reference/runs/GATE-weights/data/weight-identity.json` proves that
+all 238 tensors of the canonical export's `vae/0.safetensors` equal it bit for bit, after a layout transform. The
+transforms are 88 identical, 88 conv transposes (0, 2, 3, 1) and 62 squeezes. Before Phase 8:
+`research/qwen/assets/qwen-assets-verification-phase8-pre.json` (28/28 upstream-matched; export 18/18).
+
+**Disposition: still RETAIN LOCALLY** (unchanged; the directive said not to delete it). The §6 DELETE trigger applies
+unchanged: it fires if Qwen-Image-2.1 work stops.
+
+**q8 export:** remains deleted; not recreated.
+
+**New research asset: the Texture-Fix VAE** (`models/research/texture-fix-vae-qwen-image-2.1/`, gitignored, read-only).
+- **Audit before download:** `research/qwen/qv-reference/TEXTURE-FIX-ACQUISITION.md`.
+- **Identity:** `madebyollin/texture-fix-vae-for-qwen-image-2.1` @ `702909b4d408912c7a28fadea06e8b7fdb38ef0c`.
+- **Files and sizes:**
+  - `config.json`, sha256 `9785d527…`;
+  - `diffusion_pytorch_model.safetensors`, sha256 `9c4a3e6b970fe82e99fae227b70529646427333c4378a51b2e853c93f492a6a8`, 1,350,989,544 B (fp32).
+  - Both hashes were verified after the download (2026-10-09 04:33).
+- **Licence:** Qwen Research (non-commercial). The repository's `LICENSE` is byte-identical to Qwen-Image-2.1's.
+- **Use:** Q-VR arm TF only.
+- **Deletion trigger:** delete at Phase 8 close unless you decide to keep it. It is re-acquirable exactly from the
+  revision and hash above.
