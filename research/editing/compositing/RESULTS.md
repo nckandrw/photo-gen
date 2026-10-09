@@ -71,7 +71,7 @@ C3 **4/6**. C1's 5/6 is a secondary observation; promoting the non-primary arm a
 - On C1/C2 the text is the *scaled input's*. C3 keeps the original's.
 
 **2. Unrelated content.**
-- Composites: unintended NONE on 15 of 18 counted composite scorings, MINOR on the rest.
+- Composites: unintended NONE on **17 of 18** counted composite scorings; MINOR on one (R15 C1). *(Corrected 2026-10-09: an earlier commit of this file said "15 of 18".)*
 - G2 edits: MAJOR on 4 of 6 (R09, R11, R12, R15).
 - Outside the masks the editor had changed 22–72 % of pixels by more than 8 levels; compositing reverts all of it by
   construction.

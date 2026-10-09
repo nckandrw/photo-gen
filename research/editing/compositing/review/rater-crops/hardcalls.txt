@@ -1,0 +1,25 @@
+S01-A adherence: PASS vs PARTIAL - pale halo band along neckline/hair is a remnant of the white top; scored PASS with seam MAJOR.
+S01-A/C realism: MINOR vs MAJOR for an obvious halo (artifact rather than implausible content); scored MINOR.
+S01-B unintended: faint background arc/vertical tone step outside the top counted as seam, not unintended (NONE).
+S01-E unintended: hair strand detail re-rendered; MINOR vs NONE.
+S01-D primary_defect: no edit at all; used other:unedited (vs leftover-of-target); same convention for later sheets.
+S02-A/E seam: MINOR vs MAJOR - thin pinkish unpainted strip on right pillar edge + white haze over soffit end, visible at fit-to-screen for A; scored MINOR for both (same artifact).
+S02-C t3: GARBLED vs DEGRADED - door number first digit malformed with ghost strokes ('219'-like).
+S02-C t2: DEGRADED vs PRESERVED - faint 'Sh' of banner lost, rest identical wording.
+S02-C/D unintended: soffit (not brick) repainted light grey; counted as collateral (C MAJOR overall because of text).
+S03-C t1: DEGRADED vs GARBLED - 'MATHEW STREET' letters blotchy around 'W S', still readable.
+S03-C t5: DEGRADED vs PRESERVED - 'LIVE SPORTS SHOWN' fascia; size-matched original also nearly illegible.
+S03-C t4: PRESERVED vs DEGRADED - fascia 'arryQuarter' looks very close to the size-matched original.
+S03-E seam: MINOR for a softer fill region (resolution mismatch) with no hard edge.
+S04-A seam: MINOR vs NONE - pale translucent band at bowl bottom could pass as the thick glass bottom.
+S04-D seam/primary: MAJOR seam vs truncated-edit - flat stair-stepped lower wine boundary; scored seam MAJOR + geometry MINOR.
+S04-E unintended: MAJOR vs MINOR - red stem became clear; distinctive object attribute changed.
+S05-A/B/C/E adherence: PASS vs PARTIAL - cat lies head-up with eyes narrowed/nearly closed (resting, not clearly asleep).
+S05-B seam: MINOR for softer cat region at full resolution (resolution mismatch, no hard edge).
+S05-C unintended: MINOR vs MAJOR - global subtle re-rendering of print/pillows/textures, nothing semantically changed.
+S06-A/C seam and realism: MINOR vs MAJOR for ghosted dragon fruits (soft, semi-transparent; noticeable once looked at).
+S06-B adherence: PASS vs PARTIAL - replacement done but 'Do not change anything else' violated; scored violation under unintended MAJOR.
+S06-E realism: MINOR for green smear/jagged fringe vs PASS.
+S07-A/C adherence: PASS vs PARTIAL - pale translucent streak (ghost of the roof-rack pipe) remains; scored PASS with primary ghosting, seam MINOR.
+S07-E seam/geometry: MINOR for the horizontal grid misalignment across the upper grille.
+S07-D realism: MINOR (garbled signs) vs PASS.
