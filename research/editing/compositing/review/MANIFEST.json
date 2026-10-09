@@ -100,5 +100,14 @@
   "S07-E.png": "f6a9f905bc3ebd1f668b607614ebff9ecb0cc7ba048f94409a2f415741d99a68"
  },
  "items_md_sha256": "7011e0a4b7b2892c838d228d4116b4368f0aed2ea29018d0edbb90270d05bdc2",
- "frozen_scores_sha256": null
+ "frozen_scores_sha256": "b80dfc52f29378b6f89eb9640cbf2ff372d9b5493e0bbb609dffc984003ca267",
+ "draft_history_sha256": "690b495b6a6f7f039db80252a2dec3526f865b747ec204e32b2f1609c95491fa",
+ "revised_ids": [
+  "S01-A",
+  "S02-A",
+  "S02-C",
+  "S02-E",
+  "S06-B"
+ ],
+ "frozen_at": "2026-10-09T10:12:15+0800"
 }
