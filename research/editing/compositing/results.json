@@ -1,0 +1,1286 @@
+{
+ "tool": "research/editing/compositing/analyze_cmpf.py",
+ "primary_classification_C2": "SUPPORTED FOR FURTHER DEVELOPMENT",
+ "per_arm": {
+  "C0": {
+   "n": 4,
+   "viable": 2,
+   "classification_by_rule": "MIXED"
+  },
+  "C1": {
+   "n": 4,
+   "viable": 3,
+   "classification_by_rule": "SUPPORTED FOR FURTHER DEVELOPMENT"
+  },
+  "C2": {
+   "n": 4,
+   "viable": 3,
+   "classification_by_rule": "SUPPORTED FOR FURTHER DEVELOPMENT"
+  },
+  "C3": {
+   "n": 4,
+   "viable": 3,
+   "classification_by_rule": "SUPPORTED FOR FURTHER DEVELOPMENT"
+  }
+ },
+ "all_primary_cases_viable_counting_editor_failures_as_failed": {
+  "C0": 2,
+  "C1": 3,
+  "C2": 3,
+  "C3": 3
+ },
+ "editor_failures": [
+  "R15",
+  "R09"
+ ],
+ "unevaluable_primary": 0,
+ "cases": {
+  "R01": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": false,
+   "arms": {
+    "C0": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "MINOR",
+      "geometry": "PASS",
+      "primary_defect": "collateral-change"
+     },
+     "notes": "Clean dark green top with natural neckline and edges, no halo. Fine hair-strand detail looks re-rendered (different strand pattern/greyer highlights) compared with the original."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "Clean dark green top. A faint arc-shaped tone step shows in the background left of the shoulder and a faint vertical line right of it; small white slivers remain at the lip/chin corner and between the neck and hair."
+    },
+    "C2": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": false,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MAJOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "Top is dark green, but a whitish glowing halo outlines the chin, neckline and hair-over-shoulder edge, obvious at normal viewing.",
+     "failure_class": "compositing"
+    },
+    "C3": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": false,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MAJOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "Top is dark green, but a pale whitish halo band runs along the chin, neckline and hair/shoulder boundary, obvious at normal viewing. Revision: hair strands over the shoulder are the same as the original (only slightly softer), so no content change outside the top.",
+     "failure_class": "compositing"
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {},
+    "ORIGINAL": {}
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.14381,
+     "area_fraction_src": 0.14342,
+     "perimeter_px_d0": 2461,
+     "feather_band_fraction_d0": 0.03383,
+     "mask_d0_sha256": "969a64ec929cb0479912177434288432226c68c8dfa59342d9b5ca5ddcfcc9f6",
+     "mask_src_sha256": "6d13ba13a9e485f9994bce4af4a7dcd54866619c65c543fa3cb1c1351bf1d390"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 5.3223,
+     "mae_at_zero": 5.3223,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 5.327,
+     "outside_changed_gt8": 0.2949,
+     "ring_mae": 6.3125,
+     "inside_mae": 129.9647,
+     "ssim_outside": 0.8581
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 4.54,
+     "C2": 4.711,
+     "C3": 4.723
+    },
+    "text_boxes": {},
+    "feather_px": {
+     "d0": 16,
+     "source": 46
+    },
+    "sizes": {
+     "d0": [
+      1216,
+      864
+     ],
+     "source": [
+      3413,
+      2411
+     ]
+    },
+    "seconds": {
+     "load": 0.239,
+     "composite": 4.591,
+     "total": 6.48
+    },
+    "peak_footprint_gb": 0.808
+   }
+  },
+  "R15": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": true,
+   "arms": {
+    "C0": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": false,
+      "unintended_ok": false,
+      "text_kept": false,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PARTIAL",
+      "seam": "NONE",
+      "realism": "MINOR",
+      "unintended": "MAJOR",
+      "geometry": "PASS",
+      "primary_defect": "text-damage",
+      "t1": "PRESERVED",
+      "t2": "DEGRADED",
+      "t3": "GARBLED",
+      "t4": "GARBLED",
+      "t5": "GARBLED"
+     },
+     "notes": "Wall painted white cleanly, but the instruction's 'keep all lettering exactly' part fails: door number reads like '219', blogTO sticker and door poster lines are garbled. Soffit repainted light grey; banner's faint 'Sh' lost; window book covers altered."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "MINOR",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Wall painted white with clean pillar edges; lettering matches the original. The top edge of the soffit has a jagged stair-step boundary and the soffit's left end is turned light grey with a hard curved edge."
+    },
+    "C2": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Wall painted white; lettering matches the original. Soft-edged blending leftovers only: pinkish fringe along the right pillar's inner edge, pinkish band at the left pillar base and soffit top edge, translucent white haze over the soffit's left end (revision: treated as seam, not content change)."
+    },
+    "C3": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Brick wall painted white with brick texture kept; all lettering identical to the original. Blending artifacts only: a blurred pinkish unpainted strip down the right pillar's inner edge and a translucent white haze with a vertical tone boundary over the soffit's left end (revision: haze treated as seam, not a content change)."
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {
+     "t1": true,
+     "t2": true,
+     "t3": true,
+     "t4": true,
+     "t5": true
+    },
+    "ORIGINAL": {
+     "t1": true,
+     "t2": true,
+     "t3": true,
+     "t4": true,
+     "t5": true
+    }
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.37824,
+     "area_fraction_src": 0.37778,
+     "perimeter_px_d0": 2634,
+     "feather_band_fraction_d0": 0.03721,
+     "mask_d0_sha256": "fbf0feb944c95c1d0abfacd90950859a8a248484c0e7570a89038c6197c242c2",
+     "mask_src_sha256": "a6e4e41f1504bbe2a8197211c2ba94e61f3af9eace0fe69fe440936a975bd8c6"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 10.8459,
+     "mae_at_zero": 10.8459,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 10.8169,
+     "outside_changed_gt8": 0.4792,
+     "ring_mae": 49.6832,
+     "inside_mae": 86.884,
+     "ssim_outside": 0.7769
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 8.793,
+     "C2": 9.174,
+     "C3": 9.166
+    },
+    "text_boxes": {
+     "t1": {
+      "intersects_mask_d0": true,
+      "mask_fraction_d0": 0.037,
+      "intersects_mask_src": true,
+      "psnr_vs_canvas": {
+       "C0": 14.441,
+       "C1": 21.233,
+       "C2": 26.989,
+       "C3": 27.411
+      }
+     },
+     "t2": {
+      "intersects_mask_d0": true,
+      "mask_fraction_d0": 0.0243,
+      "intersects_mask_src": true,
+      "psnr_vs_canvas": {
+       "C0": 18.636,
+       "C1": 24.013,
+       "C2": 37.829,
+       "C3": 41.912
+      }
+     },
+     "t3": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 25.009,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t4": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 22.6,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t5": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 20.011,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     }
+    },
+    "feather_px": {
+     "d0": 16,
+     "source": 54
+    },
+    "sizes": {
+     "d0": [
+      896,
+      1184
+     ],
+     "source": [
+      3024,
+      4032
+     ]
+    },
+    "seconds": {
+     "load": 0.327,
+     "composite": 7.941,
+     "total": 10.366
+    },
+    "peak_footprint_gb": 1.112
+   }
+  },
+  "R12": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": false,
+   "arms": {
+    "C0": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": false,
+      "text_kept": false,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "MINOR",
+      "unintended": "MAJOR",
+      "geometry": "PASS",
+      "primary_defect": "text-damage",
+      "t1": "DEGRADED",
+      "t2": "DEGRADED",
+      "t3": "GARBLED",
+      "t4": "PRESERVED",
+      "t5": "DEGRADED"
+     },
+     "notes": "Man removed with a plausible fill, but the whole scene is re-rendered: 'Club Cut / Barber Shop' becomes unreadable ('Cluct Kat'-like); 'MATHEW STREET' banner letters and the 'Quarry' sign are blotchy/deformed but readable; 'LIVE SPORTS SHOWN' fascia altered (already near-illegible at this size). Crowd faces and tones subtly changed."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "none",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Man and his shadow removed; the gap is filled with plausible background crowd, wet-cobble reflections and continuous paving rows. No visible boundary; signs match the original."
+    },
+    "C2": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "none",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Man and his shadow removed; fill of background people and reflections is plausible with continuous cobbles and no visible boundary. Signs match the original."
+    },
+    "C3": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "resolution-mismatch",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED",
+      "t3": "PRESERVED",
+      "t4": "PRESERVED",
+      "t5": "PRESERVED"
+     },
+     "notes": "Man and shadow removed at full resolution with plausible crowd and cobble fill. At native size the filled area is noticeably softer/smudgier than the surrounding sharp cobbles; signs identical to the original."
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {
+     "t1": true,
+     "t2": true,
+     "t3": true,
+     "t4": true,
+     "t5": true
+    },
+    "ORIGINAL": {
+     "t1": true,
+     "t2": true,
+     "t3": true,
+     "t4": true,
+     "t5": true
+    }
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.05637,
+     "area_fraction_src": 0.056,
+     "perimeter_px_d0": 1096,
+     "feather_band_fraction_d0": 0.01503,
+     "mask_d0_sha256": "19fe511c289a9f02217e52c63f305203d526d1907875732735f745fccc2f7d42",
+     "mask_src_sha256": "599b130a0cf93836b70c4c5d5fc211e52d442de0ee61ff555a177df543ea0e97"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 6.1278,
+     "mae_at_zero": 6.1278,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 6.1181,
+     "outside_changed_gt8": 0.5516,
+     "ring_mae": 9.4263,
+     "inside_mae": 45.8391,
+     "ssim_outside": 0.8487
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 11.578,
+     "C2": 11.617,
+     "C3": 11.573
+    },
+    "text_boxes": {
+     "t1": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 26.805,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t2": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 27.505,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t3": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 25.992,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t4": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 28.342,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t5": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 26.004,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     }
+    },
+    "feather_px": {
+     "d0": 16,
+     "source": 54
+    },
+    "sizes": {
+     "d0": [
+      896,
+      1184
+     ],
+     "source": [
+      3024,
+      4032
+     ]
+    },
+    "seconds": {
+     "load": 0.353,
+     "composite": 7.934,
+     "total": 10.33
+    },
+    "peak_footprint_gb": 1.032
+   }
+  },
+  "R11": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": false,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": false,
+   "arms": {
+    "C0": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": false,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "MAJOR",
+      "geometry": "PASS",
+      "primary_defect": "collateral-change"
+     },
+     "notes": "Clean, natural white wine with smooth bowl edges, but the glass's solid red stem has been turned into a clear/grey glass stem. Background and base otherwise unchanged."
+    },
+    "C1": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": false,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MAJOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "MINOR",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "White wine looks plausible, but its lower boundary is a hard, stair-stepped, nearly flat cut-out line against the granite, so the rounded bowl bottom looks clipped flat; noticeable at normal size.",
+     "failure_class": "alignment"
+    },
+    "C2": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "White wine looks plausible, but the bottom edge of the bowl has a greyish band with diagonal hatching/striping artifacts, visible on inspection. Rest of the scene unchanged."
+    },
+    "C3": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "Wine is a convincing pale white wine with surface reflections; red stem, base and background unchanged. A soft pale translucent band runs along the bottom of the bowl where the dark wine edge was."
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {},
+    "ORIGINAL": {}
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.11734,
+     "area_fraction_src": 0.11722,
+     "perimeter_px_d0": 1646,
+     "feather_band_fraction_d0": 0.02681,
+     "mask_d0_sha256": "509df0e511f161c8de812fd8eb88e983677ff94a2b8f6fde69b5946c7492af4d",
+     "mask_src_sha256": "e6e1555d3c3c84b54a5a35d6e52b4d8cc25287dc0ebc6f8760b6e5b25c0668f3"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      4,
+      -1
+     ],
+     "mae_at_best": 11.7658,
+     "mae_at_zero": 14.7719,
+     "aligned": false,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 14.738,
+     "outside_changed_gt8": 0.6038,
+     "ring_mae": 18.1639,
+     "inside_mae": 86.1421,
+     "ssim_outside": 0.5461
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 7.471,
+     "C2": 8.391,
+     "C3": 8.394
+    },
+    "text_boxes": {},
+    "feather_px": {
+     "d0": 19,
+     "source": 54
+    },
+    "sizes": {
+     "d0": [
+      768,
+      1376
+     ],
+     "source": [
+      2250,
+      4000
+     ]
+    },
+    "seconds": {
+     "load": 0.245,
+     "composite": 5.963,
+     "total": 8.018
+    },
+    "peak_footprint_gb": 0.843
+   }
+  },
+  "R05": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": false,
+   "arms": {
+    "C0": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "MINOR",
+      "geometry": "PASS",
+      "primary_defect": "collateral-change"
+     },
+     "notes": "Plausible resting grey tabby on the left cushion, but the whole picture is subtly re-rendered: the framed print's colours/details, pillow patterns, wall and lamp textures differ slightly from the original."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "none"
+     },
+     "notes": "Grey tabby cat lying on the left seat cushion, eyes nearly closed, natural contact shadow and plausible scale. Seat fabric around it blends without a visible boundary; rest of the room unchanged."
+    },
+    "C2": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "none"
+     },
+     "notes": "Grey tabby cat lying on the left seat cushion against the backrest, eyes nearly closed, with a soft contact shadow; scale and lighting fit. No visible boundary; rest of the room unchanged."
+    },
+    "C3": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "resolution-mismatch"
+     },
+     "notes": "Same plausible resting grey tabby on the left cushion at full resolution. At native size the cat and the cushion right around it are noticeably softer than the crisp sofa fabric and pillows nearby."
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {},
+    "ORIGINAL": {}
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.05927,
+     "area_fraction_src": 0.05883,
+     "perimeter_px_d0": 1798,
+     "feather_band_fraction_d0": 0.02642,
+     "mask_d0_sha256": "c742b809ba94b0cd1c9684fc3bdededafbf9e54eaffc30f75e08776177b81a92",
+     "mask_src_sha256": "b6b77e965cc242e9ff097cfaec0294c70cb89ae01fde2fb8fc3f48f189879154"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 4.6757,
+     "mae_at_zero": 4.6757,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 4.6664,
+     "outside_changed_gt8": 0.2216,
+     "ring_mae": 9.6969,
+     "inside_mae": 29.3467,
+     "ssim_outside": 0.8995
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 12.956,
+     "C2": 13.173,
+     "C3": 13.14
+    },
+    "text_boxes": {},
+    "feather_px": {
+     "d0": 17,
+     "source": 53
+    },
+    "sizes": {
+     "d0": [
+      1248,
+      832
+     ],
+     "source": [
+      3897,
+      2588
+     ]
+    },
+    "seconds": {
+     "load": 0.284,
+     "composite": 6.478,
+     "total": 8.577
+    },
+    "peak_footprint_gb": 0.856
+   }
+  },
+  "R09": {
+   "counted": true,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": true,
+   "arms": {
+    "C0": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": false,
+      "unintended_ok": false,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PARTIAL",
+      "seam": "NONE",
+      "realism": "PASS",
+      "unintended": "MAJOR",
+      "geometry": "PASS",
+      "primary_defect": "collateral-change"
+     },
+     "notes": "Dragon fruits replaced by green apples, but the instruction's 'do not change anything else' part fails: the pink netted fruits, the whole mango pile and the red fruits at the left are also turned into apples and the entire scene is re-rendered."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "seam-or-tone-step"
+     },
+     "notes": "All dragon fruits replaced by a plausible pile of green apples. On inspection a jagged magenta fringe outlines the boundary with the tangerines and netted fruits, and a blurry green smear sits at the lower-left edge of the pile."
+    },
+    "C2": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": false,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PARTIAL",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "ghosting"
+     },
+     "notes": "Upper part of the dragon-fruit pile is now green apples, but the lower part (left of and behind the tangerines, and next to the netted pink fruits) shows semi-transparent magenta dragon fruits blended with apples. Rest of the stall unchanged.",
+     "failure_class": "compositing"
+    },
+    "C3": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": false,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PARTIAL",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "ghosting"
+     },
+     "notes": "At full resolution the upper pile is green apples, but the lower part shows ghosted dragon fruits mixed into the apples and a magenta tip remains on top; soft blended edge. Everything else matches the original.",
+     "failure_class": "compositing"
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {},
+    "ORIGINAL": {}
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.01559,
+     "area_fraction_src": 0.01541,
+     "perimeter_px_d0": 823,
+     "feather_band_fraction_d0": 0.01065,
+     "mask_d0_sha256": "1e4c40a48c6730a1f86256fffd23014ac17e2a21279cdad960f5dddc6c2fec87",
+     "mask_src_sha256": "3b9353c7e936cdb5a87a3c1e374ac2c073860d11ac64f9d159f76c1fcd6dfdbd"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 15.6477,
+     "mae_at_zero": 15.6477,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 15.564,
+     "outside_changed_gt8": 0.7178,
+     "ring_mae": 23.6153,
+     "inside_mae": 51.1499,
+     "ssim_outside": 0.7407
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 9.919,
+     "C2": 11.984,
+     "C3": 12.006
+    },
+    "text_boxes": {},
+    "feather_px": {
+     "d0": 17,
+     "source": 78
+    },
+    "sizes": {
+     "d0": [
+      1248,
+      832
+     ],
+     "source": [
+      5760,
+      3840
+     ]
+    },
+    "seconds": {
+     "load": 0.673,
+     "composite": 20.303,
+     "total": 24.11
+    },
+    "peak_footprint_gb": 1.862
+   }
+  },
+  "R02": {
+   "counted": false,
+   "evaluable": true,
+   "deterministic": true,
+   "aligned": true,
+   "attention_check_D0_adherence_FAIL": true,
+   "editor_failure": false,
+   "arms": {
+    "C0": {
+     "viable": false,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": false,
+      "text_kept": false,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "NONE",
+      "realism": "MINOR",
+      "unintended": "MAJOR",
+      "geometry": "PASS",
+      "primary_defect": "text-damage",
+      "t1": "GARBLED",
+      "t2": "GARBLED"
+     },
+     "notes": "Van removed cleanly, but the whole scene is re-rendered: the street sign reads like 'INIEUVE UILZHLLAGER' with 'STRAAT'/'CENTRUM' unreadable, and 'uitgezonderd' becomes illegible blotches with deformed pictograms."
+    },
+    "C1": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "PASS",
+      "unintended": "NONE",
+      "geometry": "MINOR",
+      "primary_defect": "seam-or-tone-step",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED"
+     },
+     "notes": "Van removed with a clean, plausible fill of wall, grille and pavement; no pipe ghost; signs unchanged. On inspection a horizontal discontinuity runs across the upper garage grille where the grid lines misalign."
+    },
+    "C2": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "ghosting",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED"
+     },
+     "notes": "Van removed; garage grille, wall and sunlit pavement filled plausibly, signs unchanged. A pale translucent horizontal streak (ghost of the roof-rack pipe) crosses the wall graffiti and drainpipe above the former van roof."
+    },
+    "C3": {
+     "viable": true,
+     "criteria": {
+      "adherence_pass": true,
+      "unintended_ok": true,
+      "text_kept": true,
+      "seam_ok": true,
+      "realism_ok": true,
+      "geometry_ok": true
+     },
+     "scores": {
+      "adherence": "PASS",
+      "seam": "MINOR",
+      "realism": "MINOR",
+      "unintended": "NONE",
+      "geometry": "PASS",
+      "primary_defect": "ghosting",
+      "t1": "PRESERVED",
+      "t2": "PRESERVED"
+     },
+     "notes": "Van removed at full resolution with a plausible fill, signs identical to the original. A pale translucent streak (ghost of the roof-rack pipe) crosses the wall and drainpipe, and the filled grille/pavement area is softer than the sharp surroundings."
+    }
+   },
+   "text_canvas_legible": {
+    "D0": {
+     "t1": true,
+     "t2": true
+    },
+    "ORIGINAL": {
+     "t1": true,
+     "t2": true
+    }
+   },
+   "metrics": {
+    "mask": {
+     "area_fraction_d0": 0.13442,
+     "area_fraction_src": 0.13426,
+     "perimeter_px_d0": 1978,
+     "feather_band_fraction_d0": 0.0269,
+     "mask_d0_sha256": "d350bf06baac753f68a1e32194d877af39f0c67f2116f0580c7ebcac12fb30b3",
+     "mask_src_sha256": "c451d3ead59ec6a8ec18a8259da9f418d6efab47bd2ca59d44c568a73311d49c"
+    },
+    "alignment": {
+     "best_shift_dy_dx": [
+      0,
+      0
+     ],
+     "mae_at_best": 8.8041,
+     "mae_at_zero": 8.8041,
+     "aligned": true,
+     "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+    },
+    "c0_vs_d0": {
+     "outside_mae": 8.839,
+     "outside_changed_gt8": 0.5606,
+     "ring_mae": 6.7008,
+     "inside_mae": 50.4987,
+     "ssim_outside": 0.7865
+    },
+    "inside_mask_psnr_vs_canvas": {
+     "C0": 10.419,
+     "C2": 10.506,
+     "C3": 10.459
+    },
+    "text_boxes": {
+     "t1": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 16.934,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     },
+     "t2": {
+      "intersects_mask_d0": false,
+      "mask_fraction_d0": 0.0,
+      "intersects_mask_src": false,
+      "psnr_vs_canvas": {
+       "C0": 21.577,
+       "C1": null,
+       "C2": null,
+       "C3": null
+      }
+     }
+    },
+    "feather_px": {
+     "d0": 16,
+     "source": 62
+    },
+    "sizes": {
+     "d0": [
+      1184,
+      896
+     ],
+     "source": [
+      4592,
+      3448
+     ]
+    },
+    "seconds": {
+     "load": 0.476,
+     "composite": 11.664,
+     "total": 14.646
+    },
+    "peak_footprint_gb": 1.374
+   }
+  }
+ }
+}
