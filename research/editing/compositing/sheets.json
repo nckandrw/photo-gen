@@ -1,0 +1,93 @@
+[
+ {
+  "task": "R01",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8.png",
+  "instruction": "Change her white top to a dark green top.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050051Z-9dc070.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R01-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R01-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R01-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R01.png"
+  }
+ },
+ {
+  "task": "R05",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435.png",
+  "instruction": "Add a grey cat sleeping on the sofa.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T054006Z-b40954.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R05-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R05-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R05-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R05.png"
+  }
+ },
+ {
+  "task": "R09",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e.png",
+  "instruction": "Replace the pink dragon fruits with green apples. Do not change anything else.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T062021Z-c4f545.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R09-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R09-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R09-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R09.png"
+  }
+ },
+ {
+  "task": "R11",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d.png",
+  "instruction": "Change the red wine in the glass to white wine.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T064035Z-2e44b8.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R11-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R11-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R11-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R11.png"
+  }
+ },
+ {
+  "task": "R12",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301.png",
+  "instruction": "Remove the man in dark clothes walking towards the camera in the middle of the street.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T065055Z-2d482d.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R12-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R12-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R12-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R12.png"
+  }
+ },
+ {
+  "task": "R15",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e.png",
+  "instruction": "Paint the brick wall around the shop white. Keep the shop sign and all lettering exactly as they are.",
+  "counted": true,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T072214Z-31d5b1.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R15-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R15-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R15-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R15.png"
+  }
+ },
+ {
+  "task": "R02",
+  "staged": "/Users/nckandrw/Dev/photo-gen/data/inputs/73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9.png",
+  "instruction": "Remove the dark grey van parked in front of the building.",
+  "counted": false,
+  "panels": {
+   "C0": "/Users/nckandrw/Dev/photo-gen/data/outputs/2026/10/07/20261007T050955Z-7835e9.png",
+   "C1": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R02-a/C1.png",
+   "C2": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R02-a/C2.png",
+   "C3": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/R02-a/C3.png",
+   "D0": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/runs/D0/R02.png"
+  }
+ }
+]
