@@ -227,4 +227,15 @@ G2 has been examined in Phases 5–8, so it is a **development** set for this me
 collected or run in Phase 9.
 
 ## Amendments
-(none)
+(none before or during the runs)
+
+**Post-unblind note (2026-10-09; descriptive; the registered class is unchanged).**
+- **Registered result:** C2 is SUPPORTED FOR FURTHER DEVELOPMENT, n = 4, V = 3.
+- **The defect in §8's EDITOR FAILURE rule:**
+  - The rubric's adherence ("the instruction is fully carried out") absorbed the preservation clauses of R15's and
+    R09's instructions.
+  - In blind revision 2 the rater scored those two G2 edits PARTIAL for violating the clauses. Its revision 1 had PASS.
+  - The rule therefore excluded the two cases whose edit failure is the preservation failure compositing addresses.
+- **Sensitivity:** all six counted, C2 = 4/6 (MIXED); the two counted as failed, 3/6 (MIXED).
+- **For the next protocol:** key editor failure on the *requested change* only, with preservation clauses scored under
+  `unintended`/text. This is not applied retroactively.
