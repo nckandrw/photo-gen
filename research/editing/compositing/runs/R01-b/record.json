@@ -1,0 +1,84 @@
+{
+ "tool": "research/editing/compositing/cmp_run.py",
+ "case": "R01",
+ "sizes": {
+  "d0": [
+   1216,
+   864
+  ],
+  "source": [
+   3413,
+   2411
+  ]
+ },
+ "feather_px": {
+  "d0": 16,
+  "source": 46
+ },
+ "mask": {
+  "area_fraction_d0": 0.14381,
+  "area_fraction_src": 0.14342,
+  "perimeter_px_d0": 2461,
+  "feather_band_fraction_d0": 0.03383,
+  "mask_d0_sha256": "969a64ec929cb0479912177434288432226c68c8dfa59342d9b5ca5ddcfcc9f6",
+  "mask_src_sha256": "6d13ba13a9e485f9994bce4af4a7dcd54866619c65c543fa3cb1c1351bf1d390"
+ },
+ "invariants": {
+  "C1_equals_D0_outside": true,
+  "C1_equals_C0_inside": true,
+  "C2_equals_D0_outside": true,
+  "C3_equals_source_outside": true,
+  "C2_equals_C0_where_alpha_1": true
+ },
+ "alignment": {
+  "best_shift_dy_dx": [
+   0,
+   0
+  ],
+  "mae_at_best": 5.3223,
+  "mae_at_zero": 5.3223,
+  "aligned": true,
+  "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+ },
+ "c0_vs_d0": {
+  "outside_mae": 5.327,
+  "outside_changed_gt8": 0.2949,
+  "ring_mae": 6.3125,
+  "inside_mae": 129.9647,
+  "ssim_outside": 0.8581
+ },
+ "inside_mask_psnr_vs_canvas": {
+  "C0": 4.54,
+  "C2": 4.711,
+  "C3": 4.723
+ },
+ "text_boxes": {},
+ "outputs": {
+  "C1": "8d77e5b597dc34f81752932ceb3638ae120b79e8a03e6bf09feec7850e2a7a68",
+  "C2": "f60f0a42f107624c284999172964006af8645ae05abd3608f28dc59542e18516",
+  "C3": "6eea78cbe63807ca64a72755f2d9435ec8d11bfc56fd783ca12d1233543d94d1"
+ },
+ "inputs": {
+  "staged_pixel_sha256": "e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8",
+  "g2_output_pixel_sha256": "1fbd012e48c5afdb17fb3e05746168d6f898a77b124f477d302d040c6ac945f9",
+  "d0_pixel_sha256": "c17213082cc7b65bb0763b0e918a06bd0a58165f9ef638af9f516d9627a902a2",
+  "polygons_sha256": "c98d1178306fba0babf95a8b6b0095f952cbd5d056b1f078507c4100cf3a0291"
+ },
+ "seconds": {
+  "load": 0.222,
+  "composite": 4.563,
+  "total": 6.41
+ },
+ "gates": {
+  "source_before": true,
+  "edit_before": true,
+  "source_after": true,
+  "edit_after": true,
+  "d0_matches_config": true
+ },
+ "peak_footprint_gb": 0.808,
+ "versions": {
+  "numpy": "2.5.3",
+  "pillow": "12.3.0"
+ }
+}

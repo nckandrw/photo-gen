@@ -1,0 +1,140 @@
+{
+ "tool": "research/editing/compositing/cmp_run.py",
+ "case": "R12",
+ "sizes": {
+  "d0": [
+   896,
+   1184
+  ],
+  "source": [
+   3024,
+   4032
+  ]
+ },
+ "feather_px": {
+  "d0": 16,
+  "source": 54
+ },
+ "mask": {
+  "area_fraction_d0": 0.05637,
+  "area_fraction_src": 0.056,
+  "perimeter_px_d0": 1096,
+  "feather_band_fraction_d0": 0.01503,
+  "mask_d0_sha256": "19fe511c289a9f02217e52c63f305203d526d1907875732735f745fccc2f7d42",
+  "mask_src_sha256": "599b130a0cf93836b70c4c5d5fc211e52d442de0ee61ff555a177df543ea0e97"
+ },
+ "invariants": {
+  "C1_equals_D0_outside": true,
+  "C1_equals_C0_inside": true,
+  "C2_equals_D0_outside": true,
+  "C3_equals_source_outside": true,
+  "C2_equals_C0_where_alpha_1": true
+ },
+ "alignment": {
+  "best_shift_dy_dx": [
+   0,
+   0
+  ],
+  "mae_at_best": 6.1278,
+  "mae_at_zero": 6.1278,
+  "aligned": true,
+  "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+ },
+ "c0_vs_d0": {
+  "outside_mae": 6.1181,
+  "outside_changed_gt8": 0.5516,
+  "ring_mae": 9.4263,
+  "inside_mae": 45.8391,
+  "ssim_outside": 0.8487
+ },
+ "inside_mask_psnr_vs_canvas": {
+  "C0": 11.578,
+  "C2": 11.617,
+  "C3": 11.573
+ },
+ "text_boxes": {
+  "t1": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 26.805,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  },
+  "t2": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 27.505,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  },
+  "t3": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 25.992,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  },
+  "t4": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 28.342,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  },
+  "t5": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 26.004,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  }
+ },
+ "outputs": {
+  "C1": "ebc8558f313865df046b9ed8eac57280e7e03aad0d078b79bf38d270125e9641",
+  "C2": "a6e548131ace45dc1645cb18f8db785ff7b23073ddb5db9349b507c73d5ba54c",
+  "C3": "6af6467f03411a1458e1dc8fc8a3fd13486cc0f4b9d53cc3c04eb8379a1c0f74"
+ },
+ "inputs": {
+  "staged_pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+  "g2_output_pixel_sha256": "85c0235ae4e5b15d1982c4e398968418ae4bc01f69d7d758b6254973f7ec2cb4",
+  "d0_pixel_sha256": "ed934500e980c4903f680444681643a366f9e17c8de6cf8562325be45248aabb",
+  "polygons_sha256": "f9a19a68ccd1162c6e46d2636bb8f76dd6708fe169922fde1962fd4c16db41ea"
+ },
+ "seconds": {
+  "load": 0.338,
+  "composite": 7.952,
+  "total": 10.359
+ },
+ "gates": {
+  "source_before": true,
+  "edit_before": true,
+  "source_after": true,
+  "edit_after": true,
+  "d0_matches_config": true
+ },
+ "peak_footprint_gb": 1.032,
+ "versions": {
+  "numpy": "2.5.3",
+  "pillow": "12.3.0"
+ }
+}

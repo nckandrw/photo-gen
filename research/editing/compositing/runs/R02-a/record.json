@@ -1,0 +1,107 @@
+{
+ "tool": "research/editing/compositing/cmp_run.py",
+ "case": "R02",
+ "sizes": {
+  "d0": [
+   1184,
+   896
+  ],
+  "source": [
+   4592,
+   3448
+  ]
+ },
+ "feather_px": {
+  "d0": 16,
+  "source": 62
+ },
+ "mask": {
+  "area_fraction_d0": 0.13442,
+  "area_fraction_src": 0.13426,
+  "perimeter_px_d0": 1978,
+  "feather_band_fraction_d0": 0.0269,
+  "mask_d0_sha256": "d350bf06baac753f68a1e32194d877af39f0c67f2116f0580c7ebcac12fb30b3",
+  "mask_src_sha256": "c451d3ead59ec6a8ec18a8259da9f418d6efab47bd2ca59d44c568a73311d49c"
+ },
+ "invariants": {
+  "C1_equals_D0_outside": true,
+  "C1_equals_C0_inside": true,
+  "C2_equals_D0_outside": true,
+  "C3_equals_source_outside": true,
+  "C2_equals_C0_where_alpha_1": true
+ },
+ "alignment": {
+  "best_shift_dy_dx": [
+   0,
+   0
+  ],
+  "mae_at_best": 8.8041,
+  "mae_at_zero": 8.8041,
+  "aligned": true,
+  "region": "outside the mask dilated by F; shifts in [-4,4]^2"
+ },
+ "c0_vs_d0": {
+  "outside_mae": 8.839,
+  "outside_changed_gt8": 0.5606,
+  "ring_mae": 6.7008,
+  "inside_mae": 50.4987,
+  "ssim_outside": 0.7865
+ },
+ "inside_mask_psnr_vs_canvas": {
+  "C0": 10.419,
+  "C2": 10.506,
+  "C3": 10.459
+ },
+ "text_boxes": {
+  "t1": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 16.934,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  },
+  "t2": {
+   "intersects_mask_d0": false,
+   "mask_fraction_d0": 0.0,
+   "intersects_mask_src": false,
+   "psnr_vs_canvas": {
+    "C0": 21.577,
+    "C1": null,
+    "C2": null,
+    "C3": null
+   }
+  }
+ },
+ "outputs": {
+  "C1": "04566af105fa9c7406b6e7bc1f8ca728beeca713449df06c2c675b803bf7a834",
+  "C2": "f3756b5602717e587df7b90aad53cb851ee8f940f5b48ee05bcbfd867e688835",
+  "C3": "11a678ae33ed8d65e7e20abe7c2e49a5315316734e242e0006c0c72975f89e25"
+ },
+ "inputs": {
+  "staged_pixel_sha256": "73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9",
+  "g2_output_pixel_sha256": "13d1e1bb674e5c546cacb1bb97ef707a096075b337535988387a93fccdc7d7c8",
+  "d0_pixel_sha256": "f940ba52e83e7ad3e6bf7eb10e6ee6161fe37960fa620b6e390628b76466f680",
+  "polygons_sha256": "f37023a8193cb965fbe2e6a135ebdfe5e4dd629435c7d392a452be17c8b82632"
+ },
+ "seconds": {
+  "load": 0.476,
+  "composite": 11.664,
+  "total": 14.646
+ },
+ "gates": {
+  "source_before": true,
+  "edit_before": true,
+  "source_after": true,
+  "edit_after": true,
+  "d0_matches_config": true
+ },
+ "peak_footprint_gb": 1.374,
+ "versions": {
+  "numpy": "2.5.3",
+  "pillow": "12.3.0"
+ }
+}
