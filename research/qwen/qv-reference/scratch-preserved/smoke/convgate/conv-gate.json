@@ -1,0 +1,107 @@
+{
+ "tool": "research/qwen/qv-reference/ref_side.py conv-gate",
+ "single_convs": [
+  {
+   "conv": [
+    576,
+    288,
+    3,
+    1,
+    1,
+    96,
+    80
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  },
+  {
+   "conv": [
+    288,
+    144,
+    3,
+    1,
+    1,
+    130,
+    97
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  },
+  {
+   "conv": [
+    96,
+    96,
+    3,
+    2,
+    0,
+    131,
+    99
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  },
+  {
+   "conv": [
+    4,
+    96,
+    3,
+    1,
+    1,
+    160,
+    120
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  },
+  {
+   "conv": [
+    1152,
+    1152,
+    3,
+    1,
+    1,
+    40,
+    36
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  },
+  {
+   "conv": [
+    144,
+    4,
+    3,
+    1,
+    1,
+    128,
+    128
+   ],
+   "banded_calls": 1,
+   "bit_exact": true,
+   "max_abs": 0.0
+  }
+ ],
+ "full_vae_256": {
+  "banded_calls": 62,
+  "encode_bit_exact": true,
+  "encode_max_abs": 0.0,
+  "decode_bit_exact": true,
+  "decode_max_abs": 0.0
+ },
+ "pass": true,
+ "all_bit_exact": true,
+ "torch_threads": 4,
+ "versions": {
+  "torch": "2.14.0",
+  "diffusers": "0.41.0",
+  "safetensors": "0.8.0",
+  "numpy": "2.5.3",
+  "pillow": "12.3.0",
+  "huggingface-hub": "1.32.0"
+ }
+}

@@ -1,0 +1,67 @@
+2026-10-09 00:49:21,831 INFO    photogen: image-edit check manifest    ok
+2026-10-09 00:49:21,831 INFO    photogen: image-edit check interpreter ok
+2026-10-09 00:49:21,831 INFO    photogen: image-edit check model       ok
+2026-10-09 00:49:21,831 INFO    photogen: image-edit check low_ram     ok
+2026-10-09 00:49:21,831 INFO    photogen: image-edit check offline     ok
+{
+ "ok": true,
+ "checks": {
+  "manifest": {
+   "ok": true,
+   "detail": "config/backend-qwen21-edit-mflux.json"
+  },
+  "interpreter": {
+   "ok": true,
+   "detail": {
+    "python": {
+     "ok": true,
+     "expected": "3.12.14",
+     "found": "3.12.14"
+    },
+    "mflux": {
+     "ok": true,
+     "expected": "0.21.0",
+     "found": "0.21.0"
+    },
+    "mlx": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    },
+    "mlx-metal": {
+     "ok": true,
+     "expected": "0.32.2",
+     "found": "0.32.2"
+    },
+    "transformers": {
+     "ok": true,
+     "expected": "5.15.0",
+     "found": "5.15.0"
+    },
+    "torch": {
+     "ok": true,
+     "expected": "2.13.0",
+     "found": "2.13.0"
+    }
+   }
+  },
+  "model": {
+   "ok": true,
+   "detail": {
+    "revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "files": 18,
+    "failed": [],
+    "hashed_now": 0,
+    "seconds": 0.0
+   }
+  },
+  "low_ram": {
+   "ok": true,
+   "detail": "--low-ram is always passed"
+  },
+  "offline": {
+   "ok": true,
+   "detail": "workers run with HF_HUB_OFFLINE=1"
+  }
+ }
+}

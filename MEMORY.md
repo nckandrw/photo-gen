@@ -5,7 +5,7 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/PHASE9-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+_Last updated 2026-10-09 (PHASE 9 COMPLETE + lossless-handoff pass). Read `research/editing/compositing/PHASE9-INDEX.md` next; `PHASE9-DIGEST.md` beside it is the one-file compact copy of all Phase 9 docs. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
 
 **Where things stand. Nothing is running.**
 - **Production (text-to-image, Z-Image):** unchanged since v3.
@@ -15,13 +15,15 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
   isolated source-only masks.
   - **Registered: SUPPORTED FOR FURTHER DEVELOPMENT (C2 3/4), fragile.** It sits at both thresholds and rests on two
     blind adherence revisions. Counting all six cases, it is 4/6 (MIXED).
-  - Descriptive, all six cases: C0 2/6, C1 hard 5/6, C2 feathered 4/6, C3 source resolution 4/6.
+  - Descriptive, all six cases: C0 2/6, C1 hard 5/6, C2 feathered 4/6, C3 source resolution 4/6. At the registered
+    n = 4: C0 2/4, C1 3/4, C3 3/4 (only C2 is registered).
   - Composites kept 12/12 text elements; the edits garbled them.
   - Failures: inner-ramp halo/ghosting (R01, R09) and global motion (R11).
 - **Recommended next (awaiting you):** automatic edit-region localisation, benchmarked against the 7 frozen masks
   (no new inference for the first comparison).
 - **Git:**
-  - Phase 8 pushed (`817a7c2..d2357f9`, 24 commits). **Phase 9 commits are local, NOT pushed.**
+  - Phase 8 pushed (`817a7c2..d2357f9`, 24 commits). **Phase 9 commits are local, NOT pushed**: `2ba6dd9..cab2910`
+    (19) plus the handoff commit, so 20 ahead of `origin/main` at the handoff.
   - Tags: v4 latest (`1741179` → `33669eb`), v3 `401e400`. No v5.
 - **Assets:**
   - kept: the dense Qwen checkpoint (33 GB, RETAIN) and the canonical q4 export;
@@ -30,19 +32,23 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
   - `torch-ref/` (737 MB) kept.
 - **Hardware:** macOS **27.0.1** is the current validated environment; 27.0 is the historical baseline
   (`docs/HARDWARE.md`).
-- **Open decisions:**
-  1. Localisation experiment.
+- **Open decisions** (each has a "how to start" procedure in `PHASE9-INDEX.md` §4; none is authorised):
+  1. Localisation experiment (recommended).
   2. Push Phase 9.
   3. Boundary-rule candidate.
   4. FLUX.2 gate sequence.
   5. Holdout collection.
-  6. Dependabot alerts on the edit venv (unchanged).
-  7. A 6-step gate at 768² (not Qwen).
+  6. Tag: none before a holdout pass.
+  7. **RELEASE-NOTES macOS wording:** the header says "macOS 27.0", but v3 (2026-10-07) and v4 (2026-10-08) were
+     tagged on 27.0.1. Surfaced, not edited.
+  8. Dependabot alerts on the edit venv (unchanged).
+  9. A 6-step gate at 768² (not Qwen).
 
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
 2. This "Current state" block.
-3. `research/editing/compositing/PHASE9-INDEX.md`: the latest phase (CMPF), its open decisions (§4); then `research/editing/compositing/RESULTS.md`.
+3. `research/editing/compositing/PHASE9-INDEX.md`: the latest phase (CMPF), its open decisions with how-to-start
+   procedures (§4); then `RESULTS.md`. `PHASE9-DIGEST.md` is the same material compacted into one file.
 4. Earlier indexes, newest first:
    - `research/qwen/PHASE8-INDEX.md` (Q-VR, Q-A);
    - `research/qwen/PHASE7-INDEX.md` (Q-V; §7 session mechanics that work);
@@ -92,6 +98,12 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
   - the Texture-Fix VAE (Phase 8) was deleted on 2026-10-09 (provenance §9).
 - **CPU reference venv** `torch-ref/` (737 MB; torch 2.14.0 + diffusers 0.41.0; hashed lock in `research/qwen/qv-reference/`): kept for numerical regression testing.
 - **Review crops** (from session scratch, gitignored PNGs): `research/qwen/qv/review/{rater-crops,spot-check}/`, `research/qwen/qv-reference/review{,-cmp2}/rater-crops/`, `research/editing/compositing/review/rater-crops/` and `research/review-crops/{g2-rater,qq-rater,qq-spot-check}/`; every file's sha256 is in `research/review-crops/MANIFEST.sha256`. Subagent transcripts, which hold rater tool calls, are session-local under `~/.claude-.claude-nck/projects/-Users-nckandrw-Dev-photo-gen/<session>/subagents/`. The audits extracted from them are committed (`RATER-AUDIT.json`).
+- **Session-scratch evidence (Phases 8–9), preserved at the handoff:**
+  - `research/qwen/qv-reference/scratch-preserved/`: lock inputs, Phase 8 pre/post checks, the amendment-1 smoke runs,
+    glyph crops, the CMP2 grid view. README and SHA256SUMS; tensors and PNGs local only.
+  - `research/editing/qa-configs/`: the Q-A config files.
+  - `research/qwen/assets/df-*-texturefix-delete.txt`.
+  - The session scratch itself (`/private/tmp/claude-501/…`) does not survive the session.
 - **Z-Image research:** `models/research/z-image-base-mflux-q4` @ `087eaf40`, plus the LoRA at `models/research/loras/` @ `f9a4db41`; 15/15 files verified.
 - **sd.cpp comparator:** `sdcpp/`, `models/diffusion_models`, `models/text_encoders`, `models/vae`; about 15.5 GB of old sd.cpp/Qwen models, plus the uv cache. You deferred their cleanup: don't delete without being asked.
 - **`research/experiments/p3b/cap/*.gputrace`** (about 14 GB): summarized in `nax-status.md`; delete only with your OK.
@@ -100,6 +112,31 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
 - Phase 3 leftover: whether a dedicated 6-step gate at 768² is worth it. Stage C stays deferred.
 - Resolution-aware automatic step selection is not to be implemented yet.
 - Editing backlog: Q-S on hold; Q-U and Q-C not started; LOC (localisation) recommended; FLUX.2 gate sequence and the holdout are specified (`EXPERIMENT-BACKLOG.md`).
+
+---
+
+## 2026-10-09 — Phase 9 lossless-handoff pass (user: "update the documents/memory/ledger/index so I can start a new session losslessly")
+- **Digest:** the user's "cat and compact" digest is now in the repo as
+  `research/editing/compositing/PHASE9-DIGEST.md`. The source docs are authoritative.
+- **Session-scratch evidence preserved** (93 files, `cmp`-verified):
+  - `research/qwen/qv-reference/scratch-preserved/`:
+    - the `uv pip compile` inputs named in `requirements.lock.txt`'s header;
+    - Phase 8 pre/post checks;
+    - the amendment-1 smoke runs (unbanded `ref` 11.2 GB / 23 s → banded `ref2` 6.9 GB / 13 s) and `conv-gate.json`;
+    - glyph crops and the CMP2 grid view (local only);
+    - `.gitignore` re-includes the smoke `data/record.json`.
+  - `research/editing/qa-configs/`: 18 Q-A config JSONs.
+  - `research/qwen/assets/df-{before,after}-texturefix-delete.txt`.
+  - Rater and annotator scratch were already in the repo; counts match: CMPF rater 484, annotator 106, Q-VR rater 255 (+ its committed helper), CMP2 rater 41.
+- **Docs:**
+  - PHASE9-INDEX: §4 gives every open decision a how-to-start procedure; §3 records the RELEASE-NOTES discrepancy;
+    §1 adds the non-primary n = 4 counts.
+  - EXPERIMENT-BACKLOG: the stale Q-P row is marked done (as CMPF).
+  - CLAUDE.md: the HARDWARE line now says 27.0.1 is current.
+  - This block was updated.
+- **Correction to the Phase 9 final report:** it said only v4 was tagged after the 27.0.1 update. **v3 (2026-10-07)
+  was too.** v1 and v2 were on 27.0.
+- **Still not pushed; no tag.** Nothing is running.
 
 ---
 

@@ -1,0 +1,1 @@
+wall_s=15 rc=0 aborted=0 swap_start_mb=3296 swap_end=3280.06M monitor_samples=12

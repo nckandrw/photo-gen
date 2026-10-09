@@ -1,0 +1,24 @@
+run_dir=/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/smoke/ref
+command=env HF_HUB_OFFLINE=1 torch-ref/.venv/bin/python3.12 -I research/qwen/qv-reference/ref_side.py run /private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/smoke/mlx/data /private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/smoke/ref/data
+Fri  9 Oct 2026 01:11:39 PST
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=25034851)	80%; AC attached; not charging present: true
+vm.swapusage: total = 3072.00M  used = 1476.69M  free = 1595.31M  (encrypted)
+kern.memorystatus_vm_pressure_level: 1
+System-wide memory free percentage: 68%
+Note: No thermal warning level has been recorded
+Note: No performance warning level has been recorded
+391072 /Users/nckandrw/.local/bin/claude
+298336 /Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/Frameworks/Microsoft Edge Framework.framework/Versions/154.0.4258.37/Helpers/Microsoft Teams WebView Helper (Renderer).app/Contents/MacOS/Microsoft Teams WebView Helper (Renderer)
+268720 /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+172528 /Applications/Slack.app/Contents/Frameworks/Slack Helper (Renderer).app/Contents/MacOS/Slack Helper (Renderer)
+ 85040 /Applications/Slack.app/Contents/MacOS/Slack
+ 77312 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd
+git_head=ec5b04f0ab28990b0bb0f98dc16ff84b4ab2ca5e
+git_dirty(qv-reference tools, app, config):
+?? research/qwen/qv-reference/mlx_run.py
+?? research/qwen/qv-reference/mlx_side.py
+?? research/qwen/qv-reference/ref_side.py
+?? research/qwen/qv-reference/run_ref.sh
+?? research/qwen/qv-reference/tiler_port.py
+?? research/qwen/qv-reference/weight_identity.py

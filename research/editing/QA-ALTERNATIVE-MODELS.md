@@ -98,7 +98,7 @@ editor. The ranking below is unchanged.
 - Licences are as stated on the repositories on 2026-10-09; re-check them at acquisition.
 
 **Sources:**
-- Hugging Face model APIs and config files: the candidates' `model_index.json`, `vae/config.json`, `transformer/config.json`.
+- Hugging Face model APIs and config files: the candidates' `model_index.json`, `vae/config.json`, `transformer/config.json` (copies as fetched: `research/editing/qa-configs/`).
 - FLUX.2 [klein] 4B model card.
 - Qwen-Image-Edit-2511 model card.
 - Qwen-Image-VAE-2.0 Technical Report, arXiv 2605.13565 (Table 3).

@@ -1,0 +1,28 @@
+{
+  "_class_name": "LongCatImageEditPipeline",
+  "_diffusers_version": "0.35.1",
+  "scheduler": [
+    "diffusers",
+    "FlowMatchEulerDiscreteScheduler"
+  ],
+  "text_encoder": [
+    "transformers",
+    "Qwen2_5_VLForConditionalGeneration"
+  ],
+  "tokenizer": [
+    "transformers",
+    "Qwen2Tokenizer"
+  ],
+  "text_processor": [
+    "transformers",
+    "Qwen2VLProcessor"
+  ],
+  "transformer": [
+    "diffusers",
+    "LongCatImageTransformer2DModel"
+  ],
+  "vae": [
+    "diffusers",
+    "AutoencoderKL"
+  ]
+}

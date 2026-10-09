@@ -175,7 +175,7 @@ unchanged: it fires if Qwen-Image-2.1 work stops.
    Both are present after the deletion.
 
 **Reason:** the Phase 8 experiment is complete (no text rescue, worse reconstruction PSNR) and no named experiment
-needs it. **Free space:** 188,038,192 → 189,364,728 KiB (+1.33 GB). It is re-acquirable exactly from the pinned
+needs it. **Free space:** 188,038,192 → 189,364,728 KiB (+1.33 GB) (`assets/df-before-texturefix-delete.txt`, `assets/df-after-texturefix-delete.txt`). It is re-acquirable exactly from the pinned
 revision and hash.
 
 **Retained:**

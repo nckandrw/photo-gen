@@ -1,0 +1,24 @@
+{
+  "_class_name": "OmniGen2Pipeline",
+  "_diffusers_version": "0.33.1",
+  "mllm": [
+    "transformers",
+    "Qwen2_5_VLForConditionalGeneration"
+  ],
+  "processor": [
+    "transformers",
+    "Qwen2_5_VLProcessor"
+  ],
+  "scheduler": [
+    "scheduling_flow_match_euler_discrete",
+    "FlowMatchEulerDiscreteScheduler"
+  ],
+  "transformer": [
+    "transformer_omnigen2",
+    "OmniGen2Transformer2DModel"
+  ],
+  "vae": [
+    "diffusers",
+    "AutoencoderKL"
+  ]
+}

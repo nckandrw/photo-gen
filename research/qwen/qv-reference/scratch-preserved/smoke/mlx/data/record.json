@@ -1,0 +1,130 @@
+{
+ "tool": "research/qwen/qv-reference/mlx_side.py capture",
+ "staged": "/var/folders/wp/gpgsqyc17cd9jj71lk8_zj4c0000gn/T/qvr-synthetic-640x480.png",
+ "budget": 512,
+ "MLX_ENABLE_TF32": null,
+ "default_device": "Device(gpu, 0)",
+ "param_check": {
+  "mlx_params": 238,
+  "file_tensors": 238,
+  "only_mlx": [],
+  "only_file": [],
+  "mismatched": [],
+  "pass": true
+ },
+ "seconds": {
+  "load": 0.772,
+  "encode": 0.439,
+  "decode_tiled": 1.989,
+  "total": 5.6
+ },
+ "cast_commutes_with_pack": true,
+ "tiling": "TilingConfig(vae_decode_tiles_per_dim=8, vae_decode_tile_size=512, vae_decode_overlap=8, vae_encode_tiled=True, vae_encode_tile_size=512, vae_encode_tile_overlap=64)",
+ "identity": {
+  "input": {
+   "pixel_sha256": "f18d4385541841f88bd801b938625f0eff302ed8bfcaf92fd2790f3469687bc4",
+   "size": [
+    576,
+    448
+   ],
+   "alpha": {
+    "mode": "RGB",
+    "has_alpha": false
+   },
+   "file_sha256": "f8eddce4d896479f44f13d93a0f3d01e871c60877b551fcb1187670fe2509acc"
+  },
+  "roundtrip": {
+   "pixel_sha256": "2aeb5a756426ac61de18a75454d9b0292ca6fddd305e3c1ef3b9d32658b22c35",
+   "size": [
+    576,
+    448
+   ],
+   "alpha": {
+    "mode": "RGBA",
+    "has_alpha": true,
+    "alpha_min": 249,
+    "alpha_max": 255,
+    "opaque": false,
+    "rgba_sha256": "9d59f10dcf884c15291b5b876130b0e99d2ee6c0fac5a1a9d51ca5fd2ae6a090"
+   },
+   "file_sha256": "9fae19e28287ed7f6a7ff34a4a8d5fd3faa8729940dbfb04d547981f390b0320"
+  }
+ },
+ "to_uint8_port_vs_to_pil": {
+  "differing_values": 0,
+  "pass": true
+ },
+ "memory_after_primary": {
+  "peak_footprint_gb": 6.192,
+  "mlx_peak_gb": 5.509
+ },
+ "tiler_gate": {
+  "pass": true,
+  "max_abs": 0.0,
+  "seconds": 1.858
+ },
+ "arrays": {
+  "x_in": {
+   "shape": [
+    1,
+    4,
+    448,
+    576
+   ],
+   "dtype": "float32",
+   "sha256": "cc0cc4e12f8e9d3f494fbcc46427d343e3344aeeb1164dcbb385bf6fd4a8b6aa"
+  },
+  "moments": {
+   "shape": [
+    1,
+    128,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "83151e6016e9636798f9a708e8604ea0f2a77d72746568032489341b989eddc5"
+  },
+  "z_norm": {
+   "shape": [
+    1,
+    64,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "50278f724740eaf82163944543e8fc15f7fd2204bf5ffd10e1aca64acb64cd00"
+  },
+  "z_dec_in": {
+   "shape": [
+    1,
+    64,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "2447a0067cfc0db0e1392ce829ac4b507d54a119952aa6176b18f198d6493c88"
+  },
+  "dec": {
+   "shape": [
+    1,
+    4,
+    448,
+    576
+   ],
+   "dtype": "float32",
+   "sha256": "896397fdf30c5ddea0631584ce003cd9169a8e991bff8532b49841f0299db9ca"
+  }
+ },
+ "peak_footprint_gb": 6.333,
+ "mlx_peak_gb": 5.513,
+ "versions": {
+  "mflux": "0.21.0",
+  "mlx": "0.32.2",
+  "mlx-metal": "0.32.2",
+  "pillow": "12.3.0",
+  "numpy": "2.4.1"
+ }
+}

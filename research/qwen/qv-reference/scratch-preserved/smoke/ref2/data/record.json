@@ -1,0 +1,122 @@
+{
+ "tool": "research/qwen/qv-reference/ref_side.py run",
+ "a1_dir": "/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/smoke/mlx/data",
+ "staged": "/var/folders/wp/gpgsqyc17cd9jj71lk8_zj4c0000gn/T/qvr-synthetic-640x480.png",
+ "budget": 512,
+ "device": "cpu",
+ "torch_threads": 4,
+ "mps_built": true,
+ "seconds": {
+  "load": 1.572,
+  "encode": 1.047,
+  "decode_tiled": 5.202,
+  "decode_tiled_x12": 5.224,
+  "total": 13.125
+ },
+ "vae": {
+  "vae_dir": "models/research/qwen-image-2.1/vae",
+  "file": "diffusion_pytorch_model.safetensors",
+  "file_sha256": "a07a1b7c4ee2966a1b3bdc37de9b4f983d56937e46619f709a80b6e490675417",
+  "config_sha256": "9785d527b278cb8b210e9f48a8028d92a4190968ce7e24c8fc85d9d1b82f6ba2",
+  "tensors": 238,
+  "missing": [],
+  "unexpected": [],
+  "loaded_equals_file": true,
+  "class": "AutoencoderKLQwenImage21"
+ },
+ "preprocessing_gate": {
+  "pass": true,
+  "size": [
+   576,
+   448
+  ]
+ },
+ "diffusers_preprocessing_variable": {
+  "shape_equal": true,
+  "max_abs": 0.0,
+  "elements_differing": 0,
+  "elements": 1032192,
+  "dims_equal_mflux": true
+ },
+ "cast_gate": {
+  "pass": true,
+  "elements_differing": 0
+ },
+ "after_encode_footprint_gb": 3.85,
+ "finite": {
+  "moments": true,
+  "z_norm": true,
+  "z_dec_in": true,
+  "dec": true,
+  "dec_x12": true
+ },
+ "banded_conv": {
+  "limit_bytes": 268435456,
+  "banded_calls": 71,
+  "plain_calls": 149
+ },
+ "arrays": {
+  "moments": {
+   "shape": [
+    1,
+    128,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "9a24281efc96edef265fe90beddb38aa8c0d154e0c36956b3b613d44bba89747"
+  },
+  "z_norm": {
+   "shape": [
+    1,
+    64,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "648d1f3b3d80be84e7a80d6af65d9b61465fb1f70870592c217e796fe1ff4316"
+  },
+  "z_dec_in": {
+   "shape": [
+    1,
+    64,
+    1,
+    28,
+    36
+   ],
+   "dtype": "float32",
+   "sha256": "2b06f9dd5ed89bd7babdbde7d6f5ece633c92ef703255465bec887a6afe2ff0c"
+  },
+  "dec": {
+   "shape": [
+    1,
+    4,
+    448,
+    576
+   ],
+   "dtype": "float32",
+   "sha256": "f328c146fad1ff298771c3f3f46e2a735ff9af8408566c1042522453bf8db35c"
+  },
+  "dec_x12": {
+   "shape": [
+    1,
+    4,
+    448,
+    576
+   ],
+   "dtype": "float32",
+   "sha256": "4c2991f067e1b829af45e8eafcc5716c1082d32dd4f873aa552c8c39879fc164"
+  }
+ },
+ "peak_footprint_gb": 6.866,
+ "versions": {
+  "torch": "2.14.0",
+  "diffusers": "0.41.0",
+  "safetensors": "0.8.0",
+  "numpy": "2.5.3",
+  "pillow": "12.3.0",
+  "huggingface-hub": "1.32.0"
+ }
+}

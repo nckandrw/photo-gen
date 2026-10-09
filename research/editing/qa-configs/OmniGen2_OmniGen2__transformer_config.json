@@ -1,0 +1,27 @@
+{
+  "_class_name": "OmniGen2Transformer2DModel",
+  "_diffusers_version": "0.33.1",
+  "axes_dim_rope": [
+    40,
+    40,
+    40
+  ],
+  "axes_lens": [
+    1024,
+    1664,
+    1664
+  ],
+  "ffn_dim_multiplier": null,
+  "hidden_size": 2520,
+  "in_channels": 16,
+  "multiple_of": 256,
+  "norm_eps": 1e-05,
+  "num_attention_heads": 21,
+  "num_kv_heads": 7,
+  "num_layers": 32,
+  "num_refiner_layers": 2,
+  "out_channels": null,
+  "patch_size": 2,
+  "text_feat_dim": 2048,
+  "timestep_scale": 1000.0
+}

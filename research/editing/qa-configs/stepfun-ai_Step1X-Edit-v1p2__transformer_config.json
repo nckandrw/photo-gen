@@ -1,0 +1,25 @@
+{
+  "_class_name": "Step1XEditTransformer2DModel",
+  "_diffusers_version": "0.36.0.dev0",
+  "attention_head_dim": 128,
+  "axes_dims_rope": [
+    16,
+    56,
+    56
+  ],
+  "connector_depth": 2,
+  "connector_heads_num": 32,
+  "connector_hidden_size": 4096,
+  "connector_in_channels": 3584,
+  "enable_text_token_mapping": true,
+  "guidance_embeds": false,
+  "in_channels": 64,
+  "joint_attention_dim": 4096,
+  "num_attention_heads": 24,
+  "num_layers": 19,
+  "num_single_layers": 38,
+  "out_channels": 64,
+  "patch_size": 1,
+  "timestep_in_dim": 256,
+  "vector_in_dim": 768
+}

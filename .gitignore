@@ -69,3 +69,8 @@ torch-ref/
 
 # ---- Phase 8 tensor dumps (large .npy intermediates; sha256s are in the run records) ----
 research/qwen/qv-reference/runs/**/*.npy
+
+# ---- Session-scratch evidence preserved at the Phase 9 handoff (see its README): smoke record.json files are versioned
+#      (re-included from the data/ rule above); tensors and PNGs are local only, sha256 in its SHA256SUMS ----
+!research/qwen/qv-reference/scratch-preserved/smoke/*/data/
+research/qwen/qv-reference/scratch-preserved/**/*.npy

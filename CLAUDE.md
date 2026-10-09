@@ -66,7 +66,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
     - Failures: the inner-ramp feather halo/ghosting on tight masks (R01, R09), and global motion in the edit (R11).
     - The registered C2 3/4 rests on two editor-failure exclusions; counting all six cases, it is 4/6 (MIXED).
     - It is postprocessing only: no compute saving.
-    - Resume index: `research/editing/compositing/PHASE9-INDEX.md`.
+    - Resume index: `research/editing/compositing/PHASE9-INDEX.md` (one-file compact copy: `PHASE9-DIGEST.md`).
   - Lifetime fix `_defer_transformer_load` (default on, `DEFER_TRANSFORMER_LOAD`): pixel-identical; lowers the peak footprint 12.63 → 8.85 GB at 512.
   - Phase 5 lifetime policy P2 (worker `_install_lifetime_policy`; default on, `RELEASE_TEXT_ENCODER_AFTER_ENCODE` + `RELEASE_VAE_DURING_DENOISE`):
     - drops the text encoder right after encoding, and keeps only a lazy VAE copy during denoise;
@@ -142,7 +142,7 @@ cd app/tests && PHOTOGEN_ROOT=../.. PYTHONPATH=..:. ../../mflux/.venv/bin/python
 ## Repository, docs and licensing
 - **Docs:**
   - `docs/photo-gen-guide.html`: full guide.
-  - `docs/HARDWARE.md`: the only validated machine is MacBook Air M5 16 GB, macOS 27.0; never generalize benchmarks beyond it.
+  - `docs/HARDWARE.md`: the only validated machine is MacBook Air M5 16 GB, macOS 27.0.1 (current since 2026-09-29; 27.0 is the historical baseline); never generalize benchmarks beyond it.
   - `docs/REPRODUCIBILITY.md`: rebuild steps and hashes.
   - `docs/RELEASE-NOTES.md`: tags.
   - `docs/THIRD-PARTY-LICENSES.md`, `docs/USAGE.md`.
