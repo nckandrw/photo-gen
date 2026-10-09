@@ -1,0 +1,528 @@
+{
+ "tool": "research/editing/compositing/freeze_masks.py",
+ "frozen_at": "2026-10-09T09:34:35+0800",
+ "draft_sha256": "d95418ace91f5fbeb7beef2d4ab3f85210d039f37ac12b8fc1c6103a014b1f07",
+ "frozen_json_sha256": "d95418ace91f5fbeb7beef2d4ab3f85210d039f37ac12b8fc1c6103a014b1f07",
+ "annotator_audit": {
+  "generated": "2026-10-09T09:34:25+0800",
+  "method": "extracted from the rater subagent's tool-call transcript (session-local, not committed); heredoc bodies excluded from the path scan",
+  "allowed": {
+   "blind": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation",
+   "crops": "/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/cmpf-annotator"
+  },
+  "tool_calls": {
+   "Read": 83,
+   "Bash": 54,
+   "SubagentHandback": 1
+  },
+  "reads": {
+   "blind/ANNOTATOR-INSTRUCTIONS.md": 1,
+   "blind/cases.json": 1,
+   "blind/masks-template.json": 1,
+   "blind/overlay.py": 1,
+   "blind/ANNOTATOR-PROMPT.md": 1,
+   "blind/views/R01-grid.png": 1,
+   "blind/views/R01.png": 1,
+   "crops/R01-grid-botleft.png": 1,
+   "crops/R01-grid-botright.png": 1,
+   "crops/R01-grid-z1.png": 1,
+   "crops/R01-overlay.png": 1,
+   "crops/R01-ov-z1.png": 1,
+   "crops/R01-ov-z2.png": 1,
+   "crops/R01-ov-z3.png": 2,
+   "crops/R01-strip3x.png": 1,
+   "crops/R01-strip-ov3x.png": 2,
+   "blind/views/R05-grid.png": 1,
+   "crops/R05-g-left.png": 1,
+   "crops/R05-g-right.png": 1,
+   "crops/R05-ov-z.png": 1,
+   "blind/views/R09-grid.png": 1,
+   "crops/R09-top.png": 1,
+   "crops/R09-right.png": 1,
+   "crops/R09-net3x.png": 1,
+   "crops/R09-dragon3x.png": 1,
+   "crops/R09-dg2x.png": 1,
+   "crops/R09-ov2x.png": 2,
+   "crops/R09-rz.png": 1,
+   "crops/R09-rz-ov.png": 1,
+   "crops/R09-lz.png": 1,
+   "crops/R09-lz-ov.png": 1,
+   "crops/R09-mz.png": 1,
+   "crops/R09-mz-ov.png": 1,
+   "crops/R09-farleft.png": 1,
+   "blind/views/R11-grid.png": 1,
+   "crops/R11-g.png": 1,
+   "crops/R11-p.png": 1,
+   "crops/R11-ov.png": 1,
+   "blind/views/R11.png": 1,
+   "blind/views/R12-grid.png": 1,
+   "crops/R12-p.png": 1,
+   "crops/R12-g.png": 1,
+   "crops/R12-upper2x.png": 1,
+   "crops/R12-ov.png": 1,
+   "blind/views/R15-grid.png": 1,
+   "crops/R15-a.png": 1,
+   "crops/R15-b.png": 1,
+   "crops/R15-c.png": 1,
+   "crops/R15-t1.png": 1,
+   "crops/R15-t2.png": 1,
+   "crops/R15-overlay.png": 1,
+   "crops/R15-z1.png": 1,
+   "crops/R15-z2.png": 1,
+   "crops/R15-z3.png": 1,
+   "crops/R15-z4.png": 1,
+   "crops/R15-z5.png": 1,
+   "blind/views/R02-grid.png": 1,
+   "crops/R02-p.png": 1,
+   "crops/R02-g.png": 1,
+   "crops/R02-ll2x.png": 1,
+   "crops/R02-right.png": 1,
+   "crops/R02-ground.png": 1,
+   "crops/R02-wheel.png": 1,
+   "crops/R02-top3x.png": 1,
+   "crops/R02-sh1.png": 1,
+   "crops/R02-sh2.png": 1,
+   "crops/R02-ov.png": 1,
+   "crops/R02-ovL2x.png": 1,
+   "crops/R02-overlay.png": 1,
+   "crops/R09-core2x.png": 2,
+   "crops/R02-core-c.png": 2,
+   "crops/R01-core-c.png": 1,
+   "crops/R11-core-c.png": 1,
+   "crops/R12-core-c.png": 1,
+   "crops/R05-core-c.png": 1,
+   "crops/R15-core-s.png": 1,
+   "crops/R09-card4x.png": 1,
+   "crops/R09-card-ov4x.png": 1
+  },
+  "writes": [
+   "bash>R01.json",
+   "bash>R05.json",
+   "bash>core.py",
+   "bash>mkpoly.py",
+   "bash>set_case.py"
+  ],
+  "bash_programs": {
+   "ls": 2,
+   "mkdir": 1,
+   "cp": 1,
+   "echo": 28,
+   "S=/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/cmpf-annotator": 3,
+   "V=/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation/views": 21,
+   "sips": 93,
+   "cd": 49,
+   "cat": 6,
+   "P=/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12": 16,
+   "A=/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation": 16,
+   "$P": 43,
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12": 16,
+   "PTS=$($P": 6,
+   "for": 2,
+   "do": 2,
+   "done": 2,
+   "d=json.load(open('$A/masks-draft.json'))": 1,
+   "print({k:(len(v['polygons']),v['difficulty'])": 1
+  },
+  "paths_outside_allowed": [
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ],
+   [
+    "Bash",
+    "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+   ]
+  ],
+  "sensitive_access": []
+ },
+ "views_sha256_file": "171ebff467cafe13d0a16baa8443c2c3948fbe48d2e45b1376b695cb62d663e4",
+ "cases": {
+  "R01": {
+   "polygons": 1,
+   "points": 58,
+   "polygons_sha256": "c98d1178306fba0babf95a8b6b0095f952cbd5d056b1f078507c4100cf3a0291",
+   "components": [
+    "target: white top (front, left shoulder, right shoulder, collar strip visible between neck and hair)",
+    "printed pink/line-drawing motif on the chest of the top",
+    "thin hair strands lying over the top at the left of the hair mass",
+    "margin: edge on or up to ~0.005 (about a third of the band) inside face/neck/hair; ~one band (0.013) into the background beyond the shoulder outlines; collar strip widened into the hair so it reaches full alpha"
+   ],
+   "difficulty": "AMBIGUOUS",
+   "rationale": "Traces the visible white top from the bottom border up to the jaw, neckline and hair edge, with the edge on or a few px inside the face/neck/hair so the top reaches near-full alpha without spreading over the face, hair mass, sunglasses or earring; the shoulder outlines get a fuller margin into the plain pavement so the recoloured edge is not blended with white. Ambiguous: the pink striped line-drawing motif at the bottom centre may be a print on the top or a separate scarf/strap (included as part of the garment), and thin hair strands over the top are included so no white survives between them.",
+   "staged_pixel_sha256": "e91528e840f503a66aa0f5ce6cb438dc58a47cc5eb05d840f10ee6c95ec792e8",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     1216,
+     864
+    ],
+    "file_sha256": "0bb91d0c932f10b622cbf30e5dbf5ed2399c85e1040883b246a4a8512685abc3",
+    "pixel_sha256": "969a64ec929cb0479912177434288432226c68c8dfa59342d9b5ca5ddcfcc9f6",
+    "area_fraction": 0.14381,
+    "feather_px": 16
+   },
+   "text_boxes_intersecting_mask": {},
+   "raster_src": {
+    "size": [
+     3413,
+     2411
+    ],
+    "file_sha256": "969c13e963ebca952831185a3638468a927e4b25910c2ab255cd6e79e522c054",
+    "pixel_sha256": "6d13ba13a9e485f9994bce4af4a7dcd54866619c65c543fa3cb1c1351bf1d390",
+    "area_fraction": 0.14342,
+    "feather_px": 46
+   }
+  },
+  "R05": {
+   "polygons": 1,
+   "points": 16,
+   "polygons_sha256": "31d2bcf770c176fc86f4c829fcf657b936bfdab6c01a9fa32dc0c9621cb7646d",
+   "components": [
+    "addition area: top surface of both seat cushions, arm to arm",
+    "upper part of the seat-cushion front face (tail/paw drape, contact)",
+    "lower back cushions in the open centre gap between the throw pillows (height of a curled sleeping cat, ~0.10 of image height above the seat)",
+    "cat's contact shadow on the seat"
+   ],
+   "difficulty": "AMBIGUOUS",
+   "rationale": "A sleeping cat on this sofa would lie on the seat cushions, most plausibly in the open centre gap between the throw pillows, so the mask covers the whole seat surface arm to arm plus the lower back cushions in that gap, up to about a curled cat's height, with the seat's front face partly included for a tail and the contact shadow. Edges stop at (or barely overlap) the throw pillows and stay well clear of the framed picture, lamp, side table, floor and wall. Ambiguous: the instruction does not say where on the sofa the cat lies or how large it is; the mask assumes the seat, not the backrest top or arms, and does not allow a cat in front of the pillows to occlude more than their bottom edge.",
+   "staged_pixel_sha256": "f7f23ad5e283afc8d2cbe003b267b1114ef35bc2f10173d00854c249dc495435",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     1248,
+     832
+    ],
+    "file_sha256": "2dda69448dd0293b9a047ebcf200c3c1143af7c6b74510e8478ebb6b87325eca",
+    "pixel_sha256": "c742b809ba94b0cd1c9684fc3bdededafbf9e54eaffc30f75e08776177b81a92",
+    "area_fraction": 0.05927,
+    "feather_px": 17
+   },
+   "text_boxes_intersecting_mask": {},
+   "raster_src": {
+    "size": [
+     3897,
+     2588
+    ],
+    "file_sha256": "f2641ca750421d2623c2c3263e37e4baf06cf695e6c6ecb1de979000058c4510",
+    "pixel_sha256": "b6b77e965cc242e9ff097cfaec0294c70cb89ae01fde2fb8fc3f48f189879154",
+    "area_fraction": 0.05883,
+    "feather_px": 53
+   }
+  },
+  "R09": {
+   "polygons": 1,
+   "points": 59,
+   "polygons_sha256": "ffbc337271b4d379860c3e5c6b5906d5202f08f1e7af97243aa290f0b8d1a786",
+   "components": [
+    "target: the dragon-fruit pile (top mound behind the oranges, the lobe running down the left side of the orange pile, fruits tucked between the oranges and the mangoes)",
+    "margin: ~0.012-0.015 into the wall/fence/background above and to the left (room for a differently shaped apple pile); edge on, or a few px over, the boundary with the oranges, mangoes, pomegranates, netted fruit and the white crate",
+    "incidental: the lower-right corner of the white crate behind the pile falls in the outer ramp (low alpha)"
+   ],
+   "difficulty": "AMBIGUOUS",
+   "rationale": "Follows the outline of the only dragon-fruit pile in the scene, tracing the tops of the orange pile and the mango, pomegranate and netted-fruit edges tightly so those piles stay outside, with a wider margin only where the pile meets the background wall and fence. Ambiguous: 'piles' is plural, but sweeping the whole stall found only one dragon-fruit pile, and the bright-pink pile in foam nets on the right is a different fruit, so it is excluded. The narrow lower part of the left lobe, boxed in by the pomegranates and oranges, and the fruits along the orange boundary stay in partial alpha, so some pink may show through there.",
+   "staged_pixel_sha256": "6798a5d5cae2ae815747d314b058945ac10dd3529db93a5afcf7ba2fe998974e",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     1248,
+     832
+    ],
+    "file_sha256": "04fac0707f1db1e35bf561853fa896f4a6b7f75366a844495ee7d10588a86e33",
+    "pixel_sha256": "1e4c40a48c6730a1f86256fffd23014ac17e2a21279cdad960f5dddc6c2fec87",
+    "area_fraction": 0.01559,
+    "feather_px": 17
+   },
+   "text_boxes_intersecting_mask": {},
+   "raster_src": {
+    "size": [
+     5760,
+     3840
+    ],
+    "file_sha256": "3aa27cb458c680743adfde364f665ee82baef4de2937f2e5be3cf9cd7526827a",
+    "pixel_sha256": "3b9353c7e936cdb5a87a3c1e374ac2c073860d11ac64f9d159f76c1fcd6dfdbd",
+    "area_fraction": 0.01541,
+    "feather_px": 78
+   }
+  },
+  "R11": {
+   "polygons": 1,
+   "points": 27,
+   "polygons_sha256": "e08e59d2eecb1bbf1f396d39ee52b72723c10396222cb56ee25d3430cd9226a9",
+   "components": [
+    "target: the wine in the bowl (body seen through the glass wall, the reflective liquid surface, the meniscus ring)",
+    "margin: ~0.012 in x / ~0.006 in y (about half the band) past the wine outline at the sides and bottom, ~12 px above the meniscus ring, stopping at the top of the clear knob"
+   ],
+   "difficulty": "AMBIGUOUS",
+   "rationale": "The mask is the wine volume only: the liquid-surface ellipse with its meniscus ring and the dark body down to the bottom of the bowl, with about half a feather band of margin over the thin glass wall, while the glass above the liquid level, the knob, the red stem, the foot and the granite stay outside; the meniscus ring and the wall sit in the feather band, which is the usual band tradeoff. Ambiguous: the glossy dark foot shows a dome-shaped reflection of the wine-filled bowl that would lighten with white wine, but it is excluded because the foot is listed as must-not-change; no red cast on the granite is visible.",
+   "staged_pixel_sha256": "c3b816de12cb303d32ed2b99fdcba1b8eb6a01965f3b96b82da9d3b9e7d1d24d",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     768,
+     1376
+    ],
+    "file_sha256": "9345ba81119ec1cb1c3a8ebab38f7fbb07f0df16640f5e2ebbe29761b81c52b6",
+    "pixel_sha256": "509df0e511f161c8de812fd8eb88e983677ff94a2b8f6fde69b5946c7492af4d",
+    "area_fraction": 0.11734,
+    "feather_px": 19
+   },
+   "text_boxes_intersecting_mask": {},
+   "raster_src": {
+    "size": [
+     2250,
+     4000
+    ],
+    "file_sha256": "1c28372f58ab73f15c9411844b5dd152143ff4c8bb23b22b112c6e94732bcaad",
+    "pixel_sha256": "e6e1555d3c3c84b54a5a35d6e52b4d8cc25287dc0ebc6f8760b6e5b25c0668f3",
+    "area_fraction": 0.11722,
+    "feather_px": 54
+   }
+  },
+  "R12": {
+   "polygons": 1,
+   "points": 25,
+   "polygons_sha256": "f9a19a68ccd1162c6e46d2636bb8f76dd6708fe169922fde1962fd4c16db41ea",
+   "components": [
+    "target: the man walking towards the camera (head, raised hand, torso, arms, both legs and feet)",
+    "his shadows / dark reflections on the wet pavement below both feet, running to the bottom border",
+    "the parts of the background people and pavement his body hides (to be filled in)",
+    "margin: ~38 px at 1536 px width (~0.025 in x, ~0.019 in y), i.e. one full feather band plus ~10 px, all around the silhouette"
+   ],
+   "difficulty": "STRAIGHTFORWARD",
+   "rationale": "A removal: the silhouette plus one full feather band and a little more, so no edge of the motion-blurred figure shows through the ramp, extended straight down to the image border to take in the dark shadow and reflection streaks his feet cast on the wet pavement (the bottom border edge is not ramped). The margin overlaps the edges of the people walking just behind his shoulders, which is inherent to filling in what he hides; all signs, the banner and the string lights are far outside.",
+   "staged_pixel_sha256": "6766f9603ea0a60bf338e6bd40308d3bdce19b0566379b2f0fab8b94e228e301",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     896,
+     1184
+    ],
+    "file_sha256": "73a55ad44e276eddce70996135b70db0449261c5dfd6923d640974da36efc037",
+    "pixel_sha256": "19fe511c289a9f02217e52c63f305203d526d1907875732735f745fccc2f7d42",
+    "area_fraction": 0.05637,
+    "feather_px": 16
+   },
+   "text_boxes_intersecting_mask": {
+    "t1": false,
+    "t2": false,
+    "t3": false,
+    "t4": false,
+    "t5": false
+   },
+   "raster_src": {
+    "size": [
+     3024,
+     4032
+    ],
+    "file_sha256": "aa7a285b67796256c00bf73f6c1dd93edbab39e71b285b1b0fe93b5f11d698d8",
+    "pixel_sha256": "599b130a0cf93836b70c4c5d5fc211e52d442de0ee61ff555a177df543ea0e97",
+    "area_fraction": 0.056,
+    "feather_px": 54
+   }
+  },
+  "R15": {
+   "polygons": 1,
+   "points": 33,
+   "polygons_sha256": "e724c65b1470130aa2542688b5d8a8f3de61a27fb1ffef0b68bc38e5a3d45ddc",
+   "components": [
+    "target: all visible brick facade above the shop recess (to the top, left and right borders)",
+    "left pier: front face and the brick return face inside the recess",
+    "right pier down to the pavement",
+    "small attachments on the brick (thin cable/pipe at the top)",
+    "margin: ~14 px at 1536 px width (about half the band) into the soffit fascia, black window frames/base and pavement; 0 px against the shop sign and the right window's banner lettering"
+   ],
+   "difficulty": "STRAIGHTFORWARD",
+   "rationale": "One U-shaped polygon covering every visible brick surface that frames the shop (the facade above, the left pier with its return face, the right pier down to the pavement), so the paint is complete; edges overlap the dark soffit fascia, black frames and pavement by about half a feather band so the outer brick rows still get most of the paint. Against the Beguiling sign ends and the 'webstore' banner that touches the right pier, the edge sits exactly on the brick boundary, so no lettering or artwork falls inside the mask; the door, glass, decals and poster are far inside the excluded opening.",
+   "staged_pixel_sha256": "d3c22ffaae47572c1515a0d7f58231cc1ce88055b344c11e7d58c5561442335e",
+   "counted": true,
+   "raster_d0": {
+    "size": [
+     896,
+     1184
+    ],
+    "file_sha256": "20262b8ba6926155ae953b7c68cc3cff8b469ec2ce1e1b7d8c76c6a94e26d2d5",
+    "pixel_sha256": "fbf0feb944c95c1d0abfacd90950859a8a248484c0e7570a89038c6197c242c2",
+    "area_fraction": 0.37824,
+    "feather_px": 16
+   },
+   "text_boxes_intersecting_mask": {
+    "t1": true,
+    "t2": true,
+    "t3": false,
+    "t4": false,
+    "t5": false
+   },
+   "raster_src": {
+    "size": [
+     3024,
+     4032
+    ],
+    "file_sha256": "fdee152a1a17af2e51fcb146365df7115d53a9043d4253cc100d1eee9ac042f6",
+    "pixel_sha256": "a6e4e41f1504bbe2a8197211c2ba94e61f3af9eace0fe69fe440936a975bd8c6",
+    "area_fraction": 0.37778,
+    "feather_px": 54
+   }
+  },
+  "R02": {
+   "polygons": 1,
+   "points": 41,
+   "polygons_sha256": "f37023a8193cb965fbe2e6a135ebdfe5e4dd629435c7d392a452be17c8b82632",
+   "components": [
+    "target: the van body including wheels, mirrors, number plate",
+    "attachment: roof rack with the ladder and the long rod bundle overhanging the windscreen",
+    "cast shadow on the pavement under and to the right-front of the van",
+    "van rear light at the left edge",
+    "occluded van areas behind the parked bicycles/moped (the overlapping bike and moped parts are inside the mask)",
+    "margin: ~30-35 px at 2048 px width (about one band + a few px) around the van; ~25 px around the soft shadow; reduced to ~24 px under the house-number plates and to ~18 px at the graffiti tag and red sticker that touch the top of the roof load"
+   ],
+   "difficulty": "AMBIGUOUS",
+   "rationale": "A removal: the van outline plus its roof load and the long shadow it casts to the right-front, with roughly a full feather band of margin so no silhouette ghosts through, cut back only beside the doorbell panel on the left and where lettering sits right above the roof load (house numbers 6 and 4 kept fully outside; the street-name sign, no-entry sign and plate, house number 2, door notice and TAKI 88 tag are well outside). Ambiguous: the parked bicycles and moped stand in front of the van's rear-lower quarter and cannot be cut out without leaving van visible through spokes and gaps, so their overlapping parts are inside the mask (parts beyond the van stay outside); and a graffiti tag and red sticker touch the top of the rods, so I leaned to the target with an ~18 px margin there, putting their bottom ~18 px in the low-alpha outer ramp while the rod tops still get only partial alpha.",
+   "staged_pixel_sha256": "73670d26a44b0281bab6f60d37d4adb69f77a1a836ea9dea0cb306a7a21239e9",
+   "counted": false,
+   "raster_d0": {
+    "size": [
+     1184,
+     896
+    ],
+    "file_sha256": "7adcdb1501dbc5c83f42e4fa9b6a96a516954b8ee744e718298686bee8fcf07c",
+    "pixel_sha256": "d350bf06baac753f68a1e32194d877af39f0c67f2116f0580c7ebcac12fb30b3",
+    "area_fraction": 0.13442,
+    "feather_px": 16
+   },
+   "text_boxes_intersecting_mask": {
+    "t1": false,
+    "t2": false
+   },
+   "raster_src": {
+    "size": [
+     4592,
+     3448
+    ],
+    "file_sha256": "9138957fc2a566952c7f426988a2166b0b653e20447a4f14c8985f8cda6f4727",
+    "pixel_sha256": "c451d3ead59ec6a8ec18a8259da9f418d6efab47bd2ca59d44c568a73311d49c",
+    "area_fraction": 0.13426,
+    "feather_px": 62
+   }
+  }
+ }
+}

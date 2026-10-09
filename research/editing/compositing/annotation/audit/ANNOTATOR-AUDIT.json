@@ -1,0 +1,252 @@
+{
+ "generated": "2026-10-09T09:34:25+0800",
+ "method": "extracted from the rater subagent's tool-call transcript (session-local, not committed); heredoc bodies excluded from the path scan",
+ "allowed": {
+  "blind": "/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation",
+  "crops": "/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/cmpf-annotator"
+ },
+ "tool_calls": {
+  "Read": 83,
+  "Bash": 54,
+  "SubagentHandback": 1
+ },
+ "reads": {
+  "blind/ANNOTATOR-INSTRUCTIONS.md": 1,
+  "blind/cases.json": 1,
+  "blind/masks-template.json": 1,
+  "blind/overlay.py": 1,
+  "blind/ANNOTATOR-PROMPT.md": 1,
+  "blind/views/R01-grid.png": 1,
+  "blind/views/R01.png": 1,
+  "crops/R01-grid-botleft.png": 1,
+  "crops/R01-grid-botright.png": 1,
+  "crops/R01-grid-z1.png": 1,
+  "crops/R01-overlay.png": 1,
+  "crops/R01-ov-z1.png": 1,
+  "crops/R01-ov-z2.png": 1,
+  "crops/R01-ov-z3.png": 2,
+  "crops/R01-strip3x.png": 1,
+  "crops/R01-strip-ov3x.png": 2,
+  "blind/views/R05-grid.png": 1,
+  "crops/R05-g-left.png": 1,
+  "crops/R05-g-right.png": 1,
+  "crops/R05-ov-z.png": 1,
+  "blind/views/R09-grid.png": 1,
+  "crops/R09-top.png": 1,
+  "crops/R09-right.png": 1,
+  "crops/R09-net3x.png": 1,
+  "crops/R09-dragon3x.png": 1,
+  "crops/R09-dg2x.png": 1,
+  "crops/R09-ov2x.png": 2,
+  "crops/R09-rz.png": 1,
+  "crops/R09-rz-ov.png": 1,
+  "crops/R09-lz.png": 1,
+  "crops/R09-lz-ov.png": 1,
+  "crops/R09-mz.png": 1,
+  "crops/R09-mz-ov.png": 1,
+  "crops/R09-farleft.png": 1,
+  "blind/views/R11-grid.png": 1,
+  "crops/R11-g.png": 1,
+  "crops/R11-p.png": 1,
+  "crops/R11-ov.png": 1,
+  "blind/views/R11.png": 1,
+  "blind/views/R12-grid.png": 1,
+  "crops/R12-p.png": 1,
+  "crops/R12-g.png": 1,
+  "crops/R12-upper2x.png": 1,
+  "crops/R12-ov.png": 1,
+  "blind/views/R15-grid.png": 1,
+  "crops/R15-a.png": 1,
+  "crops/R15-b.png": 1,
+  "crops/R15-c.png": 1,
+  "crops/R15-t1.png": 1,
+  "crops/R15-t2.png": 1,
+  "crops/R15-overlay.png": 1,
+  "crops/R15-z1.png": 1,
+  "crops/R15-z2.png": 1,
+  "crops/R15-z3.png": 1,
+  "crops/R15-z4.png": 1,
+  "crops/R15-z5.png": 1,
+  "blind/views/R02-grid.png": 1,
+  "crops/R02-p.png": 1,
+  "crops/R02-g.png": 1,
+  "crops/R02-ll2x.png": 1,
+  "crops/R02-right.png": 1,
+  "crops/R02-ground.png": 1,
+  "crops/R02-wheel.png": 1,
+  "crops/R02-top3x.png": 1,
+  "crops/R02-sh1.png": 1,
+  "crops/R02-sh2.png": 1,
+  "crops/R02-ov.png": 1,
+  "crops/R02-ovL2x.png": 1,
+  "crops/R02-overlay.png": 1,
+  "crops/R09-core2x.png": 2,
+  "crops/R02-core-c.png": 2,
+  "crops/R01-core-c.png": 1,
+  "crops/R11-core-c.png": 1,
+  "crops/R12-core-c.png": 1,
+  "crops/R05-core-c.png": 1,
+  "crops/R15-core-s.png": 1,
+  "crops/R09-card4x.png": 1,
+  "crops/R09-card-ov4x.png": 1
+ },
+ "writes": [
+  "bash>R01.json",
+  "bash>R05.json",
+  "bash>core.py",
+  "bash>mkpoly.py",
+  "bash>set_case.py"
+ ],
+ "bash_programs": {
+  "ls": 2,
+  "mkdir": 1,
+  "cp": 1,
+  "echo": 28,
+  "S=/private/tmp/claude-501/-Users-nckandrw-Dev-photo-gen/a0de6674-7bd8-464e-ba17-f8acc44526b3/scratchpad/cmpf-annotator": 3,
+  "V=/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation/views": 21,
+  "sips": 93,
+  "cd": 49,
+  "cat": 6,
+  "P=/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12": 16,
+  "A=/Users/nckandrw/Dev/photo-gen/research/editing/compositing/annotation": 16,
+  "$P": 43,
+  "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12": 16,
+  "PTS=$($P": 6,
+  "for": 2,
+  "do": 2,
+  "done": 2,
+  "d=json.load(open('$A/masks-draft.json'))": 1,
+  "print({k:(len(v['polygons']),v['difficulty'])": 1
+ },
+ "paths_outside_allowed": [
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ],
+  [
+   "Bash",
+   "/Users/nckandrw/Dev/photo-gen/mflux/.venv/bin/python3.12"
+  ]
+ ],
+ "sensitive_access": []
+}

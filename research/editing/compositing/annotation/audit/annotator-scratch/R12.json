@@ -1,0 +1,114 @@
+{
+ "polygons": [
+  [
+   [
+    0.6738,
+    0.6182
+   ],
+   [
+    0.7031,
+    0.6216
+   ],
+   [
+    0.7259,
+    0.6387
+   ],
+   [
+    0.7357,
+    0.6631
+   ],
+   [
+    0.7454,
+    0.6875
+   ],
+   [
+    0.7474,
+    0.7314
+   ],
+   [
+    0.7474,
+    0.8047
+   ],
+   [
+    0.7389,
+    0.8438
+   ],
+   [
+    0.7324,
+    0.8828
+   ],
+   [
+    0.7305,
+    0.9219
+   ],
+   [
+    0.7389,
+    0.9463
+   ],
+   [
+    0.7422,
+    0.9707
+   ],
+   [
+    0.7389,
+    1.0
+   ],
+   [
+    0.5924,
+    1.0
+   ],
+   [
+    0.5924,
+    0.9609
+   ],
+   [
+    0.5846,
+    0.9316
+   ],
+   [
+    0.5814,
+    0.8926
+   ],
+   [
+    0.5846,
+    0.8438
+   ],
+   [
+    0.5872,
+    0.8047
+   ],
+   [
+    0.5859,
+    0.7559
+   ],
+   [
+    0.5872,
+    0.707
+   ],
+   [
+    0.5911,
+    0.6729
+   ],
+   [
+    0.6185,
+    0.6582
+   ],
+   [
+    0.6315,
+    0.6387
+   ],
+   [
+    0.6478,
+    0.624
+   ]
+  ]
+ ],
+ "components": [
+  "target: the man walking towards the camera (head, raised hand, torso, arms, both legs and feet)",
+  "his shadows / dark reflections on the wet pavement below both feet, running to the bottom border",
+  "the parts of the background people and pavement his body hides (to be filled in)",
+  "margin: ~38 px at 1536 px width (~0.025 in x, ~0.019 in y), i.e. one full feather band plus ~10 px, all around the silhouette"
+ ],
+ "rationale": "A removal: the silhouette plus one full feather band and a little more, so no edge of the motion-blurred figure shows through the ramp, extended straight down to the image border to take in the dark shadow and reflection streaks his feet cast on the wet pavement (the bottom border edge is not ramped). The margin overlaps the edges of the people walking just behind his shoulders, which is inherent to filling in what he hides; all signs, the banner and the string lights are far outside.",
+ "difficulty": "STRAIGHTFORWARD"
+}

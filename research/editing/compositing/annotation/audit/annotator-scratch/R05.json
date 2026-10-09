@@ -1,0 +1,78 @@
+{
+ "polygons": [
+  [
+   [
+    0.212,
+    0.738
+   ],
+   [
+    0.29,
+    0.74
+   ],
+   [
+    0.383,
+    0.722
+   ],
+   [
+    0.388,
+    0.68
+   ],
+   [
+    0.385,
+    0.64
+   ],
+   [
+    0.382,
+    0.62
+   ],
+   [
+    0.598,
+    0.62
+   ],
+   [
+    0.59,
+    0.648
+   ],
+   [
+    0.57,
+    0.717
+   ],
+   [
+    0.6,
+    0.735
+   ],
+   [
+    0.654,
+    0.742
+   ],
+   [
+    0.7,
+    0.742
+   ],
+   [
+    0.76,
+    0.738
+   ],
+   [
+    0.773,
+    0.74
+   ],
+   [
+    0.775,
+    0.8
+   ],
+   [
+    0.212,
+    0.8
+   ]
+  ]
+ ],
+ "components": [
+  "addition area: top surface of both seat cushions, arm to arm",
+  "upper part of the seat-cushion front face (tail/paw drape, contact)",
+  "lower back cushions in the open centre gap between the throw pillows (height of a curled sleeping cat, ~0.10 of image height above the seat)",
+  "cat's contact shadow on the seat"
+ ],
+ "rationale": "A sleeping cat on this sofa would lie on the seat cushions, most plausibly in the open centre gap between the throw pillows, so the mask covers the whole seat surface arm to arm plus the lower back cushions in that gap, up to about a curled cat's height, with the seat's front face partly included for a tail and the contact shadow. Edges stop at (or barely overlap) the throw pillows and stay well clear of the framed picture, lamp, side table, floor and wall. Ambiguous: the instruction does not say where on the sofa the cat lies or how large it is; the mask assumes the seat, not the backrest top or arms, and does not allow a cat in front of the pillows to occlude more than their bottom edge.",
+ "difficulty": "AMBIGUOUS"
+}
