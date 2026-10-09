@@ -5,38 +5,39 @@ A lossless-resume ledger. Newest entry first. Each entry: date, what was done, w
 ---
 
 ## Current state (snapshot, keep this block up to date)
-_Last updated 2026-10-09 (PHASE 8 COMPLETE). Read `research/qwen/PHASE8-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
+_Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/PHASE9-INDEX.md` next. Local times are Asia/Manila (UTC+8; `date` prints "PST")._
 
 **Where things stand. Nothing is running.**
-- **Production (text-to-image, Z-Image):** unchanged since v3. Standing facts are below.
-- **Image editing (Qwen-Image-2.1): research-only, not a production feature.** The steps are kept separate:
-  - **G0** (Phase 4): CAPABLE. **G2** (Phase 5): **REJECTED** at 512 and 1024. **Q-Q** (Phase 6): **AGAINST**.
-  - **Q-V** (Phase 7): **MIXED**. A perfect copy keeps 3/12 legible at 512 and 7/12 at 1024.
-  - **Q-VR** (Phase 8): **RUNTIME-MATCHED**. The MLX VAE path matches the official Diffusers CPU reference: residual
-    0.14–0.19/255 = MLX's TF32 default; 24/24 blind text calls identical. So Q-V's loss is not a runtime artefact.
-    - Texture-Fix decoder: no text rescue.
-    - Identity edit (R15-512, n = 1): drifts beyond the ceiling.
-    - Compositing (R02-1024, n = 1): viable with a conservative feathered mask, not with G2's box.
-    - Report: `research/qwen/QWEN-QVR-REFERENCE.md`.
-  - **Q-A** (Phase 8): desk survey `research/editing/QA-ALTERNATIVE-MODELS.md`; FLUX.2 [klein] 4B first.
-  - **Primary recommendation (awaiting you, not implemented):** investigate preservation-aware compositing / local
-    editing. Next is a pre-registered compositing falsification on existing G2 outputs (no GPU).
-    - This means stopping Qwen-Image-2.1-focused model work, but keeping the edit task as the test bed.
-    - FLUX.2 [klein] 4B (VAE entry screen first) is the medium-term step.
-    - See `QWEN-QVR-REFERENCE.md` §10.
+- **Production (text-to-image, Z-Image):** unchanged since v3.
+- **Image editing (Qwen-Image-2.1): research-only.**
+  - Chronology: G0 CAPABLE → G2 REJECTED → Q-Q AGAINST → Q-V MIXED → Q-VR RUNTIME-MATCHED.
+- **Phase 9 CMPF** (`research/editing/compositing/RESULTS.md`): compositing existing G2 edits onto the canvas with
+  isolated source-only masks.
+  - **Registered: SUPPORTED FOR FURTHER DEVELOPMENT (C2 3/4), fragile.** It sits at both thresholds and rests on two
+    blind adherence revisions. Counting all six cases, it is 4/6 (MIXED).
+  - Descriptive, all six cases: C0 2/6, C1 hard 5/6, C2 feathered 4/6, C3 source resolution 4/6.
+  - Composites kept 12/12 text elements; the edits garbled them.
+  - Failures: inner-ramp halo/ghosting (R01, R09) and global motion (R11).
+- **Recommended next (awaiting you):** automatic edit-region localisation, benchmarked against the 7 frozen masks
+  (no new inference for the first comparison).
 - **Git:**
-  - Phase 7 is pushed (`56880d2..817a7c2`). The **Phase 8 commits are local, NOT pushed** (the directive did not
-    authorise it).
-  - Tags: v4 (`1741179` → `33669eb`) is the latest. No v5, and none recommended.
-- **Open decisions (all yours):**
-  1. The compositing falsification (recommended next); stop Qwen model work, keeping the edit task as the test bed.
-  2. The FLUX.2 [klein] 4B entry screen (medium term).
-  3. The Texture-Fix VAE (1.35 GB): its delete trigger is met; it is kept pending your word.
-  4. The 33 GB Qwen source checkpoint: RETAIN LOCALLY; its DELETE trigger fires if Qwen work stops.
-  5. Push the Phase 8 commits.
-  6. `docs/HARDWARE.md`: the machine runs macOS 27.0.1 (since 2026-09-29) while the doc says 27.0; a note was added.
-  7. Dependabot alerts on the edit-venv lock: unchanged.
-  8. Not Qwen: a 6-step gate at 768².
+  - Phase 8 pushed (`817a7c2..d2357f9`, 24 commits). **Phase 9 commits are local, NOT pushed.**
+  - Tags: v4 latest (`1741179` → `33669eb`), v3 `401e400`. No v5.
+- **Assets:**
+  - kept: the dense Qwen checkpoint (33 GB, RETAIN) and the canonical q4 export;
+  - Texture-Fix VAE deleted 2026-10-09 05:56 (+1.33 GB);
+  - q8 export not recreated;
+  - `torch-ref/` (737 MB) kept.
+- **Hardware:** macOS **27.0.1** is the current validated environment; 27.0 is the historical baseline
+  (`docs/HARDWARE.md`).
+- **Open decisions:**
+  1. Localisation experiment.
+  2. Push Phase 9.
+  3. Boundary-rule candidate.
+  4. FLUX.2 gate sequence.
+  5. Holdout collection.
+  6. Dependabot alerts on the edit venv (unchanged).
+  7. A 6-step gate at 768² (not Qwen).
 
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
@@ -46,7 +47,7 @@ _Last updated 2026-10-09 (PHASE 8 COMPLETE). Read `research/qwen/PHASE8-INDEX.md
 5. `research/experiments/STATUS.md` (every experiment's status) and `research/EXPERIMENT-BACKLOG.md` (next frontier).
 
 **Checks, no GPU:**
-- `git status -sb` shows `main` ahead of `origin/main` by the unpushed Phase 8 commits, unless pushed since;
+- `git status -sb` shows `main` ahead of `origin/main` by the unpushed Phase 9 commits, unless pushed since;
 - `bin/photo-gen verify` and `verify --edit` must be ok;
 - the tests must give 93 OK (command in `CLAUDE.md`);
 - nothing should be running: `pgrep -fl "run_edit|chain|qv_run|qq_run|mflux_qwen_edit_worker"`.
@@ -89,6 +90,29 @@ _Last updated 2026-10-09 (PHASE 8 COMPLETE). Read `research/qwen/PHASE8-INDEX.md
 - Phase 3 leftover: whether a dedicated 6-step gate at 768² is worth it. Stage C stays deferred.
 - Resolution-aware automatic step selection is not to be implemented yet.
 - Editing backlog: Q-S on hold; Q-U and Q-C not started; Q-A conditional (`EXPERIMENT-BACKLOG.md`).
+
+---
+
+## 2026-10-09 — Phase 9 COMPLETE (directive "PHOTO-GEN Phase 9 — Preservation-Aware Compositing Falsification…")
+- **Phase 8 reconciled and pushed:** 24 commits `3452c7d..d2357f9`. `357c908` was followed by the order-only fix
+  `d2357f9`. Checks passed (93 OK, verify ×2, assets, frozen sheets). Pushed as a fast-forward.
+- **Housekeeping:**
+  - HARDWARE.md: 27.0.1 current, 27.0 baseline (`2ba6dd9`).
+  - Texture-Fix deleted after checks (`f07023e`, provenance §9).
+- **CMPF:**
+  1. Pre-registration `c6eff32`.
+  2. Isolated source-only annotator (`c82f107`): interrupted by a usage limit, resumed, audit clean. Masks frozen
+     `04a1b23`.
+  3. D0 gates bit-exact against Phase 7.
+  4. Runs: deterministic 7/7, gates and invariants pass; R11 alignment failure.
+  5. Fresh rater; frozen `f87aba8`; unblinded `bf721d0`; RESULTS `7d92e15` (+ count fix `03ed914`).
+  - **Result:** SUPPORTED (registered, fragile).
+- **Disclosed:**
+  - the editor-failure rule absorbed preservation clauses (post-unblind note);
+  - five rater self-revisions;
+  - the selector knew G2 outcomes;
+  - the alignment search was limited to ±4.
+- **Not pushed; no tag.** Nothing is running.
 
 ---
 

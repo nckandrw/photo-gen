@@ -2,7 +2,7 @@
 
 photo-gen has no semantic versioning. Each tag marks a **known-good, restorable state validated on the target machine** (MacBook Air M5, 16 GB, 8-core GPU, macOS 27.0; see [HARDWARE.md](HARDWARE.md)). Tags are immutable; they are never moved or rewritten.
 
-## Unreleased (`main`, after v4; not a validated tag): Phase 7 Q-V diagnostic + Phase 8 Q-VR / Q-A
+## Unreleased (`main`, after v4; not a validated tag): Phase 7 Q-V + Phase 8 Q-VR / Q-A + Phase 9 CMPF
 **No tag.** The Phase 7 commits were pushed on 2026-10-09; the Phase 8 commits are local. Text-to-image and the app are unchanged since v4. Research only:
 - **Q-V** (`research/qwen/QWEN-QV-DIAGNOSTIC.md`): a VAE-only round trip of the staged G2 photos, bit-exact against the edit's path.
   - At 512 it keeps 3/12 incidental-text elements legible; at 1024, 7/12. The pre-registered class is MIXED.
@@ -12,6 +12,7 @@ photo-gen has no semantic versioning. Each tag marks a **known-good, restorable 
 - **Q-VR** (Phase 8, `research/qwen/QWEN-QVR-REFERENCE.md`): RUNTIME-MATCHED. The MLX VAE path matches the official Diffusers CPU reference (the residual is MLX's TF32 default), so Q-V's text loss is not a runtime artefact. Texture-Fix decoder: no text rescue. Identity edit: extra drift (n = 1).
 - **Q-A** (Phase 8, `research/editing/QA-ALTERNATIVE-MODELS.md`): desk survey; FLUX.2 [klein] 4B first, via a VAE entry screen.
 - New research-only venv `torch-ref/` (hashed lock `research/qwen/qv-reference/requirements.lock.txt`); no change to either pinned venv.
+- **Phase 9 CMPF** (`research/editing/compositing/RESULTS.md`): compositing existing G2 edits with isolated source-only masks. Registered: SUPPORTED FOR FURTHER DEVELOPMENT, fragile (all six cases: 4/6 MIXED). Text kept in every composite; postprocessing only, no production change. Phase 8 pushed on 2026-10-09; Phase 9 local.
 
 ## photo-gen-m5-16gb-v4 (2026-10-08): Phase 5 (real-photograph editing gate: Qwen editing REJECTED) + Phase 6 (corrections, explicit status, Q-Q diagnostic)
 **Tag:** `photo-gen-m5-16gb-v4`, an annotated tag on the Phase 6 closing commit (`git rev-list -n1 photo-gen-m5-16gb-v4`). It contains the 15 Phase 5 commits after v3 (`0d15f49` … `63c24a5`) and the Phase 6 commits after them, with no history rewritten. v3 (`401e400`) is unchanged.

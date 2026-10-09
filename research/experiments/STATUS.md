@@ -102,3 +102,11 @@ Negative results are kept on purpose.
 | Q-A alternative-model desk survey | **DONE (desk only)** | research/editing/QA-ALTERNATIVE-MODELS.md | shortlist: FLUX.2 [klein] 4B (Apache-2.0, f8c32 VAE, mflux-supported) → VAE entry screen next |
 | Qwen-Image-2.1 model work | **RECOMMENDED: STOP** (awaits the user; reinforced; keep the edit task as a test bed) | QWEN-QVR-REFERENCE.md §8, §10 | not runtime, not precision, not a decoder swap; the editor also drifts under a no-change instruction |
 | Preservation-aware compositing / local editing | **RECOMMENDED NEXT** (not started) | QWEN-QVR-REFERENCE.md §10 | the only measured intervention that kept the text and carried the edit (CMP2, n = 1, post-hoc mask, D0 canvas); next: a pre-registered falsification on existing G2 outputs |
+
+## Phase 9 (2026-10-09): CMPF preservation-aware compositing falsification. Resume index: `research/editing/compositing/PHASE9-INDEX.md`
+| experiment | status | evidence | key numbers |
+|---|---|---|---|
+| **CMPF: fixed compositing of existing G2-1024 edits with isolated source-only masks** (C1 hard, C2 inner-feathered = primary, C3 source resolution) | **CLOSED: SUPPORTED FOR FURTHER DEVELOPMENT (registered; fragile)** | editing/compositing/RESULTS.md | C2 3/4 after two editor-failure exclusions (both from blind adherence revisions; with all six cases counted, 4/6 = MIXED). Descriptive, all six: C0 2/6, C1 5/6, C2 4/6, C3 4/6. Composites kept 12/12 text elements (edits garbled them); unintended NONE 17/18. Failures: inner-ramp halo/ghosting (R01, R09), global motion (R11) |
+| Editor-failure rule (CMPF §8) | **DESIGN DEFECT recorded** | PROTOCOL.md post-unblind note | it absorbed instruction preservation clauses; next protocols key it on the requested change only |
+| Holdout set for preservation-aware editing | **SPECIFIED, not collected** | editing/compositing/HOLDOUT-PROTOCOL.md | 16–24 new CC0/PD photos; one-shot |
+| Next experiment | **RECOMMENDED: automatic edit-region localisation vs the frozen masks** (not started) | RESULTS.md §7 | no new inference needed for the first comparison |
