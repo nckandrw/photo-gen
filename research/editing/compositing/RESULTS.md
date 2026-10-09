@@ -87,8 +87,8 @@ C3 **4/6**. C1's 5/6 is a secondary observation; promoting the non-primary arm a
 - No composite failure was classed "mask".
 
 **5. Geometry.**
-- R11's edit moved the scene: best integer shift (4, −1), **at the edge of the ±4 search window**, so the true
-  displacement may be larger.
+- For R11, the integer-shift search indicates a displacement of **at least 4 px** (best shift (4, −1), on the edge of
+  the ±4 window; true size unknown). C1's MAJOR seam corroborates it.
 - The hard paste then showed a MAJOR seam. Compositing assumes no global motion; an editor that shifts the frame
   breaks it.
 

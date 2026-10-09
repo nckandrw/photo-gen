@@ -42,15 +42,20 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
 ### How to resume (read in this order)
 1. `CLAUDE.md` (loaded automatically): rules, architecture, commands.
 2. This "Current state" block.
-3. `research/qwen/PHASE7-INDEX.md`: the latest phase, the evidence, the open decisions (§5), how to start each next step (§6), and the session mechanics that work (§7).
-4. Earlier indexes, newest first: `research/qwen/PHASE6-INDEX.md` (Q-Q, status labels, v4; §7 procedures), `PHASE5-INDEX.md` (G2, P2, identity), `PHASE4-INDEX.md` (the edit backend's design).
+3. `research/editing/compositing/PHASE9-INDEX.md`: the latest phase (CMPF), its open decisions (§4); then `research/editing/compositing/RESULTS.md`.
+4. Earlier indexes, newest first:
+   - `research/qwen/PHASE8-INDEX.md` (Q-VR, Q-A);
+   - `research/qwen/PHASE7-INDEX.md` (Q-V; §7 session mechanics that work);
+   - `PHASE6-INDEX.md` (Q-Q, status labels, v4; §7 procedures);
+   - `PHASE5-INDEX.md` (G2, P2, identity);
+   - `PHASE4-INDEX.md` (the edit backend's design).
 5. `research/experiments/STATUS.md` (every experiment's status) and `research/EXPERIMENT-BACKLOG.md` (next frontier).
 
 **Checks, no GPU:**
 - `git status -sb` shows `main` ahead of `origin/main` by the unpushed Phase 9 commits, unless pushed since;
 - `bin/photo-gen verify` and `verify --edit` must be ok;
 - the tests must give 93 OK (command in `CLAUDE.md`);
-- nothing should be running: `pgrep -fl "run_edit|chain|qv_run|qq_run|mflux_qwen_edit_worker"`.
+- nothing should be running: `pgrep -fl "run_edit|qvr-|cmp_run|mlx_side|ref_side|mflux_qwen_edit_worker"`.
 
 ### Standing facts (current as of 2026-10-09; older snapshots are preserved in PHASE4/5/6-INDEX.md and their ledger entries)
 **Production (text-to-image, Z-Image-Turbo q4 @ `d2d30500`, mflux 0.20.0 / MLX 0.32.2, `--low-ram`)**
@@ -67,21 +72,26 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
   - 512²: reference `9ae59f59`, fast `0b9cc20a`, ultra `6aa2b842`.
   - Last re-checked through the CLI on 2026-10-08: REFERENCE 512² and ULTRA 512², exact.
 
-**Editing (research-only):** Qwen-Image-2.1 @ `d26bb61`, q4 export, mflux 0.21.0 in `mflux-qwen/.venv`, policy P2. G0 CAPABLE → G2 REJECTED → Q-Q AGAINST → Q-V MIXED (see above and `CLAUDE.md`). The app reports `tasks["image-edit"].status = "research-only"` plus a `quality_status` record; `validated: false`; `--allow-experimental` is the opt-in.
+**Editing (research-only):** Qwen-Image-2.1 @ `d26bb61`, q4 export, mflux 0.21.0 in `mflux-qwen/.venv`, policy P2. G0 CAPABLE → G2 REJECTED → Q-Q AGAINST → Q-V MIXED → Q-VR RUNTIME-MATCHED; CMPF compositing SUPPORTED, registered and fragile (see above and `CLAUDE.md`). The app reports `tasks["image-edit"].status = "research-only"` plus a `quality_status` record; `validated: false`; `--allow-experimental` is the opt-in.
 
 **Git:**
 - **Tags:** v1 `9ee051c` → `db10040`; v2 `d6c03d1` → `3961404`; v3 `1c097eb` → `401e400`; v4 `1741179` → `33669eb`. All are immutable; never move them.
 - **Push:** `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main`. SSH isn't authorized on GitHub.
 - Stage explicitly; never `git add .`. Never commit PNGs: `git add -f` on a run directory would stage `out.png`.
 
-**Machine:** MacBook Air M5, 16 GB, macOS 27.0. Local time zone Asia/Manila (UTC+8); `date` prints "PST". Free disk about 181 GiB (194.5 GB) on 2026-10-09.
+**Machine:** MacBook Air M5, 16 GB.
+- macOS **27.0.1 (26A434)** since 2026-09-29, the current validated environment; 27.0 (26A428) is the historical baseline (`docs/HARDWARE.md`).
+- Local time zone Asia/Manila (UTC+8); `date` prints "PST".
+- Free disk about 180 GiB at the Phase 9 close (2026-10-09).
 
 **Assets on disk (gitignored):**
 - **Qwen:**
   - `models/research/qwen-image-2.1`: 33.1 GB, RETAIN LOCALLY, DELETE trigger in `QWEN-ASSET-PROVENANCE.md` §6;
   - `models/qwen/qwen-image-2.1-edit-mflux-q4`: 10.64 GB, pinned, used by the backend;
   - the duplicate q4 export was deleted in Phase 5; the q8 export was deleted in Phase 6. Their `.export.json` / `merge-q8.json` records are kept.
-- **Review crops** (from session scratch, gitignored PNGs): `research/qwen/qv/review/{rater-crops,spot-check}/` and `research/review-crops/{g2-rater,qq-rater,qq-spot-check}/`; every file's sha256 is in `research/review-crops/MANIFEST.sha256`. Subagent transcripts, which hold rater tool calls, are session-local under `~/.claude-.claude-nck/projects/-Users-nckandrw-Dev-photo-gen/<session>/subagents/`. The audits extracted from them are committed (`RATER-AUDIT.json`).
+  - the Texture-Fix VAE (Phase 8) was deleted on 2026-10-09 (provenance §9).
+- **CPU reference venv** `torch-ref/` (737 MB; torch 2.14.0 + diffusers 0.41.0; hashed lock in `research/qwen/qv-reference/`): kept for numerical regression testing.
+- **Review crops** (from session scratch, gitignored PNGs): `research/qwen/qv/review/{rater-crops,spot-check}/`, `research/qwen/qv-reference/review{,-cmp2}/rater-crops/`, `research/editing/compositing/review/rater-crops/` and `research/review-crops/{g2-rater,qq-rater,qq-spot-check}/`; every file's sha256 is in `research/review-crops/MANIFEST.sha256`. Subagent transcripts, which hold rater tool calls, are session-local under `~/.claude-.claude-nck/projects/-Users-nckandrw-Dev-photo-gen/<session>/subagents/`. The audits extracted from them are committed (`RATER-AUDIT.json`).
 - **Z-Image research:** `models/research/z-image-base-mflux-q4` @ `087eaf40`, plus the LoRA at `models/research/loras/` @ `f9a4db41`; 15/15 files verified.
 - **sd.cpp comparator:** `sdcpp/`, `models/diffusion_models`, `models/text_encoders`, `models/vae`; about 15.5 GB of old sd.cpp/Qwen models, plus the uv cache. You deferred their cleanup: don't delete without being asked.
 - **`research/experiments/p3b/cap/*.gputrace`** (about 14 GB): summarized in `nax-status.md`; delete only with your OK.
@@ -89,7 +99,7 @@ _Last updated 2026-10-09 (PHASE 9 COMPLETE). Read `research/editing/compositing/
 **Still-open, not Qwen:**
 - Phase 3 leftover: whether a dedicated 6-step gate at 768² is worth it. Stage C stays deferred.
 - Resolution-aware automatic step selection is not to be implemented yet.
-- Editing backlog: Q-S on hold; Q-U and Q-C not started; Q-A conditional (`EXPERIMENT-BACKLOG.md`).
+- Editing backlog: Q-S on hold; Q-U and Q-C not started; LOC (localisation) recommended; FLUX.2 gate sequence and the holdout are specified (`EXPERIMENT-BACKLOG.md`).
 
 ---
 
