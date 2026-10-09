@@ -165,3 +165,19 @@ Same VAE weights; wall time per process, including load and saving every interme
 
 The baselines differ in hardware unit (GPU vs CPU) and in the work done (A2 decodes twice), so no speed ratio is
 claimed. Production is unaffected.
+
+### CMPF compositing (Phase 9, 2026-10-09). **Postprocessing only; no model inference**
+NumPy/PIL on CPU, per case (all three arms, both canvases; `research/editing/compositing/runs/*/record.json`).
+
+| case (source size) | wall per process | composite step | peak footprint |
+|---|---|---|---|
+| R01 (3413×2411) | 6.4 s | 4.6 s | 0.81 GB |
+| R05 (3897×2588) | 8.5 s | 6.4 s | 0.86 GB |
+| R09 (5760×3840) | 24.0 s | 20.3 s | 1.86 GB |
+| R11 (2250×4000) | 8.0 s | 6.0 s | 0.84 GB |
+| R12 / R15 (3024×4032) | 10.3 s | 7.9 s | 1.03 / 1.11 GB |
+| R02 (4592×3448) | 14.6 s | 11.7 s | 1.37 GB |
+
+- The C3 source-resolution arm dominates the cost, through the chessboard-erosion feather (F up to 78 iterations at
+  22 MP). It is not optimised.
+- Compositing adds no generation cost and saves none: the editor still generates the full frame.
